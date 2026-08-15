@@ -1,0 +1,12 @@
+# Team-Steckbrief (Kopie der Registry-Kernfelder — Quelle der Wahrheit bleibt process/teams/registry.yaml)
+name: "Projektmanagement-Team"
+typ: pm
+profil: "wiederkehrend"   # Playbook Kap. 15
+datenklasse: intern       # Playbook Kap. 16, Guardrail 2
+rollen: [PL, QM, COACH]   # Startbesetzung lt. p0/D027-Umsetzung; Feinzuschnitt = Klasse B
+sla:
+  - "session-agenda: in jeder Session aktuell (Briefkasten zuerst, dann Agenda)"
+  - "intake-vorpruefung: neue Briefe/Wuensche in der naechsten Session qualifiziert"
+  - "klasse-b-log: jede Klasse-B-Entscheidung vor Session-Ende verbucht"
+  - "lele: quartalsweise ueber alle Teams (erstmals Q4 2026)"
+gegruendet: "2026-08-15 (p0/D027, Umsetzung P5-E4)"
