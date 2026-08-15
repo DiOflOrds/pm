@@ -13,7 +13,7 @@ Stand: 2026-08-16 · Tickets: 9
 | [T-0007](tickets/T-0007.md) | CR (N-0005): KI-Hinweisfeld im Konfigurator (Suchauftrag / eigene Digest-Kategorie) | change-request | chg | hoch | 0 | — |
 | [T-0003](tickets/T-0003.md) | LeLe Q4/2026: erste teamübergreifende Lessons Learned vorbereiten | task | coach | niedrig | 0 | — |
 
-## in_progress (1)
+## in_review (1)
 
 | ID | Titel | Typ | Rolle | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|
