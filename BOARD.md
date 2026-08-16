@@ -14,16 +14,15 @@ Stand: 2026-08-16 · Tickets: 34 · davon wiederkehrend: 2
 | [T-0032](tickets/T-0032.md) | CR (pm/N-0025, Teil 2): Echter Uhrzeit-Takt für wiederkehrende Aufgaben — Abgrenzung zu F14 und den team-mail-Takten | change-request | einmalig | pl | mittel | 0 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | einmalig | coach | niedrig | 0 | — |
 
-## in_review (4)
+## in_review (3)
 
 | ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|
 | [T-0013](tickets/T-0013.md) | Problem (platform/N-0001): board-check rot nach Board-Formatänderung — Push-Reihenfolge | problem | einmalig | prob | hoch | 0 | — |
 | [T-0026](tickets/T-0026.md) | Problem (platform/N-0006): CI rot — das Matrix-Gate sah das Sammel-Repo `projects` nicht | problem | einmalig | cm | hoch | 0 | — |
-| [T-0033](tickets/T-0033.md) | DR (Klasse A): G0 für Projekt P11 „Widget-Dashboard" — Auftrag, Abnahmekriterien, Abgrenzung | decision-request | einmalig | pl | hoch | 0 | — |
 | [T-0010](tickets/T-0010.md) | Problem (N-0007): board-check-Flake — Stand-Datum kippt um Mitternacht | problem | einmalig | prob | mittel | 0 | — |
 
-## done (24)
+## done (25)
 
 | ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|
@@ -43,6 +42,7 @@ Stand: 2026-08-16 · Tickets: 34 · davon wiederkehrend: 2
 | [T-0024](tickets/T-0024.md) | SUP.9: Auto-Push stand seit 09:44 still — die Prozess-Abfrage im Preflight scheiterte an einer Codepage | problem | einmalig | cm | hoch | 0 | — |
 | [T-0025](tickets/T-0025.md) | CR (team-mail/N-0002, Rest): Sofort-Knopf zeigt im Klartext, womit er läuft (Modell, KI-Hinweis, Takte) | change-request | einmalig | chg | hoch | 0 | — |
 | [T-0031](tickets/T-0031.md) | DR (Klasse A): Gründung Team „team-dashboard" (Pool-Kandidat #13) — Steckbrief, Profil, Datenklasse, Zuschnitt Bau/Betrieb | decision-request | einmalig | pl | hoch | 0 | — |
+| [T-0033](tickets/T-0033.md) | DR (Klasse A): G0 für Projekt P11 „Widget-Dashboard" — Auftrag, Abnahmekriterien, Abgrenzung | decision-request | einmalig | pl | hoch | 0 | — |
 | [T-0014](tickets/T-0014.md) | CR (N-0017): Cockpit zeigt wiederkehrende Aufgaben im Klartext statt als Symbol | change-request | einmalig | chg | mittel | 0 | — |
 | [T-0015](tickets/T-0015.md) | CR (N-0018): Team-Chat zeigt die neuesten Nachrichten zuerst | change-request | einmalig | chg | mittel | 0 | — |
 | [T-0016](tickets/T-0016.md) | Problem (platform/N-0002): ConnectionResetError-Traceback im Server-Log bei Verbindungsabbruch | problem | einmalig | prob | mittel | 0 | — |
