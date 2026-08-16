@@ -1,6 +1,46 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
-*Stand: 2026-08-16 12:16, Routine-Session (D004, alle 30 Min). Briefkasten: **zwei neue Briefe**
+*Stand: 2026-08-16 14:05, Routine-Session (D004, alle 30 Min). Briefkasten: **drei neue
+Briefe** seit der 12:16-Session — `pm/N-0024` (12:05) lag beim ersten Check bereits vor;
+`pm/N-0025` (12:08) und `pm/N-0026` (12:10) gingen **während** der Session ein und wurden erst
+bei der Zweitprüfung gefunden (Lesson B036, drittes Mal bestätigt). Alle drei beantwortet,
+dritte Prüfung: leer. Inbox: unverändert leer (37 DRs, alle `done`) — kein neuer Kandidat
+gestartet. Push: `PUSH-ANFORDERUNG.txt` aus der 12:16-Session war beim Start bereits
+abgearbeitet — diese Session schreibt am Ende eine neue Zeile für ihre eigenen Commits.
+`pm/T-0010`, `pm/T-0013`, `pm/T-0026` bleiben `in_review` (Grund unverändert: kein
+`gh`/Netzzugriff in dieser Sandbox — bitte am Host/Browser gegenprüfen).
+
+**`pm/N-0024` sofort geliefert (`pm/T-0029`, SUP.9, zweite Korrektur an SWR-088):** „Quelle:
+1-4000 Zeichen ... reicht auch nicht aus" — selbst die in `pm/T-0027` auf 4000 Zeichen
+angehobene Grenze war für ein reales „Quelle"-Feld zu eng. Statt einer dritten geratenen Zahl
+diesmal die Ursache behoben: `FELD_MAX` 4000 → 200 000 (technische Notbremse, keine
+Inhaltsgrenze mehr) — hart verboten bleibt weiterhin nur `|`. HMI: „Nutzen"/„Voraussetzung"/
+„Quelle" jetzt ebenfalls `<textarea>` statt einzeiliger Eingabe (alle drei laufen durch
+dieselbe Prüfung, sonst wäre der nächste Brief zur nächsten Spalte fällig gewesen). 1 neuer
+Test, Gesamtsuite **310** (vorher 309), Matrix weiterhin **89 SWRs / 0 Lücken**, Katalog-/
+Architektur-Gate geprüft und grün. Klasse C — kein Decision-Log-Eintrag nötig (analog T-0027).
+
+**`pm/N-0025` beantwortet — BEFUND in eigener Sache (B043, `pm/T-0030`):** Vorwurf „offene
+Aufgaben werden nicht erledigt/terminiert" trifft zu, belegt an `pm/T-0025` (offen seit
+10:40-Session, fünf Routine-Sessions nicht aufgegriffen). Zwei strukturelle Lücken: Backlog-
+Tickets (CR/Problem) haben kein Fristfeld; „wiederkehrend" kennt keine feste Uhrzeit, nur „je
+Sessionlauf". Nicht sofort gebaut (Entwurfsentscheidung mit Wirkung auf F14/alle Tickets —
+B025/B038-Risiko eines zu schnell gebauten Werkzeugs) — als `pm/T-0030` für eine Design-Session
+eingeplant. Sofort umgesetzt: `pm/T-0025` Priorität mittel → hoch.
+
+**`pm/N-0026` beantwortet — einfache Statusfrage:** Ja, P9 ist abgeschlossen (G4a/D002,
+Baseline `p9-v1.0`), kein offenes Ticket. Nur die drei Betriebs-Stichproben aus `p9/T-0004`
+bleiben offen (Betriebsnachweis des Auftraggebers, kein Blocker).
+
+*Vorheriger Stand (12:16-Session, komprimiert): Briefkasten hatte zwei neue Briefe
+(`pm/N-0022`, `pm/N-0023`), beide beantwortet. `pm/N-0023` sofort geliefert als `pm/T-0027`
+(SUP.9-Korrektur an SWR-088, `FELD_MAX` 200 → 4000). `pm/N-0022` (Team-Gründung im Pool) als
+`pm/T-0028` (CR, `open`) für eine dafür vorgesehene Session eingeplant, bewusst nicht gebaut —
+Klasse-A-Fläche mit Datenklassen-Wirkung. Inbox leer, 309 Tests, Matrix 89/0.*
+
+---
+
+*Vorvoriger Stand: 2026-08-16 12:16-Session, ausführlich. Briefkasten: **zwei neue Briefe**
 seit der 11:45-Session — `pm/N-0022` (09:59, aber erst 11:59 committet) und `pm/N-0023` (10:05,
 erst 12:05 committet) —, zweimal geprüft (Sessionanfang und -ende, Lesson B036), beide
 beantwortet. Inbox: unverändert leer (37 DRs, alle `done`) — kein neuer Kandidat gestartet.
@@ -57,11 +97,12 @@ Ticket damit komplett (beide Teile `done`). Push-Wächter 11:00 erfolgreich. 305
 0. **Briefkasten zuerst** — alle Projekte/Teams (Cockpit zeigt offene Briefe). *Aktuell keine offenen Briefe (alle 26 auf `beantwortet` geprüft; `platform/N-0004` kam **während** der Session um 10:04 herein und wurde in derselben Session beantwortet — B036).* **Merke für den Ablauf:** Der Briefkasten wird nicht nur am Anfang gelesen. Diese Session hätte den Brief sonst 30 Minuten liegen lassen, obwohl sie noch lief; aufgefallen ist er nur, weil beim Taggen ein fremder Commit im `platform`-Log stand. Ab jetzt: **vor dem Abschluss ein zweites Mal auf offene Briefe und entschiedene DRs prüfen** — dasselbe gilt für die Inbox (die G4a-Entscheidung kam 14 Sekunden nach dem Sprint-Commit).
 0b. **Repo-Zustand vor dem ersten Schreiben** — `preflight.py` laufen lassen und die Ausgabe **lesen**. Steht dort „nicht löschbar … weggeräumt nach `.git/verwaiste-locks/`", hat der Fallback aus `pm/T-0023` gearbeitet und die Session wäre ohne ihn blockiert gewesen. Danach `git status` je Repo: **Liegt Arbeit einer Vorsession unverbucht da, zuerst verifizieren (Tests + Matrix + Gates), dann committen** — nie ungeprüft übernehmen (B025), nie doppelt verbuchen.
 0c. **`pm/T-0025` — der Sofort-Knopf soll zeigen, womit er läuft** (Rest aus `team-mail/N-0002`; der funktionale Teil ist mit `team-mail/T-0003` erledigt). Eine Klartextzeile unter dem Knopf: aktives Modell, KI-Hinweis, die Takte, die bei einem Klick loslaufen — und danach, welche Digest-Dateien entstanden sind. **Pflicht bei der Umsetzung:** Die Takte-Anzeige geht über `mail_digest.jetzt_takte(cfg)`, nicht über einen Nachbau aus `cfg["takte"]` im HMI. Beide Teile des Briefes hatten dieselbe Wurzel — der KI-Hinweis wirkte und war unsichtbar, der Takt wirkte nicht und war ebenso unsichtbar.
-1. **`pm/T-0022` weiterhin `done`** (beide Teile, siehe Historie). **Neu: `pm/T-0027` ERLEDIGT** (12:16-Session, Pool-Kandidatentext-Limit korrigiert, N-0023) — Stichprobe unten in Punkt 5. **Neu: `pm/T-0028` offen** (Team-Gründung im Pool, N-0022) — nächster Pool-Agendapunkt für eine dafür vorgesehene Session; kein Blocker, aber Sorgfalt bei einer Klasse-A-Fläche mit Datenklassen-Wirkung, siehe Ticket für den Umfang.
+1. **`pm/T-0022` weiterhin `done`** (beide Teile, siehe Historie). **`pm/T-0027` ERLEDIGT** (12:16-Session, Pool-Kandidatentext-Limit 200→4000, N-0023). **`pm/T-0029` ERLEDIGT** (14:05-Session, „Quelle" reichte auch bei 4000 Zeichen nicht, `FELD_MAX` jetzt 200 000 als reine technische Notbremse, N-0024) — Stichprobe unten in Punkt 5. **`pm/T-0028` weiterhin `open`** (Team-Gründung im Pool, N-0022) — nächster Pool-Agendapunkt für eine dafür vorgesehene Session. **Neu: `pm/T-0030` offen** (Fristen für Backlog-Tickets + Uhrzeit-Takt für Wiederkehrendes, N-0025) — Design-Session nötig, siehe Ticket für den Entwurf. **`pm/T-0025` Priorität mittel → hoch** (stand seit 10:40-Session unbearbeitet, N-0025-Befund) — nächste freie Kapazität zuerst hierhin, bevor neue Fläche beginnt.
 2. **P10 ist abgeschlossen (G4a/D002, 10:02 via Inbox — B035)** — Baseline `p10-v1.0` auf `projects` und `platform`, Abschlussbericht liegt in `projects/p10/management/`. Offen bleibt nur der **Betriebsnachweis des Auftraggebers**: die sieben Stichproben aus `p10/T-0004` (siehe Punkt 5) — nur erinnern, nie selbst abhaken.
 3. **team-mail-Takt (`team-mail/T-0001`):** fälligen Digest prüfen (der Autopilot erzeugt ihn i. d. R. selbst um 07:30) und als SLA-Stichprobe bewerten — Zustellvermerk am Dateiende. *Korrektur (11:21-Session): entgegen den letzten Einträgen hier IST etwas fällig — `mail_digest.faellig(7)` meldet `True`, noch nie wurde eine `-woche-`-Digest-Datei erzeugt, obwohl `takte: [7]` seit Team-Gründung gilt. Aus der Cowork-Sandbox nicht ausführbar (kein IMAP/SMTP/Ollama). Bitte am Mission-Control-Host prüfen: lief `ASPICE-MailAutopilot` heute 07:30, und ist der Task überhaupt eingerichtet (Runbook Kap. 13)?* Offene Vortages-Punkte im Postfach: Vedaco-„Doppelzahlung" (Phishing-Verdacht), Enpal-Termin, M-net-Umstellung, Google-Sicherheitswarnung. *Handeln tut hier ausschließlich der Mensch (F17).*
 4. **Fällige pm-Takt-Tickets** — Intake-Queue, Agenda fortschreiben; PUSH-ANFORDERUNG.txt am Session-Ende schreiben (Runbook Kap. 11).
 5. **Offene Stichproben des Auftraggebers nachhalten** (nur erinnern, nie selbst abhaken) — **alle brauchen vorher einen Serverneustart**:
+   - **Neu (14:05-Session, pm/T-0029):** Pool-Reiter → „Neuen Kandidaten anlegen" → Technik-Kandidat, in „Quelle" einen deutlich über 4000 Zeichen langen Text eintragen (z. B. einen längeren Gesprächsausschnitt) → anlegen → erscheint als eine Zeile im Pool, keine Ablehnung. Nutzen/Voraussetzung/Quelle sind jetzt Mehrzeilenfelder im Formular.
    - **Neu (12:16-Session, pm/T-0027):** Pool-Reiter → „Neuen Kandidaten anlegen" → Technik-Kandidat, mehrsätzigen Text mit Zeilenumbrüchen eintragen (z. B. aus einer KI-Antwort kopiert), anlegen → erscheint als eine Zeile ohne Zeilenumbrüche im Pool.
    - **Neu (11:45-Session, SWR-089):** **Pool-Reiter „Projekt starten"** — einen Technik-Kandidaten aus der Dropdown wählen (z. B. einen unwichtigen wie „JS-Frontend-Tests"), auf „G0-Antrag anlegen" klicken; Meldung zeigt die neue Projekt-Referenz (z. B. `p11/T-0001`), der Kandidat verschwindet ohne Neuladen aus der Pool-Tabelle, die Inbox zeigt den neuen G0-Antrag mit Frist. `git -C projects log --oneline -2` und `git -C pm log --oneline -2` zeigen je einen „Mensch via HMI"-Commit. Einen Team-Kandidaten wählen sollte mit einer Erklärung abgelehnt werden (Team-Gründung ist nicht Teil dieses Knopfs). Kopfzeile im Pool-Reiter sagt jetzt „Anlegen: da / Starten (Technik) per Knopf: da". **Danach entweder über die Inbox entscheiden (G0a/b/c) oder den Testordner wieder entfernen, wenn die Stichprobe nur die Funktion prüfen soll.**
    - **Neu (11:21-Session, SWR-088):** **Pool-Reiter „Neuen Kandidaten anlegen"** — einen Team- und einen Technik-Kandidaten anlegen (unterschiedliche Felder je Kategorie), beide erscheinen ohne Neuladen im richtigen Abschnitt; `git -C pm log --oneline -2` zeigt „Mensch via HMI"-Commits.
