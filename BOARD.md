@@ -17,16 +17,15 @@ Stand: 2026-08-16 · Tickets: 40 · davon wiederkehrend: 3
 | [T-0032](tickets/T-0032.md) | CR (pm/N-0025, Teil 2): Echter Uhrzeit-Takt für wiederkehrende Aufgaben — Abgrenzung zu F14 und den team-mail-Takten | change-request | einmalig | pl | mittel | 0 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | niedrig | 0 | — |
 
-## in_review (4)
+## in_review (3)
 
 | ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|
 | [T-0013](tickets/T-0013.md) | Problem (platform/N-0001): board-check rot nach Board-Formatänderung — Push-Reihenfolge | problem | einmalig | prob | hoch | 0 | — |
-| [T-0016](tickets/T-0016.md) | CR: Workflow-Sicht im HMI — Sprint-Plan (sprint-aktuell.md) mit Fälligkeiten anzeigen (pm/D006) | change-request | einmalig | chg | hoch | 0 | — |
 | [T-0026](tickets/T-0026.md) | Problem (platform/N-0006): CI rot — das Matrix-Gate sah das Sammel-Repo `projects` nicht | problem | einmalig | cm | hoch | 0 | — |
 | [T-0010](tickets/T-0010.md) | Problem (N-0007): board-check-Flake — Stand-Datum kippt um Mitternacht | problem | einmalig | prob | mittel | 0 | — |
 
-## done (27)
+## done (28)
 
 | ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|
@@ -38,6 +37,7 @@ Stand: 2026-08-16 · Tickets: 40 · davon wiederkehrend: 3
 | [T-0009](tickets/T-0009.md) | Problem (N-0006): Auto-Push seit 15.08. 17:36 fehlgeschlagen — cmd-Klammern-Bug in :repo_push | problem | einmalig | prob | hoch | 0 | — |
 | [T-0011](tickets/T-0011.md) | DR (Klasse A): P10 „Aufgaben bearbeiten im HMI" beauftragen — Tickets editieren, Labels, Typ | decision-request | einmalig | pl | hoch | 0 | — |
 | [T-0012](tickets/T-0012.md) | CR (N-0015): Kopfbereich zeigt nur aktive Projekte/Teams — direkt anklickbar | change-request | einmalig | chg | hoch | 0 | — |
+| [T-0016](tickets/T-0016.md) | CR: Workflow-Sicht im HMI — Sprint-Plan (sprint-aktuell.md) mit Fälligkeiten anzeigen (pm/D006) | change-request | einmalig | chg | hoch | 0 | — |
 | [T-0017](tickets/T-0017.md) | Problem (Befund Routine-Session): Inbox und Frist-Warnmail sahen Projekte im Sammel-Repo nicht — G1-DR p10/T-0002 war unsichtbar | problem | einmalig | prob | hoch | 0 | — |
 | [T-0019](tickets/T-0019.md) | CR (N-0019): Requirements aller Projekte/Teams sichtbar und filterbar | change-request | einmalig | chg | hoch | 0 | — |
 | [T-0020](tickets/T-0020.md) | CR (N-0020): Projekt-Pool als Backlog-Bereich im HMI — Anzeigen | change-request | einmalig | chg | hoch | 0 | — |
