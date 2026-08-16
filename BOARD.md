@@ -1,6 +1,6 @@
 # Board (generiert von platform/scripts/board.py — nicht von Hand editieren)
 
-Stand: 2026-08-16 · Tickets: 9
+Stand: 2026-08-16 · Tickets: 10
 
 
 ## open (5)
@@ -12,6 +12,12 @@ Stand: 2026-08-16 · Tickets: 9
 | [T-0006](tickets/T-0006.md) | CR (N-0004): Ollama-Modell anzeigen + im Konfigurator auswählbar | change-request | chg | hoch | 0 | — |
 | [T-0007](tickets/T-0007.md) | CR (N-0005): KI-Hinweisfeld im Konfigurator (Suchauftrag / eigene Digest-Kategorie) | change-request | chg | hoch | 0 | — |
 | [T-0003](tickets/T-0003.md) | LeLe Q4/2026: erste teamübergreifende Lessons Learned vorbereiten | task | coach | niedrig | 0 | — |
+
+## in_review (1)
+
+| ID | Titel | Typ | Rolle | Prio | Sprint | blockiert durch |
+|---|---|---|---|---|---|---|
+| [T-0010](tickets/T-0010.md) | Problem (N-0007): board-check-Flake — Stand-Datum kippt um Mitternacht | problem | prob | mittel | 0 | — |
 
 ## done (4)
 
