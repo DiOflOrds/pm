@@ -1,6 +1,116 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
-## Das Wichtigste (Stand 2026-08-16 19:35)
+## Das Wichtigste (Stand 2026-08-16 20:35)
+
+1. **Dein Brief `pm/N-0030` ist beantwortet — und er hat einen echten Werkzeugbefund getroffen
+   (B053).** Das Board kann „wer arbeitet daran?" **nicht** beantworten: die einzige
+   Zuordnungsspalte ist `rolle`, und die nennt die Fachrolle, nicht den Ausführenden.
+2. **Neu getrennt: „Für dich" und „Für das Team" (siehe direkt unten).** **4 Tickets** warten auf
+   dich, **6** auf das Team, **5** sind Takt-Dauerläufer ohne Rückstand.
+3. **Morgen fällig:** `pm/T-0034` (17.08., nur am Host lösbar) — ab morgen greift B044.
+4. **Eingeplant, nicht gebaut: `pm/T-0038`** (Feld `verantwortlich`, Frist **23.08.** — bewusst
+   dieselbe wie `pm/T-0036`, weil beide dem `BOARD.md` eine Spalte/Zeile hinzufügen und zwei
+   getrennte Formatänderungen am 16.08. früh schon alle board-checks rot gemacht haben).
+5. **Inbox leer, kein wartender und kein unverbuchter DR** (gegen die DR-Rohdaten geprüft, B047).
+
+---
+
+## Für dich (E. John) — nur am Host lösbar
+
+| Frist | Ticket | Was zu tun ist |
+|---|---|---|
+| **17.08.** | `pm/T-0034` | Am Host: Läuft Ollama? Ist `ASPICE-MailAutopilot` eingerichtet? |
+| 18.08. | `pm/T-0013` | Blick auf die GitHub-Actions-Seite (board-check grün?) |
+| 18.08. | `pm/T-0026` | derselbe Blick (CI/Matrix-Gate grün?) |
+| 18.08. | `pm/T-0010` | derselbe Blick (board-check-Flake weg?) |
+
+**Die drei 18.08.-Tickets sind ein Handgriff, nicht drei** — die Seite, die der Push-Wächter
+ohnehin öffnet ([5/5] seiner Ausgabe). Ein grüner Lauf schließt alle drei.
+
+## Für das Team
+
+| Frist | Ticket | Team | Inhalt |
+|---|---|---|---|
+| 19.08. | `pm/T-0032` | PM | Echter Uhrzeit-Takt (Abgrenzung zu F14) |
+| 23.08. | `pm/T-0036` | PM | „Ohne Frist"-Zähler als Org-Summe |
+| 23.08. | `pm/T-0038` | PM | Feld `verantwortlich` (dieser Brief) — **mit `T-0036` bündeln** |
+| 23.08. | `pm/T-0028` | PM | Projekt-Pool: Team gründen im HMI |
+| 23.08. | `team-dashboard/T-0001` | team-dashboard | Widget-Vertrag — **die Sperre für P11** |
+| 30.08. | `projects/p12/T-0003` | P12 | Sprint 1: Renderer zusammenführen |
+| 30.08. | `projects/p11/T-0003` | P11 | Sprint 1: Widget-Dashboard bauen |
+
+**Takt-Dauerläufer ohne Frist (kein Rückstand):** `pm/T-0001` (Agenda), `pm/T-0002` (Intake),
+`pm/T-0003` (Lessons), `platform/T-0001` (Werkzeugpflege), `team-mail/T-0001` (wartet auf IMAP).
+
+---
+
+*Ab hier: Belege und Details zum Nachlesen.*
+
+*Stand: 2026-08-16 20:06–20:35, Routine-Session (D004, alle 30 Min). Briefkasten beim Start:
+**ein offener Brief** — `pm/N-0030` (18:02), gefunden bei der Durchsuchung aller **40** Briefe
+aller Projekte/Teams auf `status: offen`; **beantwortet**. Inbox beim Start: **leer und beweisbar
+nichts Unverbuchtes** — gegen die DR-Rohdaten geprüft (Ablaufregel aus B047): **kein einziger
+`decision-request` mit Status ≠ `done`** (47 DRs geprüft). **Kein überfälliges Ticket**
+(frühester Termin `pm/T-0034`, 17.08.). Fremde Änderungen: nur die bekannte `team-mail`-Anzeige
+(`digest/2026-08-16-woche-digest.md` in `git status`, `git diff --quiet` = 0) — der Index-Refresh
+aus R7, erneut geprüft, erneut kein Commit. Push: `PUSH-ANFORDERUNG.txt` war beim Start **nicht
+vorhanden** (die Zeile der 19:35-Session ist abgearbeitet). Diese Session legt sie neu an.*
+
+**Der Brief war die Arbeit — und er war kein Auskunftswunsch, sondern ein Befund (B053).**
+
+`pm/N-0030` stellt zwei Fragen in einem Satz, und nur die zweite ist ein Werkzeugbefund:
+
+1. *Was ist als nächstes geplant?* — aus dem Bestand beantwortbar. Als Momentaufnahme mit
+   Zeitstempel in der Antwort geliefert und ab jetzt hier oben als stehende Agenda-Struktur.
+2. *Wer arbeitet daran — Team oder Mensch?* — **nicht** beantwortbar. Das ist `pm/T-0038`.
+
+**⚠ Die Auflösung existiert seit der Rollen-Registry und wird von niemandem gelesen.**
+`process/roles/registry.yaml` trägt je Rolle ein Feld `besetzung: ki | mensch | script` — elf
+Rollen auf `ki`, genau eine (`MENSCH`, *Auftraggeber / Eskalationsinstanz*) auf `mensch`. Gelesen
+wird es von **keiner** Ausgabe: nicht vom generierten `BOARD.md` (Spalten ID, Titel, Typ, Takt,
+**Rolle**, Prio, Sprint, blockiert durch), nicht von der Cockpit-Kachel, nicht vom Preflight.
+
+**⚠ Der Beleg, dass das nicht theoretisch ist.** Vier offene Tickets sind ausschließlich am Host
+durch den Menschen lösbar und tragen trotzdem eine KI-Rolle: `pm/T-0034` und `pm/T-0013`/`T-0010`
+(`prob`), `pm/T-0026` (`cm`). In `T-0034` lautet eine Abschnittsüberschrift wörtlich *„Was zu
+prüfen ist (am Host, eine Handlung des Auftraggebers)"*, in `T-0026` *„Voraussetzung beim
+Menschen"* — im **Fließtext**, in keinem Feld. **Vier von zehn terminierten offenen Tickets sehen
+im Board aus wie Teamaufgaben.** Wörtlich das Muster aus **B043**: die Information ist vollständig
+da, aber nur an einer Stelle, an die keine Übersicht sieht.
+
+**⚠ Die naheliegende Abkürzung wäre ein stiller Schaden gewesen.** `rolle: mensch` auf die vier
+Tickets zu setzen, hätte die Frage scheinbar gelöst. Das Feld hat in `board.py` aber eine
+**zweite, verhaltensändernde** Bedeutung: Tickets mit `rolle: mensch` sind Gates und von der
+Status-Übergangsprüfung **ausgenommen** (`t.get("rolle") != "mensch"` in `validiere`). Die
+Umstellung hätte vier Tickets ohne eine einzige Meldung ihre Übergangsprüfung gekostet — ein Feld
+für zwei Zwecke, die Familie aus **B033**. Deshalb ein **eigenes** Feld, kein umgedeutetes. Als
+**L-2026-08-16g** in `process/knowledge/cm/lessons.md`.
+
+**Nicht gebaut, eingeplant als `pm/T-0038` (Klasse B, Frist 23.08.):** Feld
+`verantwortlich: team | mensch`, sichtbar als **Board-Spalte** und im Cockpit, Preflight-Zeile
+*„n Tickets warten auf den Menschen"* **mit den Refs** statt nur einer Zahl (B038), und bei
+`mensch` ein Pflichtabschnitt *„Handlung beim Menschen"* im Ticket — sonst wäre die Zuordnung eine
+Behauptung ohne Beleg. **Warum nicht in dieser Session:** Ticket-Schema, Board-Format,
+Cockpit-Vertrag und Preflight-Ausgabe gleichzeitig, in einer 30-Minuten-Routine, ist genau
+B025/B038. **Warum dieselbe Frist wie `pm/T-0036`:** beide fügen dem generierten `BOARD.md` etwas
+hinzu, und zwei getrennte Formatänderungen am Board haben am 16.08. früh sämtliche
+board-check-Workflows rot gemacht (`pm/T-0013`).
+
+**Sofort von Hand angewandt, was ohne Code geht:** die Trennung „Für dich" / „Für das Team" in
+dieser Agenda — die beiden Tabellen oben. Sie ersetzt keinen Code, aber sie beantwortet die Frage
+des Briefes ab sofort an der Stelle, an der der Auftraggeber ohnehin nachliest.
+
+**Kein Code geändert, deshalb keine neuen Tests.** **334 Tests**, Matrix **101 SWRs / 0 Lücken**
+unverändert. Board-Check gegen die Erwartung gelesen (B041 Regel 3): **pm 38 Tickets** (vorher 37,
++`T-0038`), offene pm-Tickets **10 → 11**; Briefe organisationsweit **40** (vorher 39), davon
+**0 offen** nach dieser Session.
+
+**⚠ Morgen fällig, nur am Host lösbar: `pm/T-0034`** (17.08., hoch) — unverändert, kein
+IMAP/Ollama in dieser Sandbox (Guardrail 2).
+
+---
+
+## Vorheriger Stand (2026-08-16 19:35)
 
 1. **Deine Inbox ist leer.** Du hast `p12/T-0002` um **19:11** mit **G1a** entschieden — mitten in
    dieser Session. **Verbucht:** G1-Vermerk in beiden Requirements-Dokumenten, Sprint 1 als
