@@ -11,12 +11,6 @@ Stand: 2026-08-16 · Tickets: 14 · davon wiederkehrend: 2
 | [T-0002](tickets/T-0002.md) | Takt: Intake-Queue — neue Wünsche/Briefe qualifizieren (jede Session) | task | je Session | pl | hoch | 0 | — |
 | [T-0003](tickets/T-0003.md) | LeLe Q4/2026: erste teamübergreifende Lessons Learned vorbereiten | task | einmalig | coach | niedrig | 0 | — |
 
-## in_progress (1)
-
-| ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
-|---|---|---|---|---|---|---|---|
-| [T-0012](tickets/T-0012.md) | CR (N-0015): Kopfbereich zeigt nur aktive Projekte/Teams — direkt anklickbar | change-request | einmalig | chg | hoch | 0 | — |
-
 ## in_review (2)
 
 | ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
@@ -24,7 +18,7 @@ Stand: 2026-08-16 · Tickets: 14 · davon wiederkehrend: 2
 | [T-0013](tickets/T-0013.md) | Problem (platform/N-0001): board-check rot nach Board-Formatänderung — Push-Reihenfolge | problem | einmalig | prob | hoch | 0 | — |
 | [T-0010](tickets/T-0010.md) | Problem (N-0007): board-check-Flake — Stand-Datum kippt um Mitternacht | problem | einmalig | prob | mittel | 0 | — |
 
-## done (8)
+## done (9)
 
 | ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|
@@ -35,4 +29,5 @@ Stand: 2026-08-16 · Tickets: 14 · davon wiederkehrend: 2
 | [T-0008](tickets/T-0008.md) | DR (Klasse A): P9 „Org-Cockpit" beauftragen — Team-/Projekt-Dashboard mit Status & Beschreibung | decision-request | einmalig | pl | hoch | 0 | — |
 | [T-0009](tickets/T-0009.md) | Problem (N-0006): Auto-Push seit 15.08. 17:36 fehlgeschlagen — cmd-Klammern-Bug in :repo_push | problem | einmalig | prob | hoch | 0 | — |
 | [T-0011](tickets/T-0011.md) | DR (Klasse A): P10 „Aufgaben bearbeiten im HMI" beauftragen — Tickets editieren, Labels, Typ | decision-request | einmalig | pl | hoch | 0 | — |
+| [T-0012](tickets/T-0012.md) | CR (N-0015): Kopfbereich zeigt nur aktive Projekte/Teams — direkt anklickbar | change-request | einmalig | chg | hoch | 0 | — |
 | [T-0014](tickets/T-0014.md) | CR (N-0017): Cockpit zeigt wiederkehrende Aufgaben im Klartext statt als Symbol | change-request | einmalig | chg | mittel | 0 | — |
