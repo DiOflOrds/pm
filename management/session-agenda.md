@@ -1,6 +1,68 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
-*Stand: 2026-08-16 16:15, Routine-Session (D004, alle 30 Min). Briefkasten: **leer** — alle
+*Stand: 2026-08-16 16:50, Routine-Session (D004, alle 30 Min). Briefkasten: **leer** — alle 37
+Briefe aller Projekte/Teams auf `status: offen` durchsucht, kein Treffer; zweimal geprüft
+(Sessionanfang und -ende). Inbox: **leer beim Start und beweisbar nichts Unverbuchtes** —
+erstmals nach der neuen Ablaufregel aus B047 gegen die **DR-Rohdaten** geprüft: es existiert
+**kein einziger `decision-request` mit Status ≠ `done`**, die Klasse „entschieden, aber nicht
+verbucht" ist damit leer und nicht nur laut `inbox.liste`. **Kein überfälliges Ticket** —
+frühester Termin ist `pm/T-0034` (17.08.). `mail_digest.faellig(1)` und `faellig(7)` beide
+`False`, nichts fällig. Push: die Zeile der 16:15-Session in `PUSH-ANFORDERUNG.txt` (16:32) ist
+**noch unverarbeitet** (letzter Wächter-Erfolg **16:30:26**) — sie betrifft einen pm-Commit, der
+nach dem Push-Start entstand; diese Session hängt eine weitere Zeile für ihre eigenen Commits an.
+`pm/T-0010`, `pm/T-0013`, `pm/T-0026` bleiben `in_review` (Grund unverändert: kein `gh`/Netzzugriff
+in dieser Sandbox — bitte am Host/Browser gegenprüfen).*
+
+**Der „ohne Frist"-Zähler ist zu Ende gelesen — die p0-Kachel war noch offen (B048).** Die
+Vorsession hatte den Zähler aus SWR-091 **nur für die pm-Kachel** abgearbeitet (`pm/T-0003` bekam
+sein `takt`-Feld); `cockpit_alle` meldet für **p0 unverändert `unterminiert=1`**. Dahinter steht
+`p0/T-0008` (Anthropic-API-Key, `open`, `prio: hoch`, ohne Frist, erstellt **05.08.**) — das
+**einzige offene Ticket in zwei abgeschlossenen Projekten** (P0 `genesis-v1.0`, P1 `p1-v1.0`).
+
+**Es ist nicht liegengeblieben, sondern zweimal ausdrücklich vertagt** — `p0/D008` und `p0/D015`,
+im P0-Abschlussbericht als Kriterium 9 „teilweise" mit Backlog-Punkt **B9** abgenommen, als Epic
+**P1-E5** weitergereicht („optional nach Budgetfreigabe"). **Nur stand davon nichts im Ticket.**
+Wer es heute öffnet, liest eine elf Tage alte hochpriorisierte Sprint-1-Aufgabe ohne Termin — das
+Muster aus **B043**, diesmal nicht durch Vergessen, sondern weil der Kontext in drei anderen
+Dokumenten liegt. Der Zähler kann das nicht unterscheiden: er zählt „ohne Frist", er liest keine
+Decision-Logs.
+
+**Und der Zwilling ist längst entschieden.** P0-Kriterium 9 hatte **zwei** Betriebsreste, beide
+als P1-E5 weitergereicht: der **Copilot-Lauf** ist als `p0/T-0072` **und** `p1/T-0018`
+**rejected** — der **Claude-API-Tick** blieb `open`. Zwei gleichrangige Reste desselben
+Kriteriums, einer geschlossen, einer nicht. Das ist der Kern des Befunds, nicht die 20 €.
+
+**Getan (Klasse C):** Belegkette (D008, D015, Kriterium 9/B9, P1-E5) und die Begründung für die
+fehlende Frist stehen jetzt **im Ticket selbst** — die nächste Session muss nicht neu
+recherchieren. **Status unverändert `open`.**
+
+**Nicht getan (Klasse A):** über das Ticket entschieden. Ein API-Key ist eine Budget- und
+Zugangsfreigabe (Playbook Kap. 16) — **in beide Richtungen**: ihn anzulegen ist eine
+Geldentscheidung, ihn abzuräumen eine Scope-Entscheidung über ein Abnahmekriterium. Vorgelegt als
+**`pm/T-0035`** (AK-a jetzt umsetzen / **AK-b schließen wie den Zwilling** / AK-c offen lassen mit
+Frist; Frist **23.08.**, Default **AK-b**). **Default AK-b, weil Schweigen nie in Richtung
+Geldausgabe oder neuer Credentials laufen darf** — und weil AK-c der dritte Aufschub wäre.
+
+**Eine Frist hat das Ticket bewusst nicht bekommen.** Es wartet nicht auf Arbeit des Teams,
+sondern auf eine Entscheidung, die der Auftraggeber zweimal vertagt hat; ein von der Session
+gesetztes Datum hätte einen Termin behauptet, den niemand zugesagt hat (B038-Familie). Die Frist
+trägt der Antrag, nicht das Ticket.
+
+**⚠ Morgen fällig, nur am Host lösbar: `pm/T-0034` (Frist 17.08., Priorität hoch).** Der
+Wochendigest **liegt** seit der 16:15-Session (`faellig(7)` = `False`), offen ist der eigentliche
+Befund: Warum war Ollama um 15:28 nicht erreichbar, und läuft `ASPICE-MailAutopilot` überhaupt?
+Diese Session kann daran nichts tun (kein IMAP/Ollama, Guardrail 2) — **das ist kein übergangenes
+Ticket im Sinne von B044**, sondern die Grenze der Ausführung; der Grund steht hier und im Ticket.
+Reißt die Frist morgen, ist es der erste Arbeitspunkt der nächsten Session **am Host**.
+
+**Sonst nichts angefasst.** Kein Code geändert, deshalb keine neuen Tests — der Befund war eine
+Recherche in vorhandenen Dokumenten und ein Antrag. **329 Tests, Matrix 96 SWRs / 0 Lücken,
+Katalog- und Architektur-Gate grün.** Board-Check nach dem Schreiben: **pm 35 Tickets** (vorher 34
+— gegen die Erwartung gelesen, Lesson B041 Regel 3), p0 72 unverändert.
+
+---
+
+*Vorheriger Stand: 2026-08-16 16:15, Routine-Session (D004, alle 30 Min). Briefkasten: **leer** — alle
 27 pm-Briefe und die Briefkästen aller Projekte/Teams auf `status: offen` durchsucht, kein Treffer;
 zweimal geprüft (Sessionanfang und -ende). Inbox: **zwei Klasse-A-Entscheidungen verbucht**
 (`pm/T-0033` → D007/G0a, 15:55 · `p11/T-0002` → p11/D001/G1a, 16:07 — letztere fiel **51 Sekunden
@@ -261,12 +323,13 @@ Ticket damit komplett (beide Teile `done`). Push-Wächter 11:00 erfolgreich. 305
 
 *Erster Fund des neuen Zählers (SWR-091), noch in der Session seiner Einführung: Die pm-Kachel meldet **4 offene Tickets „ohne Frist"** — `T-0010`/`T-0013`/`T-0026` warten auf einen fremden Nachweis (grüner Actions-Lauf) und sind zu Recht unterminiert, aber **`pm/T-0003` heißt „Takt: LeLe je Sprint/Durchlauf konsolidieren" und trägt gar kein `takt`-Feld** — im Board steht es deshalb als „einmalig". Das war zur Zeit von B014 so gewollt, `pm/D005` hat es danach auf „kontinuierlich" umgestellt, ohne das Feld nachzuziehen. **Bewusst nicht auf Verdacht gesetzt:** `je-session` ist nicht dasselbe wie „je Sprint/Durchlauf", und TAKTE kennt letzteres nicht — das gehört zu `pm/T-0032` (Takt-Konzept), nicht in einen Nebensatz. Nächste Session: entweder Feld setzen oder begründen, warum keins.*
 
-1. **Offene pm-Tickets, jetzt alle terminiert (SWR-091).** **`pm/T-0034` — Frist 17.08., Priorität hoch:** team-mail-Wochendigest seit Gründung fällig, nie erzeugt; fünf Sessions lang nur Randnotiz in Punkt 3, jetzt eigenes Ticket. Lösbar **nur am Host** (kein IMAP/Ollama hier) — kürzester Weg im Ticket. **`pm/T-0032` — Frist 19.08.:** Teil 2 aus `pm/N-0025`, echter Uhrzeit-Takt („jeden Tag um 14 Uhr"); berührt F14 und die zwei bestehenden Taktlogiken, Entwurf im Ticket, **erster Nutzer des Fristfeldes, das Teil 1 gebaut hat**. **`pm/T-0028` — Frist 23.08.:** Gründungs-Knopf im Pool; die von Hand vollzogene Gründung von `team-dashboard` ist jetzt seine reale Vorlage. **`team-dashboard/T-0001` — Frist 23.08.:** Widget-Vertrag entwerfen, Vorbedingung für P11. **`p11/T-0003` — Frist 30.08.:** Sprint 1 des Widget-Dashboards; beauftragt (G1a), startet aber erst mit dem Widget-Vertrag. Steht auf `open` statt `blocked`, weil `blocked_by` nicht über Repo-Grenzen reicht (B047) — die Ursache steht im Ticket. **ERLEDIGT:** `pm/T-0033` (G0a vollzogen, P11 angelegt) und `p11/T-0002` (G1a verbucht) — beide in der 16:15-Session; `pm/T-0030` Teil 1 (SWR-091, 15:35), `pm/T-0031` (Gründung, D006/TG-a), `pm/T-0025` (14:50, SWR-090), `pm/T-0029` (14:05), `pm/T-0027` (12:16), `pm/T-0022` (beide Teile). **Wartend beim Auftraggeber: nichts** — die Inbox ist leer (gegen die DR-Rohdaten geprüft, nicht nur gegen `inbox.liste`; siehe den Werkzeug-Befund oben).
+1. **Offene pm-Tickets, jetzt alle terminiert (SWR-091).** **`pm/T-0034` — Frist 17.08., Priorität hoch:** team-mail-Wochendigest seit Gründung fällig, nie erzeugt; fünf Sessions lang nur Randnotiz in Punkt 3, jetzt eigenes Ticket. Lösbar **nur am Host** (kein IMAP/Ollama hier) — kürzester Weg im Ticket. **`pm/T-0032` — Frist 19.08.:** Teil 2 aus `pm/N-0025`, echter Uhrzeit-Takt („jeden Tag um 14 Uhr"); berührt F14 und die zwei bestehenden Taktlogiken, Entwurf im Ticket, **erster Nutzer des Fristfeldes, das Teil 1 gebaut hat**. **`pm/T-0028` — Frist 23.08.:** Gründungs-Knopf im Pool; die von Hand vollzogene Gründung von `team-dashboard` ist jetzt seine reale Vorlage. **`team-dashboard/T-0001` — Frist 23.08.:** Widget-Vertrag entwerfen, Vorbedingung für P11. **`p11/T-0003` — Frist 30.08.:** Sprint 1 des Widget-Dashboards; beauftragt (G1a), startet aber erst mit dem Widget-Vertrag. Steht auf `open` statt `blocked`, weil `blocked_by` nicht über Repo-Grenzen reicht (B047) — die Ursache steht im Ticket. **ERLEDIGT:** `pm/T-0033` (G0a vollzogen, P11 angelegt) und `p11/T-0002` (G1a verbucht) — beide in der 16:15-Session; `pm/T-0030` Teil 1 (SWR-091, 15:35), `pm/T-0031` (Gründung, D006/TG-a), `pm/T-0025` (14:50, SWR-090), `pm/T-0029` (14:05), `pm/T-0027` (12:16), `pm/T-0022` (beide Teile). **Wartend beim Auftraggeber: `pm/T-0035`** (16:50-Session) — DR Klasse A zu `p0/T-0008` (Anthropic-API-Key): AK-a jetzt umsetzen / AK-b schließen wie den Zwilling `p1/T-0018` / AK-c offen lassen mit Frist. **Frist 23.08., Default AK-b.** `p0/T-0008` bleibt bis dahin `open` und **bewusst ohne Frist** (Begründung jetzt im Ticket, siehe B048). Vor diesem Antrag war die Inbox leer — gegen die DR-Rohdaten geprüft, nicht nur gegen `inbox.liste` (Werkzeug-Befund B047).
 
 2. **P10 ist abgeschlossen (G4a/D002, 10:02 via Inbox — B035)** — Baseline `p10-v1.0` auf `projects` und `platform`, Abschlussbericht liegt in `projects/p10/management/`. Offen bleibt nur der **Betriebsnachweis des Auftraggebers**: die sieben Stichproben aus `p10/T-0004` (siehe Punkt 5) — nur erinnern, nie selbst abhaken.
 3. **team-mail-Takt (`team-mail/T-0001`): SLA erstmals seit Gründung erfüllt (B046).** Der **erste Wochendigest** liegt (`digest/2026-08-16-woche-digest.md`), `mail_digest.faellig(7)` meldet `False`. Zustandegekommen ist er allerdings von Hand: Ein Lauf des Auftraggebers um 15:28 holte 165 Mails über 7 Tage, fand **kein Ollama** und schrieb Rohdaten mit dem Vermerk *die naechste Session verdichtet* — das war diese (Fallback SWR-062). **Der Rest des Befunds steht als `pm/T-0034`, Frist 17.08.:** Warum lief Ollama nicht, und ist `ASPICE-MailAutopilot` überhaupt eingerichtet? Ein fälliger Wochendigest darf nicht auf einen Klick warten.
 4. **Fällige pm-Takt-Tickets** — Intake-Queue, Agenda fortschreiben; PUSH-ANFORDERUNG.txt am Session-Ende schreiben (Runbook Kap. 11).
 5. **Offene Stichproben des Auftraggebers nachhalten** (nur erinnern, nie selbst abhaken) — **alle brauchen vorher einen Serverneustart**:
+   - **Neu (16:50-Session, B048/pm/T-0035):** **Inbox öffnen** — dort steht `pm/T-0035` mit drei Knöpfen **AK-a/AK-b/AK-c**, Frist 23.08., Default AK-b. **Cockpit**: die **p0-Kachel** zeigt weiterhin die Pille „1 ohne Frist" (`p0/T-0008`) — das ist **erwartet und begründet**, nicht übersehen; die Begründung steht im Ticket. Gegenprobe: `p0/T-0008` öffnen → der Nachtrag nennt D008, D015, Kriterium 9/B9 und P1-E5, Status ist unverändert `open`.
    - **Neu (16:15-Session, pm/T-0033/D007 + p11/D001):** **Kopfbereich und Cockpit** zeigen **P11 „Widget-Dashboard"** als aktives Projekt mit Board und einer offenen Aufgabe (`p11/T-0003`, Frist 30.08.). **Requirements-Reiter** → Filter „Projekt/Team: p11" zeigt STK-021 und SWR-092–096, alle auf `draft`. **Inbox** ist leer. **Pool-Reiter** zeigt einen dritten Abschnitt **„Realisiert"** mit Kandidat #13 und dem Weg, den er genommen hat; die Team-Kandidatenliste hat noch fünf Einträge. Gegenprobe: „Neuen Kandidaten anlegen" vergibt die Nummer **14**, nicht 13.
    - **Neu (15:35-Session, SWR-091/pm/T-0030):** **Cockpit öffnen** — über den Statuszahlen einer Kachel steht bei überfälligen Aufgaben ein roter Block („n überfällig", je Ticket „Frist … (n Tage über)"), in der Statuszeile eine Pille „n ohne Frist". Gegenprobe: einem offenen Ticket im Ticket-Editor eine Frist von **gestern** geben → es erscheint sofort im roten Block; eine unsinnige Frist („2026-13-01") wird beim Speichern mit Klartext abgelehnt.
    - **Neu (15:35-Session, pm/T-0031/D006):** **Kopfbereich und Cockpit** zeigen `team-dashboard` als **Projekt-Team** mit Board und einer offenen Aufgabe (`T-0001`, wiederkehrend). **Inbox** zeigt den neuen G0-Antrag `pm/T-0033` (P11) mit drei Knöpfen G0a–G0c und Frist 23.08.
