@@ -15,16 +15,15 @@ Stand: 2026-08-16 · Tickets: 37 · davon wiederkehrend: 3
 | [T-0032](tickets/T-0032.md) | CR (pm/N-0025, Teil 2): Echter Uhrzeit-Takt für wiederkehrende Aufgaben — Abgrenzung zu F14 und den team-mail-Takten | change-request | einmalig | pl | mittel | 0 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | niedrig | 0 | — |
 
-## in_review (4)
+## in_review (3)
 
 | ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|
 | [T-0013](tickets/T-0013.md) | Problem (platform/N-0001): board-check rot nach Board-Formatänderung — Push-Reihenfolge | problem | einmalig | prob | hoch | 0 | — |
 | [T-0026](tickets/T-0026.md) | Problem (platform/N-0006): CI rot — das Matrix-Gate sah das Sammel-Repo `projects` nicht | problem | einmalig | cm | hoch | 0 | — |
 | [T-0010](tickets/T-0010.md) | Problem (N-0007): board-check-Flake — Stand-Datum kippt um Mitternacht | problem | einmalig | prob | mittel | 0 | — |
-| [T-0037](tickets/T-0037.md) | CR (B051): Der „Starten\"-Knopf löscht den Pool-Kandidaten spurlos und legt ein Decision-Log ohne Tabellenkopf an | change-request | einmalig | pl | mittel | 0 | — |
 
-## done (26)
+## done (27)
 
 | ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|
@@ -54,3 +53,4 @@ Stand: 2026-08-16 · Tickets: 37 · davon wiederkehrend: 3
 | [T-0029](tickets/T-0029.md) | Problem (pm/N-0024): Projekt-Pool — 'Quelle' auch bei 4000 Zeichen (T-0027) noch zu eng | problem | einmalig | prob | mittel | 0 | — |
 | [T-0030](tickets/T-0030.md) | CR (pm/N-0025): Offene Aufgaben terminieren — Fristen für Backlog-Tickets, echter Takt für wiederkehrende Aufgaben | change-request | einmalig | pl | mittel | 0 | — |
 | [T-0035](tickets/T-0035.md) | DR (Klasse A): Anthropic-API-Key (p0/T-0008) — weiterverfolgen, schließen oder jetzt umsetzen? | decision-request | einmalig | pl | mittel | 0 | — |
+| [T-0037](tickets/T-0037.md) | CR (B051): Der „Starten\"-Knopf löscht den Pool-Kandidaten spurlos und legt ein Decision-Log ohne Tabellenkopf an | change-request | einmalig | pl | mittel | 0 | — |
