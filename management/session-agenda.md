@@ -1,47 +1,75 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
-*Stand: 2026-08-16 14:50, Routine-Session (D004, alle 30 Min). Briefkasten: **ein neuer Brief**
-seit der 14:05-Session — `pm/N-0027` (12:43), beantwortet; zweite Prüfung am Sessionende: leer.
-Inbox: **erstmals seit Tagen wieder ein wartender Entscheid** — `pm/T-0031` (von dieser Session
-vorgelegt), gegen die Rohdaten geprüft. Push: `PUSH-ANFORDERUNG.txt` aus der 14:05-Session war
-beim Start bereits abgearbeitet (Wächter-Erfolg 14:30:22) — diese Session schreibt am Ende eine
-neue Zeile für ihre eigenen Commits (pm, platform, team-mail, p8, p0). `pm/T-0010`, `pm/T-0013`,
+*Stand: 2026-08-16 15:35, Routine-Session (D004, alle 30 Min). Briefkasten: **leer** — zweimal
+geprüft (Sessionanfang und -ende), alle 36 Briefe `beantwortet`. Inbox: **eine Entscheidung fiel
+während der Session** (`pm/T-0031` → D006/TG-a, 15:21) und ist verbucht; danach steht dort **ein
+neuer wartender Klasse-A-Entscheid**, den diese Session vorgelegt hat (`pm/T-0033`, G0 für P11).
+Push: `PUSH-ANFORDERUNG.txt` aus der 14:50-Session war beim Start **noch unverarbeitet** (letzter
+Wächter-Erfolg 14:30:22) — diese Session hängt eine weitere Zeile an. `pm/T-0010`, `pm/T-0013`,
 `pm/T-0026` bleiben `in_review` (Grund unverändert: kein `gh`/Netzzugriff in dieser Sandbox —
 bitte am Host/Browser gegenprüfen).*
 
-**`pm/N-0027` — „starte mit der initialiserung von team-dashboard aus dem projekt-pool":
-angefangen, aber bewusst nicht vollzogen. Team-Gründung ist Klasse A** (Playbook Kap. 16,
-`intake.md`). Geliefert wurden Schritt 1+2 des Intake: **Steckbrief formuliert und
-Gründungs-DR `pm/T-0031` in die Inbox gestellt** (Optionen TG-a–TG-d, Frist 23.08., Default
-TG-a). Repo aus Template, Registry-Eintrag und Betriebsstart (Schritte 3–5) folgen nach dem
-Entscheid. Der Knopf „Team gründen" im Pool (`pm/T-0028`) wurde dafür **nicht** erst gebaut —
-die Gründung lief von Hand über den regulären Intake-Weg; was dabei entstanden ist, ist die
-Feldliste seines künftigen Formulars. **Drei Befunde stehen im DR:** (1) Das gewünschte
-Mail-Widget berührt **Guardrail 2** — `team-mail` ist `sensibel`; machbar nur wie im Team-Reiter
-seit P7 (Rendern zur Laufzeit hinter dem PIN-Lesegate) mit der harten Auflage, **nie** einen
-Digest-Inhalt in ein Repo zu committen, sonst wird `team-dashboard` `sensibel` und verliert den
-GitHub-Remote. (2) Der Kandidat-Text enthält ein **Team** und eine **Produktspezifikation** —
-Empfehlung: Bau als eigenes Projekt **P11** durch das ASPICE-Team (eigener G0-DR), das neue Team
-ist fachlicher Auftraggeber; Option TG-c bietet den schlanken Weg ohne eigenes Team an. (3) Das
-langfristige Ziel „vom Handy aus dem Internet" **kollidiert mit Runbook Kap. 10** (nur Heim-LAN,
-nie Port-Forwarding) — nicht still aufgeweicht, sondern benannt; ein Weg ohne Guardrail-Bruch
-wäre ein VPN ins Heimnetz, als eigener Klasse-A-Entscheid, wenn es soweit ist.
+**`pm/T-0030` ist ERLEDIGT (Teil 1, SWR-091) — das Ticket, das gegen das Liegenbleiben gebaut
+wurde, war selbst der oberste liegengebliebene Punkt.** Die Session war frei (kein Brief, kein
+entschiedener DR beim Start), und `T-0030` stand oben auf der Agenda; es ein sechstes Mal
+weiterzureichen wäre die Wiederholung genau des Befunds gewesen, den es beschreibt (B043).
+Geliefert: `frist` gilt für **jeden** Tickettyp und wird für jeden geprüft (bisher nur im
+`decision-request`-Zweig — ein Tippfehler in der Frist eines CR fiel lautlos auf „keine Frist"
+zurück); die Ampel-Regel liegt **einmal** in `board.frist_ampel` und wird von DR-Fristen und
+Backlog-Fristen geteilt (sie stand inline im Cockpit; ein Test vergleicht alt und neu einen Monat
+lang Tag für Tag); `board.ist_ueberfaellig` gilt nur für offene Tickets; die Cockpit-Kachel zeigt
+überfällige Tickets **vollständig und vor den Statuszahlen** samt „n Tage über" plus einen Zähler
+„n ohne Frist". Nebenbefund mitbehoben: `DATUM_MUSTER` prüfte nur die Form — „2026-13-01" kam
+durch und hätte als **„grau" = keine Frist** gegolten, ein falsch terminiertes Ticket hätte wie
+ein unterminiertes ausgesehen. **11 neue Tests, Gesamtsuite 329** (vorher 318), Matrix **91 SWRs /
+0 Lücken**, Katalog- und Architektur-Gate grün, **Gegenprobe gegen den Altstand geführt** (3 Tests
+scheitern dort nachweislich). **Das BOARD.md-Format blieb bewusst unangetastet** — eine neue
+Spalte ist eine Formatänderung, und genau die hat heute früh alle board-check-Workflows rot
+gemacht (`pm/T-0013`).
 
-**`pm/T-0025` ist ERLEDIGT (SWR-090) — das Ticket, an dem der Befund B043 hing.** Nach sechs
-Sessions Liegenzeit als erste Arbeit nach dem Briefkasten aufgegriffen, wie die 14:05-Agenda es
-angeordnet hatte. Der Sofort-Knopf im Team-Reiter sagt jetzt **vorher**, womit er läuft (Takte ·
-Modell · KI-Hinweis · Versand) und **hinterher**, welche Digest-Dateien entstanden sind.
-Umgesetzt ohne eine zweite Kopie der Takt-Regel: neues `--was-laeuft` im Werkzeug (Auskunft ohne
-Wirkung, Takte aus **`jetzt_takte()`**), `teams.digest_vorschau()` fragt genau das über denselben
-injizierbaren Runner wie der Lauf, `GET /api/team/digest-vorschau` hinter dem PIN-Lesegate.
-Die geschriebenen Dateien werden aus der Ergebniszeile des Werkzeugs gelesen, **nicht** aus einem
-Verzeichnis-Vergleich — der hätte bei einem zweiten Klick am selben Tag „nichts passiert"
-gemeldet und wäre die Unsichtbarkeit aus `N-0002` in neuem Gewand. **8 neue Tests, Gesamtsuite
-318** (vorher 310), Matrix **90 SWRs / 0 Lücken**, Katalog- und Architektur-Gate grün,
-**Gegenprobe gegen die Nachbildung geführt** und **am echten System gelaufen** (reale
-team-mail-Konfiguration: „Woche · gemma3:27b · kein Zusatz · zusätzlich per Mail").
+**Eskalationsregel festgelegt (B044) — das war die offene Frage in `T-0030`:** Ein überfälliges
+Backlog-Ticket ist der **erste Arbeitspunkt der nächsten Routine-Session nach dem Briefkasten**,
+vor jeder neuen Fläche. Nimmt eine Session es trotzdem nicht auf, **schreibt sie den Grund beim
+Ticket in die Agenda** — nicht als Randnotiz. Ab dem **zweiten** übergangenen Mal geht ein Vermerk
+an den Auftraggeber. Sofort angewandt statt nur gebaut: `pm/T-0028` (Frist 23.08.), `pm/T-0032`
+(19.08.), `pm/T-0034` (17.08.).
+
+**`team-dashboard` ist gegründet — D006/TG-a kam um 15:21 herein, mitten in dieser Session
+(B045).** Der erste Inbox-Check um 15:11 hatte den DR noch als wartend gemeldet; gefunden hat die
+Entscheidung die **Zweitprüfung aus B036** — der vierte Fund dieser Regel, diesmal an einem
+Klasse-A-Entscheid, der sonst 30 Minuten unverbucht geblieben wäre. Vollzogen sind alle vier
+Schritte aus `pm/T-0031`: Repo `team-dashboard` aus dem Template (Charter v1.0, `team.yaml`,
+`steckbrief.yaml`, Decision-Log mit D000, board-check grün, **lokal ohne Remote** — bewusst **kein**
+`.kein-remote`, denn `intern` erlaubt einen Remote, er fehlt nur, weil GitHub-Repo/Secret/PAT
+Handlungen des Auftraggebers sind); Registry-Eintrag; erstes Takt-Ticket `team-dashboard/T-0001`
+(**Widget-Vertrag entwerfen**, `takt: je-session`, Frist 23.08.) — die Voraussetzung aus dem
+Kandidat-Text („Die Projekte haben eine Widget Kompatibilität") existiert nicht und ist damit die
+eigentliche erste Arbeit; und der **getrennte G0-DR `pm/T-0033` für Projekt P11** (Dashboard-Bau,
+Optionen G0a–G0c, Frist 23.08., Default G0a). **Die Mail-Widget-Auflage steht dreimal im
+Klartext** — in `team.yaml`, im Charter und in der Registry: `team-mail` ist `sensibel`, gerendert
+wird nur zur Laufzeit hinter dem PIN-Lesegate, und der erste committete Digest-Inhalt macht
+`team-dashboard` `sensibel` und kostet den GitHub-Remote.
+
+**Neuer Befund in eigener Sache: `pm/T-0034` — der team-mail-Wochendigest stand fünf Sessions
+lang als unveränderte Randnotiz in Punkt 3.** `mail_digest.faellig(7)` meldet seit der
+11:21-Session `True`, eine `-woche-`-Datei existiert bis heute nicht, und die Sessions 11:45,
+12:16, 14:05, 14:50 haben jeweils „unverändert offen" notiert. Das ist wörtlich das Muster aus
+B043 — deshalb ist es jetzt ein Ticket mit **Frist 17.08.** und Priorität hoch statt einer
+Agendazeile. Lösen kann es nur der Host (kein IMAP/Ollama hier, Guardrail 2); der kürzeste Weg
+steht im Ticket.
 
 ---
+
+
+*Vorheriger Stand (14:50-Session, komprimiert): Ein neuer Brief `pm/N-0027` („starte mit der
+initialiserung von team-dashboard aus dem projekt-pool") — angefangen, aber bewusst nicht
+vollzogen: Team-Gründung ist Klasse A, deshalb Steckbrief formuliert und Gründungs-DR `pm/T-0031`
+in die Inbox gestellt (Optionen TG-a–TG-d, Frist 23.08., Default TG-a) mit drei Befunden im
+Antrag (Mail-Widget berührt Guardrail 2; Bauen ≠ Verwalten → Empfehlung eigenes Projekt P11;
+„vom Handy aus dem Internet" kollidiert mit Runbook Kap. 10). **Der Auftraggeber hat am 16.08.
+um 15:21 mit TG-a entschieden — vollzogen in der 15:35-Session, siehe oben.** `pm/T-0025`
+ERLEDIGT (SWR-090, Sofort-Knopf sagt vorher womit er läuft und hinterher was entstanden ist;
+8 Tests, Suite 318, Matrix 90/0, am echten System gelaufen).*
 
 *Vorheriger Stand: 2026-08-16 14:05, Routine-Session (D004, alle 30 Min). Briefkasten: **drei neue
 Briefe** seit der 12:16-Session — `pm/N-0024` (12:05) lag beim ersten Check bereits vor;
@@ -139,12 +167,17 @@ Ticket damit komplett (beide Teile `done`). Push-Wächter 11:00 erfolgreich. 305
 
 0. **Briefkasten zuerst** — alle Projekte/Teams (Cockpit zeigt offene Briefe). *Aktuell keine offenen Briefe (alle 26 auf `beantwortet` geprüft; `platform/N-0004` kam **während** der Session um 10:04 herein und wurde in derselben Session beantwortet — B036).* **Merke für den Ablauf:** Der Briefkasten wird nicht nur am Anfang gelesen. Diese Session hätte den Brief sonst 30 Minuten liegen lassen, obwohl sie noch lief; aufgefallen ist er nur, weil beim Taggen ein fremder Commit im `platform`-Log stand. Ab jetzt: **vor dem Abschluss ein zweites Mal auf offene Briefe und entschiedene DRs prüfen** — dasselbe gilt für die Inbox (die G4a-Entscheidung kam 14 Sekunden nach dem Sprint-Commit).
 0b. **Repo-Zustand vor dem ersten Schreiben** — `preflight.py` laufen lassen und die Ausgabe **lesen**. Steht dort „nicht löschbar … weggeräumt nach `.git/verwaiste-locks/`", hat der Fallback aus `pm/T-0023` gearbeitet und die Session wäre ohne ihn blockiert gewesen. Danach `git status` je Repo: **Liegt Arbeit einer Vorsession unverbucht da, zuerst verifizieren (Tests + Matrix + Gates), dann committen** — nie ungeprüft übernehmen (B025), nie doppelt verbuchen.
-0c. ~~**`pm/T-0025` — der Sofort-Knopf soll zeigen, womit er läuft**~~ **ERLEDIGT (14:50-Session, SWR-090)** — Nachweis und Stichprobe im Ticket; der Hinweis unten war die Bauvorschrift und wurde eingehalten (Takte aus `jetzt_takte()`, keine zweite Kopie). Ursprünglicher Text zur Nachvollziehbarkeit: (Rest aus `team-mail/N-0002`; der funktionale Teil ist mit `team-mail/T-0003` erledigt). Eine Klartextzeile unter dem Knopf: aktives Modell, KI-Hinweis, die Takte, die bei einem Klick loslaufen — und danach, welche Digest-Dateien entstanden sind. **Pflicht bei der Umsetzung:** Die Takte-Anzeige geht über `mail_digest.jetzt_takte(cfg)`, nicht über einen Nachbau aus `cfg["takte"]` im HMI. Beide Teile des Briefes hatten dieselbe Wurzel — der KI-Hinweis wirkte und war unsichtbar, der Takt wirkte nicht und war ebenso unsichtbar.
-1. **`pm/T-0022` weiterhin `done`** (beide Teile, siehe Historie). **`pm/T-0027` ERLEDIGT** (12:16-Session, Pool-Kandidatentext-Limit 200→4000, N-0023). **`pm/T-0029` ERLEDIGT** (14:05-Session, „Quelle" reichte auch bei 4000 Zeichen nicht, `FELD_MAX` jetzt 200 000 als reine technische Notbremse, N-0024) — Stichprobe unten in Punkt 5. **`pm/T-0028` weiterhin `open`** (Team-Gründung im Pool, N-0022) — nächster Pool-Agendapunkt für eine dafür vorgesehene Session. **`pm/T-0030` weiterhin offen** (Fristen für Backlog-Tickets + Uhrzeit-Takt für Wiederkehrendes, N-0025) — Design-Session nötig, siehe Ticket für den Entwurf; **jetzt der oberste offene Punkt.** **`pm/T-0025` ERLEDIGT** (14:50-Session, SWR-090, 318 Tests / Matrix 90/0) — der Priorisierungs-Griff aus der 14:05-Session hat gewirkt: das Ticket wurde in der ersten Session nach der Hochstufung abgearbeitet. **Neu: `pm/T-0031` als wartender Klasse-A-Entscheid in der Inbox** (Gründung `team-dashboard`, Frist 23.08., Default TG-a) — nach dem Entscheid folgen Repo aus Template, Registry-Eintrag, Agenda-Aufnahme und ein **getrennter G0-DR für P11** (Dashboard-Bau).
+0c. **Überfällige Tickets zuerst (Eskalationsregel B044, seit SWR-091 maschinell sichtbar).** Die Cockpit-Kachel zeigt je Projekt/Team überfällige Aufgaben **über** den Statuszahlen, mit „n Tage über", dazu „n ohne Frist". Ein überfälliges Backlog-Ticket ist der **erste Arbeitspunkt nach dem Briefkasten**, vor jeder neuen Fläche. Wird es trotzdem nicht aufgegriffen, **steht der Grund hier beim Ticket** — nicht als Randnotiz. Ab dem zweiten übergangenen Mal geht ein Vermerk an den Auftraggeber. *(Erledigt in der 15:35-Session: `pm/T-0025` war bereits weg — 14:50, SWR-090.)*
+
+1. **Offene pm-Tickets, jetzt alle terminiert (SWR-091).** **`pm/T-0034` — Frist 17.08., Priorität hoch:** team-mail-Wochendigest seit Gründung fällig, nie erzeugt; fünf Sessions lang nur Randnotiz in Punkt 3, jetzt eigenes Ticket. Lösbar **nur am Host** (kein IMAP/Ollama hier) — kürzester Weg im Ticket. **`pm/T-0032` — Frist 19.08.:** Teil 2 aus `pm/N-0025`, echter Uhrzeit-Takt („jeden Tag um 14 Uhr"); berührt F14 und die zwei bestehenden Taktlogiken, Entwurf im Ticket, **erster Nutzer des Fristfeldes, das Teil 1 gebaut hat**. **`pm/T-0028` — Frist 23.08.:** Gründungs-Knopf im Pool; die von Hand vollzogene Gründung von `team-dashboard` ist jetzt seine reale Vorlage. **`team-dashboard/T-0001` — Frist 23.08.:** Widget-Vertrag entwerfen, Vorbedingung für P11. **ERLEDIGT:** `pm/T-0030` Teil 1 (SWR-091, 15:35-Session), `pm/T-0031` (Gründung vollzogen, D006/TG-a), `pm/T-0025` (14:50, SWR-090), `pm/T-0029` (14:05), `pm/T-0027` (12:16), `pm/T-0022` (beide Teile). **Wartend beim Auftraggeber:** `pm/T-0033` (G0 für **P11 „Widget-Dashboard"**, Optionen G0a–G0c, Frist 23.08., Default G0a) — nach G0a folgen Projektordner `projects/p11`, SWRs als `draft` bis G1, Sprint-0-Plan mit dem Widget-Vertrag als Eingangsbedingung.
+
 2. **P10 ist abgeschlossen (G4a/D002, 10:02 via Inbox — B035)** — Baseline `p10-v1.0` auf `projects` und `platform`, Abschlussbericht liegt in `projects/p10/management/`. Offen bleibt nur der **Betriebsnachweis des Auftraggebers**: die sieben Stichproben aus `p10/T-0004` (siehe Punkt 5) — nur erinnern, nie selbst abhaken.
-3. **team-mail-Takt (`team-mail/T-0001`):** fälligen Digest prüfen (der Autopilot erzeugt ihn i. d. R. selbst um 07:30) und als SLA-Stichprobe bewerten — Zustellvermerk am Dateiende. *Korrektur (11:21-Session): entgegen den letzten Einträgen hier IST etwas fällig — `mail_digest.faellig(7)` meldet `True`, noch nie wurde eine `-woche-`-Digest-Datei erzeugt, obwohl `takte: [7]` seit Team-Gründung gilt. Aus der Cowork-Sandbox nicht ausführbar (kein IMAP/SMTP/Ollama). Bitte am Mission-Control-Host prüfen: lief `ASPICE-MailAutopilot` heute 07:30, und ist der Task überhaupt eingerichtet (Runbook Kap. 13)?* Offene Vortages-Punkte im Postfach: Vedaco-„Doppelzahlung" (Phishing-Verdacht), Enpal-Termin, M-net-Umstellung, Google-Sicherheitswarnung. *Handeln tut hier ausschließlich der Mensch (F17).*
+3. **team-mail-Takt (`team-mail/T-0001`):** fälligen Digest prüfen und als SLA-Stichprobe bewerten — Zustellvermerk am Dateiende. **Der Wochendigest-Befund steht ab der 15:35-Session nicht mehr hier, sondern als `pm/T-0034` mit Frist 17.08.** — fünf Sessions „unverändert offen" in dieser Zeile waren genau das Muster aus B043, gegen das SWR-091 gebaut wurde. Offene Vortages-Punkte im Postfach: Vedaco-„Doppelzahlung" (Phishing-Verdacht), Enpal-Termin, M-net-Umstellung, Google-Sicherheitswarnung. *Handeln tut hier ausschließlich der Mensch (F17).*
+
 4. **Fällige pm-Takt-Tickets** — Intake-Queue, Agenda fortschreiben; PUSH-ANFORDERUNG.txt am Session-Ende schreiben (Runbook Kap. 11).
 5. **Offene Stichproben des Auftraggebers nachhalten** (nur erinnern, nie selbst abhaken) — **alle brauchen vorher einen Serverneustart**:
+   - **Neu (15:35-Session, SWR-091/pm/T-0030):** **Cockpit öffnen** — über den Statuszahlen einer Kachel steht bei überfälligen Aufgaben ein roter Block („n überfällig", je Ticket „Frist … (n Tage über)"), in der Statuszeile eine Pille „n ohne Frist". Gegenprobe: einem offenen Ticket im Ticket-Editor eine Frist von **gestern** geben → es erscheint sofort im roten Block; eine unsinnige Frist („2026-13-01") wird beim Speichern mit Klartext abgelehnt.
+   - **Neu (15:35-Session, pm/T-0031/D006):** **Kopfbereich und Cockpit** zeigen `team-dashboard` als **Projekt-Team** mit Board und einer offenen Aufgabe (`T-0001`, wiederkehrend). **Inbox** zeigt den neuen G0-Antrag `pm/T-0033` (P11) mit drei Knöpfen G0a–G0c und Frist 23.08.
    - **Neu (14:50-Session, SWR-090/pm/T-0025):** **Team-Reiter `team-mail`** — unter „Jetzt zusammenfassen" steht die Klartextzeile **„Ein Klick startet: Woche · Modell: gemma3:27b · KI-Hinweis: kein Zusatz · Versand: zusätzlich per Mail"**. Im Konfigurator einen KI-Hinweis eintragen, speichern, Seite neu laden → die Zeile zitiert ihn. Takt auf „Täglich" umstellen, speichern, neu laden → die Zeile sagt „Tag". Nach einem echten Klick nennt die Erfolgsmeldung die geschriebene Datei beim Namen.
    - **Neu (14:50-Session, pm/T-0031):** **Inbox öffnen** — der Gründungs-Antrag `pm/T-0031` steht dort mit vier Knöpfen `TG-a` bis `TG-d` und Frist 23.08.
    - **Neu (14:05-Session, pm/T-0029):** Pool-Reiter → „Neuen Kandidaten anlegen" → Technik-Kandidat, in „Quelle" einen deutlich über 4000 Zeichen langen Text eintragen (z. B. einen längeren Gesprächsausschnitt) → anlegen → erscheint als eine Zeile im Pool, keine Ablehnung. Nutzen/Voraussetzung/Quelle sind jetzt Mehrzeilenfelder im Formular.
