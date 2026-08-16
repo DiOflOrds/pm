@@ -1,6 +1,152 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
-## Das Wichtigste (Stand 2026-08-16 20:50)
+## Das Wichtigste (Stand 2026-08-16 21:25)
+
+1. **Du kannst diesen Block ab jetzt in Mission Control lesen** — Reiter *Cockpit*, Kachel
+   „Letzte Session" ganz oben. Genau das war dein Wunsch aus `pm/N-0032`/`N-0033`.
+2. **`pm/T-0040` ist erledigt** (Frist war 23.08.). Nichts lag an — 43 Briefe, **kein offener**,
+   Inbox leer, kein überfälliges Ticket —, also wurde der nächste geplante CR gebaut.
+3. **Fällt eine Session aus, sagt die Kachel das:** *„seit HH:MM keine Session"*. Ihr Zeitstempel
+   kommt aus dem Git-Commit, nicht aus dem Text — sonst sähe ein alter Stand frisch aus.
+4. **Doppelklick auf „Absenden" erzeugt keinen zweiten Brief mehr** (Ursache von `N-0028`/`N-0029`
+   und `N-0032`/`N-0033`). **353 Tests grün** (vorher 336), Matrix **102 SWRs / 0 Lücken**.
+5. **Heute fällig, nur am Host lösbar: `pm/T-0034`** (17.08. — ab jetzt greift B044).
+
+---
+
+## Für dich (E. John) — nur am Host lösbar
+
+| Frist | Ticket | Was zu tun ist |
+|---|---|---|
+| **17.08.** | `pm/T-0034` | Am Host: Läuft Ollama? Ist `ASPICE-MailAutopilot` eingerichtet? |
+| 18.08. | `pm/T-0013` | Blick auf die GitHub-Actions-Seite (board-check grün?) |
+| 18.08. | `pm/T-0026` | derselbe Blick (CI/Matrix-Gate grün?) |
+| 18.08. | `pm/T-0010` | derselbe Blick (board-check-Flake weg?) |
+
+**Die drei 18.08.-Tickets sind ein Handgriff, nicht drei** — die Seite, die der Push-Wächter
+ohnehin öffnet ([5/5] seiner Ausgabe). Ein grüner Lauf schließt alle drei.
+
+**Neu dazu, ohne Frist: die Stichprobe zu `T-0040`.** Cockpit öffnen — steht „Letzte Session" ganz
+oben, ohne Scrollen, auch am Telefon? Und einmal absichtlich doppelt auf „Absenden" klicken: es
+darf **ein** Brief entstehen. Der zweite Punkt ist **nicht** durch einen Test gedeckt (null
+JS-Tests in der Organisation); dass das offen dasteht, ist Absicht.
+
+## Für das Team
+
+| Frist | Ticket | Team | Inhalt |
+|---|---|---|---|
+| 19.08. | `pm/T-0032` | PM | Echter Uhrzeit-Takt (Abgrenzung zu F14) — **jetzt das früheste** |
+| 23.08. | `pm/T-0036` | PM | „Ohne Frist"-Zähler als Org-Summe |
+| 23.08. | `pm/T-0038` | PM | Feld `verantwortlich` — **mit `T-0036` bündeln** (Board-Format) |
+| 23.08. | `pm/T-0039` | PM | Am Brief weiterkommentieren (`N-0031`) |
+| 23.08. | `pm/T-0028` | PM | Projekt-Pool: Team gründen im HMI |
+| 23.08. | `team-dashboard/T-0001` | team-dashboard | Widget-Vertrag — **die Sperre für P11** |
+| 30.08. | `projects/p12/T-0003` | P12 | Sprint 1: Renderer zusammenführen |
+| 30.08. | `projects/p11/T-0003` | P11 | Sprint 1: Widget-Dashboard bauen |
+
+**Takt-Dauerläufer ohne Frist (kein Rückstand):** `pm/T-0001` (Agenda), `pm/T-0002` (Intake),
+`pm/T-0003` (Lessons), `platform/T-0001` (Werkzeugpflege), `team-mail/T-0001` (wartet auf IMAP).
+
+**Reihenfolge-Hinweis für die nächste Design-Session:** `T-0036` und `T-0038` gehören zusammen
+(beide ändern das `BOARD.md`-Format). `T-0039` ist davon unabhängig (Briefkasten). **`T-0032` hat
+jetzt die früheste Frist und ist zum dritten Mal aufgeschoben worden** — jedes Mal mit derselben
+Begründung („Abgrenzungsfrage zwischen drei Taktlogiken trägt keine halbe Stunde"). Das ist das
+Muster aus **B043/B049**: eine Begründung, die sich wortgleich wiederholt, ist keine Begründung
+mehr, sondern ein Rückstand. Die nächste Session mit freiem Routine-Teil nimmt **`T-0032`** und
+klärt zuerst die Abgrenzung schriftlich, statt zu bauen.
+
+---
+
+*Ab hier: Belege und Details zum Nachlesen.*
+
+*Stand: 2026-08-16 21:06–21:25, Routine-Session (D004, alle 30 Min). Briefkasten beim Start:
+**43 Briefe, kein offener** (alle Projekte/Teams auf `status: offen` durchsucht) — die
+**Zweitprüfung am Sessionende bestätigte das** (weiterhin 43, keiner offen; B036 zum achten Mal
+gefahren, diesmal ohne Fund). Inbox beim Start **und** am Ende: **leer und beweisbar nichts
+Unverbuchtes** — gegen die DR-Rohdaten geprüft (Ablaufregel aus B047): **44 Decision Requests,
+alle `done`**. **Kein überfälliges Ticket** (frühester Termin `pm/T-0034`, 17.08. — ab morgen
+greift B044). Fremde Änderungen: nur die bekannte `team-mail`-Anzeige
+(`digest/2026-08-16-woche-digest.md` in `git status`, `git diff --quiet` = 0) — der Index-Refresh
+aus R7, erneut geprüft, erneut kein Commit. Push: `PUSH-ANFORDERUNG.txt` war beim Start **nicht
+vorhanden** (die Zeile der 20:50-Session ist abgearbeitet). Diese Session legt sie neu an.*
+
+**Der Routine-Teil war leer — und statt „nichts zu tun" zu melden, hat die Session den nächsten
+geplanten CR gebaut (`pm/T-0040` erledigt).**
+
+Präzedenzfall ist die 19:06-Session (`pm/T-0037`). Die Wahl fiel **nicht** auf `pm/T-0032`, obwohl
+es die frühere Frist trägt (19.08.): dort steht vor dem Bau eine Abgrenzungsfrage zwischen drei
+Taktlogiken, die eine halbe Stunde nicht trägt — `T-0040` hatte eine ausgeschriebene DoD. Dass
+diese Begründung jetzt zum dritten Mal wortgleich dasteht, ist oben als Rückstand vermerkt und
+nicht als Erledigung.
+
+**Was jetzt anders ist.** `GET /api/session` (neues Modul `platform/backend/session.py`) und die
+Kachel **„Letzte Session"** als **erstes** Element des Cockpit-Tabs. Sie zeigt genau diesen Block
+— **wörtlich** aus dieser Datei. Es entsteht **kein zweiter Text**: eine zweite Quelle neben der
+Agenda wäre B033 und würde irgendwann abweichen.
+
+**⚠ Der Punkt, an dem die Kachel hätte lügen können.** Im Kopf dieses Blocks steht ein
+„(Stand …)". Fällt der geplante Lauf aus, bleibt die Datei stehen — und diese Zeile behauptete
+weiter Frische (B038). Deshalb kommt der Zeitstempel der Kachel **ausschließlich aus dem
+Git-Commit**, und die Überschriftzeile wird **gar nicht erst mit ausgeliefert**: sie ist die
+einzige Stelle, über die die Textzeit hätte hereinkommen können. Nach zwei stillen Takten (2 × 30
+Min) sagt die Kachel *„seit HH:MM keine Session"*; ein unlesbarer Zeitpunkt gilt als veraltet, nie
+als frisch. Die Überschrift selbst wird an ihrem **Anfang** erkannt, nicht an ihrer Fassung —
+Regel 2 aus **L-2026-08-16h**, derselben Lehre, die am selben Tag 10 von 30 Briefen unlesbar
+gemacht hat.
+
+**Punkt 6 mitgeliefert: der Doppeleingang ist an der Ursache repariert.** Der Absende-Knopf im
+Briefkasten bleibt gesperrt, bis der Verlauf neu gezeichnet ist. Vorher gab er sich sofort frei und
+lud erst 900 ms später neu — ein zweiter Klick in dieses Fenster erzeugte einen zweiten Brief
+(`N-0028`/`N-0029`, `N-0032`/`N-0033`). **Kein Filter, keine Dublettenerkennung** (B050
+unverändert): der Klick wird verhindert, nie ein Brief verschluckt.
+
+**⚠ Befund B056 — eine Zahl, die aus der Historie kommt, ist noch keine Messung dessen, wonach
+gefragt war.** Die DoD verlangt „die Zahl der **Sessions** des Tages". Die Git-Historie kennt keine
+Sessions, nur **Commits**: am 16.08. **42 Commits** auf diese Datei bei rund **30** Läufen. Die
+naheliegende Brücke — Commits über eine Zeitlücke bündeln — unterschätzt nachweislich: zwischen
+`16:35:24` und `16:51:41` liegen 16 Minuten und **zwei verschiedene** Sessions. Geliefert wird
+deshalb `fortschreibungen_heute`, unter seinem eigenen Namen. Eine Schätzung unter dem Namen einer
+Messung wäre B027/B038. Als **L-2026-08-16i** in `process/knowledge/cm/lessons.md`.
+
+**⚠ Zweiter Befund, in eigener Sache und in derselben Familie.** Ein `board.py`-Aufruf in der
+falschen CLI-Form (`pm --status T-0040=in_progress` statt `pm status T-0040 in_progress`) hat
+klaglos nur `BOARD.md` neu erzeugt und `OK: 40 Tickets validiert` gemeldet. Der Statuswechsel fand
+**nicht** statt — die schon geschriebene Commit-Botschaft behauptete ihn trotzdem. Gefunden nur
+beim Nachlesen von `grep '^status:'`, von keiner Meldung. Richtiggestellt per `--amend`, danach die
+drei Übergänge mit **je einem Commit** neu gefahren (B052). Eine Commit-Botschaft ist eine Aussage
+über den Zustand und wird geprüft wie eine.
+
+**⚠ Die erste Gegenprobe war wertlos, und sie steht trotzdem im Nachweis.** Gegen den Altstand
+scheitert die neue Testdatei mit `ImportError: cannot import name 'session'` — das belegt, dass ein
+Modul fehlt, und nichts über den Schaden; wortwörtlich Regel 3 aus L-2026-08-16h. Die zweite
+Gegenprobe läuft über den **echten Abrufweg**: der Server aus `git archive HEAD`, gegen dieselbe
+Agenda gestartet, beantwortet `GET /api/session` mit **HTTP 404 „unbekannter Endpunkt"**. Das ist
+die Beschwerde aus `N-0032`/`N-0033`, nicht ein fehlender Import.
+
+**Nicht als getestet geführt: Punkt 6.** Die Organisation hat **353 Python-Tests und null
+JS-Tests**; „JS-Frontend-Tests" ist Pool-Kandidat #8 und nicht beauftragt. Der Nachweis für den
+Absende-Knopf ist eine **Stichprobe des Auftraggebers** und steht als solche im Ticket und oben.
+
+**Regel 1 aus L-2026-08-16h eingehalten: gegen den Bestand geprüft, nicht nur gegen Testdaten.**
+Nach dem Schreiben dieses Blocks lief `session.stand()` über die **echte** Agenda: geliefert werden
+**820 Zeichen** — genau die fünf Punkte, **ohne** die Überschriftzeile, **ohne** die Stand-Angabe
+`21:25` und **ohne** den Folgeabschnitt „Für dich". Das ist derselbe billige Vollzug, dessen Fehlen
+gestern B054 erzeugt hat: einmal über die Datei laufen, die im Repo steht, und nachzählen.
+
+**Board-Check gegen die Erwartung gelesen (B041 Regel 3):** **pm 40 Tickets** (unverändert —
+`T-0040` hat den Status gewechselt, es kam keins dazu), offene pm-Tickets **13 → 12**; Briefe
+organisationsweit **43** (unverändert), davon **0 offen**. Matrix **102 SWRs / 0 Lücken** (vorher
+101), **353 Tests** (vorher 336), Architektur-Gate grün.
+
+**⚠ Heute fällig, nur am Host lösbar: `pm/T-0034`** (17.08., hoch) — unverändert, kein IMAP/Ollama
+in dieser Sandbox (Guardrail 2). `pm/T-0010`/`T-0013`/`T-0026` bleiben `in_review`, terminiert auf
+18.08.
+
+---
+
+## Vorheriger Stand (2026-08-16 20:50)
+
+### Das Wichtigste (Stand 2026-08-16 20:50)
 
 1. **Drei Briefe waren offen, alle drei sind beantwortet** — `pm/N-0031`, `pm/N-0032`, `pm/N-0033`.
    Beim Startcheck war nur `N-0031` da; `N-0032`/`N-0033` kamen um 20:40 herein und fand die
