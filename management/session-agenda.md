@@ -1,5 +1,116 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
+## Das Wichtigste (Stand Sprint 2, 2026-08-17)
+
+1. **Die CI-Statusprüfung hat beim ersten Lauf drei rote Repos gefunden** — `p3`, `p5` und
+   `platform`. Zwei davon (`p3`, `p5`) waren seit dem 16.08. rot, rund **siebzehn Stunden
+   unbemerkt**. Genau dafür wurde sie gebaut.
+2. **Vier Tickets geschlossen**, alle mit dem Fremdnachweis, auf den sie seit gestern warteten:
+   `platform/T-0003`, `pm/T-0010`, `pm/T-0013`, `pm/T-0026`.
+3. **Eine plausible Erklärung wurde widerlegt statt übernommen.** Dass `p3`/`p5` an der
+   Board-Formatänderung liegen, klang zwingend — `p7` trägt denselben Commit-Zeitpunkt **auf die
+   Sekunde**, dieselbe Workflow-Datei, dieselbe Formatänderung und ist **grün**. Ohne diese
+   Gegenprobe wären zwei Tickets mit falscher Begründung geschlossen worden.
+4. **`platform` ist rot, weil zwei Gates einander auschecken.** `platform` prüft `p0`/`p9`, die
+   Projekt-Repos prüfen `platform` — und alle werden im selben Lauf gepusht. Wer zuerst geht, sieht
+   den anderen alt. **Es gibt keine Push-Reihenfolge, die beide grün macht** (B061, `pm/T-0042`).
+5. **463 Tests grün**, Matrix **107 SWRs / 0 Lücken**, Preflight STARTKLAR, **kein offener Brief**,
+   unterminiert 0, überfällig 0.
+
+---
+
+## Für dich (E. John)
+
+| Was | Warum |
+|---|---|
+| **Nichts Dringendes, nichts Blockierendes** | Kein Ticket wartet auf eine Handlung am Host. |
+| Zur Kenntnis: zwei Repos sind rot | `p3` und `p5` (board-check) seit 16.08. 07:00. Das Team hat die naheliegende Ursache **ausgeschlossen** und rät nicht weiter — der fehlgeschlagene Schritt kommt beim nächsten `abschluss.cmd` automatisch in `CI-STATUS.md` (SWR-107, in diesem Sprint gebaut). |
+| Optional, ohne Frist | Falls du ohnehin auf GitHub bist: die Lauf-Seite von `p3` nennt den Schritt sofort. Sollte es das Secret `PLATFORM_READ_TOKEN` sein, ist die Behebung **Klasse A** (Zugang) und wird dir dann als Inbox-DR vorgelegt — nicht vom Team entschieden. |
+| ⚠ `abschluss.cmd` prüfen (aus Sprint 1, weiter offen) | Die Datei wurde in Sprint 1 versehentlich geleert und aus dem Protokoll **rekonstruiert**. Wenn du eine Vorgängerversion hast, vergleiche sie. |
+
+## Für das Team — die nächsten Sprints
+
+| Sprint | Ticket | Inhalt |
+|---|---|---|
+| jeder | `pm/T-0001`, `pm/T-0002`, `pm/T-0003`, `platform/T-0001`, `team-mail/T-0001` | Takt-Dauerläufer |
+| **3** | `platform/T-0004` | Hostlauf nennt einen Schritt → schließt SWR-107 (ohne Handlung) |
+| **3** | `pm/T-0042` | Push-Reihenfolge-Zwickmühle: einen der vier Wege wählen und den Preis nennen |
+| **3** | `pm/T-0043` | `p3`/`p5`: den Schritt aus `CI-STATUS.md` lesen und den Befund schreiben |
+| **3** | `team-dashboard/T-0001` | Widget-Vertrag — die Sperre für P11 |
+| 4 | `pm/T-0036` + `pm/T-0038` | Board-Format, gebündelt (B053) |
+| 5 | `projects/p11/T-0003` | Widget-Dashboard |
+| 6 | `pm/T-0039` | Am Brief weiterkommentieren |
+| 7 | `pm/T-0028` | Projekt-Pool: Team gründen im HMI (Klasse A — nur vorbereiten) |
+| 8 | `projects/p12/T-0003` | Renderer zusammenführen |
+
+**Ab Sprint 5 ist die Nummer eine Reihenfolge, keine Zusage.** Der vollständige Plan steht in
+`pm/management/sprint-aktuell.md`.
+
+**Kleine Feldkorrektur für Sprint 3 (kein eigenes Ticket):** `team-dashboard/T-0001` trägt
+**sowohl** `takt: je-session` **als auch** `geplant_sprint: 3`. Nach der Regel aus SWR-106 ist das
+eine Doppelaussage (B033) — Takt-Dauerläufer tragen keine Nummer. Die Widerspruchsprüfung schlägt
+nicht an, weil keine Frist verletzt wird; die Doppelung bleibt trotzdem eine.
+
+---
+
+*Ab hier: Belege und Details zum Nachlesen.*
+
+## Sprint 2 (2026-08-17)
+
+**Was der Lauf tun sollte.** Der Plan aus Sprint 1 lautete: „CI-Status auswerten, sobald
+`CI-STATUS.md` existiert" — vier Tickets, die alle auf denselben Blick warteten. Der Bericht lag
+vor (Stand 00:31, 15 Abfragen, `budget_erschoepft: false`).
+
+**Was der Bericht sagte.** Acht Repos grün **für ihren eigenen Commit** (`p0`, `p1`, `p2`, `p4`,
+`p7`, `p8`, `p9`, `pm`), `team-dashboard` als „kein CI zu erwarten", und **drei rot**: `p3`, `p5`,
+`platform`.
+
+**`pm/T-0010` (Stand-Datum-Flake) — geschlossen.** Acht grüne board-checks, darunter `p0` und `pm`
+mit Commits **nach** Mitternacht. Der `-I "^Stand:"`-Fix trägt über die Datumsgrenze. Gegenprobe zu
+den roten: alle 16 Repos regenerieren ihre `BOARD.md` heute byte-gleich — eine Stand-Drift ist als
+Ursache ausgeschlossen.
+
+**`pm/T-0013` (Push-Reihenfolge für den board-check) — geschlossen, mit einer Rückseite.**
+Kriterium 2 ist erfüllt. Aber dieselbe Reihenfolge macht den CI-Lauf von `platform` rot: dessen
+Matrix-Gate checkt `p0`/`p9` aus und sieht sie einen Commit alt. **Nachgestellt, nicht vermutet** —
+`platform@34a44d57` gegen zwei Stände von `p0`/`p9`: vor dem Push **Exit 1, 104 SWRs, 1 Lücke
+(SWR-105)**; nach dem Push **Exit 0, 105 SWRs, 0 Lücken**. Neuer Befund: `pm/T-0042` (B061).
+
+**`pm/T-0026` (Matrix-Gate ohne `projects`) — geschlossen.** In beiden Durchläufen war `projects`
+ausgecheckt; die Lücke entsteht durch die Reihenfolge, nicht durch eine fehlende Quelle. Der Fix
+dieses Tickets trägt.
+
+**`platform/T-0003` (SWR-105) — geschlossen.** Alle fünf DoD-Punkte belegt; der **Netzweg** ist
+nachgewiesen, das war die offene Stelle. Die vorgesehene Stichprobe des Auftraggebers („stimmt das
+Urteil mit der Actions-Seite überein?") wurde **stärker als vorgesehen** erbracht: das rote Urteil
+über `platform` ließ sich lokal **unabhängig rekonstruieren**.
+
+**Was danach kam: `platform/T-0004` / SWR-107, im selben Sprint gebaut.** Der Bericht sagt `ROT`
+und nicht **warum** — und lässt damit genau die Lücke offen, die er schließen sollte. `GET
+/repos/{slug}/actions/runs/{id}/jobs` ist dieselbe anmeldefreie API-Familie. Der Bericht nennt jetzt
+Job und Schritt. **19 neue Tests**, alle mit injizierter Abruffunktion; die Nachfrage läuft **nach**
+der Warteschleife (rot ist ein Endzustand), **einmal je rotem Repo**, gegen **dasselbe** Budget,
+und ein Scheitern lässt das Repo **rot** mit „Schritt unbekannt". `in_review`, weil der Netzweg der
+Jobs-Adresse erst der nächste Hostlauf belegt.
+
+**Zwei Fälle, die beim Bauen auffielen und in keinem Ticket standen:** `skipped` ist die **Folge**
+eines Fehlers und nicht der Fehler (sonst meldet die Diagnose den falschen Schritt und liest sich
+trotzdem wie eine Antwort); und ein roter Lauf ohne `id` kostet jetzt keine Abfrage.
+
+**Verankert (D005, noch in diesem Lauf):** **L-2026-08-17b** (B061 — zwei Gates, die einander
+auschecken, haben keine gemeinsame Push-Reihenfolge; die Asymmetrie entscheidet, nicht die
+Symmetrie) und **L-2026-08-17c** (B062 — ein Zustand ohne Grund ist eine Farbe und verschiebt die
+Arbeit nur; die erste Erklärung wird gegen einen Nachbarn geprüft, bevor sie eine Ursache heißt).
+
+**Board-Check gegen die Erwartung gelesen (B041 Regel 3):** pm **43** Tickets (+2: `T-0042`,
+`T-0043`), platform **4** (+1: `T-0004`), gesamt **246** (+3). Briefe organisationsweit **48**,
+davon **0 offen**. Matrix **107 SWRs** (vorher 106) / 0 Lücken, **463 Tests** (vorher 444).
+Nicht geschlossen: **15** (vorher 16).
+
+---
+
+## Vorheriger Stand (Sprint 1, 2026-08-17)
+
 ## Das Wichtigste (Stand Sprint 1, 2026-08-17)
 
 1. **Geplant wird ab jetzt auf Sprints, nicht auf Kalenderdaten.** Ein Sprint = ein Routine-Lauf,
