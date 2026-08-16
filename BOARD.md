@@ -3,14 +3,19 @@
 Stand: 2026-08-16 · Tickets: 14 · davon wiederkehrend: 2
 
 
-## open (4)
+## open (3)
 
 | ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|
 | [T-0001](tickets/T-0001.md) | Takt: Session-Agenda pflegen (jede Session) | task | je Session | pl | hoch | 0 | — |
 | [T-0002](tickets/T-0002.md) | Takt: Intake-Queue — neue Wünsche/Briefe qualifizieren (jede Session) | task | je Session | pl | hoch | 0 | — |
-| [T-0012](tickets/T-0012.md) | CR (N-0015): Kopfbereich zeigt nur aktive Projekte/Teams — direkt anklickbar | change-request | einmalig | chg | hoch | 0 | — |
 | [T-0003](tickets/T-0003.md) | LeLe Q4/2026: erste teamübergreifende Lessons Learned vorbereiten | task | einmalig | coach | niedrig | 0 | — |
+
+## in_progress (1)
+
+| ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
+|---|---|---|---|---|---|---|---|
+| [T-0012](tickets/T-0012.md) | CR (N-0015): Kopfbereich zeigt nur aktive Projekte/Teams — direkt anklickbar | change-request | einmalig | chg | hoch | 0 | — |
 
 ## in_review (2)
 
