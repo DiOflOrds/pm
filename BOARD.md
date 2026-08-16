@@ -1,6 +1,6 @@
 # Board (generiert von platform/scripts/board.py — nicht von Hand editieren)
 
-Stand: 2026-08-17 · Tickets: 40 · davon wiederkehrend: 3
+Stand: 2026-08-17 · Tickets: 41 · davon wiederkehrend: 3
 
 
 ## open (7)
@@ -23,7 +23,7 @@ Stand: 2026-08-17 · Tickets: 40 · davon wiederkehrend: 3
 | [T-0026](tickets/T-0026.md) | Problem (platform/N-0006): CI rot — das Matrix-Gate sah das Sammel-Repo `projects` nicht | problem | einmalig | cm | hoch | 0 | — |
 | [T-0010](tickets/T-0010.md) | Problem (N-0007): board-check-Flake — Stand-Datum kippt um Mitternacht | problem | einmalig | prob | mittel | 0 | — |
 
-## done (30)
+## done (31)
 
 | ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|
@@ -47,6 +47,7 @@ Stand: 2026-08-17 · Tickets: 40 · davon wiederkehrend: 3
 | [T-0033](tickets/T-0033.md) | DR (Klasse A): G0 für Projekt P11 „Widget-Dashboard" — Auftrag, Abnahmekriterien, Abgrenzung | decision-request | einmalig | pl | hoch | 0 | — |
 | [T-0034](tickets/T-0034.md) | Problem: team-mail-Wochendigest ist seit Teamgründung fällig und wurde nie erzeugt — seit fünf Sessions unveränderte Randnotiz | problem | einmalig | prob | hoch | 0 | — |
 | [T-0040](tickets/T-0040.md) | CR (B055, pm/N-0032+N-0033): Session-Zusammenfassung in Mission Control — was eine Session getan hat, steht heute nur in Dateien, die die HMI nicht zeigt | change-request | einmalig | pl | hoch | 0 | — |
+| [T-0041](tickets/T-0041.md) | CR: Terminierung auf Sprints statt auf Kalenderdaten — jeder Routine-Lauf ist ein Sprint | change-request | einmalig | pl | hoch | 0 | — |
 | [T-0014](tickets/T-0014.md) | CR (N-0017): Cockpit zeigt wiederkehrende Aufgaben im Klartext statt als Symbol | change-request | einmalig | chg | mittel | 0 | — |
 | [T-0015](tickets/T-0015.md) | CR (N-0018): Team-Chat zeigt die neuesten Nachrichten zuerst | change-request | einmalig | chg | mittel | 0 | — |
 | [T-0018](tickets/T-0018.md) | CR (Auftraggeber via Session): Entscheidungen mit Datum UND Uhrzeit festhalten | change-request | einmalig | chg | mittel | 0 | — |

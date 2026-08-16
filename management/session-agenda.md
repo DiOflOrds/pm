@@ -1,5 +1,80 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
+## Das Wichtigste (Stand Sprint 1, 2026-08-17)
+
+1. **Geplant wird ab jetzt auf Sprints, nicht auf Kalenderdaten.** Ein Sprint = ein Routine-Lauf,
+   Takt **stündlich**, also rund **24 Sprints am Tag**. Wir sind in **Sprint 1** — der Zähler
+   beginnt mit der Umstellung, rückwirkend wird nicht nummeriert (B056).
+2. **Alle 17 offenen Aufgaben sind auf Sprints geplant**: 6 in diesem, 4 in Sprint 2, 1 in
+   Sprint 3, der Rest als geordnete Warteschlange bis Sprint 8. Kein Ticket ohne Zuordnung.
+3. **Für dich ist nichts mehr offen.** `pm/T-0034` ist geschlossen (die Digests im Repo belegen
+   IMAP und Ollama), und der Blick auf die Actions-Seite ist mit **SWR-105** automatisiert.
+4. **`frist` bleibt neben `geplant_sprint`** — Zusage nach außen und Planung des Teams. Die
+   bekannte Schwäche dieser Wahl (zwei Angaben driften) wird **geprüft**: die Kachel meldet jedes
+   Ticket, dessen Sprint nach seiner Frist läge. Aktuell: keins.
+5. **444 Tests grün**, Matrix **106 SWRs / 0 Lücken**, Preflight STARTKLAR, kein offener Brief.
+
+---
+
+## Für dich (E. John)
+
+| Was | Warum |
+|---|---|
+| **Nichts Dringendes** | Erstmals wartet keine Aufgabe auf eine Handlung am Host. |
+| Stichprobe CI (ohne Frist) | Nach dem nächsten `abschluss.cmd`: nennt `CI-STATUS.md` denselben Commit wie die Actions-Seite? Das schließt `platform/T-0003`, `pm/T-0010`, `pm/T-0013`, `pm/T-0026`. |
+| Stichprobe Sprintkachel | Cockpit öffnen: steht oben „Sprint 1 · Takt 60 Min", und sind die Warteschlangen-Zeilen als solche markiert? |
+| ⚠ `abschluss.cmd` prüfen | Die Datei wurde in diesem Lauf versehentlich geleert und aus dem Protokoll **rekonstruiert**. Wenn du eine Vorgängerversion hast, vergleiche sie. |
+
+## Für das Team — die nächsten Sprints
+
+| Sprint | Ticket | Inhalt |
+|---|---|---|
+| jeder | `pm/T-0001`, `pm/T-0002`, `pm/T-0003`, `platform/T-0001`, `team-mail/T-0001` | Takt-Dauerläufer (keine Nummer, das Feld `takt` sagt es) |
+| **2** | `platform/T-0003`, `pm/T-0010`, `pm/T-0013`, `pm/T-0026` | CI-Status auswerten, sobald `CI-STATUS.md` existiert |
+| **3** | `team-dashboard/T-0001` | Widget-Vertrag — die Sperre für P11 |
+| 4 | `pm/T-0036` + `pm/T-0038` | Board-Format, gebündelt (B053) |
+| 5 | `projects/p11/T-0003` | Widget-Dashboard |
+| 6 | `pm/T-0039` | Am Brief weiterkommentieren |
+| 7 | `pm/T-0028` | Projekt-Pool: Team gründen im HMI (Klasse A — nur vorbereiten) |
+| 8 | `projects/p12/T-0003` | Renderer zusammenführen |
+
+**Ab Sprint 4 ist die Nummer eine Reihenfolge, keine Zusage** — bei 24 Sprints am Tag wäre alles
+andere Scheingenauigkeit. Der vollständige Plan steht in `pm/management/sprint-aktuell.md`.
+
+---
+
+*Ab hier: Belege und Details zum Nachlesen.*
+
+## Sprint 1 (2026-08-17)
+
+**Geschlossen:** `pm/T-0041` (Umstellung auf Sprintplanung, **SWR-106**), davor im selben Lauf
+`pm/T-0034` (Beleg im Repo statt Zusage) und `platform/T-0003` gebaut (**SWR-105**, CI-Status ohne
+Zugangsdaten). **Fünf Briefe beantwortet** (`pm/N-0034`–`N-0037`, `projects/p11/N-0001`).
+
+**Der Zähler ist eine Datei, keine Schätzung.** `pm/management/sprints.jsonl`, eine Zeile je
+Sprint, nur angehängt, idempotent über eine Laufkennung — derselbe Lauf zweimal gestartet erhöht
+nichts. **Nicht** aus der Git-Historie gezählt: eine Session schreibt mehrfach, Commits sind keine
+Läufe (B056, belegt mit 42 Commits auf rund 30 Läufe).
+
+**Gegenprobe über den echten Bestand.** Der Altstand aus `git archive HEAD`, gegen die **neue**
+Plandatei gestartet, meldet **16 von 17 Zeilen als „ohne Zustand"** — grau, also ungeplant — und
+kennt das Feld `sprint_nr` nicht. Der Neustand meldet 0. Das belegt den Schaden und nicht bloß ein
+fehlendes Modul (Regel 3 aus L-2026-08-16h).
+
+**Der Einwand des Teams steht im Ticket, nicht im Gedächtnis.** Der Auftraggeber hat `frist` und
+`geplant_sprint` **parallel** gewählt — die Option, die das Team als schwächste bezeichnet hatte
+(zwei Angaben zu „wann ist es dran" driften, B033). Umgesetzt **und** abgesichert: beide Felder
+beantworten schriftlich zwei verschiedene Fragen, und `board.sprint_widerspruch` meldet jedes
+Ticket, dessen Sprint **auch bei ununterbrochenem Takt** nach seiner Frist läge. Verankert als
+**L-2026-08-17a**.
+
+**Nachweis:** 444 Tests (vorher 424, +20), Matrix 106 SWRs / 0 Lücken, Preflight STARTKLAR,
+`nicht_geplant: []`, `widersprueche: []`.
+
+---
+
+## Vorheriger Stand (2026-08-16 23:06)
+
 ## Das Wichtigste (Stand 2026-08-16 23:06)
 
 1. **`pm/T-0032` ist erledigt — beide Teile.** Der Wunsch aus `pm/N-0025` („jeden tag, woche um

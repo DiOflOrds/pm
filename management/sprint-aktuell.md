@@ -2,100 +2,93 @@
 
 ## Das Wichtigste
 
-1. **17 offene Aufgaben in 6 Repos, alle terminiert** — 6 in diesem Sprint, 5 warten auf eine
-   Handlung am Host, 6 tragen ein späteres Datum mit Grund im Ticket.
-2. **Sprintinhalt ist `pm/T-0032` Teil 2 (Bau)** — die früheste Frist der Organisation (19.08.)
-   und das einzige offene Ticket, das nach der Zerlegung des Vorlaufs **keine Denkarbeit mehr
-   trägt**. Es ohne Not liegen zu lassen, wäre der vierte Aufschub gewesen.
-3. **Kein Ticket ist unterminiert, keins überfällig** — Stand beim Planen; `pm/T-0034` (17.08.)
-   ist der früheste Termin und wartet auf den Host.
-4. **Keine Rollenumhängung.** Die fünf Host-Aufgaben tragen fachlich korrekte Rollen; dass sie
-   beim **Menschen** liegen, sagt bis `pm/T-0038` allein die Spalte *Status*.
+1. **Geplant wird ab jetzt auf Sprints, nicht auf Kalenderdaten** (Auftraggeber, 2026-08-17).
+   Ein Sprint = ein Routine-Lauf; der Takt ist **stündlich**, also rund **24 Sprints am Tag**.
+2. **Wir sind in Sprint 1.** Der Zähler beginnt mit der Umstellung; die rund dreißig Läufe des
+   16.08. bekommen **keine** Nummern — sie ließen sich nur schätzen, und Commits sind keine
+   Läufe (B056).
+3. **Alle 17 offenen Aufgaben sind auf Sprints geplant** — 6 in diesem, 4 in Sprint 2, 1 in
+   Sprint 3, der Rest als geordnete Warteschlange bis Sprint 8.
+4. **Nichts wartet mehr auf dich.** Die vier Host-Aufgaben von gestern sind entweder geschlossen
+   (`pm/T-0034`) oder laufen jetzt über die CI-Statusprüfung aus SWR-105.
+5. **`frist` und `geplant_sprint` laufen parallel** — Zusage nach außen und Planung des Teams.
+   Widersprüche zwischen beiden meldet die Kachel; aktuell: **keiner**.
 
 ## Sprint-Plan
 
-*Sprint = dieser Lauf (2026-08-16 23:06–…). Default nach pm/D006: in diesem Sprint schließen.
-Verschieben nur mit Grund — Mensch nötig, zu groß (zerlegt) oder blockiert.*
+*Sprint 1 = dieser Lauf (2026-08-17, Takt 60 Min). Default nach pm/D006: in diesem Sprint
+schließen. Verschieben nur mit Grund — Mensch nötig, zu groß (zerlegt) oder blockiert.
+**Fest geplant** sind Sprint 1–3; ab Sprint 4 ist die Nummer eine **Reihenfolge**, keine Zusage.*
 
 | Aufgabe | Rolle | Fällig | Status | Grund / nächster Schritt |
 |---|---|---|---|---|
-| pm/T-0032 | pl | dieser Sprint | **erledigt** | Teil 2 gebaut: `takt: taeglich@HH:MM` / `woechentlich@Mo-HH:MM`, Feld `zuletzt_erledigt`, **eine** Fälligkeitsfunktion durch dieselbe `board.frist_ampel` (SWR-104). Vorgezogen vom 19.08. — nach der Zerlegung des Vorlaufs reine Bauarbeit. |
-| pm/T-0001 | pl | dieser Sprint | erfüllt | Takt je Session: Session-Agenda fortgeschrieben. |
-| pm/T-0002 | pl | dieser Sprint | erfüllt | Takt je Session: Briefkasten qualifiziert — 43 Briefe, kein offener (zweimal geprüft, B036). |
-| pm/T-0003 | coach | dieser Sprint | erfüllt | Takt je Sprint: Lessons Learned dieses Laufs sofort verankert (D005). |
-| platform/T-0001 | cm | dieser Sprint | erfüllt | Takt: Werkzeugpflege — Preflight STARTKLAR, Tests grün, Matrix ohne Lücke. |
-| pm/T-0034 | prob | 2026-08-17 | wartet-auf-Mensch | Ollama/`ASPICE-MailAutopilot` nur am Host prüfbar; in dieser Sandbox kein IMAP und kein Ollama (Guardrail 2). Ab 17.08. greift B044. |
-| pm/T-0013 | prob | 2026-08-18 | wartet-auf-Mensch | Kriterium 1 lokal belegt (B049); Kriterium 2 braucht die GitHub-Actions-Seite. |
-| pm/T-0010 | prob | 2026-08-18 | wartet-auf-Mensch | Derselbe Blick auf dieselbe Seite (board-check-Flake). |
-| pm/T-0026 | cm | 2026-08-18 | wartet-auf-Mensch | Derselbe Blick auf dieselbe Seite (CI-/Matrix-Gate). |
-| team-mail/T-0001 | dev | wartet-auf-Mensch | blockiert | Fachlich blockiert durch `pm/T-0034`: der Takt beginnt mit der IMAP-Einrichtung am Host. |
-| pm/T-0036 | pl | 2026-08-23 | terminiert | Ändert das `BOARD.md`-Format und gehört mit `pm/T-0038` in **eine** Session — zwei getrennte Formatänderungen haben am 16.08. sämtliche board-checks rot gemacht (`pm/T-0013`). |
-| pm/T-0038 | pl | 2026-08-23 | terminiert | Gebündelt mit `pm/T-0036`, gleicher Grund. Beide zusammen sind der nächste Sprint-Inhalt. |
-| pm/T-0039 | pl | 2026-08-23 | terminiert | Eigene Fläche (Dateiformat, Schreibpfad, Statuslogik, HMI) — neben `T-0032` in einem Lauf wäre es B025. |
-| pm/T-0028 | chg | 2026-08-23 | terminiert | Team-Gründung im HMI berührt Klasse A (Playbook Kap. 16); Entwurf und Vorlage gehören in einen eigenen Lauf. |
-| team-dashboard/T-0001 | pl | 2026-08-23 | terminiert | Widget-Vertrag; ist die fachliche Sperre für `projects/p11/T-0003`. |
-| projects/p11/T-0003 | pl | 2026-08-30 | blockiert | Wartet auf `team-dashboard/T-0001`. Repo-übergreifendes `blocked_by` kann das Board nicht ausdrücken (B047) — der Termin trägt die Aussage, der Grund steht im Ticket. |
-| projects/p12/T-0003 | pl | 2026-08-30 | terminiert | Sprint 1 (Renderer zusammenführen); Umfang eines eigenen Sprints, nicht einer Routine-Halbstunde. |
+| pm/T-0041 | pl | dieser Sprint | **erledigt** | Umstellung auf Sprintplanung: Zähler `sprints.jsonl`, Feld `geplant_sprint`, Widerspruchsprüfung, Kachel (SWR-106). |
+| pm/T-0001 | pl | jeder Sprint | erfüllt | Takt: Session-Agenda fortgeschrieben. |
+| pm/T-0002 | pl | jeder Sprint | erfüllt | Takt: Briefkasten qualifiziert — 48 Briefe, kein offener; 5 in diesem Lauf beantwortet. |
+| pm/T-0003 | coach | jeder Sprint | erfüllt | Takt: Lessons Learned sofort verankert (D005). |
+| platform/T-0001 | cm | jeder Sprint | erfüllt | Takt: Werkzeugpflege — Preflight STARTKLAR, Tests grün, Matrix ohne Lücke. |
+| team-mail/T-0001 | dev | jeder Sprint | erfüllt | Takt: Digest. **Nicht mehr blockiert** — IMAP und Ollama laufen, belegt durch den Autopilot-Digest vom 16.08. |
+| platform/T-0003 | cm | Sprint 2 | in_review | Stichprobe auswerten, sobald der erste `CI-STATUS.md` am Host entstanden ist. |
+| pm/T-0013 | prob | Sprint 2 | in_review | Kriterium 2 (grüner Actions-Lauf) kommt ab jetzt aus `CI-STATUS.md` statt aus einem Blick. |
+| pm/T-0010 | prob | Sprint 2 | in_review | Dieselbe Quelle (board-check-Flake). |
+| pm/T-0026 | cm | Sprint 2 | in_review | Dieselbe Quelle (CI-/Matrix-Gate). |
+| team-dashboard/T-0001 | pl | Sprint 3 | offen | Widget-Vertrag; fachliche Sperre für `projects/p11/T-0003`. Vorgezogen auf Wunsch (Brief p11/N-0001). |
+| pm/T-0036 | pl | Sprint 4 | offen | Ändert das `BOARD.md`-Format und gehört mit `pm/T-0038` in **einen** Sprint — zwei getrennte Formatänderungen haben am 16.08. alle board-checks rot gemacht (B053). |
+| pm/T-0038 | pl | Sprint 4 | offen | Gebündelt mit `pm/T-0036`, gleicher Grund. |
+| projects/p11/T-0003 | pl | Sprint 5 | blockiert | Wartet auf `team-dashboard/T-0001` (Sprint 3). Repo-übergreifendes `blocked_by` kann das Board nicht ausdrücken (B047) — die Sprintfolge trägt die Aussage. |
+| pm/T-0039 | pl | Sprint 6 | offen | Eigene Fläche (Dateiformat, Schreibpfad, Statuslogik, HMI) — mit anderem zusammen wäre es B025. |
+| pm/T-0028 | chg | Sprint 7 | offen | Team-Gründung im HMI berührt Klasse A (Playbook Kap. 16); das HMI darf sie nur **vorbereiten**. |
+| projects/p12/T-0003 | pl | Sprint 8 | offen | Sprint 1 des Projekts (Renderer zusammenführen) — Umfang mehrerer Läufe, nicht eines. |
 
-**Rollenzuweisung in diesem Sprint:** keine Umhängung. Alle fünf Host-Aufgaben tragen fachlich
-korrekte Rollen (`prob`/`cm`/`dev`); dass sie tatsächlich beim **Menschen** liegen, ist genau die
-Lücke, die `pm/T-0038` schließt (Feld `verantwortlich`) — bis dahin sagt es die Spalte *Status*
-hier mit `wartet-auf-Mensch`.
+**Warum fünf Zeilen keine Nummer tragen.** `pm/T-0001`, `pm/T-0002`, `pm/T-0003`,
+`platform/T-0001` und `team-mail/T-0001` sind **Takt-Dauerläufer** (`takt: je-session`): sie laufen
+in **jedem** Sprint. Eine Nummer daneben wäre eine zweite Aussage über dieselbe Sache und würde bei
+jedem Lauf veralten — genau die Doppelung, die diese Umstellung beseitigen soll (B033).
+
+**Rollenzuweisung in diesem Sprint:** keine Umhängung.
 
 ---
 
 *Ab hier: Belege und Details zum Nachlesen.*
 
-## Sprint-Abschluss (2026-08-16, 23:06-Lauf)
+## Sprint-Abschluss (Sprint 1, 2026-08-17)
 
-**Geplant:** 17 Aufgaben, davon 6 für diesen Sprint. **Geschlossen:** `pm/T-0032` (`done`, nach
-`in_review` mit Reviewer `qm`) sowie die vier Takt-Pflichten `pm/T-0001`, `pm/T-0002`, `pm/T-0003`,
-`platform/T-0001`. **Nicht geschlossen:** nichts, was für diesen Sprint geplant war.
+**Geplant:** 17 Aufgaben, davon 6 in diesem Sprint. **Geschlossen:** `pm/T-0041` sowie die fünf
+Takt-Pflichten. **Nicht geschlossen:** nichts, was für Sprint 1 geplant war.
 
-Der Sprint hat der Organisation **eine** Takt-Syntax mit Uhrzeit, **ein** neues Ticketfeld
-(`zuletzt_erledigt`), **einen** neuen SWR (104, 0 Lücken), **22** neue Tests (402, vorher 380) und
-**zwei** Befunde gebracht, die beide in `process/knowledge/cm/lessons.md` stehen: **B058** — die
-Ampel war eine **Tagesregel** und musste zur **Momentregel** werden, ohne ihre Aussage für reine
-Datumsfristen zu verändern; und **B059** — eine **unabhängige Gegenprüfung** fand bei **grüner
-Suite** zwei Nachbarn, die denselben Wert weiter mit der alten Auflösung lasen (eine `frist` mit
-Uhrzeit hätte die ganze Cockpit-Seite mitgerissen, der Ticket-Editor hätte den Takt beim Speichern
-gelöscht). Beide behoben, beide mit Regressionstest.
+Vorher, im selben Lauf: `pm/T-0034` geschlossen (Beleg im Repo statt Zusage), fünf Briefe
+beantwortet, `platform/T-0003` / SWR-105 gebaut (CI-Status ohne Zugangsdaten).
 
-**Was das für den nächsten Sprint heißt:** die Gegenprüfung ist ab jetzt **letzter Schritt** einer
-Änderung an geteilten Regeln, nicht Zugabe (L-2026-08-16m).
+## Wie geplant wird — die Regeln dieser Umstellung
 
-## Wie dieser Plan entstanden ist
+**Ein Sprint ist ein Routine-Lauf.** Der Zähler steht in `pm/management/sprints.jsonl`, eine Zeile
+je Sprint, nur angehängt. Er wird **nicht** aus der Git-Historie abgeleitet: eine Session schreibt
+mehrfach, Commits sind keine Läufe (**B056**, belegt mit 42 Commits auf rund 30 Läufe). `beginne()`
+ist über eine Laufkennung **idempotent** — derselbe Lauf zweimal gestartet erhöht nichts.
 
-Gesichtet wurden **alle** Tickets **aller** entdeckten Repos (16 Git-Repos plus die drei Projekte
-in `projects/`): **241 Tickets**, davon 220 `done`, 4 `rejected`, **14 `open`, 3 `in_review`**.
-Die 17 nicht geschlossenen stehen oben vollständig — keine Auswahl, keine Kürzung.
+**Der Horizont ist ehrlich beschriftet.** Sprint 1–3 sind fest; ab Sprint 4 ist die Nummer eine
+Reihenfolge. Bei 24 Sprints am Tag wäre „Sprint 150" eine Scheingenauigkeit, die bei jedem Lauf neu
+geschrieben werden müsste — die Zahl steht trotzdem da, aber sie heißt *Warteschlange* und nicht
+*Termin*.
 
-**Warum `pm/T-0032` und nicht ein Ticket vom 23.08.** Die Vorsession hat `T-0032` zerlegt, statt
-es zum vierten Mal zu verschieben, und schriftlich festgehalten: *„Ab hier trägt das Ticket keine
-Denkarbeit mehr, sondern Bauarbeit."* Damit war die Auswahl nicht mehr frei — ein Ticket mit der
-frühesten Frist, ohne offene Vorfrage und mit fertiger Abgrenzung noch einmal liegen zu lassen,
-hätte genau das Muster fortgesetzt, gegen das die Zerlegung geschrieben wurde (B043/B049). Die
-`23.08.`-Tickets ändern dagegen alle das `BOARD.md`-Format oder berühren Klasse A und gehören
-gebündelt in einen eigenen Lauf (B053/B025).
+**`frist` bleibt und beantwortet eine andere Frage.** Der Auftraggeber hat beide Felder gewählt:
 
-## Nicht in diesem Sprint — und warum nicht
+| Feld | Frage | Wer liest es |
+|---|---|---|
+| `frist` | *Bis wann ist es jemandem außerhalb des Teams zugesagt?* | Eskalation B044/SWR-091, der Mensch |
+| `geplant_sprint` | *In welchem Lauf fasst das Team es an?* | Sprintplanung, das Team |
 
-* **`pm/T-0036` + `pm/T-0038` (23.08.)** — beide fügen dem generierten `BOARD.md` eine Spalte
-  bzw. Zeile hinzu. Zwei getrennte Formatänderungen am Board haben am 16.08. früh alle
-  board-check-Workflows rot gemacht; sie gehören in **eine** Session (B053).
-* **`pm/T-0039` (23.08.)** — Briefverlauf: Dateiformat, Schreibpfad, Statuslogik, Preflight-Zahl
-  und HMI gleichzeitig. Neben `T-0032` in einem Lauf wäre es die zweite große Fläche (B025).
-* **`pm/T-0028` (23.08.)** — Team-Gründung ist Klasse A (Playbook Kap. 16). Das HMI darf sie
-  **vorbereiten**, entscheiden darf sie nur der Mensch; der Entwurf braucht einen eigenen Lauf.
-* **`team-dashboard/T-0001` (23.08.)** — Widget-Vertrag, Sperre für P11. Ein Vertrag, der in einer
-  Restviertelstunde entsteht, ist der Grund für den nächsten Vertrag.
-* **`projects/p11/T-0003` (30.08.)** — fachlich blockiert; `blocked_by` über Repo-Grenzen kennt das
-  Board nicht (B047).
-* **`projects/p12/T-0003` (30.08.)** — voller Sprint 1 mit ADR, Teststrecke und G4.
+Zwei Fakten dürfen nebeneinander stehen — zwei Angaben, die sich widersprechen, nicht. Deshalb
+prüft `board.sprint_widerspruch` jedes Ticket, dessen geplanter Sprint **selbst bei
+ununterbrochenem Takt** nach seiner Frist läge, und die Kachel zeigt die Treffer **über** der
+Tabelle. Das ist die Gegenmaßnahme zu der Schwäche, die das Team bei dieser Wahl benannt hat
+(B033): sie wird geprüft statt vorausgesetzt.
 
-## Was am Host hängt (fünf Aufgaben, zwei Handgriffe)
+## Was sich gegenüber gestern geändert hat
 
-`pm/T-0034` (17.08.) ist der eine: läuft Ollama, ist `ASPICE-MailAutopilot` eingerichtet? Daran
-hängt `team-mail/T-0001` — der Digest-Takt beginnt erst mit IMAP. `pm/T-0010`, `pm/T-0013` und
-`pm/T-0026` (alle 18.08.) sind der andere: **ein** Blick auf die GitHub-Actions-Seite, die der
-Push-Wächter in Schritt [5/5] ohnehin öffnet. Ein grüner Lauf schließt alle drei.
+* **Aus fünf „wartet-auf-Mensch" sind null geworden.** `pm/T-0034` ist geschlossen (die Digests im
+  Repo belegen IMAP und Ollama), `team-mail/T-0001` ist damit entsperrt, und die drei
+  CI-Tickets bekommen ihre Antwort ab jetzt aus `CI-STATUS.md` (SWR-105) statt aus einem Blick auf
+  eine Webseite.
+* **Aus Kalenderdaten sind Sprintnummern geworden.** Der Abstand zur Arbeitseinheit ist damit
+  ablesbar: „Sprint 4" heißt drei Läufe, nicht „irgendwann nächste Woche".
