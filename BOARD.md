@@ -1,6 +1,6 @@
 # Board (generiert von platform/scripts/board.py — nicht von Hand editieren)
 
-Stand: 2026-08-16 · Tickets: 23 · davon wiederkehrend: 2
+Stand: 2026-08-16 · Tickets: 24 · davon wiederkehrend: 2
 
 
 ## open (4)
@@ -19,7 +19,7 @@ Stand: 2026-08-16 · Tickets: 23 · davon wiederkehrend: 2
 | [T-0013](tickets/T-0013.md) | Problem (platform/N-0001): board-check rot nach Board-Formatänderung — Push-Reihenfolge | problem | einmalig | prob | hoch | 0 | — |
 | [T-0010](tickets/T-0010.md) | Problem (N-0007): board-check-Flake — Stand-Datum kippt um Mitternacht | problem | einmalig | prob | mittel | 0 | — |
 
-## done (17)
+## done (18)
 
 | ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|
@@ -36,6 +36,7 @@ Stand: 2026-08-16 · Tickets: 23 · davon wiederkehrend: 2
 | [T-0020](tickets/T-0020.md) | CR (N-0020): Projekt-Pool als Backlog-Bereich im HMI — Anzeigen | change-request | einmalig | chg | hoch | 0 | — |
 | [T-0021](tickets/T-0021.md) | CR (platform/N-0003): Aufgaben tragen eine eindeutige Kennung <projekt>/T-xxxx | change-request | einmalig | chg | hoch | 0 | — |
 | [T-0023](tickets/T-0023.md) | SUP.9: Verwaister index.lock machte eine ganze Session unverbuchbar — Preflight räumt jetzt auch ohne Lösch-Recht | problem | einmalig | cm | hoch | 0 | — |
+| [T-0024](tickets/T-0024.md) | SUP.9: Auto-Push stand seit 09:44 still — die Prozess-Abfrage im Preflight scheiterte an einer Codepage | problem | einmalig | cm | hoch | 0 | — |
 | [T-0014](tickets/T-0014.md) | CR (N-0017): Cockpit zeigt wiederkehrende Aufgaben im Klartext statt als Symbol | change-request | einmalig | chg | mittel | 0 | — |
 | [T-0015](tickets/T-0015.md) | CR (N-0018): Team-Chat zeigt die neuesten Nachrichten zuerst | change-request | einmalig | chg | mittel | 0 | — |
 | [T-0016](tickets/T-0016.md) | Problem (platform/N-0002): ConnectionResetError-Traceback im Server-Log bei Verbindungsabbruch | problem | einmalig | prob | mittel | 0 | — |
