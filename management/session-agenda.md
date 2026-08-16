@@ -89,12 +89,26 @@ Sinne von B044**, sondern die Grenze der Ausführung.
 **329 Tests, Matrix 96 SWRs / 0 Lücken, Katalog- und Architektur-Gate grün.** Board-Check gegen die
 Erwartung gelesen (B041 Regel 3): **pm 36 Tickets** (vorher 35, +`T-0036`).
 
-**Werkzeug-Notiz (R7, für die nächste Session):** `git status` hinterlässt auf diesem Mount ein
-`.git/index.lock`, das es nicht mehr löschen kann („Operation not permitted") — jeder folgende
-`git`-Aufruf im selben Repo bricht dann mit „Unable to create index.lock" ab. Ausweg ohne Löschrecht:
-`GIT_INDEX_FILE` auf eine **Kopie** des Index außerhalb von `.git` setzen (`cp .git/index <tmp>` +
-`GIT_INDEX_FILE=<tmp> git add/commit`, je Aufruf ein frischer Pfad). Gehört zum bekannten Bild aus
-`pm/T-0023`/R7 und ist hier nur der bisher nicht notierte Umgehungsweg.
+**⚠ Werkzeug-Notiz (R7) — ein Umgehungsweg, der beinahe Arbeit vernichtet hätte. Bitte nicht
+wiederholen.** `git status` hinterlässt auf diesem Mount ein `.git/index.lock`, das es nicht mehr
+löschen kann („Operation not permitted"); jeder folgende `git`-Aufruf im selben Repo bricht dann mit
+„Unable to create index.lock" ab.
+
+**Der falsche Ausweg (in dieser Session versucht):** `GIT_INDEX_FILE` auf eine **Kopie** des Index
+zu setzen. Das läuft durch — aber die echte `.git/index` bleibt auf dem alten Stand, und **jede
+Datei, die nicht ausdrücklich im `git add` steht, wird aus diesem alten Stand mitcommittet**. Genau
+das ist passiert: Der Sammelcommit hat `pm/T-0035` um **26 Zeilen zurückgesetzt** — Status wieder
+`open`, Vollzugsvermerk und Benachrichtigungszeile weg. Die Historie hätte danach „T-0035 -> done"
+behauptet, während das Ticket wieder offen dastand.
+
+**Gefunden wurde es über die Zahl `-26` in der Diffstat beim Gegenlesen** — B041 Regel 3 („Zahlen aus
+Werkzeugausgaben gegen die Erwartung lesen"), zum zweiten Mal an einer Zahl, die in die falsche
+Richtung zeigte. Behoben mit einem Korrektur-Commit.
+
+**Der richtige Ausweg:** Locks per **`mv`** nach `.git/verwaiste-locks/` wegräumen (Umbenennen ist
+auf diesem Mount erlaubt, Löschen nicht — derselbe Trick wie in `pm/T-0023`), danach **`git reset`**
+gegen den echten Index und ganz normale `git add`/`git commit`-Aufrufe. Nie auf einer Indexkopie
+committen.
 
 ---
 
