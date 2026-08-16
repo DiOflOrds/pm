@@ -1,6 +1,6 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
-*Stand: 2026-08-16, Routine-Session (D004, alle 30 Min). **P9 abgenommen und verbucht** (G4a/D002, Baseline `p9-v1.0`) — neun Projekte abgeschlossen, kein aktives Projekt. **Erledigt:** CRs T-0006/T-0007 (Ollama-Modellwahl SWR-071, KI-Hinweisfeld SWR-072, B010) und die Briefe N-0010/N-0011 (Selbst-Neustart SWR-073; Status `in_progress` gab es bereits → Sichtbarkeitsregel im Playbook, B013). Briefkasten: keine offenen Briefe. Reihenfolge für die nächste Session:*
+*Stand: 2026-08-16, Routine-Session (D004, alle 30 Min). **P9 abgenommen und verbucht** (G4a/D002, Baseline `p9-v1.0`) — neun Projekte abgeschlossen, kein aktives Projekt. **Erledigt:** CRs T-0006/T-0007 (Ollama-Modellwahl SWR-071, KI-Hinweisfeld SWR-072, B010) und die Briefe N-0010 bis N-0012 (Selbst-Neustart SWR-073; Status `in_progress` gab es bereits → Sichtbarkeitsregel im Playbook, B013; Takt-Kennzeichnung wiederkehrender Aufgaben SWR-074, B014). Briefkasten: keine offenen Briefe. Reihenfolge für die nächste Session:*
 
 1. **Briefkasten zuerst** — alle Projekte/Teams (Cockpit zeigt offene Briefe).
 2. **team-mail-Takt (T-0001):** fälligen Digest prüfen (der Autopilot erzeugt ihn i. d. R. selbst um 07:30) und als SLA-Stichprobe bewerten — Zustellvermerk am Dateiende. Offene Vortages-Punkte im Postfach: Vedaco-„Doppelzahlung" (Phishing-Verdacht), Enpal-Termin, M-net-Umstellung. *Handeln tut hier ausschließlich der Mensch (F17).*
@@ -9,6 +9,7 @@
    - P9-Cockpit: 3 Stichproben aus `p9/T-0004` (Gruppen, Einklappen, Aufgaben-Links) — vorher Server per ⟳ neu starten.
    - Neu aus B010: Konfigurator öffnen → **KI-Modell** auswählen und **KI-Hinweis** eintragen, speichern, „Jetzt zusammenfassen" laufen lassen und den Digest inhaltlich bewerten.
    - Neu aus B013: **Selbst-Neustart** — Mission Control über `mission-control.cmd` starten (einmal manuell neu starten, damit die neue Fassung läuft), dann prüfen, ob der Server nach einer Session von allein neu hochkommt und die Seite nachlädt.
+   - Neu aus B014: **Takt-Kennzeichnung** — Board von `pm` öffnen: T-0001/T-0002 „wiederkehrend: je Session", T-0003 einmalig.
 5. **pm/T-0010** (board-check-Flake) bleibt `in_review`, bis ein GitHub-Actions-Lauf nach dem Fix grün gemeldet ist — lokal ist board-check grün.
 6. **Pilotreview:** team-mail ab 2026-08-29 (B002) — Digest-Format-Feedback, B003 (Werkzeug-Promotion), CR-Kandidat Markdown-Renderer für Briefe/Reports.
 7. **Betriebs-Backlog** — BB-5 PAT-Erneuerung ab 2026-09-05 (ab 1.9. aktiv erinnern).
