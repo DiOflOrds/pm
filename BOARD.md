@@ -1,15 +1,16 @@
 # Board (generiert von platform/scripts/board.py — nicht von Hand editieren)
 
-Stand: 2026-08-16 · Tickets: 14 · davon wiederkehrend: 2
+Stand: 2026-08-16 · Tickets: 15 · davon wiederkehrend: 2
 
 
-## open (3)
+## open (4)
 
 | ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|
 | [T-0001](tickets/T-0001.md) | Takt: Session-Agenda pflegen (jede Session) | task | je Session | pl | hoch | 0 | — |
 | [T-0002](tickets/T-0002.md) | Takt: Intake-Queue — neue Wünsche/Briefe qualifizieren (jede Session) | task | je Session | pl | hoch | 0 | — |
-| [T-0003](tickets/T-0003.md) | LeLe Q4/2026: erste teamübergreifende Lessons Learned vorbereiten | task | einmalig | coach | niedrig | 0 | — |
+| [T-0015](tickets/T-0015.md) | CR: Projekt-Pool im HMI — Kandidatenliste mit Start-Knopf (aus pm/D005) | change-request | einmalig | chg | hoch | 0 | — |
+| [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | einmalig | coach | niedrig | 0 | — |
 
 ## in_review (2)
 
