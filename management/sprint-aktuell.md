@@ -53,9 +53,16 @@ hier mit `wartet-auf-Mensch`.
 `platform/T-0001`. **Nicht geschlossen:** nichts, was für diesen Sprint geplant war.
 
 Der Sprint hat der Organisation **eine** Takt-Syntax mit Uhrzeit, **ein** neues Ticketfeld
-(`zuletzt_erledigt`), **einen** neuen SWR (104, 0 Lücken) und **einen** Befund gebracht, der in
-`process/knowledge/cm/lessons.md` steht — die Ampel war eine **Tagesregel** und musste zur
-**Momentregel** werden, ohne ihre Aussage für reine Datumsfristen zu verändern.
+(`zuletzt_erledigt`), **einen** neuen SWR (104, 0 Lücken), **22** neue Tests (402, vorher 380) und
+**zwei** Befunde gebracht, die beide in `process/knowledge/cm/lessons.md` stehen: **B058** — die
+Ampel war eine **Tagesregel** und musste zur **Momentregel** werden, ohne ihre Aussage für reine
+Datumsfristen zu verändern; und **B059** — eine **unabhängige Gegenprüfung** fand bei **grüner
+Suite** zwei Nachbarn, die denselben Wert weiter mit der alten Auflösung lasen (eine `frist` mit
+Uhrzeit hätte die ganze Cockpit-Seite mitgerissen, der Ticket-Editor hätte den Takt beim Speichern
+gelöscht). Beide behoben, beide mit Regressionstest.
+
+**Was das für den nächsten Sprint heißt:** die Gegenprüfung ist ab jetzt **letzter Schritt** einer
+Änderung an geteilten Regeln, nicht Zugabe (L-2026-08-16m).
 
 ## Wie dieser Plan entstanden ist
 

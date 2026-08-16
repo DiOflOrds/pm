@@ -8,8 +8,10 @@
 2. **Vorgezogen vom 19.08.**, weil das Ticket nach der Zerlegung des Vorlaufs keine Denkarbeit
    mehr trug und die früheste Frist der Organisation hielt. Damit ist die früheste Team-Frist
    jetzt der **23.08.**
-3. **400 Tests grün** (vorher 380), Matrix **104 SWRs / 0 Lücken**, Preflight STARTKLAR.
-4. **⚠ Ein Befund beim Bauen (B058):** die geteilte Ampelregel rechnete in **Tagen** und hätte den
+3. **402 Tests grün** (vorher 380), Matrix **104 SWRs / 0 Lücken**, Preflight STARTKLAR.
+4. **⚠ Zwei Befunde: B058 beim Bauen, B059 durch die Gegenprüfung** — letzterer bei
+   **grüner Suite**: eine `frist` mit Uhrzeit hätte die ganze Cockpit-Seite mitgerissen, und der
+   Ticket-Editor hätte den neuen Takt beim Speichern gelöscht. Beides behoben. B058: die geteilte Ampelregel rechnete in **Tagen** und hätte den
    um 15:00 versäumten 14:00-Takt als „gelb — heute fällig" ausgewiesen. Sie liegt jetzt auf
    Momenten; für reine Datumsfristen ist sie über 961 Tag-gegen-Tag-Vergleiche unverändert.
 5. **Heute fällig, nur am Host lösbar: `pm/T-0034`** (17.08. — ab morgen greift B044).
@@ -103,7 +105,17 @@ beide Fassungen für reine Datumsfristen **Tag für Tag gegen jeden Bezugstag de
 Tagesbezug des Cockpits einfach als Moment zu behandeln — wurde **nicht** genommen: sie hätte
 `taeglich@23:00` jeden Morgen als fällig gemeldet. Verankert als **L-2026-08-16l**.
 
-**Nachweis:** **400 Tests** (vorher 380, +20), Matrix **104 SWRs / 0 Lücken**, Preflight STARTKLAR.
+**⚠ Zweiter Befund, gefunden von einer Gegenprüfung — nicht von der Suite (B059).** Nach dem
+Commit prüfte eine unabhängige Instanz die Änderung und fand **zwei** echte Fehler, während **alle
+400 Tests grün waren**: (1) `aggregation.cockpit` wäre an einer `frist` **mit Uhrzeit** gestorben —
+der Filter akzeptierte sie seit SWR-104, die Tage-über-Rechnung daneben nicht; über `cockpit_alle`
+hätte **ein** Ticket die **ganze** Cockpit-Seite mitgerissen, und zwar erst **nach** Ablauf des
+Termins. (2) Der Ticket-Editor kannte den neuen Takt nicht und hätte ihn beim Speichern eines
+**beliebigen anderen Feldes** stillschweigend gelöscht. Beides behoben, je ein Regressionstest
+(Suite **402**). Die Lehre: **wer eine geteilte Regel erweitert, muss ihre Nachbarn mitziehen** —
+und eine grüne Suite ersetzt keinen fremden Blick. Verankert als **L-2026-08-16m**.
+
+**Nachweis:** **402 Tests** (vorher 380, +22), Matrix **104 SWRs / 0 Lücken**, Preflight STARTKLAR.
 **Gegenprobe über den echten Abrufweg** (L-2026-08-16h): dieselbe Testwelt, dasselbe Ticket, beide
 Server antworten `GET /api/cockpit` mit **HTTP 200** — der Altstand aus `git archive HEAD` meldet
 `ueberfaellig: []`, `unterminiert: 0` und **kein Feld** `takt_faellig`. Das Ticket sah über die HMI
@@ -112,7 +124,7 @@ Skript-Route, die auch die CI fährt: `board.py --check` endet im Altstand mit *
 (*„ungültiger takt: taeglich@14:00"*), im Neustand mit **exit 0** — der Wunsch war vorher nicht nur
 unbeantwortet, er war **nicht aufschreibbar**.
 
-**Nicht als getestet geführt:** die Kachelposition und die Telefondarstellung. 400 Python-Tests,
+**Nicht als getestet geführt:** die Kachelposition und die Telefondarstellung. 402 Python-Tests,
 **null** JS-Tests (Pool-Kandidat #8, nicht beauftragt). Der Nachweis ist eine **Stichprobe des
 Auftraggebers** und steht als solche im Ticket — das offen zu sagen ist B027, es als getestet zu
 führen wäre B038.
