@@ -7,9 +7,11 @@ erstmals nach der neuen Ablaufregel aus B047 gegen die **DR-Rohdaten** geprüft:
 **kein einziger `decision-request` mit Status ≠ `done`**, die Klasse „entschieden, aber nicht
 verbucht" ist damit leer und nicht nur laut `inbox.liste`. **Kein überfälliges Ticket** —
 frühester Termin ist `pm/T-0034` (17.08.). `mail_digest.faellig(1)` und `faellig(7)` beide
-`False`, nichts fällig. Push: die Zeile der 16:15-Session in `PUSH-ANFORDERUNG.txt` (16:32) ist
-**noch unverarbeitet** (letzter Wächter-Erfolg **16:30:26**) — sie betrifft einen pm-Commit, der
-nach dem Push-Start entstand; diese Session hängt eine weitere Zeile für ihre eigenen Commits an.
+`False`, nichts fällig. Push: die Zeile der 16:15-Session in `PUSH-ANFORDERUNG.txt` (16:32) war
+beim Sessionstart **noch unverarbeitet** (letzter Wächter-Erfolg damals 16:30:26) und ist
+**während dieser Session abgearbeitet worden** — der Wächter startete **16:44:00** und meldete
+**16:45:25** `OK - alles geprueft und gepusht`; `pm` ist danach nur noch um den Commit dieser
+Session voraus. Diese Session hängt eine neue Zeile für ihre eigenen Commits an (pm, p0).
 `pm/T-0010`, `pm/T-0013`, `pm/T-0026` bleiben `in_review` (Grund unverändert: kein `gh`/Netzzugriff
 in dieser Sandbox — bitte am Host/Browser gegenprüfen).*
 
