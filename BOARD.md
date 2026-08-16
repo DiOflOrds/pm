@@ -1,6 +1,6 @@
 # Board (generiert von platform/scripts/board.py — nicht von Hand editieren)
 
-Stand: 2026-08-16 · Tickets: 17 · davon wiederkehrend: 2
+Stand: 2026-08-16 · Tickets: 18 · davon wiederkehrend: 2
 
 
 ## open (3)
@@ -18,7 +18,7 @@ Stand: 2026-08-16 · Tickets: 17 · davon wiederkehrend: 2
 | [T-0013](tickets/T-0013.md) | Problem (platform/N-0001): board-check rot nach Board-Formatänderung — Push-Reihenfolge | problem | einmalig | prob | hoch | 0 | — |
 | [T-0010](tickets/T-0010.md) | Problem (N-0007): board-check-Flake — Stand-Datum kippt um Mitternacht | problem | einmalig | prob | mittel | 0 | — |
 
-## done (12)
+## done (13)
 
 | ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|
@@ -34,3 +34,4 @@ Stand: 2026-08-16 · Tickets: 17 · davon wiederkehrend: 2
 | [T-0014](tickets/T-0014.md) | CR (N-0017): Cockpit zeigt wiederkehrende Aufgaben im Klartext statt als Symbol | change-request | einmalig | chg | mittel | 0 | — |
 | [T-0015](tickets/T-0015.md) | CR (N-0018): Team-Chat zeigt die neuesten Nachrichten zuerst | change-request | einmalig | chg | mittel | 0 | — |
 | [T-0016](tickets/T-0016.md) | Problem (platform/N-0002): ConnectionResetError-Traceback im Server-Log bei Verbindungsabbruch | problem | einmalig | prob | mittel | 0 | — |
+| [T-0018](tickets/T-0018.md) | CR (Auftraggeber via Session): Entscheidungen mit Datum UND Uhrzeit festhalten | change-request | einmalig | chg | mittel | 0 | — |
