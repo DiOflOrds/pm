@@ -17,17 +17,12 @@ Stand: 2026-08-16 · Tickets: 40 · davon wiederkehrend: 3
 | [T-0032](tickets/T-0032.md) | CR (pm/N-0025, Teil 2): Echter Uhrzeit-Takt für wiederkehrende Aufgaben — Abgrenzung zu F14 und den team-mail-Takten | change-request | einmalig | pl | mittel | 0 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | niedrig | 0 | — |
 
-## in_progress (1)
-
-| ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
-|---|---|---|---|---|---|---|---|
-| [T-0016](tickets/T-0016.md) | CR: Workflow-Sicht im HMI — Sprint-Plan (sprint-aktuell.md) mit Fälligkeiten anzeigen (pm/D006) | change-request | einmalig | chg | hoch | 0 | — |
-
-## in_review (3)
+## in_review (4)
 
 | ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|
 | [T-0013](tickets/T-0013.md) | Problem (platform/N-0001): board-check rot nach Board-Formatänderung — Push-Reihenfolge | problem | einmalig | prob | hoch | 0 | — |
+| [T-0016](tickets/T-0016.md) | CR: Workflow-Sicht im HMI — Sprint-Plan (sprint-aktuell.md) mit Fälligkeiten anzeigen (pm/D006) | change-request | einmalig | chg | hoch | 0 | — |
 | [T-0026](tickets/T-0026.md) | Problem (platform/N-0006): CI rot — das Matrix-Gate sah das Sammel-Repo `projects` nicht | problem | einmalig | cm | hoch | 0 | — |
 | [T-0010](tickets/T-0010.md) | Problem (N-0007): board-check-Flake — Stand-Datum kippt um Mitternacht | problem | einmalig | prob | mittel | 0 | — |
 
