@@ -1,5 +1,126 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
+## Das Wichtigste (Stand 2026-08-16 23:06)
+
+1. **`pm/T-0032` ist erledigt — beide Teile.** Der Wunsch aus `pm/N-0025` („jeden tag, woche um
+   14 Uhr") ist gebaut: `takt: taeglich@14:00`, `woechentlich@Mo-14:00`, Feld `zuletzt_erledigt`,
+   Meldung in der Cockpit-Kachel als **„überfällig seit HH:MM"**. Verankert als **SWR-104**.
+2. **Vorgezogen vom 19.08.**, weil das Ticket nach der Zerlegung des Vorlaufs keine Denkarbeit
+   mehr trug und die früheste Frist der Organisation hielt. Damit ist die früheste Team-Frist
+   jetzt der **23.08.**
+3. **400 Tests grün** (vorher 380), Matrix **104 SWRs / 0 Lücken**, Preflight STARTKLAR.
+4. **⚠ Ein Befund beim Bauen (B058):** die geteilte Ampelregel rechnete in **Tagen** und hätte den
+   um 15:00 versäumten 14:00-Takt als „gelb — heute fällig" ausgewiesen. Sie liegt jetzt auf
+   Momenten; für reine Datumsfristen ist sie über 961 Tag-gegen-Tag-Vergleiche unverändert.
+5. **Heute fällig, nur am Host lösbar: `pm/T-0034`** (17.08. — ab morgen greift B044).
+
+---
+
+## Für dich (E. John) — nur am Host lösbar
+
+| Frist | Ticket | Was zu tun ist |
+|---|---|---|
+| **17.08.** | `pm/T-0034` | Am Host: Läuft Ollama? Ist `ASPICE-MailAutopilot` eingerichtet? |
+| 18.08. | `pm/T-0013` | Blick auf die GitHub-Actions-Seite (board-check grün?) |
+| 18.08. | `pm/T-0026` | derselbe Blick (CI/Matrix-Gate grün?) |
+| 18.08. | `pm/T-0010` | derselbe Blick (board-check-Flake weg?) |
+
+**Die drei 18.08.-Tickets sind ein Handgriff, nicht drei** — die Seite, die der Push-Wächter
+ohnehin öffnet ([5/5] seiner Ausgabe). Ein grüner Lauf schließt alle drei.
+
+**Neu dazu, ohne Frist: die Stichprobe zu `T-0032`.** Einem Takt-Ticket eine Uhrzeit geben, die
+gerade vorbei ist (`takt: taeglich@HH:MM`) → die Cockpit-Kachel muss es als fällig melden und den
+**übersprungenen** Termin nennen; nach einem Eintrag in `zuletzt_erledigt` verschwindet die Meldung
+bis zum nächsten Takt. Die Stichprobe zu `T-0016` (Kachel „Sprint aktuell" unter „Letzte Session")
+steht weiter offen. Beide Punkte sind **nicht** durch Tests gedeckt — die Organisation hat 400
+Python-Tests und null JS-Tests; dass das offen dasteht, ist Absicht.
+
+## Für das Team
+
+| Frist | Ticket | Team | Inhalt |
+|---|---|---|---|
+| 23.08. | `pm/T-0036` | PM | „Ohne Frist"-Zähler als Org-Summe |
+| 23.08. | `pm/T-0038` | PM | Feld `verantwortlich` — **mit `T-0036` bündeln** (Board-Format) |
+| 23.08. | `pm/T-0039` | PM | Am Brief weiterkommentieren (`N-0031`) |
+| 23.08. | `pm/T-0028` | PM | Projekt-Pool: Team gründen im HMI (Klasse A — nur vorbereiten) |
+| 23.08. | `team-dashboard/T-0001` | team-dashboard | Widget-Vertrag — **die Sperre für P11** |
+| 30.08. | `projects/p12/T-0003` | P12 | Sprint 1: Renderer zusammenführen |
+| 30.08. | `projects/p11/T-0003` | P11 | Sprint 1: Widget-Dashboard bauen |
+
+**Takt-Dauerläufer ohne Frist (kein Rückstand):** `pm/T-0001` (Agenda), `pm/T-0002` (Intake),
+`pm/T-0003` (Lessons), `platform/T-0001` (Werkzeugpflege), `team-mail/T-0001` (wartet auf IMAP).
+
+**Der vollständige Sprint-Plan mit Rollen, Fälligkeiten und Gründen steht in
+`pm/management/sprint-aktuell.md`** — und im Cockpit. Diese Agenda bleibt die Kurzfassung; die
+Workflow-Sicht ist die Plandatei (`pm/D006`).
+
+**Reihenfolge-Hinweis für die nächste Session:** `T-0036` und `T-0038` gehören **zusammen** in
+einen Lauf (beide ändern das `BOARD.md`-Format, B053) und sind damit der naheliegende nächste
+Sprint-Inhalt. `T-0039` ist davon unabhängig; `T-0028` berührt Klasse A und darf nur **vorbereitet**
+werden. Die neuen `takt`-Felder aus SWR-104 sind **kein** Anlass, Bestandstickets umzuschreiben —
+sie sind optional, und ohne Uhrzeit verhält sich alles wie zuvor.
+
+---
+
+*Ab hier: Belege und Details zum Nachlesen.*
+
+*Stand: 2026-08-16 23:06–23:5x, Routine-Session als **Genesis-Gesamtsprint** (D004/D006).
+Briefkasten beim Start: **43 Briefe, kein offener**; die **Zweitprüfung am Sessionende bestätigte
+das** (B036, zehnter Lauf, dritter ohne Fund in Folge). Inbox beim Start und am Ende: **leer**.
+**Kein überfälliges Ticket** (frühester Termin `pm/T-0034`, 17.08.). Fremde Änderungen: nur die
+bekannte `team-mail`-Anzeige (`digest/2026-08-16-woche-digest.md`, `git diff --quiet` = 0) — der
+Index-Refresh aus R7, erneut geprüft, erneut kein Commit.*
+
+## Der Sprint dieses Laufs
+
+**Geplant (Kernpflicht nach `pm/D006`):** **241 Tickets** aller 16 Repos gesichtet — 220 `done`,
+4 `rejected`, **14 `open`, 3 `in_review`**. Die 17 nicht geschlossenen stehen **vollständig** in
+`pm/management/sprint-aktuell.md`, je Zeile mit Rolle, Fälligkeit, Status und Grund.
+**Unterminiert: 0. Überfällig: 0.**
+
+**Warum `pm/T-0032` und nicht ein Ticket vom 23.08.** Die Auswahl war nach der Vorsession nicht
+mehr frei. Sie hatte `T-0032` zerlegt, statt es zum vierten Mal zu verschieben, und schriftlich
+festgehalten: *„Ab hier trägt das Ticket keine Denkarbeit mehr, sondern Bauarbeit."* Ein Ticket mit
+der frühesten Frist, ohne offene Vorfrage und mit fertiger Abgrenzung noch einmal liegen zu lassen,
+hätte genau das Muster fortgesetzt, gegen das die Zerlegung geschrieben wurde (B043/B049). Die
+`23.08.`-Tickets ändern dagegen alle das `BOARD.md`-Format oder berühren Klasse A (B053/B025).
+
+**Gebaut:** Uhrzeit-Syntax im Feld `takt` (`taeglich@HH:MM`, `woechentlich@<Mo–So>-HH:MM`, nur für
+diese beiden Takte — für `monatlich@…` gäbe es keine Regel, welcher Tag gemeint ist, und sie zu
+erfinden wäre Raten), neues Feld `zuletzt_erledigt`, **eine** Fälligkeitsfunktion, die durch
+**dieselbe** `board.frist_ampel` mündet, und eine eigene Liste in der Cockpit-Kachel neben den
+überfälligen Fristen. **Kein Scheduler:** läuft keine Session, feuert nichts — und die Anzeige sagt
+„überfällig seit HH:MM" statt „erledigt" (B038).
+
+**⚠ Der Befund dieses Laufs (B058), in eigener Sache.** Teil 1 hatte entschieden, den abgeleiteten
+Termin durch die **bestehende** Ampel zu schicken — „eine Ampelregel, zwei Quellen", eine zweite
+Rechnung wäre B033. Genau das wurde gebaut, und es war beim ersten Test falsch: `frist_ampel`
+verglich **Kalendertage**. Der Termin „heute 14:00" ist um 15:00 verstrichen, der **Tag** aber
+nicht — die geteilte Regel hätte ausgerechnet den **versäumten** Takt als „gelb, heute fällig"
+ausgewiesen. Dieselbe Familie wie B057. Die Regel liegt jetzt auf **Momenten**; ein Test vergleicht
+beide Fassungen für reine Datumsfristen **Tag für Tag gegen jeden Bezugstag desselben Monats**
+(961 Vergleiche), damit SWR-091 seine Bedeutung behält. Und die naheliegende Abkürzung — den
+Tagesbezug des Cockpits einfach als Moment zu behandeln — wurde **nicht** genommen: sie hätte
+`taeglich@23:00` jeden Morgen als fällig gemeldet. Verankert als **L-2026-08-16l**.
+
+**Nachweis:** **400 Tests** (vorher 380, +20), Matrix **104 SWRs / 0 Lücken**, Preflight STARTKLAR.
+**Gegenprobe über den echten Abrufweg** (L-2026-08-16h): dieselbe Testwelt, dasselbe Ticket, beide
+Server antworten `GET /api/cockpit` mit **HTTP 200** — der Altstand aus `git archive HEAD` meldet
+`ueberfaellig: []`, `unterminiert: 0` und **kein Feld** `takt_faellig`. Das Ticket sah über die HMI
+**kerngesund** aus, während sein 14:00-Termin seit Stunden versäumt war. Zweite Gegenprobe über die
+Skript-Route, die auch die CI fährt: `board.py --check` endet im Altstand mit **exit 1**
+(*„ungültiger takt: taeglich@14:00"*), im Neustand mit **exit 0** — der Wunsch war vorher nicht nur
+unbeantwortet, er war **nicht aufschreibbar**.
+
+**Nicht als getestet geführt:** die Kachelposition und die Telefondarstellung. 400 Python-Tests,
+**null** JS-Tests (Pool-Kandidat #8, nicht beauftragt). Der Nachweis ist eine **Stichprobe des
+Auftraggebers** und steht als solche im Ticket — das offen zu sagen ist B027, es als getestet zu
+führen wäre B038.
+
+---
+
+## Vorheriger Stand (2026-08-16 22:19)
+
 ## Das Wichtigste (Stand 2026-08-16 22:19)
 
 1. **Erster echter Gesamtsprint nach `pm/D006`:** alle Tickets aller Repos gesichtet, **18 offene

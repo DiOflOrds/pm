@@ -3,7 +3,7 @@
 Stand: 2026-08-16 · Tickets: 40 · davon wiederkehrend: 3
 
 
-## open (9)
+## open (8)
 
 | ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|
@@ -14,7 +14,6 @@ Stand: 2026-08-16 · Tickets: 40 · davon wiederkehrend: 3
 | [T-0038](tickets/T-0038.md) | CR (B053, pm/N-0030): Tickets nennen keinen Verantwortlichen — `rolle` sagt die Fachrolle, nicht wer die Handlung tut (Team oder Mensch) | change-request | einmalig | pl | hoch | 0 | — |
 | [T-0039](tickets/T-0039.md) | CR (B054, pm/N-0031): Am Brief weiterkommentieren statt einen neuen zu schreiben — der Briefkasten kennt nur ein Frage/Antwort-Paar je Datei | change-request | einmalig | pl | hoch | 0 | — |
 | [T-0028](tickets/T-0028.md) | CR (pm/N-0022): Projekt-Pool — Team gründen im HMI (Steckbrief, Profil, Datenklasse, Zugänge) | change-request | einmalig | chg | mittel | 0 | — |
-| [T-0032](tickets/T-0032.md) | CR (pm/N-0025, Teil 2): Echter Uhrzeit-Takt für wiederkehrende Aufgaben — Abgrenzung zu F14 und den team-mail-Takten | change-request | einmalig | pl | mittel | 0 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | niedrig | 0 | — |
 
 ## in_review (3)
@@ -25,7 +24,7 @@ Stand: 2026-08-16 · Tickets: 40 · davon wiederkehrend: 3
 | [T-0026](tickets/T-0026.md) | Problem (platform/N-0006): CI rot — das Matrix-Gate sah das Sammel-Repo `projects` nicht | problem | einmalig | cm | hoch | 0 | — |
 | [T-0010](tickets/T-0010.md) | Problem (N-0007): board-check-Flake — Stand-Datum kippt um Mitternacht | problem | einmalig | prob | mittel | 0 | — |
 
-## done (28)
+## done (29)
 
 | ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|
@@ -55,5 +54,6 @@ Stand: 2026-08-16 · Tickets: 40 · davon wiederkehrend: 3
 | [T-0027](tickets/T-0027.md) | Problem (pm/N-0023): Projekt-Pool — Kandidatentext auf 200 Zeichen/ohne Zeilenumbruch begrenzt | problem | einmalig | prob | mittel | 0 | — |
 | [T-0029](tickets/T-0029.md) | Problem (pm/N-0024): Projekt-Pool — 'Quelle' auch bei 4000 Zeichen (T-0027) noch zu eng | problem | einmalig | prob | mittel | 0 | — |
 | [T-0030](tickets/T-0030.md) | CR (pm/N-0025): Offene Aufgaben terminieren — Fristen für Backlog-Tickets, echter Takt für wiederkehrende Aufgaben | change-request | einmalig | pl | mittel | 0 | — |
+| [T-0032](tickets/T-0032.md) | CR (pm/N-0025, Teil 2): Echter Uhrzeit-Takt für wiederkehrende Aufgaben — Abgrenzung zu F14 und den team-mail-Takten | change-request | einmalig | pl | mittel | 0 | — |
 | [T-0035](tickets/T-0035.md) | DR (Klasse A): Anthropic-API-Key (p0/T-0008) — weiterverfolgen, schließen oder jetzt umsetzen? | decision-request | einmalig | pl | mittel | 0 | — |
 | [T-0037](tickets/T-0037.md) | CR (B051): Der „Starten\"-Knopf löscht den Pool-Kandidaten spurlos und legt ein Decision-Log ohne Tabellenkopf an | change-request | einmalig | pl | mittel | 0 | — |
