@@ -17,18 +17,13 @@ Stand: 2026-08-16 · Tickets: 40 · davon wiederkehrend: 3
 | [T-0032](tickets/T-0032.md) | CR (pm/N-0025, Teil 2): Echter Uhrzeit-Takt für wiederkehrende Aufgaben — Abgrenzung zu F14 und den team-mail-Takten | change-request | einmalig | pl | mittel | 0 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | niedrig | 0 | — |
 
-## in_progress (1)
-
-| ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
-|---|---|---|---|---|---|---|---|
-| [T-0040](tickets/T-0040.md) | CR (B055, pm/N-0032+N-0033): Session-Zusammenfassung in Mission Control — was eine Session getan hat, steht heute nur in Dateien, die die HMI nicht zeigt | change-request | einmalig | pl | hoch | 0 | — |
-
-## in_review (3)
+## in_review (4)
 
 | ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|
 | [T-0013](tickets/T-0013.md) | Problem (platform/N-0001): board-check rot nach Board-Formatänderung — Push-Reihenfolge | problem | einmalig | prob | hoch | 0 | — |
 | [T-0026](tickets/T-0026.md) | Problem (platform/N-0006): CI rot — das Matrix-Gate sah das Sammel-Repo `projects` nicht | problem | einmalig | cm | hoch | 0 | — |
+| [T-0040](tickets/T-0040.md) | CR (B055, pm/N-0032+N-0033): Session-Zusammenfassung in Mission Control — was eine Session getan hat, steht heute nur in Dateien, die die HMI nicht zeigt | change-request | einmalig | pl | hoch | 0 | — |
 | [T-0010](tickets/T-0010.md) | Problem (N-0007): board-check-Flake — Stand-Datum kippt um Mitternacht | problem | einmalig | prob | mittel | 0 | — |
 
 ## done (27)
