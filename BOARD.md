@@ -3,13 +3,12 @@
 Stand: 2026-08-16 · Tickets: 15 · davon wiederkehrend: 2
 
 
-## open (4)
+## open (3)
 
 | ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|
 | [T-0001](tickets/T-0001.md) | Takt: Session-Agenda pflegen (jede Session) | task | je Session | pl | hoch | 0 | — |
 | [T-0002](tickets/T-0002.md) | Takt: Intake-Queue — neue Wünsche/Briefe qualifizieren (jede Session) | task | je Session | pl | hoch | 0 | — |
-| [T-0015](tickets/T-0015.md) | CR: Projekt-Pool im HMI — Kandidatenliste mit Start-Knopf (aus pm/D005) | change-request | einmalig | chg | hoch | 0 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | einmalig | coach | niedrig | 0 | — |
 
 ## in_review (2)
@@ -19,7 +18,7 @@ Stand: 2026-08-16 · Tickets: 15 · davon wiederkehrend: 2
 | [T-0013](tickets/T-0013.md) | Problem (platform/N-0001): board-check rot nach Board-Formatänderung — Push-Reihenfolge | problem | einmalig | prob | hoch | 0 | — |
 | [T-0010](tickets/T-0010.md) | Problem (N-0007): board-check-Flake — Stand-Datum kippt um Mitternacht | problem | einmalig | prob | mittel | 0 | — |
 
-## done (9)
+## done (10)
 
 | ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|
@@ -32,3 +31,4 @@ Stand: 2026-08-16 · Tickets: 15 · davon wiederkehrend: 2
 | [T-0011](tickets/T-0011.md) | DR (Klasse A): P10 „Aufgaben bearbeiten im HMI" beauftragen — Tickets editieren, Labels, Typ | decision-request | einmalig | pl | hoch | 0 | — |
 | [T-0012](tickets/T-0012.md) | CR (N-0015): Kopfbereich zeigt nur aktive Projekte/Teams — direkt anklickbar | change-request | einmalig | chg | hoch | 0 | — |
 | [T-0014](tickets/T-0014.md) | CR (N-0017): Cockpit zeigt wiederkehrende Aufgaben im Klartext statt als Symbol | change-request | einmalig | chg | mittel | 0 | — |
+| [T-0015](tickets/T-0015.md) | CR (N-0018): Team-Chat zeigt die neuesten Nachrichten zuerst | change-request | einmalig | chg | mittel | 0 | — |
