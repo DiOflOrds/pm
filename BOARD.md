@@ -3,7 +3,7 @@
 Stand: 2026-08-16 · Tickets: 37 · davon wiederkehrend: 3
 
 
-## open (8)
+## open (7)
 
 | ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|
@@ -13,8 +13,13 @@ Stand: 2026-08-16 · Tickets: 37 · davon wiederkehrend: 3
 | [T-0036](tickets/T-0036.md) | CR (B049): Unterminierte offene Tickets sind für die Eskalationsregel B044 unsichtbar — der „ohne Frist\"-Zähler wird pro Kachel gelesen, nie als Summe | change-request | einmalig | pl | hoch | 0 | — |
 | [T-0028](tickets/T-0028.md) | CR (pm/N-0022): Projekt-Pool — Team gründen im HMI (Steckbrief, Profil, Datenklasse, Zugänge) | change-request | einmalig | chg | mittel | 0 | — |
 | [T-0032](tickets/T-0032.md) | CR (pm/N-0025, Teil 2): Echter Uhrzeit-Takt für wiederkehrende Aufgaben — Abgrenzung zu F14 und den team-mail-Takten | change-request | einmalig | pl | mittel | 0 | — |
-| [T-0037](tickets/T-0037.md) | CR (B051): Der „Starten\"-Knopf löscht den Pool-Kandidaten spurlos und legt ein Decision-Log ohne Tabellenkopf an | change-request | einmalig | pl | mittel | 0 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | niedrig | 0 | — |
+
+## in_progress (1)
+
+| ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
+|---|---|---|---|---|---|---|---|
+| [T-0037](tickets/T-0037.md) | CR (B051): Der „Starten\"-Knopf löscht den Pool-Kandidaten spurlos und legt ein Decision-Log ohne Tabellenkopf an | change-request | einmalig | pl | mittel | 0 | — |
 
 ## in_review (3)
 
