@@ -17,7 +17,6 @@
 | # | Kandidat | Quelle |
 |---|---|---|
 | 6 | mail_digest → Katalog-Produkt (Promotion mit SWRs) | B003, Pilotreview 29.08. |
-| 7 | Markdown-Renderer auch für Briefe/Reports | P7-LeLe |
 | 8 | JS-Frontend-Tests | P3-R1 |
 | 9 | Schätz-Kalibrierung (E5-Auswertung automatisiert) | P2-R1 |
 | 10 | Produkt-Architekturbilder | P3-R2 |
