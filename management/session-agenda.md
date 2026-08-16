@@ -45,6 +45,19 @@ des Aufgreifens** — die Verwechslung war der Grund für das Zögern der Vorses
 weiterhin nicht kann, ist ein **ereignisgebundener** Takt; das gehört zu `pm/T-0032` (Frist 19.08.)
 und nicht in ein drittes Taktvokabular nebenbei (B033).
 
+**Fremde Änderung in `team-mail` geprüft und aufgelöst (B041, Regel 1+2).** Preflight meldete beim
+Sessionstart „Arbeitskopie nicht sauber (1 Datei)" an `digest/2026-08-16-woche-digest.md` — einer
+Datei, die diese Session nie angefasst hat. Geprüft statt verworfen und statt übernommen: Der Diff
+umfasst **zwei Zeilen mit identischem Text**, Unterschied ausschließlich **CRLF statt LF**; ohne
+Zeilenenden ist der Inhalt bitgleich (`md5sum` gegengeprüft). Herkunft: der Zustellschritt am Host,
+der um 15:45 den Zustellvermerk geschrieben hat (Commit `67a20f1`) und die Datei danach mit
+Windows-Zeilenenden zurückgelegt hat. Zurückgesetzt **in-place** — `git checkout` scheiterte am
+bekannten `unable to unlink` des Mounts (R7), das Überschreiben ohne Löschen ist derselbe Ausweg
+wie in `pm/T-0023`. `git diff` ist jetzt leer (Exit 0); `git status` zeigt die Datei weiterhin als
+geändert, weil der Index-Refresh mangels Schreibrecht auf `.git/index` nicht durchläuft — eine
+Anzeige, kein Inhalt. **Kein Commit dafür**: Ein Commit über null inhaltliche Änderung wäre eine
+Zeile Historie, die etwas behauptet, das nicht stattgefunden hat.
+
 **Pool-Kandidat #13 ist aus der Kandidatenliste heraus** — nicht gelöscht, sondern in einen neuen
 Abschnitt **„Realisiert"** verschoben, mit dem Weg (Team `team-dashboard` + Projekt P11) und den
 Belegen. Ein Kandidat, der einfach verschwindet, sieht aus wie einer, den nie jemand wollte
