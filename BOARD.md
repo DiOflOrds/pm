@@ -1,6 +1,6 @@
 # Board (generiert von platform/scripts/board.py — nicht von Hand editieren)
 
-Stand: 2026-08-16 · Tickets: 15 · davon wiederkehrend: 2
+Stand: 2026-08-16 · Tickets: 17 · davon wiederkehrend: 2
 
 
 ## open (3)
@@ -18,7 +18,7 @@ Stand: 2026-08-16 · Tickets: 15 · davon wiederkehrend: 2
 | [T-0013](tickets/T-0013.md) | Problem (platform/N-0001): board-check rot nach Board-Formatänderung — Push-Reihenfolge | problem | einmalig | prob | hoch | 0 | — |
 | [T-0010](tickets/T-0010.md) | Problem (N-0007): board-check-Flake — Stand-Datum kippt um Mitternacht | problem | einmalig | prob | mittel | 0 | — |
 
-## done (10)
+## done (12)
 
 | ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|
@@ -30,5 +30,7 @@ Stand: 2026-08-16 · Tickets: 15 · davon wiederkehrend: 2
 | [T-0009](tickets/T-0009.md) | Problem (N-0006): Auto-Push seit 15.08. 17:36 fehlgeschlagen — cmd-Klammern-Bug in :repo_push | problem | einmalig | prob | hoch | 0 | — |
 | [T-0011](tickets/T-0011.md) | DR (Klasse A): P10 „Aufgaben bearbeiten im HMI" beauftragen — Tickets editieren, Labels, Typ | decision-request | einmalig | pl | hoch | 0 | — |
 | [T-0012](tickets/T-0012.md) | CR (N-0015): Kopfbereich zeigt nur aktive Projekte/Teams — direkt anklickbar | change-request | einmalig | chg | hoch | 0 | — |
+| [T-0017](tickets/T-0017.md) | Problem (Befund Routine-Session): Inbox und Frist-Warnmail sahen Projekte im Sammel-Repo nicht — G1-DR p10/T-0002 war unsichtbar | problem | einmalig | prob | hoch | 0 | — |
 | [T-0014](tickets/T-0014.md) | CR (N-0017): Cockpit zeigt wiederkehrende Aufgaben im Klartext statt als Symbol | change-request | einmalig | chg | mittel | 0 | — |
 | [T-0015](tickets/T-0015.md) | CR (N-0018): Team-Chat zeigt die neuesten Nachrichten zuerst | change-request | einmalig | chg | mittel | 0 | — |
+| [T-0016](tickets/T-0016.md) | Problem (platform/N-0002): ConnectionResetError-Traceback im Server-Log bei Verbindungsabbruch | problem | einmalig | prob | mittel | 0 | — |
