@@ -13,7 +13,7 @@
    Gegenprobe wären zwei Tickets mit falscher Begründung geschlossen worden.
 4. **`platform` ist rot, weil zwei Gates einander auschecken.** `platform` prüft `p0`/`p9`, die
    Projekt-Repos prüfen `platform` — und alle werden im selben Lauf gepusht. Wer zuerst geht, sieht
-   den anderen alt. **Es gibt keine Push-Reihenfolge, die beide grün macht** (B061, `pm/T-0042`).
+   den anderen alt. **Es gibt keine Push-Reihenfolge, die beide grün macht** (B061, `pm/T-0042`). Noch im selben Sprint am **zweiten** Push bestätigt: wieder rot, wieder genau die Anforderung dieses Sprints als Lücke — die Diagnose war eine Vorhersage.
 5. **463 Tests grün**, Matrix **107 SWRs / 0 Lücken**, Preflight STARTKLAR, **kein offener Brief**,
    unterminiert 0, überfällig 0.
 

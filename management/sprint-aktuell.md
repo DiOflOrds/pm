@@ -36,7 +36,7 @@ schließen. Verschieben nur mit Grund — Mensch nötig, zu groß (zerlegt) oder
 | platform/T-0001 | cm | jeder Sprint | erfüllt | Takt: Preflight STARTKLAR, 463 Tests grün, Matrix 107/0. |
 | team-mail/T-0001 | dev | jeder Sprint | erfüllt | Takt: Digest. |
 | team-dashboard/T-0001 | pl | Sprint 3 | offen | Widget-Vertrag; fachliche Sperre für `projects/p11/T-0003`. |
-| pm/T-0042 | prob | Sprint 3 | offen | Push-Reihenfolge-Zwickmühle (B061). Vier Wege stehen im Ticket. **Nicht in diesem Sprint**, weil die Behebung `abschluss.cmd` oder ein Gate ändert und die Diagnose gerade erst entstanden ist (L-2026-08-17b Regel 3). |
+| pm/T-0042 | prob | Sprint 3 | offen | Push-Reihenfolge-Zwickmühle (B061), **am zweiten Push des Abends bestätigt** — Vorhersage eingetroffen, wieder rot, wieder die SWR dieses Sprints. Vier Wege stehen im Ticket. **Nicht in diesem Sprint**, weil die Behebung `abschluss.cmd` oder ein Gate ändert und die Diagnose gerade erst entstanden ist (L-2026-08-17b Regel 3). |
 | pm/T-0043 | prob | Sprint 3 | offen | `p3`/`p5` board-check rot seit dem 16.08. Die naheliegende Ursache ist **widerlegt**; der fehlende Schritt kommt aus SWR-107 beim nächsten Hostlauf. Kein Raten. |
 | pm/T-0036 | pl | Sprint 4 | offen | Ändert das `BOARD.md`-Format, gebündelt mit `pm/T-0038` (B053). |
 | pm/T-0038 | pl | Sprint 4 | offen | Gebündelt mit `pm/T-0036`, gleicher Grund. |
