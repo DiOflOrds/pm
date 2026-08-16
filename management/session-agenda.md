@@ -1,39 +1,39 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
-*Stand: 2026-08-16 11:21, Routine-Session (D004, alle 30 Min). Briefkasten: keine offenen Briefe
-(alle 30 geprüft, `status: beantwortet`). Inbox: leer — alle 37 decision-request-Tickets stehen
-auf `done` mit Entscheidungs-Vermerk, gegen die Rohdaten geprüft (Lesson B025). Push: Der
-11:00-Lauf des Wächters war erfolgreich (`OK - alles geprueft und gepusht`; die 21 liegen
-gebliebenen Commits und `p10-v1.0` sind auf GitHub); `pm/T-0010`, `pm/T-0013`, `pm/T-0026`
-bleiben `in_review` — ein grüner GitHub-Actions-Lauf ist aus dieser Cowork-Sandbox nicht prüfbar
-(kein `gh`, kein Netzzugriff auf github.com/Actions), bitte am Host/Browser nachsehen.
+*Stand: 2026-08-16 11:45, Routine-Session (D004, alle 30 Min). Briefkasten: keine offenen Briefe
+(zweimal geprüft — Sessionanfang und -ende, Lesson B036/pm/T-0017). Inbox: unverändert leer (37
+DRs, alle `done`) — diese Session hat keinen neuen Kandidaten wirklich gestartet, siehe unten.
+Push: `PUSH-ANFORDERUNG.txt` aus der 11:21-Session war beim Start noch unverarbeitet (letzter
+Wächter-Erfolg 11:00) — diese Session hängt eine weitere Zeile an, verdrängt die alte nicht.
+`pm/T-0010`, `pm/T-0013`, `pm/T-0026` bleiben `in_review` (Grund unverändert: kein `gh`/Netzzugriff
+in dieser Sandbox — bitte am Host/Browser gegenprüfen).
 
-**`pm/T-0022` Teil 1 „Anlegen" geliefert.** Neues Modul `platform/backend/pool.py` (Muster
-`tickets.py`/`inbox.py`: PIN über den vorhandenen Schreibschutz, Sofort-Commit mit Rücknahme bei
-Fehlschlag), Formular im Pool-Reiter für Team- und Technik-Kandidaten mit den Feldern der
-jeweiligen Tabelle (`platform/N-0005`: Team = Name+Kurzbeschreibung+Nutzen+Voraussetzung,
-Technik = freier Titel+Quelle), laufende Nummer über beide Kategorien hinweg, Duplikat-Ablehnung.
-Liest über den vorhandenen `aggregation.pool_abschnitte`-Parser, keine zweite Tabellenlogik.
-SWR-088 auf der P9-Fläche (v1.5, direkte Fortsetzung von SWR-086/087, keine neue Baseline) — 17
-neue Tests, Gesamtsuite **285** (vorher 268), Matrix **88 SWRs / 0 Lücken**, Katalog- und
-Architektur-Gate unverändert grün. **Teil 2 „Starten" bewusst zurückgestellt** — größerer,
-riskanterer Schreibvorgang (neuer Projektordner + Requirements-Grundgerüst), und der frische
-Befund `pm/T-0026` vom selben Tag zeigt genau, wie ein neuer Projektordner ein CI-/Matrix-Gate
-unsichtbar brechen kann, wenn nicht jede feste Repo-Liste mitgezogen wird — verdient eine eigene
-Session mit eigenem Nachweis. `pm/T-0022` steht jetzt auf `in_progress`; die A/B-Frage aus dem
-Ticket bleibt unbeantwortet (ohne Antwort wird A gebaut).
+**`pm/T-0022` ist damit KOMPLETT — Teil 2 „Starten" geliefert, beide Ticketteile jetzt `done`.**
+Nur Technik-Kandidaten (Team-Kandidaten bleiben außen vor, siehe Ticket „Nicht im Umfang" —
+brauchen die volle Team-Gründung aus `intake.md`). **Variante A gebaut** (weiterhin keine Antwort
+auf die A/B-Frage im Briefkasten, Default lt. Ticket): Der Knopf im Pool-Reiter entscheidet
+nichts, er legt `projects/p<N>` an (nächste freie Nummer über `board.projekt_pfade` — dieselbe
+Discovery wie Board/Matrix/Preflight, Lesson p9/T-0007) und stellt einen G0-Decision-Request
+(T-0001, Frist 1 Woche, Default G0a) hinein, Ordner+Antrag in einem Commit im Sammel-Repo
+`projects`; scheitert der Commit, bleibt nichts auf der Platte. Der gestartete Kandidat wird in
+einem zweiten Commit aus dem Pool entfernt (Repo `pm`) — scheitert nur dieser, bleibt das bereits
+sichtbare Projekt bestehen statt einen echten G0-Antrag wieder verschwinden zu lassen; die Antwort
+sagt das in Klartext (Lehre aus B038: ein stiller Fehlschlag ist teurer als ein lauter). Neu:
+`backend/pool.py::kandidat_starten`, Route `POST /api/pool/start`, Dropdown+Knopf im Pool-Reiter.
+**Bewusst kein echter Kandidat aus dem realen Pool gestartet** — das wäre ein echter, sichtbarer
+G0-Antrag ohne dass danach gefragt wurde; geprüft über 20 neue Unit-Tests mit isolierten
+Git-Fixturen (`platform/tests/test_pool_starten.py`), keine echte Pool-Datei angefasst. SWR-089
+auf der P9-Fläche (v1.6, direkte Fortsetzung von SWR-088, keine neue Baseline) — Gesamtsuite
+**305** (vorher 285), Matrix **89 SWRs / 0 Lücken**, Katalog- und Architektur-Gate geprüft und
+grün. **Deine Stichprobe** steht unten in Punkt 5.
 
-**Neuer Befund team-mail (geprüft, nicht ausgeführt):** `mail_digest.faellig(7)` meldet `True` —
-es existiert noch **keine** `-woche-`-Digest-Datei, obwohl `konfiguration.yaml` seit
-Team-Gründung (15.08.) auf `takte: [7]` steht und der Autopilot laut Runbook Kap. 13 heute um
-07:30 hätte laufen sollen. Die vorhandene `2026-08-16-tag-digest.md` stammt nachweislich vom
-manuellen Knopf **vor** dem `T-0003`-Fix (Zeitstempel 10:15, also aus der Vorsession), nicht vom
-Autopilot — als „nichts fällig" zu lesen war ungenau, geprüft wurde bisher nur der Tages-, nie
-der konfigurierte Wochen-Takt. Aus dieser Sandbox nicht ausführbar (kein IMAP/SMTP/Ollama-Zugriff
-— die Zugangsdaten liegen bewusst nur auf dem Mission-Control-Host, Guardrail 2). **Für die
-nächste Host-Session/den Auftraggeber:** prüfen, ob `ASPICE-MailAutopilot` eingerichtet ist
-(`schtasks /Query /TN ASPICE-MailAutopilot`) und ob der heutige 07:30-Lauf stattfand; sonst
-`python team-mail\tools\mail_digest.py --auto` einmal manuell anstoßen.
+*Vorheriger Stand (11:21-Session, komprimiert): Briefkasten/Inbox clean (30/37), Push-Wächter
+11:00 erfolgreich (21 Commits + `p10-v1.0` draußen), `pm/T-0022` Teil 1 „Anlegen" geliefert
+(SWR-088, 17 Tests, Matrix 88/0) mit Teil 2 bewusst zurückgestellt, sowie ein neuer team-mail-Befund
+(`mail_digest.faellig(7)` meldet `True`, seit Gründung noch nie ein Wochen-Digest erzeugt — aus
+der Sandbox nicht ausführbar, IMAP/SMTP/Ollama fehlen; für den nächsten Host-Zugriff: prüfen ob
+`ASPICE-MailAutopilot` eingerichtet ist und der heutige 07:30-Lauf stattfand, sonst
+`python team-mail\tools\mail_digest.py --auto` manuell anstoßen — unverändert offen, siehe Punkt 3).*
 
 ---
 
@@ -54,15 +54,16 @@ nächste Host-Session/den Auftraggeber:** prüfen, ob `ASPICE-MailAutopilot` ein
 0. **Briefkasten zuerst** — alle Projekte/Teams (Cockpit zeigt offene Briefe). *Aktuell keine offenen Briefe (alle 26 auf `beantwortet` geprüft; `platform/N-0004` kam **während** der Session um 10:04 herein und wurde in derselben Session beantwortet — B036).* **Merke für den Ablauf:** Der Briefkasten wird nicht nur am Anfang gelesen. Diese Session hätte den Brief sonst 30 Minuten liegen lassen, obwohl sie noch lief; aufgefallen ist er nur, weil beim Taggen ein fremder Commit im `platform`-Log stand. Ab jetzt: **vor dem Abschluss ein zweites Mal auf offene Briefe und entschiedene DRs prüfen** — dasselbe gilt für die Inbox (die G4a-Entscheidung kam 14 Sekunden nach dem Sprint-Commit).
 0b. **Repo-Zustand vor dem ersten Schreiben** — `preflight.py` laufen lassen und die Ausgabe **lesen**. Steht dort „nicht löschbar … weggeräumt nach `.git/verwaiste-locks/`", hat der Fallback aus `pm/T-0023` gearbeitet und die Session wäre ohne ihn blockiert gewesen. Danach `git status` je Repo: **Liegt Arbeit einer Vorsession unverbucht da, zuerst verifizieren (Tests + Matrix + Gates), dann committen** — nie ungeprüft übernehmen (B025), nie doppelt verbuchen.
 0c. **`pm/T-0025` — der Sofort-Knopf soll zeigen, womit er läuft** (Rest aus `team-mail/N-0002`; der funktionale Teil ist mit `team-mail/T-0003` erledigt). Eine Klartextzeile unter dem Knopf: aktives Modell, KI-Hinweis, die Takte, die bei einem Klick loslaufen — und danach, welche Digest-Dateien entstanden sind. **Pflicht bei der Umsetzung:** Die Takte-Anzeige geht über `mail_digest.jetzt_takte(cfg)`, nicht über einen Nachbau aus `cfg["takte"]` im HMI. Beide Teile des Briefes hatten dieselbe Wurzel — der KI-Hinweis wirkte und war unsichtbar, der Takt wirkte nicht und war ebenso unsichtbar.
-1. **`pm/T-0022` — Projekt-Pool: „Starten"-Knopf. „Anlegen" ist seit der 11:21-Session erledigt** (SWR-088, `platform/backend/pool.py`, 17 Tests) — verbleibender Hauptpunkt ist **„Starten"**: Projektordner unter `projects/<name>` anlegen + G0-Decision-Request in die Inbox stellen. Bewusst als eigene Session zugeschnitten (größerer Schreibvorgang; frischer Bezug `pm/T-0026` — ein neuer Projektordner kann CI-/Matrix-Gates mit fester Repo-Liste unsichtbar brechen). Setzt auf dem P10-Schreibpfad auf (`board.aktualisiere` + `backend/tickets.py`, ADR-007), baut keinen zweiten. **Für das Starten zuerst im Briefkasten nachsehen, ob „A" oder „B" geantwortet wurde:** A = Knopf legt Ordner an und stellt einen G0-DR in die Inbox; B = der Knopfdruck ist die G0-Entscheidung (mit Entscheider-Identität und Decision-Log-Zeile, wie die Inbox-Buttons seit P3). **Ohne Antwort wird A gebaut.** Nicht im Umfang: Team-Gründungen (Steckbrief mit Profil/Rollen/Datenklasse/Zugängen) und Kandidaten löschen (bleibt Zuruf). **Vor dem Bauen:** bei jedem neuen Projekt-Ordner die feste Repo-Liste in `ci.yml` UND den `board-check`-Workflows durchsehen (Lesson pm/T-0026) — nicht erst, wenn CI rot ist.
+1. **`pm/T-0022` ERLEDIGT (11:45-Session) — beide Teile geliefert, Ticket auf `done`.** „Anlegen" seit der 11:21-Session (SWR-088), „Starten" jetzt (SWR-089, Variante A, nur Technik-Kandidaten) — Details oben im Stand. Kein neuer Agendapunkt daraus offen; die Stichprobe steht unten in Punkt 5. Keine andere Pool-Aufgabe wartet.
 2. **P10 ist abgeschlossen (G4a/D002, 10:02 via Inbox — B035)** — Baseline `p10-v1.0` auf `projects` und `platform`, Abschlussbericht liegt in `projects/p10/management/`. Offen bleibt nur der **Betriebsnachweis des Auftraggebers**: die sieben Stichproben aus `p10/T-0004` (siehe Punkt 5) — nur erinnern, nie selbst abhaken.
 3. **team-mail-Takt (`team-mail/T-0001`):** fälligen Digest prüfen (der Autopilot erzeugt ihn i. d. R. selbst um 07:30) und als SLA-Stichprobe bewerten — Zustellvermerk am Dateiende. *Korrektur (11:21-Session): entgegen den letzten Einträgen hier IST etwas fällig — `mail_digest.faellig(7)` meldet `True`, noch nie wurde eine `-woche-`-Digest-Datei erzeugt, obwohl `takte: [7]` seit Team-Gründung gilt. Aus der Cowork-Sandbox nicht ausführbar (kein IMAP/SMTP/Ollama). Bitte am Mission-Control-Host prüfen: lief `ASPICE-MailAutopilot` heute 07:30, und ist der Task überhaupt eingerichtet (Runbook Kap. 13)?* Offene Vortages-Punkte im Postfach: Vedaco-„Doppelzahlung" (Phishing-Verdacht), Enpal-Termin, M-net-Umstellung, Google-Sicherheitswarnung. *Handeln tut hier ausschließlich der Mensch (F17).*
 4. **Fällige pm-Takt-Tickets** — Intake-Queue, Agenda fortschreiben; PUSH-ANFORDERUNG.txt am Session-Ende schreiben (Runbook Kap. 11).
 5. **Offene Stichproben des Auftraggebers nachhalten** (nur erinnern, nie selbst abhaken) — **alle brauchen vorher einen Serverneustart**:
-   - **Neu (11:21-Session, SWR-088):** **Pool-Reiter „Neuen Kandidaten anlegen"** — einen Team- und einen Technik-Kandidaten anlegen (unterschiedliche Felder je Kategorie), beide erscheinen ohne Neuladen im richtigen Abschnitt; `git -C pm log --oneline -2` zeigt „Mensch via HMI"-Commits. Kopfzeile im Pool-Reiter sagt jetzt „Anlegen: da / Starten: noch nicht".
+   - **Neu (11:45-Session, SWR-089):** **Pool-Reiter „Projekt starten"** — einen Technik-Kandidaten aus der Dropdown wählen (z. B. einen unwichtigen wie „JS-Frontend-Tests"), auf „G0-Antrag anlegen" klicken; Meldung zeigt die neue Projekt-Referenz (z. B. `p11/T-0001`), der Kandidat verschwindet ohne Neuladen aus der Pool-Tabelle, die Inbox zeigt den neuen G0-Antrag mit Frist. `git -C projects log --oneline -2` und `git -C pm log --oneline -2` zeigen je einen „Mensch via HMI"-Commit. Einen Team-Kandidaten wählen sollte mit einer Erklärung abgelehnt werden (Team-Gründung ist nicht Teil dieses Knopfs). Kopfzeile im Pool-Reiter sagt jetzt „Anlegen: da / Starten (Technik) per Knopf: da". **Danach entweder über die Inbox entscheiden (G0a/b/c) oder den Testordner wieder entfernen, wenn die Stichprobe nur die Funktion prüfen soll.**
+   - **Neu (11:21-Session, SWR-088):** **Pool-Reiter „Neuen Kandidaten anlegen"** — einen Team- und einen Technik-Kandidaten anlegen (unterschiedliche Felder je Kategorie), beide erscheinen ohne Neuladen im richtigen Abschnitt; `git -C pm log --oneline -2` zeigt „Mensch via HMI"-Commits.
    - **Neu (B033/B034), die sieben Stichproben aus `p10/T-0004`:** Ticket bearbeiten und speichern · unerlaubten Status setzen → deutsche Ablehnung · zwei Labels vergeben und im Board danach filtern · `git -C projects log --oneline -3` zeigt „Änderung via HMI" mit BOARD.md im selben Commit · Konflikt erzwingen (Ticket am Handy offen, vom Rechner speichern, dann am Handy) → Klartextmeldung + „Ticket neu laden" · vom Handy ohne PIN speichern → Ablehnung, mit PIN → geht · erledigtes Ticket öffnen → nur „Wiedereröffnen", kein Formular.
    - **Neu (B028):** **Requirements-Reiter** — stehen ohne Projektwahl alle Dokumente da (22 aus 13 Projekten/Teams)? Filter „Projekt/Team: p10" und Volltext „SWR-085" prüfen. Auch auf dem Handy.
-   - **Neu (B029):** **Reiter „Projekt-Pool"** — beide Kategorien (5 Team-, 7 Technik-Kandidaten) sichtbar? Kopfzeile sagt „Anlegen/Starten: noch nicht".
+   - **Aus B029:** **Reiter „Projekt-Pool"** — beide Kategorien (5 Team-, 7 Technik-Kandidaten) sichtbar? *(Kopfzeilentext hat sich seither zweimal geändert, siehe die beiden neuen Stichproben oben — diese hier prüft nur noch die Sichtbarkeit der Kategorien.)*
    - **Neu (B030):** **Eindeutige Kennung** — Board von `pm` zeigt `pm/T-0019`, Board von `p10` zeigt `p10/T-0001`; Ticket-Detail und Cockpit genauso.
    - **Aus B024:** **Inbox öffnen** — sie ist jetzt leer (alle DRs entschieden); der Nachweis, dass Anträge aus dem Sammel-Repo dort ankommen, wurde durch die P10-Freigabe um 08:18 bereits praktisch erbracht.
    - **Aus B023:** **Server-Log** — Handy verbinden, Bildschirm sperren: nur noch `Verbindung zu … vorzeitig beendet … kein Fehler`, kein Traceback. Nachweis geht nur auf Windows (WinError 10054).
