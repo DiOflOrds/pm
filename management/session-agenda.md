@@ -54,11 +54,21 @@ Zusammenfassung — die `FAIL:`-Zeilen mit den Testnamen stehen weiter oben und 
 Damit meldet Preflight einen Fehlschlag zwar sichtbar, aber **unbrauchbar**: dieselbe Familie wie
 B038, eine Stufe später („wo wird ein Fehlschlag sichtbar" ist beantwortet, „womit lässt er sich
 verfolgen" nicht). **CR-Kandidat:** bei `returncode != 0` die `FAIL:`/`ERROR:`-Zeilen mit
-ausgeben statt nur den Tail. Verdacht zur Ursache: parallele Git-Aktivität (Push-Wächter am Host
-läuft alle 15 Min) gegen einen Test, der nicht vollständig hermetisch ist — genau der Befund aus
-B038, dritter Teil. **Bewusst nicht auf Verdacht repariert:** Ohne die Testnamen wäre jede
-Änderung geraten, und der Verdacht allein rechtfertigt keinen Eingriff in die Prüfstrecke.
-Verwandt mit `pm/T-0010` (board-check-Flake).
+ausgeben statt nur den Tail. **Zweimal aufgetreten** (beide Male in einem Preflight-Lauf direkt
+nach einem `git commit`, nie in einem nackten Suite-Lauf) — das stützt den Verdacht auf **parallele
+Git-Aktivität** gegen einen nicht vollständig hermetischen Test (B038, dritter Teil; Kandidaten
+sind der Push-Wächter alle 15 Min und die von Git nach einem Commit gestartete
+Hintergrund-`maintenance`).
+
+**Eine naheliegende Spur ist bereits ausgeschlossen — bitte nicht noch einmal verfolgen:**
+`TestLockArtefakte` hat **genau vier** Tests und ist als einzige Klasse in `test_preflight.py`,
+die `git_prozess_aktiv` **nicht** in `setUp` festnagelt — die Zahl passte verdächtig gut zu
+`failures=4`. **Nachgestellt mit erzwungenem `git_prozess_aktiv → True`: alle vier bleiben grün.**
+Die Klasse ist gegenüber laufenden Git-Prozessen hermetisch, die Übereinstimmung der Zahl ist
+Zufall. **Bewusst nicht auf Verdacht repariert:** Ohne die Testnamen wäre jede Änderung geraten,
+und ein Eingriff in die Prüfstrecke auf Verdacht ist genau das, wogegen B025/B038 geschrieben
+sind. Der erste Schritt ist der CR oben (Fehlerzeilen durchreichen) — danach hat der nächste rote
+Lauf einen Namen. Verwandt mit `pm/T-0010` (board-check-Flake).
 
 **Fremde Änderung in `team-mail` geprüft und aufgelöst (B041, Regel 1+2).** Preflight meldete beim
 Sessionstart „Arbeitskopie nicht sauber (1 Datei)" an `digest/2026-08-16-woche-digest.md` — einer
