@@ -16,13 +16,7 @@ Stand: 2026-08-17 · Tickets: 43 · davon wiederkehrend: 3
 | [T-0043](tickets/T-0043.md) | Problem: board-check von p3 und p5 seit 16.08. rot — die Board-Formatänderung ist als Ursache widerlegt | problem | einmalig | prob | mittel | 0 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | niedrig | 0 | — |
 
-## in_progress (1)
-
-| ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
-|---|---|---|---|---|---|---|---|
-| [T-0042](tickets/T-0042.md) | Problem (B061): Die Push-Reihenfolge kann nicht beide Gates grün machen — platform prüft p0/p9, p0–p9 prüfen platform | problem | einmalig | prob | hoch | 0 | — |
-
-## done (34)
+## done (35)
 
 | ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|
@@ -49,6 +43,7 @@ Stand: 2026-08-17 · Tickets: 43 · davon wiederkehrend: 3
 | [T-0034](tickets/T-0034.md) | Problem: team-mail-Wochendigest ist seit Teamgründung fällig und wurde nie erzeugt — seit fünf Sessions unveränderte Randnotiz | problem | einmalig | prob | hoch | 0 | — |
 | [T-0040](tickets/T-0040.md) | CR (B055, pm/N-0032+N-0033): Session-Zusammenfassung in Mission Control — was eine Session getan hat, steht heute nur in Dateien, die die HMI nicht zeigt | change-request | einmalig | pl | hoch | 0 | — |
 | [T-0041](tickets/T-0041.md) | CR: Terminierung auf Sprints statt auf Kalenderdaten — jeder Routine-Lauf ist ein Sprint | change-request | einmalig | pl | hoch | 0 | — |
+| [T-0042](tickets/T-0042.md) | Problem (B061): Die Push-Reihenfolge kann nicht beide Gates grün machen — platform prüft p0/p9, p0–p9 prüfen platform | problem | einmalig | prob | hoch | 0 | — |
 | [T-0010](tickets/T-0010.md) | Problem (N-0007): board-check-Flake — Stand-Datum kippt um Mitternacht | problem | einmalig | prob | mittel | 0 | — |
 | [T-0014](tickets/T-0014.md) | CR (N-0017): Cockpit zeigt wiederkehrende Aufgaben im Klartext statt als Symbol | change-request | einmalig | chg | mittel | 0 | — |
 | [T-0015](tickets/T-0015.md) | CR (N-0018): Team-Chat zeigt die neuesten Nachrichten zuerst | change-request | einmalig | chg | mittel | 0 | — |
