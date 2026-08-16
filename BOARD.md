@@ -3,15 +3,20 @@
 Stand: 2026-08-16 · Tickets: 26 · davon wiederkehrend: 2
 
 
-## open (5)
+## open (4)
 
 | ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|
 | [T-0001](tickets/T-0001.md) | Takt: Session-Agenda pflegen (jede Session) | task | je Session | pl | hoch | 0 | — |
 | [T-0002](tickets/T-0002.md) | Takt: Intake-Queue — neue Wünsche/Briefe qualifizieren (jede Session) | task | je Session | pl | hoch | 0 | — |
-| [T-0022](tickets/T-0022.md) | CR (N-0020, Teil 2): Projekt-Pool — Kandidat anlegen und starten im HMI (nach P10 Sprint 1) | change-request | einmalig | chg | mittel | 0 | — |
 | [T-0025](tickets/T-0025.md) | CR (team-mail/N-0002, Rest): Sofort-Knopf zeigt im Klartext, womit er läuft (Modell, KI-Hinweis, Takte) | change-request | einmalig | chg | mittel | 0 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | einmalig | coach | niedrig | 0 | — |
+
+## in_progress (1)
+
+| ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
+|---|---|---|---|---|---|---|---|
+| [T-0022](tickets/T-0022.md) | CR (N-0020, Teil 2): Projekt-Pool — Kandidat anlegen und starten im HMI (nach P10 Sprint 1) | change-request | einmalig | chg | mittel | 0 | — |
 
 ## in_review (3)
 
