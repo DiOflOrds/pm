@@ -16,7 +16,7 @@
 6. **Einmalig nötig (Mensch), sonst bleibt P10 ungeprüft in der CI:** im GitHub-Repo `DiOflOrds/projects` das Secret **PLATFORM_READ_TOKEN** hinterlegen (dieselbe Lese-PAT wie bei p0–p9/pm) — der neue board-check-Workflow prüft dort jeden Projektordner. Lokal läuft der Check bereits über den Preflight.
 7. **pm/T-0010** (board-check-Flake) bleibt `in_review`, bis ein GitHub-Actions-Lauf nach dem Fix grün gemeldet ist — lokal ist board-check grün.
 8. **Pilotreview:** team-mail ab 2026-08-29 (B002) — Digest-Format-Feedback, B003 (Werkzeug-Promotion), CR-Kandidat Markdown-Renderer für Briefe/Reports.
-9. **Betriebs-Backlog** — BB-5 PAT-Erneuerung ab 2026-09-05 (ab 1.9. aktiv erinnern).
+9. **Betriebs-Backlog** — BB-5 PAT-Erneuerung ab 2026-09-05 (ab 1.9. aktiv erinnern). **Neuer CR-Kandidat (aus pm/T-0013):** `abschluss.cmd`, `abschluss-auto.cmd` und die `mission-control*.cmd` liegen **unversioniert** im Wurzelordner — heute wurde dort ein Fehler behoben, der bei einem Plattenschaden ersatzlos weg wäre. Vorschlag: Skripte nach `platform/infra/` versionieren und im Wurzelordner nur noch dünne Aufrufer lassen. Zweiter CR-Kandidat: Projekt-Workflows checken `platform` auf einem **Tag** statt `main` aus (macht die Werkzeugversion explizit statt zeitabhängig).
 
 *Hinweis (D004): Diese Agenda wird automatisch alle 30 Min von der Cowork-Routine-Session abgearbeitet (solange die App offen ist) — Briefe genügen, Ankündigungen im Chat sind nicht mehr nötig.*
 
