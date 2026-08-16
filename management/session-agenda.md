@@ -26,6 +26,7 @@
 | **Nichts Dringendes, nichts Blockierendes** | Kein Ticket wartet auf eine Handlung am Host. |
 | Zur Kenntnis: zwei Repos sind rot | `p3` und `p5` (board-check) seit 16.08. 07:00. Das Team hat die naheliegende Ursache **ausgeschlossen** und rät nicht weiter — der fehlgeschlagene Schritt kommt beim nächsten `abschluss.cmd` automatisch in `CI-STATUS.md` (SWR-107, in diesem Sprint gebaut). |
 | Optional, ohne Frist | Falls du ohnehin auf GitHub bist: die Lauf-Seite von `p3` nennt den Schritt sofort. Sollte es das Secret `PLATFORM_READ_TOKEN` sein, ist die Behebung **Klasse A** (Zugang) und wird dir dann als Inbox-DR vorgelegt — nicht vom Team entschieden. |
+| Kleinigkeit am Host (R7) | `team-mail` zeigt seit Stunden eine „geänderte" Datei, deren Inhalt **identisch** ist: der Mount darf `.git/index` nicht neu schreiben, also bleibt die Stat-Markierung stehen. Kein Datenverlust, keine Auswirkung — `preflight` räumt die Lock-Artefakte in `.git/verwaiste-locks/`, der Parkplatz gehört gelegentlich geleert. |
 | ⚠ `abschluss.cmd` prüfen (aus Sprint 1, weiter offen) | Die Datei wurde in Sprint 1 versehentlich geleert und aus dem Protokoll **rekonstruiert**. Wenn du eine Vorgängerversion hast, vergleiche sie. |
 
 ## Für das Team — die nächsten Sprints
