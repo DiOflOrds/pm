@@ -1,6 +1,104 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
-*Stand: 2026-08-16 16:50, Routine-Session (D004, alle 30 Min). Briefkasten: **leer** — alle 37
+## Das Wichtigste (Stand 2026-08-16 17:35)
+
+1. **`pm/T-0035` → AK-b entschieden (17:17) und vollzogen.** `p0/T-0008` ist `rejected`; P0 und P1
+   haben kein offenes Ticket mehr.
+2. **Der „ohne Frist"-Zähler steht organisationsweit erstmals auf 0.** `pm/T-0010`, `T-0013`,
+   `T-0026` waren dreimal übersehen worden — jetzt terminiert (18.08.).
+3. **Nächster Arbeitspunkt für die nächste Session:** `pm/T-0034` (Frist **17.08.**, nur am Host
+   lösbar) — Eskalationsregel B044 greift ab morgen.
+4. **Für den Auftraggeber:** ein Blick auf die GitHub-Actions-Seiten schließt drei Tickets.
+5. **Neue Formatregel B050** (aus `pm/N-0028`/`N-0029`): Kurzfassung zuerst, Langtext darunter —
+   gilt für dieses Dokument, `PROJEKTSTATUS-UPDATE.md` und Brief-Antworten. Ausnahme mit
+   Begründung: Klasse-A-Anträge bleiben vollständig, bekommen aber denselben Kurzblock.
+
+*Ab hier: Belege und Details zum Nachlesen.*
+
+*Stand: 2026-08-16 17:20/17:35, Routine-Session (D004, alle 30 Min). Briefkasten: **leer** — alle 36
+Briefe aller Projekte/Teams auf `status: offen` durchsucht, kein Treffer; zweimal geprüft
+(Sessionanfang und -ende). Inbox: **ein wartender Antrag, nichts Unverbuchtes** — `pm/T-0035`
+(Klasse A, `p0/T-0008`) steht seit 16:50 zur Entscheidung und ist **nicht entschieden**; gegen die
+DR-Rohdaten geprüft (Ablaufregel B047): es existiert **kein weiterer** `decision-request` mit
+Status ≠ `done`, und `T-0035` trägt keinen Entscheidungsvermerk. **Kein überfälliges Ticket** —
+frühester Termin ist `pm/T-0034` (17.08.). `mail_digest.faellig(1)` und `faellig(7)` beide `False`.
+Push: die Zeile der 16:50-Session ist **abgearbeitet** — Wächter-Erfolg **17:00:23**
+(`OK - alles geprueft und gepusht`), alle Repos `ahead 0/behind 0` gegen `origin/main`,
+`PUSH-ANFORDERUNG.txt` ist entsprechend nicht mehr vorhanden. Diese Session legt sie für ihre
+eigenen Commits neu an (Repos: pm, process).*
+
+**Der „ohne Frist"-Zähler war zum dritten Mal nicht zu Ende gelesen — hinter der pm-Kachel standen
+drei Tickets, und bei einem lag die halbe Verifikation seit 07:59:59 im lokalen Log (B049).**
+
+`cockpit_alle` meldete beim Sessionstart **p0 = 1** *und* **pm = 3**. Die 16:15-Session hatte die
+pm-Kachel für abgearbeitet erklärt (sie ging von 4 auf **3**, nicht auf 0); die 16:50-Session
+erklärte den Zähler für „zu Ende gelesen" und las dabei nur p0. Dahinter: **`pm/T-0010`,
+`pm/T-0013`, `pm/T-0026`** — drei `in_review`-Problemtickets ohne Frist, die in **sieben**
+Session-Fußzeilen wortgleich als *„bleiben `in_review`, Grund unverändert: kein `gh`/Netzzugriff"*
+stehen. Wörtlich das Muster aus **B043**, diesmal an der eigenen Fußzeile.
+
+**Die Eskalationsregel aus B044 kann sie bauartbedingt nicht sehen.** „Überfällig" ist
+`board.ist_ueberfaellig`, und das setzt eine **Frist** voraus — ohne Frist ist die Ampel „grau", ein
+Ticket ohne Frist wird nie überfällig. Die Regel gegen das Liegenbleiben hat ihren blinden Fleck
+genau dort, wo das Liegenbleiben passiert. Einziger Melder ist der `unterminiert`-Zähler, und der
+ist eine **Zahl je Kachel**, keine Summe: drei Sessions haben je eine Kachel gelesen und „erledigt"
+notiert. Eine Org-Summe hätte jedes Mal ≠ 0 gemeldet.
+
+**⚠ Der schärfste Teil: bei `pm/T-0013` war die halbe Verifikation die ganze Zeit lokal prüfbar.**
+Das Ticket hat **zwei** Kriterien, die der alte Vermerk unter einem Satz zusammenfasste. Kriterium 1
+— *„`platform` erscheint als erstes Repo in der Push-Ausgabe"* — steht in `abschluss-auto.log`,
+einer Datei ohne jeden Netzzugriff: `platform` ist dort seit dem Lauf **07:59:59** in **jedem**
+erfolgreichen Wächter-Lauf das erste Repo (13 Läufe, zuletzt 17:00:23; davor, 00:44–07:15, war es
+`p0`). Der Vermerk, der den Nachweis für unerreichbar erklärte, nennt selbst *„letzter erfolgreicher
+Push 08:30"* — **genau dieser Lauf trug den Beleg bereits.** Auch der Hinderungsgrund von
+`T-0010`/`T-0026` (Wächter bricht seit 09:44 ab) ist **seit 10:30 weg**.
+
+**Getan (Klasse C):** Kriterium 1 in `T-0013` mit Zeitstempeln als erfüllt belegt; die überholten
+Vermerke in `T-0010`/`T-0026` richtiggestellt; alle drei mit **Frist 18.08.** versehen und der Grund
+dafür im Ticket. Gegenprobe zum CR-Kandidaten in `T-0026`: die Repo-Liste in
+`platform/.github/workflows/ci.yml` deckt P11 ab (liegt in `projects`) — sie hat gehalten, weil P11
+in ein gelistetes Repo gelegt wurde, nicht weil sie sich pflegt. **pm meldet jetzt `unterminiert=0`;
+organisationsweit bleibt 1** (`p0/T-0008`, begründet nach B048).
+
+**Warum hier eine Frist keine Behauptung ist (Unterschied zu B048):** `p0/T-0008` wartet auf eine
+Entscheidung, die der Auftraggeber zweimal vertagt hat — ein Datum hätte dort einen Termin
+behauptet, den niemand zugesagt hat. Diese drei warten auf **einen Blick auf eine Seite, die der
+Wächter ohnehin öffnet** ([5/5] seiner Ausgabe). Präzedenzfall: `pm/T-0034` ist ebenfalls nur am
+Host lösbar und trägt trotzdem einen Termin.
+
+**Nicht gebaut, eingeplant als `pm/T-0036` (Klasse B, Frist 23.08.):** Org-Summe statt Kachelzahl,
+Preflight-Zeile mit den **Namen** der unterminierten Tickets, Ablaufregel *„Kachel X erledigt ist
+keine gültige Abschlussmeldung"*. Das ist eine Änderung an der Prüfstrecke selbst (Cockpit-Vertrag +
+Preflight-Ausgabe, berührt SWR-091) — nebenbei in einer 30-Minuten-Routine ist das genau das Risiko
+aus B025/B038. Von Hand sofort angewandt wurde, was ohne Code geht.
+
+**Fremde Änderung geprüft und übernommen (B041):** `pm/T-0035` trug beim Start eine uncommittete
+Zeile **„Benachrichtigt: 2026-08-16 per E-Mail (SWR-033)"** — der Marker aus
+`platform/scripts/dr_benachrichtigung.py`, geschrieben vom DR-Mailversand am Host nach der
+16:50-Session. Inhaltlich echt und historienwürdig, deshalb **eigener Commit vor der Sessionarbeit**,
+damit Fremdes und Eigenes nicht in einer Zeile stehen. Die bekannte `team-mail`-Anzeige
+(`digest/2026-08-16-woche-digest.md` erscheint in `git status`, `git diff` ist leer) ist unverändert
+der nicht durchlaufende Index-Refresh aus R7 — **erneut geprüft, erneut kein Commit**.
+
+**⚠ Morgen fällig, nur am Host lösbar: `pm/T-0034`** (17.08., hoch) — unverändert. Der Wochendigest
+liegt; offen ist, warum Ollama um 15:28 nicht erreichbar war und ob `ASPICE-MailAutopilot`
+eingerichtet ist. Kein IMAP/Ollama in dieser Sandbox (Guardrail 2): **kein übergangenes Ticket im
+Sinne von B044**, sondern die Grenze der Ausführung.
+
+**Kein Code geändert, deshalb keine neuen Tests** — der Befund war eine Recherche in Log und Tickets.
+**329 Tests, Matrix 96 SWRs / 0 Lücken, Katalog- und Architektur-Gate grün.** Board-Check gegen die
+Erwartung gelesen (B041 Regel 3): **pm 36 Tickets** (vorher 35, +`T-0036`).
+
+**Werkzeug-Notiz (R7, für die nächste Session):** `git status` hinterlässt auf diesem Mount ein
+`.git/index.lock`, das es nicht mehr löschen kann („Operation not permitted") — jeder folgende
+`git`-Aufruf im selben Repo bricht dann mit „Unable to create index.lock" ab. Ausweg ohne Löschrecht:
+`GIT_INDEX_FILE` auf eine **Kopie** des Index außerhalb von `.git` setzen (`cp .git/index <tmp>` +
+`GIT_INDEX_FILE=<tmp> git add/commit`, je Aufruf ein frischer Pfad). Gehört zum bekannten Bild aus
+`pm/T-0023`/R7 und ist hier nur der bisher nicht notierte Umgehungsweg.
+
+---
+
+*Vorheriger Stand: 2026-08-16 16:50, Routine-Session (D004, alle 30 Min). Briefkasten: **leer** — alle 37
 Briefe aller Projekte/Teams auf `status: offen` durchsucht, kein Treffer; zweimal geprüft
 (Sessionanfang und -ende). Inbox: **leer beim Start und beweisbar nichts Unverbuchtes** —
 erstmals nach der neuen Ablaufregel aus B047 gegen die **DR-Rohdaten** geprüft: es existiert
@@ -64,7 +162,7 @@ Katalog- und Architektur-Gate grün.** Board-Check nach dem Schreiben: **pm 35 T
 
 ---
 
-*Vorheriger Stand: 2026-08-16 16:15, Routine-Session (D004, alle 30 Min). Briefkasten: **leer** — alle
+*Stand davor: 2026-08-16 16:15, Routine-Session (D004, alle 30 Min). Briefkasten: **leer** — alle
 27 pm-Briefe und die Briefkästen aller Projekte/Teams auf `status: offen` durchsucht, kein Treffer;
 zweimal geprüft (Sessionanfang und -ende). Inbox: **zwei Klasse-A-Entscheidungen verbucht**
 (`pm/T-0033` → D007/G0a, 15:55 · `p11/T-0002` → p11/D001/G1a, 16:07 — letztere fiel **51 Sekunden
@@ -325,12 +423,13 @@ Ticket damit komplett (beide Teile `done`). Push-Wächter 11:00 erfolgreich. 305
 
 *Erster Fund des neuen Zählers (SWR-091), noch in der Session seiner Einführung: Die pm-Kachel meldet **4 offene Tickets „ohne Frist"** — `T-0010`/`T-0013`/`T-0026` warten auf einen fremden Nachweis (grüner Actions-Lauf) und sind zu Recht unterminiert, aber **`pm/T-0003` heißt „Takt: LeLe je Sprint/Durchlauf konsolidieren" und trägt gar kein `takt`-Feld** — im Board steht es deshalb als „einmalig". Das war zur Zeit von B014 so gewollt, `pm/D005` hat es danach auf „kontinuierlich" umgestellt, ohne das Feld nachzuziehen. **Bewusst nicht auf Verdacht gesetzt:** `je-session` ist nicht dasselbe wie „je Sprint/Durchlauf", und TAKTE kennt letzteres nicht — das gehört zu `pm/T-0032` (Takt-Konzept), nicht in einen Nebensatz. Nächste Session: entweder Feld setzen oder begründen, warum keins.*
 
-1. **Offene pm-Tickets, jetzt alle terminiert (SWR-091).** **`pm/T-0034` — Frist 17.08., Priorität hoch:** team-mail-Wochendigest seit Gründung fällig, nie erzeugt; fünf Sessions lang nur Randnotiz in Punkt 3, jetzt eigenes Ticket. Lösbar **nur am Host** (kein IMAP/Ollama hier) — kürzester Weg im Ticket. **`pm/T-0032` — Frist 19.08.:** Teil 2 aus `pm/N-0025`, echter Uhrzeit-Takt („jeden Tag um 14 Uhr"); berührt F14 und die zwei bestehenden Taktlogiken, Entwurf im Ticket, **erster Nutzer des Fristfeldes, das Teil 1 gebaut hat**. **`pm/T-0028` — Frist 23.08.:** Gründungs-Knopf im Pool; die von Hand vollzogene Gründung von `team-dashboard` ist jetzt seine reale Vorlage. **`team-dashboard/T-0001` — Frist 23.08.:** Widget-Vertrag entwerfen, Vorbedingung für P11. **`p11/T-0003` — Frist 30.08.:** Sprint 1 des Widget-Dashboards; beauftragt (G1a), startet aber erst mit dem Widget-Vertrag. Steht auf `open` statt `blocked`, weil `blocked_by` nicht über Repo-Grenzen reicht (B047) — die Ursache steht im Ticket. **ERLEDIGT:** `pm/T-0033` (G0a vollzogen, P11 angelegt) und `p11/T-0002` (G1a verbucht) — beide in der 16:15-Session; `pm/T-0030` Teil 1 (SWR-091, 15:35), `pm/T-0031` (Gründung, D006/TG-a), `pm/T-0025` (14:50, SWR-090), `pm/T-0029` (14:05), `pm/T-0027` (12:16), `pm/T-0022` (beide Teile). **Wartend beim Auftraggeber: `pm/T-0035`** (16:50-Session) — DR Klasse A zu `p0/T-0008` (Anthropic-API-Key): AK-a jetzt umsetzen / AK-b schließen wie den Zwilling `p1/T-0018` / AK-c offen lassen mit Frist. **Frist 23.08., Default AK-b.** `p0/T-0008` bleibt bis dahin `open` und **bewusst ohne Frist** (Begründung jetzt im Ticket, siehe B048). Vor diesem Antrag war die Inbox leer — gegen die DR-Rohdaten geprüft, nicht nur gegen `inbox.liste` (Werkzeug-Befund B047).
+1. **Offene pm-Tickets, jetzt alle terminiert (SWR-091).** **`pm/T-0034` — Frist 17.08., Priorität hoch:** team-mail-Wochendigest seit Gründung fällig, nie erzeugt; fünf Sessions lang nur Randnotiz in Punkt 3, jetzt eigenes Ticket. Lösbar **nur am Host** (kein IMAP/Ollama hier) — kürzester Weg im Ticket. **`pm/T-0032` — Frist 19.08.:** Teil 2 aus `pm/N-0025`, echter Uhrzeit-Takt („jeden Tag um 14 Uhr"); berührt F14 und die zwei bestehenden Taktlogiken, Entwurf im Ticket, **erster Nutzer des Fristfeldes, das Teil 1 gebaut hat**. **`pm/T-0028` — Frist 23.08.:** Gründungs-Knopf im Pool; die von Hand vollzogene Gründung von `team-dashboard` ist jetzt seine reale Vorlage. **`team-dashboard/T-0001` — Frist 23.08.:** Widget-Vertrag entwerfen, Vorbedingung für P11. **`p11/T-0003` — Frist 30.08.:** Sprint 1 des Widget-Dashboards; beauftragt (G1a), startet aber erst mit dem Widget-Vertrag. Steht auf `open` statt `blocked`, weil `blocked_by` nicht über Repo-Grenzen reicht (B047) — die Ursache steht im Ticket. **ERLEDIGT:** `pm/T-0033` (G0a vollzogen, P11 angelegt) und `p11/T-0002` (G1a verbucht) — beide in der 16:15-Session; `pm/T-0030` Teil 1 (SWR-091, 15:35), `pm/T-0031` (Gründung, D006/TG-a), `pm/T-0025` (14:50, SWR-090), `pm/T-0029` (14:05), `pm/T-0027` (12:16), `pm/T-0022` (beide Teile). **Wartend beim Auftraggeber: `pm/T-0035`** (16:50-Session) — DR Klasse A zu `p0/T-0008` (Anthropic-API-Key): AK-a jetzt umsetzen / AK-b schließen wie den Zwilling `p1/T-0018` / AK-c offen lassen mit Frist. **Frist 23.08., Default AK-b.** `p0/T-0008` bleibt bis dahin `open` und **bewusst ohne Frist** (Begründung jetzt im Ticket, siehe B048). Vor diesem Antrag war die Inbox leer — gegen die DR-Rohdaten geprüft, nicht nur gegen `inbox.liste` (Werkzeug-Befund B047). **Ergänzung 17:20 (B049): `pm/T-0010` (18.08.), `pm/T-0013` (18.08.), `pm/T-0026` (18.08.)** sind ab jetzt ebenfalls terminiert — sie waren die drei unterminierten Tickets hinter der pm-Kachel, die drei Sessions lang übersehen wurden (siehe Punkt 6). **Neu: `pm/T-0036` — Frist 23.08., Priorität hoch:** CR gegen den blinden Fleck selbst (Org-Summe des „ohne Frist"-Zählers, Preflight-Zeile mit Ticketnamen, Ablaufregel). Damit meldet die pm-Kachel `unterminiert=0`; **organisationsweit bleibt 1** — `p0/T-0008`, begründet nach B048.
 
 2. **P10 ist abgeschlossen (G4a/D002, 10:02 via Inbox — B035)** — Baseline `p10-v1.0` auf `projects` und `platform`, Abschlussbericht liegt in `projects/p10/management/`. Offen bleibt nur der **Betriebsnachweis des Auftraggebers**: die sieben Stichproben aus `p10/T-0004` (siehe Punkt 5) — nur erinnern, nie selbst abhaken.
 3. **team-mail-Takt (`team-mail/T-0001`): SLA erstmals seit Gründung erfüllt (B046).** Der **erste Wochendigest** liegt (`digest/2026-08-16-woche-digest.md`), `mail_digest.faellig(7)` meldet `False`. Zustandegekommen ist er allerdings von Hand: Ein Lauf des Auftraggebers um 15:28 holte 165 Mails über 7 Tage, fand **kein Ollama** und schrieb Rohdaten mit dem Vermerk *die naechste Session verdichtet* — das war diese (Fallback SWR-062). **Der Rest des Befunds steht als `pm/T-0034`, Frist 17.08.:** Warum lief Ollama nicht, und ist `ASPICE-MailAutopilot` überhaupt eingerichtet? Ein fälliger Wochendigest darf nicht auf einen Klick warten.
 4. **Fällige pm-Takt-Tickets** — Intake-Queue, Agenda fortschreiben; PUSH-ANFORDERUNG.txt am Session-Ende schreiben (Runbook Kap. 11).
 5. **Offene Stichproben des Auftraggebers nachhalten** (nur erinnern, nie selbst abhaken) — **alle brauchen vorher einen Serverneustart**:
+   - **Neu (17:20-Session, B049) — die einzige Stichprobe, die diesmal wirklich zählt:** **GitHub-Actions-Seiten öffnen** (der Wächter öffnet sie in Schritt [5/5] von allein) und für `p0`–`p9`, `pm`, `platform`, `projects` nachsehen, ob die Läufe **nach 10:30** grün sind. Damit schließen **drei** Tickets auf einmal: `pm/T-0026` zuerst (Matrix-Gate — solange das rot ist, sagt der Rest nichts), dann `pm/T-0013` und `pm/T-0010`. **Frist für alle drei: 18.08.** Gegenprobe im Cockpit: die **pm-Kachel** zeigt jetzt **keine** Pille „n ohne Frist" mehr; die **p0-Kachel** zeigt weiterhin „1 ohne Frist" — das ist erwartet und begründet (`p0/T-0008`, B048).
    - **Neu (16:50-Session, B048/pm/T-0035):** **Inbox öffnen** — dort steht `pm/T-0035` mit drei Knöpfen **AK-a/AK-b/AK-c**, Frist 23.08., Default AK-b. **Cockpit**: die **p0-Kachel** zeigt weiterhin die Pille „1 ohne Frist" (`p0/T-0008`) — das ist **erwartet und begründet**, nicht übersehen; die Begründung steht im Ticket. Gegenprobe: `p0/T-0008` öffnen → der Nachtrag nennt D008, D015, Kriterium 9/B9 und P1-E5, Status ist unverändert `open`.
    - **Neu (16:15-Session, pm/T-0033/D007 + p11/D001):** **Kopfbereich und Cockpit** zeigen **P11 „Widget-Dashboard"** als aktives Projekt mit Board und einer offenen Aufgabe (`p11/T-0003`, Frist 30.08.). **Requirements-Reiter** → Filter „Projekt/Team: p11" zeigt STK-021 und SWR-092–096, alle auf `draft`. **Inbox** ist leer. **Pool-Reiter** zeigt einen dritten Abschnitt **„Realisiert"** mit Kandidat #13 und dem Weg, den er genommen hat; die Team-Kandidatenliste hat noch fünf Einträge. Gegenprobe: „Neuen Kandidaten anlegen" vergibt die Nummer **14**, nicht 13.
    - **Neu (15:35-Session, SWR-091/pm/T-0030):** **Cockpit öffnen** — über den Statuszahlen einer Kachel steht bei überfälligen Aufgaben ein roter Block („n überfällig", je Ticket „Frist … (n Tage über)"), in der Statuszeile eine Pille „n ohne Frist". Gegenprobe: einem offenen Ticket im Ticket-Editor eine Frist von **gestern** geben → es erscheint sofort im roten Block; eine unsinnige Frist („2026-13-01") wird beim Speichern mit Klartext abgelehnt.
@@ -352,7 +451,7 @@ Ticket damit komplett (beide Teile `done`). Push-Wächter 11:00 erfolgreich. 305
    - Aus B010: Konfigurator öffnen → **KI-Modell** auswählen und **KI-Hinweis** eintragen, speichern, „Jetzt zusammenfassen" laufen lassen und den Digest inhaltlich bewerten.
    - Aus B013: **Selbst-Neustart** — Mission Control über `mission-control.cmd` starten, dann prüfen, ob der Server nach einer Session von allein hochkommt und die Seite nachlädt.
    - Aus B014: **Takt-Kennzeichnung** — Board von `pm` öffnen: `pm/T-0001`/`pm/T-0002` „wiederkehrend: je Session", `pm/T-0003` einmalig.
-6. **Drei Tickets warten auf denselben Nachweis — einen grünen GitHub-Actions-Lauf:** **`pm/T-0010`** (board-check-Flake), **`pm/T-0013`** (Push-Reihenfolge platform zuerst) und neu **`pm/T-0026`** (`projects`-Checkout in `ci.yml`). Alle drei bleiben `in_review`; lokal ist alles grün, und genau das war bei T-0026 der Fehler. **Reihenfolge beim Prüfen:** erst T-0026 — solange das Matrix-Gate rot ist, sagt ein roter Lauf nichts über T-0010/T-0013 aus.
+6. **Drei Tickets warten auf denselben Nachweis — einen grünen GitHub-Actions-Lauf; seit 17:20 mit Frist 18.08. (B049):** **`pm/T-0010`** (board-check-Flake), **`pm/T-0013`** (Push-Reihenfolge platform zuerst), **`pm/T-0026`** (`projects`-Checkout in `ci.yml`). Alle drei bleiben `in_review`; lokal ist alles grün, und genau das war bei T-0026 der Fehler. **Reihenfolge beim Prüfen:** erst T-0026 — solange das Matrix-Gate rot ist, sagt ein roter Lauf nichts über T-0010/T-0013 aus. **Neu und wichtig:** Der Satz „Nachweis unerreichbar, kein `gh`/Netzzugriff" stand hier sieben Sessions lang und war in **zwei** Hinsichten falsch — der Wächter läuft seit **10:30** wieder (13 grüne Läufe, alle Repos `ahead 0`), und **Kriterium 1 von `T-0013` ist bereits erfüllt und war rein lokal prüfbar** (`platform` als erstes Repo in der Push-Ausgabe, seit 07:59:59 in jedem Lauf, siehe `abschluss-auto.log`). Am Host fehlt jetzt nur noch **ein Blick auf die Actions-Seiten**, die der Wächter in Schritt [5/5] ohnehin öffnet. **Regel daraus:** Ein Hinderungsgrund im Ticket ist ein Messwert mit Datum, keine Eigenschaft — wer ihn wiederholt, prüft ihn vorher nach; und Verifikationskriterien werden **einzeln** abgehakt, nie als Satz.
 7. **Pilotreview:** team-mail ab 2026-08-29 (B002) — Digest-Format-Feedback, B003 (Werkzeug-Promotion), CR-Kandidat Markdown-Renderer für Briefe/Reports.
 8. **Betriebs-Backlog** — BB-5 PAT-Erneuerung ab 2026-09-05 (ab 1.9. aktiv erinnern). CR-Kandidaten: **neu (aus B047): repo-übergreifendes `blocked_by`** — `board.py` prüft den Verweis gegen die IDs desselben Repos; seit `team-dashboard` fachlicher Auftraggeber von P11 ist, gibt es echte Abhängigkeiten über Repo-Grenzen (`p11/T-0003` wartet auf `team-dashboard/T-0001`) und der Status `blocked` ist dafür unbenutzbar. Berührt Board-Validierung, Cockpit-Anzeige und Fälligkeitslogik zugleich — gehört zu `pm/T-0032`/einer eigenen Session, nicht in eine Verbuchung. **Ebenfalls neu (16:15-Session): `preflight.unit_tests` gibt bei rotem Lauf nur die letzten drei Zeilen aus** — genau die Zusammenfassung; die `FAIL:`-Zeilen mit den Testnamen werden verworfen, ein Flake lässt sich hinterher nicht mehr untersuchen (heute einmal eingetreten, siehe oben). Fix wäre klein: bei `returncode != 0` zusätzlich die `FAIL:`/`ERROR:`-Zeilen durchreichen. **Ebenfalls neu (aus B047): eine Prüfung „entschieden, aber nicht verbucht"** — die Inbox kann das bauartbedingt nicht melden (SWR-039 filtert entschiedene DRs heraus); heute hängt der Fund an einer namentlichen Erwartung in der Agenda. **Neu (aus B038): der Auto-Push-Wächter meldet Fehlschläge nur nach `abschluss-auto.log`** — eine Warnmail nach dem n-ten Fehlversuch (die Mail-Strecke aus SWR-033 existiert bereits) hätte heute zwei Stunden Stillstand auf fünfzehn Minuten verkürzt. Bewusst nicht nebenbei gebaut: Mailversand ist Außenwirkung und gehört nicht in einen SUP.9-Fix; `abschluss.cmd`, `abschluss-auto.cmd` und die `mission-control*.cmd` liegen **unversioniert** im Wurzelordner (Vorschlag: nach `platform/infra/` versionieren, im Wurzelordner nur dünne Aufrufer); Projekt-Workflows checken `platform` auf einem **Tag** statt `main` aus; **neu:** Repo-Präfix auch im generierten `BOARD.md` (aus `pm/T-0021` zurückgestellt — Formatänderungen am Board haben heute schon einmal alle Prüf-Workflows rot gemacht, das gehört gebündelt mit `pm/T-0013`).
 
