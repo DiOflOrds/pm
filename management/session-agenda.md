@@ -1,5 +1,121 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
+## Das Wichtigste (Stand 2026-08-16 22:19)
+
+1. **Erster echter Gesamtsprint nach `pm/D006`:** alle Tickets aller Repos gesichtet, **18 offene
+   Aufgaben, alle terminiert** — 6 in diesem Sprint, 5 warten auf dich, 11 mit Datum und Grund.
+2. **Der Sprint-Plan steht ab jetzt in Mission Control**, Cockpit, direkt unter „Letzte Session".
+   Die Kachel meldet auch, welche offenen Tickets in **keiner** Planzeile stehen.
+3. **`pm/T-0016` ist erledigt** — und war das einzige unterminierte Ticket der Organisation, in
+   keiner Liste sichtbar. Ausgerechnet der CR, der genau das beheben soll (B049, vierter Fall).
+4. **`pm/T-0032` wurde zerlegt statt zum vierten Mal verschoben**: die Abgrenzung ist geschrieben,
+   der Bau bleibt der 19.08. **380 Tests grün** (vorher 353), Matrix **103 SWRs / 0 Lücken**.
+5. **Heute fällig, nur am Host lösbar: `pm/T-0034`** (17.08. — ab morgen greift B044).
+
+---
+
+## Für dich (E. John) — nur am Host lösbar
+
+| Frist | Ticket | Was zu tun ist |
+|---|---|---|
+| **17.08.** | `pm/T-0034` | Am Host: Läuft Ollama? Ist `ASPICE-MailAutopilot` eingerichtet? |
+| 18.08. | `pm/T-0013` | Blick auf die GitHub-Actions-Seite (board-check grün?) |
+| 18.08. | `pm/T-0026` | derselbe Blick (CI/Matrix-Gate grün?) |
+| 18.08. | `pm/T-0010` | derselbe Blick (board-check-Flake weg?) |
+
+**Die drei 18.08.-Tickets sind ein Handgriff, nicht drei** — die Seite, die der Push-Wächter
+ohnehin öffnet ([5/5] seiner Ausgabe). Ein grüner Lauf schließt alle drei.
+
+**Neu dazu, ohne Frist: die Stichprobe zu `T-0016`.** Cockpit öffnen — steht „Sprint aktuell"
+direkt unter „Letzte Session", und ist die Tabelle auch am Telefon lesbar? Der Punkt ist **nicht**
+durch einen Test gedeckt (null JS-Tests in der Organisation); dass das offen dasteht, ist Absicht.
+
+## Für das Team
+
+| Frist | Ticket | Team | Inhalt |
+|---|---|---|---|
+| 19.08. | `pm/T-0032` | PM | Echter Uhrzeit-Takt — **Teil 1 (Abgrenzung) ist erledigt**, es bleibt der Bau |
+| 23.08. | `pm/T-0036` | PM | „Ohne Frist"-Zähler als Org-Summe |
+| 23.08. | `pm/T-0038` | PM | Feld `verantwortlich` — **mit `T-0036` bündeln** (Board-Format) |
+| 23.08. | `pm/T-0039` | PM | Am Brief weiterkommentieren (`N-0031`) |
+| 23.08. | `pm/T-0028` | PM | Projekt-Pool: Team gründen im HMI |
+| 23.08. | `team-dashboard/T-0001` | team-dashboard | Widget-Vertrag — **die Sperre für P11** |
+| 30.08. | `projects/p12/T-0003` | P12 | Sprint 1: Renderer zusammenführen |
+| 30.08. | `projects/p11/T-0003` | P11 | Sprint 1: Widget-Dashboard bauen |
+
+**Takt-Dauerläufer ohne Frist (kein Rückstand):** `pm/T-0001` (Agenda), `pm/T-0002` (Intake),
+`pm/T-0003` (Lessons), `platform/T-0001` (Werkzeugpflege), `team-mail/T-0001` (wartet auf IMAP).
+
+**Der vollständige Sprint-Plan mit Rollen, Fälligkeiten und Gründen steht in
+`pm/management/sprint-aktuell.md`** — und ab jetzt auch im Cockpit. Diese Agenda bleibt die
+Kurzfassung; die Workflow-Sicht ist die Plandatei (`pm/D006`).
+
+**Reihenfolge-Hinweis für die nächste Session:** `T-0032` (19.08.) ist die früheste Frist und
+**trägt keine Denkarbeit mehr** — die Abgrenzung steht, es ist Bauarbeit. Danach gehören `T-0036`
+und `T-0038` zusammen (beide ändern das `BOARD.md`-Format); `T-0039` ist davon unabhängig.
+
+---
+
+*Ab hier: Belege und Details zum Nachlesen.*
+
+*Stand: 2026-08-16 22:19–23:05, Routine-Session als **Genesis-Gesamtsprint** (D004/D006). Briefkasten
+beim Start: **43 Briefe, kein offener**; die **Zweitprüfung am Sessionende bestätigte das** (B036,
+neunter Lauf, ohne Fund). Inbox beim Start und am Ende: **leer und beweisbar nichts Unverbuchtes** —
+gegen die DR-Rohdaten geprüft (B047): **44 Decision Requests, alle `done`**. **Kein überfälliges
+Ticket** (frühester Termin `pm/T-0034`, 17.08.). Fremde Änderungen: nur die bekannte
+`team-mail`-Anzeige (`digest/2026-08-16-woche-digest.md`, `git diff --quiet` = 0) — der
+Index-Refresh aus R7, erneut geprüft, erneut kein Commit.*
+
+## Der Sprint dieses Laufs
+
+**Geplant (Kernpflicht nach `pm/D006`):** **241 Tickets** aller 16 Repos gesichtet — 219 `done`,
+4 `rejected`, **15 `open`, 3 `in_review`**. Die 18 nicht geschlossenen stehen **vollständig** in
+`pm/management/sprint-aktuell.md`, je Zeile mit Rolle, Fälligkeit, Status und Grund. Keine Auswahl,
+keine Kürzung — das war der Punkt.
+
+**⚠ Der Befund, der den Sprintinhalt bestimmt hat.** `pm/T-0016` (`prio: hoch`, `change-request`)
+hatte **keine Frist**, kein `takt` und stand in **keiner** der drei Agendalisten. Es war das
+**einzige unterminierte Ticket der Organisation** (`cockpit_alle`: `unterminiert = 1`). Das ist der
+**vierte** Auftritt von **B049** — und diesmal traf es den CR, der die Workflow-Sicht liefern soll.
+Der Vorgang, der die Unsichtbarkeit beheben sollte, war selbst unsichtbar.
+
+**Gebaut:** `platform/backend/sprint.py`, `GET /api/sprint`, Kachel **„Sprint aktuell"** unter
+„Letzte Session". Gelesen wird die Datei, die die Session ohnehin schreibt — **kein zweiter Plan**
+(B033). Der Zeitstempel kommt aus dem **Git-Commit**, und die Staleness-Regel wird aus
+`session.stille` **importiert**, nicht abgeschrieben.
+
+**Der Teil, der mehr tut als abschreiben.** Die Plantabelle ist von Hand geschrieben — sie ist eine
+*Entscheidung* des PM und hat im Ticket kein Feld. Genau darum kann sie abdriften. Die Sicht
+vergleicht sie deshalb **gegen den Bestand aller entdeckten Repos** und meldet jedes offene Ticket
+ohne Planzeile (`nicht_geplant`), **über** der Tabelle. Eine Sicht, die nur wiedergibt, was ihr
+vorgelegt wird, hätte den Befund oben nie finden können.
+
+**⚠ Zweiter Befund, in eigener Sache (B057).** Beim **ersten Lauf gegen den echten Plan** meldete
+der Zähler `wartet_auf_mensch = 1`, während der Klartext derselben Datei von **fünf** Aufgaben
+sprach. Kein Tippfehler, ein Denkfehler: **Termin und Zuständigkeit sind zwei Fakten.** `pm/T-0034`
+trägt ein Datum (17.08.) **und** wartet auf den Host. Alle 22 Tests der ersten Fassung waren grün,
+weil die Testdaten dieselbe Annahme trugen wie der Code — gefunden hat es der Lauf gegen den
+Bestand, wörtlich Regel 1 aus L-2026-08-16h. Die Zahl liegt jetzt **quer** zur Zerlegung.
+
+**`pm/T-0032` zerlegt statt zum vierten Mal verschoben.** Die Vorsession hatte zugesagt, dass die
+nächste freie Session `T-0032` nimmt und die Abgrenzung **schreibt statt baut**. Eingelöst: die
+Trennlinie steht (*was ohne laufende Session feuern muss, gehört zum Host-Scheduler; was nur
+bemerkt werden muss, ans Ticket*), die vier offenen Punkte sind entschieden, Teil 2 bleibt der
+19.08. — **jetzt ohne offene Vorfrage**.
+
+**Nachweis:** **380 Tests** (vorher 353, +27), Matrix **103 SWRs / 0 Lücken**, Preflight STARTKLAR.
+Gegenprobe über den **echten Abrufweg**: der Server aus `git archive HEAD` beantwortet
+`GET /api/sprint` mit **HTTP 404 „unbekannter Endpunkt"**, während `GET /api/session` im selben
+Lauf **200** liefert.
+
+**Nicht als getestet geführt: die Kachelposition.** 380 Python-Tests, **null** JS-Tests
+(Pool-Kandidat #8, nicht beauftragt). Der Nachweis ist eine **Stichprobe des Auftraggebers** und
+steht als solche im Ticket — das offen zu sagen ist B027, es als getestet zu führen wäre B038.
+
+---
+
+## Vorheriger Stand (2026-08-16 21:25)
+
 ## Das Wichtigste (Stand 2026-08-16 21:25)
 
 1. **Du kannst diesen Block ab jetzt in Mission Control lesen** — Reiter *Cockpit*, Kachel

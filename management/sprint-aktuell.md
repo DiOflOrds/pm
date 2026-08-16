@@ -3,30 +3,29 @@
 ## Das Wichtigste
 
 1. **18 offene Aufgaben in 6 Repos, alle terminiert** — 6 in diesem Sprint, 5 warten auf eine
-   Handlung am Host, 7 tragen ein Datum mit Grund im Ticket.
-2. **`pm/T-0016` war das einzige unterminierte Ticket der Organisation** und stand in keiner
-   Agendaliste — ausgerechnet der CR, der diese Sicht sichtbar machen soll. Es ist der
-   Sprint-Inhalt.
-3. **`pm/T-0032` ist zerlegt**, nachdem es dreimal wortgleich verschoben wurde: Teil 1 (Abgrenzung
-   schriftlich) in diesem Sprint, Teil 2 (Bau) am 19.08.
-4. **Nichts wartet auf das Team, ohne dass ein Datum daran steht.** Verschiebungen stehen mit
-   Grund im jeweiligen Ticket, nicht nur hier.
-5. **Was am Host hängt, hängt an einem einzigen Blick:** `pm/T-0034` (17.08.) und die drei
-   `18.08.`-Tickets, die eine grüne Actions-Seite gemeinsam schließt.
+   Handlung am Host, 11 tragen ein Datum mit Grund im Ticket.
+2. **`pm/T-0016` ist erledigt** — und war das einzige unterminierte Ticket der Organisation, in
+   keiner Agendaliste. Ausgerechnet der CR, der diese Sicht sichtbar machen soll.
+3. **Diese Tabelle steht ab jetzt in Mission Control**, Cockpit, direkt unter „Letzte Session" —
+   samt Meldung, welche offenen Tickets in **keiner** Planzeile stehen.
+4. **`pm/T-0032` ist zerlegt statt zum vierten Mal verschoben**: die Abgrenzung der drei
+   Taktlogiken ist geschrieben, der Bau bleibt der 19.08.
+5. **Was am Host hängt, hängt an zwei Handgriffen:** `pm/T-0034` (17.08.) und ein Blick auf die
+   GitHub-Actions-Seite, der die drei `18.08.`-Tickets gemeinsam schließt.
 
 ## Sprint-Plan
 
-*Sprint = dieser Lauf (2026-08-16 22:19). Default nach pm/D006: in diesem Sprint schließen.
+*Sprint = dieser Lauf (2026-08-16 22:19–23:0x). Default nach pm/D006: in diesem Sprint schließen.
 Verschieben nur mit Grund — Mensch nötig, zu groß (zerlegt) oder blockiert.*
 
 | Aufgabe | Rolle | Fällig | Status | Grund / nächster Schritt |
 |---|---|---|---|---|
-| pm/T-0016 | chg | dieser Sprint | in Arbeit | Workflow-Sicht im HMI. Einziges unterminiertes Ticket der Organisation, `prio: hoch`, in keiner Agendaliste — wird in diesem Sprint gebaut und terminiert. |
-| pm/T-0032 | pl | dieser Sprint | in Arbeit | Zerlegt (zu groß): **Teil 1 Abgrenzung der drei Taktlogiken schriftlich** in diesem Sprint. Teil 2 (Bau) bleibt 19.08. Dritter wortgleicher Aufschub war der Anlass (B043/B049). |
+| pm/T-0016 | chg | dieser Sprint | **erledigt** | Workflow-Sicht im HMI gebaut (SWR-103, `GET /api/sprint`, Kachel „Sprint aktuell"). War das einzige unterminierte Ticket der Organisation. |
+| pm/T-0032 | pl | dieser Sprint | **Teil 1 erledigt** | Abgrenzung der drei Taktlogiken schriftlich geklärt. Teil 2 (Bau) bleibt 19.08. — jetzt ohne offene Vorfrage. |
 | pm/T-0001 | pl | dieser Sprint | erfüllt | Takt je Session: Session-Agenda fortgeschrieben. |
 | pm/T-0002 | pl | dieser Sprint | erfüllt | Takt je Session: Briefkasten qualifiziert — 43 Briefe, kein offener (zweimal geprüft, B036). |
 | pm/T-0003 | coach | dieser Sprint | erfüllt | Takt je Sprint: Lessons Learned dieses Laufs sofort verankert (D005). |
-| platform/T-0001 | cm | dieser Sprint | erfüllt | Takt: Werkzeugpflege — Preflight STARTKLAR, Tests grün, Matrix ohne Lücke. |
+| platform/T-0001 | cm | dieser Sprint | erfüllt | Takt: Werkzeugpflege — Preflight STARTKLAR, 380 Tests grün, Matrix 103/0. |
 | pm/T-0034 | prob | 2026-08-17 | wartet-auf-Mensch | Ollama/`ASPICE-MailAutopilot` nur am Host prüfbar; in dieser Sandbox kein IMAP und kein Ollama (Guardrail 2). Ab 17.08. greift B044. |
 | pm/T-0013 | prob | 2026-08-18 | wartet-auf-Mensch | Kriterium 1 lokal belegt (B049); Kriterium 2 braucht die GitHub-Actions-Seite. |
 | pm/T-0010 | prob | 2026-08-18 | wartet-auf-Mensch | Derselbe Blick auf dieselbe Seite (board-check-Flake). |
@@ -42,12 +41,23 @@ Verschieben nur mit Grund — Mensch nötig, zu groß (zerlegt) oder blockiert.*
 
 **Rollenzuweisung in diesem Sprint:** keine Umhängung. Alle vier Host-Tickets tragen fachlich
 korrekte Rollen (`prob`/`cm`); dass sie tatsächlich beim **Menschen** liegen, ist genau die Lücke,
-die `pm/T-0038` schließt (Feld `verantwortlich`) — bis dahin sagt es die Spalte *Fällig* hier
+die `pm/T-0038` schließt (Feld `verantwortlich`) — bis dahin sagt es die Spalte *Status* hier
 mit `wartet-auf-Mensch`.
 
 ---
 
 *Ab hier: Belege und Details zum Nachlesen.*
+
+## Sprint-Abschluss (2026-08-16)
+
+**Geplant:** 18 Aufgaben, davon 6 für diesen Sprint. **Geschlossen:** `pm/T-0016` (`done`) sowie
+die vier Takt-Pflichten `pm/T-0001`, `pm/T-0002`, `pm/T-0003`, `platform/T-0001`.
+**Teilweise:** `pm/T-0032` — Teil 1 (Abgrenzung) erledigt, Teil 2 (Bau) terminiert auf 19.08.
+**Nicht geschlossen:** nichts, was für diesen Sprint geplant war.
+
+Der Sprint hat der Organisation **einen** neuen Endpunkt, **eine** neue Kachel, **27** neue Tests
+(380 gesamt, vorher 353) und **einen** neuen SWR (103 gesamt, 0 Lücken) gebracht — und zwei
+Befunde, die beide in `process/knowledge/cm/lessons.md` stehen.
 
 ## Wie dieser Plan entstanden ist
 
@@ -55,8 +65,8 @@ Gesichtet wurden **alle** Tickets **aller** entdeckten Repos (16 Git-Repos plus 
 in `projects/`): **241 Tickets**, davon 219 `done`, 4 `rejected`, **15 `open`, 3 `in_review`**.
 Die 18 nicht geschlossenen stehen oben vollständig — keine Auswahl, keine Kürzung.
 
-**Befund dieses Laufs: `pm/T-0016` war unsichtbar.** `cockpit_alle` meldet organisationsweit
-`unterminiert = 1`; dahinter steht `pm/T-0016` (`typ: change-request`, `prio: hoch`, ohne Frist,
+**Befund dieses Laufs: `pm/T-0016` war unsichtbar.** `cockpit_alle` meldete organisationsweit
+`unterminiert = 1`; dahinter stand `pm/T-0016` (`typ: change-request`, `prio: hoch`, ohne Frist,
 ohne `takt`). Es stand in **keiner** der drei Agendalisten — weder unter „Für dich", noch unter
 „Für das Team", noch bei den Takt-Dauerläufern. Das ist der **vierte** Auftritt des Musters aus
 **B049**: die Eskalationsregel B044 sieht nur Tickets **mit** Frist, und der einzige Melder für den
