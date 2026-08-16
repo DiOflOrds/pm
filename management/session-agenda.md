@@ -1,21 +1,96 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
-## Das Wichtigste (Stand 2026-08-16 17:30)
+## Das Wichtigste (Stand 2026-08-16 18:35)
 
-1. **`pm/T-0035` → AK-b entschieden (17:17) und vollzogen.** `p0/T-0008` ist `rejected`; P0 und P1
-   haben kein offenes Ticket mehr.
-2. **Der „ohne Frist"-Zähler steht organisationsweit erstmals auf 0.** `pm/T-0010`, `T-0013`,
-   `T-0026` waren dreimal übersehen worden — jetzt terminiert (18.08.).
-3. **Nächster Arbeitspunkt für die nächste Session:** `pm/T-0034` (Frist **17.08.**, nur am Host
-   lösbar) — Eskalationsregel B044 greift ab morgen.
-4. **Für den Auftraggeber:** ein Blick auf die GitHub-Actions-Seiten schließt drei Tickets.
-5. **Neue Formatregel B050** (aus `pm/N-0028`/`N-0029`): Kurzfassung zuerst, Langtext darunter —
-   gilt für dieses Dokument, `PROJEKTSTATUS-UPDATE.md` und Brief-Antworten. Ausnahme mit
-   Begründung: Klasse-A-Anträge bleiben vollständig, bekommen aber denselben Kurzblock.
+1. **Dein Knopf hat gehalten: P12 ist gestartet, freigegeben und Sprint 0 liegt.** Du hast
+   „Markdown-Renderer auch für Briefe/Reports" um 18:03 aus dem Pool gestartet und um **18:04**
+   mit **G0a** freigegeben — beides ist verbucht.
+2. **Auf dich wartet eine Entscheidung:** `p12/T-0002` (G1, Frist **23.08.**, Default G1a) —
+   Anforderungen freigeben und Sprint 1 beauftragen. Drei Punkte sind darin offengelegt, der
+   wichtigste: **es gibt keine JS-Teststrecke**, die Prüfung ist Arbeit von Sprint 1, keine Zusage.
+3. **Morgen fällig:** `pm/T-0034` (17.08., nur am Host lösbar) — ab morgen greift B044.
+4. **Weiterhin für dich:** ein Blick auf die GitHub-Actions-Seiten schließt `pm/T-0010`,
+   `T-0013`, `T-0026` (Frist 18.08.).
+5. **Werkzeugbefund B051:** Der „Starten"-Knopf hat den Pool-Kandidaten spurlos gelöscht und ein
+   Decision-Log ohne Tabellenkopf angelegt. Von Hand behoben, Werkzeugänderung als `pm/T-0037`.
 
 *Ab hier: Belege und Details zum Nachlesen.*
 
-*Stand: 2026-08-16 17:06–17:32, Routine-Session (D004, alle 30 Min). Briefkasten: **leer** — alle 36
+*Stand: 2026-08-16 18:04–18:35, Routine-Session (D004, alle 30 Min). Briefkasten: **leer** — alle
+38 Briefe aller Projekte/Teams auf `status: offen` durchsucht, kein Treffer; zweimal geprüft
+(Sessionanfang und -ende). Inbox beim Start: `inbox.liste` meldete **leer** — und das war
+**falsch im Sinne der Verbuchung**: `p12/T-0001` trug seit **18:04** den Entscheidungsvermerk
+**G0a** bei Status `open` (SWR-039/B047, sechster Fund dieser Klasse). Gegen die **DR-Rohdaten**
+geprüft, wie es die Ablaufregel aus B047 verlangt — genau dort stand er. **Verbucht.** Am Ende:
+ein wartender DR (`p12/T-0002`, von dieser Session vorgelegt), kein unverbuchter.
+**Kein überfälliges Ticket**, **Org-Summe „ohne Frist" = 0**; `mail_digest.faellig(1)` und
+`faellig(7)` beide `False`. Push: `PUSH-ANFORDERUNG.txt` war beim Start **nicht vorhanden** — die
+Zeile der 17:06-Session ist abgearbeitet (Wächter-Erfolg 17:30:26). Diese Session legt sie neu an
+(Repos: projects, pm, process, p0).*
+
+**Der Knopf aus `pm/T-0022` ist zum ersten Mal echt gelaufen — und der Lauf war der Prüfstein
+(B051).**
+
+Um **18:03** hat der Auftraggeber Technik-Kandidat **#7** aus dem Projekt-Pool gestartet; das
+Werkzeug legte `projects/p12` mit Auftragsentwurf, leerem Decision-Log, `steckbrief.yaml` und dem
+G0-Antrag `T-0001` an. Um **18:04** kam **G0a**. Beides passierte **vor** dem Beginn dieser
+Session — sichtbar wurde es nicht über die Inbox (die filtert entschiedene DRs bauartbedingt
+heraus), sondern über die Prüfung gegen die DR-Rohdaten.
+
+**Vollzogen (Klasse C — die Entscheidung war Klasse A und ist gefallen):** Sprint 0 für P12.
+Projektauftrag **v1.0** mit sechs messbaren Abnahmekriterien, **STK-022 + SWR-097–101** als
+`draft` (B027), Sprint-0-Plan mit **sechs** Risiken, G1-DR `p12/T-0002`. `T-0001` über die
+erlaubten Übergänge geschlossen (`open → in_progress → in_review → done`), nicht per
+Direktsetzung. **Matrix: 101 SWRs / 0 Lücken** (vorher 96).
+
+**⚠ Der inhaltliche Kern des Projekts wurde in Sprint 0 gefunden, nicht vorausgesetzt.** Es gibt
+im HMI **zwei** Textwege, und jedem fehlt genau die Fähigkeit des anderen: `mdRender` (SWR-059/060)
+formatiert, kennt aber **keine Ticket-Links**; `preMitLinks`/`tlinks` (SWR-040) verlinkt Tickets,
+formatiert aber nichts. Briefe und Reports einfach auf den Renderer umzuhängen hätte die
+Ticket-Links **genau dort verloren, wo die meisten stehen** — Reports und DR-Bodys. Deshalb steht
+in SWR-098 die Ticket-Erkennung **im Inline-Pass des vorhandenen Renderers**; P12 ist eine
+Zusammenführung, kein Anstrich.
+
+**⚠ Was der Antrag ausdrücklich nicht zusagt: die Prüfung.** Die Abnahmekriterien verlangen
+Nachweise an JavaScript — die Organisation hat **329 Python-Tests und null JS-Tests**;
+„JS-Frontend-Tests" ist Pool-Kandidat **#8** und nicht beauftragt. Das steht als **R5** im Plan und
+als Punkt 1 im G1-Antrag: *wie* geprüft wird, ist die erste Entscheidung in Sprint 1 und gehört in
+den ADR. Ein „Tests" im Kriterium, aus dem am Ende eine Stichprobe wird, wäre B027/B038.
+
+**⚠ Werkzeugbefund B051 — eine Konvention, die nur von Hand existierte, hat den ersten
+Werkzeuglauf nicht überlebt.** Zwei Sachen, beide **lautlos**:
+
+1. **Der Pool-Kandidat wurde gelöscht, nicht verschoben.** Der Diff des Knopf-Commits ist wörtlich
+   `1 file changed, 1 deletion(-)`. Den Abschnitt **„Realisiert"** gibt es seit **16:15 desselben
+   Tages** — von Hand eingeführt für Kandidat #13 mit der Begründung aus B029 (*ein Kandidat, der
+   verschwindet, sieht aus wie einer, den nie jemand wollte*). Der Knopf war da schon gebaut.
+2. **Das erzeugte Decision-Log hat keinen Tabellenkopf.** `pool.py` schreibt einen
+   Platzhaltersatz, `inbox.entscheide` hängt die D000-Zeile an — ohne Kopf ist das keine Tabelle,
+   sondern Pipe-Text, und der Platzhaltersatz behauptet danach weiter, es gebe keine Entscheidung.
+
+Gefunden nur, weil der fremde Commit gegengelesen wurde (B041 Regel 3). **Von Hand sofort
+angewandt**, was ohne Code geht: Pool-Zeile unter „Realisiert" nachgetragen, Tabellenkopf im
+p12-Log ergänzt (mit Vermerk, append-only gewahrt). **Die Werkzeugänderung ist eingeplant als
+`pm/T-0037`** (Klasse B, Frist 23.08.) und **nicht** nebenbei gebaut — eine Änderung an `pool.py`
+samt Tests neben dem Vollzug einer Klasse-A-Entscheidung ist genau das Risiko aus B025/B038.
+
+**Kein Code geändert, deshalb keine neuen Tests** — die Arbeit war Vollzug, Anforderungsentwurf
+und eine Recherche im Frontend. **329 Tests, Matrix 101 SWRs / 0 Lücken, Katalog- und
+Architektur-Gate grün.** Board-Check gegen die Erwartung gelesen (B041 Regel 3): **pm 37 Tickets**
+(vorher 36, +`T-0037`), **p12 2 Tickets** (vorher 1, +`T-0002`).
+
+**⚠ Eigener Fehler dieser Session, gefunden und behoben.** Beim Erkunden wurde
+`trace_matrix.py` **ohne** `--repos . --alle-projekte` aufgerufen; der Lauf schrieb
+`p0/verification/reports/swr-test-matrix.md` auf einen Teilstand (24 SWRs, 56 Lücken) — eine
+Datei, die diese Session zu dem Zeitpunkt gar nicht anfassen wollte. Sofort gegengelesen
+(`git diff --stat`: 116+/74−), **in-place** aus `git show HEAD:` zurückgeschrieben (`git checkout`
+scheitert am `unable to unlink` des Mounts, R7) und mit `git diff --quiet` als bitgleich zu HEAD
+belegt, **bevor** irgendetwas committet wurde. Danach der richtige Aufruf: 101 SWRs / 0 Lücken.
+**Lehre:** Ein Werkzeug, das Dateien schreibt, ist kein Erkundungsmittel — Erkundung liest.
+
+---
+
+*Vorheriger Stand: 2026-08-16 17:06–17:32, Routine-Session (D004, alle 30 Min). Briefkasten: **leer** — alle 36
 Briefe aller Projekte/Teams auf `status: offen` durchsucht, kein Treffer; zweimal geprüft
 (Sessionanfang und -ende) — die Zweitprüfung fand **zwei neue Briefe**, `pm/N-0028`/`N-0029`
 (wortgleich, 15:18:55 und 15:18:56), beide beantwortet. Inbox: beim Check um **17:06** stand

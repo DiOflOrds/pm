@@ -28,6 +28,11 @@
 | # | Kandidat | Wohin | Beleg |
 |---|---|---|---|
 | 13 | **team-dashboard** — Dashboards verwalten/koordinieren + kompaktes Widget-Dashboard | Team `team-dashboard` (Gründung) **und** Projekt **P11 „Widget-Dashboard"** (Bau, `projects/p11`) — „verwalten" ist Daueraufgabe, „bauen" ist ein Projekt | pm/N-0027, pm/T-0031 → pm/D006 (TG-a, 15:21), pm/T-0033 → pm/D007 (G0a, 15:55) |
+| 7 | Markdown-Renderer auch für Briefe/Reports (Quelle: P7-LeLe) | Projekt **P12** (`projects/p12`) — über den „Starten"-Knopf (pm/T-0022 Teil 2) angelegt, vom Auftraggeber freigegeben | p12/T-0001 → p12/D000 (G0a, 18:04) |
+
+*Zeile 7 wurde **von Hand nachgetragen**: Der „Starten"-Knopf hat den Kandidaten aus der
+Technik-Tabelle gelöscht und nichts hinterlassen — er kennt diesen Abschnitt nicht, weil er am
+16.08. für Kandidat #13 von Hand eingeführt wurde. Werkzeugbefund und CR: `pm/T-0037`.*
 
 *Warum dieser Abschnitt und keine stille Löschung: Ein Kandidat, der aus der Liste verschwindet,
 sieht aus wie ein Kandidat, den nie jemand wollte. Die Zeile steht hier, damit nachvollziehbar
