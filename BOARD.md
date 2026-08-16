@@ -12,19 +12,14 @@ Stand: 2026-08-16 · Tickets: 26 · davon wiederkehrend: 2
 | [T-0025](tickets/T-0025.md) | CR (team-mail/N-0002, Rest): Sofort-Knopf zeigt im Klartext, womit er läuft (Modell, KI-Hinweis, Takte) | change-request | einmalig | chg | mittel | 0 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | einmalig | coach | niedrig | 0 | — |
 
-## in_progress (1)
-
-| ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
-|---|---|---|---|---|---|---|---|
-| [T-0022](tickets/T-0022.md) | CR (N-0020, Teil 2): Projekt-Pool — Kandidat anlegen und starten im HMI (nach P10 Sprint 1) | change-request | einmalig | chg | mittel | 0 | — |
-
-## in_review (3)
+## in_review (4)
 
 | ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|
 | [T-0013](tickets/T-0013.md) | Problem (platform/N-0001): board-check rot nach Board-Formatänderung — Push-Reihenfolge | problem | einmalig | prob | hoch | 0 | — |
 | [T-0026](tickets/T-0026.md) | Problem (platform/N-0006): CI rot — das Matrix-Gate sah das Sammel-Repo `projects` nicht | problem | einmalig | cm | hoch | 0 | — |
 | [T-0010](tickets/T-0010.md) | Problem (N-0007): board-check-Flake — Stand-Datum kippt um Mitternacht | problem | einmalig | prob | mittel | 0 | — |
+| [T-0022](tickets/T-0022.md) | CR (N-0020, Teil 2): Projekt-Pool — Kandidat anlegen und starten im HMI (nach P10 Sprint 1) | change-request | einmalig | chg | mittel | 0 | — |
 
 ## done (18)
 
