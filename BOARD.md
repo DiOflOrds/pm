@@ -3,12 +3,13 @@
 Stand: 2026-08-16 · Tickets: 40 · davon wiederkehrend: 3
 
 
-## open (9)
+## open (10)
 
 | ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|
 | [T-0001](tickets/T-0001.md) | Takt: Session-Agenda pflegen (jede Session) | task | je Session | pl | hoch | 0 | — |
 | [T-0002](tickets/T-0002.md) | Takt: Intake-Queue — neue Wünsche/Briefe qualifizieren (jede Session) | task | je Session | pl | hoch | 0 | — |
+| [T-0016](tickets/T-0016.md) | CR: Workflow-Sicht im HMI — Sprint-Plan (sprint-aktuell.md) mit Fälligkeiten anzeigen (pm/D006) | change-request | einmalig | chg | hoch | 0 | — |
 | [T-0034](tickets/T-0034.md) | Problem: team-mail-Wochendigest ist seit Teamgründung fällig und wurde nie erzeugt — seit fünf Sessions unveränderte Randnotiz | problem | einmalig | prob | hoch | 0 | — |
 | [T-0036](tickets/T-0036.md) | CR (B049): Unterminierte offene Tickets sind für die Eskalationsregel B044 unsichtbar — der „ohne Frist\"-Zähler wird pro Kachel gelesen, nie als Summe | change-request | einmalig | pl | hoch | 0 | — |
 | [T-0038](tickets/T-0038.md) | CR (B053, pm/N-0030): Tickets nennen keinen Verantwortlichen — `rolle` sagt die Fachrolle, nicht wer die Handlung tut (Team oder Mensch) | change-request | einmalig | pl | hoch | 0 | — |
@@ -25,7 +26,7 @@ Stand: 2026-08-16 · Tickets: 40 · davon wiederkehrend: 3
 | [T-0026](tickets/T-0026.md) | Problem (platform/N-0006): CI rot — das Matrix-Gate sah das Sammel-Repo `projects` nicht | problem | einmalig | cm | hoch | 0 | — |
 | [T-0010](tickets/T-0010.md) | Problem (N-0007): board-check-Flake — Stand-Datum kippt um Mitternacht | problem | einmalig | prob | mittel | 0 | — |
 
-## done (28)
+## done (27)
 
 | ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|
@@ -49,7 +50,6 @@ Stand: 2026-08-16 · Tickets: 40 · davon wiederkehrend: 3
 | [T-0040](tickets/T-0040.md) | CR (B055, pm/N-0032+N-0033): Session-Zusammenfassung in Mission Control — was eine Session getan hat, steht heute nur in Dateien, die die HMI nicht zeigt | change-request | einmalig | pl | hoch | 0 | — |
 | [T-0014](tickets/T-0014.md) | CR (N-0017): Cockpit zeigt wiederkehrende Aufgaben im Klartext statt als Symbol | change-request | einmalig | chg | mittel | 0 | — |
 | [T-0015](tickets/T-0015.md) | CR (N-0018): Team-Chat zeigt die neuesten Nachrichten zuerst | change-request | einmalig | chg | mittel | 0 | — |
-| [T-0016](tickets/T-0016.md) | Problem (platform/N-0002): ConnectionResetError-Traceback im Server-Log bei Verbindungsabbruch | problem | einmalig | prob | mittel | 0 | — |
 | [T-0018](tickets/T-0018.md) | CR (Auftraggeber via Session): Entscheidungen mit Datum UND Uhrzeit festhalten | change-request | einmalig | chg | mittel | 0 | — |
 | [T-0022](tickets/T-0022.md) | CR (N-0020, Teil 2): Projekt-Pool — Kandidat anlegen und starten im HMI (nach P10 Sprint 1) | change-request | einmalig | chg | mittel | 0 | — |
 | [T-0027](tickets/T-0027.md) | Problem (pm/N-0023): Projekt-Pool — Kandidatentext auf 200 Zeichen/ohne Zeilenumbruch begrenzt | problem | einmalig | prob | mittel | 0 | — |
