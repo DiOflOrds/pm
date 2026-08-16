@@ -1,9 +1,9 @@
 # Board (generiert von platform/scripts/board.py — nicht von Hand editieren)
 
-Stand: 2026-08-16 · Tickets: 38 · davon wiederkehrend: 3
+Stand: 2026-08-16 · Tickets: 40 · davon wiederkehrend: 3
 
 
-## open (8)
+## open (10)
 
 | ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|
@@ -12,6 +12,8 @@ Stand: 2026-08-16 · Tickets: 38 · davon wiederkehrend: 3
 | [T-0034](tickets/T-0034.md) | Problem: team-mail-Wochendigest ist seit Teamgründung fällig und wurde nie erzeugt — seit fünf Sessions unveränderte Randnotiz | problem | einmalig | prob | hoch | 0 | — |
 | [T-0036](tickets/T-0036.md) | CR (B049): Unterminierte offene Tickets sind für die Eskalationsregel B044 unsichtbar — der „ohne Frist\"-Zähler wird pro Kachel gelesen, nie als Summe | change-request | einmalig | pl | hoch | 0 | — |
 | [T-0038](tickets/T-0038.md) | CR (B053, pm/N-0030): Tickets nennen keinen Verantwortlichen — `rolle` sagt die Fachrolle, nicht wer die Handlung tut (Team oder Mensch) | change-request | einmalig | pl | hoch | 0 | — |
+| [T-0039](tickets/T-0039.md) | CR (B054, pm/N-0031): Am Brief weiterkommentieren statt einen neuen zu schreiben — der Briefkasten kennt nur ein Frage/Antwort-Paar je Datei | change-request | einmalig | pl | hoch | 0 | — |
+| [T-0040](tickets/T-0040.md) | CR (B055, pm/N-0032+N-0033): Session-Zusammenfassung in Mission Control — was eine Session getan hat, steht heute nur in Dateien, die die HMI nicht zeigt | change-request | einmalig | pl | hoch | 0 | — |
 | [T-0028](tickets/T-0028.md) | CR (pm/N-0022): Projekt-Pool — Team gründen im HMI (Steckbrief, Profil, Datenklasse, Zugänge) | change-request | einmalig | chg | mittel | 0 | — |
 | [T-0032](tickets/T-0032.md) | CR (pm/N-0025, Teil 2): Echter Uhrzeit-Takt für wiederkehrende Aufgaben — Abgrenzung zu F14 und den team-mail-Takten | change-request | einmalig | pl | mittel | 0 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | niedrig | 0 | — |

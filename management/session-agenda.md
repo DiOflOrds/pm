@@ -1,16 +1,16 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
-## Das Wichtigste (Stand 2026-08-16 20:35)
+## Das Wichtigste (Stand 2026-08-16 20:50)
 
-1. **Dein Brief `pm/N-0030` ist beantwortet — und er hat einen echten Werkzeugbefund getroffen
-   (B053).** Das Board kann „wer arbeitet daran?" **nicht** beantworten: die einzige
-   Zuordnungsspalte ist `rolle`, und die nennt die Fachrolle, nicht den Ausführenden.
-2. **Neu getrennt: „Für dich" und „Für das Team" (siehe direkt unten).** **4 Tickets** warten auf
-   dich, **6** auf das Team, **5** sind Takt-Dauerläufer ohne Rückstand.
-3. **Morgen fällig:** `pm/T-0034` (17.08., nur am Host lösbar) — ab morgen greift B044.
-4. **Eingeplant, nicht gebaut: `pm/T-0038`** (Feld `verantwortlich`, Frist **23.08.** — bewusst
-   dieselbe wie `pm/T-0036`, weil beide dem `BOARD.md` eine Spalte/Zeile hinzufügen und zwei
-   getrennte Formatänderungen am 16.08. früh schon alle board-checks rot gemacht haben).
+1. **Drei Briefe waren offen, alle drei sind beantwortet** — `pm/N-0031`, `pm/N-0032`, `pm/N-0033`.
+   Beim Startcheck war nur `N-0031` da; `N-0032`/`N-0033` kamen um 20:40 herein und fand die
+   Zweitprüfung (**B036**, siebter Fund).
+2. **⚠ Befund in eigener Sache, behoben:** Bei **10 von 30** beantworteten Briefen hat Mission
+   Control unsere Antwort als **deine** Nachricht dargestellt — Frage und Antwort in einem Block,
+   ohne Absender, ohne Datum. Betroffen war auch `pm/N-0030`. **336 Tests grün** (vorher 334).
+3. **Zwei CRs eingeplant, nicht gebaut:** `pm/T-0039` (am Brief weiterkommentieren) und
+   `pm/T-0040` (Session-Zusammenfassung in Mission Control) — beide Frist **23.08.**
+4. **Morgen fällig:** `pm/T-0034` (17.08., nur am Host lösbar) — ab morgen greift B044.
 5. **Inbox leer, kein wartender und kein unverbuchter DR** (gegen die DR-Rohdaten geprüft, B047).
 
 ---
@@ -28,6 +28,148 @@
 ohnehin öffnet ([5/5] seiner Ausgabe). Ein grüner Lauf schließt alle drei.
 
 ## Für das Team
+
+| Frist | Ticket | Team | Inhalt |
+|---|---|---|---|
+| 19.08. | `pm/T-0032` | PM | Echter Uhrzeit-Takt (Abgrenzung zu F14) |
+| 23.08. | `pm/T-0036` | PM | „Ohne Frist"-Zähler als Org-Summe |
+| 23.08. | `pm/T-0038` | PM | Feld `verantwortlich` — **mit `T-0036` bündeln** (Board-Format) |
+| 23.08. | `pm/T-0039` | PM | **neu:** Am Brief weiterkommentieren (`N-0031`) |
+| 23.08. | `pm/T-0040` | PM | **neu:** Session-Zusammenfassung in Mission Control (`N-0032`) |
+| 23.08. | `pm/T-0028` | PM | Projekt-Pool: Team gründen im HMI |
+| 23.08. | `team-dashboard/T-0001` | team-dashboard | Widget-Vertrag — **die Sperre für P11** |
+| 30.08. | `projects/p12/T-0003` | P12 | Sprint 1: Renderer zusammenführen |
+| 30.08. | `projects/p11/T-0003` | P11 | Sprint 1: Widget-Dashboard bauen |
+
+**Takt-Dauerläufer ohne Frist (kein Rückstand):** `pm/T-0001` (Agenda), `pm/T-0002` (Intake),
+`pm/T-0003` (Lessons), `platform/T-0001` (Werkzeugpflege), `team-mail/T-0001` (wartet auf IMAP).
+
+**Reihenfolge-Hinweis für die nächste Design-Session:** `T-0036` und `T-0038` gehören zusammen
+(beide ändern das `BOARD.md`-Format). `T-0039` und `T-0040` sind davon **unabhängig** — sie
+berühren Briefkasten bzw. Cockpit, nicht das Board, und können getrennt laufen.
+
+---
+
+*Ab hier: Belege und Details zum Nachlesen.*
+
+*Stand: 2026-08-16 20:36–20:50, Routine-Session (D004, alle 30 Min). Briefkasten beim Start:
+**ein offener Brief** (`pm/N-0031`, 18:36), gefunden bei der Durchsuchung aller Briefe aller
+Projekte/Teams auf `status: offen`; die **Zweitprüfung fand zwei weitere** (`N-0032` 20:40:14,
+`N-0033` 20:40:32, wortgleich). **Alle drei beantwortet.** Inbox beim Start: **leer und beweisbar
+nichts Unverbuchtes** — gegen die DR-Rohdaten geprüft (Ablaufregel aus B047): kein
+`decision-request` mit Status ≠ `done`. **Kein überfälliges Ticket** (frühester Termin
+`pm/T-0034`, 17.08.). Fremde Änderungen: nur die bekannte `team-mail`-Anzeige
+(`digest/2026-08-16-woche-digest.md` in `git status`, `git diff --quiet` = 0) — der Index-Refresh
+aus R7, erneut geprüft, erneut kein Commit. Push: `PUSH-ANFORDERUNG.txt` war beim Start **nicht
+vorhanden** (die Zeile der 20:35-Session ist abgearbeitet). Diese Session legt sie neu an.*
+
+**⚠ Der Befund dieser Session: Mission Control hat unsere Antworten als deine Nachrichten
+dargestellt (B054).**
+
+`briefkasten._parse` trennte Nachricht und Team-Antwort an einer **wörtlichen** Überschrift:
+`## Antwort (Team, JJJJ-MM-TT)`. Genau diese Fassung erzeugt der zugehörige Test selbst — er war
+seit P4 grün. Die **Routine-Sessions** schreiben seit dem 15.08. eine andere:
+`## Antwort des Teams (Routine-Session, JJJJ-MM-TT HH:MM)`, mit Uhrzeit, weil bei einem
+30-Minuten-Takt das Datum nicht mehr unterscheidet.
+
+**Folge, gezählt statt vermutet:** bei **10 von 30** beantworteten pm-Briefen blieb `antwort` leer
+und die vollständige Team-Antwort stand im **Nachrichtenblock**. Die Chat-Ansicht rendert den
+Antwortblock nur bei gefülltem `b.antwort` (`app.js`) — sie zeigte Frage und Antwort als **einen**
+Text, ohne Absender und ohne Datum. Betroffen war unter anderem **`pm/N-0030`**, also genau der
+Brief, auf den sich `N-0031` bezieht. Die Vermutung, dass der Wunsch „direkt weiterkommentieren"
+**daher** kommt, steht offen in der Antwort — sie ist nicht belegbar, aber sie zu verschweigen
+wäre unredlich.
+
+**⚠ Warum das niemandem auffiel.** Der Fehler hat keine Meldung, kein rotes Gate, keinen
+Stacktrace. Er sieht nur falsch aus, und zwar ausschließlich dort, wo niemand aus dem Team
+hinschaut: in der HMI des Auftraggebers. Der Preflight zählt Briefe nach `status`, nicht nach
+Lesbarkeit; die Matrix meldete SWR-050 als verifiziert — durch einen Test, der seine eigene
+Eingabe erzeugt. Als **L-2026-08-16h** in `process/knowledge/cm/lessons.md`.
+
+**Behoben (Klasse C, Werkzeugpflege).** `briefkasten.spalte_antwort` erkennt die **Überschrift**
+statt ihrer Fassung und liest das Datum (mit Uhrzeit, wenn vorhanden) aus der Kopfzeile. Alle 30
+beantworteten Briefe werden jetzt getrennt gelesen; `N-0030` zeigt Nachricht **292** statt 5527
+Zeichen und Antwort **5175** statt 0. **336 Tests** (vorher 334), Matrix **101 SWRs / 0 Lücken**,
+SWR-050 von 1 auf **3** Tests.
+
+**⚠ Der Test, der den Schaden benennt — und die Lehre daraus.** Der erste Gegenprobentest
+scheiterte gegen den Altstand nur mit `AttributeError` (die Funktion gab es dort nicht) — das
+belegt nichts über den Schaden. Der zweite geht über den echten Lesepfad `liste()` und sichert zu,
+dass die Team-Antwort **nicht in `nachricht`** landet; gegen den Altstand scheitert er mit
+`AssertionError`. Danach `briefkasten.py` bitgleich zurückgeschrieben.
+
+**Nicht gebaut, eingeplant als `pm/T-0039`** (Klasse B, Frist **23.08.**): der Brief wird ein
+Verlauf aus beliebig vielen Beiträgen, „Antworten"-Feld je Karte, bestehende 33 Briefe ohne
+Migration lesbar. **Der Punkt, an dem die Minimallösung schaden würde:** Ein Kommentar an einem
+Brief mit `status: beantwortet` wird von **keiner** Session gesehen — `offene()` zählt nur
+`status: offen`, und genau diese Zahl trägt Preflight und Cockpit-Kachel. Ohne Status-Rücksetzung
+wäre der CR schädlich statt nützlich (B038: der stille Ausfall ist teurer als der laute).
+
+**Die zweite Frage aus `N-0031` beantwortet und als Punkt e) in `pm/T-0038` verbucht.**
+*Warum stehen die Mensch-Tasks nicht in der Inbox?* Weil die Inbox **unentschiedene Decision
+Requests** zeigt — zwei Filter in `inbox._dr_tickets`: `typ == "decision-request"` und kein
+Entscheidungsvermerk im Text (SWR-039). `pm/T-0034`, `T-0013`, `T-0010`, `T-0026` haben
+`typ: problem`. Die Inbox lehnt sie nicht ab, sie **kennt sie nicht**: für „der Mensch muss
+handeln" gibt es keinen Kanal. Das ist derselbe Befund wie `N-0030`, von der anderen Seite — dort
+fehlte das Feld, hier die Ansicht. **Nicht in dieselbe Liste**, sondern als eigener Abschnitt am
+selben Ort: an der Inbox-Liste hängen die Entscheidungsknöpfe (`optionen`/`default`, SWR-042), und
+ein Eintrag ohne Optionen erzwänge dort Knöpfe, die nichts tun — **B033** zum zweiten Mal in zwei
+Tagen.
+
+**`N-0032`/`N-0033`: der Inhalt existiert, die Ausgabe fehlt (`pm/T-0040`, Frist 23.08.).** Jede
+Session schreibt den Stand in **diese Datei** (Block „Das Wichtigste", max. fünf Zeilen seit B050)
+und in `PROJEKTSTATUS-UPDATE.md`. **Kein** HMI-Endpunkt liefert eine der beiden aus. Quelle wird
+die Agenda, weil sie im pm-Repo liegt und committet ist; `PROJEKTSTATUS-UPDATE.md` liegt im
+Wurzelordner, also in **keinem** Repo. **Die Kachel bekommt ihren Zeitstempel aus dem Commit, nicht
+aus dem Text** — fällt der geplante Lauf aus, bleibt die Datei stehen, und ein alter Stand sähe aus
+wie ein frischer (B038). Und sie muss sagen können, dass **keine** Session lief: *„seit HH:MM keine
+Session"*.
+
+**Zweiter Doppeleingang, Ursache lokalisiert, weiterhin kein Filter.** `N-0032`/`N-0033` kamen 18
+Sekunden auseinander (nach `N-0028`/`N-0029`, B050). Der Absende-Knopf gibt sich frei, **bevor**
+der Verlauf neu geladen ist (`app.js`, `setTimeout(lade, 900)`) — ein zweiter Klick in dieses
+Fenster erzeugt einen zweiten Brief. Als Punkt 6 in `T-0040`. Eine Dublettenerkennung bleibt
+abgelehnt, Begründung aus B050 unverändert: ein Filter, der Briefe still verschluckt, ist teurer
+als ein doppelter Brief.
+
+**Board-Check gegen die Erwartung gelesen (B041 Regel 3):** **pm 40 Tickets** (vorher 38,
++`T-0039`, +`T-0040`), offene pm-Tickets **11 → 13**; Briefe organisationsweit **43** (vorher 40),
+davon **0 offen** nach dieser Session.
+
+**⚠ Morgen fällig, nur am Host lösbar: `pm/T-0034`** (17.08., hoch) — unverändert, kein
+IMAP/Ollama in dieser Sandbox (Guardrail 2). `pm/T-0010`/`T-0013`/`T-0026` bleiben `in_review`,
+terminiert auf 18.08.
+
+---
+
+## Vorheriger Stand (2026-08-16 20:35)
+
+1. **Dein Brief `pm/N-0030` ist beantwortet — und er hat einen echten Werkzeugbefund getroffen
+   (B053).** Das Board kann „wer arbeitet daran?" **nicht** beantworten: die einzige
+   Zuordnungsspalte ist `rolle`, und die nennt die Fachrolle, nicht den Ausführenden.
+2. **Neu getrennt: „Für dich" und „Für das Team" (siehe direkt unten).** **4 Tickets** warten auf
+   dich, **6** auf das Team, **5** sind Takt-Dauerläufer ohne Rückstand.
+3. **Morgen fällig:** `pm/T-0034` (17.08., nur am Host lösbar) — ab morgen greift B044.
+4. **Eingeplant, nicht gebaut: `pm/T-0038`** (Feld `verantwortlich`, Frist **23.08.** — bewusst
+   dieselbe wie `pm/T-0036`, weil beide dem `BOARD.md` eine Spalte/Zeile hinzufügen und zwei
+   getrennte Formatänderungen am 16.08. früh schon alle board-checks rot gemacht haben).
+5. **Inbox leer, kein wartender und kein unverbuchter DR** (gegen die DR-Rohdaten geprüft, B047).
+
+---
+
+**Für dich (E. John) — nur am Host lösbar**
+
+| Frist | Ticket | Was zu tun ist |
+|---|---|---|
+| **17.08.** | `pm/T-0034` | Am Host: Läuft Ollama? Ist `ASPICE-MailAutopilot` eingerichtet? |
+| 18.08. | `pm/T-0013` | Blick auf die GitHub-Actions-Seite (board-check grün?) |
+| 18.08. | `pm/T-0026` | derselbe Blick (CI/Matrix-Gate grün?) |
+| 18.08. | `pm/T-0010` | derselbe Blick (board-check-Flake weg?) |
+
+**Die drei 18.08.-Tickets sind ein Handgriff, nicht drei** — die Seite, die der Push-Wächter
+ohnehin öffnet ([5/5] seiner Ausgabe). Ein grüner Lauf schließt alle drei.
+
+**Für das Team**
 
 | Frist | Ticket | Team | Inhalt |
 |---|---|---|---|
