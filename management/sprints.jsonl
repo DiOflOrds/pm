@@ -5,3 +5,4 @@
 {"nr": 5, "kennung": "2026-08-17T0400-cowork-s5", "start": "2026-08-17 03:36", "takt_min": 60, "notiz": "Sprint 5: platform/T-0007 (Waechter brach seit 17.08. bei jedem Lauf ab), p11/T-0005 Layout-Entwurf, T-0008 + team-dashboard/T-0002 gefunden"}
 {"nr": 6, "kennung": "2026-08-17T0406-cowork-s6", "start": "2026-08-17 04:21", "takt_min": 60, "notiz": "Sprint 6: platform/T-0009 (Waechter starb am Melden statt am Lesen), Plan-Ticket-Drift gefunden"}
 {"nr": 7, "kennung": "2026-08-17T0508-cowork-s7", "start": "2026-08-17 05:24", "takt_min": 60, "notiz": "Sprint 7: p3/p5 gruen (pm/T-0043 nach fuenf Sprints geschlossen), platform/T-0010 (SWR-109 war nie committet), team-dashboard/T-0002 entschieden"}
+{"nr": 8, "kennung": "2026-08-17T0609-cowork-s8", "start": "2026-08-17 06:13", "takt_min": 60, "notiz": "Sprint 8: Startcheck fand platform/T-0010 als offen, obwohl Sprint 7 es vierfach als erledigt meldete"}
