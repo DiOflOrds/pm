@@ -1,28 +1,27 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
-## Das Wichtigste (Stand Sprint 7, 2026-08-17)
+## Das Wichtigste (Stand Sprint 8, 2026-08-17)
 
-1. **✅ Es ist alles grün — zum ersten Mal überhaupt.** `CI-STATUS.md` (Stand 05:02) meldet
-   **ALLES GRÜN, 14 Abfragen**. `p3` und `p5`, die seit dem 16.08. rot waren, sind grün für
-   ihren Commit. Damit ist **`pm/T-0043` nach fünf Sprints geschlossen** — und die
-   Vorhersage aus Sprint 6 ist eingetroffen.
-2. **Es war nie ein Defekt.** Beide Repos trugen einen Stand vom 16.08., der gegen ein
-   neueres Werkzeug geprüft wurde — und ohne Push entsteht kein neuer CI-Lauf. Das „ROT"
-   war 21 Stunden lang ein **Standbild** und wurde vier Sprints als laufende Störung
-   gelesen. Aufgelöst hat es der Sprint, der den Auslöser **hergestellt** hat.
-3. **⚠ Der Startcheck fand einen Fehler von Sprint 6 an uns selbst.** Wir haben viermal
-   „Matrix 109 SWRs / 0 Lücken" gemeldet und gepusht — die Anforderung SWR-109 stand aber
-   nur auf der Festplatte, nie im Git. Der Code war gepusht, sein Requirement nicht.
-   Sofort repariert und ein Werkzeug gebaut, das das künftig **vor** dem Push meldet.
-4. **⚠ Und warum es niemand sah, ist die eigentliche Lehre.** Die Meldung **war** da —
-   neben fünf gleich aussehenden, die jeden Tag erscheinen und nie etwas bedeuten. Eine
-   Prüfung, die häufiger belanglos als richtig anschlägt, bringt einem bei, wegzusehen.
-   Beide Meldungen nennen ab jetzt **die Datei** statt einer Zahl.
-5. **Sechs Sachtickets geschlossen** (`pm/T-0043`, `platform/T-0010`,
-   `team-dashboard/T-0002`, `pm/T-0045`, `pm/T-0046`, `pm/T-0036`) plus sechs
-   Takt-Pflichten. **568 Tests grün** (+54), Matrix 114/0, Preflight STARTKLAR, kein
-   offener Brief, unterminiert 0, überfällig 0, Plan-Drift 0.
-6. **Deine Entscheidung `p11/T-0006` liegt weiter in der Inbox** (Frist 19.08.).
+1. **⚠ Wir haben eine Falschmeldung von uns selbst gefunden — an dich.** Sprint 7 hat
+   `platform/T-0010` an **vier** Stellen als erledigt gemeldet, auch in deinem
+   Statusbericht. Das Ticket stand auf `open`. **Die Arbeit war fertig**, nur das Feld wurde
+   nie umgelegt — es ging also nichts verloren, aber die Meldung hatte keine Deckung.
+2. **⚠ Und der eigentliche Befund ist, dass alle drei Planprüfungen „alles in Ordnung"
+   sagten.** Jede hatte für sich recht: die eine fragt, ob das Ticket im Plan **vorkommt**,
+   die zweite, ob die **Sprintnummer** stimmt, die dritte, ob der Sprint **vorbei** ist.
+   Die Spalte, in der „erledigt" steht, las **keine von ihnen**.
+3. **Repariert und abgesichert.** Das Ticket ist ordnungsgemäß geschlossen. Ab jetzt hält
+   `preflight` die Statusspalte des Plans gegen das Ticketfeld — **vor** dem Push und
+   **vor** deinem Bericht (SWR-115). Die Prüfung hat an ihrem ersten Tag prompt einen
+   echten Fehler im eigenen Plan dieses Sprints gefunden.
+4. **✅ Alles grün, zum zweiten Mal.** `CI-STATUS.md` meldet **15 Abfragen, ALLES GRÜN** —
+   eine mehr als gestern. Der Wächterlauf 05:47 ist vollständig durchgelaufen.
+5. **Ein Ticket wartete zweimal auf einen Grund, den es nicht mehr gab.** `pm/T-0038` sollte
+   „gemeinsam mit `pm/T-0036`" gebaut werden — das ist seit gestern geschlossen und hat die
+   gemeinsame Fläche nie berührt. In vier Teile zerlegt, der erste ist gebaut.
+6. **601 Tests grün** (+33), Matrix **116 Anforderungen / 0 Lücken**, Preflight STARTKLAR,
+   kein offener Brief.
+7. **Deine Entscheidung `p11/T-0006` liegt weiter in der Inbox** (Frist 19.08.).
 
 ---
 
@@ -30,11 +29,9 @@
 
 | Was | Warum |
 |---|---|
-| **Eine Entscheidung: `p11/T-0006`, Frist 19.08.** | Unverändert seit Sprint 5. Das Dashboard passt bei 1920×1080 nur auf eine Seite, wenn es den 62rem-Textkorridor verlässt, an den Mission Control heute überall gebunden ist. **LAY-a (Default): breit nur im Dashboard**, alles andere unverändert. LAY-b: überall breit. LAY-c: Korridor behalten und scrollen — das gäbe das erste Abnahmekriterium des Projektauftrags auf und käme als eigener DR. **Schweigen führt zu LAY-a.** |
-| ✅ **Alles grün — und der letzte offene Problemfall ist zu** | `p3` und `p5` sind grün, `CI-STATUS.md` meldet zum ersten Mal **alle 14 Abfragen grün**. `pm/T-0043` hat fünf Sprints gebraucht und ist geschlossen. **Du musst nichts tun.** |
-| ✅ **Die Klasse-A-Sorge um das Secret ist endgültig vom Tisch** | Sie war schon in Sprint 6 ausgeschlossen; jetzt ist sie auch praktisch widerlegt — dieselben Repos, dasselbe Secret, grün. |
-| ⚠ **Wir haben einen Fehler von uns selbst gefunden und korrigiert** | Sprint 6 hat viermal gemeldet, die Anforderungsmatrix sei vollständig. Das stimmte für die Dateien auf der Platte, aber eine Anforderung war **nie ins Git eingecheckt** — ausgeliefert wurde also Code ohne die dazugehörige Anforderung. Repariert (nachgetragen) und abgesichert: das Prüfwerkzeug schlägt jetzt an, **bevor** gepusht wird. Nichts davon war nach außen sichtbar. |
-| ⚠ **Eine Kennzahl, die wir dir vier Sprints lang gemeldet haben, war nicht definiert** | „Nicht geschlossen: 15" stand von Sprint 2 bis 5 unverändert da und passte zu keiner nachvollziehbaren Zählweise. Wir haben jetzt festgelegt, was sie zählt, und beziehen sie aus dem Werkzeug statt sie fortzuschreiben. Die alten Zahlen lassen wir **bewusst unkorrigiert** stehen, mit Warnzeichen — damit sichtbar bleibt, wo einmal etwas Ungeprüftes durchging. |
+| **Eine Entscheidung: `p11/T-0006`, Frist 19.08.** | Unverändert seit Sprint 5. Das Dashboard passt bei 1920×1080 nur auf eine Seite, wenn es den 62rem-Textkorridor verlässt, an den Mission Control heute überall gebunden ist. **LAY-a (Default): breit nur im Dashboard**, alles andere unverändert. LAY-b: überall breit. LAY-c: Korridor behalten und scrollen — das gäbe das erste Abnahmekriterium des Projektauftrags auf und käme als eigener DR. **Schweigen führt zu LAY-a.** ⚠ **Neu: an dieser Entscheidung hängt jetzt sichtbar eine zweite Aufgabe** (`p11/T-0003`, Frist 20.08.). Reißt der 19.08., reißt der 20.08. mit. |
+| ⚠ **Wir haben dir gestern etwas als erledigt gemeldet, das nicht verbucht war** | `platform/T-0010`. Die Arbeit war tatsächlich fertig und ist im Git — es fehlte nur der Eintrag im Ticket, der das festhält. Vier Dokumente haben dieselbe unbelegte Aussage voneinander abgeschrieben. **Du musst nichts tun**; wir haben es korrigiert und eine Prüfung gebaut, die genau das künftig **vor** deinem Bericht meldet. |
+| ✅ **Alles grün, und der Wächter läuft wieder vollständig durch** | 15 von 15 Abfragen grün. Die gestern gebaute Prüfung hat weder blockiert noch etwas übersehen. |
 | ⚠ `abschluss.cmd` prüfen (aus Sprint 1, weiter offen) | Die Datei wurde in Sprint 1 versehentlich geleert und aus dem Protokoll **rekonstruiert**. Wenn du eine Vorgängerversion hast, vergleiche sie. Das ist der einzige Punkt, der weiter auf dich wartet. |
 
 ## Für das Team — die nächsten Sprints
@@ -42,17 +39,74 @@
 | Sprint | Ticket | Inhalt |
 |---|---|---|
 | jeder | `pm/T-0001`–`T-0003`, `platform/T-0001`, `team-mail/T-0001`, `team-dashboard/T-0001` | Takt-Dauerläufer |
-| **8** | `pm/T-0038` | Feld `verantwortlich` — Board-Formatänderung, die jedes Repo-CI prüft (Frist 23.08.) |
-| **8** | `pm/T-0047` | Org-Summe „unterminiert" im Cockpit-Kopfblock (Teil a aus `pm/T-0036`) |
-| **8** | `projects/p11/T-0003` | Rest von P11 — **eine Sperre ist gefallen**, es hängt nur noch an `T-0006` |
-| **8** | `pm/T-0039` | Am Brief weiterkommentieren |
-| 9 | `pm/T-0028` | Projekt-Pool: Team gründen im HMI (Klasse A — nur vorbereiten) |
+| **9** | `pm/T-0048` | Übergangsprüfung: blind für einen bereits committeten Sprung (Frist 23.08.) |
+| **9** | `pm/T-0047` | Org-Summe „unterminiert" im Cockpit-Kopfblock — entscheidet die **Form** des Kopfblocks |
+| **9** | `pm/T-0050` | `BOARD.md`-Spalte „Verantwortlich" — **die** Formatänderung, allein in einen Lauf |
+| **9** | `pm/T-0051` | Zähler „wartet auf den Menschen" mit Refs — **nach** `pm/T-0047` |
+| **9** | `pm/T-0039` | Am Brief weiterkommentieren |
+| **9** | `pm/T-0028` | Projekt-Pool: Team gründen im HMI (Klasse A — nur vorbereiten) |
+| 10 | `pm/T-0052` | HMI: „Für dich: Handlungen" neben der Inbox |
 | 10 | `projects/p12/T-0003` | Renderer zusammenführen |
+| — | `projects/p11/T-0003` | **blockiert** — wartet auf `T-0006` beim Auftraggeber |
 
-**Ab Sprint 9 ist die Nummer eine Reihenfolge, keine Zusage.** Der vollständige Plan steht
+**Ab Sprint 10 ist die Nummer eine Reihenfolge, keine Zusage.** Der vollständige Plan steht
 in `pm/management/sprint-aktuell.md` und stimmt mit den Ticketfeldern überein (SWR-109) —
-in diesem Sprint hat die Prüfung dabei **zwei eigene Abweichungen** gefunden und sie wurden
+in diesem Sprint hat diese Prüfung **drei eigene Abweichungen** gefunden und sie wurden
 korrigiert, bevor der Plan stand.
+
+---
+
+## Sprint 8 (2026-08-17)
+
+**Der Startcheck war zum vierten Mal in Folge der wertvollste Teil des Sprints — und zum
+ersten Mal war der Befund kein Werkzeugdefekt, sondern eine Aussage über uns selbst, die
+nicht stimmte.**
+
+**`platform/T-0010` — vier Dokumente sagten „erledigt", das Ticket sagte `open`.** Die
+Arbeit war fertig: SWR-110 steht in `p9` im Git, 19 Tests laufen grün, `preflight` trägt die
+`BEFUND:`-Zeile. Alle fünf Punkte der Definition of Done wurden in diesem Sprint einzeln
+nachgeprüft und waren erfüllt. Es fehlte ausschließlich das Umlegen des Statusfeldes.
+
+**⚠ Warum niemand es sah — und warum das nicht Nachlässigkeit war.** Der Bestand hat drei
+Prüfungen auf diese Fläche, und alle drei meldeten leer:
+
+* `nicht_geplant` fragt, ob das Ticket im Plan **vorkommt** — es kam vor.
+* `plan_drift` vergleicht die **Sprintnummer** und überspringt jede Zeile, deren
+  Fälligkeitsspalte „dieser Sprint" sagt. **Das ist genau die Zeilenart, die ein laufender
+  Sprint schließt** — die Prüfung sieht die Zukunft und lässt die Gegenwart aus.
+* `sprint_vergangen` kann nicht anschlagen, solange der fragliche Sprint der laufende ist.
+  Ihr frühester möglicher Zeitpunkt liegt **nach** dem Bericht an den Auftraggeber.
+
+Die Lücke ist deshalb kein Defekt in einer der drei, sondern **eine Spalte, die keine von
+ihnen liest**.
+
+**`pm/T-0049` / SWR-115 — gebaut und im selben Sprint geschlossen.** Die Statusspalte wird
+in `preflight` gegen den Ticketstatus gehalten, in **beiden** Richtungen. Takt-Dauerläufer
+sind ausgenommen — sie tragen dauerhaft „erfüllt" im Plan und `open` im Ticket, und beides
+ist richtig; ohne die Ausnahme hätte die Prüfung an Tag eins sechs Fehlalarme gemeldet. Die
+Ausnahme hängt am **Ticketfeld** `takt`, nicht am Wortlaut — mit einer Gegenprobe, die
+dieselbe Zeile **ohne** `takt` sehr wohl meldet. 17 Tests.
+
+**✅ Und sie hat ihren Erbauer im selben Lauf erwischt.** Nachdem `pm/T-0049` auf `done` ging,
+meldete die neue Prüfung die zweite Richtung: *„Ticket steht auf done, Plan sagt offen."*
+Das ist der Fall, den die vorhandene Bestandsfunktion grundsätzlich nicht sehen kann, weil
+sie geschlossene Tickets weglässt. Am Bestand belegt, nicht nur im Test.
+
+**`pm/T-0038` — zum dritten Mal in drei Sprints ist ein Verschiebungsgrund an der Messung
+gescheitert.** Das Ticket verlangte wörtlich, „gebündelt mit `pm/T-0036`" ausgeliefert zu
+werden. `pm/T-0036` ist seit Sprint 7 geschlossen — und hat **nie** eine Board-Formatänderung
+gemacht. Der Grund zeigte auf ein Ticket, das es nicht mehr gab, und galt zudem nur für
+**einen** von fünf Teilen. In vier Teile zerlegt (`pm/T-0050`, `pm/T-0051`, `pm/T-0052`);
+Teil a) gebaut: **SWR-116**, Feld `verantwortlich`, optional, `mensch` verlangt einen
+Abschnitt, der die Handlung benennt. **Alle 16 Boards validieren unverändert.**
+
+**`projects/p11/T-0003` — Status korrigiert statt Termin verschoben.** Es stand auf `open`
+und sah wie unerledigte Teamarbeit aus, obwohl das Team es nicht bewegen kann. Jetzt
+`blocked` mit `blocked_by: [T-0006]`.
+
+**Drei eigene Abweichungen im Plan gefunden.** `plan_drift` hat beim Abschluss gemeldet, dass
+drei Tickets im Plan auf Sprint 9 standen und in ihrem Feld noch auf 8 — dieselbe Sorte
+Fehler, für die die Prüfung in Sprint 6 gebaut wurde. Korrigiert, bevor der Plan stand.
 
 ---
 
