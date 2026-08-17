@@ -1,18 +1,18 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
-## Das Wichtigste (Stand Sprint 4, 2026-08-17)
+## Das Wichtigste (Stand Sprint 5, 2026-08-17)
 
-1. **Der Cockpit-Payload sagt jetzt, was er meint.** `null` heißt „nicht geliefert", eine
-   0 heißt „gemessen, Ergebnis null" (**SWR-108**, `platform/T-0006`). Vorher meldeten 15
-   von 16 Einträgen `0 Läufe`, obwohl nur `p0` überhaupt misst.
-2. **Der Widget-Vertrag steht als v2** — ohne Behelfsregeln. Damit hat `SWR-096` einen
-   Bezugspunkt, der nichts mehr überbrücken muss.
-3. **⚠ Eine Annahme des eigenen Tickets war falsch** — und der Fund hat die Bauart geändert,
-   nicht nur einen Satz. Siehe unten.
-4. **`p11/T-0003` wurde zerlegt statt verschoben**; der ADR daraus ist in diesem Sprint
-   erledigt.
-5. **486 Tests grün**, Matrix **108 SWRs / 0 Lücken**, Preflight STARTKLAR, **kein offener
-   Brief**, unterminiert 0, überfällig 0.
+1. **⚠ Seit dem 17.08. ist kein einziger Push durchgekommen** — nicht weil kein Lauf
+   stattfand, sondern weil **jeder** Lauf abbrach. Der Wächter versuchte es alle 15
+   Minuten, rund zweihundert Mal.
+2. **Ursache gefunden und behoben** (`platform/T-0007`): `board.py` las die Git-Ausgabe
+   ohne feste Kodierung; auf dem Windows-Host starb sie an einem Zeichen in einem
+   pm-Ticket.
+3. **Damit ist die Auskunft der letzten drei Sprints widerlegt.** „Der Beleg kommt von
+   selbst" war falsch — er konnte nicht kommen. Das steht so in beiden Tickets.
+4. **`p11/T-0005` erledigt** — Layout passt, aber nur außerhalb des heutigen
+   Textkorridors. **Eine Entscheidung liegt für dich in der Inbox** (`p11/T-0006`).
+5. **492 Tests grün**, Matrix 108/0, Preflight STARTKLAR, kein offener Brief (48).
 
 ---
 
@@ -20,28 +20,94 @@
 
 | Was | Warum |
 |---|---|
-| **Nichts Dringendes, nichts Blockierendes** | Kein Ticket wartet auf eine Handlung am Host. |
-| ⚠ **Zweiter Sprint ohne Hostlauf** | `platform/T-0004` und `pm/T-0043` warten seit Sprint 3 auf **denselben** Beleg: einen `CI-STATUS.md`, der nach 01:17 entstanden ist. Der letzte Lauf war 00:46. Das ist kein Problem, aber es steht hier, weil zwei Sprints in Folge dieselbe Zeile schreiben — beides löst sich mit dem nächsten `abschluss.cmd` von selbst. |
-| Offen: die Vorhersage aus Sprint 3 | `platform` sollte im nächsten `CI-STATUS.md` **grün** sein. Trifft das nicht ein, ist die Diagnose aus `pm/T-0042` widerlegt und das Ticket wird wiedereröffnet. Noch ungeprüft, weil kein Lauf stattfand. |
-| Zur Kenntnis: die KPI-Kachel zeigt bald „keine Daten" statt `0 Läufe` | Für 15 der 16 Einträge. Das ist die Korrektur, nicht ein Datenverlust: gemessen wurde dort nie etwas. |
+| **Eine Entscheidung: `p11/T-0006`, Frist 19.08.** | Das Dashboard passt bei 1920×1080 nur auf eine Seite, wenn es den 62rem-Textkorridor verlässt, an den Mission Control heute überall gebunden ist. **LAY-a (Default): breit nur im Dashboard**, alles andere unverändert. LAY-b: überall breit. LAY-c: Korridor behalten und scrollen — das gäbe das erste Abnahmekriterium des Projektauftrags auf und käme als eigener DR. Schweigen führt zu LAY-a. |
+| ⚠ **Warum seit dem 17.08. nichts auf GitHub ankam** | Der Auto-Wächter lief, aber `abschluss.cmd` brach jedes Mal ab — `board.py` starb im `board-check` von `pm` an einer Kodierung (Windows liest cp1252, das Ticket ist UTF-8). Behoben. **Du musst nichts tun:** der nächste Wächterlauf sollte durchlaufen. |
+| ⚠ **Und wir haben es drei Sprints lang falsch gemeldet** | In der Agenda stand zweimal „wartet auf einen Hostlauf, kommt von selbst". Der Lauf kam — und scheiterte. Der Beweis lag die ganze Zeit in `abschluss-auto.log` in deinem Arbeitsordner, und `PUSH-ANFORDERUNG.txt` mit zwei Zeilen war das Signal, das wir uns am 16.08. selbst aufgeschrieben hatten. Als Lehre verankert (L-2026-08-17j). |
+| Zur Kenntnis: die Vorhersage aus Sprint 3 ist weiter offen | `platform` sollte im nächsten `CI-STATUS.md` grün sein. Jetzt kann sie erstmals geprüft werden. |
 | Optional, ohne Frist | Falls du ohnehin auf GitHub bist: die Lauf-Seite von `p3` nennt den roten Schritt sofort. Ist es das Secret `PLATFORM_READ_TOKEN`, ist die Behebung **Klasse A** (Zugang) und kommt dir als Inbox-DR vor — nicht vom Team entschieden. |
-| ⚠ `abschluss.cmd` prüfen (aus Sprint 1, weiter offen) | Die Datei wurde in Sprint 1 versehentlich geleert und aus dem Protokoll **rekonstruiert**. Wenn du eine Vorgängerversion hast, vergleiche sie. Seither eine Zeile geändert (Sprint 3: `process` vor `platform`), sauber kommentiert. |
+| ⚠ `abschluss.cmd` prüfen (aus Sprint 1, weiter offen) | Die Datei wurde in Sprint 1 versehentlich geleert und aus dem Protokoll **rekonstruiert**. Wenn du eine Vorgängerversion hast, vergleiche sie. |
 
 ## Für das Team — die nächsten Sprints
 
 | Sprint | Ticket | Inhalt |
 |---|---|---|
-| jeder | `pm/T-0001`, `pm/T-0002`, `pm/T-0003`, `platform/T-0001`, `team-mail/T-0001`, `team-dashboard/T-0001` | Takt-Dauerläufer |
-| **5** | `platform/T-0004`, `pm/T-0043` | Beide nur Beleg lesen, sobald ein neuer `CI-STATUS.md` vorliegt |
-| **5** | `projects/p11/T-0005` | Layout-Entwurf: passen 16 Kacheln ohne Scrollen auf FHD? |
-| **5** | `projects/p11/T-0003` | Rest von P11: Konfiguration, Detailseiten, Mail-Widget, Tests, G4 |
-| 6 | `pm/T-0036` + `pm/T-0038` | Board-Format, gebündelt (B053) |
-| 7 | `pm/T-0039` | Am Brief weiterkommentieren |
-| 8 | `pm/T-0028` | Projekt-Pool: Team gründen im HMI (Klasse A — nur vorbereiten) |
-| 9 | `projects/p12/T-0003` | Renderer zusammenführen — mit derselben Zerlegungsfrage wie p11 |
+| jeder | `pm/T-0001`–`T-0003`, `platform/T-0001`, `team-mail/T-0001`, `team-dashboard/T-0001` | Takt-Dauerläufer |
+| **6** | `platform/T-0008` | Übergangsprüfung greift in `p10`/`p11`/`p12` nicht — lautlos, seit jeher |
+| **6** | `team-dashboard/T-0002` | `letzte_baseline`: zwei Tatsachen in einem Feld, keine Längengrenze |
+| **6** | `platform/T-0004`, `pm/T-0043` | Beleg lesen, sobald der erste erfolgreiche Wächterlauf durch ist |
+| **6** | `projects/p11/T-0003` | Rest von P11 — Bau beginnt nach `T-0006` und `team-dashboard/T-0002` |
+| 7 | `pm/T-0036` + `pm/T-0038` | Board-Format, gebündelt (B053) |
+| 8 | `pm/T-0039` | Am Brief weiterkommentieren |
+| 9 | `pm/T-0028` | Projekt-Pool: Team gründen im HMI (Klasse A — nur vorbereiten) |
+| 10 | `projects/p12/T-0003` | Renderer zusammenführen |
 
-**Ab Sprint 6 ist die Nummer eine Reihenfolge, keine Zusage.** Der vollständige Plan steht in
-`pm/management/sprint-aktuell.md`.
+**Ab Sprint 7 ist die Nummer eine Reihenfolge, keine Zusage.** Der vollständige Plan steht
+in `pm/management/sprint-aktuell.md`.
+
+---
+
+## Sprint 5 (2026-08-17)
+
+**Der Sprint hat etwas anderes gefunden, als er gesucht hat.** Geplant waren der
+Layout-Entwurf und zwei Zeilen „keine Handlung". Der Startcheck sah in
+`abschluss-auto.log` nach — und dort stand seit dem 17.08. bei **jedem** Lauf im Abstand
+von 15 Minuten derselbe Abbruch.
+
+**`platform/T-0007` — zwei Defekte, und der zweite ist der schlimmere.** Die Ursache:
+`board.py` las die Ausgabe von `git show` mit `text=True` **ohne `encoding=`**; auf dem
+Windows-Host ist die Locale-Kodierung cp1252, und `pm/T-0042.md` trägt seit Sprint 3 ein
+Zeichen, dessen UTF-8-Folge ein in cp1252 unbelegtes Byte enthält. Bemerkenswert: **jede
+Datei-Lesung in `board.py` war schon utf-8-fest**, nur diese eine Git-Lesung nicht.
+
+Der zweite Defekt ist die Behandlung: `returncode` war **0** — git war erfolgreich —, und
+`parse_frontmatter(None)` starb an einem `AttributeError`, der weder in der Fehlerliste
+stand noch die Datei nannte. Wer das Protokoll las, bekam eine Meldung über eine
+Programmzeile, nicht über ein Problem. Behoben an **33 Aufrufstellen in 15 Dateien**, mit
+einem Test, der die Regel über den **gesamten** Produktionscode durchsetzt statt über die
+eine Fundstelle.
+
+**⚠ Wie das drei Sprints überstehen konnte — und warum es das Schärfste an diesem Lauf
+ist.** Das Erkennungsmuster war seit dem 16.08. aufgeschrieben: *„`PUSH-ANFORDERUNG.txt`
+bleibt liegen + `abschluss-auto.log` ansehen"*. Genau das lag vor. Die Datei **war**
+liegengeblieben und trug **zwei** Zeilen — der Wächter löscht sie bei Erfolg. Zwei Zeilen
+sind zwei gescheiterte Läufe, an der Stelle, an die das Team bei jedem Sprintende selbst
+schreibt.
+
+**`p11/T-0005` — der Entwurf dreht die Frage um.** Gefragt war, wie viele Kacheln auf eine
+FHD-Seite passen. Die Antwort: nicht die Zahl ist das Problem, sondern der **Rahmen** —
+`main` ist auf 62 rem begrenzt, und darin passt keine Anordnung. Über die volle Breite:
+7 Spalten × 3 Reihen, 180 px Reserve.
+
+**⚠ Und ein Feld macht die Kachel unbegrenzt.** `letzte_baseline` ist im Vertrag ein
+`string` ohne Längengrenze und trägt im echten Payload bis zu **300 Zeichen** (p1) — in
+einer Kachelspalte mehr als das ganze Reihenbudget. Der Vertrag begrenzt `aufgaben`
+(`max_eintraege: 3`) und lässt ausgerechnet das Feld frei, das wächst. Ursache ist nicht
+die Länge, sondern die Vermischung: Tag **und** Annotation unter einem Namen (B033).
+**Nicht im Widget gelöst** — das wäre die eigene Regel neben dem Vertrag, die ADR-P11-001
+verbietet. Weitergegeben als `team-dashboard/T-0002`.
+
+**`platform/T-0008` — gefunden, weil man einmal richtig gefragt hat.** Wer wissen will,
+was ein `None` aus `status_in_head` alles heißen kann, findet den zweiten Fall: in `p10`,
+`p11` und `p12` (verschachtelt in `projects`) sucht die Funktion die Datei am falschen
+Pfad, das gilt als „Ticket ist neu", und der `board-check` meldet `OK`. Für drei von
+sechzehn Einträgen hat SWR-002 **nie** geprüft. Bewusst nicht mitgebaut (B025).
+
+**Der DR, der nicht gestellt wurde.** Geplant war ein Inbox-DR „bitte einen Hostlauf
+auslösen". Er wurde hinfällig, bevor er geschrieben war — die Ursache war kein Mensch.
+Das steht hier, damit ein nicht gestellter DR nicht spurlos verschwindet.
+
+**Verankert (D005, noch in diesem Lauf):** **L-2026-08-17j** (ein ausbleibendes Ergebnis
+hat zwei Erklärungen; die zweite Wiederholung eines Wartegrundes ist der Auslöser für eine
+Prüfung; ein Protokoll, das niemand liest, ist keines; eine Lehre nur am Fundort schützt
+eine Zeile) und **L-2026-08-17k** (ein Rückgabewert, der zwei Dinge heißt, sagt am Ende
+das Harmlosere).
+
+**Board-Check gegen die Erwartung gelesen (B041 Regel 3):** gesamt **254** (+4: T-0007,
+T-0008, p11/T-0006, team-dashboard/T-0002), platform **8** (+2), p11 **6** (+1),
+team-dashboard **2** (+1); nicht geschlossen **15** — zum dritten Mal dieselbe Zahl, und
+zum dritten Mal Zufall: zwei zu, zwei neu. Briefe **48**, davon **0 offen**. Matrix
+**108 SWRs / 0 Lücken** (unverändert — die Korrektur fällt unter SWR-002 und braucht keine
+neue Anforderung). **492 Tests** (vorher 486).
 
 ---
 

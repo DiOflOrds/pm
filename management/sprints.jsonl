@@ -2,3 +2,4 @@
 {"nr": 2, "kennung": "2026-08-17T2238-cowork-s2", "start": "2026-08-17 00:38", "takt_min": 60}
 {"nr": 3, "kennung": "2026-08-17T0130-cowork-s3", "start": "2026-08-17 01:39", "takt_min": 60, "notiz": "Sprint 3: Widget-Vertrag, Push-Reihenfolge-Entscheidung"}
 {"nr": 4, "kennung": "2026-08-17T0245-cowork-s4", "start": "2026-08-17 02:45", "takt_min": 60, "notiz": "Sprint 4: SWR-108 (echte Null vs. nicht geliefert), Widget-Vertrag v2, p11/T-0003 zerlegt"}
+{"nr": 5, "kennung": "2026-08-17T0400-cowork-s5", "start": "2026-08-17 03:36", "takt_min": 60, "notiz": "Sprint 5: platform/T-0007 (Waechter brach seit 17.08. bei jedem Lauf ab), p11/T-0005 Layout-Entwurf, T-0008 + team-dashboard/T-0002 gefunden"}
