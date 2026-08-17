@@ -38,7 +38,12 @@
 8. **Vier Sachtickets geschlossen** (`pm/T-0047`, `pm/T-0048`, `pm/T-0050`, `pm/T-0051`)
    plus sechs Takt-Pflichten. Preflight STARTKLAR, unterminiert 0, überfällig 0,
    Statusdrift 0, **655 Tests grün** (+54), Matrix **120 SWRs / 0 Lücken**.
-9. **Ein Brief kam während des Laufs** (`pm/N-0038`, E. John): ein Knopf zum Priorisieren
+9. **⚠ Zwei Briefe kamen während des Laufs** — der zweite meldete einen Bug, in den diese
+   Session selbst dutzendfach gelaufen ist: der Briefkasten meldet „Commit fehlgeschlagen"
+   und **verschweigt, dass die Nachricht gespeichert ist**. Am Bestand belegt: `pm/N-0038`
+   hat **nie** einen eigenen Commit bekommen. Ursache: eine verwaiste `index.lock`, die
+   `git add` hinterlässt. **Die Meldung ist noch in diesem Lauf geradegezogen** (SWR-121).
+10. **Der erste Brief kam während des Laufs** (`pm/N-0038`, E. John): ein Knopf zum Priorisieren
    offener Aufgaben für den nächsten Durchlauf. Beantwortet, als `pm/T-0054` eingeplant
    (Klasse B, kein DR nötig) — und die Feldfrage darin ist **im Ticket entschieden**
    statt als Vorbedingung davorgestellt, nach der Lehre dieses Sprints (L-2026-08-17p).
@@ -59,6 +64,7 @@ blockiert. **Fest geplant** ist Sprint 10 (HORIZONT 2); ab Sprint 11 ist die Num
 | pm/T-0048 | cm | dieser Sprint | **erledigt** | **Der Befund war um den Faktor 25 zu klein.** Nicht zwei Altfälle, sondern **52**. **SWR-118**: die Übergangsprüfung liest die **committete Historie** statt der Differenz Arbeitskopie/HEAD — sie hängt damit an gar keinem Zeitpunkt mehr. Altbestand per **Stichtag** ausgenommen, Größe festgenagelt. 14 Tests. |
 | pm/T-0050 | pl | dieser Sprint | **erledigt** | **Die Board-Formatänderung, allein in ihrem Schritt.** `BOARD.md`-Spalte „Verantwortlich" (SWR-116-Feld). Alle 16 Boards regeneriert und validiert. |
 | pm/T-0051 | pl | dieser Sprint | **erledigt** | Zähler „wartet auf den Menschen" **mit Refs** — als **zweiter Schlüssel** in den Kopfblock aus `T-0047`, also Ergänzung in eine feststehende Form statt zweiter Vertragsfrage. Genau die Reihenfolge, die das Ticket verlangt. |
+| pm/T-0055 | dev | dieser Sprint | **teilweise erledigt** | **Neu, Brief `pm/N-0039`** (Bugmeldung des Auftraggebers). Der Briefkasten meldete „Commit fehlgeschlagen" und verschwieg, dass die Nachricht **gespeichert** ist. **Teil 1 sofort gemacht** (SWR-121, 4 Tests): die Meldung sagt jetzt zuerst „GESPEICHERT" + „nicht erneut senden". Teil 2 (Sperre räumen + wiederholen, Anzeige ohne Reload) → Sprint 10. Frist 24.08. |
 | pm/T-0054 | chg | Sprint 10 | offen | **Neu, Brief `pm/N-0038` vom Auftraggeber** (während des Laufs eingegangen): ein Knopf, mit dem der Mensch offene Aufgaben aller Teams/Projekte für den nächsten Durchlauf terminiert. **Klasse B**, kein DR nötig. Die Feldfrage (`prio` vs. `geplant_sprint`) ist **im Ticket entschieden** — nach L-2026-08-17p aus genau diesem Sprint. Frist 24.08. |
 | pm/T-0053 | pl | Sprint 10 | offen | **Neu, aus `pm/T-0048`.** 21× `open -> in_review` sieht nicht nach Schludern aus, sondern nach einem Ablauf, den `UEBERGAENGE` nicht kennt. Ob die **Regel** stimmt, ist eine eigene Frage — im selben Lauf mit `T-0048` wäre es B025. Frist 24.08. |
 | pm/T-0039 | pl | Sprint 10 | offen | Am Brief weiterkommentieren — eigene Fläche (Dateiformat, Schreibpfad, Statuslogik, HMI). Grund unten im Abschluss. Frist 23.08. |
@@ -211,6 +217,10 @@ denn gegen einen Fehler, den der Parser schluckt, hilft der Parser nicht.
   braucht die Refs aus `T-0051`; die liegen seit diesem Lauf vor. Das Ticket ist damit
   **bereit** und wartet nur noch auf einen Lauf, nicht mehr auf eine Voraussetzung.
 * `pm/T-0053` — Sprint 10, **neu aus `T-0048`**. Frist 24.08.
+* `pm/T-0055` Teil 2 — Sprint 10, **neu aus Brief `pm/N-0039`**. Frist 24.08. **Grund:
+  fünf bereits angefasste Flächen, und der Eingriff geht in den Schreibweg, über den der
+  Auftraggeber mit dem Team spricht.** Teil 1 (die Meldung) ist trotzdem **sofort** gemacht
+  worden, weil er allein den Schaden abstellt, den der Auftraggeber heute hatte.
 * `pm/T-0054` — Sprint 10, **neu aus Brief `pm/N-0038`**. Frist 24.08. **Grund für Sprint 10
   und nicht diesen: vier bereits angefasste Flächen** (Prüfstrecke zweimal, `BOARD.md`-Format
   in 16 Repos, Widget-Vertrag in zwei Versionen). Eine fünfte wäre B025 — mit einer

@@ -21,9 +21,11 @@
 5. **⚠ Und eine Datei, die von sich sagt „ich bin die einzige Quelle", hatte still ein
    Feld verloren** — seit zwei Sprints, ohne dass irgendetwas rot wurde. Repariert und
    mit einer Prüfung versehen, die sie ab jetzt beim Wort nimmt.
-6. **Dein Wunsch von heute früh ist beantwortet und eingeplant** (`pm/N-0038`): der Knopf
-   zum Priorisieren kommt im nächsten Lauf als `pm/T-0054`. Du musst dazu nichts
-   entscheiden.
+6. **Deine beiden Nachrichten von heute früh sind beantwortet.** Der Knopf zum
+   Priorisieren (`pm/N-0038`) kommt im nächsten Lauf als `pm/T-0054`. Und dein
+   **Bug-Report** (`pm/N-0039`) stimmt: die Meldung „Commit fehlgeschlagen" verschwieg,
+   dass deine Nachricht gespeichert ist — **das ist heute schon repariert**, der Rest
+   folgt im nächsten Lauf.
 7. **Vier Sachaufgaben geschlossen**, 655 Tests grün (+54), 120 Anforderungen ohne Lücke,
    Preflight startklar.
 8. **✅ Deine Entscheidung `p11/T-0006` ist heute um 08:11 eingegangen: LAY-a.** Verbucht
@@ -37,6 +39,7 @@
 | Was | Warum |
 |---|---|
 | ✅ **Danke — deine Entscheidung ist da und schon verbaut.** | Du hast heute um 08:11 **LAY-a** gewählt, zwei Tage vor der Frist. Wir haben sie **im selben Lauf** verbucht und die Folgearbeit sofort gemacht: das Dashboard-Ticket ist entsperrt, in drei Teile zerlegt, und der erste Teil ist fertig. **Es liegt jetzt nichts mehr bei dir.** Was LAY-a bedeutet: das Dashboard darf breiter sein als der Textkorridor, alle anderen Ansichten bleiben, wie sie sind. |
+| ✅ **Dein Bug-Report stimmt — und wir sind heute selbst dutzendfach hineingelaufen** | `pm/N-0039`. Die Nachricht wird auf die Platte geschrieben, **bevor** Git startet — ein gescheiterter Commit heißt also **nie**, dass sie weg ist. Die Meldung nannte davon nur die schlechte Hälfte. In der Historie sichtbar: `N-0038` hat **nie** einen eigenen Commit bekommen und wurde zwei Stunden später von einem fremden mitgenommen; `N-0039` kam durch. **Ursache:** eine Git-Sperrdatei, die sich auf diesem Rechner nicht löschen lässt — `git add` lässt sie liegen, der Commit danach scheitert daran. **Schon repariert:** die Meldung sagt jetzt zuerst „Deine Nachricht ist GESPEICHERT … bitte nicht erneut senden". **Nächster Lauf:** die Sperre wird geräumt und der Commit wiederholt, dann siehst du den Fehler gar nicht mehr (`pm/T-0055`). |
 | ✅ **Dein Wunsch von heute früh: kommt, du musst nichts tun** | `pm/N-0038` („Knopf zum Priorisieren für den nächsten Durchlauf") ist beantwortet und als `pm/T-0054` für den nächsten Lauf eingeplant, Frist 24.08. Das ist eine Sache, die das Team allein entscheiden darf — es wartet nichts auf dich. **Eine Frage steckte darin, die wir gleich mitentschieden haben**, damit der nächste Lauf bauen kann statt zu überlegen: der Knopf setzt den **Termin** („kommt in den nächsten Durchlauf"), nicht die Wichtigkeit. Beides in einen Knopf zu legen hätte zwei Angaben über dieselbe Sache erzeugt. |
 | ✅ **Die Organisation sagt jetzt von selbst, was bei dir liegt** | Neu seit heute: Cockpit und Startcheck melden „n Tickets warten auf den Menschen" — **mit Namen**, nicht nur als Zahl. Heute: eines, `p11/T-0006`. Das ist die Gegenrichtung zu deinem Wunsch: du siehst, was auf dich wartet, und bald sagst du uns, was wir zuerst tun sollen. |
 | ✅ **Die Zusage aus gestern hat gehalten** | Gestern haben wir dir gemeldet, dass wir dir etwas als erledigt gemeldet hatten, das nicht verbucht war, und eine Prüfung dagegen gebaut. Heute meldet sie „0". Nichts aus Sprint 8 stand noch offen. |
