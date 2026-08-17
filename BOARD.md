@@ -1,24 +1,22 @@
 # Board (generiert von platform/scripts/board.py — nicht von Hand editieren)
 
-Stand: 2026-08-17 · Tickets: 46 · davon wiederkehrend: 3
+Stand: 2026-08-17 · Tickets: 48 · davon wiederkehrend: 3
 
 
-## open (10)
+## open (8)
 
 | ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|
 | [T-0001](tickets/T-0001.md) | Takt: Session-Agenda pflegen (jede Session) | task | je Session | pl | hoch | 0 | — |
 | [T-0002](tickets/T-0002.md) | Takt: Intake-Queue — neue Wünsche/Briefe qualifizieren (jede Session) | task | je Session | pl | hoch | 0 | — |
-| [T-0036](tickets/T-0036.md) | CR (B049): Unterminierte offene Tickets sind für die Eskalationsregel B044 unsichtbar — der „ohne Frist\"-Zähler wird pro Kachel gelesen, nie als Summe | change-request | einmalig | pl | hoch | 0 | — |
 | [T-0038](tickets/T-0038.md) | CR (B053, pm/N-0030): Tickets nennen keinen Verantwortlichen — `rolle` sagt die Fachrolle, nicht wer die Handlung tut (Team oder Mensch) | change-request | einmalig | pl | hoch | 0 | — |
 | [T-0039](tickets/T-0039.md) | CR (B054, pm/N-0031): Am Brief weiterkommentieren statt einen neuen zu schreiben — der Briefkasten kennt nur ein Frage/Antwort-Paar je Datei | change-request | einmalig | pl | hoch | 0 | — |
 | [T-0028](tickets/T-0028.md) | CR (pm/N-0022): Projekt-Pool — Team gründen im HMI (Steckbrief, Profil, Datenklasse, Zugänge) | change-request | einmalig | chg | mittel | 0 | — |
-| [T-0043](tickets/T-0043.md) | Problem: board-check von p3 und p5 seit 16.08. rot — die Board-Formatänderung ist als Ursache widerlegt | problem | einmalig | prob | mittel | 0 | — |
-| [T-0045](tickets/T-0045.md) | Problem: Ein offenes Ticket auf einem vergangenen Sprint fällt niemandem auf — „überfällig 0\" sagt nichts darüber | problem | einmalig | pl | mittel | 0 | — |
-| [T-0046](tickets/T-0046.md) | Problem: Die Kennzahl „nicht geschlossen\" stand vier Sprints auf 15 und stimmt mit keiner Zählweise des Werkzeugs überein | problem | einmalig | pl | mittel | 0 | — |
+| [T-0047](tickets/T-0047.md) | CR (aus pm/T-0036 Teil a): Org-Summe „unterminiert\" mit Referenzliste im Cockpit-Kopfblock | change-request | einmalig | pl | mittel | 0 | — |
+| [T-0048](tickets/T-0048.md) | Problem: Die Übergangsprüfung vergisst, was schon committet ist — zwei Tickets sind in Sprint 7 mit open -> done in die Historie gegangen | problem | einmalig | cm | mittel | 0 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | niedrig | 0 | — |
 
-## done (36)
+## done (40)
 
 | ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|
@@ -43,6 +41,7 @@ Stand: 2026-08-17 · Tickets: 46 · davon wiederkehrend: 3
 | [T-0031](tickets/T-0031.md) | DR (Klasse A): Gründung Team „team-dashboard" (Pool-Kandidat #13) — Steckbrief, Profil, Datenklasse, Zuschnitt Bau/Betrieb | decision-request | einmalig | pl | hoch | 0 | — |
 | [T-0033](tickets/T-0033.md) | DR (Klasse A): G0 für Projekt P11 „Widget-Dashboard" — Auftrag, Abnahmekriterien, Abgrenzung | decision-request | einmalig | pl | hoch | 0 | — |
 | [T-0034](tickets/T-0034.md) | Problem: team-mail-Wochendigest ist seit Teamgründung fällig und wurde nie erzeugt — seit fünf Sessions unveränderte Randnotiz | problem | einmalig | prob | hoch | 0 | — |
+| [T-0036](tickets/T-0036.md) | CR (B049): Unterminierte offene Tickets sind für die Eskalationsregel B044 unsichtbar — der „ohne Frist\"-Zähler wird pro Kachel gelesen, nie als Summe | change-request | einmalig | pl | hoch | 0 | — |
 | [T-0040](tickets/T-0040.md) | CR (B055, pm/N-0032+N-0033): Session-Zusammenfassung in Mission Control — was eine Session getan hat, steht heute nur in Dateien, die die HMI nicht zeigt | change-request | einmalig | pl | hoch | 0 | — |
 | [T-0041](tickets/T-0041.md) | CR: Terminierung auf Sprints statt auf Kalenderdaten — jeder Routine-Lauf ist ein Sprint | change-request | einmalig | pl | hoch | 0 | — |
 | [T-0042](tickets/T-0042.md) | Problem (B061): Die Push-Reihenfolge kann nicht beide Gates grün machen — platform prüft p0/p9, p0–p9 prüfen platform | problem | einmalig | prob | hoch | 0 | — |
@@ -57,4 +56,7 @@ Stand: 2026-08-17 · Tickets: 46 · davon wiederkehrend: 3
 | [T-0032](tickets/T-0032.md) | CR (pm/N-0025, Teil 2): Echter Uhrzeit-Takt für wiederkehrende Aufgaben — Abgrenzung zu F14 und den team-mail-Takten | change-request | einmalig | pl | mittel | 0 | — |
 | [T-0035](tickets/T-0035.md) | DR (Klasse A): Anthropic-API-Key (p0/T-0008) — weiterverfolgen, schließen oder jetzt umsetzen? | decision-request | einmalig | pl | mittel | 0 | — |
 | [T-0037](tickets/T-0037.md) | CR (B051): Der „Starten\"-Knopf löscht den Pool-Kandidaten spurlos und legt ein Decision-Log ohne Tabellenkopf an | change-request | einmalig | pl | mittel | 0 | — |
+| [T-0043](tickets/T-0043.md) | Problem: board-check von p3 und p5 seit 16.08. rot — die Board-Formatänderung ist als Ursache widerlegt | problem | einmalig | prob | mittel | 0 | — |
 | [T-0044](tickets/T-0044.md) | Problem: Plandatei und Ticket sagten verschiedene Sprints — sieben Zeilen, unbemerkt, weil beide Quellen für sich stimmig aussahen | problem | einmalig | pl | mittel | 0 | — |
+| [T-0045](tickets/T-0045.md) | Problem: Ein offenes Ticket auf einem vergangenen Sprint fällt niemandem auf — „überfällig 0\" sagt nichts darüber | problem | einmalig | pl | mittel | 0 | — |
+| [T-0046](tickets/T-0046.md) | Problem: Die Kennzahl „nicht geschlossen\" stand vier Sprints auf 15 und stimmt mit keiner Zählweise des Werkzeugs überein | problem | einmalig | pl | mittel | 0 | — |

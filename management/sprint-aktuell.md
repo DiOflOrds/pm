@@ -43,6 +43,7 @@ durch `sprint.plan_drift` (SWR-109). Neu ab diesem Sprint: `sprint.sprint_vergan
 | pm/T-0045 | pl | dieser Sprint | **erledigt** | Die drei offenen Abgrenzungen entschieden: erledigte Tickets kein Fall, `in_review` zählt mit, `decision-request` ausgenommen. **SWR-112**, 9 Tests. Ohne die DR-Ausnahme hätte die Prüfung an Tag eins `p11/T-0006` fehlgemeldet. Frist 20.08. gewahrt. |
 | pm/T-0046 | pl | dieser Sprint | **erledigt** | Zählweise festgelegt: „nicht geschlossen" = `offen_gesamt`, **Takt-Dauerläufer eingeschlossen**; `sachtickets` als eigene Zahl daneben. Aus dem Werkzeug bezogen, nicht abgetippt. **SWR-113**, 7 Tests. Alte Reihe **nicht** rückwirkend korrigiert. Frist 20.08. gewahrt. |
 | pm/T-0036 | pl | dieser Sprint | **erledigt** | **Der Verschiebungsgrund wurde gemessen (L-2026-08-17j Regel 2): 0 unterminierte Tickets im Bestand** — der Anlass ist leer, die Lücke nicht. Teil b) gebaut (**SWR-114**, org-weite Preflight-Zeile mit Namen) — das **ist** das Abnahmekriterium. Teil c) als Regel verankert. 8 Tests. |
+| pm/T-0048 | cm | Sprint 8 | offen | **Neu, in der Schlussverifikation gefunden.** `board.py --check` hält den Status der Arbeitskopie gegen HEAD und ist damit **blind für einen bereits committeten** Sprung: `pm/T-0043` und `team-dashboard/T-0002` sind in diesem Lauf mit `open -> done` in die Historie gegangen. Erwischt wurden nur die drei, die zum Prüfzeitpunkt noch unverbucht waren. Frist 23.08. |
 | pm/T-0047 | pl | Sprint 8 | offen | **Neu, Teil a) aus `pm/T-0036`.** Org-Summe im Cockpit-**Kopfblock** ändert den Cockpit- und Widget-Vertrag; Sprint 7 hat `aggregation.cockpit` bereits für SWR-111 angefasst (B025). Frist 23.08. |
 | pm/T-0038 | pl | Sprint 8 | offen | Feld `verantwortlich` in Board, Cockpit und Preflight — Board-**Formatänderung**, die jedes Repo-CI prüft. Grund unten im Abschluss. Frist 23.08. |
 | projects/p11/T-0006 | pl | wartet-auf-Mensch | vorgelegt | DR an den Auftraggeber (LAY-a/b/c, Frist 19.08., Default LAY-a). Für das Team ist daran nichts offen. Von `sprint_vergangen` ausgenommen — begründet in SWR-112. |
@@ -95,6 +96,13 @@ nichts offen.
   dieses Tickets mit diesem Grund** — bei der zweiten greift L-2026-08-17j Regel 2 und der
   Grund wird gemessen.
 * `pm/T-0047` — Sprint 8, neu abgetrennt. Grund im Ticket: eigener Vertragsumfang.
+* `pm/T-0048` — Sprint 8, **neu und aus der eigenen Schlussverifikation**. Die
+  Übergangsprüfung ist blind für einen Sprung, der schon committet ist; zwei Tickets
+  dieses Sprints sind so mit `open -> done` in die Historie gegangen. Bewusst **nicht**
+  nachträglich geglättet — der Verlauf ist der Vermerk. Nicht mitgebaut, weil vorher zu
+  entscheiden ist, ob die Prüfung die Historie oder den Commit-Pfad adressiert (B025).
+  ⚠ Zusammenhang mit SWR-110 beachten: die dortige Prüfung drängt auf frühes Committen und
+  **zieht diesen Fehler damit an**.
 * `projects/p11/T-0003` — Sprint 8. **Eine seiner zwei Sperren ist gefallen**
   (`team-dashboard/T-0002` entschieden); die zweite liegt beim Auftraggeber. Frist 20.08.
 * `pm/T-0039` Sprint 8, `pm/T-0028` Sprint 9, `projects/p12/T-0003` Sprint 10 —
