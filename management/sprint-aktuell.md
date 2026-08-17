@@ -114,21 +114,28 @@ hatte.
 
 | Prüfung | Ergebnis |
 |---|---|
-| Python-Tests | **786 grün, 1 rot** |
+| Python-Tests | **786 grün, 1 rot** (der Test meldet **2** Verstöße) |
 | JS-Tests | **29 grün** (von 16) |
 | Trace-Matrix | **133 SWRs / 0 Lücken** |
 | Briefkasten (Start **und** Abschluss geprüft) | 0 offen |
 | Entschiedene, unverbuchte DRs | **0** (war 1 beim Start) |
-| Unzulässige Statusübergänge **seit dem Stichtag** | **1** ⚠⚠ |
+| Unzulässige Statusübergänge **seit dem Stichtag** | **2** ⚠⚠ |
 | Altbestand unzulässiger Übergänge | 52 (unverändert, bewusst nicht geglättet) |
 
 Der rote Test ist `test_uebergang_historie::test_seit_dem_stichtag_gibt_es_keinen_verstoss`,
-und er hat recht: **dieser Lauf hat selbst einen unzulässigen Statusübergang committet.**
+und er hat recht: **dieser Lauf hat selbst ZWEI unzulässige Statusübergänge committet.**
 
 `platform/T-0014` wurde geschlossen, dann bewusst wiedereröffnet (die Nachprüfung fand zwei
 weitere Leser). Die Datei ging `done → in_progress → in_review → done`, die **Commits** aber
 `done → in_review`: der Zwischenstand bekam keinen eigenen Commit, weil die Wiederöffnung
 sich wie Buchhaltung anfühlte und nicht wie ein Zustandswechsel.
+
+⚠⚠ **Und derselbe Fall ein zweites Mal: `pm/T-0064` (`open → in_review`).** Er lag bereits
+in der Historie, als die Lesson zum ersten Fall geschrieben wurde, und wurde erst vom
+**Abschluss**-Preflight gefunden. *Eine Regel aufzuschreiben ist nicht dasselbe wie den
+Bestand danach zu prüfen.* Aufgenommen in `L-2026-08-17ad`; die Erkennungsfrage lautet ab
+jetzt: wer eine Lesson formuliert, misst im selben Zug, **wie oft der Fall schon eingetreten
+ist**.
 
 > **Der Lauf, der die Prüfung gegen „Zustand nur in Prosa" gebaut hat, hat im selben Ticket
 > den Zustand in der Historie verloren.**
