@@ -67,7 +67,7 @@
     die Ausnahme flog. Ohne Folgen, weil auf einer Arbeitskopie gearbeitet wurde. Dieselbe
     Klasse wie `abschluss.cmd` in Sprint 1. Verankert als `L-2026-08-17y`: **Temp-Datei
     schreiben, dann `os.replace`.**
-14. **752 Python-Tests grün** (+11), **16 JS-Tests grün** (+16, von null), Matrix **130
+14. **754 Python-Tests grün** (+13), **16 JS-Tests grün** (+16, von null), Matrix **130
     SWRs / 0 Lücken**.
 
 ## Sprint-Plan
@@ -144,7 +144,7 @@ die Zerlegungsnaht **jetzt** benannt, statt sie beim vierten Mal zu suchen.
 `p11/T-0009` in diesem Lauf zu bauen.
 
 **Verifikation (nach allen Änderungen des Laufs gemessen, nicht davor):**
-Preflight **STARTKLAR**, **752 Python-Tests** grün, **16 JS-Tests** grün, Matrix **130
+Preflight **STARTKLAR**, **754 Python-Tests** grün, **16 JS-Tests** grün, Matrix **130
 SWRs / 0 Lücken**, unterminiert 0, Kalenderfristen 0, Plan-Drift 0, überfällig 0,
 Statusdrift 0, Statusübergänge seit Stichtag 0, Altbestand 52 (unverändert).
 Briefkasten: **beim Start kein offener Brief, beim Abschluss erneut geprüft.**

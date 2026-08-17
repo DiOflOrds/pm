@@ -46,7 +46,7 @@
     ändern, und *bevor* der Fehler gemeldet wurde. Folgenlos, weil wir auf einer Kopie
     gearbeitet haben. Es ist **dieselbe Sache wie `abschluss.cmd` in Sprint 1**, der
     einzige Punkt, der bis heute bei dir liegt. Die Regel dagegen steht jetzt.
-11. **752 Tests für die Technik (+11), 16 für die Oberfläche (+16, von null)**, 130
+11. **754 Tests für die Technik (+13), 16 für die Oberfläche (+16, von null)**, 130
     Anforderungen ohne Lücke, Startcheck startklar — am Ende gemessen. **Es liegt eine
     Sache bei dir: die Node-Frage.**
 
