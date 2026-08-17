@@ -1,18 +1,25 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
-## Das Wichtigste (Stand Sprint 5, 2026-08-17)
+## Das Wichtigste (Stand Sprint 6, 2026-08-17)
 
-1. **⚠ Seit dem 17.08. ist kein einziger Push durchgekommen** — nicht weil kein Lauf
-   stattfand, sondern weil **jeder** Lauf abbrach. Der Wächter versuchte es alle 15
-   Minuten, rund zweihundert Mal.
-2. **Ursache gefunden und behoben** (`platform/T-0007`): `board.py` las die Git-Ausgabe
-   ohne feste Kodierung; auf dem Windows-Host starb sie an einem Zeichen in einem
-   pm-Ticket.
-3. **Damit ist die Auskunft der letzten drei Sprints widerlegt.** „Der Beleg kommt von
-   selbst" war falsch — er konnte nicht kommen. Das steht so in beiden Tickets.
-4. **`p11/T-0005` erledigt** — Layout passt, aber nur außerhalb des heutigen
-   Textkorridors. **Eine Entscheidung liegt für dich in der Inbox** (`p11/T-0006`).
-5. **492 Tests grün**, Matrix 108/0, Preflight STARTKLAR, kein offener Brief (48).
+1. **⚠ Der Wächter bricht weiter ab — aber später, und genau das ist der Beleg.** Der
+   erste Lauf nach der Reparatur (03:59) kam bis `PREFLIGHT: STARTKLAR` und starb dann
+   beim **Melden** eines Befundes statt beim **Lesen**. Behoben: `platform/T-0009`.
+2. **Die Reparatur aus Sprint 5 hatte nur ein Ende des Rohrs angefasst.** Sie stellte
+   das Lesen fest auf UTF-8 — und zerstörte damit an drei Stellen eine Paarung, die
+   vorher zufällig funktioniert hat. Dazu ein zweiter, älterer Grund: 121 Ticketdateien
+   tragen ein „→", das die Windows-Konsole nicht ausgeben kann.
+3. **⚠ Drei Sätze aus früheren Sprints sind widerlegt — alle drei ungezählte Zahlen
+   neben einer richtigen Diagnose.** Nicht „zweihundert Läufe", sondern 9. Nicht
+   „sieben Zeilen", sondern 6. Nicht „was dabei auftaucht, braucht Urteil", sondern 0.
+4. **⚠ Und dann ist der Wächter um 04:29 durchgelaufen** — erster erfolgreicher Push seit
+   01:31. `CI-STATUS.md` ist neu (04:32), **`platform` ist grün** (die Vorhersage aus
+   Sprint 3, eingetroffen), und der Bericht nennt erstmals den roten Schritt. Damit ist
+   `platform/T-0004` **geschlossen** und für `pm/T-0043` sind zwei Ursachen ausgeschlossen
+   — darunter das Secret. **Fünf Tickets geschlossen.** Deine Entscheidung `p11/T-0006`
+   liegt weiter in der Inbox (Frist 19.08.).
+5. **514 Tests grün** (+22), Matrix 109/0, Preflight STARTKLAR, kein offener Brief (48),
+   unterminiert 0, überfällig 0, **Plan-Drift 0**.
 
 ---
 
@@ -20,11 +27,12 @@
 
 | Was | Warum |
 |---|---|
-| **Eine Entscheidung: `p11/T-0006`, Frist 19.08.** | Das Dashboard passt bei 1920×1080 nur auf eine Seite, wenn es den 62rem-Textkorridor verlässt, an den Mission Control heute überall gebunden ist. **LAY-a (Default): breit nur im Dashboard**, alles andere unverändert. LAY-b: überall breit. LAY-c: Korridor behalten und scrollen — das gäbe das erste Abnahmekriterium des Projektauftrags auf und käme als eigener DR. Schweigen führt zu LAY-a. |
-| ⚠ **Warum seit dem 17.08. nichts auf GitHub ankam** | Der Auto-Wächter lief, aber `abschluss.cmd` brach jedes Mal ab — `board.py` starb im `board-check` von `pm` an einer Kodierung (Windows liest cp1252, das Ticket ist UTF-8). Behoben. **Du musst nichts tun:** der nächste Wächterlauf sollte durchlaufen. |
-| ⚠ **Und wir haben es drei Sprints lang falsch gemeldet** | In der Agenda stand zweimal „wartet auf einen Hostlauf, kommt von selbst". Der Lauf kam — und scheiterte. Der Beweis lag die ganze Zeit in `abschluss-auto.log` in deinem Arbeitsordner, und `PUSH-ANFORDERUNG.txt` mit zwei Zeilen war das Signal, das wir uns am 16.08. selbst aufgeschrieben hatten. Als Lehre verankert (L-2026-08-17j). |
-| Zur Kenntnis: die Vorhersage aus Sprint 3 ist weiter offen | `platform` sollte im nächsten `CI-STATUS.md` grün sein. Jetzt kann sie erstmals geprüft werden. |
-| Optional, ohne Frist | Falls du ohnehin auf GitHub bist: die Lauf-Seite von `p3` nennt den roten Schritt sofort. Ist es das Secret `PLATFORM_READ_TOKEN`, ist die Behebung **Klasse A** (Zugang) und kommt dir als Inbox-DR vor — nicht vom Team entschieden. |
+| **Eine Entscheidung: `p11/T-0006`, Frist 19.08.** | Unverändert aus Sprint 5. Das Dashboard passt bei 1920×1080 nur auf eine Seite, wenn es den 62rem-Textkorridor verlässt, an den Mission Control heute überall gebunden ist. **LAY-a (Default): breit nur im Dashboard**, alles andere unverändert. LAY-b: überall breit. LAY-c: Korridor behalten und scrollen — das gäbe das erste Abnahmekriterium des Projektauftrags auf und käme als eigener DR. Schweigen führt zu LAY-a. |
+| ✅ **Es läuft wieder — belegt, nicht versprochen** | Der Wächterlauf um **04:29** ist durchgelaufen und hat gepusht: der erste Erfolg seit 01:31. Er lief mit der Korrektur aus `platform/T-0009`, die 04:20 committet wurde. `CI-STATUS.md` trägt jetzt den Stand **04:32**. **Du musst nichts tun.** |
+| ✅ **Die Vorhersage aus Sprint 3 ist eingetroffen** | `platform` ist im neuen `CI-STATUS.md` **grün**. Sie stand seit drei Sprints offen und konnte nie geprüft werden, weil kein Bericht entstand. |
+| ✅ **Der Punkt „falls du ohnehin auf GitHub bist" ist erledigt — du musst dort nicht mehr nachsehen** | Der Bericht nennt den roten Schritt jetzt selbst: bei `p3` und `p5` ist es „BOARD.md aktuell?". Der liegt **nach** dem Checkout, für den das Secret gebraucht wird — **also ist es kein Zugangsproblem**. Die seit Sprint 2 in Aussicht gestellte Klasse-A-Entscheidung entfällt. |
+| ⚠ **Korrektur an unserer eigenen Meldung aus Sprint 5** | Wir haben geschrieben, seit dem 17.08. sei „kein einziger Push durchgekommen, rund zweihundert Mal". Nachgezählt: am 17.08. gab es **12 Läufe, davon 4 erfolgreich**; die Fehlserie begann um **02:14**, zwanzig Minuten nach dem Commit, der die Ursache einbrachte. Die Diagnose war richtig, die Zahl war geschätzt. Wir haben sie nachgezählt und die Lehre verankert (L-2026-08-17m). |
+| Zur Kenntnis: `p3` und `p5` bleiben vorerst rot | Ihr letzter CI-Lauf stammt vom **16.08. 07:0x** — ohne Push gibt es keinen neuen Lauf, das „ROT" ist ein Standbild und keine laufende Störung. Wir haben ihre `BOARD.md` neu erzeugt und committet; der nächste Push löst den Lauf aus, der die Frage entscheidet. |
 | ⚠ `abschluss.cmd` prüfen (aus Sprint 1, weiter offen) | Die Datei wurde in Sprint 1 versehentlich geleert und aus dem Protokoll **rekonstruiert**. Wenn du eine Vorgängerversion hast, vergleiche sie. |
 
 ## Für das Team — die nächsten Sprints
@@ -32,17 +40,76 @@
 | Sprint | Ticket | Inhalt |
 |---|---|---|
 | jeder | `pm/T-0001`–`T-0003`, `platform/T-0001`, `team-mail/T-0001`, `team-dashboard/T-0001` | Takt-Dauerläufer |
-| **6** | `platform/T-0008` | Übergangsprüfung greift in `p10`/`p11`/`p12` nicht — lautlos, seit jeher |
-| **6** | `team-dashboard/T-0002` | `letzte_baseline`: zwei Tatsachen in einem Feld, keine Längengrenze |
-| **6** | `platform/T-0004`, `pm/T-0043` | Beleg lesen, sobald der erste erfolgreiche Wächterlauf durch ist |
-| **6** | `projects/p11/T-0003` | Rest von P11 — Bau beginnt nach `T-0006` und `team-dashboard/T-0002` |
+| **7** | `team-dashboard/T-0002` | `letzte_baseline`: zwei Tatsachen in einem Feld, keine Längengrenze (Frist 19.08.) |
+| **7** | `pm/T-0043` | Entscheidet sich am CI-Lauf, den der nächste Push für `p3`/`p5` auslöst |
+| **7** | `pm/T-0045` | Offenes Ticket auf einem vergangenen Sprint meldet niemand |
+| **7** | `projects/p11/T-0003` | Rest von P11 — Bau beginnt nach `T-0006` und `team-dashboard/T-0002` |
 | 7 | `pm/T-0036` + `pm/T-0038` | Board-Format, gebündelt (B053) |
 | 8 | `pm/T-0039` | Am Brief weiterkommentieren |
 | 9 | `pm/T-0028` | Projekt-Pool: Team gründen im HMI (Klasse A — nur vorbereiten) |
 | 10 | `projects/p12/T-0003` | Renderer zusammenführen |
 
-**Ab Sprint 7 ist die Nummer eine Reihenfolge, keine Zusage.** Der vollständige Plan steht
-in `pm/management/sprint-aktuell.md`.
+**Ab Sprint 8 ist die Nummer eine Reihenfolge, keine Zusage.** Der vollständige Plan steht
+in `pm/management/sprint-aktuell.md` — und stimmt seit diesem Sprint nachweislich mit den
+Ticketfeldern überein (SWR-109).
+
+---
+
+## Sprint 6 (2026-08-17)
+
+**Der Startcheck hat den Sprint wieder umgeschrieben — zum zweiten Mal in Folge, und
+diesmal war es geplant.** Sprint 5 hatte eine widerlegbare Vorhersage hinterlassen: *„der
+nächste Lauf sollte durchlaufen; tut er das nicht, ist die Diagnose falsch."* Der Blick ins
+Protokoll war damit Pflicht und nicht Spürsinn.
+
+**Das Ergebnis ist ein Fortschritt und kein Rückfall.** Der Lauf um 03:59 erreichte
+`PREFLIGHT: STARTKLAR` mit **allen 16** Board-Prüfungen grün — genau die Stelle, an der die
+acht Läufe davor gestorben waren. Er scheiterte dann in `[2/5]` an einem
+`UnicodeEncodeError` beim `print`. **Die Meldung hat sich geändert, also gilt die Vorhersage
+als eingetroffen** und `T-0007` bleibt geschlossen.
+
+**`platform/T-0009` — zwei Ursachen, und die zweite ist älter als die erste.** Die
+T-0007-Reparatur stellte die **Leseseite** jedes Subprozess-Aufrufs auf UTF-8. An den drei
+Stellen, an denen Python **Python** aufruft, schrieb das Kind aber weiter cp1252 — vorher
+passten beide zufällig zusammen. Jeder Umlaut wurde zu U+FFFD, und U+FFFD ist genau das
+Zeichen, das cp1252 nicht ausgeben kann. Unabhängig davon: **121 Ticketdateien** tragen ein
+„→". Ein Validierungsbefund an so einem Ticket hätte den Preflight auch ohne die erste
+Ursache beendet. Neu `scripts/konsole.py` — beide Enden an einer Stelle.
+
+**`pm/T-0044` — der Befund kam aus der Kernpflicht selbst.** Beim Sichten aller offenen
+Tickets wichen **sieben** Planzeilen von ihrem Ticket ab: Sprint 5 hatte fünf Aufgaben in
+der Plandatei eine Nummer nach hinten geschoben und die Felder nicht angefasst.
+`nicht_geplant` war zu Recht leer — **Anwesenheit ist nicht Übereinstimmung**. Aufgelöst und
+geprüft (SWR-109).
+
+**`platform/T-0008` — der Verschiebungsgrund war messbar und ist widerlegt.** Sprint 5 hatte
+das Ticket mit *„was dabei auftaucht, braucht Urteil"* auf Sprint 6 gesetzt. Es wäre zum
+**zweiten** Mal mit demselben Grund verschoben worden — und L-2026-08-17j Regel 2 verlangt
+dann eine Prüfung der Quelle. Gemessen, ohne zu bauen: **0 Befunde**. Danach war die
+Korrektur eine Zeile.
+
+**⚠ Dreimal derselbe Fehlertyp in einem Lauf, zweimal davon in der eigenen Verifikation.**
+„Rund zweihundert Läufe" (waren 9), „die sieben Zeilen" (waren 6), „was dabei auftaucht"
+(war nichts). Alle drei sind richtige Beobachtungen mit einer nicht nachgezählten Zahl.
+Verankert als **L-2026-08-17m**.
+
+**⚠ Und ein Regressionstest aus T-0007 hat einen Fehler in der T-0008-Korrektur gefangen:**
+die erste Fassung schrieb `praefix.stdout.strip()` — also denselben `AttributeError` auf
+`None`, der drei Sprints lang jeden Push verhindert hat, eine Zeile weiter neu eingebaut.
+Der Test war für eine andere Zeile geschrieben worden.
+
+**Board-Check gegen die Erwartung gelesen (B041 Regel 3):** gesamt **258** (+4: `T-0009`,
+`pm/T-0044`, `pm/T-0045`, `pm/T-0046`), platform **9** (+1), pm **46** (+3). Briefe **48**,
+davon **0 offen**. Matrix **109 SWRs / 0 Lücken** (+1: SWR-109). **514 Tests** (vorher 492).
+`nicht_geplant: []`, `widersprueche: []`, `plan_drift: []`.
+
+**⚠ Und der vierte widerlegte Satz kam beim Schreiben genau dieser Zeile.** Die erste
+Fassung trug „nicht geschlossen **14** (vorher 15)" — geschätzt, nicht gezählt, in
+demselben Absatz, der drei geschätzte Zahlen anderer Sprints korrigiert. Nachgezählt sagt
+das Werkzeug **17 beim Sprintstart** und **18 beim Abschluss**
+(`sprint.plan()["offen_gesamt"]`) — ohne die sechs Takt-Dauerläufer 11 bzw. 12. Die seit Sprint 2 gemeldete **15** passt zu keiner der beiden Zählweisen, und ihre
+Zählweise steht nirgends. Als `pm/T-0046` aufgenommen — **nicht** rückwirkend korrigiert,
+weil eine still ersetzte Zahl dem nächsten Leser den Hinweis nimmt.
 
 ---
 

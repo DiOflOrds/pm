@@ -16,7 +16,16 @@
 4. **⚠ Befund im Planen selbst: sieben Planzeilen sagten etwas anderes als ihr Ticket.**
    Sprint 5 hat fünf Aufgaben in dieser Datei „eine Nummer nach hinten" geschoben und
    die Ticketfelder nicht angefasst. Aufgelöst und ab jetzt geprüft (**SWR-109**).
-5. **503 Tests grün** (+11), Matrix **109 SWRs / 0 Lücken**, Preflight STARTKLAR, **kein
+5. **`platform/T-0008` erledigt — sein Verschiebungsgrund war messbar und leer.** Sprint 5
+   hatte es mit *„was dabei auftaucht, braucht Urteil"* vertagt. Gemessen, ohne zu bauen:
+   **0 Befunde**. Danach war die Korrektur eine Zeile.
+6. **⚠ Der Wächterlauf um 04:29 ist DURCHGELAUFEN** — erster erfolgreicher Push seit
+   01:31, `CI-STATUS.md` neu (04:32). Die Vorhersage aus `T-0009` ist damit **im selben
+   Lauf eingetroffen und übererfüllt** (nicht `[3/5]`, sondern `[5/5]`). Der Bericht nennt
+   erstmals Job und Schritt für die roten Repos → **`platform/T-0004` geschlossen**, und
+   für `pm/T-0043` sind zwei Ursachen ausgeschlossen. **`platform` ist grün** — auch die
+   Vorhersage aus Sprint 3 ist eingetroffen.
+7. **514 Tests grün** (+22), Matrix **109 SWRs / 0 Lücken**, Preflight STARTKLAR, **kein
    offener Brief** (48), unterminiert 0, überfällig 0, **Plan-Drift 0**.
 
 ## Sprint-Plan
@@ -33,20 +42,21 @@ meldet jede Zeile, die von ihrem Ticket abweicht (SWR-109).*
 | Aufgabe | Rolle | Fällig | Status | Grund / nächster Schritt |
 |---|---|---|---|---|
 | platform/T-0009 | cm | dieser Sprint | **erledigt** | **Nicht geplant gewesen — im Startcheck gefunden.** Der Wächter starb am `print` eines Befundes. Zwei unabhängige Ursachen: die T-0007-Reparatur hat an den drei Stellen, an denen Python Python aufruft, eine funktionierende Kodierungspaarung zerstört; und 121 Ticketdateien tragen ein „→", das cp1252 nicht ausgeben kann. Neu `scripts/konsole.py`, 11 Tests, Suite 492 → 503. |
-| pm/T-0044 | pl | dieser Sprint | **erledigt** | **Neu, im Sprint-Planning gefunden.** Sieben Planzeilen wichen von ihrem Ticket ab. Tickets nachgezogen, Prüfung gebaut (SWR-109). |
-| platform/T-0008 | cm | dieser Sprint | offen | Übergangsprüfung läuft in `p10`/`p11`/`p12` ins Leere. Frist 20.08. |
-| team-dashboard/T-0002 | pl | dieser Sprint | offen | `letzte_baseline` trägt Tag **und** Annotation unter einem Namen, ohne Längengrenze. Frist 19.08. |
+| pm/T-0044 | pl | dieser Sprint | **erledigt** | **Neu, im Sprint-Planning gefunden.** Sieben Planzeilen wichen von ihrem Ticket ab; `nicht_geplant` war zu Recht leer — Anwesenheit ist nicht Übereinstimmung. Tickets nachgezogen, Prüfung gebaut (SWR-109), 7 Tests, Suite 503 → 510. |
+| platform/T-0008 | cm | dieser Sprint | **erledigt** | Übergangsprüfung lief in `p10`/`p11`/`p12` ins Leere — für 3 von 16 Einträgen hat SWR-002 nie geprüft. **Der Verschiebungsgrund aus Sprint 5 wurde gemessen statt geglaubt: 0 Befunde**, danach war die Korrektur eine Zeile (`rev-parse --show-prefix`). 4 Tests, Suite 510 → 514. |
+| team-dashboard/T-0002 | pl | Sprint 7 | offen | `letzte_baseline` trägt Tag **und** Annotation unter einem Namen, ohne Längengrenze. **Einziger geplanter Sprintinhalt, der nicht erledigt wurde** — zwei ungeplante Befunde gingen vor (Grund im Abschluss). Frist 19.08. noch nicht gerissen. |
 | projects/p11/T-0006 | pl | wartet-auf-Mensch | vorgelegt | DR an den Auftraggeber: Dashboard verlässt den Textkorridor (LAY-a/b/c, Frist 19.08., Default LAY-a). Für das Team ist daran nichts mehr offen. |
 | pm/T-0001 | pl | jeder Sprint | erfüllt | Takt: Session-Agenda fortgeschrieben. |
 | pm/T-0002 | pl | jeder Sprint | erfüllt | Takt: Briefkasten qualifiziert — 48 Briefe, **kein offener**. |
 | pm/T-0003 | coach | jeder Sprint | erfüllt | Takt: L-2026-08-17l und L-2026-08-17m sofort verankert. |
-| platform/T-0001 | cm | jeder Sprint | erfüllt | Takt: Preflight STARTKLAR, 503 Tests grün, Matrix 109/0. |
+| platform/T-0001 | cm | jeder Sprint | erfüllt | Takt: Preflight STARTKLAR, **514 Tests** grün, Matrix 109/0. |
 | team-mail/T-0001 | dev | jeder Sprint | erfüllt | Takt: Digest — fällig ab IMAP-Einrichtung, die weiterhin aussteht. Keine Arbeit, kein Verzug. |
 | team-dashboard/T-0001 | pl | jeder Sprint | erfüllt | Takt: Vertrag unverändert v2; die offene Frage liegt in `T-0002`. |
-| platform/T-0004 | cm | Sprint 7 | in_review | SWR-107. **Zweiter Wartegrund in Folge, deshalb geprüft statt vermerkt (L-2026-08-17j Regel 2):** der Grund war diesmal nachweislich `T-0009`. Frist 18.08. reißt — als Werkzeugdefekt gemeldet. |
-| pm/T-0043 | prob | Sprint 7 | offen | `p3`/`p5` rot. Derselbe Beleg wie `T-0004`, dieselbe Ursache, derselbe neue Termin. Kein `blocked` (Verweis ginge über Repo-Grenzen, B047). Frist 19.08. |
+| platform/T-0004 | cm | dieser Sprint | **erledigt** | SWR-107. **Der Beleg kam im Lauf an:** der Wächterlauf 04:29 ging durch, `CI-STATUS.md` (04:32) nennt für p3 und p5 Job **und** Schritt. Netzweg am Host nachgewiesen, alle fünf Zusicherungen geprüft, `p1`/HTTP 504 als echter Abruffehler korrekt behandelt. **Frist 18.08. gewahrt.** |
+| pm/T-0043 | prob | Sprint 7 | offen | `p3`/`p5` rot. **Zwei Ursachen ausgeschlossen:** der rote Schritt („BOARD.md aktuell?") liegt **nach** dem platform-Checkout → **kein Secret-Problem, Klasse-A-Sorge entfällt**; und beide regenerieren heute byte-gleich bis auf die Stand-Zeile, die der Vergleich ignoriert. Der Zustand ist ein **Standbild vom 16.08.** — ohne Push kein neuer Lauf. Deshalb `BOARD.md` neu erzeugt und committet: der nächste Push **löst den entscheidenden Lauf aus**. Frist 19.08. |
 | projects/p11/T-0003 | pl | Sprint 7 | offen | Restumfang: Konfiguration, Detailseiten, Mail-Widget, Tests je SWR, G4 als Inbox-DR. **Erste Bauhandlung hängt an `p11/T-0006`** (Rahmenbreite) und an `team-dashboard/T-0002` (Feldgrenze). Frist 20.08. |
 | pm/T-0045 | pl | Sprint 7 | offen | **Neu, Nebenbefund aus `pm/T-0044`.** Ein offenes Ticket auf einem **vergangenen** Sprint meldet niemand — beim Start dieses Sprints traf das auf zwei zu, während „überfällig 0" gemeldet wurde. Nicht mitgebaut: die Abgrenzung zu erledigten und geparkten Tickets braucht Urteil (B025). Frist 20.08. |
+| pm/T-0046 | pl | Sprint 7 | offen | **Neu, beim Nachzählen der eigenen Abschlusszahlen.** „Nicht geschlossen" stand vier Sprints auf **15**; das Werkzeug zählt **17 beim Start / 18 beim Abschluss**, und die Zählweise der 15 steht nirgends. Frist 20.08. |
 | pm/T-0036 | pl | Sprint 7 | offen | Ändert das `BOARD.md`-Format, gebündelt mit `pm/T-0038` (B053). |
 | pm/T-0038 | pl | Sprint 7 | offen | Gebündelt mit `pm/T-0036`, gleicher Grund. |
 | pm/T-0039 | pl | Sprint 8 | offen | Eigene Fläche (Dateiformat, Schreibpfad, Statuslogik, HMI) — mit anderem zusammen wäre es B025. |
@@ -58,9 +68,69 @@ meldet jede Zeile, die von ihrem Ticket abweicht (SWR-109).*
 (`takt: je-session`): sie laufen in **jedem** Sprint. Eine Nummer daneben wäre eine zweite
 Aussage über dieselbe Sache (B033) — und genau deshalb nimmt `plan_drift` sie aus.
 
-**Rollenzuweisungen in diesem Sprint (D006):** `pm/T-0044` liegt bei `pl`, weil der
-Befund die Planung selbst betrifft und nicht das Werkzeug — die Prüfung ist die Folge,
-nicht die Sache.
+**Rollenzuweisungen in diesem Sprint (D006):** `pm/T-0044`, `pm/T-0045` und `pm/T-0046`
+liegen bei `pl`, weil alle drei die Planung selbst betreffen und nicht das Werkzeug — die
+Prüfungen sind die Folge, nicht die Sache. `platform/T-0009` liegt bei `cm` (Werkzeugfläche),
+ebenso `platform/T-0008`.
+
+---
+
+## Sprint-Abschluss (Sprint 6, 2026-08-17)
+
+**Geplant beim Start:** 17 nicht geschlossene Aufgaben (Werkzeugzahl), davon **9 in diesem
+Sprint** — 3 Sachtickets (`platform/T-0008`, `team-dashboard/T-0002` und, aus dem
+Startcheck, `platform/T-0009`) plus 6 Takt-Pflichten. Im Lauf kamen **4** Tickets dazu
+(`platform/T-0009`, `pm/T-0044`, `pm/T-0045`, `pm/T-0046`) — und **`platform/T-0004` wurde
+aus der Warteschlange in diesen Sprint gezogen**, weil sein Beleg um 04:32 eintraf.
+
+**Geschlossen:** `platform/T-0009` und `pm/T-0044` (beide neu entstanden und im selben
+Sprint geschlossen), `platform/T-0008`, **`platform/T-0004`** und die sechs Takt-Pflichten.
+`p11/T-0006` bleibt **vorgelegt** — für das Team ist daran nichts offen.
+
+**Nicht geschlossen, mit Grund und neuem Termin:**
+
+* `team-dashboard/T-0002` — Sprint 7, Frist 19.08. **Der einzige geplante Sprintinhalt,
+  der nicht erledigt wurde.** Grund: der Startcheck hat mit `platform/T-0009` einen
+  Defekt gefunden, der **jeden Push der Organisation** blockiert, und das Planning mit
+  `pm/T-0044` einen zweiten in der Planung selbst. Beide gingen vor. Die Frist ist noch
+  nicht gerissen; reißt sie, ist das ein Verzug und wird als solcher gemeldet.
+* `pm/T-0043` — Sprint 7, Frist 19.08. **Aber mit einem anderen Ticketinhalt als in den
+  vier Sprints davor:** zwei Ursachen sind ausgeschlossen (das Secret, weil der rote
+  Schritt nach dem Checkout liegt; der heutige Inhalt, weil p3/p5 byte-gleich
+  regenerieren), und der entscheidende CI-Lauf ist **angestoßen** statt erhofft — die
+  `BOARD.md` beider Repos ist neu erzeugt und committet, beide stehen in der
+  Push-Anforderung. **Widerlegbare Vorhersage:** beide werden grün.
+* `projects/p11/T-0003` — Sprint 7. Erste Bauhandlung hängt an `p11/T-0006` (beim
+  Auftraggeber) und `team-dashboard/T-0002`. Frist 20.08. gewahrt.
+* `pm/T-0045`, `pm/T-0046` — Sprint 7, beide neu und beide bewusst nicht mitgebaut: die
+  eine braucht eine Abgrenzung (was heißt „überfällig" für ein geparktes Ticket), die
+  andere eine Festlegung (welche Zählweise gilt). Beides ist Urteil und kein Fix (B025).
+* `pm/T-0036`, `pm/T-0038` — Sprint 7 unverändert. `pm/T-0039` Sprint 8, `pm/T-0028`
+  Sprint 9, `projects/p12/T-0003` Sprint 10 — unverändert in der Reihenfolge.
+  **Anders als in Sprint 5 wurden die Ticketfelder diesmal mitgezogen** (SWR-109).
+
+## Was dieser Sprint über die Planung gelernt hat
+
+**Die Sprint-5-Regel hat in Sprint 6 zweimal etwas gekippt — und beide Male war es eine
+Begründung dieses Projekts.** L-2026-08-17j Regel 2 (*die zweite Wiederholung eines
+Wartegrundes ist der Auslöser für eine Prüfung der Quelle*) galt bisher für Wartegründe.
+Hier hat sie zuerst den Wartegrund von `platform/T-0004`/`pm/T-0043` geprüft — und dann
+den **Verschiebungs**grund von `platform/T-0008`, der sich in fünf Minuten messen ließ und
+sich als leer erwies. Die Regel gilt ab jetzt ausdrücklich für beide (L-2026-08-17m
+Regel 3).
+
+**Vier ungezählte Zahlen in einem Lauf, und die vierte fand die eigene Regel.** „Rund
+zweihundert Läufe" (9), „die sieben Zeilen" (6), „was dabei auftaucht braucht Urteil" (0)
+— und beim Schreiben des Abschlusses „nicht geschlossen 14" (17). Die letzte entstand
+**nachdem** die Lehre aus den ersten dreien geschrieben war, im selben Dokument. Das ist
+kein Argument gegen die Regel, sondern ihr Anwendungsfall: sie hat gegriffen, weil
+jemand nachgezählt hat.
+
+**Und eine Beobachtung zum Startcheck.** Zum zweiten Mal in Folge war der wertvollste
+Sprintinhalt nicht der geplante — aber diesmal war er **fällig**: Sprint 5 hatte eine
+widerlegbare Vorhersage hinterlassen, und die nachzusehen war Pflicht. Der Unterschied
+zwischen Sprint 5 und Sprint 6 ist nicht Aufmerksamkeit, sondern dass es eine Zeile gab,
+die man prüfen musste.
 
 ---
 
@@ -151,14 +221,24 @@ das überlebt eine Verschiebung ihren Anlass.
 
 ## Zahlen
 
-| | Sprint 2 | Sprint 3 | Sprint 4 | Sprint 5 |
-|---|---|---|---|---|
-| Tickets gesamt | 246 | 248 | 250 | **254** |
-| nicht geschlossen | 15 | 15 | 15 | **15** |
-| Tests | 463 | 471 | 486 | **492** |
-| Matrix | 107 / 0 | 107 / 0 | 108 / 0 | **108 / 0** |
-| offene Briefe | 0 | 0 | 0 | **0** |
-| unterminiert / überfällig | 0 / 0 | 0 / 0 | 0 / 0 | **0 / 0** |
+| | Sprint 2 | Sprint 3 | Sprint 4 | Sprint 5 | Sprint 6 |
+|---|---|---|---|---|---|
+| Tickets gesamt | 246 | 248 | 250 | 254 | **258** |
+| nicht geschlossen | 15 ⚠ | 15 ⚠ | 15 ⚠ | 15 ⚠ | **17** (Start: 17) |
+| Tests | 463 | 471 | 486 | 492 | **514** |
+| Matrix | 107 / 0 | 107 / 0 | 108 / 0 | 108 / 0 | **109 / 0** |
+| offene Briefe | 0 | 0 | 0 | 0 | **0** |
+| unterminiert / überfällig | 0 / 0 | 0 / 0 | 0 / 0 | 0 / 0 | **0 / 0** |
+| Plan-Drift | — | — | — | 7 (unbemerkt) | **0** |
+
+**⚠ Die Zeile „nicht geschlossen" ist ab Sprint 6 eine andere Zahl, und der Sprung ist
+kein Ereignis.** Sprint 6 zählt mit dem Werkzeug (`sprint.plan()["offen_gesamt"]`): **17 beim Start**
+und **17 beim Abschluss** — zwei geschlossen (`platform/T-0008`, `platform/T-0004`), zwei neu
+offen (`pm/T-0045`, `pm/T-0046`); ohne die sechs Takt-Dauerläufer wären es 11. Die **15** der Sprints 2–5 passt zu keiner
+dieser beiden Zählweisen, und ihre Zählweise ist nicht dokumentiert. Die alten Werte
+bleiben **unkorrigiert** stehen und tragen ein ⚠ — eine still ersetzte Zahl nimmt dem
+nächsten Leser den Hinweis, welche Art Angabe hier ungeprüft durchging (L-2026-08-17g
+Regel 4). Aufgenommen als `pm/T-0046`.
 
 **„Nicht geschlossen" steht zum dritten Mal auf 15, und wieder ist es Zufall:** zwei
 geschlossen (`platform/T-0007`, `p11/T-0005`), zwei neu offen (`platform/T-0008`,
