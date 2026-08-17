@@ -18,13 +18,7 @@ Stand: 2026-08-17 · Tickets: 66 · davon wiederkehrend: 3
 | [T-0066](tickets/T-0066.md) | CR (pm/N-0042): Cockpit kompakter — falten statt kürzen | change-request | einmalig | pl | Team | mittel | 0 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | Team | niedrig | 0 | — |
 
-## in_review (1)
-
-| ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
-|---|---|---|---|---|---|---|---|---|
-| [T-0064](tickets/T-0064.md) | CR (pm/T-0054 Teil a): Projektübergreifende Liste der offenen Aufgaben im HMI | change-request | einmalig | pl | Team | hoch | 0 | — |
-
-## done (55)
+## done (56)
 
 | ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|---|
@@ -59,6 +53,7 @@ Stand: 2026-08-17 · Tickets: 66 · davon wiederkehrend: 3
 | [T-0055](tickets/T-0055.md) | Bug (pm/N-0039): Briefkasten meldet „Commit fehlgeschlagen\" und verschweigt, dass die Nachricht gespeichert ist — Ursache: verwaiste index.lock | problem | einmalig | dev | Team | hoch | 0 | — |
 | [T-0056](tickets/T-0056.md) | DR (pm/N-0040): promt-team gründen? — Klasse A: Profil, Datenklasse, Zugänge und Wirkbereich brauchen deine Freigabe | decision-request | einmalig | mensch | Team | hoch | 0 | — |
 | [T-0059](tickets/T-0059.md) | CR (pm/T-0039 Teil a): Der Brief wird ein Verlauf — Beitragsformat, Schreibpfad, Statusrücksetzung | change-request | einmalig | dev | Team | hoch | 0 | — |
+| [T-0064](tickets/T-0064.md) | CR (pm/T-0054 Teil a): Projektübergreifende Liste der offenen Aufgaben im HMI | change-request | einmalig | pl | Team | hoch | 0 | — |
 | [T-0010](tickets/T-0010.md) | Problem (N-0007): board-check-Flake — Stand-Datum kippt um Mitternacht | problem | einmalig | prob | Team | mittel | 0 | — |
 | [T-0014](tickets/T-0014.md) | CR (N-0017): Cockpit zeigt wiederkehrende Aufgaben im Klartext statt als Symbol | change-request | einmalig | chg | Team | mittel | 0 | — |
 | [T-0015](tickets/T-0015.md) | CR (N-0018): Team-Chat zeigt die neuesten Nachrichten zuerst | change-request | einmalig | chg | Team | mittel | 0 | — |
