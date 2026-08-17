@@ -1,52 +1,54 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
-## Das Wichtigste (Stand Sprint 14, 2026-08-17)
+## Das Wichtigste (Stand Sprint 15, 2026-08-17)
 
-1. **✅ Danke — dein Push ist durch, und deine Messung war der Auslöser für alles Weitere.**
-   Sprint 13 liegt auf GitHub. Und deine zwei Bildschirmfotos haben in zehn Sekunden eine
-   Frage beantwortet, an der wir uns die Zähne ausgebissen hätten.
-2. **⚠⚠ Deine Bilder haben uns widerlegt — und das ist die wichtigste Zeile hier.** Wir
-   hatten angenommen, du musst so viel scrollen, weil es **zu viele Kacheln** sind. Deshalb
-   haben wir das Zuklappen gebaut. Die Bilder zeigen: du siehst **drei** Kacheln, und links
-   und rechts liegt je rund **ein Fünftel deines Bildschirms leer**. Die Kacheln stehen
-   einzeln untereinander in einer schmalen Spalte.
-   > **Wir haben das Richtige gebaut und die falsche Ursache behandelt.**
-   Das Zuklappen bleibt nützlich. Es war nur nicht die Antwort auf deine Frage.
-3. **✅ Also haben wir das Dashboard gebaut — den neuen Reiter „Dashboard".** Alle Teams und
-   Projekte als **kompakte Kacheln nebeneinander**, über die **ganze** Breite deines
-   Bildschirms. So viele je Reihe, wie hineinpassen — die Zahl steht nirgends im Code, sie
-   ergibt sich aus deiner Bildschirmbreite.
-4. **⚠ Das durften wir seit fünf Läufen und haben es nicht getan.** Du hast am 17.08. um
-   08:11 entschieden, dass das Dashboard breiter sein darf als der Textbereich (`LAY-a`).
-   Die Entscheidung lag da, die Architekturnotiz lag da — gebaut wurde es nicht, weil das
-   zuständige Ticket **viermal** verschoben wurde. Gestern haben wir gelernt, dass eine
-   Entscheidung unsichtbar bleiben kann; heute war es keine Unsichtbarkeit, sondern Verzug.
-5. **⚠ Was wir dabei über uns gefunden haben.** Eine Prüfung sollte sicherstellen, dass die
-   neue Ansicht die Regel *„fehlende Angabe ist nicht dasselbe wie eine Null"* an **einer**
-   Stelle liest. Sie wurde rot — an **drei alten Stellen im Cockpit**, die dieselbe Regel
-   jede für sich mitführen. Alle drei sind **richtig**. Genau das ist der Punkt: es ist
-   dieselbe Bauart, die dich gestern eine doppelte Nachfrage gekostet hat. Wir haben sie
-   **benannt und festgenagelt** (sie darf nicht wachsen), statt sie hastig umzubauen — der
-   Umbau berührt einen Vertrag, der einen anderen Eigentümer hat.
-6. **⚠⚠ Und wieder waren zwei von uns gleichzeitig unterwegs — diesmal mit Folgen.** Zwei
-   Läufe haben zur selben Zeit in dieselben Dateien geschrieben und **beide** haben ihrer
-   neuen Anforderung dieselbe Nummer gegeben (`SWR-134`). Gefunden haben wir es **nicht durch
-   eine Prüfung**, sondern weil einer von uns eine Nummer in einer Datei fand, die er nie
-   angefasst hatte.
-   > **Unsere Regel gegen doppelte Nummern galt für Aufgaben-Nummern — nicht für
-   > Anforderungs-Nummern.**
-   Aufgelöst: die schon abgespeicherte Nummer gewinnt, unsere wurde auf `SWR-135` geändert.
-   Es ist nichts verloren gegangen. Aber es ist gut ausgegangen, weil die beiden Läufe
-   zufällig verschiedene Dateien angefasst haben — **das war Glück, keine Vorkehrung.**
-7. **✅ Nebenbei hat der zweite Lauf etwas Nützliches gebaut** und dabei **unser** Ticket
-   widerlegt: wir hatten notiert, es fehle ein Rückfall beim Aufräumen der Git-Sperren. Den
-   gab es längst. Der eigentliche Befund war die **Reichweite** — von acht Stellen, die bei
-   uns nach Git schreiben, benutzte genau **eine** die Reparatur.
-8. **⚠ Ein roter Test bleibt liegen, unverändert seit gestern.** Die zwei Buchungsfehler von
-   gestern stehen weiter da. **Dieser Lauf hat keinen neuen erzeugt** — die Regel von gestern
-   hat gehalten.
-9. **826 Tests für die Technik (2 rot, beide von gestern und benannt), 40 für die Oberfläche
-   (von 29), 135 Anforderungen ohne Lücke.** **Bei dir liegt nichts.**
+1. **✅ Die Sache, vor der wir dich zweimal gewarnt haben, kann jetzt nicht mehr
+   passieren.** Zwei von uns können nicht länger gleichzeitig losrennen: unser Zählwerk
+   weiß ab jetzt nicht nur, wann ein Lauf **anfängt**, sondern auch, wann er **fertig** ist.
+   Wer starten will, während ein anderer noch arbeitet, wird abgewiesen — und erfährt, wer
+   gerade läuft.
+2. **⚠ Wir wollten das an einer Uhr festmachen und haben vorher nachgemessen — gut so.**
+   Der Plan war: „wenn der letzte Lauf weniger als eine Stunde her ist, ist er wohl noch
+   da." Gemessen über zwölf Abstände: der kürzeste war **15 Minuten**, und **7 von 12** lagen
+   unter einer Stunde. Diese Regel hätte die **Mehrheit** unserer normalen Läufe abgewiesen —
+   wir hätten uns selbst ausgesperrt.
+   > **Eine Uhr kann einen arbeitenden Lauf nicht von einem abgestürzten unterscheiden.**
+   Jetzt schauen wir stattdessen nach, ob überhaupt noch etwas geschrieben wird.
+3. **✅ Zwei Aufgaben, die fünfmal liegengeblieben sind, sind angefasst.** Bei beiden war
+   die Trennstelle seit Sprint 12 im Ticket notiert, und beide Male haben wir **genau dort**
+   geschnitten und nicht irgendwo.
+4. **✅ Und eine davon war deine Frage aus dem Brief vom 16.08.:** *„Warum sind die Tasks
+   nicht in der Inbox, wenn sie an Menschen gerichtet sind?"* — deine Beobachtung war
+   richtig, und die Ursache lag eine Etage tiefer als die Frage.
+   > **Die Inbox hat sie nicht abgelehnt. Sie hat sie nicht gekannt.**
+   Es fehlte kein Filter, sondern der Kanal. Jetzt stehen bei dir **zwei** Abschnitte:
+   „Für dich: Entscheidungen" und „Für dich: Handlungen".
+5. **⚠⚠ Und jetzt der Teil, der uns nicht gefällt: wir haben in diesem Lauf denselben
+   Fehler zweimal gemacht, und einmal ist er stehengeblieben.** Wenn wir einen Aufgabenstand
+   ändern, sind das bei uns **zwei** Schritte: erst in die Datei schreiben, dann abspeichern.
+   Klemmt der zweite, steht der Stand in der Datei und **nicht** in der Geschichte. Beim
+   ersten Mal haben wir es gesehen und geradegezogen. Beim zweiten Mal nicht.
+   > **Es ist beim ersten Mal gut ausgegangen, weil jemand hingesehen hat — nicht, weil eine
+   > Vorkehrung gegriffen hätte.** Und Aufmerksamkeit ist keine Vorkehrung.
+
+   Wir haben es **nicht** weggeräumt. Es steht als Fehler in unserer Prüfung, und die
+   Reparatur ist die dringlichste Aufgabe für den nächsten Lauf.
+6. **⚠ Eine unserer eigenen Prüfungen hat uns beim Bauen erwischt — zum Guten.** Wir haben
+   eine Regel („eine Null ist ein Ergebnis, kein fehlender Wert") auf ein Feld angewandt, für
+   das sie nicht gedacht war. Ergebnis: die Lücke, die wir sichtbar machen wollten, wäre
+   unsichtbar geblieben. Gefunden hat es ein Test, den wir selbst geschrieben hatten.
+7. **⚠ Beim Planen ist uns eine Schwäche unseres Werkzeugs aufgefallen.** Wir können eine
+   Aufgabe als „wartet auf eine andere Aufgabe" markieren — aber **nur innerhalb desselben
+   Teams**. Wir führen 17 Teams und Projekte. Die häufigste Abhängigkeit bei uns ist die
+   zwischen **zwei** Teams, und genau die können wir nicht eintragen. Sie steht deshalb im
+   Text — wo keine Prüfung sie sieht. Benannt, nicht kaschiert.
+8. **⚠ Und eine Zahl aus unserem letzten Bericht können wir nicht wiederfinden.** Wir hatten
+   dir „2 rote Tests" gemeldet; heute gemessen ist es **ein** roter Test, der **drei**
+   Verstöße auflistet. Ob damals wirklich zwei rot waren oder ob wir Verstöße als Tests
+   gezählt haben, lässt sich nicht mehr entscheiden — also sagen wir beides, statt uns die
+   bequemere Version auszusuchen.
+9. **879 Tests für die Technik (1 rot, unser eigener Fehler von oben), 45 für die Oberfläche
+   (von 40), 138 Anforderungen ohne Lücke.** **Bei dir liegt nichts Neues.**
 
 ---
 
@@ -54,56 +56,84 @@
 
 | Was | Warum |
 |---|---|
-| ✅ **Neuer Reiter „Dashboard" — schau ihn dir an** | Zweiter von links. Alle Teams und Projekte als kompakte Kacheln **nebeneinander**, über die ganze Breite. Je Kachel: offene Aufgaben, Briefe, Tickets, letzte Baseline, Digest. Ein Klick auf den Namen führt ins Cockpit dieses Projekts. ⚠ Und ein Detail, das dir vielleicht auffällt: **„keine Daten" sieht anders aus als eine 0** (kursiv und grau). Das ist Absicht — „es gibt hier nichts zu melden" und „dieses Projekt führt das gar nicht" sind zwei verschiedene Aussagen, und sie dürfen nicht gleich aussehen. |
-| ⚠ **Bitte noch einmal zählen — jetzt lohnt es** | Du hast gemessen: 3 Kacheln bei aufgeklappten Gruppen. Öffne einmal den neuen Reiter „Dashboard" und sag uns, **wie viele Kacheln du jetzt ohne Scrollen siehst**. Wenn das Dashboard hält, was das Layout verspricht, sollte es ein Vielfaches sein. ⚠ Wir fragen, weil wir es **nicht selbst messen können** — dafür bräuchten wir einen echten Browser, und den hat unsere Prüfstrecke bewusst nicht. |
-| ⚠⚠ **Deine Messung hat unsere Annahme widerlegt** | Wir haben das Zuklappen gebaut, weil wir die *Menge* für das Problem hielten. Es war das *Layout*. Beides steht in den Tickets, weil eine Annahme, die man stillschweigend korrigiert, beim nächsten Mal wiederkommt. Offen ist jetzt eine kleine Frage an uns selbst: reicht das Dashboard, oder braucht auch die lange Sprint-Tabelle im Cockpit eine Kur? Deine Zahl von oben entscheidet das. |
-| ⚠ **Zwei von uns liefen wieder gleichzeitig** | Und diesmal hat es Spuren hinterlassen: eine doppelt vergebene Nummer. Nichts ist verloren, alles ist aufgelöst — aber die Reparatur dafür (`platform/T-0013`) ist ab jetzt **das dringlichste offene Ticket**, das wir haben. Nicht weil es neu ist, sondern weil der Schaden zum zweiten Mal eingetreten ist und beim zweiten Mal nicht mehr folgenlos war. |
-| ⚠ **Was weiter liegt** | `promt-team/T-0001` (die Messgrundlage, auf die du wartest) ist bei der **fünften** Verschiebung. `pm/T-0052` („Für dich: Handlungen") ebenfalls. Bei beiden liegt die Trennstelle benannt bereit — sie sind Kandidat 1 und 2 für den nächsten Lauf. |
+| ✅ **Schau in die Inbox — sie hat jetzt zwei Abschnitte** | Oben „Für dich: Entscheidungen" (wie bisher, mit Knöpfen), darunter **„Für dich: Handlungen"**: Aufgaben, bei denen du etwas **tun** sollst statt zu entscheiden. Ohne Knöpfe, denn es gibt nichts zu klicken. ⚠ Beide Abschnitte stehen auch da, wenn sie leer sind — damit du siehst, dass wir nachgesehen haben, statt zu rätseln, ob der Abschnitt fehlt. |
+| ⚠ **Deine Zählung von gestern steht noch aus** | Wir hatten dich gebeten, im neuen Reiter „Dashboard" nachzusehen, **wie viele Kacheln du ohne Scrollen siehst**. Die Frage ist offen und wichtig: davon hängt ab, ob auch die lange Sprint-Tabelle im Cockpit eine Kur braucht. ⚠ Wir können es nicht selbst messen — dafür bräuchten wir einen echten Browser, und den hat unsere Prüfstrecke bewusst nicht. |
+| ⚠ **Wir haben in diesem Lauf einen Buchungsfehler gemacht** | Einen Aufgabenstand haben wir übersprungen: in der Geschichte steht „begonnen → fertig", der Zwischenschritt fehlt. Inhaltlich ist nichts verloren, die Arbeit ist da und geprüft. Aber unsere Prüfung ist deswegen rot, und das bleibt so, bis die Reparatur da ist. Wir haben nichts umgeschrieben. |
 | ⚠ **`abschluss.cmd` prüfen (aus Sprint 1)** | Unverändert dein einziger Altpunkt. |
+| ✅ **Zu pushen gibt es wieder etwas** | Zeile steht in `PUSH-ANFORDERUNG.txt`. Wir pushen nie selbst. |
 
 ---
 
 ## Was heute wichtig war — in Ruhe erklärt
 
-### Deine zehn Sekunden haben mehr geleistet als ein ganzer Lauf
+### Warum wir die Uhr weggelassen haben
 
-Wir hatten dir geschrieben, wir können nicht messen, wie viel das Zuklappen bringt. Du hast
-zwei Bilder geschickt. Darauf war beides zu sehen: dass das Zuklappen funktioniert **und**
-dass es am eigentlichen Problem vorbeigeht.
+Die Aufgabe lautete: verhindere, dass zwei Läufe gleichzeitig arbeiten. Der naheliegende Weg
+wäre eine Uhr — „wenn der letzte Start weniger als eine Stunde her ist, läuft er noch".
 
-Das ist der Unterschied zwischen einer Zahl und einem Bild. Wir hatten nach einer Zahl
-gefragt („wie viele Kacheln") und eine Ursache bekommen („weil sie einzeln in einer schmalen
-Spalte stehen"). Die Frage war zu eng gestellt — und das ist unser Fehler, nicht deiner.
+Bevor wir das gebaut haben, haben wir unsere eigenen Startzeiten nachgezählt. Zwölf
+Abstände: Mittelwert 57 Minuten, kürzester **15 Minuten**, längster 124. **Sieben von zwölf**
+lagen unter einer Stunde. Die Uhr hätte also in der Mehrheit der Fälle einen ganz normalen
+Folgelauf für einen Doppelgänger gehalten.
 
-### Die Entscheidung, die fünf Läufe lang dalag
+Der eigentliche Grund ist aber ein anderer, und er ist einfach: **eine Uhr sieht bei einem
+Lauf, der seit 15 Minuten arbeitet, genau denselben Wert wie bei einem, der vor 15 Minuten
+abgestürzt ist.** Was die beiden unterscheidet, ist nicht die Zeit, sondern ob noch etwas
+geschrieben wird. Genau das schauen wir jetzt nach — und wenn wirklich nichts mehr kommt,
+übernimmt der nächste Lauf und vermerkt den anderen als abgebrochen.
 
-Am 17.08. um 08:11 hast du entschieden: das Dashboard darf breiter sein als der Textbereich,
-alles andere bleibt wie es ist. Wir haben daraufhin sauber aufgeschrieben, **wo** diese
-Ausnahme im Code leben soll — und dann fünf Läufe lang etwas anderes gebaut.
+### Deine Frage war richtig, und wir hatten die Antwort falsch erwartet
 
-Gestern haben wir dir berichtet, dass eine Entscheidung von dir unsichtbar bleiben kann, weil
-unsere Prüfungen sie nicht lasen. Heute ist es der andere Fall: sie war sichtbar, sie war
-richtig aufgeschrieben, und sie wurde trotzdem nicht wirksam — weil das Ticket, das sie
-einlöst, immer hinter etwas Dringenderem stand.
+Du hast gefragt, warum Aufgaben, die an Menschen gerichtet sind, nicht in der Inbox stehen.
+Man würde vermuten: da fehlt ein Häkchen, ein Filter ist zu streng. Nachgesehen: die Inbox
+sucht nach **Entscheidungsvorlagen**. Eine Aufgabe, bei der du etwas tun sollst, ist keine
+Entscheidungsvorlage — sie fällt durch jede Suche, ohne dass irgendwo etwas abgelehnt wird.
 
-**Beides zusammen ist dieselbe Frage:** was passiert bei uns mit einer Antwort von dir,
-nachdem sie angekommen ist?
+Das ist ein Unterschied mit Folgen: bei einem zu strengen Filter macht man ihn weiter. Hier
+mussten wir einen **zweiten Ort** schaffen. Und zwar bewusst einen zweiten und nicht dieselbe
+Liste, denn an den Entscheidungen hängen Knöpfe. Eine Liste, in der manche Zeilen Knöpfe
+haben und manche nicht, ist eine Liste mit zwei Bedeutungen — und die verwirrt beim dritten
+Hinsehen mehr, als sie beim ersten spart.
 
-### Warum „keine Daten" jetzt anders aussieht als „0"
+### Der Fehler, den wir zweimal gemacht haben
 
-In deinem Cockpit steht bei manchen Projekten „keine Daten" und bei manchen eine 0. Das sind
-zwei verschiedene Dinge, und unser eigener Vertrag sagt das seit Sprint 3 wörtlich: *„0
-offene Briefe ist ein Ergebnis, kein Loch."*
+Wenn wir den Stand einer Aufgabe ändern, tun wir zwei Dinge: die Datei schreiben und die
+Änderung abspeichern. Auf diesem Rechner klemmt das Abspeichern gelegentlich — eine
+technische Eigenheit, die wir kennen und behandeln.
 
-Im neuen Dashboard steht die Unterscheidung an **einer** Stelle und wird von zwölf Prüfungen
-gehalten — darunter mehrere, die absichtlich beweisen, dass die naheliegende Programmierung
-falsch wäre. Die naheliegende wäre: *„wenn nichts drinsteht, schreibe keine Daten"*. Die ist
-für eine echte 0 falsch, und du hättest bei einem Projekt mit null offenen Briefen „keine
-Daten" gelesen — also gedacht, wir wüssten es nicht.
+Was wir **nicht** bedacht hatten: klemmt es genau zwischen den beiden Schritten, dann steht
+der neue Stand in der Datei, aber nicht in der Geschichte. Der nächste Schritt überschreibt
+ihn, und die Zwischenstufe ist weg.
+
+Das ist heute zweimal passiert. Beim ersten Mal stand die Fehlermeldung direkt auf dem
+Schirm, wir haben es bemerkt und geradegezogen. Beim zweiten Mal lief es in derselben
+Befehlszeile durch, in der schon der nächste Schritt folgte — bemerkt hat es erst unsere
+Abschlussprüfung.
+
+**Was wir daraus gemacht haben, ist keine Ermahnung an uns selbst.** „Besser aufpassen" ist
+keine Reparatur. Die Reparatur ist, aus zwei Schritten **einen** zu machen: wer den Stand
+schreibt, speichert ihn im selben Zug, und klemmt es, gilt die Änderung als nicht passiert.
+Das ist die erste Aufgabe des nächsten Laufs.
+
+### Eine Regel am falschen Ort — und ein Test, der es gemerkt hat
+
+Wir haben eine Regel, auf die wir stolz sind: *eine Null ist ein Ergebnis, kein fehlender
+Wert.* Null offene Briefe heißt „nichts zu melden", nicht „wir wissen es nicht.
+
+Beim Bauen der Messgrundlage haben wir diese Regel auf **alle** Pflichtfelder angewandt —
+auch auf eines, das den **Namen der Aufgabenart** enthält. Damit war ein leeres Namensfeld
+plötzlich eine „echte Null", also ein gültiges Ergebnis. Und genau dieses Feld fehlt bei
+**sechs von sieben** unserer Läufe — das ist der Befund, den wir sichtbar machen wollten.
+Unsere eigene Prüfung hätte ihn durchgewinkt.
+
+> **Es gibt keine Aufgabenart, die „nichts" heißt.** Für einen Messwert ist Null eine
+> Antwort, für einen Namen ist Leere ein Loch.
+
+Gefunden hat das kein Nachdenken, sondern ein Test, den wir vorher geschrieben hatten und
+der rot wurde. Das ist der Grund, warum wir Tests vor dem Bauen schreiben.
 
 ### Was als Nächstes kommt
 
-Sprint 15: die **zwei Zerlegungen**, die zum fünften Mal liegen (`promt-team/T-0001`,
-`pm/T-0052`), die Widget-Konfiguration am neuen Dashboard, und die Reparatur am Sprintzähler,
-damit zwei Läufe sich nicht mehr überschreiben können.
-
+Sprint 16: die **Reparatur des Buchungsfehlers** (ein Schritt statt zwei), die **Vertragsfrage**
+zum Cockpit, die wir nicht allein entscheiden dürfen, und die **Messgrundlage**, auf die du
+seit deinem Brief zu den KI-Rollen wartest.
