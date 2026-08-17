@@ -2,156 +2,149 @@
 
 ## Das Wichtigste
 
-1. **Wir sind in Sprint 11** (2026-08-17, Takt 60 Min). Der Zähler steht in
-   `pm/management/sprints.jsonl`, eine Zeile je Lauf.
-2. **⚠⚠ Der Auftraggeber hat Kalenderfristen zum zweiten Mal gerügt — und die Ursache
-   war unsere eigene Prüfung.** `unterminierte_tickets` (SWR-091 → SWR-114 → SWR-117)
-   meldet jedes offene Ticket, das **kein `frist`-Feld** trägt. Also schreibt jeder Lauf
-   ein Datum hinein. Die Gegenentscheidung steht seit **SWR-106** (Anforderungen v1.12):
-   *„Terminierung auf Sprints statt auf Kalenderdaten"* — derselbe Satz steht im Kopf des
-   Sprintzählers. **Die Entscheidung hat keine Prüfung mitgeändert.** Gebaut: **SWR-125**
-   (`platform/T-0012`).
-   > **Eine Entscheidung, die keine Prüfung mitgeändert hat, ist eine Absichtserklärung.**
-   Spiegelbild zu SWR-122 aus Sprint 10 (Prüfung ohne Leser); hier: Regel ohne Prüfung.
-3. **⚠ Der Befund wurde beim Bauen schärfer, nicht milder.** Der erste Entwurf der Antwort
-   behauptete „sonst wird der Startcheck rot". **Nachgemessen im Code: falsch** — die Zeile
-   wurde gedruckt und **nie gezählt** (`befunde += 1` fehlte). Die Prüfung musste nichts
-   blockieren; es genügte, dass „unterminiert 0" zu den Zahlen gehört, die jeder
-   Sprintabschluss **berichtet**.
-   > **Eine Kennzahl steuert, sobald sie berichtet wird — auch wenn sie nichts blockiert.**
-   Eine ungeprüfte Behauptung über eigenen Code, in der Antwort, die eine ungeprüfte Zahl
-   aufarbeitet. Korrigiert im Brief selbst, mit dem Originalsatz daneben.
-4. **Die Zahl des Auftraggebers, an unserem Bestand nachgemessen.** Er schrieb „über 240
-   Durchläufe". Abstand zwischen geplantem Sprint und Sprint der Frist (24 Sprints/Tag):
-   **14 von 14** offenen Teamaufgaben betroffen, **+168** bis **+408** Sprints, **Median
-   +240**. *Er hat geschätzt, was wir hätten messen können.* Alle 14 standen auf **grün** —
-   die vier unbemerkten Verschiebungen von `pm/T-0039` liefen die ganze Zeit unter einer
-   grünen Frist. **Eine Frist, die nicht reißen kann, terminiert nicht.**
-5. **✅ `pm/T-0059` als erste Sacharbeit erledigt, genau wie Sprint 10 zugesagt hat**
-   (**SWR-126**). Der Brief ist ein Verlauf. Die Zerlegungsregel ist **am Bestand gemessen,
-   nicht geraten**: 41 Briefe tragen **52** `## Antwort`-Überschriften (alle mit ISO-Datum —
-   und 52 > 41 heißt: **Briefe mit mehreren Teambeiträgen gibt es längst, von Hand**; der
-   Wunsch beschreibt eine bestehende Praxis ohne Werkzeug) und **11** weitere
-   `##`-Überschriften, die Abschnitte *innerhalb* einer Antwort sind. Ein naives „jede `##`
-   ist ein Beitrag" hätte **11 Briefe falsch zerlegt**.
-6. **⚠ `pm/T-0028` nach vier Verschiebungen zerlegt statt ein fünftes Mal geschoben.**
-   Gemessen: `geplant_sprint` 7→8→9→10→11. **Derselbe Zählerstand, an dem Sprint 10 bei
-   `pm/T-0039` die Regel abgeleitet hat** — und `pm/T-0028` stand in *derselben
-   Plantabelle desselben Laufs* und wurde ein viertes Mal verschoben, mit dem Vermerk
-   „Rest = Umfang (3 Flächen)". **Umfang ist nach D006 kein Verschiebungsgrund, sondern der
-   Zerlegungsgrund.** Erster Teil gebaut: **SWR-127** (`pm/T-0062`).
-7. **⚠ Und die Klammer von `pm/T-0039` trug denselben Fehler.** Sprint 10 schrieb die Regel
-   *„wer zerlegt, zieht die Klammer auf den Termin des letzten Teils nach"* — und ließ
-   `T-0039` auf Sprint 11 stehen, während sein letzter Teil (`T-0060`) auf 12 liegt.
-   Korrigiert. **Fünfter Sprint in Folge, in dem eine Verifikation einen Fehler des
-   eigenen Vorlaufs findet** — der Fehler ist damit keine Nachlässigkeit einer Session,
-   sondern eine Eigenschaft des Arbeitsschritts „Regel aufschreiben und weiterarbeiten".
-8. **⚠⚠ Der wichtigste Planbefund: B025 ist für die HMI kein Grund, sondern ein
-   Ausschluss.** Fünf offene Aufgaben liegen auf der HMI-Fläche (`pm/T-0052`, `T-0054`,
-   `T-0058`, `T-0060`, Rest von `T-0028`). Die Arbeit jedes Laufs entsteht aus den Briefen
-   des Auftraggebers — und die treffen **zuerst das Backend**. Solange jeder Lauf Backend
-   baut und B025 eine zweite Fläche verbietet, **bekommt die HMI nie einen Lauf**.
-   **Beschluss (Klasse B): Sprint 12 ist ein HMI-Sprint.** Damit ist der Grund nicht
-   fortschreibbar, sondern durch einen Plan ersetzt.
-9. **`p12/T-0003` zerlegt** (T-0004/T-0005/T-0006), wie Sprint 10 für diesen Fall wörtlich
-   angeordnet hatte (*„beim Anfassen zerlegen, nicht schieben"*) — drittes Mal in einem
-   Lauf, dass eine eigene, aufgeschriebene Regel erst beim Nachmessen angewandt wurde.
-10. **Drei Sachtickets geschlossen** (`platform/T-0012`, `pm/T-0059`, `pm/T-0062`) plus
-    sechs Takt-Pflichten. **Sechs neue Tickets** (`pm/T-0061`, `pm/T-0062`, `pm/T-0063`,
-    `p12/T-0004`, `T-0005`, `T-0006`).
-11. **⚠ Fünf Alttests fielen — und alle fünf hatten recht.** Zwei durch SWR-125
-    (`test_ticket_mit_frist_ist_kein_treffer` prüfte eine Einheit, die SWR-106 fünf Sprints
-    vorher abgeschafft hatte; `test_decision_request_ist_kein_treffer` nannte im Docstring
-    `frist`+`default` als Steuerung und legte den DR **ohne frist** an — er belegte eine
-    Nachsicht und nannte sie eine Steuerung), drei weitere in `test_org_cockpit` und
-    `test_org_kopfblock` aus demselben Grund. **In allen fünf Fällen wurde die
-    PROVOKATION ersetzt, nie die Erwartung.** Dritter bis siebter Fall dieser Sorte in
-    zwei Sprints.
-12. **⚠ Der Abschluss-Testlauf hat den Vertrag nachgefordert, den der Lauf vergessen
-    hatte.** `test_vertrag_feldliste` meldete zwei Payload-Schlüssel, die der
-    Widget-Vertrag nicht kannte (`kalenderfristen_*`). **Zweimal in Folge derselbe Ablauf**
-    — v2.3 trägt denselben Vermerk. Wer Code ändert, sieht den Vertrag nicht: er liegt in
-    einem anderen Repo. Vertrag auf **v2.4**, Lesson `L-2026-08-17y`.
-13. **741 Tests grün** (+52 gegenüber Sprint 10), Matrix **127 SWRs / 0 Lücken**.
-    **Kein Kalenderdatum mehr an einer Teamaufgabe im ganzen Bestand.**
+1. **Wir sind in Sprint 12** (2026-08-17, Takt 60 Min, Start 11:27, Kennung
+   `2026-08-17T1130-cowork-s12`). Der Zähler steht in `pm/management/sprints.jsonl`.
+2. **Sprint 12 war der beschlossene HMI-Sprint — und der Beschluss hat gehalten.**
+   Geschlossen: `projects/p12/T-0004`, `pm/T-0060`, `pm/T-0058`, Klammer `pm/T-0039`.
+   Zwei der fünf HMI-Aufgaben sind erledigt, **B025 wurde in keinem Ticket mehr als Grund
+   geführt.**
+3. **⚠⚠ Der HMI-Sprint konnte seine eigene Abnahme nicht erfüllen.** Die DoD von
+   `pm/T-0058` und `pm/T-0060` verlangt wörtlich *„JS-Test; scheitert nachweislich gegen
+   den Vorstand"*. Gemessen im Bestand: **741 Python-Tests, 0 JS-Tests** bei **1.524
+   Zeilen `app.js`** — während SWR-098/099/100 Nachweise an JavaScript verlangen.
+   > **Eine Teststrecke, die es nicht gibt, meldet dasselbe wie eine, die grün ist:
+   > nichts.** Fünf Sprints lang war „Tests grün" wahr — für die Tests, **die es gab**.
+
+   Dritte Gestalt derselben Familie in drei Sprints: SWR-122 (Prüfung ohne Leser),
+   SWR-125 (Regel ohne Prüfung), jetzt **Fläche ohne Prüfung**.
+4. **Gebaut: ADR-008 + SWR-128.** Renderentscheidungen wandern nach
+   `backend/static/regeln.js` (ohne DOM, ohne Netz), geprüft mit Nodes **eingebautem**
+   Runner — **kein npm, kein package.json, keine Abhängigkeit**. ADR-002 („no build")
+   bleibt damit gültig; es wird nicht widerrufen, sondern **eingelöst** — sein eigener Satz
+   lautete *„bei wachsendem Frontend-Scope neu bewerten"*.
+5. **⚠ Die Werkzeugfrage ist NICHT vom Team entschieden worden.** Ob Node Voraussetzung
+   des Projekts wird, ist ein **neues externes Werkzeug** → **Klasse A** → Decision Request
+   **`projects/p12/T-0007`** (Optionen A/B/C, Default `B-node-optional`, Frist 2026-08-24).
+   Bis dahin zählt `übersprungen` **nicht** als Befund: ein Werkzeug, über das niemand
+   entschieden hat, darf den Lauf des Menschen nicht blockieren.
+6. **⚠ Und `übersprungen` ist nicht `ok`.** `js_tests.lauf()` kennt **drei** Zustände; der
+   teuerste Test der Strecke ist der, der genau das verlangt. Wer nur zwei kennt, verbucht
+   das Nichtlaufen als Erfolg — und genau so blieb „null JS-Tests" fünf Sprints unsichtbar.
+7. **✅ `pm/T-0060` (SWR-129): der Brief ist im HMI ein Verlauf.** Beiträge mit Absender und
+   Zeit, farblich nach Urheber, **Antwortfeld je Brief**, und der durch eine Nachfrage
+   wieder geöffnete Brief trägt ein eigenes Schild. ⚠ Der Urheber wird aus der
+   **Nutzerregistry** aufgelöst, nicht aus einem Vergleich mit `brief.von`: der Mensch darf
+   beim Senden einen anderen registrierten Nutzer wählen — die Registry ist ein Fakt, der
+   Namensvergleich wäre eine Annahme (B038). Die Gegenprobe dazu wird gegen die naive Regel
+   rot.
+8. **✅ `pm/T-0058` (SWR-130): die Nachricht erscheint ohne Reload — auch wenn der Commit
+   scheitert.** Der 900-ms-Timer ist weg; nachgeladen wird, was `GET /api/briefkasten`
+   liefert (kein zweiter Inhaltszustand, B033). Im 503-Fall wird **ebenfalls** nachgeladen
+   und der Brief trägt „gespeichert, noch nicht verbucht" — die Datei liegt auf der Platte,
+   **bevor** git läuft (SWR-121), und eine Liste, die sie verschweigt, behauptet das
+   Gegenteil.
+9. **✅ Klammer `pm/T-0039` geschlossen** — beide Teile erledigt (`T-0059` Sprint 11,
+   `T-0060` Sprint 12). Vier Verschiebungen, eine Zerlegung, jetzt vollständig: der
+   Auftraggeber kann im selben Brief weiterkommentieren **und sieht seine Nachfrage**.
+10. **⚠ `pm/T-0054` nach ZWEI Verschiebungen zerlegt statt nach vier.** Sprint 11 zerlegte
+    `pm/T-0028` beim vierten Mal und schrieb dazu die Erkennungsfrage *„auf welche anderen
+    offenen Fälle trifft dieser Satz gerade zu?"* (`L-2026-08-17x`). Antwort dieses Laufs:
+    auf `pm/T-0054`, und die Naht steht wörtlich im Ticket selbst („eine Liste … und der
+    Knopf daneben"). Neu: `pm/T-0064` (Liste, Sprint 13), `pm/T-0065` (Knopf, Sprint 14).
+11. **⚠⚠ Eine Zusage an den Auftraggeber ist NICHT eingelöst.** Sprint 11 schrieb ihm
+    wörtlich: *„Offen: der Endpunkt, der die Kacheln liefert, und die Detailseiten. Beide
+    im Oberflächen-Lauf als Nächstes."* Der Oberflächen-Lauf war dieser. `p11/T-0008` ist
+    **dritte Verschiebung**, `p11/T-0009` zweite. Das steht im Ticket, im Bericht und in
+    der Agenda — Verzug wird laut, nicht leise.
+12. **⚠ Ein zweiter Routine-Lauf schrieb heute 10:25–11:21 gleichzeitig in dieselben
+    Repos** (Befundbericht 11:05, kein Commit dieses Laufs). Aufgenommen als
+    **`platform/T-0013`**: `sprint_register.beginne()` ist idempotent je *Kennung*, kennt
+    aber keinen Fall für **zwei verschiedene** Läufe. *Ein Register ohne Endezeitpunkt kann
+    Überlappung nicht sehen.* Dieser Lauf hat vor dem ersten Schreiben **vier
+    Kontrollmessungen** gebraucht, bis die HEADs still standen.
+13. **⚠ Ein Schreibversuch hat in diesem Lauf eine Datei zerstört** — `preflight.py` wurde
+    von einem Patch-Skript mit ungültigem `newline`-Wert auf **0 Bytes** gekürzt, *bevor*
+    die Ausnahme flog. Ohne Folgen, weil auf einer Arbeitskopie gearbeitet wurde. Dieselbe
+    Klasse wie `abschluss.cmd` in Sprint 1. Verankert als `L-2026-08-17y`: **Temp-Datei
+    schreiben, dann `os.replace`.**
+14. **752 Python-Tests grün** (+11), **16 JS-Tests grün** (+16, von null), Matrix **130
+    SWRs / 0 Lücken**.
 
 ## Sprint-Plan
 
-*Sprint 11 = dieser Lauf (2026-08-17, Takt 60 Min). Default nach pm/D006: in diesem
-Sprint schließen. Verschieben nur mit Grund — Mensch nötig, zu groß (dann zerlegen) oder
-blockiert. **Fest geplant** ist Sprint 12; ab Sprint 13 ist die Nummer eine
-**Reihenfolge**, keine Zusage.*
+*Sprint 12 = dieser Lauf. Default nach `pm/D006`: in diesem Sprint schließen. Verschieben
+nur mit Grund — Mensch nötig, zu groß (dann zerlegen) oder blockiert. **Fest geplant** ist
+Sprint 13; ab Sprint 14 ist die Nummer eine **Reihenfolge**, keine Zusage.*
 
-*⚠ **Ab Sprint 11 gibt es in der Fälligkeitsspalte keine Kalenderdaten mehr** (SWR-125,
-Brief `pm/N-0041`). Ein Datum steht nur noch dort, wo ein **Mensch** wartet
-(Entscheidungsvorlagen) — seine Antwortzeit läuft in Tagen, nicht in 60-Minuten-Läufen.
-Der Preflight liest beides: `unterminiert` (kein Sprint) **und** `kalenderfristen` (Datum
-an einer Teamaufgabe), beide zählen als Befund.*
+*Keine Kalenderdaten in der Fälligkeitsspalte (SWR-125). Ein Datum steht nur dort, wo ein
+**Mensch** wartet — bei `p12/T-0007` (DR, Frist 2026-08-24).*
 
 | Aufgabe | Rolle | Fällig | Status | Grund / nächster Schritt |
 |---|---|---|---|---|
-| platform/T-0012 | cm | dieser Sprint | **erledigt** | **Neu, aus Brief `pm/N-0041`.** **SWR-125**: `unterminiert` fragt nach `geplant_sprint`; ein Kalenderdatum an einer Teamaufgabe ist **selbst** ein Befund (`kalenderfristen`); die Abgrenzung steht genau **einmal** (`_ist_unterminiert`) und wird von Kachel **und** Org-Summe gelesen. 16 Tests, Gegenprobe: 7 rot gegen die alte Regel. |
-| pm/T-0059 | dev | dieser Sprint | **erledigt** | **Erste Sacharbeit, wie zugesagt.** **SWR-126**: `beitraege()`, `sende(brief=…)`, Statusrücksetzung auf `offen` im **selben** Commit. `spalte_antwort` ist ab jetzt eine **Sicht** darauf, kein zweiter Parser (B033/B054). 18 Tests, Gegenprobe: 4 rot gegen ein naives `##`. |
-| pm/T-0062 | chg | dieser Sprint | **erledigt** | **Neu, erster Teil von `T-0028`.** **SWR-127**: die seit Sprint 10 entschiedene Steckbrief-Feldliste **gilt** im Code; bei `sensibel`/`geheim` verlässt eine Auflage im Klartext die Funktion als **Rückgabewert** (Lehre von SWR-122). 15 Tests. |
-| pm/T-0028 | chg | Sprint 12 | **zerlegt** | ⚠ **Viermal um eins verschoben** (7→8→9→10→11), Grund zuletzt „Umfang" — nach D006 der **Zerlegungs**grund. Zerlegt in `T-0062` (erledigt) + `T-0063`. Klammer trägt den Termin des letzten Teils. Offen bleibt darin nur das HMI-Formular. |
-| pm/T-0039 | pl | Sprint 12 | **zerlegt** | ⚠ **Klammer von 11 auf 12 korrigiert** = Termin des letzten Teils (`T-0060`). Die Regel dafür hat Sprint 10 aufgeschrieben und an genau diesem Ticket nicht angewandt. |
-| pm/T-0063 | chg | Sprint 12 | offen | **Neu, aus `T-0028`.** Charter-Entwurf + Gründungs-DR; die SWR-127-Auflage muss im DR-Text **im Klartext** stehen. `blocked_by: [T-0062]` erfüllt. |
-| pm/T-0061 | cm | Sprint 12 | offen | **Neu, Nebenbefund aus `platform/T-0012`.** `sprint_widerspruch` hat nach der Umstellung **keinen möglichen Fall** mehr (0 offene Tickets mit beiden Feldern). Klasse C. Vor der Entscheidung **messen**, ob die Prüfung je angeschlagen hat. |
-| pm/T-0060 | dev | Sprint 12 | offen | ⚠ **Entblockt** — `blocked_by: [T-0059]` ist aufgelöst. Reine Darstellungsarbeit. HMI-Sprint. |
-| pm/T-0052 | pl | Sprint 12 | offen | HMI-Abschnitt „Für dich: Handlungen". **2. Verschiebung.** Grund: drei Backend-Bauflächen in diesem Lauf, HMI wäre die vierte (B025) — **und genau dieser Grund ist als Ausschluss erkannt.** HMI-Sprint 12. |
-| pm/T-0054 | chg | Sprint 12 | offen | Knopf zum Priorisieren (Brief `pm/N-0038`). **2. Verschiebung**, gleicher Grund, gleicher Beschluss. |
-| pm/T-0058 | dev | Sprint 12 | offen | Anzeige ohne Reload. **1. Verschiebung.** HMI-Sprint 12. |
-| projects/p11/T-0008 | dev | Sprint 12 | offen | Backend-Endpunkt + Widget-Konfiguration. **2. Verschiebung** — der Lauf lag auf Brief und Prüfstrecke. |
-| projects/p11/T-0009 | dev | Sprint 12 | offen | Deep-Links + Mail-Widget hinter dem PIN-Lesegate. **1. Verschiebung.** |
-| projects/p11/T-0003 | pl | Sprint 12 | offen | **Klammer** über `T-0007`/`T-0008`/`T-0009`, auf den Termin des letzten Teils nachgezogen. **Keine Verschiebung** — sie enthält selbst nichts. ⚠ Verfeinerung dieses Laufs: die Zählung „viermal verschoben" darf Klammern **nicht** mitzählen. |
-| projects/p12/T-0004 | pl | Sprint 12 | offen | **Neu, erster Teil von `T-0003`.** Teststrecken-Entscheidung (R5) im ADR — der Teil, der alles danach freigibt. ⚠ 334 Python-Tests, **null** JS-Tests; „Tests" im Abnahmekriterium ersetzt keinen Nachweis (B027/B038). Kosten/neues Werkzeug → **Klasse A**, DR. |
-| projects/p12/T-0005 | pl | Sprint 13 | offen | **Neu.** ADR-Delta + Vollständigkeitsnachweis, `blocked_by: [T-0004]`. |
-| projects/p12/T-0006 | pl | Sprint 14 | offen | **Neu.** Umstellung, Tests, G4, `blocked_by: [T-0005]`. |
-| projects/p12/T-0003 | pl | Sprint 14 | **zerlegt** | ⚠ **Dreimal verschoben** (8→9→10→11); Sprint 10 hatte *„beim Anfassen zerlegen"* wörtlich angeordnet. Zerlegt entlang der Reihenfolge, die das Ticket selbst „Teil des Auftrags" nennt. Klammer = Termin des letzten Teils. |
-| promt-team/T-0001 | dev | Sprint 12 | offen | Telemetrie je KI-Rolle. **2. Verschiebung** — Grund: dieser Lauf war vom Brief bestimmt. **Verfallsdatum: gilt nur für Sprint 11.** |
-| promt-team/T-0002 | test | Sprint 12 | offen | Goldset je KI-Rolle. **1. Verschiebung**, gleicher Grund. |
-| promt-team/T-0003 | dev | Sprint 13 | blocked | ⚠ **Feld von 12 auf 13**: stand auf **demselben** Sprint wie seine beiden Blocker und behauptete damit, beides gehe in einem Lauf — während das Ticket selbst sagt *„ohne Baseline kein Optimierungslauf"*. Stiller Widerspruch; keine Prüfung hält `geplant_sprint` gegen den Sprint des Blockers. |
+| projects/p12/T-0004 | pl | dieser Sprint | **erledigt** | **ADR-008**: Renderregeln ohne DOM (`regeln.js`), Runner ohne Paket (`node --test`), Zustand **immer** gemeldet. Drei Optionen einzeln bewertet. **SWR-128**, 13 Python-Zusicherungen. ⚠ Die Werkzeugfrage ist Klasse A und **nicht hier** entschieden → DR `p12/T-0007`. |
+| pm/T-0060 | dev | dieser Sprint | **erledigt** | **SWR-129**: Brief als Verlauf, Antwortfeld je Brief, Nachfrage sichtbar. Urheber aus der Nutzerregistry (nicht aus `brief.von`). 11 JS-Zusicherungen, davon 5 Gegenproben. |
+| pm/T-0058 | dev | dieser Sprint | **erledigt** | **SWR-130**: sofortiges Nachladen statt 900-ms-Timer; im 503-Fall „gespeichert, noch nicht verbucht" statt „gescheitert". 3 JS-Zusicherungen, 2 davon Gegenproben. |
+| pm/T-0039 | pl | dieser Sprint | **erledigt** | **Klammer geschlossen** — `T-0059` (Sprint 11) und `T-0060` (Sprint 12) sind beide erledigt. Der CR aus `pm/N-0031` ist vollständig. |
+| projects/p12/T-0007 | mensch | **Frist 2026-08-24** | offen (DR) | **Neu.** Darf Node Voraussetzung werden? Optionen A/B/C, Default `B-node-optional`. ⚠ Kostet nichts und blockiert nichts — bis zur Antwort meldet der Preflight „übersprungen". |
+| platform/T-0013 | cm | Sprint 13 | offen | **Neu, aus dem Nebenläufigkeitsbefund 11:05.** Sprintregister braucht ein **Ende**; `beginne()` verweigert bei laufendem Sprint. ⚠ Vor dem Bauen die Taktabstände **messen** — 07:10 / 09:14 / 10:04 / 11:27 sind nicht gleichmäßig 60 Min. Erste Terminierung. |
+| pm/T-0064 | pl | Sprint 13 | offen | **Neu, erster Teil von `T-0054`.** Projektübergreifende Liste der offenen Aufgaben, lesend, aus `aggregation`. ⚠ **Nicht auf drei gekürzt** wie die Kachel — der Zweck ist, dass der Auftraggeber alles sieht. Renderregeln nach ADR-008. |
+| pm/T-0065 | chg | Sprint 14 | offen | **Neu, zweiter Teil von `T-0054`.** Knopf setzt `geplant_sprint`, `blocked_by: [T-0064]`. Die drei Festlegungen stehen bereits. |
+| pm/T-0054 | chg | Sprint 14 | **zerlegt** | ⚠ **Zwei Verschiebungen statt vier** — die Naht stand im Ticket („eine Liste … und der Knopf daneben"). Klammer trägt den Termin des letzten Teils. |
+| pm/T-0052 | pl | Sprint 13 | offen | **3. Verschiebung, erster Grund dieser Art:** der HMI-Sprint musste zuerst seine Abnahmefähigkeit herstellen (0 JS-Tests). ⚠ Verfallsdatum: gilt nur für Sprint 12. **Beim vierten Mal wird zerlegt** — Naht zwischen „Für dich: Entscheidungen" und „Für dich: Handlungen". |
+| pm/T-0063 | chg | Sprint 13 | offen | Charter-Entwurf + Gründungs-DR aus dem geprüften Steckbrief. `blocked_by: [T-0062]` erfüllt. **Erste Terminierung.** |
+| pm/T-0061 | cm | Sprint 13 | offen | `sprint_widerspruch` hat nach SWR-125 keinen möglichen Fall mehr. ⚠ Vor der Entscheidung **messen**, ob die Prüfung je angeschlagen hat. **Erste Terminierung.** |
+| pm/T-0028 | chg | Sprint 13 | **zerlegt** | **Klammer**, Termin des letzten Teils (`T-0063`). Keine Verschiebung — sie enthält selbst nichts. |
+| projects/p11/T-0008 | dev | Sprint 13 | offen | ⚠⚠ **3. Verschiebung — und dem Auftraggeber in Sprint 11 zugesagt.** Nicht eingelöst; steht so im Ticket und im Bericht. **Bei der nächsten Berührung zerlegen**: Endpunkt (lesend) / Widget-Konfiguration (schreibend). |
+| projects/p11/T-0009 | dev | Sprint 14 | offen | **2. Verschiebung.** Sachlich hinter `T-0008` — deshalb Sprint 14 und nicht 13: ein Ticket auf demselben Sprint wie seine Voraussetzung behauptet, beides gehe in einem Lauf. |
+| projects/p11/T-0003 | pl | Sprint 14 | offen | **Klammer** über `T-0007`/`T-0008`/`T-0009`, nachgezogen auf `T-0009`. Keine Verschiebung. |
+| projects/p12/T-0005 | pl | Sprint 13 | offen | ADR-Delta + Vollständigkeitsnachweis, `blocked_by: [T-0004]` — **ab jetzt erfüllt**. |
+| projects/p12/T-0006 | pl | Sprint 14 | offen | Umstellung, Tests, G4, `blocked_by: [T-0005]`. |
+| projects/p12/T-0003 | pl | Sprint 14 | **zerlegt** | **Klammer**, Termin des letzten Teils. |
+| promt-team/T-0001 | dev | Sprint 13 | offen | ⚠ **3. Verschiebung.** Naht für die nächste Berührung benannt: (a) erheben, (b) auswerten. Der Auftraggeber wartet darauf — `promt-team/N-0001`, und *„ohne Baseline kein Optimierungslauf"* ist sein eigener Satz. |
+| promt-team/T-0002 | test | Sprint 13 | offen | **2. Verschiebung**, gleicher Grund, gleiches Verfallsdatum. |
+| promt-team/T-0003 | dev | Sprint 13 | blocked | `blocked_by` T-0001/T-0002. ⚠ Steht damit wieder auf **demselben** Sprint wie seine Blocker — derselbe stille Widerspruch, den Sprint 11 hier gefunden hat. **Muss in Sprint 13 auf 14 gezogen werden, sobald die Blocker terminiert sind.** |
 | pm/T-0001 | pl | jeder Sprint | erfüllt | Takt: Session-Agenda fortgeschrieben. |
-| pm/T-0002 | pl | jeder Sprint | erfüllt | Takt: Briefkasten qualifiziert — **drei** Briefe eingegangen (`pm/N-0041` beim Start, `promt-team/N-0001` und `team-dashboard/N-0002` **während** des Laufs), alle drei beantwortet, keiner offen. ⚠ Die beiden späten kannte der Startcheck nicht: **ein Briefkasten-Stand vom Laufbeginn ist am Laufende keine Aussage mehr.** |
-| pm/T-0003 | coach | jeder Sprint | erfüllt | Takt: Lessons sofort verankert. |
-| platform/T-0001 | cm | jeder Sprint | erfüllt | Takt: Preflight, Tests, Matrix. |
+| pm/T-0002 | pl | jeder Sprint | erfüllt | Takt: Briefkasten qualifiziert — **kein offener Brief**, weder beim Start noch beim Abschluss (beide Male geprüft, Lehre aus Sprint 11). |
+| pm/T-0003 | coach | jeder Sprint | erfüllt | Takt: Lessons sofort verankert (`L-2026-08-17y`, `L-2026-08-17z`). |
+| platform/T-0001 | cm | jeder Sprint | erfüllt | Takt: Preflight, Tests, Matrix — **und ab jetzt die JS-Strecke**. |
 | team-mail/T-0001 | dev | jeder Sprint | erfüllt | Takt: Digest — fällig ab IMAP-Einrichtung, die weiterhin aussteht. Keine Arbeit, kein Verzug. |
-| team-dashboard/T-0001 | pl | jeder Sprint | erfüllt | Takt: Widget-Vertrag auf **v2.4** — Payload um `kalenderfristen_*` erweitert (SWR-125). ⚠ Nachgezogen erst, nachdem `test_vertrag_feldliste` es beim Abschluss **eingefordert** hat; zweimal in Folge derselbe Ablauf. |
+| team-dashboard/T-0001 | pl | jeder Sprint | erfüllt | Takt: Widget-Vertrag — dieser Lauf hat den Cockpit-Payload **nicht** verändert, der Vertrag bleibt v2.4. ⚠ Gegen die Regel 5 aus `L-2026-08-17w` ausdrücklich **geprüft**, nicht angenommen. |
 
 **Warum sechs Zeilen keine Nummer tragen.** `pm/T-0001`, `pm/T-0002`, `pm/T-0003`,
 `platform/T-0001`, `team-mail/T-0001` und `team-dashboard/T-0001` sind Takt-Dauerläufer
-(`takt: je-session`): sie laufen in **jedem** Sprint. Eine Nummer daneben wäre eine zweite
-Aussage über dieselbe Sache (B033) — und genau deshalb nehmen `plan_drift`,
-`status_drift`, `sprint_vergangen` **und jetzt `unterminiert`** sie aus.
+(`takt: je-session`) und laufen in **jedem** Sprint. Eine Nummer daneben wäre eine zweite
+Aussage über dieselbe Sache (B033); genau deshalb nehmen `plan_drift`, `status_drift`,
+`sprint_vergangen` und `unterminiert` sie aus.
 
-**Rollenzuweisungen in diesem Sprint (D006):** `platform/T-0012` liegt bei `cm` (Werkzeug-
-fläche der Prüfstrecke, dieselbe Begründung wie `platform/T-0011` in Sprint 10).
-`pm/T-0062` und `pm/T-0063` bleiben bei `chg`, weil beide aus einem Betriebs-CR stammen und
-die Feldliste eine Änderungsentscheidung ist, kein Bauweg. `pm/T-0061` ist an `cm`
-gegangen: es geht um eine **Prüfung**, nicht um das Statusmodell — Gegenstück zur
-Zuweisung von `pm/T-0053` an `pl` in Sprint 10.
+**Rollenzuweisungen in diesem Sprint (D006).** `projects/p12/T-0004` blieb bei `pl` — es
+ist eine Architekturentscheidung mit Gate, kein Bauweg. `platform/T-0013` ist an `cm`
+gegangen (Prüfstrecken- und Werkzeugfläche, dieselbe Begründung wie `platform/T-0011` und
+`T-0012`). `pm/T-0064` liegt bei `pl` (Ansicht auf den Plan), `pm/T-0065` bei `chg` (es
+ändert Ticketfelder) — dieselbe Trennung wie bei `pm/T-0053` / `pm/T-0062` in Sprint 10/11.
 
-## Sprint-Abschluss (Sprint 11, 2026-08-17)
+## Sprint-Abschluss (Sprint 12, 2026-08-17)
 
-**Geplant beim Start:** 20 nicht geschlossene Aufgaben (14 Sachtickets + 6 Takt-Pflichten),
-dazu **ein offener Brief** (`pm/N-0041`), der Vorrang hatte — und **zwei weitere, die
-während des Laufs eintrafen** (`promt-team/N-0001`, `team-dashboard/N-0002`) und noch in
-ihm beantwortet wurden. Im Lauf kamen **sechs**
-Tickets dazu: `platform/T-0012` aus dem Brief, `pm/T-0061` als Nebenbefund und vier aus
-Zerlegungen (`pm/T-0062`, `pm/T-0063`, `p12/T-0004`, `T-0005`, `T-0006` — fünf, davon
-`T-0062` im selben Lauf geschlossen).
+**Geplant beim Start:** 14 offene Sachtickets + 6 Takt-Pflichten, **kein offener Brief**.
+Der Beschluss aus Sprint 11 machte die fünf HMI-Tickets zur Arbeit dieses Laufs.
 
-**Geschlossen:** `platform/T-0012`, `pm/T-0059`, `pm/T-0062` und die sechs Takt-Pflichten —
-**neun Stück**. Alle drei Sachtickets über den legalen Weg
+**Im Lauf dazugekommen:** vier Tickets — `projects/p12/T-0007` (DR, Klasse A),
+`platform/T-0013` (Nebenläufigkeitsbefund), `pm/T-0064` und `pm/T-0065` (Zerlegung von
+`pm/T-0054`).
+
+**Geschlossen:** `projects/p12/T-0004`, `pm/T-0060`, `pm/T-0058`, `pm/T-0039` und die sechs
+Takt-Pflichten — **zehn Stück**. Alle vier Sachtickets über den legalen Weg
 (`open → in_progress → in_review → done`) mit je drei Commits.
 
-**Verschoben, mit Grund und Verfallsdatum:** neun Sachtickets nach Sprint 12/13, zwei
-weitere als Klammer nachgezogen (keine Verschiebung). **Der Grund ist bei allen derselbe
-und wurde deshalb nicht wiederholt, sondern gemessen** — mit dem Beschluss, Sprint 12 zum
-HMI-Sprint zu machen, statt eine sechste Runde B025 zu schreiben.
+**Verschoben, mit Grund und Verfallsdatum:** neun Sachtickets nach Sprint 13/14, drei
+weitere als Klammer nachgezogen (keine Verschiebung). ⚠ **Drei davon sind dritte
+Verschiebungen** (`pm/T-0052`, `p11/T-0008`, `promt-team/T-0001`) — bei allen dreien ist
+die Zerlegungsnaht **jetzt** benannt, statt sie beim vierten Mal zu suchen.
+
+**Nicht eingelöst:** die Zusage aus Sprint 11 an den Auftraggeber, `p11/T-0008` und
+`p11/T-0009` in diesem Lauf zu bauen.
 
 **Verifikation (nach allen Änderungen des Laufs gemessen, nicht davor):**
-Preflight **STARTKLAR**, 741 Tests grün, Matrix **127 SWRs / 0 Lücken**, unterminiert **0**,
-**Kalenderfristen 0**, Plan-Drift 0, überfällig 0, Statusdrift 0, Statusübergänge seit
-Stichtag 0, Altbestand 52 (unverändert). Briefkasten: **drei Briefe eingegangen, drei
-beantwortet, kein offener**.
+Preflight **STARTKLAR**, **752 Python-Tests** grün, **16 JS-Tests** grün, Matrix **130
+SWRs / 0 Lücken**, unterminiert 0, Kalenderfristen 0, Plan-Drift 0, überfällig 0,
+Statusdrift 0, Statusübergänge seit Stichtag 0, Altbestand 52 (unverändert).
+Briefkasten: **beim Start kein offener Brief, beim Abschluss erneut geprüft.**
