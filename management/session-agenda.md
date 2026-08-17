@@ -1,42 +1,44 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
-## Das Wichtigste (Stand Sprint 19, 2026-08-17)
+## Das Wichtigste (Stand Sprint 20, 2026-08-17)
 
-1. **✅ Die Zusammenführung im Cockpit ist fertig — und sie ist an einer Zahl nachweisbar.**
-   Es gab zwei Wege, Text auf dem Bildschirm darzustellen: einer konnte Formatierung und
-   keine Ticketnummern, der andere Ticketnummern und keine Formatierung. Jetzt gibt es
-   **einen**. Der alte Weg ist **entfernt**, nicht nur unbenutzt — von **4** Verwendungen auf
-   **0**.
-2. **⚠⚠ Und dabei haben wir etwas gebaut, das niemand erreichen konnte.** Ein neuer Zweig für
-   Code-Blöcke war fertig, die Prüfung war **grün** — und der Zweig wurde nie aufgerufen. Der
-   Absatz davor hat ihn stillschweigend verschluckt.
-   > **Die Prüfung las den Quelltext und sah den Zweig dastehen. Ob ihn jemand erreicht,
-   > konnte sie nicht sehen.**
+1. **✅ Deine beiden Entscheidungen sind angekommen und verbucht.** Die eine (`p12/T-0010`,
+   G4) ging beim ersten Versuch durch; die andere (`promt-team/T-0009`) nicht — **und der
+   Fehler lag bei uns.**
+2. **⚠⚠ Warum die zweite gescheitert ist.** Jedes Team hat ein Buch, in dem Entscheidungen
+   festgehalten werden. Für das promt-team gab es dieses Buch nicht — es wird beim **Gründen**
+   eines Teams angelegt, und dieses Team ist anders entstanden. Unser Speicherweg legt die
+   *Seite* an, aber nicht das *Regal*, in dem sie stehen soll.
+   > **Der Weg setzte etwas voraus, das ein anderer Weg herstellt. Solange jedes Team
+   > normal gegründet wurde, war die Annahme unsichtbar richtig.**
 
-   Gefunden hat es eine Prüfung, die stattdessen das **Ergebnis** anschaut. ⚠ Und deren
-   erster Versuch war ebenfalls grün, weil sein Beispiel die Stelle nicht traf.
-3. **✅ Du kannst dein Dashboard jetzt selbst einrichten.** Welche Kacheln du siehst und in
-   welcher Reihenfolge — und es bleibt so, auch nach einem Neustart.
-   ⚠ **Was ausgeblendet ist, steht immer oben**, mit Namen und einem Knopf zurück. Das ist
-   kein Beiwerk: wir hatten dieselbe Speicherei beim Zuklappen der Cockpit-Gruppen mit gutem
-   Grund **abgelehnt** — *sonst fehlt etwas und niemand weiß, warum.* Der Einwand gilt
-   weiter; er verbietet das Speichern nicht, er verlangt die Erklärung.
-4. **⚠ Ein neues Team-Widget erscheint bei dir von selbst.** Gespeichert wird, was du
-   **weggeklickt** hast — nicht, was du ausgewählt hast.
-   > **Eine gespeicherte Auswahl veraltet: sie sagt „zeig diese vier", und alles, was danach
-   > dazukommt, ist unsichtbar. Man vermisst nichts, von dem man nie erfahren hat.**
-5. **✅ Eine Entscheidung getroffen, die wir seit einem Sprint aufgeschoben hatten** — und die
-   Antwort kam aus einer **Messung**, nicht aus einer Meinung. Es ging um eine Schnittstelle,
-   die niemand mehr liest. Zwei der drei Möglichkeiten haben sich erledigt, sobald feststand,
-   dass die einzige Anwendung, die sie hätte brauchen können, sie nicht braucht.
-6. **⚠⚠ Unser Werkzeug bremst sich selbst aus, und jetzt wissen wir warum.** Jeder
-   Speichervorgang lässt in dem Ordner, den du uns gegeben hast, Reste zurück, die Git dort
-   nicht löschen darf — und der **nächste** Speichervorgang scheitert daran. Dreimal
-   hintereinander gemessen.
-   > **Unsere Startprüfung räumt am Anfang auf. Was sie stört, entsteht danach — durch genau
-   > die Arbeit, die sie ermöglichen soll.**
-7. **1079 Prüfungen für die Technik (1 rot, der alte Befund von vorgestern — unverändert),
-   104 für die Oberfläche (von 78), 151 Anforderungen ohne Lücke.**
+   Betroffen waren zwei Teams. Repariert, mit acht Prüfungen abgesichert.
+3. **⚠⚠ Und das Unangenehmste daran: keine unserer über tausend Prüfungen hätte das finden
+   können.** Jede Prüfung baut sich ihre Ordner selbst — also auch den, der in Wirklichkeit
+   fehlte. Genau diese Sorge steht seit Sprint 16 als offene Frage bei uns; heute hat sie zum
+   ersten Mal **echten Schaden** angerichtet statt nur dazustehen.
+4. **⚠ Wir haben das Buch angelegt statt deine Entscheidung abzulehnen** — und die Kehrseite
+   davon schreiben wir dazu:
+   > **Eine getroffene Entscheidung, die am Ablageort scheitert, ist verloren, sobald das
+   > Fenster zu ist.**
+
+   Ein Weg, der einen Mangel im Vorbeigehen repariert, macht ihn allerdings **unsichtbar**.
+   Ob das richtig ist oder ob es lieber gemeldet werden sollte, ist eine offene Frage in
+   unserem Ticket — wir haben sie nicht stillschweigend beantwortet.
+5. **✅ Damit ist P12 abgenommen.** Dein **G4** steht; die Baseline `p12-v1.0` ist offiziell
+   fertig. ⚠ Was mit der Abnahme **ausdrücklich offen bleibt**, steht als eigenes Ticket da
+   und nicht im Kleingedruckten: Ticket-Texte und Dokumentenansichten laufen weiter als
+   Rohtext.
+6. **⚠ Eine deiner Entscheidungen hätten wir fast übersehen.** Die zu P12 kam um **21:57** —
+   zwölf Minuten **nach** unserem Abschlussbericht, der noch „keine offenen Entscheidungen"
+   meldete. Das war zu diesem Zeitpunkt richtig und wäre einen Tag später falsch gewesen.
+   Gefunden hat es eine Prüfung, die den echten Bestand abklopft.
+7. **⚠ Die Ollama-Messung kann in unserer Umgebung nicht laufen** — nachgesehen, nicht
+   vermutet: kein Ollama installiert, kein Dienst erreichbar. **Das wartet nicht auf dich**,
+   sondern auf eine Umgebung, in der Ollama läuft. Der Unterschied ist uns wichtig: eine
+   Aufgabe, die fälschlich „wartet auf dich" sagt, schiebt dir die Schuld an ihrem
+   Liegenbleiben zu.
+8. **1087 Prüfungen für die Technik, 104 für die Oberfläche, 152 Anforderungen ohne Lücke.**
 
 ---
 
@@ -44,15 +46,51 @@
 
 | Was | Warum |
 |---|---|
-| ⚠⚠ **Eine NEUE Entscheidung: das Abnahmetor für den Renderer** | Die Arbeit ist fertig und geprüft, aber die Abnahme (**G4**) dürfen wir nicht selbst erteilen. Dazu gehört eine zweite Frage: Ticket-Texte, Entscheidungs-Texte und die zwei Dokumentenansichten zeigen weiterhin **Rohtext**. ⚠ **Etwas hat sich dort trotzdem geändert, und das gehört gesagt:** ihre Ticketlinks kamen aus dem alten Weg, der weg musste — **fett** und `Code` werden dort ab jetzt mitdargestellt. Die *Struktur* (Überschriften, Tabellen) bleibt Rohtext, und ob sie umgestellt wird, entscheidest du. Steht in `projects/p12/T-0010`, **Frist 20.08.**, Default **A** (so lassen). |
-| ⚠⚠ **Die Anbieter-Frage von gestern steht weiter offen** | `promt-team/T-0009`: Um zu messen, wie gut eine KI-Rolle **heute wirklich** arbeitet, braucht sie einen Anbieter. **A:** lokales Ollama, kostenlos. **B:** Claude mit Deckel, kostet. **C:** warten. Empfehlung **A zuerst, B danach**; Default **A**. **Frist 19.08.** — das ist morgen. Daran hängt der Erstauftrag des promt-teams. |
+| ✅ **Deine zwei Entscheidungen sind verbucht — nichts liegt mehr bei dir** | `promt-team/T-0009` → **A** (Ollama, 0 €) und `p12/T-0010` → **A** (G4 erteilt). Beide stehen im Entscheidungsbuch des jeweiligen Teams und im Ticket. |
+| ⚠ **Damit die Ollama-Messung laufen kann, braucht sie eine Umgebung mit Ollama** | Unsere hat keins (nachgesehen). Wenn die Routine dort läuft, wo Ollama erreichbar ist, misst sie beim nächsten Lauf von selbst. **Kein Handlungsbedarf, wenn das schon so ist** — wir sagen es nur, damit du weißt, woran es sonst liegt. |
 | ⚠ **Die Frage zu den Mail-Zugangsdaten steht weiter offen** | Aus Sprint 17, `team-mail/N-0003`: Sind `MAIL_IMAP_HOST/USER/PASS` in der Umgebung gesetzt, in der die **Routine** läuft? Der Tages-Digest fehlt weiterhin. |
-| ⚠ **Deine Zählung steht weiter aus** | Wie viele Kacheln siehst du im Reiter „Dashboard" **ohne Scrollen**? ⚠ Wir können es nicht selbst messen — dafür bräuchten wir einen echten Browser, und den hat unsere Prüfstrecke bewusst nicht. |
-| ⚠ **Unsere Prüfung bleibt rot, und zwar zu Recht** | Die drei übersprungenen Aufgabenstände aus den Sprints 13 und 15 stehen unverändert in der Geschichte. Neu dazugekommen ist **keiner**. |
+| ⚠ **Deine Zählung steht weiter aus** | Wie viele Kacheln siehst du im Reiter „Dashboard" **ohne Scrollen**? Wir können es nicht selbst messen. |
+| ⚠ **Unsere Prüfung bleibt rot, und zwar zu Recht** | Die drei übersprungenen Aufgabenstände aus den Sprints 13 und 15 stehen unverändert. Neu dazugekommen ist **keiner**. |
 | ⚠ **`abschluss.cmd` prüfen (aus Sprint 1)** | Unverändert dein einziger Altpunkt. |
-| ✅ **Zu pushen gibt es wieder etwas** | Zeile steht in `PUSH-ANFORDERUNG.txt`. Wir pushen nie selbst. |
+| ✅ **Zu pushen gibt es etwas** | Zeile steht in `PUSH-ANFORDERUNG.txt`. Wir pushen nie selbst. |
 
 ---
+
+## Was in Sprint 20 passiert ist — in Ruhe erklärt
+
+### Der Fehler, den du gesehen hast
+
+Du hast auf „A" geklickt, und statt einer Bestätigung kam ein Dateipfad und `[Errno 2]`.
+
+Der Grund ist banal und deshalb lehrreich: unser Programm öffnet das Entscheidungsbuch mit
+einem Befehl, der eine **Datei** anlegt, wenn sie fehlt — aber keinen **Ordner**. Der Ordner
+entsteht normalerweise beim Gründen eines Teams. Das promt-team ist nicht auf diesem Weg
+entstanden.
+
+Was uns daran am meisten beschäftigt, ist nicht der fehlende Ordner, sondern dass **keine
+unserer Prüfungen ihn hätte finden können**. Jede Prüfung legt sich ihre Ordner selbst an,
+bevor sie misst — und prüft damit eine Welt, die sie selbst aufgeräumt hat. Diese Sorge steht
+seit drei Tagen als offene Frage bei uns; heute hat sie zum ersten Mal etwas kaputtgemacht.
+
+Die neue Prüfung fängt deshalb mit dem Gegenteil an: sie **stellt den kaputten Zustand her**
+und weist nach, dass er wirklich zum Absturz führt. Erst danach prüft sie die Reparatur.
+
+### Und eine unserer eigenen Prüfungen war heute falsch rot
+
+Sie sollte nachsehen, ob wir das Buch **vor** dem Schreiben anlegen. Dafür hat sie in der
+Datei nach einem Namen gesucht — und dabei die **Stelle gefunden, an der dieser Name
+definiert wird**, statt die, an der er benutzt wird.
+
+> **Eine Textsuche kann eine Definition nicht von ihrem Aufruf unterscheiden — und die
+> Definition steht nun einmal weiter oben.**
+
+Das ist bei uns in drei Tagen jetzt **sechsmal** passiert, in verschiedenen Verkleidungen.
+Wir haben es jedes Mal einzeln repariert und noch keine Regel, die es verhindert. Das steht
+so in unseren Unterlagen, weil es die ehrliche Lage ist.
+
+---
+
+# Anhang: Sprint 19 — was dort wichtig war
 
 ## Was heute wichtig war — in Ruhe erklärt
 

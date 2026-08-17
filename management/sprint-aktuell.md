@@ -1,75 +1,116 @@
 # Sprint aktuell — Genesis-Gesamtsprint (Workflow-Sicht des PM, pm/D006)
 
-## Das Wichtigste
+## Das Wichtigste (Sprint 20, 2026-08-17)
 
-1. **Wir sind in Sprint 19** (2026-08-17, Start 20:20, Kennung `2026-08-17T2020-cowork-s19`).
-   Sprint 18 war ordentlich beendet; dieser Lauf hat **keine fremde Buchung** nachtragen
-   müssen.
-2. **✅ `projects/p12/T-0006` gebaut — die Zusammenführung ist eingelöst, und sie ist eine
-   ZAHL.** `ALTBESTAND_TLINKS_AUFRUFE` steht von **4 auf 0**: `tlinks` ist nicht „nicht mehr
-   aufgerufen", sondern **entfallen**. **SWR-097 bis SWR-101** stehen einzeln auf
-   `reviewed`, jede mit ihrem Nachweis.
-3. **⚠⚠ Der Befund dieses Laufs: ein neuer Zweig war toter Code, und der Zähltest sah ihn
-   stehen.** Der Code-Zaun-Zweig war gebaut und wurde **nie erreicht** — Absatz- und
-   Listenpfad sammeln Folgezeilen, bis ein bekanntes Muster kommt, und ```` ``` ```` stand in
-   dieser Abbruchregel nicht.
-   > **Ein neuer Block-Zweig ist erst dann erreichbar, wenn die Fortsetzungsregel des
-   > vorherigen Blocks ihn kennt. Beide Stellen sind für sich genommen richtig.**
+1. **Wir sind in Sprint 20** (Start 21:45, Kennung `2026-08-17T2145-cowork-s20`). ⚠ **Anlass
+   ist kein Plan, sondern ein Fehlschlag in Produktion**, gemeldet vom Auftraggeber.
+2. **⚠⚠ Eine KLASSE-A-ENTSCHEIDUNG ließ sich nicht verbuchen.** Er hat `promt-team/T-0009`
+   mit **A** entschieden; die Inbox starb mit `[Errno 2] No such file or directory` —
+   `promt-team` hat nie ein `management/decisions/decision-log.md` bekommen. `open(..., "a")`
+   legt eine **Datei** an, aber kein **Verzeichnis**; das Verzeichnis legt `pool.gruende` bei
+   der Gründung an.
+   > **Der Schreibweg setzte eine Datei voraus, die ein ANDERER Weg anlegt. Solange jedes
+   > Repo durch diesen anderen Weg entstanden ist, ist die Annahme unsichtbar richtig — sie
+   > wird an dem Repo sichtbar, das anders entstand.**
 
-   ⚠ Gefunden hat es der **Verhaltenstest**, nicht der Zähltest — *ein Muster im Quelltext
-   ist eine Absicht; erst der Knoten, der danach dasteht, ist ein Befund.* ⚠ Und dessen
-   **erste Fassung war ebenfalls grün**: sie hatte den Zaun am Textanfang, wo keine
-   Fortsetzungsregel greift. `L-2026-08-17az`.
-4. **✅ Drei eingefrorene Zusicherungen aus Sprint 18 sind rot geworden — genau die drei und
-   keine vierte — und UMGEDREHT statt gelöscht.**
-   > **Ein eingefrorener Befund ohne die Zusage, ihn beim Bauen umzudrehen, ist eine Warnung
-   > mit Zeitstempel. Die Zahl der rot gewordenen Zusicherungen ist selbst eine Messung.**
+   Betroffen waren **zwei** Repos (`promt-team`, `platform`), gemessen. Repariert als
+   **SWR-152** (`platform/T-0022`).
+3. **⚠⚠ Kein bestehender Test hätte das finden können** — jede Fixture legt ihre
+   Verzeichnisse **selbst** an, und damit auch die, die in Produktion fehlte. Das ist wörtlich
+   die offene Erkennungsfrage aus Sprint 16 (`L-2026-08-17ai`), zum **ersten Mal an einem
+   echten Schaden** belegt statt als Sorge formuliert. Die neue Teststrecke beginnt deshalb
+   mit einer **Gegenprobe**, die den echten Zustand herstellt. `L-2026-08-17bg`.
+4. **⚠ Angelegt statt abgewiesen — und die Kehrseite ist benannt.** Ein sauberer 400er wäre
+   ehrlicher gewesen als der Errno und hätte den Menschen mit einer getroffenen
+   Klasse-A-Entscheidung stehen lassen, die er nicht verbuchen kann.
+   > **Eine getroffene Entscheidung, die am Ablageort scheitert, ist verloren, sobald das
+   > Fenster zu ist.**
 
-   `L-2026-08-17ba`. Das beantwortet nebenbei die zweite offene Frage von `platform/T-0020`
-   — an einem Fall statt an einer Überlegung.
-5. **✅ `projects/p11/T-0011` bei der VIERTEN Berührung gebaut** (**SWR-151**), nach
-   `L-2026-08-17x`: gebaut, nicht zerlegt, weil das Ticket seit Sprint 17 im eigenen Text
-   sagt, dass es **keine Naht** hat. Damit ist die **Klammer `p11/T-0008`** geschlossen — ein
-   Ticket, das viermal verschoben und dem Auftraggeber in Sprint 11 zugesagt war.
-6. **⚠⚠ Die bestimmende Frage von `T-0011` war DoD 2 und nicht die Technik.** Zwei
-   benachbarte Ansichten, eine speichert und eine nicht: SWR-133 hat Persistenz für den
-   Faltzustand ausdrücklich **abgelehnt**.
-   > **Falten ist ein Griff beim Lesen. Eine Auswahl ist eine Aussage. Der Einwand aus
-   > SWR-133 verbietet die Persistenz nicht — er verlangt die ERKLÄRUNG.**
+   ⚠ Ein selbstheilender Weg macht den Mangel **unsichtbar**; ob das Anlegen in den
+   Schreibweg gehört oder als Befund in den Preflight, ist **offene Frage 3** in
+   `platform/T-0022`.
+5. **✅ `promt-team/T-0009` verbucht (D000, Option A)** — Ollama lokal als Baseline-Stufe,
+   0 €. `promt-team/T-0003` ist damit **entblockt**.
+6. **⚠ Und `T-0003` wartet jetzt auf eine UMGEBUNG, nicht auf den Menschen — gemessen:**
+   `which ollama` leer, `localhost:11434` ohne Antwort. Der Wartegrund steht als **Feld und
+   Messung im Ticket** und nicht als Satz im Plan — genau der Fehler, bei dem uns der
+   Auftraggeber in Sprint 17 mitten im Lauf erwischt hat (`L-2026-08-17ag`).
+7. **⚠⚠ Ein Bestandstest hat eine ZWEITE Entscheidung gefunden, die niemand gemeldet hatte.**
+   Der Auftraggeber hat um **21:57** auch `p12/T-0010` mit **A** entschieden — erfolgreich,
+   p12 hat ein Log. Der Abschlussbericht von Sprint 19 (21:45) meldete „entschiedene
+   unverbuchte DRs: **0**", und das war zu diesem Zeitpunkt **richtig**.
+   > **Eine Entscheidung, die nach dem Abschlussbericht eintrifft, ist für diesen Bericht
+   > unsichtbar und für den nächsten Lauf ein Altbestand. Der Bestandstest ist die einzige
+   > Stelle, die beides verbindet.**
+8. **✅ Damit ist G4 für `p12-v1.0` ERTEILT** (D003) und die **Klammer `p12/T-0003`
+   geschlossen** — das Projekt P12 ist an seiner Baseline abgenommen. ⚠ Der **benannte
+   Folgepunkt** ist mit G4 **ausdrücklich offengehalten** und liegt als `p12/T-0011`; die
+   **zwei Vorbehalte** der Abnahme gelten weiter.
+   > **Ein erteiltes Gate sagt „das Beauftragte ist geliefert und geprüft". Es sagt nicht
+   > „hier ist nichts mehr offen" — und der Unterschied verschwindet, sobald nur der Haken
+   > übrig bleibt.**
+9. **⚠ Drei Befunde hat der Preflight an DIESEM Lauf gefunden**, nicht der Verfasser des
+   Plans: eine Plan-Drift (`promt-team/T-0003`), eine Statusdrift (`T-0009` done vs. Plan
+   offen) und **zwei Klammern, die auf einem vergangenen Sprint offenstanden**.
+   > **Eine Klammer, die auf einem vergangenen Sprint stehen bleibt, sieht aus wie etwas
+   > Liegengebliebenes und ist etwas Wartendes.**
+10. **1087 Python-Tests** (gemessen über die Sammlung, **nicht** fortgeschrieben — die Lehre
+    von `L-2026-08-17bf` diesmal angewandt), **104 JS-Tests grün**, Matrix **152 SWRs /
+    0 Lücken**, Briefkasten **0 offen**, entschiedene unverbuchte DRs **0**.
+    ⚠ **Nicht startklar** — der Altbefund über drei Statusübergänge aus den Sprints 13 und 15
+    ist unverändert, **keiner aus diesem Lauf**.
 
-   Sie steht im **Kopf** der Ansicht: Zahl, **Namen** und ein Weg zurück. ⚠ Und die andere
-   Hälfte ist eine **Messung**: eine Zusicherung hält fest, dass der Faltzustand weiterhin
-   flüchtig ist — sonst wäre die Begründung gegenstandslos, **ohne dass jemand sie
-   zurückgenommen hat**. `L-2026-08-17bc`.
-7. **⚠ Gespeichert wird das ABGEWÄHLTE, nicht das Gewählte.**
-   > **Eine gespeicherte Auswahl altert gegen einen wachsenden Bestand: sie sagt „zeig
-   > diese", und was danach dazukommt, fällt lautlos aus der Ansicht.**
+## Sprint-Plan (Sprint 20, Abschlussstand)
 
-   Ein Team, das ein `widget.yaml` neu hinlegt, hätte sonst für jeden, der einmal
-   konfiguriert hat, **nichts** getan. `L-2026-08-17bb`.
-8. **✅ `projects/p11/T-0014` ENTSCHIEDEN (Option B) — und die Messung hat zwei Optionen an
-   ihrer Voraussetzung erledigt.** Das Ticket verlangte *„erst messen, dann entscheiden"*;
-   der einzige benannte künftige Leser war `p11/T-0011`. Nach dessen Bau steht fest: es liest
-   `/api/widgets` und braucht `/api/dashboard` **nicht**.
-   > **Option A hätte einen falschen Satz in einen Docstring geschrieben, Option C war an
-   > genau diesen Bedarf konditioniert. Über ihren Preis musste niemand mehr reden.**
+| Aufgabe | Rolle | Fällig | Status | Grund / nächster Schritt |
+|---|---|---|---|---|
+| platform/T-0022 | dev | dieser Sprint | offen | ✅ **SWR-152 gebaut und abgenommen**, der Fehlschlag ist behoben. ⚠ Das Ticket bleibt **offen**: drei benannte Fragen sind unbeantwortet — die Reihenfolge im Schreibvorgang ist nur an ihrer ersten Datei abgesichert, weitere Pflichtartefakte sind **ungezählt**, und ob Heilen oder Melden richtig ist, ist nicht entschieden. |
+| promt-team/T-0009 | pl | dieser Sprint | **erledigt** | ✅ **D000, Option A** verbucht. |
+| projects/p12/T-0010 | pl | dieser Sprint | **erledigt** | ✅ **D003, Option A** verbucht: **G4 erteilt**. |
+| projects/p12/T-0003 | pl | Klammer | **erledigt** | ✅ Klammer geschlossen — **Baseline `p12-v1.0` abgenommen**. |
+| promt-team/T-0003 | dev | Sprint 21 | offen | ⚠ **Entblockt** (D000). Wartet auf eine **Umgebung mit Ollama** — gemessen, nicht vermutet. **Kein „wartet auf dich".** |
+| projects/p12/T-0011 | pl | Sprint 21 | offen | ⚠ **Neu.** Der Folgepunkt aus G4. Drei Punkte **vor** dem Bauen, darunter: der Vollständigkeitsnachweis muss über die **neuen Textsorten** laufen — der bestehende misst Briefe. |
+| projects/p11/T-0013 | dev | Sprint 20 | offen | ⚠ 1. Verschiebung (Sprint 19), Grund im Ticket. PIN-Lesegate ist eine **Zugriffs**entscheidung. |
+| projects/p11/T-0015 | dev | Sprint 20 | offen | Rückbau; die Entscheidung liegt vor (`T-0014`). |
+| platform/T-0020 | cm | Sprint 20 | offen | ⚠ 2. Verschiebung (Sprint 19). Frage 3 ist die eigentliche. |
+| platform/T-0021 | cm | Sprint 20 | offen | ⚠ Werkzeugbefund aus Sprint 19; kostet jeden Lauf Zeit. Erste DoD ist eine **Messung**. |
+| promt-team/T-0008 | test | Sprint 20 | offen | Goldset für die übrigen zehn Rollen. |
+| projects/p11/T-0003 | pl | Klammer | nachgezogen | Folgt `T-0013`/`T-0015` (Sprint 20) — vom Preflight nachgezogen. |
+| projects/p11/T-0009 | dev | Klammer | nachgezogen | Folgt `T-0013` (Sprint 20) — vom Preflight nachgezogen. |
+| pm/T-0001..0003, platform/T-0001, team-dashboard/T-0001 | pl/coach/cm | jeder Sprint | **erfüllt** | Takt: Agenda + Briefkasten (0 offen) + **eine** Lesson (`bg`) + Verifikation + Vertrag unverändert (v2.6). |
+| team-mail/T-0001 | dev | jeder Sprint | offen | ⚠ Wartet auf eine Umgebung mit Mail-Zugangsdaten — **kein „wartet auf dich"**. |
 
-   ⚠ Die **Ausführung** ist `p11/T-0015` (Sprint 20) und **keine Verschiebung**: ein
-   Entscheidungsticket ist mit der Entscheidung fertig; eine abgenommene Anforderung
-   zurückzuschneiden ist ein Bau mit eigener DoD. `L-2026-08-17be`.
-9. **⚠⚠ Ein Werkzeugbefund, den dieser Lauf am eigenen Leib gemessen hat** (`platform/T-0021`,
-   **neu**): auf diesem Mount hinterlässt **jeder Commit** `tmp_obj`-Reste, an denen der
-   **nächste** Git-Aufruf scheitert — dreimal in Folge gemessen.
-   > **Ein Vorlauf, der einmal am Anfang räumt, schützt gegen den Zustand von gestern und
-   > nicht gegen den, den dieser Lauf gerade selbst erzeugt.**
+## Sprint-Abschluss (Sprint 20, 2026-08-17)
 
-   ⚠ Die zweite Gefahr ist die unangenehmere: `setze_status` nimmt den Wechsel korrekt
-   zurück — *und ein korrekt zurückgenommener Wechsel ist von einem nie versuchten nicht zu
-   unterscheiden.* `L-2026-08-17bd`.
-10. **1079 Python-Tests, davon 1 rot** (der Altbefund über drei unzulässige Übergänge aus den
-    Sprints 13 und 15 — **keiner aus diesem Lauf**), **104 JS-Tests grün** (von 78), Matrix
-    **151 SWRs / 0 Lücken**, Briefkasten **0 offen**. ⚠ **Nicht startklar**, und das bleibt
-    die richtige Meldung.
+**Geschlossen:** `promt-team/T-0009` und `projects/p12/T-0010` (beide **Klasse-A-DRs des
+Auftraggebers**), dazu die **Klammer `p12/T-0003`** — **Baseline `p12-v1.0` abgenommen**.
+
+**Im Lauf dazugekommen:** `platform/T-0022` (der Produktionsfehler, **offen** mit drei
+Fragen) und `projects/p12/T-0011` (der Folgepunkt aus G4).
+
+**Neue Anforderung:** **SWR-152**, `reviewed` mit Nachweis (8 Zusicherungen).
+
+**Verifikation:** **1087 Python-Tests** (über die Sammlung **gemessen**), **104 JS-Tests
+grün**, Matrix **152 SWRs / 0 Lücken**, Briefkasten 0 offen, entschiedene unverbuchte DRs
+**0**, Plan-Drift 0, Statusdrift 0.
+
+⚠ **Nicht startklar** — Altbefund unverändert, keiner aus diesem Lauf. Nichts geglättet.
+
+### ⚠ Der Befund dieses Laufs über sich selbst
+
+Eine Zusicherung dieses Laufs war **falsch rot**: sie suchte dateiweit nach
+`_naechste_d_id(log_pfad)` und fand die **Definition** statt des Aufrufs.
+
+> **Eine Textsuche kann eine Definition nicht von ihrem Aufruf unterscheiden — und die
+> Definition steht nun einmal vor dem Aufruf.**
+
+**Sechster Fehlalarm derselben Familie in drei Tagen** (nach fünf über Kommentare). Gemessen
+wird jetzt **im Rumpf der Funktion** und nicht in der Datei. ⚠ Die Familie wächst, und keine
+Regel hat sie bisher verhindert — sie steht als Kandidat neben `platform/T-0020`.
+
+---
+
+# Anhang: Sprint 19 (2026-08-17, abgeschlossen)
 
 ## Sprint-Plan (Abschlussstand)
 
