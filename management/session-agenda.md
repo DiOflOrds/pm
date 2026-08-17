@@ -1,27 +1,33 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
-## Das Wichtigste (Stand Sprint 8, 2026-08-17)
+## Das Wichtigste (Stand Sprint 9, 2026-08-17)
 
-1. **⚠ Wir haben eine Falschmeldung von uns selbst gefunden — an dich.** Sprint 7 hat
-   `platform/T-0010` an **vier** Stellen als erledigt gemeldet, auch in deinem
-   Statusbericht. Das Ticket stand auf `open`. **Die Arbeit war fertig**, nur das Feld wurde
-   nie umgelegt — es ging also nichts verloren, aber die Meldung hatte keine Deckung.
-2. **⚠ Und der eigentliche Befund ist, dass alle drei Planprüfungen „alles in Ordnung"
-   sagten.** Jede hatte für sich recht: die eine fragt, ob das Ticket im Plan **vorkommt**,
-   die zweite, ob die **Sprintnummer** stimmt, die dritte, ob der Sprint **vorbei** ist.
-   Die Spalte, in der „erledigt" steht, las **keine von ihnen**.
-3. **Repariert und abgesichert.** Das Ticket ist ordnungsgemäß geschlossen. Ab jetzt hält
-   `preflight` die Statusspalte des Plans gegen das Ticketfeld — **vor** dem Push und
-   **vor** deinem Bericht (SWR-115). Die Prüfung hat an ihrem ersten Tag prompt einen
-   echten Fehler im eigenen Plan dieses Sprints gefunden.
-4. **✅ Alles grün, zum zweiten Mal.** `CI-STATUS.md` meldet **15 Abfragen, ALLES GRÜN** —
-   eine mehr als gestern. Der Wächterlauf 05:47 ist vollständig durchgelaufen.
-5. **Ein Ticket wartete zweimal auf einen Grund, den es nicht mehr gab.** `pm/T-0038` sollte
-   „gemeinsam mit `pm/T-0036`" gebaut werden — das ist seit gestern geschlossen und hat die
-   gemeinsame Fläche nie berührt. In vier Teile zerlegt, der erste ist gebaut.
-6. **601 Tests grün** (+33), Matrix **116 Anforderungen / 0 Lücken**, Preflight STARTKLAR,
-   kein offener Brief.
-7. **Deine Entscheidung `p11/T-0006` liegt weiter in der Inbox** (Frist 19.08.).
+1. **✅ Was wir dir gestern versprochen haben, hat gehalten.** Sprint 8 hat eine Prüfung
+   gebaut, die verhindern soll, dass wir dir etwas als erledigt melden, das nicht verbucht
+   ist. Der heutige Startcheck: **alles sauber** — kein Ticket aus Sprint 8 stand noch
+   offen. Zum ersten Mal seit fünf Läufen fand der Startcheck **nichts**.
+2. **⚠ Der wertvollste Teil kam heute woanders her: wir haben zwei Aussagen nachgemessen,
+   die in unseren eigenen Tickets standen. Beide waren falsch.**
+3. **⚠ Ein Ticket wartete zweimal auf etwas, das es selbst hätte tun sollen.**
+   `pm/T-0047` wurde zweimal verschoben mit „vor dem Bau muss noch entschieden werden" —
+   und diese Entscheidung war **Punkt 1 der eigenen Aufgabenliste** des Tickets. Es hat
+   also darauf gewartet, dass es anfängt. Gemessen, gebaut, geschlossen.
+4. **⚠⚠ Ein Ticket sagte „zwei Altfälle". Es sind **52**.** `pm/T-0048` beschrieb zwei
+   Fälle, in denen ein Ticket unter Umgehung des Ablaufs auf „fertig" gesetzt wurde. Die
+   heute gebaute Prüfung fand **52** davon, in **acht** Repos, zurück bis zum ersten
+   Sprint. Die zwei bekannten waren nicht die schlimmsten — sie waren die, bei denen
+   zufällig jemand hinsah. **Nichts davon ist verloren gegangen**; es geht um die
+   Reihenfolge, in der Häkchen gesetzt wurden, nicht um die Arbeit dahinter.
+5. **⚠ Und eine Datei, die von sich sagt „ich bin die einzige Quelle", hatte still ein
+   Feld verloren** — seit zwei Sprints, ohne dass irgendetwas rot wurde. Repariert und
+   mit einer Prüfung versehen, die sie ab jetzt beim Wort nimmt.
+6. **Dein Wunsch von heute früh ist beantwortet und eingeplant** (`pm/N-0038`): der Knopf
+   zum Priorisieren kommt im nächsten Lauf als `pm/T-0054`. Du musst dazu nichts
+   entscheiden.
+7. **Vier Sachaufgaben geschlossen**, 655 Tests grün (+54), 120 Anforderungen ohne Lücke,
+   Preflight startklar.
+8. **Deine Entscheidung `p11/T-0006` liegt weiter in der Inbox — Frist ist übermorgen
+   (19.08.).**
 
 ---
 
@@ -29,30 +35,126 @@
 
 | Was | Warum |
 |---|---|
-| **Eine Entscheidung: `p11/T-0006`, Frist 19.08.** | Unverändert seit Sprint 5. Das Dashboard passt bei 1920×1080 nur auf eine Seite, wenn es den 62rem-Textkorridor verlässt, an den Mission Control heute überall gebunden ist. **LAY-a (Default): breit nur im Dashboard**, alles andere unverändert. LAY-b: überall breit. LAY-c: Korridor behalten und scrollen — das gäbe das erste Abnahmekriterium des Projektauftrags auf und käme als eigener DR. **Schweigen führt zu LAY-a.** ⚠ **Neu: an dieser Entscheidung hängt jetzt sichtbar eine zweite Aufgabe** (`p11/T-0003`, Frist 20.08.). Reißt der 19.08., reißt der 20.08. mit. |
-| ⚠ **Wir haben dir gestern etwas als erledigt gemeldet, das nicht verbucht war** | `platform/T-0010`. Die Arbeit war tatsächlich fertig und ist im Git — es fehlte nur der Eintrag im Ticket, der das festhält. Vier Dokumente haben dieselbe unbelegte Aussage voneinander abgeschrieben. **Du musst nichts tun**; wir haben es korrigiert und eine Prüfung gebaut, die genau das künftig **vor** deinem Bericht meldet. |
-| ✅ **Alles grün, und der Wächter läuft wieder vollständig durch** | 15 von 15 Abfragen grün. Die gestern gebaute Prüfung hat weder blockiert noch etwas übersehen. |
+| ⚠ **Eine Entscheidung: `p11/T-0006`, Frist 19.08. — das ist übermorgen.** | Unverändert seit Sprint 5. Das Dashboard passt bei 1920×1080 nur auf eine Seite, wenn es den 62rem-Textkorridor verlässt, an den Mission Control heute überall gebunden ist. **LAY-a (Default): breit nur im Dashboard**, alles andere unverändert. LAY-b: überall breit. LAY-c: Korridor behalten und scrollen — das gäbe das erste Abnahmekriterium des Projektauftrags auf und käme als eigener DR. **Schweigen führt zu LAY-a.** An der Entscheidung hängt `p11/T-0003` (Frist 20.08.): reißt der 19., reißt der 20. mit. |
+| ✅ **Dein Wunsch von heute früh: kommt, du musst nichts tun** | `pm/N-0038` („Knopf zum Priorisieren für den nächsten Durchlauf") ist beantwortet und als `pm/T-0054` für den nächsten Lauf eingeplant, Frist 24.08. Das ist eine Sache, die das Team allein entscheiden darf — es wartet nichts auf dich. **Eine Frage steckte darin, die wir gleich mitentschieden haben**, damit der nächste Lauf bauen kann statt zu überlegen: der Knopf setzt den **Termin** („kommt in den nächsten Durchlauf"), nicht die Wichtigkeit. Beides in einen Knopf zu legen hätte zwei Angaben über dieselbe Sache erzeugt. |
+| ✅ **Die Organisation sagt jetzt von selbst, was bei dir liegt** | Neu seit heute: Cockpit und Startcheck melden „n Tickets warten auf den Menschen" — **mit Namen**, nicht nur als Zahl. Heute: eines, `p11/T-0006`. Das ist die Gegenrichtung zu deinem Wunsch: du siehst, was auf dich wartet, und bald sagst du uns, was wir zuerst tun sollen. |
+| ✅ **Die Zusage aus gestern hat gehalten** | Gestern haben wir dir gemeldet, dass wir dir etwas als erledigt gemeldet hatten, das nicht verbucht war, und eine Prüfung dagegen gebaut. Heute meldet sie „0". Nichts aus Sprint 8 stand noch offen. |
 | ⚠ `abschluss.cmd` prüfen (aus Sprint 1, weiter offen) | Die Datei wurde in Sprint 1 versehentlich geleert und aus dem Protokoll **rekonstruiert**. Wenn du eine Vorgängerversion hast, vergleiche sie. Das ist der einzige Punkt, der weiter auf dich wartet. |
+
+---
+
+## Was heute wichtig war — in Ruhe erklärt
+
+### ⚠ Ein Ticket, das darauf wartete, dass es anfängt
+
+`pm/T-0047` sollte eine Zahl im Cockpit anzeigen. Es wurde **zweimal** verschoben, beide
+Male mit derselben Begründung: *„Das ist eine Vertragsfrage, die muss vor dem Bau
+entschieden werden."*
+
+Wir haben heute nachgesehen, was in der Aufgabenliste dieses Tickets steht. **Punkt 1
+lautet: „Entscheidung ausschreiben."**
+
+Das Ticket wurde also zweimal verschoben, weil seine erste Aufgabe noch nicht erledigt
+war — und die erste Aufgabe war, sich zu entscheiden. Solange man diesem Grund folgt,
+kann er nie erfüllt werden: **er verschiebt genau die Arbeit, die ihn auflösen würde.**
+
+Drei weitere Nachfragen zu demselben Grund, jede in Minuten beantwortet:
+
+* **Durften wir überhaupt entscheiden?** Ja. Nach unserem eigenen Regelwerk ist so eine
+  Frage Sache des Teams — bei dir liegen Geld, Recht, Außenwirkung und Ähnliches, nicht
+  die Form einer Anzeige.
+* **Haben wir sie dir denn je vorgelegt?** Nein. In keinem Briefkasten steht eine Frage
+  zu diesem Ticket. Sie wurde nie vorgelegt — sie wurde nur nicht beantwortet.
+* **Und der Sachgrund, der danebenstand?** „Wir haben diese Datei in diesem Lauf schon
+  angefasst." Das stimmte — **für Sprint 7**. Seither wurde der Satz unverändert
+  weitergereicht, während er längst nicht mehr zutraf.
+
+Dazu kam ein vierter, in Sprint 8 ergänzter Grund: *„ein neuer Nachbar will an dieselbe
+Stelle."* In dessen Ticket steht wörtlich, dass es auf **dieses** hier wartet. **Die
+Abhängigkeit zeigte in die falsche Richtung** — jemand, der auf uns wartet, ist ein Grund
+anzufangen, nicht länger zu warten.
+
+Beide Tickets sind heute gebaut und geschlossen.
+
+### ⚠⚠ „Die beiden Altfälle" waren 52
+
+Hier lohnt eine Vorbemerkung, damit die Zahl nicht schlimmer klingt, als sie ist: **es ist
+keine Arbeit verloren gegangen und nichts kaputt.** Es geht darum, in welcher Reihenfolge
+Häkchen gesetzt wurden.
+
+Unser Ablauf sieht vor, dass ein Ticket von „offen" über „in Arbeit" und „in Prüfung" auf
+„fertig" geht. In Sprint 7 fiel auf, dass zwei Tickets direkt von „offen" auf „fertig"
+gesprungen waren — die Prüfung dafür war blind, sobald der Sprung einmal gespeichert war.
+Das Ticket dazu (`pm/T-0048`) sprach durchgehend von „den **beiden** Altfällen".
+
+Heute haben wir die Prüfung gebaut, die die ganze Vergangenheit liest. Ihr erster Lauf:
+
+> **52** — verteilt auf **acht** Repos, zurück bis zum ersten Sprint.
+
+**Die zwei bekannten sind zwei von 28 gleichartigen.** Sie fielen nicht auf, weil sie
+schlimmer waren, sondern weil in Sprint 7 gerade jemand auf ihre Dateien schaute.
+
+Das ändert die Aussage grundlegend: Es war **kein Unfall in Sprint 7**, sondern der
+Normalfall seit dem Anfang — und Sprint 7 war der erste Lauf, in dem es überhaupt
+jemandem auffiel. Wir haben daraus die Regel abgeleitet, dass **„uns sind zwei
+aufgefallen" nie heißt „es waren zwei"**: das eine ist eine Aussage über unsere
+Aufmerksamkeit, das andere über den Bestand.
+
+**Was wir damit machen.** Die 52 bleiben stehen und werden bei jedem Lauf **gemeldet** —
+wir schreiben die Vergangenheit nicht um, sonst verliert der nächste Leser den Hinweis,
+dass so etwas einmal jahrelang durchging. Blockieren tun sie nicht; sonst gewöhnt man
+sich an einen Daueralarm und sieht irgendwann über alles hinweg. Ab heute blockiert jeder
+**neue** Fall. Damit niemand den Stichtag heimlich verschieben kann, ist die Zahl 52 fest
+eingetragen: verändert sie sich, gibt es einen Befund.
+
+**Ein zweiter Fund im selben Ticket:** 21 der 52 sind ein Sprung, der gar nicht nach
+Schlamperei aussieht, sondern nach einem Arbeitsweg, den unsere Regel schlicht nicht
+kennt. Ob die **Regel** falsch ist statt der Praxis, ist eine eigene Frage — als
+`pm/T-0053` aufgenommen, statt sie heute nebenbei mitzuentscheiden.
+
+### ⚠ Eine Datei, die von sich sagte, sie sei die einzige Quelle
+
+Wir führen eine Datei, die festlegt, welche Angaben das Dashboard bekommt. Ganz oben
+steht in Großbuchstaben: „Diese Datei ist die einzige Stelle, die die Feldliste führt."
+
+Vor zwei Sprints wurde darin ein neuer Eintrag eingefügt — und dabei ging die Namenszeile
+des **nachfolgenden** Eintrags verloren. Das Dateiformat hat daraus keinen Fehler gemacht,
+sondern die beiden stillschweigend zu einem verschmolzen. Ergebnis: eine Angabe, die das
+Dashboard tatsächlich bekommt, stand nicht mehr in der Liste.
+
+**Zwei Sprints lang ist nichts rot geworden**, weil die einzige Prüfung, die es gab, war,
+dass die Datei **lesbar** ist. Lesbar ist nicht dasselbe wie richtig. Repariert; und es
+gibt jetzt eine Prüfung, die die Liste in beide Richtungen gegen die echten Daten hält.
+
+**Sie hat sofort gewirkt:** noch im selben Lauf meldete sie, dass zwei weitere Angaben
+fehlten — die, die wir eine Stunde vorher selbst hinzugefügt hatten.
+
+### ✅ Und wieder hat eine Prüfung uns selbst erwischt
+
+Die heute gebaute Historienprüfung hatte einen Fehler: über einem leeren Ordner meldete
+sie „Altbestand hat 0, erwartet sind 52". Gefunden hat das ein Test, den es seit Sprint 1
+gibt und der mit dieser Prüfung nichts zu tun hat. Behoben — und das ist der **dritte
+Sprint in Folge**, in dem eine Verifikation einen Fehler genau des Laufs findet, der sie
+gebaut hat.
+
+---
 
 ## Für das Team — die nächsten Sprints
 
 | Sprint | Ticket | Inhalt |
 |---|---|---|
 | jeder | `pm/T-0001`–`T-0003`, `platform/T-0001`, `team-mail/T-0001`, `team-dashboard/T-0001` | Takt-Dauerläufer |
-| **9** | `pm/T-0048` | Übergangsprüfung: blind für einen bereits committeten Sprung (Frist 23.08.) |
-| **9** | `pm/T-0047` | Org-Summe „unterminiert" im Cockpit-Kopfblock — entscheidet die **Form** des Kopfblocks |
-| **9** | `pm/T-0050` | `BOARD.md`-Spalte „Verantwortlich" — **die** Formatänderung, allein in einen Lauf |
-| **9** | `pm/T-0051` | Zähler „wartet auf den Menschen" mit Refs — **nach** `pm/T-0047` |
-| **9** | `pm/T-0039` | Am Brief weiterkommentieren |
-| **9** | `pm/T-0028` | Projekt-Pool: Team gründen im HMI (Klasse A — nur vorbereiten) |
-| 10 | `pm/T-0052` | HMI: „Für dich: Handlungen" neben der Inbox |
-| 10 | `projects/p12/T-0003` | Renderer zusammenführen |
-| — | `projects/p11/T-0003` | **blockiert** — wartet auf `T-0006` beim Auftraggeber |
+| **10** | `pm/T-0054` | **Neu aus deinem Brief:** Knopf zum Priorisieren für den nächsten Durchlauf (Frist 24.08.) |
+| **10** | `pm/T-0053` | **Neu:** 21× ein Sprung, den die Regel nicht kennt — stimmt die Regel? (Frist 24.08.) |
+| **10** | `pm/T-0052` | HMI „Für dich: Handlungen" — **jetzt technisch bereit**, die Refs liefert `T-0051` |
+| **10** | `pm/T-0039` | Am Brief weiterkommentieren (Frist 23.08.) |
+| **10** | `pm/T-0028` | Projekt-Pool: Team gründen im HMI (Klasse A — nur vorbereiten, Frist 23.08.) |
+| 11 | `projects/p12/T-0003` | Renderer zusammenführen |
+| — | `projects/p11/T-0003` | **blockiert** — wartet auf `T-0006` bei dir |
 
-**Ab Sprint 10 ist die Nummer eine Reihenfolge, keine Zusage.** Der vollständige Plan steht
-in `pm/management/sprint-aktuell.md` und stimmt mit den Ticketfeldern überein (SWR-109) —
-in diesem Sprint hat diese Prüfung **drei eigene Abweichungen** gefunden und sie wurden
-korrigiert, bevor der Plan stand.
+**Ab Sprint 11 ist die Nummer eine Reihenfolge, keine Zusage.** Der vollständige Plan steht
+in `pm/management/sprint-aktuell.md` und stimmt mit den Ticketfeldern überein (SWR-109,
+SWR-115).
 
 ---
 
