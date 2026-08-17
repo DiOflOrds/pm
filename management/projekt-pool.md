@@ -11,7 +11,6 @@
 | 3 | **team-wissenschaft** — Analyse-Team (Profil dienstleistung) | Recherche-/Auswertungsaufträge auf Zuruf | keine |
 | 4 | **team-steuer** — Belegsammlung fürs Steuerjahr | Belege aus Mails vorsortieren; Abgabe bleibt Mensch (Klasse A, sensibel/lokal) | Datenklassen-Review |
 | 5 | **team-trading** — Marktanalyse (nur Analyse!) | Watchlist-Berichte per Ollama; Order = niemals KI (Guardrail 1) | Klasse-A-Freigabe Datenquelle |
-| 14 | **promt-team** — Prompt- und Kontext-Optimierer (Meta-Rolle, wiederkehrende Wartung über alle KI-Rollen). **Volltext:** [`management/kandidaten/promt-team-rollenbeschreibung.md`](kandidaten/promt-team-rollenbeschreibung.md) | Schnellere und bessere Ergebnisse durch KI — Zielfunktion „Aufgabenqualität pro Token" | Gründung ist **Klasse A** → DR `pm/T-0056` (Frist 20.08.) |
 
 ## Technik-Kandidaten (ASPICE-Backlog)
 
@@ -29,6 +28,7 @@
 | # | Kandidat | Wohin | Beleg |
 |---|---|---|---|
 | 13 | **team-dashboard** — Dashboards verwalten/koordinieren + kompaktes Widget-Dashboard | Team `team-dashboard` (Gründung) **und** Projekt **P11 „Widget-Dashboard"** (Bau, `projects/p11`) — „verwalten" ist Daueraufgabe, „bauen" ist ein Projekt | pm/N-0027, pm/T-0031 → pm/D006 (TG-a, 15:21), pm/T-0033 → pm/D007 (G0a, 15:55) |
+| 14 | **promt-team** — Prompt- und Kontext-Optimierer (Meta-Rolle) | Team `promt-team` (Gründung, lokal ohne Remote — Datenklasse `sensibel`). Erstauftrag ist **Messgrundlage**, nicht Optimieren — die Rollenbeschreibung verlangt „ohne Baseline kein Optimierungslauf", und die Baseline gab es nicht. | pm/N-0040, pm/T-0056 → pm/D009 (TG-a, 08:47); Volltext: `management/kandidaten/promt-team-rollenbeschreibung.md` |
 | 7 | Markdown-Renderer auch für Briefe/Reports (Quelle: P7-LeLe) | Projekt **P12** (`projects/p12`) — über den „Starten"-Knopf (pm/T-0022 Teil 2) angelegt, vom Auftraggeber freigegeben | p12/T-0001 → p12/D000 (G0a, 18:04) |
 
 *Zeile 7 wurde **von Hand nachgetragen**: Der „Starten"-Knopf hat den Kandidaten aus der
