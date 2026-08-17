@@ -1,9 +1,9 @@
 # Board (generiert von platform/scripts/board.py — nicht von Hand editieren)
 
-Stand: 2026-08-17 · Tickets: 49 · davon wiederkehrend: 3
+Stand: 2026-08-17 · Tickets: 52 · davon wiederkehrend: 3
 
 
-## open (9)
+## open (11)
 
 | ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|
@@ -11,11 +11,19 @@ Stand: 2026-08-17 · Tickets: 49 · davon wiederkehrend: 3
 | [T-0002](tickets/T-0002.md) | Takt: Intake-Queue — neue Wünsche/Briefe qualifizieren (jede Session) | task | je Session | pl | hoch | 0 | — |
 | [T-0038](tickets/T-0038.md) | CR (B053, pm/N-0030): Tickets nennen keinen Verantwortlichen — `rolle` sagt die Fachrolle, nicht wer die Handlung tut (Team oder Mensch) | change-request | einmalig | pl | hoch | 0 | — |
 | [T-0039](tickets/T-0039.md) | CR (B054, pm/N-0031): Am Brief weiterkommentieren statt einen neuen zu schreiben — der Briefkasten kennt nur ein Frage/Antwort-Paar je Datei | change-request | einmalig | pl | hoch | 0 | — |
-| [T-0049](tickets/T-0049.md) | Befund: Der Plan sagt „erledigt\", das Ticket sagt „open\" — die Statusspalte wird gegen nichts gehalten | problem | einmalig | pl | hoch | 0 | — |
 | [T-0028](tickets/T-0028.md) | CR (pm/N-0022): Projekt-Pool — Team gründen im HMI (Steckbrief, Profil, Datenklasse, Zugänge) | change-request | einmalig | chg | mittel | 0 | — |
 | [T-0047](tickets/T-0047.md) | CR (aus pm/T-0036 Teil a): Org-Summe „unterminiert\" mit Referenzliste im Cockpit-Kopfblock | change-request | einmalig | pl | mittel | 0 | — |
 | [T-0048](tickets/T-0048.md) | Problem: Die Übergangsprüfung vergisst, was schon committet ist — zwei Tickets sind in Sprint 7 mit open -> done in die Historie gegangen | problem | einmalig | cm | mittel | 0 | — |
+| [T-0050](tickets/T-0050.md) | CR (Teil b aus pm/T-0038): BOARD.md-Spalte „Verantwortlich\" — die Formatänderung, die jedes Repo-CI prüft | change-request | einmalig | pl | mittel | 0 | — |
+| [T-0051](tickets/T-0051.md) | CR (Teil c aus pm/T-0038): Cockpit- und Preflight-Zähler „n Tickets warten auf den Menschen\" — mit Refs, nicht nur der Zahl | change-request | einmalig | pl | mittel | 0 | — |
+| [T-0052](tickets/T-0052.md) | CR (Teil e aus pm/T-0038, pm/N-0031): HMI-Abschnitt „Für dich: Handlungen\" neben der Inbox — eigener Abschnitt, nicht dieselbe Liste | change-request | einmalig | pl | mittel | 0 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | niedrig | 0 | — |
+
+## in_progress (1)
+
+| ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
+|---|---|---|---|---|---|---|---|
+| [T-0049](tickets/T-0049.md) | Befund: Der Plan sagt „erledigt\", das Ticket sagt „open\" — die Statusspalte wird gegen nichts gehalten | problem | einmalig | pl | hoch | 0 | — |
 
 ## done (40)
 
