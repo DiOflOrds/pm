@@ -15,14 +15,7 @@ Stand: 2026-08-17 · Tickets: 53 · davon wiederkehrend: 3
 | [T-0053](tickets/T-0053.md) | Frage: 21-mal open -> in_review in der Historie — verbietet UEBERGAENGE einen Weg, den die Organisation tatsächlich geht? | problem | einmalig | pl | Team | mittel | 0 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | Team | niedrig | 0 | — |
 
-## in_review (2)
-
-| ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
-|---|---|---|---|---|---|---|---|---|
-| [T-0050](tickets/T-0050.md) | CR (Teil b aus pm/T-0038): BOARD.md-Spalte „Verantwortlich\" — die Formatänderung, die jedes Repo-CI prüft | change-request | einmalig | pl | Team | mittel | 0 | — |
-| [T-0051](tickets/T-0051.md) | CR (Teil c aus pm/T-0038): Cockpit- und Preflight-Zähler „n Tickets warten auf den Menschen\" — mit Refs, nicht nur der Zahl | change-request | einmalig | pl | Team | mittel | 0 | — |
-
-## done (44)
+## done (46)
 
 | ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|---|
@@ -70,3 +63,5 @@ Stand: 2026-08-17 · Tickets: 53 · davon wiederkehrend: 3
 | [T-0046](tickets/T-0046.md) | Problem: Die Kennzahl „nicht geschlossen\" stand vier Sprints auf 15 und stimmt mit keiner Zählweise des Werkzeugs überein | problem | einmalig | pl | Team | mittel | 0 | — |
 | [T-0047](tickets/T-0047.md) | CR (aus pm/T-0036 Teil a): Org-Summe „unterminiert\" mit Referenzliste im Cockpit-Kopfblock | change-request | einmalig | pl | Team | mittel | 0 | — |
 | [T-0048](tickets/T-0048.md) | Problem: Die Übergangsprüfung vergisst, was schon committet ist — zwei Tickets sind in Sprint 7 mit open -> done in die Historie gegangen | problem | einmalig | cm | Team | mittel | 0 | — |
+| [T-0050](tickets/T-0050.md) | CR (Teil b aus pm/T-0038): BOARD.md-Spalte „Verantwortlich\" — die Formatänderung, die jedes Repo-CI prüft | change-request | einmalig | pl | Team | mittel | 0 | — |
+| [T-0051](tickets/T-0051.md) | CR (Teil c aus pm/T-0038): Cockpit- und Preflight-Zähler „n Tickets warten auf den Menschen\" — mit Refs, nicht nur der Zahl | change-request | einmalig | pl | Team | mittel | 0 | — |
