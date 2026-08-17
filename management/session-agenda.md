@@ -15,7 +15,7 @@
 4. **Eine Annahme des Auftrags war falsch, zu unseren Gunsten.** „Kein Projekt liefert heute
    Widget-Daten" stimmt nicht: alle **16** Einträge liefern **dieselben 17 Felder**. Gefehlt hat
    die Zusage, nicht die Lieferung — das macht P11 kleiner als gedacht.
-5. **468 Tests grün**, Matrix **107 SWRs / 0 Lücken**, Preflight STARTKLAR, **kein offener Brief**,
+5. **471 Tests grün**, Matrix **107 SWRs / 0 Lücken**, Preflight STARTKLAR, **kein offener Brief**,
    unterminiert 0, überfällig 0.
 
 ---
@@ -85,7 +85,7 @@ es ist, dass eine Seite dasselbe sagt wie ihre Quelle). Die wichtigste Frage ist
 `pm/D003` liegen Projekte ab P10 als Ordner in `projects`. Der Nachbar in derselben Funktion
 (`einstufung`) war **zufällig** richtig — er sucht nach `"<projekt>-v1.0"` und filtert damit
 implizit; nur die Baseline-Zeile las denselben Text ungefiltert. Dieselbe Familie wie B059.
-Behoben über **eine** gemeinsame Funktion (`projekt_tags`), 5 Regressionstests, darunter der Fall,
+Behoben über **eine** gemeinsame Funktion (`projekt_tags`), 8 Tests (6 mit nachgewiesener Deckung), darunter der Fall,
 der die Korrektur widerlegen würde (`p0` trägt `genesis-v1.0` — ein globaler Filter hätte ihm
 Baseline und Status genommen). **Gegenprobe über den echten Bestand:** der Altstand aus
 `git archive HEAD` meldet für p11/p12 weiterhin `p10-v1.0`, der Neustand leer.
@@ -98,14 +98,46 @@ es baut.
 
 **Verankert (D005, noch in diesem Lauf):** **L-2026-08-17e** (B064 — wechselt der Behälter,
 wechselt die Bedeutung jeder Frage an ihn; ein Nachbar, der richtig aussieht, kann aus Versehen
-richtig sein) und **L-2026-08-17f** (B061-Auflösung — vor dem Justieren eines Gates kommt die Frage
-nach seinem Ort; wer ein Gate entfernt, schreibt auf, welcher echte Befund verloren geht).
+richtig sein), **L-2026-08-17f** (B061-Auflösung — vor dem Justieren eines Gates kommt die Frage
+nach seinem Ort; wer ein Gate entfernt, schreibt auf, welcher echte Befund verloren geht) und
+**L-2026-08-17g** (die Gegenprüfung prüft auch die **Begründung**).
+
+## ⚠ Die unabhängige Gegenprüfung hat vier falsche Sätze dieses Laufs gefunden
+
+Nach dem ersten Commit lief die Gegenprüfung (L-2026-08-16m). Die Suite war grün. Sie fand elf
+Punkte — bemerkenswert ist ihre **Art**: die schwersten waren keine Codefehler, sondern
+**Behauptungen dieses Laufs über den eigenen Code**.
+
+* *„Aus dem Substring-Test wurde ein Präfix-Test."* **Falsch.** Das galt nur für den Zeilenfilter;
+  `einstufung` suchte weiter im ganzen Text **inklusive Tag-Annotation**. Nachgestellt: ein
+  Zwischenstand `p11-v0.9` mit der Nachricht *„Vorbereitung auf p11-v1.0"* wies das Projekt als
+  **abgeschlossen** aus, ohne dass es je eine Baseline hatte. Der Satz stand **dreimal** — im
+  Ticket, in der Doku und in einem Test-Docstring. **Jetzt behoben:** Vergleich Name gegen Name.
+* *„Getragen wird das von `preflight.py` und Schritt [2/5]."* **Falsch.** `preflight.py` kennt die
+  Matrix nicht. Das ausgesprochene Sicherheitsnetz war doppelt so groß gemalt wie das echte —
+  ausgerechnet in dem Absatz, der den Preis einer Gate-Entfernung ehrlich nennen sollte.
+* *„Fünf Regressionstests."* Einer davon war **ohne** die Korrektur grün. Durch Rückbau in einer
+  Kopie geprüft: 6 von 8 fallen um, einer ist eine Gegenprobe, einer bewies nichts — er ist jetzt
+  um die fehlende Zusicherung ergänzt.
+* *„Teams haben kein G4, also keine Baseline."* Am echten Payload **widerlegt**: `platform` ist
+  `festes-team` und trägt eine. Ein Widget, das dem ersten Vertragsentwurf gefolgt wäre, hätte
+  einen real vorhandenen Wert unterdrückt.
+
+**Dazu ein weiterer echter Fehler am selben Feld — B065.** „Letzte Baseline" war die
+**lexikografisch** letzte, nicht die jüngste: `platform` zeigte `p9-v1.0`, während `p10-v1.0`
+dreieinhalb Stunden jünger war, und `p10-v1.10` stünde vor `p10-v1.2`. Behoben
+(`--sort=creatordate`), mit einem Test, der ohne die Änderung umfällt.
+
+**Die widerlegten Sätze stehen wörtlich als widerlegt in den Tickets** und wurden nicht
+stillschweigend ersetzt — sonst fehlt dem nächsten Leser der Hinweis, welche Art Satz hier schon
+einmal ungeprüft durchging. Verankert als **L-2026-08-17g**. Suite **463 → 471**.
+
 
 **Board-Check gegen die Erwartung gelesen (B041 Regel 3):** platform **6** Tickets (+2: `T-0005`,
 `T-0006`), pm **43** (unverändert — `T-0042` hat nur den Status gewechselt), gesamt **248** (+2).
 Briefe organisationsweit **48**, davon **0 offen**. Matrix **107 SWRs / 0 Lücken** (unverändert —
 dieser Sprint hat keine neue Anforderung gebracht, sondern einen Fehler behoben und einen Vertrag
-geschrieben), **468 Tests** (vorher 463). Nicht geschlossen: **15** (unverändert — zwei zu, zwei
+geschrieben), **471 Tests** (vorher 463). Nicht geschlossen: **15** (unverändert — zwei zu, zwei
 neu).
 
 ---

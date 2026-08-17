@@ -16,7 +16,7 @@
 5. **Eine Annahme des Auftrags wurde widerlegt:** Ticket und Team-Charter hielten fest, kein
    Projekt liefere heute Widget-Daten. Gegen den echten Bestand geprüft liefern **alle 16**
    Einträge **dieselben 17 Felder**. Gefehlt hat die Zusage, nicht die Lieferung.
-6. **468 Tests grün** (+5), Matrix **107 SWRs / 0 Lücken**, Preflight STARTKLAR, **kein offener
+6. **471 Tests grün** (+8), Matrix **107 SWRs / 0 Lücken**, Preflight STARTKLAR, **kein offener
    Brief** (48), unterminiert **0**, überfällig **0**.
 
 ## Sprint-Plan
@@ -29,12 +29,12 @@ keine Zusage.*
 | Aufgabe | Rolle | Fällig | Status | Grund / nächster Schritt |
 |---|---|---|---|---|
 | pm/T-0042 | prob | dieser Sprint | **erledigt** | Weg 3 gewählt: das Matrix-Gate verlässt die CI, weil eine Repo-CI eine Cross-Repo-Aussage grundsätzlich nicht atomar prüfen kann. Preis benannt. `pm/T-0013` trägt den Verweis. |
-| team-dashboard/T-0001 | pl | dieser Sprint | **erledigt** (Takt läuft weiter) | Erster Entwurf: `vertrag/widget-vertrag-v1.yaml` (normativ) + `docs/02-widget-vertrag.md` (Begründung). Alle 17 Felder gegen den echten Payload aller 16 Einträge geprüft. |
-| platform/T-0005 | cm | dieser Sprint | **erledigt** | B064, **in diesem Sprint entstanden und geschlossen**: `projekt_tags` filtert im Sammel-Repo nach Projektnamen. 5 Regressionstests, Gegenprobe gegen den Altstand. |
+| team-dashboard/T-0001 | pl | dieser Sprint | **erledigt** (Takt läuft weiter) | Erster Entwurf: `vertrag/widget-vertrag-v1.yaml` (normativ) + `docs/02-widget-vertrag.md` (Begründung). Alle 17 Feldnamen gegen den echten Payload aller 16 Einträge geprüft. |
+| platform/T-0005 | cm | dieser Sprint | **erledigt** | B064, **in diesem Sprint entstanden und geschlossen**: `projekt_tags` filtert im Sammel-Repo nach Projektnamen. 8 Tests (6 mit nachgewiesener Deckung), Gegenprobe gegen den Altstand. |
 | pm/T-0001 | pl | jeder Sprint | erfüllt | Takt: Session-Agenda fortgeschrieben. |
 | pm/T-0002 | pl | jeder Sprint | erfüllt | Takt: Briefkasten qualifiziert — 48 Briefe, **kein offener**. |
-| pm/T-0003 | coach | jeder Sprint | erfüllt | Takt: Lessons sofort verankert — L-2026-08-17e (B064), L-2026-08-17f (B061-Auflösung). |
-| platform/T-0001 | cm | jeder Sprint | erfüllt | Takt: Preflight STARTKLAR, 468 Tests grün, Matrix 107/0. |
+| pm/T-0003 | coach | jeder Sprint | erfüllt | Takt: Lessons sofort verankert — L-2026-08-17e (B064), L-2026-08-17f (B061-Auflösung), L-2026-08-17g (die Gegenprüfung prüft auch die Begründung). |
+| platform/T-0001 | cm | jeder Sprint | erfüllt | Takt: Preflight STARTKLAR, 471 Tests grün, Matrix 107/0. |
 | team-mail/T-0001 | dev | jeder Sprint | erfüllt | Takt: Digest. |
 | platform/T-0004 | cm | Sprint 4 | in_review | SWR-107. Netzweg weiterhin unbelegt: seit dem Bau (01:17) **kein Hostlauf**, `CI-STATUS.md` steht auf 00:46. **Keine Arbeit, keine Handlung** — der Beleg kommt mit dem nächsten `abschluss.cmd`. |
 | pm/T-0043 | prob | Sprint 4 | offen | `p3`/`p5` rot. DoD 1 verlangt den Schritt aus `CI-STATUS.md` **nach** SWR-107 — der liegt nicht vor. Dieser Sprint hat stattdessen „anderer Workflow" ausgeschlossen (p3/p5/p7 unterscheiden sich nur in Kommentarzeilen, keine zweite Workflow-Datei). Kein `blocked`: der Verweis ginge über Repo-Grenzen (B047). |
@@ -96,6 +96,37 @@ hinterlässt.
 erledigt — `team-dashboard/T-0001` trägt weder `frist` noch `geplant_sprint` mehr und steht damit
 wie die fünf anderen Dauerläufer.
 
+## ⚠ Die unabhängige Gegenprüfung hat vier falsche Sätze dieses Laufs gefunden
+
+Nach dem ersten Commit lief die Gegenprüfung (L-2026-08-16m). Die Suite war grün. Sie fand elf
+Punkte — bemerkenswert ist ihre **Art**: die schwersten waren keine Codefehler, sondern
+**Behauptungen dieses Laufs über den eigenen Code**.
+
+* *„Aus dem Substring-Test wurde ein Präfix-Test."* **Falsch.** Das galt nur für den Zeilenfilter;
+  `einstufung` suchte weiter im ganzen Text **inklusive Tag-Annotation**. Nachgestellt: ein
+  Zwischenstand `p11-v0.9` mit der Nachricht *„Vorbereitung auf p11-v1.0"* wies das Projekt als
+  **abgeschlossen** aus, ohne dass es je eine Baseline hatte. Der Satz stand **dreimal** — im
+  Ticket, in der Doku und in einem Test-Docstring. **Jetzt behoben:** Vergleich Name gegen Name.
+* *„Getragen wird das von `preflight.py` und Schritt [2/5]."* **Falsch.** `preflight.py` kennt die
+  Matrix nicht. Das ausgesprochene Sicherheitsnetz war doppelt so groß gemalt wie das echte —
+  ausgerechnet in dem Absatz, der den Preis einer Gate-Entfernung ehrlich nennen sollte.
+* *„Fünf Regressionstests."* Einer davon war **ohne** die Korrektur grün. Durch Rückbau in einer
+  Kopie geprüft: 6 von 8 fallen um, einer ist eine Gegenprobe, einer bewies nichts — er ist jetzt
+  um die fehlende Zusicherung ergänzt.
+* *„Teams haben kein G4, also keine Baseline."* Am echten Payload **widerlegt**: `platform` ist
+  `festes-team` und trägt eine. Ein Widget, das dem ersten Vertragsentwurf gefolgt wäre, hätte
+  einen real vorhandenen Wert unterdrückt.
+
+**Dazu ein weiterer echter Fehler am selben Feld — B065.** „Letzte Baseline" war die
+**lexikografisch** letzte, nicht die jüngste: `platform` zeigte `p9-v1.0`, während `p10-v1.0`
+dreieinhalb Stunden jünger war, und `p10-v1.10` stünde vor `p10-v1.2`. Behoben
+(`--sort=creatordate`), mit einem Test, der ohne die Änderung umfällt.
+
+**Die widerlegten Sätze stehen wörtlich als widerlegt in den Tickets** und wurden nicht
+stillschweigend ersetzt — sonst fehlt dem nächsten Leser der Hinweis, welche Art Satz hier schon
+einmal ungeprüft durchging. Verankert als **L-2026-08-17g**. Suite **463 → 471**.
+
+
 ## Zahlen dieses Sprints
 
 | | Sprint 1 | Sprint 2 | Sprint 3 |
@@ -103,7 +134,7 @@ wie die fünf anderen Dauerläufer.
 | Tickets gesamt | 243 | 246 | **248** |
 | offen / in_review | 12 / 4 | 14 / 1 | 14 / 1 |
 | nicht geschlossen | 16 | 15 | **15** |
-| Tests | 444 | 463 | **468** |
+| Tests | 444 | 463 | **471** |
 | Matrix | 106 / 0 | 107 / 0 | **107 / 0** |
 | offene Briefe | 0 | 0 | **0** |
 | unterminiert / überfällig | 0 / 0 | 0 / 0 | **0 / 0** |
