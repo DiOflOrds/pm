@@ -1,22 +1,18 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
-## Das Wichtigste (Stand Sprint 3, 2026-08-17)
+## Das Wichtigste (Stand Sprint 4, 2026-08-17)
 
-1. **Die Zwickmühle aus Sprint 2 ist entschieden** — und nicht als Reihenfolgefrage. Das
-   Matrix-Gate hat die CI von `platform` **verlassen**: eine CI, die je Repo läuft, kann eine
-   Aussage über **alle Repos gleichzeitig** grundsätzlich nicht prüfen. Es läuft weiter, aber
-   dort, wo es wahr sein kann — in `abschluss.cmd` vor dem Push, mit Abbruch (`pm/T-0042`).
-2. **Der Widget-Vertrag steht** und damit die Eingangsbedingung für P11
-   (`team-dashboard/T-0001`): normativ als YAML, begründet als eigenes Dokument.
-3. **⚠ Beim Prüfen des Vertrags kam ein falscher Wert heraus, kein fehlender.** `p11` und `p12`
-   trugen die Baseline von `p10` — seit P10 in Mission Control sichtbar. Ursache: `git tag`
-   antwortet über das *Repository*, nicht über den Ordner. **In diesem Sprint behoben** (B064,
-   `platform/T-0005`).
-4. **Eine Annahme des Auftrags war falsch, zu unseren Gunsten.** „Kein Projekt liefert heute
-   Widget-Daten" stimmt nicht: alle **16** Einträge liefern **dieselben 17 Felder**. Gefehlt hat
-   die Zusage, nicht die Lieferung — das macht P11 kleiner als gedacht.
-5. **471 Tests grün**, Matrix **107 SWRs / 0 Lücken**, Preflight STARTKLAR, **kein offener Brief**,
-   unterminiert 0, überfällig 0.
+1. **Der Cockpit-Payload sagt jetzt, was er meint.** `null` heißt „nicht geliefert", eine
+   0 heißt „gemessen, Ergebnis null" (**SWR-108**, `platform/T-0006`). Vorher meldeten 15
+   von 16 Einträgen `0 Läufe`, obwohl nur `p0` überhaupt misst.
+2. **Der Widget-Vertrag steht als v2** — ohne Behelfsregeln. Damit hat `SWR-096` einen
+   Bezugspunkt, der nichts mehr überbrücken muss.
+3. **⚠ Eine Annahme des eigenen Tickets war falsch** — und der Fund hat die Bauart geändert,
+   nicht nur einen Satz. Siehe unten.
+4. **`p11/T-0003` wurde zerlegt statt verschoben**; der ADR daraus ist in diesem Sprint
+   erledigt.
+5. **486 Tests grün**, Matrix **108 SWRs / 0 Lücken**, Preflight STARTKLAR, **kein offener
+   Brief**, unterminiert 0, überfällig 0.
 
 ---
 
@@ -25,31 +21,92 @@
 | Was | Warum |
 |---|---|
 | **Nichts Dringendes, nichts Blockierendes** | Kein Ticket wartet auf eine Handlung am Host. |
-| Der nächste `abschluss.cmd` schließt zwei Tickets von selbst | `platform/T-0004` (Netzweg der Jobs-Abfrage) und `pm/T-0043` (welcher Schritt macht `p3`/`p5` rot) warten beide nur auf einen `CI-STATUS.md`, der **nach** 01:17 entstanden ist. Ohne dein Zutun. |
-| Zur Kenntnis: `platform` sollte ab dem nächsten Lauf grün sein | Das ist eine **Vorhersage** und als solche notiert: trifft sie nicht ein, ist die Diagnose aus `pm/T-0042` widerlegt und das Ticket wird wiedereröffnet. |
-| Zur Kenntnis: ein stiller Anzeigefehler ist weg | `p11` und `p12` zeigten im Cockpit die Baseline von `p10` als ihre eigene. Falls dir das je aufgefallen ist — es lag nicht an dir. |
+| ⚠ **Zweiter Sprint ohne Hostlauf** | `platform/T-0004` und `pm/T-0043` warten seit Sprint 3 auf **denselben** Beleg: einen `CI-STATUS.md`, der nach 01:17 entstanden ist. Der letzte Lauf war 00:46. Das ist kein Problem, aber es steht hier, weil zwei Sprints in Folge dieselbe Zeile schreiben — beides löst sich mit dem nächsten `abschluss.cmd` von selbst. |
+| Offen: die Vorhersage aus Sprint 3 | `platform` sollte im nächsten `CI-STATUS.md` **grün** sein. Trifft das nicht ein, ist die Diagnose aus `pm/T-0042` widerlegt und das Ticket wird wiedereröffnet. Noch ungeprüft, weil kein Lauf stattfand. |
+| Zur Kenntnis: die KPI-Kachel zeigt bald „keine Daten" statt `0 Läufe` | Für 15 der 16 Einträge. Das ist die Korrektur, nicht ein Datenverlust: gemessen wurde dort nie etwas. |
 | Optional, ohne Frist | Falls du ohnehin auf GitHub bist: die Lauf-Seite von `p3` nennt den roten Schritt sofort. Ist es das Secret `PLATFORM_READ_TOKEN`, ist die Behebung **Klasse A** (Zugang) und kommt dir als Inbox-DR vor — nicht vom Team entschieden. |
-| ⚠ `abschluss.cmd` prüfen (aus Sprint 1, weiter offen) | Die Datei wurde in Sprint 1 versehentlich geleert und aus dem Protokoll **rekonstruiert**. Wenn du eine Vorgängerversion hast, vergleiche sie. Dieser Sprint hat **eine Zeile** darin geändert (`process` wird vor `platform` gepusht), sauber kommentiert. |
+| ⚠ `abschluss.cmd` prüfen (aus Sprint 1, weiter offen) | Die Datei wurde in Sprint 1 versehentlich geleert und aus dem Protokoll **rekonstruiert**. Wenn du eine Vorgängerversion hast, vergleiche sie. Seither eine Zeile geändert (Sprint 3: `process` vor `platform`), sauber kommentiert. |
 
 ## Für das Team — die nächsten Sprints
 
 | Sprint | Ticket | Inhalt |
 |---|---|---|
-| jeder | `pm/T-0001`, `pm/T-0002`, `pm/T-0003`, `platform/T-0001`, `team-mail/T-0001`, **`team-dashboard/T-0001`** | Takt-Dauerläufer |
-| **4** | `platform/T-0006` | Cockpit unterscheidet „echte Null" nicht von „nicht geliefert" — Eingangsbedingung für SWR-096 |
-| **4** | `platform/T-0004`, `pm/T-0043` | Beide nur Beleg lesen, sobald der nächste `CI-STATUS.md` vorliegt |
-| **5** | `projects/p11/T-0003` | Widget-Dashboard — **hinter** `platform/T-0006`, sonst werden die SWR-096-Tests zweimal geschrieben |
+| jeder | `pm/T-0001`, `pm/T-0002`, `pm/T-0003`, `platform/T-0001`, `team-mail/T-0001`, `team-dashboard/T-0001` | Takt-Dauerläufer |
+| **5** | `platform/T-0004`, `pm/T-0043` | Beide nur Beleg lesen, sobald ein neuer `CI-STATUS.md` vorliegt |
+| **5** | `projects/p11/T-0005` | Layout-Entwurf: passen 16 Kacheln ohne Scrollen auf FHD? |
+| **5** | `projects/p11/T-0003` | Rest von P11: Konfiguration, Detailseiten, Mail-Widget, Tests, G4 |
 | 6 | `pm/T-0036` + `pm/T-0038` | Board-Format, gebündelt (B053) |
 | 7 | `pm/T-0039` | Am Brief weiterkommentieren |
 | 8 | `pm/T-0028` | Projekt-Pool: Team gründen im HMI (Klasse A — nur vorbereiten) |
-| 9 | `projects/p12/T-0003` | Renderer zusammenführen |
+| 9 | `projects/p12/T-0003` | Renderer zusammenführen — mit derselben Zerlegungsfrage wie p11 |
 
 **Ab Sprint 6 ist die Nummer eine Reihenfolge, keine Zusage.** Der vollständige Plan steht in
-`pm/management/sprint-aktuell.md`. Die Warteschlange wurde in diesem Sprint neu geordnet, weil
-`platform/T-0006` dazukam — Gründe je Zeile im Plan.
+`pm/management/sprint-aktuell.md`.
 
-**Die Feldkorrektur aus Sprint 2 ist erledigt:** `team-dashboard/T-0001` trägt weder `frist` noch
-`geplant_sprint` mehr und steht damit wie die fünf anderen Takt-Dauerläufer.
+---
+
+## Sprint 4 (2026-08-17)
+
+**`platform/T-0006` — die Entscheidung war, keine neue Sprache zu erfinden.** Drei Wege
+standen im Ticket. Gewählt ist `null` als Marke für „nicht geliefert", weil der Payload sie
+**schon hatte**: `team: null` heißt seit P7 „kein Team", und der Widget-Vertrag hatte das
+ausdrücklich als in Ordnung befunden. Ein Zusatzfeld neben dem Wert (`kpi_erhoben`) wäre die
+zweite Aussage über dieselbe Sache gewesen (B033), ein Herkunfts-Vokabular (`quellen:`) eine
+Pflegelast für einen Bedarf, den heute niemand hat.
+
+**Die eigentliche Arbeit war, je Feld die richtige Tatsache zu finden** — und zweimal war die
+naheliegende die falsche:
+
+* `kpi` hängt an der **Registry-Datei**, nicht an `laeufe == 0`. Eine vorhandene, leere
+  Registry ist eine Messung mit dem Ergebnis null.
+* `letzter_digest` hängt an der **SLA-Zusage**, nicht am Verzeichnis `digest/`. Das entsteht
+  erst mit dem ersten Digest — die Verzeichnisregel hätte genau im Moment davor „führt keine
+  Digests" gesagt, also in dem einzigen Moment, für den man sie braucht.
+* `letzte_baseline` hängt am **Profil** (Playbook Kap. 15: `wiederkehrend` hat „SLA statt
+  G4"), nicht an der Cockpit-Gruppe. An dieser Verwechslung war der erste Vertragsentwurf
+  schon einmal gescheitert.
+
+**⚠ Eine Annahme des eigenen Tickets war falsch.** `platform/T-0006` führte
+`team-dashboard` als Fall „führt Digests, hatte noch keinen". Am eigenen Steckbrief geprüft:
+drei SLAs (`widget-inhalte`, `widget-vertrag`, `nur-darstellen`), kein Digest. Es führt
+keine. Der Satz stand da, weil eine leere Stelle nach „noch nicht" aussieht — dieselbe
+Verwechslung, die das Ticket beheben sollte, in seiner eigenen Problembeschreibung. **Ohne
+den Fund wäre die Verzeichnisregel gebaut worden.** Der Satz bleibt wörtlich als widerlegt im
+Ticket stehen (L-2026-08-17g Regel 4).
+
+**Der Preis steht im Ticket und in der Anforderung.** `null` erzeugt bei einem
+unvorbereiteten Leser keinen falschen Wert, sondern einen **Absturz** — im HMI die ganze
+Kachel. Deshalb ist das Mitziehen des einen heutigen Lesers (`app.js`) Teil der Verifikation
+und nicht ein Folgeticket. Zweiter Teil des Preises: `letzte_baseline` wird jetzt immer
+gezeigt, auch als „noch keine"; vorher fiel die Zeile still weg.
+
+**`p11/T-0003` — zerlegt, nicht verschoben.** Mit `T-0006` fiel der Grund weg, mit dem das
+Ticket in Sprint 3 auf Sprint 5 gesetzt worden war. Übrig blieb „zu groß", und dafür sieht
+`pm/D006` Zerlegen vor: `p11/T-0004` (ADR) ist in diesem Sprint erledigt, `p11/T-0005`
+(Layout) geht auf Sprint 5, der Rest bleibt in `T-0003`. Die Frist 20.08. ist gewahrt.
+
+**Der ADR sagt einen Satz, den es ohne diesen Sprint nicht gäbe.** SWR-108 hat die drei Fälle
+ausgeschrieben in `cockpitKarte` untergebracht — an einer Stelle, die ein Widget nicht
+mitbenutzen kann. ADR-P11-001 macht daraus eine Auflage: **erst herausziehen, dann rendern.**
+Ohne sie wäre die naheliegende erste Handlung des Baus gewesen, sie abzuschreiben — und die
+zweite Liste wäre da, in JavaScript statt in YAML.
+
+**Verankert (D005, noch in diesem Lauf):** **L-2026-08-17h** (eine leere Stelle sieht immer
+nach „noch nicht" aus; die Tatsache für „nicht geliefert" ist die Zusage, nicht ihr
+Nebenprodukt; zu jedem verworfenen Weg gehört ein Test, der ihn nachstellt) und
+**L-2026-08-17i** (fällt die Sperre, fällt der Verschiebungsgrund mit — und „zu groß" heißt
+zerlegen, nicht verschieben).
+
+**Testdeckung nach L-2026-08-17g Regel 2 aufgeschlüsselt statt gezählt:** 15 neue Tests =
+**6** fallen ohne die Korrektur um (Rückbau in einer Kopie geprüft), **4** fallen gegen eine
+nachgestellte **falsche** Umsetzung um (jede einzeln nachgebaut), **5** sichern unveränderte
+Normalfälle. Suite 471 → **486**.
+
+**Board-Check gegen die Erwartung gelesen (B041 Regel 3):** platform **6** (unverändert —
+`T-0006` hat nur den Status gewechselt), p11 **5** (+2 aus der Zerlegung), gesamt **250**
+(+2); nicht geschlossen **15** (unverändert: zwei zu, zwei neu — die Zahl stimmt zufällig
+mit Sprint 3 überein und ist deshalb hier ausgeschrieben). Briefe **48**, davon **0 offen**.
+Matrix **108 SWRs / 0 Lücken** (+1: SWR-108). `nicht_geplant: []`, `widersprueche: []`.
 
 ---
 

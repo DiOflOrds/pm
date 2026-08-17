@@ -1,3 +1,4 @@
 {"nr": 1, "kennung": "2026-08-17T00:45-cowork", "start": "2026-08-17 00:23", "takt_min": 60, "notiz": "Umstellung auf Sprintplanung (SWR-106)"}
 {"nr": 2, "kennung": "2026-08-17T2238-cowork-s2", "start": "2026-08-17 00:38", "takt_min": 60}
 {"nr": 3, "kennung": "2026-08-17T0130-cowork-s3", "start": "2026-08-17 01:39", "takt_min": 60, "notiz": "Sprint 3: Widget-Vertrag, Push-Reihenfolge-Entscheidung"}
+{"nr": 4, "kennung": "2026-08-17T0245-cowork-s4", "start": "2026-08-17 02:45", "takt_min": 60, "notiz": "Sprint 4: SWR-108 (echte Null vs. nicht geliefert), Widget-Vertrag v2, p11/T-0003 zerlegt"}
