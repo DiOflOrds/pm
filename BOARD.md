@@ -13,13 +13,7 @@ Stand: 2026-08-17 · Tickets: 68 · davon wiederkehrend: 3
 | [T-0063](tickets/T-0063.md) | CR (pm/T-0028 Teil b): Charter-Entwurf und Gründungs-DR aus dem geprüften Steckbrief | change-request | einmalig | chg | Team | mittel | 0 | T-0062 |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | Team | niedrig | 0 | — |
 
-## in_review (1)
-
-| ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
-|---|---|---|---|---|---|---|---|---|
-| [T-0054](tickets/T-0054.md) | CR (pm/N-0038): Der Mensch priorisiert offene Aufgaben aller Teams/Projekte für den nächsten Durchlauf — Knopf statt Einzelbearbeitung | change-request | einmalig | chg | Team | hoch | 0 | — |
-
-## done (62)
+## done (63)
 
 | ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|---|
@@ -51,6 +45,7 @@ Stand: 2026-08-17 · Tickets: 68 · davon wiederkehrend: 3
 | [T-0041](tickets/T-0041.md) | CR: Terminierung auf Sprints statt auf Kalenderdaten — jeder Routine-Lauf ist ein Sprint | change-request | einmalig | pl | Team | hoch | 0 | — |
 | [T-0042](tickets/T-0042.md) | Problem (B061): Die Push-Reihenfolge kann nicht beide Gates grün machen — platform prüft p0/p9, p0–p9 prüfen platform | problem | einmalig | prob | Team | hoch | 0 | — |
 | [T-0049](tickets/T-0049.md) | Befund: Der Plan sagt „erledigt\", das Ticket sagt „open\" — die Statusspalte wird gegen nichts gehalten | problem | einmalig | pl | Team | hoch | 0 | — |
+| [T-0054](tickets/T-0054.md) | CR (pm/N-0038): Der Mensch priorisiert offene Aufgaben aller Teams/Projekte für den nächsten Durchlauf — Knopf statt Einzelbearbeitung | change-request | einmalig | chg | Team | hoch | 0 | — |
 | [T-0055](tickets/T-0055.md) | Bug (pm/N-0039): Briefkasten meldet „Commit fehlgeschlagen\" und verschweigt, dass die Nachricht gespeichert ist — Ursache: verwaiste index.lock | problem | einmalig | dev | Team | hoch | 0 | — |
 | [T-0056](tickets/T-0056.md) | DR (pm/N-0040): promt-team gründen? — Klasse A: Profil, Datenklasse, Zugänge und Wirkbereich brauchen deine Freigabe | decision-request | einmalig | mensch | Team | hoch | 0 | — |
 | [T-0059](tickets/T-0059.md) | CR (pm/T-0039 Teil a): Der Brief wird ein Verlauf — Beitragsformat, Schreibpfad, Statusrücksetzung | change-request | einmalig | dev | Team | hoch | 0 | — |
