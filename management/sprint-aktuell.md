@@ -70,7 +70,7 @@
    darüber**. *Eine Textsuche kann eine Erklärung nicht von ihrem Gegenstand unterscheiden —
    und die Erklärung steht nun einmal genau dort, wo der Gegenstand ist.* **Fünfter
    Fehlalarm derselben Art in zwei Tagen.** Gemessen wird jetzt die **Zuweisung im Code**.
-10. **1069 Python-Tests, davon 1 rot** (der Altbefund über drei unzulässige Übergänge aus
+10. **1061 Python-Tests, davon 1 rot** (der Altbefund über drei unzulässige Übergänge aus
     den Sprints 13 und 15 — **keiner aus diesem Lauf**), **78 JS-Tests grün** (von 73),
     Matrix **150 SWRs / 0 Lücken**, Briefkasten **0 offen**, entschiedene unverbuchte DRs
     **0**. ⚠ **Nicht startklar**, und das bleibt die richtige Meldung.
@@ -92,7 +92,7 @@ geplant** ist Sprint 19; ab Sprint 20 ist die Nummer eine Reihenfolge, keine Zus
 | pm/T-0001 | pl | jeder Sprint | **erfüllt** | Takt: Session-Agenda fortgeschrieben. |
 | pm/T-0002 | pl | jeder Sprint | **erfüllt** | Takt: Briefkasten **zweimal** geprüft, beide Male **0 offen**. |
 | pm/T-0003 | coach | jeder Sprint | **erfüllt** | Takt: **fünf** Lessons SOFORT verankert (`L-2026-08-17au` bis `ay`), verteilt auf test/cm. |
-| platform/T-0001 | cm | jeder Sprint | **erfüllt** | Takt: 1069 Python-Tests (1 rot, Altbefund), 78 JS-Tests grün, Matrix 150/0. ⚠ Die Suite läuft in **Blöcken** — ein Durchlauf überschreitet das Zeitfenster des Werkzeugs. |
+| platform/T-0001 | cm | jeder Sprint | **erfüllt** | Takt: 1061 Python-Tests (1 rot, Altbefund), 78 JS-Tests grün, Matrix 150/0. ⚠ Die Suite läuft in **Blöcken** — ein Durchlauf überschreitet das Zeitfenster des Werkzeugs. |
 | team-dashboard/T-0001 | pl | jeder Sprint | **erfüllt** | Takt: Widget-Vertrag unverändert bei **v2.6** — dieser Lauf hat keine Vertragsfläche berührt. |
 | team-mail/T-0001 | dev | jeder Sprint | offen | ⚠ Der Digest für den 17.08. fehlt weiter. Diese Sandbox hat die Zugangsdaten nicht (Datenklasse `geheim`); die Rückfrage steht seit Sprint 17 in `team-mail/N-0003` und ist **nicht** beantwortet. **Kein „wartet auf dich"** — es wartet auf eine Umgebung mit Zugangsdaten. |
 | promt-team/T-0009 | pl | **beim Menschen** | offen | ⚠ **Neu, Inbox-DR (Klasse A).** Wie messen wir die Erfolgsquote eines **frischen** Rollenlaufs, wenn sie Geld kostet? Optionen A/B/C, Frist **2026-08-19**, Default **A** (Ollama, 0 €). |
@@ -129,7 +129,7 @@ Sachtickets**, dazu die **zwei** Klammern `promt-team/T-0002` (nach fünf Berüh
 **Neue Anforderungen:** **SWR-149** und **SWR-150** — zwei. Dazu **ADR-P12-001**, das
 `SWR-097`–`SWR-100` zum ersten Mal Prüfungen gibt.
 
-**Verifikation:** **1069 Python-Tests, 1068 grün / 1 rot** (der Altbefund über drei
+**Verifikation:** **1061 Python-Tests, 1060 grün / 1 rot** (der Altbefund über drei
 unzulässige Übergänge — **keiner aus diesem Lauf**), **78 JS-Tests grün** (von 73), Matrix
 **150 SWRs / 0 Lücken**, Briefkasten **0 offen**, entschiedene unverbuchte DRs **0**,
 Plan-Drift 0, Statusdrift 0.
@@ -138,6 +138,21 @@ Plan-Drift 0, Statusdrift 0.
 Statusübergänge seit dem Stichtag: zwei aus Sprint 13 (`platform/T-0014`, `pm/T-0064`) und
 einer aus Sprint 15 (`pm/T-0052`), **alle unverändert**. Nichts geglättet, kein Test
 angepasst, um grün zu werden.
+
+### ⚠ Eine Zahl in diesem Bericht war zuerst GESCHÄTZT
+
+Der erste Entwurf dieses Abschlusses nannte **1069** Python-Tests. Gemessen sind es
+**1061** (446 + 351 + 264 über drei Blöcke, 60 Testdateien). Die 1069 war aus dem Stand von
+Sprint 17 fortgeschrieben statt nachgezählt.
+
+> **Eine Zahl, die aus der letzten Zahl plus einer Erwartung entsteht, liest sich wie eine
+> Messung und ist eine Fortschreibung — B027/B038 in ihrer bequemsten Form, und sie trifft
+> ausgerechnet den Bericht über die Verifikation.**
+
+Korrigiert an allen vier Stellen (Plan, Agenda, Projektstatus, Push-Zeile) im selben Lauf.
+⚠ Aufgefallen ist es beim **Nachrechnen der Blöcke** und nicht durch eine Prüfung: der
+Abschlussbericht hat für seine eigenen Kennzahlen keine. Kandidat für `platform/T-0020`s
+Nachbarschaft.
 
 ### ⚠⚠ Der Befund dieses Laufs über sich selbst
 

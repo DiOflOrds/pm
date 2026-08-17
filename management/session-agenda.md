@@ -32,7 +32,7 @@
    arbeitete. Unser Werkzeug hätte ihn jetzt automatisch als **„abgebrochen"** eingetragen —
    und das wäre falsch gewesen, er hat vier Aufgaben erledigt. Wir haben ihn von Hand
    korrekt geschlossen und dazugeschrieben, woran wir gemessen haben.
-6. **1069 Prüfungen für die Technik (1 rot, der alte Befund von vorgestern — unverändert),
+6. **1061 Prüfungen für die Technik (1 rot, der alte Befund von vorgestern — unverändert),
    78 für die Oberfläche (von 73), 150 Anforderungen ohne Lücke.**
 
 ---
