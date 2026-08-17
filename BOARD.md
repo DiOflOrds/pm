@@ -18,13 +18,7 @@ Stand: 2026-08-17 · Tickets: 52 · davon wiederkehrend: 3
 | [T-0052](tickets/T-0052.md) | CR (Teil e aus pm/T-0038, pm/N-0031): HMI-Abschnitt „Für dich: Handlungen\" neben der Inbox — eigener Abschnitt, nicht dieselbe Liste | change-request | einmalig | pl | mittel | 0 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | niedrig | 0 | — |
 
-## in_review (1)
-
-| ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
-|---|---|---|---|---|---|---|---|
-| [T-0038](tickets/T-0038.md) | CR (B053, pm/N-0030): Tickets nennen keinen Verantwortlichen — `rolle` sagt die Fachrolle, nicht wer die Handlung tut (Team oder Mensch) | change-request | einmalig | pl | hoch | 0 | — |
-
-## done (41)
+## done (42)
 
 | ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|
@@ -50,6 +44,7 @@ Stand: 2026-08-17 · Tickets: 52 · davon wiederkehrend: 3
 | [T-0033](tickets/T-0033.md) | DR (Klasse A): G0 für Projekt P11 „Widget-Dashboard" — Auftrag, Abnahmekriterien, Abgrenzung | decision-request | einmalig | pl | hoch | 0 | — |
 | [T-0034](tickets/T-0034.md) | Problem: team-mail-Wochendigest ist seit Teamgründung fällig und wurde nie erzeugt — seit fünf Sessions unveränderte Randnotiz | problem | einmalig | prob | hoch | 0 | — |
 | [T-0036](tickets/T-0036.md) | CR (B049): Unterminierte offene Tickets sind für die Eskalationsregel B044 unsichtbar — der „ohne Frist\"-Zähler wird pro Kachel gelesen, nie als Summe | change-request | einmalig | pl | hoch | 0 | — |
+| [T-0038](tickets/T-0038.md) | CR (B053, pm/N-0030): Tickets nennen keinen Verantwortlichen — `rolle` sagt die Fachrolle, nicht wer die Handlung tut (Team oder Mensch) | change-request | einmalig | pl | hoch | 0 | — |
 | [T-0040](tickets/T-0040.md) | CR (B055, pm/N-0032+N-0033): Session-Zusammenfassung in Mission Control — was eine Session getan hat, steht heute nur in Dateien, die die HMI nicht zeigt | change-request | einmalig | pl | hoch | 0 | — |
 | [T-0041](tickets/T-0041.md) | CR: Terminierung auf Sprints statt auf Kalenderdaten — jeder Routine-Lauf ist ein Sprint | change-request | einmalig | pl | hoch | 0 | — |
 | [T-0042](tickets/T-0042.md) | Problem (B061): Die Push-Reihenfolge kann nicht beide Gates grün machen — platform prüft p0/p9, p0–p9 prüfen platform | problem | einmalig | prob | hoch | 0 | — |
