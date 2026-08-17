@@ -3,14 +3,13 @@
 Stand: 2026-08-17 · Tickets: 66 · davon wiederkehrend: 3
 
 
-## open (11)
+## open (10)
 
 | ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|---|
 | [T-0001](tickets/T-0001.md) | Takt: Session-Agenda pflegen (jede Session) | task | je Session | pl | Team | hoch | 0 | — |
 | [T-0002](tickets/T-0002.md) | Takt: Intake-Queue — neue Wünsche/Briefe qualifizieren (jede Session) | task | je Session | pl | Team | hoch | 0 | — |
 | [T-0054](tickets/T-0054.md) | CR (pm/N-0038): Der Mensch priorisiert offene Aufgaben aller Teams/Projekte für den nächsten Durchlauf — Knopf statt Einzelbearbeitung | change-request | einmalig | chg | Team | hoch | 0 | — |
-| [T-0064](tickets/T-0064.md) | CR (pm/T-0054 Teil a): Projektübergreifende Liste der offenen Aufgaben im HMI | change-request | einmalig | pl | Team | hoch | 0 | — |
 | [T-0065](tickets/T-0065.md) | CR (pm/T-0054 Teil b): Knopf je Zeile setzt geplant_sprint auf den nächsten Sprint | change-request | einmalig | chg | Team | hoch | 0 | T-0064 |
 | [T-0028](tickets/T-0028.md) | CR (pm/N-0022): Projekt-Pool — Team gründen im HMI (Steckbrief, Profil, Datenklasse, Zugänge) | change-request | einmalig | chg | Team | mittel | 0 | — |
 | [T-0052](tickets/T-0052.md) | CR (Teil e aus pm/T-0038, pm/N-0031): HMI-Abschnitt „Für dich: Handlungen\" neben der Inbox — eigener Abschnitt, nicht dieselbe Liste | change-request | einmalig | pl | Team | mittel | 0 | — |
@@ -19,17 +18,23 @@ Stand: 2026-08-17 · Tickets: 66 · davon wiederkehrend: 3
 | [T-0066](tickets/T-0066.md) | CR (pm/N-0042): Cockpit kompakter — falten statt kürzen | change-request | einmalig | pl | Team | mittel | 0 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | Team | niedrig | 0 | — |
 
+## in_review (1)
+
+| ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
+|---|---|---|---|---|---|---|---|---|
+| [T-0064](tickets/T-0064.md) | CR (pm/T-0054 Teil a): Projektübergreifende Liste der offenen Aufgaben im HMI | change-request | einmalig | pl | Team | hoch | 0 | — |
+
 ## done (55)
 
 | ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|---|
-| [T-0004](tickets/T-0004.md) | DR (Klasse A): Gründung Pilot-Team „team-mail" (Mail-Zusammenfassung) + IMAP-Lesezugriff | decision-request | einmalig | pl | MENSCH | hoch | 0 | — |
-| [T-0005](tickets/T-0005.md) | DR (Klasse A): P7 „Teams im HMI" beauftragen — Digest-Ansicht + Team-Konfiguration in Mission Control | decision-request | einmalig | pl | MENSCH | hoch | 0 | — |
+| [T-0004](tickets/T-0004.md) | DR (Klasse A): Gründung Pilot-Team „team-mail" (Mail-Zusammenfassung) + IMAP-Lesezugriff | decision-request | einmalig | pl | Team | hoch | 0 | — |
+| [T-0005](tickets/T-0005.md) | DR (Klasse A): P7 „Teams im HMI" beauftragen — Digest-Ansicht + Team-Konfiguration in Mission Control | decision-request | einmalig | pl | Team | hoch | 0 | — |
 | [T-0006](tickets/T-0006.md) | CR (N-0004): Ollama-Modell anzeigen + im Konfigurator auswählbar | change-request | einmalig | chg | Team | hoch | 0 | — |
 | [T-0007](tickets/T-0007.md) | CR (N-0005): KI-Hinweisfeld im Konfigurator (Suchauftrag / eigene Digest-Kategorie) | change-request | einmalig | chg | Team | hoch | 0 | — |
-| [T-0008](tickets/T-0008.md) | DR (Klasse A): P9 „Org-Cockpit" beauftragen — Team-/Projekt-Dashboard mit Status & Beschreibung | decision-request | einmalig | pl | MENSCH | hoch | 0 | — |
+| [T-0008](tickets/T-0008.md) | DR (Klasse A): P9 „Org-Cockpit" beauftragen — Team-/Projekt-Dashboard mit Status & Beschreibung | decision-request | einmalig | pl | Team | hoch | 0 | — |
 | [T-0009](tickets/T-0009.md) | Problem (N-0006): Auto-Push seit 15.08. 17:36 fehlgeschlagen — cmd-Klammern-Bug in :repo_push | problem | einmalig | prob | Team | hoch | 0 | — |
-| [T-0011](tickets/T-0011.md) | DR (Klasse A): P10 „Aufgaben bearbeiten im HMI" beauftragen — Tickets editieren, Labels, Typ | decision-request | einmalig | pl | MENSCH | hoch | 0 | — |
+| [T-0011](tickets/T-0011.md) | DR (Klasse A): P10 „Aufgaben bearbeiten im HMI" beauftragen — Tickets editieren, Labels, Typ | decision-request | einmalig | pl | Team | hoch | 0 | — |
 | [T-0012](tickets/T-0012.md) | CR (N-0015): Kopfbereich zeigt nur aktive Projekte/Teams — direkt anklickbar | change-request | einmalig | chg | Team | hoch | 0 | — |
 | [T-0013](tickets/T-0013.md) | Problem (platform/N-0001): board-check rot nach Board-Formatänderung — Push-Reihenfolge | problem | einmalig | prob | Team | hoch | 0 | — |
 | [T-0016](tickets/T-0016.md) | CR: Workflow-Sicht im HMI — Sprint-Plan (sprint-aktuell.md) mit Fälligkeiten anzeigen (pm/D006) | change-request | einmalig | chg | Team | hoch | 0 | — |
@@ -41,8 +46,8 @@ Stand: 2026-08-17 · Tickets: 66 · davon wiederkehrend: 3
 | [T-0024](tickets/T-0024.md) | SUP.9: Auto-Push stand seit 09:44 still — die Prozess-Abfrage im Preflight scheiterte an einer Codepage | problem | einmalig | cm | Team | hoch | 0 | — |
 | [T-0025](tickets/T-0025.md) | CR (team-mail/N-0002, Rest): Sofort-Knopf zeigt im Klartext, womit er läuft (Modell, KI-Hinweis, Takte) | change-request | einmalig | chg | Team | hoch | 0 | — |
 | [T-0026](tickets/T-0026.md) | Problem (platform/N-0006): CI rot — das Matrix-Gate sah das Sammel-Repo `projects` nicht | problem | einmalig | cm | Team | hoch | 0 | — |
-| [T-0031](tickets/T-0031.md) | DR (Klasse A): Gründung Team „team-dashboard" (Pool-Kandidat #13) — Steckbrief, Profil, Datenklasse, Zuschnitt Bau/Betrieb | decision-request | einmalig | pl | MENSCH | hoch | 0 | — |
-| [T-0033](tickets/T-0033.md) | DR (Klasse A): G0 für Projekt P11 „Widget-Dashboard" — Auftrag, Abnahmekriterien, Abgrenzung | decision-request | einmalig | pl | MENSCH | hoch | 0 | — |
+| [T-0031](tickets/T-0031.md) | DR (Klasse A): Gründung Team „team-dashboard" (Pool-Kandidat #13) — Steckbrief, Profil, Datenklasse, Zuschnitt Bau/Betrieb | decision-request | einmalig | pl | Team | hoch | 0 | — |
+| [T-0033](tickets/T-0033.md) | DR (Klasse A): G0 für Projekt P11 „Widget-Dashboard" — Auftrag, Abnahmekriterien, Abgrenzung | decision-request | einmalig | pl | Team | hoch | 0 | — |
 | [T-0034](tickets/T-0034.md) | Problem: team-mail-Wochendigest ist seit Teamgründung fällig und wurde nie erzeugt — seit fünf Sessions unveränderte Randnotiz | problem | einmalig | prob | Team | hoch | 0 | — |
 | [T-0036](tickets/T-0036.md) | CR (B049): Unterminierte offene Tickets sind für die Eskalationsregel B044 unsichtbar — der „ohne Frist\"-Zähler wird pro Kachel gelesen, nie als Summe | change-request | einmalig | pl | Team | hoch | 0 | — |
 | [T-0038](tickets/T-0038.md) | CR (B053, pm/N-0030): Tickets nennen keinen Verantwortlichen — `rolle` sagt die Fachrolle, nicht wer die Handlung tut (Team oder Mensch) | change-request | einmalig | pl | Team | hoch | 0 | — |
@@ -52,7 +57,7 @@ Stand: 2026-08-17 · Tickets: 66 · davon wiederkehrend: 3
 | [T-0042](tickets/T-0042.md) | Problem (B061): Die Push-Reihenfolge kann nicht beide Gates grün machen — platform prüft p0/p9, p0–p9 prüfen platform | problem | einmalig | prob | Team | hoch | 0 | — |
 | [T-0049](tickets/T-0049.md) | Befund: Der Plan sagt „erledigt\", das Ticket sagt „open\" — die Statusspalte wird gegen nichts gehalten | problem | einmalig | pl | Team | hoch | 0 | — |
 | [T-0055](tickets/T-0055.md) | Bug (pm/N-0039): Briefkasten meldet „Commit fehlgeschlagen\" und verschweigt, dass die Nachricht gespeichert ist — Ursache: verwaiste index.lock | problem | einmalig | dev | Team | hoch | 0 | — |
-| [T-0056](tickets/T-0056.md) | DR (pm/N-0040): promt-team gründen? — Klasse A: Profil, Datenklasse, Zugänge und Wirkbereich brauchen deine Freigabe | decision-request | einmalig | mensch | MENSCH | hoch | 0 | — |
+| [T-0056](tickets/T-0056.md) | DR (pm/N-0040): promt-team gründen? — Klasse A: Profil, Datenklasse, Zugänge und Wirkbereich brauchen deine Freigabe | decision-request | einmalig | mensch | Team | hoch | 0 | — |
 | [T-0059](tickets/T-0059.md) | CR (pm/T-0039 Teil a): Der Brief wird ein Verlauf — Beitragsformat, Schreibpfad, Statusrücksetzung | change-request | einmalig | dev | Team | hoch | 0 | — |
 | [T-0010](tickets/T-0010.md) | Problem (N-0007): board-check-Flake — Stand-Datum kippt um Mitternacht | problem | einmalig | prob | Team | mittel | 0 | — |
 | [T-0014](tickets/T-0014.md) | CR (N-0017): Cockpit zeigt wiederkehrende Aufgaben im Klartext statt als Symbol | change-request | einmalig | chg | Team | mittel | 0 | — |
@@ -63,7 +68,7 @@ Stand: 2026-08-17 · Tickets: 66 · davon wiederkehrend: 3
 | [T-0029](tickets/T-0029.md) | Problem (pm/N-0024): Projekt-Pool — 'Quelle' auch bei 4000 Zeichen (T-0027) noch zu eng | problem | einmalig | prob | Team | mittel | 0 | — |
 | [T-0030](tickets/T-0030.md) | CR (pm/N-0025): Offene Aufgaben terminieren — Fristen für Backlog-Tickets, echter Takt für wiederkehrende Aufgaben | change-request | einmalig | pl | Team | mittel | 0 | — |
 | [T-0032](tickets/T-0032.md) | CR (pm/N-0025, Teil 2): Echter Uhrzeit-Takt für wiederkehrende Aufgaben — Abgrenzung zu F14 und den team-mail-Takten | change-request | einmalig | pl | Team | mittel | 0 | — |
-| [T-0035](tickets/T-0035.md) | DR (Klasse A): Anthropic-API-Key (p0/T-0008) — weiterverfolgen, schließen oder jetzt umsetzen? | decision-request | einmalig | pl | MENSCH | mittel | 0 | — |
+| [T-0035](tickets/T-0035.md) | DR (Klasse A): Anthropic-API-Key (p0/T-0008) — weiterverfolgen, schließen oder jetzt umsetzen? | decision-request | einmalig | pl | Team | mittel | 0 | — |
 | [T-0037](tickets/T-0037.md) | CR (B051): Der „Starten\"-Knopf löscht den Pool-Kandidaten spurlos und legt ein Decision-Log ohne Tabellenkopf an | change-request | einmalig | pl | Team | mittel | 0 | — |
 | [T-0043](tickets/T-0043.md) | Problem: board-check von p3 und p5 seit 16.08. rot — die Board-Formatänderung ist als Ursache widerlegt | problem | einmalig | prob | Team | mittel | 0 | — |
 | [T-0044](tickets/T-0044.md) | Problem: Plandatei und Ticket sagten verschiedene Sprints — sieben Zeilen, unbemerkt, weil beide Quellen für sich stimmig aussahen | problem | einmalig | pl | Team | mittel | 0 | — |
