@@ -36,8 +36,12 @@
    „Altbestand hat 0, erwartet sind 52" sagt: ein Fehlalarm aus einem Kategorienfehler.
    Behoben mit einer benannten Vorbedingung statt mit einer stillen Sonderbehandlung.
 8. **Vier Sachtickets geschlossen** (`pm/T-0047`, `pm/T-0048`, `pm/T-0050`, `pm/T-0051`)
-   plus sechs Takt-Pflichten. **Kein offener Brief.** Preflight STARTKLAR, unterminiert 0,
-   überfällig 0, Statusdrift 0.
+   plus sechs Takt-Pflichten. Preflight STARTKLAR, unterminiert 0, überfällig 0,
+   Statusdrift 0, **655 Tests grün** (+54), Matrix **120 SWRs / 0 Lücken**.
+9. **Ein Brief kam während des Laufs** (`pm/N-0038`, E. John): ein Knopf zum Priorisieren
+   offener Aufgaben für den nächsten Durchlauf. Beantwortet, als `pm/T-0054` eingeplant
+   (Klasse B, kein DR nötig) — und die Feldfrage darin ist **im Ticket entschieden**
+   statt als Vorbedingung davorgestellt, nach der Lehre dieses Sprints (L-2026-08-17p).
 
 ## Sprint-Plan
 
@@ -55,6 +59,7 @@ blockiert. **Fest geplant** ist Sprint 10 (HORIZONT 2); ab Sprint 11 ist die Num
 | pm/T-0048 | cm | dieser Sprint | **erledigt** | **Der Befund war um den Faktor 25 zu klein.** Nicht zwei Altfälle, sondern **52**. **SWR-118**: die Übergangsprüfung liest die **committete Historie** statt der Differenz Arbeitskopie/HEAD — sie hängt damit an gar keinem Zeitpunkt mehr. Altbestand per **Stichtag** ausgenommen, Größe festgenagelt. 14 Tests. |
 | pm/T-0050 | pl | dieser Sprint | **erledigt** | **Die Board-Formatänderung, allein in ihrem Schritt.** `BOARD.md`-Spalte „Verantwortlich" (SWR-116-Feld). Alle 16 Boards regeneriert und validiert. |
 | pm/T-0051 | pl | dieser Sprint | **erledigt** | Zähler „wartet auf den Menschen" **mit Refs** — als **zweiter Schlüssel** in den Kopfblock aus `T-0047`, also Ergänzung in eine feststehende Form statt zweiter Vertragsfrage. Genau die Reihenfolge, die das Ticket verlangt. |
+| pm/T-0054 | chg | Sprint 10 | offen | **Neu, Brief `pm/N-0038` vom Auftraggeber** (während des Laufs eingegangen): ein Knopf, mit dem der Mensch offene Aufgaben aller Teams/Projekte für den nächsten Durchlauf terminiert. **Klasse B**, kein DR nötig. Die Feldfrage (`prio` vs. `geplant_sprint`) ist **im Ticket entschieden** — nach L-2026-08-17p aus genau diesem Sprint. Frist 24.08. |
 | pm/T-0053 | pl | Sprint 10 | offen | **Neu, aus `pm/T-0048`.** 21× `open -> in_review` sieht nicht nach Schludern aus, sondern nach einem Ablauf, den `UEBERGAENGE` nicht kennt. Ob die **Regel** stimmt, ist eine eigene Frage — im selben Lauf mit `T-0048` wäre es B025. Frist 24.08. |
 | pm/T-0039 | pl | Sprint 10 | offen | Am Brief weiterkommentieren — eigene Fläche (Dateiformat, Schreibpfad, Statuslogik, HMI). Grund unten im Abschluss. Frist 23.08. |
 | pm/T-0052 | pl | Sprint 10 | offen | HMI-Abschnitt „Für dich: Handlungen" neben der Inbox. **Jetzt technisch bereit** — der Zähler aus `T-0051` liefert die Refs. |
@@ -63,7 +68,7 @@ blockiert. **Fest geplant** ist Sprint 10 (HORIZONT 2); ab Sprint 11 ist die Num
 | projects/p11/T-0003 | pl | wartet-auf-Mensch | **blocked** | `blocked_by: [T-0006]`. Frist 20.08. Reißt die DR-Frist am 19.08., reißt diese einen Tag später mit. |
 | projects/p12/T-0003 | pl | Sprint 11 | offen | Sprint 1 des Projekts (Renderer zusammenführen) — Umfang mehrerer Läufe. |
 | pm/T-0001 | pl | jeder Sprint | erfüllt | Takt: Session-Agenda fortgeschrieben. |
-| pm/T-0002 | pl | jeder Sprint | erfüllt | Takt: Briefkasten qualifiziert — **kein offener Brief**. |
+| pm/T-0002 | pl | jeder Sprint | erfüllt | Takt: Briefkasten qualifiziert — **ein Brief** (`pm/N-0038`) eingegangen, beantwortet und als `pm/T-0054` eingeplant. |
 | pm/T-0003 | coach | jeder Sprint | erfüllt | Takt: Lessons sofort verankert (L-2026-08-17p, L-2026-08-17q). |
 | platform/T-0001 | cm | jeder Sprint | erfüllt | Takt: Preflight, Tests, Matrix. |
 | team-mail/T-0001 | dev | jeder Sprint | erfüllt | Takt: Digest — fällig ab IMAP-Einrichtung, die weiterhin aussteht. Keine Arbeit, kein Verzug. |
@@ -202,6 +207,10 @@ denn gegen einen Fehler, den der Parser schluckt, hilft der Parser nicht.
   braucht die Refs aus `T-0051`; die liegen seit diesem Lauf vor. Das Ticket ist damit
   **bereit** und wartet nur noch auf einen Lauf, nicht mehr auf eine Voraussetzung.
 * `pm/T-0053` — Sprint 10, **neu aus `T-0048`**. Frist 24.08.
+* `pm/T-0054` — Sprint 10, **neu aus Brief `pm/N-0038`**. Frist 24.08. **Grund für Sprint 10
+  und nicht diesen: vier bereits angefasste Flächen** (Prüfstrecke zweimal, `BOARD.md`-Format
+  in 16 Repos, Widget-Vertrag in zwei Versionen). Eine fünfte wäre B025 — mit einer
+  zählbaren Begründung statt einer gefühlten. **Erste Verschiebung.**
 * `pm/T-0028` — Sprint 10, Frist 23.08. Klasse A, das HMI darf nur vorbereiten.
 * `projects/p12/T-0003` — Sprint 11, unverändert in der Reihenfolge.
 * `projects/p11/T-0006` bleibt **vorgelegt** (Frist 19.08.), `p11/T-0003` bleibt
