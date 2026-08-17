@@ -18,7 +18,7 @@ Stand: 2026-08-17 · Tickets: 68 · davon wiederkehrend: 3
 | [T-0066](tickets/T-0066.md) | CR (pm/N-0042): Cockpit kompakter — falten statt kürzen | change-request | einmalig | pl | Team | mittel | 0 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | Team | niedrig | 0 | — |
 
-## in_progress (1)
+## in_review (1)
 
 | ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|---|
