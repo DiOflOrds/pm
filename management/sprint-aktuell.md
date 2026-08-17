@@ -95,7 +95,7 @@
     in der Feldliste?). Die Nummer ist der Beleg, das Feld ist die Sache.
 13. **1016 Python-Tests, davon 1 rot** (der Altbefund über drei unzulässige Statusübergänge
     aus den Sprints 13 und 15 — **keiner aus diesem Lauf**), **65 JS-Tests grün** (von 51),
-    Matrix **147 SWRs / 0 Lücken**, Briefkasten **0 offen** (Start, mittendrin **1 neuer**,
+    Matrix **147 SWRs / 0 Lücken** (Stand unserer Messung; der Bestand steht beim Abschluss bei **148 / 0** — SWR-148 kommt vom parallelen Lauf), Briefkasten **0 offen** (Start, mittendrin **1 neuer**,
     beantwortet, Abschluss wieder 0), entschiedene unverbuchte DRs **0**, Plan-Drift 0,
     Statusdrift 0.
     ⚠ **Nicht startklar**, und das bleibt die richtige Meldung. Kein Stichtag verschoben,
@@ -155,8 +155,7 @@ Takt-Pflichten.
 **Neue Anforderungen:** **SWR-144** bis **SWR-147** — vier.
 
 **Verifikation:** **1016 Python-Tests, 1015 grün / 1 rot** (der Altbefund über drei
-unzulässige Übergänge — **keiner aus diesem Lauf**), **65 JS-Tests grün** (von 51), Matrix
-**147 SWRs / 0 Lücken**, Briefkasten **0 offen** (Start; **1 neuer Brief mitten im Lauf**,
+unzulässige Übergänge — **keiner aus diesem Lauf**), **65 JS-Tests grün** (von 51) — beim Abschluss **73**, weil der parallele Lauf acht beigesteuert hat —, Matrix **147 SWRs / 0 Lücken** bei unserer Messung und **148 / 0** beim Abschluss, Briefkasten **0 offen** (Start; **1 neuer Brief mitten im Lauf**,
 beantwortet; Abschluss wieder 0), entschiedene unverbuchte DRs **0**, Plan-Drift 0,
 Statusdrift 0.
 

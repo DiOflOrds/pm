@@ -42,7 +42,9 @@
    keine abgeschlossene Runde, sondern eine falsche Buchung. Wer zuletzt fertig wird,
    schließt ihn.
 6. **1016 Prüfungen für die Technik (1 rot, der alte Befund von vorgestern — unverändert),
-   65 für die Oberfläche (von 51), 147 Anforderungen ohne Lücke.** **Bei dir liegt nichts
+   65 für die Oberfläche (von 51), 147 Anforderungen ohne Lücke.** ⚠ Das ist **unser**
+   Stand; als wir fertig waren, standen dank der zweiten Sitzung 73 bzw. 148 da. Beide
+   Zahlen stimmen — zu verschiedenen Zeitpunkten. **Bei dir liegt nichts
    Neues** — außer der einen Frage zu den Zugangsdaten.
 
 ---
