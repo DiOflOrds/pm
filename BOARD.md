@@ -1,9 +1,9 @@
 # Board (generiert von platform/scripts/board.py — nicht von Hand editieren)
 
-Stand: 2026-08-17 · Tickets: 43 · davon wiederkehrend: 3
+Stand: 2026-08-17 · Tickets: 45 · davon wiederkehrend: 3
 
 
-## open (8)
+## open (9)
 
 | ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|
@@ -14,9 +14,10 @@ Stand: 2026-08-17 · Tickets: 43 · davon wiederkehrend: 3
 | [T-0039](tickets/T-0039.md) | CR (B054, pm/N-0031): Am Brief weiterkommentieren statt einen neuen zu schreiben — der Briefkasten kennt nur ein Frage/Antwort-Paar je Datei | change-request | einmalig | pl | hoch | 0 | — |
 | [T-0028](tickets/T-0028.md) | CR (pm/N-0022): Projekt-Pool — Team gründen im HMI (Steckbrief, Profil, Datenklasse, Zugänge) | change-request | einmalig | chg | mittel | 0 | — |
 | [T-0043](tickets/T-0043.md) | Problem: board-check von p3 und p5 seit 16.08. rot — die Board-Formatänderung ist als Ursache widerlegt | problem | einmalig | prob | mittel | 0 | — |
+| [T-0045](tickets/T-0045.md) | Problem: Ein offenes Ticket auf einem vergangenen Sprint fällt niemandem auf — „überfällig 0\" sagt nichts darüber | problem | einmalig | pl | mittel | 0 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | niedrig | 0 | — |
 
-## done (35)
+## done (36)
 
 | ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|
@@ -55,3 +56,4 @@ Stand: 2026-08-17 · Tickets: 43 · davon wiederkehrend: 3
 | [T-0032](tickets/T-0032.md) | CR (pm/N-0025, Teil 2): Echter Uhrzeit-Takt für wiederkehrende Aufgaben — Abgrenzung zu F14 und den team-mail-Takten | change-request | einmalig | pl | mittel | 0 | — |
 | [T-0035](tickets/T-0035.md) | DR (Klasse A): Anthropic-API-Key (p0/T-0008) — weiterverfolgen, schließen oder jetzt umsetzen? | decision-request | einmalig | pl | mittel | 0 | — |
 | [T-0037](tickets/T-0037.md) | CR (B051): Der „Starten\"-Knopf löscht den Pool-Kandidaten spurlos und legt ein Decision-Log ohne Tabellenkopf an | change-request | einmalig | pl | mittel | 0 | — |
+| [T-0044](tickets/T-0044.md) | Problem: Plandatei und Ticket sagten verschiedene Sprints — sieben Zeilen, unbemerkt, weil beide Quellen für sich stimmig aussahen | problem | einmalig | pl | mittel | 0 | — |

@@ -2,44 +2,51 @@
 
 ## Das Wichtigste
 
-1. **Wir sind in Sprint 5** (2026-08-17, Takt 60 Min). Der Zähler steht in
+1. **Wir sind in Sprint 6** (2026-08-17, Takt 60 Min). Der Zähler steht in
    `pm/management/sprints.jsonl`, eine Zeile je Lauf.
-2. **⚠ Der Auto-Wächter am Host lief seit dem 17.08. bei JEDEM Lauf ins Leere** — alle
-   15 Minuten, rund zweihundert Mal. `board.py` starb im `board-check` von `pm` an einer
-   Kodierung; `abschluss.cmd` kam nie bis zum Push. Behoben: **`platform/T-0007`**.
-3. **Damit ist die Begründung der letzten drei Sprints widerlegt.** „Der Beleg kommt von
-   selbst" war falsch: er konnte nicht kommen. Der Beweis lag in `abschluss-auto.log` im
-   Arbeitsordner — und `PUSH-ANFORDERUNG.txt` mit **zwei** Zeilen war das Signal, das die
-   Organisation sich am 16.08. selbst aufgeschrieben hatte.
-4. **`p11/T-0005` ist erledigt** — und der Layout-Entwurf hat die Frage umgedreht: nicht
-   die Kachelzahl sprengt das Budget, sondern **ein Feld** (`letzte_baseline`, bis zu
-   300 Zeichen, ohne Grenze im Vertrag).
-5. **492 Tests grün** (+6), Matrix **108 SWRs / 0 Lücken**, Preflight STARTKLAR, **kein
-   offener Brief** (48), unterminiert 0, überfällig 0.
+2. **⚠ Der Wächter bricht weiter ab — aber an einer späteren Stelle, und das ist der
+   Beleg.** Der erste Lauf nach der T-0007-Reparatur (03:59) kam bis
+   `PREFLIGHT: STARTKLAR` und starb dann beim **Melden** eines Befundes statt beim
+   **Lesen**. Behoben: **`platform/T-0009`**, 11 Tests, Suite 492 → **503**.
+3. **⚠ Zwei Sätze aus Sprint 5 sind widerlegt.** Nicht „seit dem 17.08. kein einziger
+   Push" und nicht „rund zweihundert Mal": das Protokoll zählt für den 17.08.
+   **12 Läufe, 4 erfolgreiche Pushes, 9 Fehler** — und die Fehlserie beginnt um
+   **02:14**, 20 Minuten nach dem Commit, der das Zeichen einbrachte. Die Diagnose war
+   richtig, die Reichweite war geschätzt statt gezählt.
+4. **⚠ Befund im Planen selbst: sieben Planzeilen sagten etwas anderes als ihr Ticket.**
+   Sprint 5 hat fünf Aufgaben in dieser Datei „eine Nummer nach hinten" geschoben und
+   die Ticketfelder nicht angefasst. Aufgelöst und ab jetzt geprüft (**SWR-109**).
+5. **503 Tests grün** (+11), Matrix **109 SWRs / 0 Lücken**, Preflight STARTKLAR, **kein
+   offener Brief** (48), unterminiert 0, überfällig 0, **Plan-Drift 0**.
 
 ## Sprint-Plan
 
-*Sprint 5 = dieser Lauf (2026-08-17, Takt 60 Min). Default nach pm/D006: in diesem Sprint
+*Sprint 6 = dieser Lauf (2026-08-17, Takt 60 Min). Default nach pm/D006: in diesem Sprint
 schließen. Verschieben nur mit Grund — Mensch nötig, zu groß (dann zerlegen) oder
-blockiert. **Fest geplant** ist Sprint 6 (HORIZONT 2); ab Sprint 7 ist die Nummer eine
+blockiert. **Fest geplant** ist Sprint 7 (HORIZONT 2); ab Sprint 8 ist die Nummer eine
 **Reihenfolge**, keine Zusage.*
+
+*Die Fälligkeitsspalte und das Feld `geplant_sprint` im Ticket sagen dasselbe. Das ist
+seit diesem Sprint keine Sorgfaltsfrage mehr, sondern geprüft: `sprint.plan_drift`
+meldet jede Zeile, die von ihrem Ticket abweicht (SWR-109).*
 
 | Aufgabe | Rolle | Fällig | Status | Grund / nächster Schritt |
 |---|---|---|---|---|
-| platform/T-0007 | cm | dieser Sprint | **erledigt** | **Nicht geplant gewesen — im Startcheck gefunden.** Git-Ausgabe wird fest als UTF-8 gelesen (33 Aufrufstellen, 15 Dateien); ein Lesefehler wird ein **Befund** statt eines Absturzes. 6 Tests, Suite 486 → 492. |
-| projects/p11/T-0005 | pl | dieser Sprint | **erledigt** | Layout-Entwurf `architecture/layout-entwurf-fhd.md`. 7 Spalten × 3 Reihen passen — aber nur außerhalb des 62rem-Korridors. DR `p11/T-0006` vorgelegt. |
-| projects/p11/T-0006 | pl | wartet-auf-Mensch | **vorgelegt** | **Neu.** DR an den Auftraggeber: Dashboard verlässt den Textkorridor (LAY-a/b/c, Frist 19.08., Default LAY-a). Für das Team ist daran nichts mehr offen. |
+| platform/T-0009 | cm | dieser Sprint | **erledigt** | **Nicht geplant gewesen — im Startcheck gefunden.** Der Wächter starb am `print` eines Befundes. Zwei unabhängige Ursachen: die T-0007-Reparatur hat an den drei Stellen, an denen Python Python aufruft, eine funktionierende Kodierungspaarung zerstört; und 121 Ticketdateien tragen ein „→", das cp1252 nicht ausgeben kann. Neu `scripts/konsole.py`, 11 Tests, Suite 492 → 503. |
+| pm/T-0044 | pl | dieser Sprint | **erledigt** | **Neu, im Sprint-Planning gefunden.** Sieben Planzeilen wichen von ihrem Ticket ab. Tickets nachgezogen, Prüfung gebaut (SWR-109). |
+| platform/T-0008 | cm | dieser Sprint | offen | Übergangsprüfung läuft in `p10`/`p11`/`p12` ins Leere. Frist 20.08. |
+| team-dashboard/T-0002 | pl | dieser Sprint | offen | `letzte_baseline` trägt Tag **und** Annotation unter einem Namen, ohne Längengrenze. Frist 19.08. |
+| projects/p11/T-0006 | pl | wartet-auf-Mensch | vorgelegt | DR an den Auftraggeber: Dashboard verlässt den Textkorridor (LAY-a/b/c, Frist 19.08., Default LAY-a). Für das Team ist daran nichts mehr offen. |
 | pm/T-0001 | pl | jeder Sprint | erfüllt | Takt: Session-Agenda fortgeschrieben. |
-| pm/T-0002 | pl | jeder Sprint | erfüllt | Takt: Briefkasten qualifiziert — 48 Briefe, **kein offener**; DR-Rohdaten gegengeprüft, nichts Unverbuchtes. |
-| pm/T-0003 | coach | jeder Sprint | erfüllt | Takt: L-2026-08-17j und L-2026-08-17k sofort verankert. |
-| platform/T-0001 | cm | jeder Sprint | erfüllt | Takt: Preflight STARTKLAR, 492 Tests grün, Matrix 108/0. |
+| pm/T-0002 | pl | jeder Sprint | erfüllt | Takt: Briefkasten qualifiziert — 48 Briefe, **kein offener**. |
+| pm/T-0003 | coach | jeder Sprint | erfüllt | Takt: L-2026-08-17l und L-2026-08-17m sofort verankert. |
+| platform/T-0001 | cm | jeder Sprint | erfüllt | Takt: Preflight STARTKLAR, 503 Tests grün, Matrix 109/0. |
 | team-mail/T-0001 | dev | jeder Sprint | erfüllt | Takt: Digest — fällig ab IMAP-Einrichtung, die weiterhin aussteht. Keine Arbeit, kein Verzug. |
-| team-dashboard/T-0001 | pl | jeder Sprint | erfüllt | Takt: Vertrag unverändert v2. Neuer Bedarf aus P11 als `team-dashboard/T-0002` aufgenommen. |
-| team-dashboard/T-0002 | pl | Sprint 6 | offen | **Neu, Rollenzuweisung nach D006.** `letzte_baseline` trägt Tag **und** Annotation unter einem Namen und hat keine Längengrenze (300 Zeichen bei p1). Gefunden in `p11/T-0005`, zuständig ist der Vertragsinhaber. Frist 19.08. |
-| platform/T-0008 | cm | Sprint 6 | offen | **Neu, gefunden wegen T-0007.** In `p10`/`p11`/`p12` (verschachtelt in `projects`) läuft die Status-Übergangsprüfung ins Leere — lautlos. Nicht mitgebaut: B025, und die Korrektur schaltet eine nie gelaufene Prüfung ein (braucht Urteil, nicht nur Fix). |
-| platform/T-0004 | cm | Sprint 6 | in_review | SWR-107. Beleg weiterhin offen, **aber der Grund ist jetzt behoben statt vermutet**. Frist 18.08. reißt — als Werkzeugdefekt gemeldet, nicht als „wartet auf den Host". |
-| pm/T-0043 | prob | Sprint 6 | offen | `p3`/`p5` rot. Derselbe Weg zum Beleg war blockiert, ist es nicht mehr. Kein `blocked` (Verweis ginge über Repo-Grenzen, B047). Frist 19.08. |
-| projects/p11/T-0003 | pl | Sprint 6 | offen | Restumfang: Konfiguration, Detailseiten, Mail-Widget, Tests je SWR, G4 als Inbox-DR. **Erste Bauhandlung hängt an `p11/T-0006`** (Rahmenbreite) und an `team-dashboard/T-0002` (Feldgrenze). Frist 20.08. |
+| team-dashboard/T-0001 | pl | jeder Sprint | erfüllt | Takt: Vertrag unverändert v2; die offene Frage liegt in `T-0002`. |
+| platform/T-0004 | cm | Sprint 7 | in_review | SWR-107. **Zweiter Wartegrund in Folge, deshalb geprüft statt vermerkt (L-2026-08-17j Regel 2):** der Grund war diesmal nachweislich `T-0009`. Frist 18.08. reißt — als Werkzeugdefekt gemeldet. |
+| pm/T-0043 | prob | Sprint 7 | offen | `p3`/`p5` rot. Derselbe Beleg wie `T-0004`, dieselbe Ursache, derselbe neue Termin. Kein `blocked` (Verweis ginge über Repo-Grenzen, B047). Frist 19.08. |
+| projects/p11/T-0003 | pl | Sprint 7 | offen | Restumfang: Konfiguration, Detailseiten, Mail-Widget, Tests je SWR, G4 als Inbox-DR. **Erste Bauhandlung hängt an `p11/T-0006`** (Rahmenbreite) und an `team-dashboard/T-0002` (Feldgrenze). Frist 20.08. |
+| pm/T-0045 | pl | Sprint 7 | offen | **Neu, Nebenbefund aus `pm/T-0044`.** Ein offenes Ticket auf einem **vergangenen** Sprint meldet niemand — beim Start dieses Sprints traf das auf zwei zu, während „überfällig 0" gemeldet wurde. Nicht mitgebaut: die Abgrenzung zu erledigten und geparkten Tickets braucht Urteil (B025). Frist 20.08. |
 | pm/T-0036 | pl | Sprint 7 | offen | Ändert das `BOARD.md`-Format, gebündelt mit `pm/T-0038` (B053). |
 | pm/T-0038 | pl | Sprint 7 | offen | Gebündelt mit `pm/T-0036`, gleicher Grund. |
 | pm/T-0039 | pl | Sprint 8 | offen | Eigene Fläche (Dateiformat, Schreibpfad, Statuslogik, HMI) — mit anderem zusammen wäre es B025. |
@@ -49,11 +56,11 @@ blockiert. **Fest geplant** ist Sprint 6 (HORIZONT 2); ab Sprint 7 ist die Numme
 **Warum sechs Zeilen keine Nummer tragen.** `pm/T-0001`, `pm/T-0002`, `pm/T-0003`,
 `platform/T-0001`, `team-mail/T-0001` und `team-dashboard/T-0001` sind Takt-Dauerläufer
 (`takt: je-session`): sie laufen in **jedem** Sprint. Eine Nummer daneben wäre eine zweite
-Aussage über dieselbe Sache (B033).
+Aussage über dieselbe Sache (B033) — und genau deshalb nimmt `plan_drift` sie aus.
 
-**Rollenzuweisungen in diesem Sprint (D006):** `team-dashboard/T-0002` geht von `pl`/P11
-an `pl`/DASH-RED — der Fund kam beim Layout-Entwurf, die Zuständigkeit liegt beim
-Vertragsinhaber. `platform/T-0008` geht an `cm`, weil es Werkzeugfläche ist.
+**Rollenzuweisungen in diesem Sprint (D006):** `pm/T-0044` liegt bei `pl`, weil der
+Befund die Planung selbst betrifft und nicht das Werkzeug — die Prüfung ist die Folge,
+nicht die Sache.
 
 ---
 
