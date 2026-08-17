@@ -28,7 +28,7 @@ blockiert. **Fest geplant** ist Sprint 6 (HORIZONT 2); ab Sprint 7 ist die Numme
 |---|---|---|---|---|
 | platform/T-0007 | cm | dieser Sprint | **erledigt** | **Nicht geplant gewesen — im Startcheck gefunden.** Git-Ausgabe wird fest als UTF-8 gelesen (33 Aufrufstellen, 15 Dateien); ein Lesefehler wird ein **Befund** statt eines Absturzes. 6 Tests, Suite 486 → 492. |
 | projects/p11/T-0005 | pl | dieser Sprint | **erledigt** | Layout-Entwurf `architecture/layout-entwurf-fhd.md`. 7 Spalten × 3 Reihen passen — aber nur außerhalb des 62rem-Korridors. DR `p11/T-0006` vorgelegt. |
-| projects/p11/T-0006 | pl | dieser Sprint | **vorgelegt** | **Neu.** DR an den Auftraggeber: Dashboard verlässt den Textkorridor (LAY-a/b/c, Frist 19.08., Default LAY-a). Wartet auf den Menschen — keine Teamarbeit offen. |
+| projects/p11/T-0006 | pl | wartet-auf-Mensch | **vorgelegt** | **Neu.** DR an den Auftraggeber: Dashboard verlässt den Textkorridor (LAY-a/b/c, Frist 19.08., Default LAY-a). Für das Team ist daran nichts mehr offen. |
 | pm/T-0001 | pl | jeder Sprint | erfüllt | Takt: Session-Agenda fortgeschrieben. |
 | pm/T-0002 | pl | jeder Sprint | erfüllt | Takt: Briefkasten qualifiziert — 48 Briefe, **kein offener**; DR-Rohdaten gegengeprüft, nichts Unverbuchtes. |
 | pm/T-0003 | coach | jeder Sprint | erfüllt | Takt: L-2026-08-17j und L-2026-08-17k sofort verankert. |
@@ -157,3 +157,18 @@ das überlebt eine Verschiebung ihren Anlass.
 geschlossen (`platform/T-0007`, `p11/T-0005`), zwei neu offen (`platform/T-0008`,
 `team-dashboard/T-0002`), einer vorgelegt und einer aus der Vorwoche gezählt. Die Zahl
 steht hier ausgeschrieben, damit sie nicht als Stillstand gelesen wird (B041 Regel 3).
+
+## Nachtrag zur Sprint-Sicht (Verifikation, Sprint 5)
+
+Beim Gegenlesen mit `sprint.plan()` meldete der Zähler `wartet_auf_mensch: 0`, während
+`p11/T-0006` genau darauf wartet. Ursache war **diese Datei, nicht das Werkzeug**: die
+Fälligkeitsspalte trug „dieser Sprint" und der Zustand das selbst erfundene Wort
+„vorgelegt". `sprint.py` erkennt die Zuständigkeit an der Wendung **`wartet-auf-Mensch`**
+(SWR-103, Befund B057) — und eine Planzeile, die eine eigene Vokabel benutzt, macht die
+Zahl daneben still falsch.
+
+Korrigiert: die Zeile trägt jetzt `wartet-auf-Mensch` in der Fälligkeitsspalte. Das ist
+dieselbe Familie wie B033 und ein kleiner Beleg für dieselbe Regel wie der Sprintbefund
+oben — **ein Werkzeug, das eine Zahl bildet, muss die Sprache lesen können, in der der
+Plan geschrieben ist.** Gefunden nur, weil die Sicht gegen den echten Bestand gelaufen
+ist und nicht bloß geschrieben wurde.
