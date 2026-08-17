@@ -67,9 +67,13 @@
     `test_org_kopfblock` aus demselben Grund. **In allen fünf Fällen wurde die
     PROVOKATION ersetzt, nie die Erwartung.** Dritter bis siebter Fall dieser Sorte in
     zwei Sprints.
-12. **738 Tests grün** (+15 gegenüber der Zwischenmessung, +49 gegenüber Sprint 10),
-    Matrix **127 SWRs / 0 Lücken**. **Kein Kalenderdatum mehr an einer Teamaufgabe im
-    ganzen Bestand.**
+12. **⚠ Der Abschluss-Testlauf hat den Vertrag nachgefordert, den der Lauf vergessen
+    hatte.** `test_vertrag_feldliste` meldete zwei Payload-Schlüssel, die der
+    Widget-Vertrag nicht kannte (`kalenderfristen_*`). **Zweimal in Folge derselbe Ablauf**
+    — v2.3 trägt denselben Vermerk. Wer Code ändert, sieht den Vertrag nicht: er liegt in
+    einem anderen Repo. Vertrag auf **v2.4**, Lesson `L-2026-08-17y`.
+13. **741 Tests grün** (+52 gegenüber Sprint 10), Matrix **127 SWRs / 0 Lücken**.
+    **Kein Kalenderdatum mehr an einer Teamaufgabe im ganzen Bestand.**
 
 ## Sprint-Plan
 
@@ -112,7 +116,7 @@ an einer Teamaufgabe), beide zählen als Befund.*
 | pm/T-0003 | coach | jeder Sprint | erfüllt | Takt: Lessons sofort verankert. |
 | platform/T-0001 | cm | jeder Sprint | erfüllt | Takt: Preflight, Tests, Matrix. |
 | team-mail/T-0001 | dev | jeder Sprint | erfüllt | Takt: Digest — fällig ab IMAP-Einrichtung, die weiterhin aussteht. Keine Arbeit, kein Verzug. |
-| team-dashboard/T-0001 | pl | jeder Sprint | erfüllt | Takt: Widget-Vertrag — Payload um `kalenderfristen` erweitert (SWR-125), Vertrag entsprechend gelesen. |
+| team-dashboard/T-0001 | pl | jeder Sprint | erfüllt | Takt: Widget-Vertrag auf **v2.4** — Payload um `kalenderfristen_*` erweitert (SWR-125). ⚠ Nachgezogen erst, nachdem `test_vertrag_feldliste` es beim Abschluss **eingefordert** hat; zweimal in Folge derselbe Ablauf. |
 
 **Warum sechs Zeilen keine Nummer tragen.** `pm/T-0001`, `pm/T-0002`, `pm/T-0003`,
 `platform/T-0001`, `team-mail/T-0001` und `team-dashboard/T-0001` sind Takt-Dauerläufer
@@ -147,7 +151,7 @@ und wurde deshalb nicht wiederholt, sondern gemessen** — mit dem Beschluss, Sp
 HMI-Sprint zu machen, statt eine sechste Runde B025 zu schreiben.
 
 **Verifikation (nach allen Änderungen des Laufs gemessen, nicht davor):**
-Preflight **STARTKLAR**, 738 Tests grün, Matrix **127 SWRs / 0 Lücken**, unterminiert **0**,
+Preflight **STARTKLAR**, 741 Tests grün, Matrix **127 SWRs / 0 Lücken**, unterminiert **0**,
 **Kalenderfristen 0**, Plan-Drift 0, überfällig 0, Statusdrift 0, Statusübergänge seit
 Stichtag 0, Altbestand 52 (unverändert). Briefkasten: **drei Briefe eingegangen, drei
 beantwortet, kein offener**.

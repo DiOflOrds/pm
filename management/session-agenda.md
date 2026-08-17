@@ -51,7 +51,7 @@
     Aufgabentypen laufen dort auf Ollama, mit genau deiner Begründung. Nur: unsere
     Laufprotokolle enthalten **7 Läufe insgesamt**, davon **einen** auf Ollama. Beschlossen,
     nie geprüft, Wirkung unbekannt. **Zum dritten Mal an einem Tag derselbe Fehlertyp.**
-11. **Drei Aufgaben geschlossen**, 738 Tests grün, 127 Anforderungen ohne Lücke, Startcheck
+12. **Drei Aufgaben geschlossen**, 741 Tests grün, 127 Anforderungen ohne Lücke, Startcheck
     startklar — am Ende gemessen, nicht am Anfang. **Es liegt nichts bei dir.**
 
 ---
