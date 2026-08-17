@@ -66,7 +66,7 @@
    ⚠ Die zweite Gefahr ist die unangenehmere: `setze_status` nimmt den Wechsel korrekt
    zurück — *und ein korrekt zurückgenommener Wechsel ist von einem nie versuchten nicht zu
    unterscheiden.* `L-2026-08-17bd`.
-10. **1077 Python-Tests, davon 1 rot** (der Altbefund über drei unzulässige Übergänge aus den
+10. **1079 Python-Tests, davon 1 rot** (der Altbefund über drei unzulässige Übergänge aus den
     Sprints 13 und 15 — **keiner aus diesem Lauf**), **104 JS-Tests grün** (von 78), Matrix
     **151 SWRs / 0 Lücken**, Briefkasten **0 offen**. ⚠ **Nicht startklar**, und das bleibt
     die richtige Meldung.
@@ -87,7 +87,7 @@ geplant** ist Sprint 20; danach ist die Nummer eine Reihenfolge, keine Zusage.*
 | pm/T-0001 | pl | jeder Sprint | **erfüllt** | Takt: Session-Agenda fortgeschrieben. |
 | pm/T-0002 | pl | jeder Sprint | **erfüllt** | Takt: Briefkasten geprüft — **0 offen**, in allen 17 Repos. |
 | pm/T-0003 | coach | jeder Sprint | **erfüllt** | Takt: **sechs** Lessons SOFORT verankert (`az`, `ba` test · `bb`, `bc` dev · `bd` cm · `be` pl). |
-| platform/T-0001 | cm | jeder Sprint | **erfüllt** | Takt: 1077 Python-Tests (1 rot, Altbefund), 104 JS-Tests grün, Matrix 151/0. ⚠ Die Suite läuft in **Blöcken** — ein Durchlauf überschreitet das Zeitfenster des Werkzeugs. |
+| platform/T-0001 | cm | jeder Sprint | **erfüllt** | Takt: 1079 Python-Tests (1 rot, Altbefund), 104 JS-Tests grün, Matrix 151/0. ⚠ Die Suite läuft in **Blöcken** — ein Durchlauf überschreitet das Zeitfenster des Werkzeugs. |
 | team-dashboard/T-0001 | pl | jeder Sprint | **erfüllt** | Takt: Widget-Vertrag unverändert bei **v2.6** — SWR-151 speichert **im Browser** und berührt keine Vertragsfläche. |
 | team-mail/T-0001 | dev | jeder Sprint | offen | ⚠ Der Digest fehlt weiter. Diese Sandbox hat die Zugangsdaten nicht (Datenklasse `geheim`); die Rückfrage steht seit Sprint 17 in `team-mail/N-0003`. **Kein „wartet auf dich"** — es wartet auf eine Umgebung mit Zugangsdaten. |
 | projects/p12/T-0010 | pl | **beim Menschen** | offen | ⚠ **Neu, Inbox-DR (Klasse A).** G4 für `p12-v1.0` **und** der benannte Folgepunkt (Ticket-/DR-Body, zwei Dokumentenansichten). Frist **2026-08-20**, Default **A**. |
@@ -124,7 +124,7 @@ Sachtickets**, dazu die **Klammer `p11/T-0008`** und **fünf** Takt-Pflichten.
 
 **Verschoben:** `p11/T-0013` (1.) und `platform/T-0020` (2.), beide mit Grund **im Ticket**.
 
-**Verifikation:** **1077 Python-Tests, 1076 grün / 1 rot** (der Altbefund über drei
+**Verifikation:** **1079 Python-Tests, 1078 grün / 1 rot** (der Altbefund über drei
 unzulässige Übergänge — **keiner aus diesem Lauf**), **104 JS-Tests grün** (von 78), Matrix
 **151 SWRs / 0 Lücken**, Briefkasten **0 offen**, entschiedene unverbuchte DRs **0**,
 Plan-Drift 0, Statusdrift 0.
@@ -133,6 +133,21 @@ Plan-Drift 0, Statusdrift 0.
 Statusübergänge seit dem Stichtag: zwei aus Sprint 13 (`platform/T-0014`, `pm/T-0064`) und
 einer aus Sprint 15 (`pm/T-0052`), **alle unverändert**. Nichts geglättet, kein Test
 angepasst, um grün zu werden.
+
+### ⚠ Eine Zahl in diesem Bericht war ZUM ZWEITEN MAL fortgeschrieben statt gemessen
+
+Der erste Entwurf dieses Abschlusses nannte **1077** Python-Tests. Gemessen sind es **1079**
+(61 Testdateien, über die Sammlung gezählt). Die 1077 entstand aus dem Stand von Sprint 18
+**plus einer Erwartung** über die eigenen Neuzugänge.
+
+> **Es ist derselbe Fehler, den Sprint 18 als eigenen Abschnitt aufgeschrieben hat — im
+> Abschlussbericht des nächsten Sprints, von einem Lauf, der die Warnung beim Schreiben vor
+> Augen hatte.**
+
+⚠ Aufgefallen ist es wieder **beim Nachzählen** und nicht durch eine Prüfung. Das ist genau
+**Frage 3 von `platform/T-0020`**: der Abschlussbericht hat für seine eigenen Kennzahlen
+keine Zusicherung — und die Wiederholung binnen eines Sprints ist der Beleg, dass eine
+aufgeschriebene Lesson diese Lücke nicht schließt. `L-2026-08-17bf`.
 
 ### ⚠⚠ Der Befund dieses Laufs über sich selbst
 
