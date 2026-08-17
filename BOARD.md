@@ -17,7 +17,7 @@ Stand: 2026-08-17 · Tickets: 52 · davon wiederkehrend: 3
 | [T-0052](tickets/T-0052.md) | CR (Teil e aus pm/T-0038, pm/N-0031): HMI-Abschnitt „Für dich: Handlungen\" neben der Inbox — eigener Abschnitt, nicht dieselbe Liste | change-request | einmalig | pl | mittel | 0 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | niedrig | 0 | — |
 
-## in_progress (1)
+## in_review (1)
 
 | ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|
