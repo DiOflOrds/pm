@@ -1,9 +1,9 @@
 # Board (generiert von platform/scripts/board.py — nicht von Hand editieren)
 
-Stand: 2026-08-17 · Tickets: 65 · davon wiederkehrend: 3
+Stand: 2026-08-17 · Tickets: 66 · davon wiederkehrend: 3
 
 
-## open (10)
+## open (11)
 
 | ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|---|
@@ -16,6 +16,7 @@ Stand: 2026-08-17 · Tickets: 65 · davon wiederkehrend: 3
 | [T-0052](tickets/T-0052.md) | CR (Teil e aus pm/T-0038, pm/N-0031): HMI-Abschnitt „Für dich: Handlungen\" neben der Inbox — eigener Abschnitt, nicht dieselbe Liste | change-request | einmalig | pl | Team | mittel | 0 | — |
 | [T-0061](tickets/T-0061.md) | sprint_widerspruch (SWR-106) hat nach der Umstellung keinen möglichen Fall mehr — prüfen, ob die Prüfung selbst B033 ist | change-request | einmalig | cm | Team | mittel | 0 | — |
 | [T-0063](tickets/T-0063.md) | CR (pm/T-0028 Teil b): Charter-Entwurf und Gründungs-DR aus dem geprüften Steckbrief | change-request | einmalig | chg | Team | mittel | 0 | T-0062 |
+| [T-0066](tickets/T-0066.md) | CR (pm/N-0042): Cockpit kompakter — falten statt kürzen | change-request | einmalig | pl | Team | mittel | 0 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | Team | niedrig | 0 | — |
 
 ## done (55)
