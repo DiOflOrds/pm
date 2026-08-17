@@ -7,3 +7,4 @@
 {"nr": 7, "kennung": "2026-08-17T0508-cowork-s7", "start": "2026-08-17 05:24", "takt_min": 60, "notiz": "Sprint 7: p3/p5 gruen (pm/T-0043 nach fuenf Sprints geschlossen), platform/T-0010 (SWR-109 war nie committet), team-dashboard/T-0002 entschieden"}
 {"nr": 8, "kennung": "2026-08-17T0609-cowork-s8", "start": "2026-08-17 06:13", "takt_min": 60, "notiz": "Sprint 8: Startcheck fand platform/T-0010 als offen, obwohl Sprint 7 es vierfach als erledigt meldete"}
 {"nr": 9, "kennung": "2026-08-17T0715-cowork-s9", "start": "2026-08-17 07:10", "takt_min": 60, "notiz": "Sprint 9: zwei Ticketaussagen gemessen und beide widerlegt (pm/T-0047 zirkulaerer Verschiebungsgrund, pm/T-0048 'zwei Altfaelle' waren 52); B066 im Widget-Vertrag; DR p11/T-0006 mit LAY-a entschieden"}
+{"nr": 10, "kennung": "2026-08-17T0900-cowork-s10", "start": "2026-08-17 09:14", "takt_min": 60}
