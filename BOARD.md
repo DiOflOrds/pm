@@ -17,21 +17,13 @@ Stand: 2026-08-17 · Tickets: 60 · davon wiederkehrend: 3
 | [T-0058](tickets/T-0058.md) | CR (pm/T-0055 Teil 3): Die abgeschickte Nachricht erscheint ohne Reload in der Liste | change-request | einmalig | dev | Team | mittel | 0 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | Team | niedrig | 0 | — |
 
-## in_review (3)
-
-| ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
-|---|---|---|---|---|---|---|---|---|
-| [T-0055](tickets/T-0055.md) | Bug (pm/N-0039): Briefkasten meldet „Commit fehlgeschlagen\" und verschweigt, dass die Nachricht gespeichert ist — Ursache: verwaiste index.lock | problem | einmalig | dev | Team | hoch | 0 | — |
-| [T-0053](tickets/T-0053.md) | Frage: 21-mal open -> in_review in der Historie — verbietet UEBERGAENGE einen Weg, den die Organisation tatsächlich geht? | problem | einmalig | pl | Team | mittel | 0 | — |
-| [T-0057](tickets/T-0057.md) | Befund: Das Pool-Formular nimmt beliebig langen Text in eine Tabellenzelle — 9.000 Zeichen in einer Zeile von projekt-pool.md | problem | einmalig | dev | Team | mittel | 0 | — |
-
 ## blocked (1)
 
 | ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|---|
 | [T-0060](tickets/T-0060.md) | CR (pm/T-0039 Teil b): HMI — je Brief ein Antwortfeld, Beiträge mit Absender und Zeit | change-request | einmalig | dev | Team | mittel | 0 | T-0059 |
 
-## done (47)
+## done (50)
 
 | ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|---|
@@ -62,6 +54,7 @@ Stand: 2026-08-17 · Tickets: 60 · davon wiederkehrend: 3
 | [T-0041](tickets/T-0041.md) | CR: Terminierung auf Sprints statt auf Kalenderdaten — jeder Routine-Lauf ist ein Sprint | change-request | einmalig | pl | Team | hoch | 0 | — |
 | [T-0042](tickets/T-0042.md) | Problem (B061): Die Push-Reihenfolge kann nicht beide Gates grün machen — platform prüft p0/p9, p0–p9 prüfen platform | problem | einmalig | prob | Team | hoch | 0 | — |
 | [T-0049](tickets/T-0049.md) | Befund: Der Plan sagt „erledigt\", das Ticket sagt „open\" — die Statusspalte wird gegen nichts gehalten | problem | einmalig | pl | Team | hoch | 0 | — |
+| [T-0055](tickets/T-0055.md) | Bug (pm/N-0039): Briefkasten meldet „Commit fehlgeschlagen\" und verschweigt, dass die Nachricht gespeichert ist — Ursache: verwaiste index.lock | problem | einmalig | dev | Team | hoch | 0 | — |
 | [T-0056](tickets/T-0056.md) | DR (pm/N-0040): promt-team gründen? — Klasse A: Profil, Datenklasse, Zugänge und Wirkbereich brauchen deine Freigabe | decision-request | einmalig | mensch | MENSCH | hoch | 0 | — |
 | [T-0010](tickets/T-0010.md) | Problem (N-0007): board-check-Flake — Stand-Datum kippt um Mitternacht | problem | einmalig | prob | Team | mittel | 0 | — |
 | [T-0014](tickets/T-0014.md) | CR (N-0017): Cockpit zeigt wiederkehrende Aufgaben im Klartext statt als Symbol | change-request | einmalig | chg | Team | mittel | 0 | — |
@@ -82,3 +75,5 @@ Stand: 2026-08-17 · Tickets: 60 · davon wiederkehrend: 3
 | [T-0048](tickets/T-0048.md) | Problem: Die Übergangsprüfung vergisst, was schon committet ist — zwei Tickets sind in Sprint 7 mit open -> done in die Historie gegangen | problem | einmalig | cm | Team | mittel | 0 | — |
 | [T-0050](tickets/T-0050.md) | CR (Teil b aus pm/T-0038): BOARD.md-Spalte „Verantwortlich\" — die Formatänderung, die jedes Repo-CI prüft | change-request | einmalig | pl | Team | mittel | 0 | — |
 | [T-0051](tickets/T-0051.md) | CR (Teil c aus pm/T-0038): Cockpit- und Preflight-Zähler „n Tickets warten auf den Menschen\" — mit Refs, nicht nur der Zahl | change-request | einmalig | pl | Team | mittel | 0 | — |
+| [T-0053](tickets/T-0053.md) | Frage: 21-mal open -> in_review in der Historie — verbietet UEBERGAENGE einen Weg, den die Organisation tatsächlich geht? | problem | einmalig | pl | Team | mittel | 0 | — |
+| [T-0057](tickets/T-0057.md) | Befund: Das Pool-Formular nimmt beliebig langen Text in eine Tabellenzelle — 9.000 Zeichen in einer Zeile von projekt-pool.md | problem | einmalig | dev | Team | mittel | 0 | — |
