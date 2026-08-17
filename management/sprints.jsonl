@@ -15,3 +15,4 @@
 {"nr": 15, "kennung": "2026-08-17T1410-cowork-s15", "start": "2026-08-17 14:13", "takt_min": 60}
 {"kennung": "2026-08-17T1410-cowork-s15", "ende": "2026-08-17 15:35", "ende_notiz": "Sprint 15 abgeschlossen: SWR-136/137/138, drei Zerlegungen, ein selbstverschuldeter Buchungsfehler benannt"}
 {"nr": 16, "kennung": "2026-08-17T1541-cowork-s16", "start": "2026-08-17 15:41", "takt_min": 60, "notiz": "Sprint 16: Reparatur des Buchungsfehlers (platform/T-0017) zuerst"}
+{"kennung": "2026-08-17T1541-cowork-s16", "ende": "2026-08-17 17:10", "ende_notiz": "Sprint 16 abgeschlossen: SWR-139..143, sechs Sachtickets, eine Zerlegung; die Vorkehrung aus T-0017 hat im selben Lauf zweimal gegriffen"}
