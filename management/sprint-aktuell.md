@@ -49,9 +49,9 @@ durch die `platform/T-0010` gefallen ist.*
 | Aufgabe | Rolle | Fällig | Status | Grund / nächster Schritt |
 |---|---|---|---|---|
 | platform/T-0010 | cm | dieser Sprint | **erledigt** | **Reparatur aus dem Startcheck.** Alle fünf DoD-Punkte nachgeprüft und erfüllt; das Ticket stand trotzdem auf `open`. Über den **legalen** Weg geschlossen (`open → in_progress → in_review → done`) mit **drei** Commits statt einem — damit fällt es nicht zusätzlich unter `pm/T-0048`. |
-| pm/T-0049 | pl | dieser Sprint | offen | **Neu, im Startcheck gefunden.** Die Statusspalte des Plans wird gegen nichts gehalten; `plan_drift` überspringt „dieser Sprint". Frist 23.08. |
-| pm/T-0048 | cm | dieser Sprint | offen | Übergangsprüfung ist blind für einen bereits committeten Sprung. **Dieselbe Familie wie `pm/T-0049`:** eine Prüfung, die nicht den Sachverhalt misst, sondern wann man sie laufen lässt. Frist 23.08. |
-| pm/T-0038 | pl | dieser Sprint | offen | **Verschiebungsgrund gemessen (L-2026-08-17j Regel 2) — er ist leer.** Der Bündelungspartner `pm/T-0036` ist geschlossen und hat nie ein Board-Format geändert. **Zerlegt**; Teil a) (Feld + Validierung, **keine** Formatänderung) in diesen Sprint. Frist 23.08. |
+| pm/T-0049 | pl | dieser Sprint | **erledigt** | **Neu, im Startcheck gefunden und im selben Sprint geschlossen.** **SWR-115**: die Statusspalte wird ab jetzt in `preflight` gegen den Ticketstatus gehalten — beide Richtungen, Takt-Dauerläufer ausgenommen. 17 Tests. Die Prüfung hat an ihrem ersten Tag einen echten Drift im **eigenen** Plan gefunden. |
+| pm/T-0048 | cm | Sprint 9 | offen | Übergangsprüfung ist blind für einen bereits committeten Sprung. **Dieselbe Familie wie `pm/T-0049`:** eine Prüfung, die nicht den Sachverhalt misst, sondern wann man sie laufen lässt. **Verschoben** — Grund unten im Abschluss. Frist 23.08. |
+| pm/T-0038 | pl | dieser Sprint | **erledigt** | **Verschiebungsgrund gemessen (L-2026-08-17j Regel 2) — er ist leer.** Der Bündelungspartner `pm/T-0036` ist geschlossen und hat nie ein Board-Format geändert. **Zerlegt**; Teil a) gebaut: **SWR-116**, Feld `verantwortlich` (`team`/`mensch`, optional, `mensch` verlangt einen Handlungsabschnitt), 16 Tests, **alle 16 Boards validieren unverändert**. |
 | pm/T-0050 | pl | Sprint 9 | offen | **Neu, Teil b) aus `pm/T-0038`.** `BOARD.md`-Spalte „Verantwortlich" — **das** ist die Formatänderung, die jedes Repo-CI prüft. Sie war der Grund, der die Teile a), c) und e) mitverschoben hat. |
 | pm/T-0051 | pl | Sprint 9 | offen | **Neu, Teil c) aus `pm/T-0038`.** Cockpit- und Preflight-Zähler „n Tickets warten auf den Menschen" **mit Refs**. Berührt denselben Kopfblock wie `pm/T-0047` — nacheinander, nicht nebeneinander (B025). |
 | pm/T-0052 | pl | Sprint 10 | offen | **Neu, Teil e) aus `pm/T-0038`.** HMI-Abschnitt „Für dich: Handlungen" neben der Inbox — eigener Abschnitt, **nicht** dieselbe Liste (B033: an der Inbox-Liste hängen die Entscheidungsknöpfe). |
@@ -82,6 +82,114 @@ Befund an der **Planung** und ihren Kennzahlen; die Prüfung ist die Folge, nich
 bleiben bei `pl`, weil das Ursprungsticket dort lag und die Zerlegung keine fachliche
 Umwidmung ist.
 
+
+---
+
+## Sprint-Abschluss (Sprint 8, 2026-08-17)
+
+**Geplant beim Start:** 15 nicht geschlossene Aufgaben (Werkzeugzahl, SWR-113), davon **9 in
+diesem Sprint** — 3 Sachtickets (`pm/T-0048`, `pm/T-0047`, `pm/T-0038`) plus 6
+Takt-Pflichten. Im Lauf kamen **5** Tickets dazu: `pm/T-0049` (aus dem Startcheck) und die
+vier Abtrennungen `pm/T-0050`, `pm/T-0051`, `pm/T-0052` aus `pm/T-0038`. Und
+**`platform/T-0010` wurde aus der Vergangenheit zurückgeholt** — es war in Sprint 7 als
+erledigt gemeldet, aber nie verbucht.
+
+**Geschlossen:** `platform/T-0010` (Reparatur), `pm/T-0049` (neu entstanden und im selben
+Sprint geschlossen), `pm/T-0038` Teil a) und die sechs Takt-Pflichten — **neun Stück**.
+`p11/T-0006` bleibt **vorgelegt**; `p11/T-0003` ist von `open` auf **`blocked`** korrigiert.
+
+**Der Startcheck war zum vierten Mal in Folge der wertvollste Teil des Sprints.** Diesmal
+fand er keinen Defekt in einem Werkzeug, sondern **eine Meldung ohne Deckung**: vier
+Dokumente sagten „erledigt", das Ticket sagte `open`. Vier übereinstimmende Abschriften sehen
+aus wie eine Bestätigung.
+
+**⚠ Die drei Prüfungen, die schwiegen, hatten alle recht.** Das ist der Teil, der zählt.
+`nicht_geplant` fragt nach dem Vorkommen, `plan_drift` nach der Sprintnummer,
+`sprint_vergangen` nach der Gegenwart — die **Statusspalte** las keine. Und die Zeilenart,
+die `plan_drift` überspringt („dieser Sprint"), ist genau die, die ein laufender Sprint
+schließt: die Prüfung sieht die Zukunft und lässt die Gegenwart aus.
+
+**⚠ `sprint_vergangen` hat den Fall gefunden — einen Sprint zu spät, und zwar
+konstruktionsbedingt.** Solange Sprint 7 lief, war `7 < 7` falsch. Ihr frühester möglicher
+Zeitpunkt liegt **nach** dem Bericht an den Auftraggeber. Deshalb steht SWR-115 in
+`preflight` und nicht in der Sprintsicht.
+
+**✅ Die neue Prüfung hat an ihrem ersten Tag einen echten Drift gefunden — im eigenen
+Plan.** Nachdem `pm/T-0049` auf `done` ging, meldete sie die **zweite** Richtung: *„Ticket
+steht auf done, Plan sagt offen"*. Das ist der Fall, den `offene_tickets` grundsätzlich nicht
+sehen kann und für den `sprint.alle_tickets` gebaut wurde. Eine Prüfung, die ihren Erbauer im
+selben Lauf erwischt, ist am Bestand belegt und nicht nur im Test.
+
+**✅ Die widerlegbare Vorhersage aus Sprint 7 ist eingetroffen.** Der Wächterlauf 05:47 ist
+durchgelaufen, hat gepusht, und `CI-STATUS.md` meldet **ALLES GRÜN (15 Abfragen)**. SWR-110
+hat `abschluss.cmd` nicht fälschlich angehalten — die Stand-Zeilen-Ausnahme ist damit **am
+Bestand** bestätigt. Im selben Lauf hat SWR-110 zweimal korrekt gegriffen und
+`platform/tickets/T-0010.md` und `pm/tickets/T-0049.md` als unverbucht gemeldet.
+
+**⚠ Und ein Verschiebungsgrund ist zum dritten Mal in drei Sprints an der Messung
+gescheitert.** `pm/T-0038` verlangte wörtlich, „gebündelt mit `pm/T-0036`" ausgeliefert zu
+werden. `pm/T-0036` ist seit Sprint 7 **geschlossen** und hat die gemeinsame Fläche **nie**
+angefasst — sein Teil b) wurde eine Preflight-Zeile, sein Teil a) ging als `pm/T-0047`
+weiter. Der Grund galt zudem nur für **einen** von fünf Teilen und hielt die anderen vier
+mit fest. Zerlegt statt erneut verschoben; Teil a) in diesem Sprint gebaut.
+
+**Nicht geschlossen, mit Grund und neuem Termin:**
+
+* `pm/T-0048` — Sprint 9, Frist 23.08. **Grund: dieselbe Fläche, dieselbe Woche, zwei
+  Entscheidungen.** Das Ticket verlangt vor dem Bau eine Festlegung, ob die Prüfung die
+  **Historie** (`git log` je Ticketdatei) oder den **Commit-Pfad** (`setze_status` erzwingen)
+  adressiert — das ist Urteil, kein Fix (B025). Dieser Sprint hat mit SWR-115 bereits eine
+  Prüfung derselben Familie gebaut und mit SWR-116 das Ticket-Schema angefasst; eine dritte
+  Änderung an der Prüfstrecke im selben Lauf wäre die Bündelung, vor der B025 warnt.
+  **⚠ Dies ist die erste Verschiebung dieses Tickets** — bei der zweiten mit demselben Grund
+  greift L-2026-08-17j Regel 2 und der Grund wird gemessen.
+  **Teilweise entschärft:** `platform/T-0010`, `pm/T-0049` und `pm/T-0038` sind in diesem
+  Sprint über den **legalen** Weg mit je drei Commits geschlossen worden — sie erzeugen den
+  Fehler also nicht, den `T-0048` beschreibt.
+* `pm/T-0047` — Sprint 9, Frist 23.08. **Grund: unverändert Vertragsfrage vor Bau, und ein
+  neuer Nachbar.** Der Cockpit-Kopfblock ist eine Formfrage (Block vs. Feld, aus welcher
+  Quelle), und mit `pm/T-0051` aus der Zerlegung will jetzt eine **zweite** Zahl an dieselbe
+  Stelle. Die Reihenfolge ist im Ticket festgeschrieben: `T-0047` entscheidet die Form,
+  `T-0051` ergänzt sie danach. **Zweite Verschiebung mit ähnlichem Grund** — beim nächsten
+  Mal wird der Grund gemessen (L-2026-08-17j Regel 2).
+* `pm/T-0039` — Sprint 9, Frist 23.08. Eigene Fläche (Dateiformat, Schreibpfad, Statuslogik,
+  HMI); mit anderem zusammen wäre es B025. Unverändert.
+* `pm/T-0050`, `pm/T-0051` — Sprint 9, **neu aus der Zerlegung**. `T-0050` ist **die**
+  Board-Formatänderung und gehört bewusst allein in einen Lauf.
+* `pm/T-0052` — Sprint 10, neu aus der Zerlegung (HMI-Kanal).
+* `projects/p11/T-0003` — **Status korrigiert statt Termin verschoben.** Es stand auf `open`
+  und sah wie unerledigte Teamarbeit aus, obwohl das Team es nicht bewegen kann. Jetzt
+  `blocked` mit `blocked_by: [T-0006]`. Frist 20.08. **⚠ Reißt die DR-Frist am 19.08., reißt
+  diese einen Tag später mit** — das ist zu beobachten, nicht zu verwalten.
+* `pm/T-0028` Sprint 9, `projects/p12/T-0003` Sprint 10 — unverändert in der Reihenfolge.
+
+**Widerlegbare Vorhersage für Sprint 9.** `preflight` hält ab jetzt die Statusspalte gegen
+das Ticketfeld und **bricht `abschluss.cmd` in `[1/5]` ab**, wenn beide auseinanderlaufen.
+Wenn dieser Abschluss ehrlich geschrieben ist, meldet der nächste Startcheck
+`[org] Statusdrift Plan/Ticket: 0` — und **kein** in Sprint 8 als erledigt gemeldetes Ticket
+steht dann noch offen. Steht eines offen, ist dieser Abschluss dasselbe gewesen wie der von
+Sprint 7, und SWR-115 ist an der falschen Stelle eingebaut.
+
+## Was dieser Sprint über die Planung gelernt hat
+
+**Zum vierten Mal in Folge kam der wertvollste Inhalt aus dem Startcheck** — und zum ersten
+Mal war der Befund kein Werkzeugdefekt, sondern **eine Meldung über uns selbst, die nicht
+stimmte**. Sprint 7 hat viermal „erledigt" geschrieben und keinmal nachgesehen. Die Frage,
+die jetzt in `preflight` steht, ist dieselbe wie die aus Sprint 7 — *ist das Gemeldete das
+Verbuchte?* — nur eine Fläche weiter: dort Arbeitskopie gegen HEAD, hier Plantext gegen
+Ticketfeld.
+
+**Drei Befunde in drei Sprints haben dieselbe Form.** SWR-110: eine Prüfung misst etwas
+anderes, als geliefert wird. `pm/T-0048`: eine Prüfung hängt an der **Reihenfolge** der
+Session. SWR-115: eine Prüfung hängt am **Zeitpunkt**. Das ist eine Familie, und sie ist als
+L-2026-08-17o Regel 4 benannt. Die Erkennungsfrage für jede neue Prüfung lautet ab jetzt:
+*läuft sie vor oder nach dem Zeitpunkt, an dem der Fehler Schaden anrichtet?*
+
+**Und die Regel mit der höchsten Trefferquote hat zum dritten Mal getroffen.**
+L-2026-08-17j Regel 2 — den zweimal wiederholten Grund messen — hat in Sprint 6
+`platform/T-0008` gekippt, in Sprint 7 `pm/T-0036` und hier `pm/T-0038`. Neu daran ist die
+Art des Fehlers: der Grund war nicht bloß leer, er **zeigte auf ein Ticket, das es nicht
+mehr gab**, und er galt nur für einen von fünf Teilen. Als L-2026-08-17o Regel 5 ergänzt.
 
 ---
 
