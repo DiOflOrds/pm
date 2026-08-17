@@ -11,13 +11,7 @@ Stand: 2026-08-17 · Tickets: 68 · davon wiederkehrend: 3
 | [T-0002](tickets/T-0002.md) | Takt: Intake-Queue — neue Wünsche/Briefe qualifizieren (jede Session) | task | je Session | pl | Team | hoch | 0 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | Team | niedrig | 0 | — |
 
-## in_review (1)
-
-| ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
-|---|---|---|---|---|---|---|---|---|
-| [T-0028](tickets/T-0028.md) | CR (pm/N-0022): Projekt-Pool — Team gründen im HMI (Steckbrief, Profil, Datenklasse, Zugänge) | change-request | einmalig | chg | Team | mittel | 0 | — |
-
-## done (64)
+## done (65)
 
 | ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|---|
@@ -61,6 +55,7 @@ Stand: 2026-08-17 · Tickets: 68 · davon wiederkehrend: 3
 | [T-0018](tickets/T-0018.md) | CR (Auftraggeber via Session): Entscheidungen mit Datum UND Uhrzeit festhalten | change-request | einmalig | chg | Team | mittel | 0 | — |
 | [T-0022](tickets/T-0022.md) | CR (N-0020, Teil 2): Projekt-Pool — Kandidat anlegen und starten im HMI (nach P10 Sprint 1) | change-request | einmalig | chg | Team | mittel | 0 | — |
 | [T-0027](tickets/T-0027.md) | Problem (pm/N-0023): Projekt-Pool — Kandidatentext auf 200 Zeichen/ohne Zeilenumbruch begrenzt | problem | einmalig | prob | Team | mittel | 0 | — |
+| [T-0028](tickets/T-0028.md) | CR (pm/N-0022): Projekt-Pool — Team gründen im HMI (Steckbrief, Profil, Datenklasse, Zugänge) | change-request | einmalig | chg | Team | mittel | 0 | — |
 | [T-0029](tickets/T-0029.md) | Problem (pm/N-0024): Projekt-Pool — 'Quelle' auch bei 4000 Zeichen (T-0027) noch zu eng | problem | einmalig | prob | Team | mittel | 0 | — |
 | [T-0030](tickets/T-0030.md) | CR (pm/N-0025): Offene Aufgaben terminieren — Fristen für Backlog-Tickets, echter Takt für wiederkehrende Aufgaben | change-request | einmalig | pl | Team | mittel | 0 | — |
 | [T-0032](tickets/T-0032.md) | CR (pm/N-0025, Teil 2): Echter Uhrzeit-Takt für wiederkehrende Aufgaben — Abgrenzung zu F14 und den team-mail-Takten | change-request | einmalig | pl | Team | mittel | 0 | — |
