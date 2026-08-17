@@ -1,54 +1,58 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
-## Das Wichtigste (Stand Sprint 15, 2026-08-17)
+## Das Wichtigste (Stand Sprint 16, 2026-08-17)
 
-1. **✅ Die Sache, vor der wir dich zweimal gewarnt haben, kann jetzt nicht mehr
-   passieren.** Zwei von uns können nicht länger gleichzeitig losrennen: unser Zählwerk
-   weiß ab jetzt nicht nur, wann ein Lauf **anfängt**, sondern auch, wann er **fertig** ist.
-   Wer starten will, während ein anderer noch arbeitet, wird abgewiesen — und erfährt, wer
-   gerade läuft.
-2. **⚠ Wir wollten das an einer Uhr festmachen und haben vorher nachgemessen — gut so.**
-   Der Plan war: „wenn der letzte Lauf weniger als eine Stunde her ist, ist er wohl noch
-   da." Gemessen über zwölf Abstände: der kürzeste war **15 Minuten**, und **7 von 12** lagen
-   unter einer Stunde. Diese Regel hätte die **Mehrheit** unserer normalen Läufe abgewiesen —
-   wir hätten uns selbst ausgesperrt.
-   > **Eine Uhr kann einen arbeitenden Lauf nicht von einem abgestürzten unterscheiden.**
-   Jetzt schauen wir stattdessen nach, ob überhaupt noch etwas geschrieben wird.
-3. **✅ Zwei Aufgaben, die fünfmal liegengeblieben sind, sind angefasst.** Bei beiden war
-   die Trennstelle seit Sprint 12 im Ticket notiert, und beide Male haben wir **genau dort**
-   geschnitten und nicht irgendwo.
-4. **✅ Und eine davon war deine Frage aus dem Brief vom 16.08.:** *„Warum sind die Tasks
-   nicht in der Inbox, wenn sie an Menschen gerichtet sind?"* — deine Beobachtung war
-   richtig, und die Ursache lag eine Etage tiefer als die Frage.
-   > **Die Inbox hat sie nicht abgelehnt. Sie hat sie nicht gekannt.**
-   Es fehlte kein Filter, sondern der Kanal. Jetzt stehen bei dir **zwei** Abschnitte:
-   „Für dich: Entscheidungen" und „Für dich: Handlungen".
-5. **⚠⚠ Und jetzt der Teil, der uns nicht gefällt: wir haben in diesem Lauf denselben
-   Fehler zweimal gemacht, und einmal ist er stehengeblieben.** Wenn wir einen Aufgabenstand
-   ändern, sind das bei uns **zwei** Schritte: erst in die Datei schreiben, dann abspeichern.
-   Klemmt der zweite, steht der Stand in der Datei und **nicht** in der Geschichte. Beim
-   ersten Mal haben wir es gesehen und geradegezogen. Beim zweiten Mal nicht.
-   > **Es ist beim ersten Mal gut ausgegangen, weil jemand hingesehen hat — nicht, weil eine
-   > Vorkehrung gegriffen hätte.** Und Aufmerksamkeit ist keine Vorkehrung.
+1. **✅ Der Fehler, den wir dir gestern gemeldet haben, kann jetzt nicht mehr passieren —
+   und er ist heute zweimal aufgetreten, ohne Schaden.** Wir hatten geschrieben: einen
+   Aufgabenstand zu ändern sind bei uns zwei Schritte, und klemmt der zweite, ist der Stand
+   in der Datei und nicht in der Geschichte. Jetzt sind es **keine zwei Schritte mehr**:
+   wer den Stand ändert, speichert ihn im selben Zug. Klemmt es, gilt die Änderung als
+   **nicht passiert** und die Datei steht wieder wie vorher.
+   > **Beim letzten Mal ging es gut aus, weil jemand hingesehen hat. Heute ging es gut aus,
+   > weil eine Vorkehrung gegriffen hat — zweimal, an einem echten Fall.**
+2. **⚠⚠ Dafür haben wir mitten im Lauf einen Fehler gefunden, der einen ganzen Sprint lang
+   unentdeckt war.** Wir hatten letzte Woche eine Reparatur gebaut, die eine bekannte
+   Klemme im Speichern automatisch löst. Heute stellte sich heraus: **sie lief meistens gar
+   nicht.** Sie suchte ihr Werkzeug an der falschen Stelle und fand es nur, wenn der
+   Aufrufer es zufällig schon dabeihatte.
+   > **Die Reparatur wirkte überall dort, wo man sie ohnehin mitbrachte — also genau dort
+   > nicht, wo sie hin sollte.**
 
-   Wir haben es **nicht** weggeräumt. Es steht als Fehler in unserer Prüfung, und die
-   Reparatur ist die dringlichste Aufgabe für den nächsten Lauf.
-6. **⚠ Eine unserer eigenen Prüfungen hat uns beim Bauen erwischt — zum Guten.** Wir haben
-   eine Regel („eine Null ist ein Ergebnis, kein fehlender Wert") auf ein Feld angewandt, für
-   das sie nicht gedacht war. Ergebnis: die Lücke, die wir sichtbar machen wollten, wäre
-   unsichtbar geblieben. Gefunden hat es ein Test, den wir selbst geschrieben hatten.
-7. **⚠ Beim Planen ist uns eine Schwäche unseres Werkzeugs aufgefallen.** Wir können eine
-   Aufgabe als „wartet auf eine andere Aufgabe" markieren — aber **nur innerhalb desselben
-   Teams**. Wir führen 17 Teams und Projekte. Die häufigste Abhängigkeit bei uns ist die
-   zwischen **zwei** Teams, und genau die können wir nicht eintragen. Sie steht deshalb im
-   Text — wo keine Prüfung sie sieht. Benannt, nicht kaschiert.
-8. **⚠ Und eine Zahl aus unserem letzten Bericht können wir nicht wiederfinden.** Wir hatten
-   dir „2 rote Tests" gemeldet; heute gemessen ist es **ein** roter Test, der **drei**
-   Verstöße auflistet. Ob damals wirklich zwei rot waren oder ob wir Verstöße als Tests
-   gezählt haben, lässt sich nicht mehr entscheiden — also sagen wir beides, statt uns die
-   bequemere Version auszusuchen.
-9. **879 Tests für die Technik (1 rot, unser eigener Fehler von oben), 45 für die Oberfläche
-   (von 40), 138 Anforderungen ohne Lücke.** **Bei dir liegt nichts Neues.**
+   ⚠ Und das Unangenehmste daran: **unsere Prüfung dafür war die ganze Zeit grün.** Die
+   Testdatei brachte das Werkzeug selbst mit. Gefunden hat es kein Test, sondern drei
+   Speicherversuche, die während der Arbeit scheiterten.
+3. **✅ Die Zahlen, auf die du seit deinem Brief zu den KI-Rollen wartest, sind da — und
+   sie sind leer.** Von **7** aufgezeichneten Läufen meldet **kein einziger** Token; bei
+   **6 von 7** fehlt die Angabe, um welche Art Aufgabe es ging. Auswertbar ist damit genau
+   **ein** Lauf, und der lief über **Ollama**.
+   > **Wir wissen jetzt, dass wir es nicht wissen — und an welchen Stellen genau.**
+
+   Wir hätten dir stattdessen sieben Nullen zeigen können. Die hätten wie ein Ergebnis
+   ausgesehen.
+4. **⚠ Und wir haben uns die naheliegende Bequemlichkeit verboten.** Ein Durchschnitt über
+   die Läufe, die zufällig etwas gemeldet haben, ist kein Durchschnitt über die Läufe.
+   Jede Zahl in unserem Bericht sagt deshalb dazu, **auf wie vielen von wie vielen** sie
+   beruht.
+5. **✅ Messen statt schätzen — auch da, wo es unbequem war.** Für die Token verlangst du
+   eine Trennung in „fester Anteil" und „wechselnder Anteil". Das Werkzeug liefert nur
+   **eine** Zahl. Wir haben die Aufteilung deshalb **nicht** geschätzt, sondern **zweimal
+   gemessen** und subtrahiert. Fehlt eine der beiden Messungen, schreiben wir **gar keine**
+   Zahl hin.
+6. **✅ Eine Aufgabe, die viermal liegengeblieben ist, ist zerlegt und ihr erster Teil
+   erledigt:** wir haben nachgemessen, ob unsere Briefanzeige Text verschluckt. **Sie tut
+   es nicht** — geprüft an **57** deiner und unserer Briefe.
+7. **⚠ Dabei ist unsere eigene Messung zuerst falsch gewesen, nicht die Anzeige.** Sie
+   meldete an sieben Briefen „fehlende Zeichen" — es waren die **Nummern der
+   Aufzählungen**, die die Anzeige selbstverständlich selbst erzeugt.
+   > **Ein erster roter Alarm ist genauso oft ein Fehler des Messgeräts wie einer des
+   > Gemessenen.**
+8. **✅ Eine Frage, die seit gestern zwischen zwei unserer Teams hing, ist entschieden.**
+   Es ging darum, ob eine Zusatzangabe künftig vom Server mitgeliefert wird oder in der
+   Anzeige selbst berechnet. Antwort: **vom Server**. Der Grund ist keine Vorliebe, sondern
+   Zählung — die zweite Variante hätte dieselbe Regel ein fünftes Mal irgendwo
+   hingeschrieben.
+9. **936 Tests für die Technik (1 rot, der alte Befund von gestern — unverändert), 51 für
+   die Oberfläche (von 45), 143 Anforderungen ohne Lücke.** **Bei dir liegt nichts Neues.**
 
 ---
 
@@ -56,9 +60,9 @@
 
 | Was | Warum |
 |---|---|
-| ✅ **Schau in die Inbox — sie hat jetzt zwei Abschnitte** | Oben „Für dich: Entscheidungen" (wie bisher, mit Knöpfen), darunter **„Für dich: Handlungen"**: Aufgaben, bei denen du etwas **tun** sollst statt zu entscheiden. Ohne Knöpfe, denn es gibt nichts zu klicken. ⚠ Beide Abschnitte stehen auch da, wenn sie leer sind — damit du siehst, dass wir nachgesehen haben, statt zu rätseln, ob der Abschnitt fehlt. |
-| ⚠ **Deine Zählung von gestern steht noch aus** | Wir hatten dich gebeten, im neuen Reiter „Dashboard" nachzusehen, **wie viele Kacheln du ohne Scrollen siehst**. Die Frage ist offen und wichtig: davon hängt ab, ob auch die lange Sprint-Tabelle im Cockpit eine Kur braucht. ⚠ Wir können es nicht selbst messen — dafür bräuchten wir einen echten Browser, und den hat unsere Prüfstrecke bewusst nicht. |
-| ⚠ **Wir haben in diesem Lauf einen Buchungsfehler gemacht** | Einen Aufgabenstand haben wir übersprungen: in der Geschichte steht „begonnen → fertig", der Zwischenschritt fehlt. Inhaltlich ist nichts verloren, die Arbeit ist da und geprüft. Aber unsere Prüfung ist deswegen rot, und das bleibt so, bis die Reparatur da ist. Wir haben nichts umgeschrieben. |
+| ⚠ **Deine Zählung von vorgestern steht weiter aus** | Wir hatten dich gebeten, im Reiter „Dashboard" nachzusehen, **wie viele Kacheln du ohne Scrollen siehst**. Die Frage ist weiter offen; davon hängt ab, ob auch die lange Sprint-Tabelle im Cockpit eine Kur braucht. ⚠ Wir können es nicht selbst messen — dafür bräuchten wir einen echten Browser, und den hat unsere Prüfstrecke bewusst nicht. |
+| ✅ **Deine Frage zu den KI-Rollen ist beantwortet — mit einer Messung** | *„Welche Rollen über Claude, welche über Ollama?"* Antwort: **auswertbar ist genau ein Lauf, und der lief über Ollama.** Alles andere ist nicht erhoben. Der Bericht liegt in `promt-team/management/telemetrie-baseline.md`. |
+| ⚠ **Unsere Prüfung bleibt rot, und zwar zu Recht** | Die drei übersprungenen Aufgabenstände aus den Sprints 13 und 15 stehen unverändert in der Geschichte. Wir haben nichts umgeschrieben und keinen Stichtag verschoben. Neu dazugekommen ist **keiner**. |
 | ⚠ **`abschluss.cmd` prüfen (aus Sprint 1)** | Unverändert dein einziger Altpunkt. |
 | ✅ **Zu pushen gibt es wieder etwas** | Zeile steht in `PUSH-ANFORDERUNG.txt`. Wir pushen nie selbst. |
 
@@ -66,74 +70,53 @@
 
 ## Was heute wichtig war — in Ruhe erklärt
 
-### Warum wir die Uhr weggelassen haben
+### Die Vorkehrung, die im selben Lauf gebraucht wurde
 
-Die Aufgabe lautete: verhindere, dass zwei Läufe gleichzeitig arbeiten. Der naheliegende Weg
-wäre eine Uhr — „wenn der letzte Start weniger als eine Stunde her ist, läuft er noch".
+Gestern haben wir dir geschrieben, dass „besser aufpassen" keine Reparatur ist. Heute haben
+wir die Reparatur gebaut: das Ändern eines Aufgabenstands und das Abspeichern sind **ein**
+Vorgang geworden. Klemmt das Speichern, wird die Datei auf den Stand von vorher
+zurückgesetzt — Zeichen für Zeichen — und wir bekommen eine Fehlermeldung statt eines
+stillen Verlusts.
 
-Bevor wir das gebaut haben, haben wir unsere eigenen Startzeiten nachgezählt. Zwölf
-Abstände: Mittelwert 57 Minuten, kürzester **15 Minuten**, längster 124. **Sieben von zwölf**
-lagen unter einer Stunde. Die Uhr hätte also in der Mehrheit der Fälle einen ganz normalen
-Folgelauf für einen Doppelgänger gehalten.
+Und dann ist genau das passiert. Bei einer Aufgabe klemmte es zweimal. Beim ersten Mal
+wurde die Änderung zurückgenommen; beim zweiten Anlauf hat unser System den nächsten
+Schritt **verweigert**, weil der vorherige noch nicht gespeichert war. Beides ist richtig,
+und beides wäre gestern schiefgegangen.
 
-Der eigentliche Grund ist aber ein anderer, und er ist einfach: **eine Uhr sieht bei einem
-Lauf, der seit 15 Minuten arbeitet, genau denselben Wert wie bei einem, der vor 15 Minuten
-abgestürzt ist.** Was die beiden unterscheidet, ist nicht die Zeit, sondern ob noch etwas
-geschrieben wird. Genau das schauen wir jetzt nach — und wenn wirklich nichts mehr kommt,
-übernimmt der nächste Lauf und vermerkt den anderen als abgebrochen.
+### Der Fehler, der grün getestet wurde
 
-### Deine Frage war richtig, und wir hatten die Antwort falsch erwartet
+Das ist der Teil, der uns beschäftigt. Wir hatten eine Reparatur für eine bekannte Klemme,
+und wir hatten eine Prüfung dafür. Die Prüfung war grün. Die Reparatur lief nicht.
 
-Du hast gefragt, warum Aufgaben, die an Menschen gerichtet sind, nicht in der Inbox stehen.
-Man würde vermuten: da fehlt ein Häkchen, ein Filter ist zu streng. Nachgesehen: die Inbox
-sucht nach **Entscheidungsvorlagen**. Eine Aufgabe, bei der du etwas tun sollst, ist keine
-Entscheidungsvorlage — sie fällt durch jede Suche, ohne dass irgendwo etwas abgelehnt wird.
+Der Grund: Die Reparatur suchte ihr Werkzeug im falschen Ordner. In der Prüfung fiel das
+nicht auf, weil die **Testdatei** den richtigen Ordner ohnehin bereitstellt — sie hat also
+die Bedingung selbst hergestellt, die sie prüfen sollte.
 
-Das ist ein Unterschied mit Folgen: bei einem zu strengen Filter macht man ihn weiter. Hier
-mussten wir einen **zweiten Ort** schaffen. Und zwar bewusst einen zweiten und nicht dieselbe
-Liste, denn an den Entscheidungen hängen Knöpfe. Eine Liste, in der manche Zeilen Knöpfe
-haben und manche nicht, ist eine Liste mit zwei Bedeutungen — und die verwirrt beim dritten
-Hinsehen mehr, als sie beim ersten spart.
+> **Eine Prüfung, die ihre eigene Voraussetzung mitbringt, prüft die Voraussetzung und
+> nicht die Sache.**
 
-### Der Fehler, den wir zweimal gemacht haben
+Wir haben es repariert und eine Prüfung geschrieben, die den Ordner ausdrücklich
+wegnimmt, bevor sie misst. Was wir **nicht** wissen: wie viele unserer 936 Prüfungen
+dieselbe Schwäche haben. Wir haben die Frage aufgeschrieben statt sie für erledigt zu
+erklären.
 
-Wenn wir den Stand einer Aufgabe ändern, tun wir zwei Dinge: die Datei schreiben und die
-Änderung abspeichern. Auf diesem Rechner klemmt das Abspeichern gelegentlich — eine
-technische Eigenheit, die wir kennen und behandeln.
+### Warum wir dir keine sieben Nullen zeigen
 
-Was wir **nicht** bedacht hatten: klemmt es genau zwischen den beiden Schritten, dann steht
-der neue Stand in der Datei, aber nicht in der Geschichte. Der nächste Schritt überschreibt
-ihn, und die Zwischenstufe ist weg.
+Du hattest nach Zahlen je KI-Rolle gefragt. Wir könnten dir eine Tabelle mit Nullen
+liefern; sie wäre in jeder Zelle formal korrekt und in ihrer Aussage falsch, weil eine Null
+zweierlei heißen kann — „gemessen, es war nichts" oder „nie erhoben".
 
-Das ist heute zweimal passiert. Beim ersten Mal stand die Fehlermeldung direkt auf dem
-Schirm, wir haben es bemerkt und geradegezogen. Beim zweiten Mal lief es in derselben
-Befehlszeile durch, in der schon der nächste Schritt folgte — bemerkt hat es erst unsere
-Abschlussprüfung.
+Bei uns steht deshalb überall dabei, auf wie vielen Läufen eine Zahl beruht. Wo es null
+sind, steht **„nicht geliefert"** und nicht **„0"**.
 
-**Was wir daraus gemacht haben, ist keine Ermahnung an uns selbst.** „Besser aufpassen" ist
-keine Reparatur. Die Reparatur ist, aus zwei Schritten **einen** zu machen: wer den Stand
-schreibt, speichert ihn im selben Zug, und klemmt es, gilt die Änderung als nicht passiert.
-Das ist die erste Aufgabe des nächsten Laufs.
-
-### Eine Regel am falschen Ort — und ein Test, der es gemerkt hat
-
-Wir haben eine Regel, auf die wir stolz sind: *eine Null ist ein Ergebnis, kein fehlender
-Wert.* Null offene Briefe heißt „nichts zu melden", nicht „wir wissen es nicht.
-
-Beim Bauen der Messgrundlage haben wir diese Regel auf **alle** Pflichtfelder angewandt —
-auch auf eines, das den **Namen der Aufgabenart** enthält. Damit war ein leeres Namensfeld
-plötzlich eine „echte Null", also ein gültiges Ergebnis. Und genau dieses Feld fehlt bei
-**sechs von sieben** unserer Läufe — das ist der Befund, den wir sichtbar machen wollten.
-Unsere eigene Prüfung hätte ihn durchgewinkt.
-
-> **Es gibt keine Aufgabenart, die „nichts" heißt.** Für einen Messwert ist Null eine
-> Antwort, für einen Namen ist Leere ein Loch.
-
-Gefunden hat das kein Nachdenken, sondern ein Test, den wir vorher geschrieben hatten und
-der rot wurde. Das ist der Grund, warum wir Tests vor dem Bauen schreiben.
+Und weil die Aufteilung der Token in einen festen und einen wechselnden Anteil vom Werkzeug
+nur als **eine** Zahl kommt, haben wir sie nicht aufgeteilt, sondern ein zweites Mal
+gemessen — mit einer Anfrage, die nichts erzeugt und nur zählt. Die Differenz ist dann
+keine Schätzung, sondern die zweite Messung.
 
 ### Was als Nächstes kommt
 
-Sprint 16: die **Reparatur des Buchungsfehlers** (ein Schritt statt zwei), die **Vertragsfrage**
-zum Cockpit, die wir nicht allein entscheiden dürfen, und die **Messgrundlage**, auf die du
-seit deinem Brief zu den KI-Rollen wartest.
+Sprint 17: die **Umsetzung** der heute entschiedenen Vertragsfrage, die beiden
+Änderungsanträge zum Projekt-Pool (beide zum dritten Mal verschoben — beim vierten Mal
+entscheiden wir sie, statt sie noch einmal zu verschieben), und die **Goldset-Fälle**, für
+die heute das Format entstanden ist.
