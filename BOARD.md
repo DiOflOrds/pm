@@ -1,9 +1,9 @@
 # Board (generiert von platform/scripts/board.py — nicht von Hand editieren)
 
-Stand: 2026-08-17 · Tickets: 60 · davon wiederkehrend: 3
+Stand: 2026-08-17 · Tickets: 63 · davon wiederkehrend: 3
 
 
-## open (9)
+## open (10)
 
 | ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|---|
@@ -11,19 +11,20 @@ Stand: 2026-08-17 · Tickets: 60 · davon wiederkehrend: 3
 | [T-0002](tickets/T-0002.md) | Takt: Intake-Queue — neue Wünsche/Briefe qualifizieren (jede Session) | task | je Session | pl | Team | hoch | 0 | — |
 | [T-0039](tickets/T-0039.md) | CR (B054, pm/N-0031): Am Brief weiterkommentieren statt einen neuen zu schreiben — der Briefkasten kennt nur ein Frage/Antwort-Paar je Datei | change-request | einmalig | pl | Team | hoch | 0 | — |
 | [T-0054](tickets/T-0054.md) | CR (pm/N-0038): Der Mensch priorisiert offene Aufgaben aller Teams/Projekte für den nächsten Durchlauf — Knopf statt Einzelbearbeitung | change-request | einmalig | chg | Team | hoch | 0 | — |
-| [T-0059](tickets/T-0059.md) | CR (pm/T-0039 Teil a): Der Brief wird ein Verlauf — Beitragsformat, Schreibpfad, Statusrücksetzung | change-request | einmalig | dev | Team | hoch | 0 | — |
 | [T-0028](tickets/T-0028.md) | CR (pm/N-0022): Projekt-Pool — Team gründen im HMI (Steckbrief, Profil, Datenklasse, Zugänge) | change-request | einmalig | chg | Team | mittel | 0 | — |
 | [T-0052](tickets/T-0052.md) | CR (Teil e aus pm/T-0038, pm/N-0031): HMI-Abschnitt „Für dich: Handlungen\" neben der Inbox — eigener Abschnitt, nicht dieselbe Liste | change-request | einmalig | pl | Team | mittel | 0 | — |
 | [T-0058](tickets/T-0058.md) | CR (pm/T-0055 Teil 3): Die abgeschickte Nachricht erscheint ohne Reload in der Liste | change-request | einmalig | dev | Team | mittel | 0 | — |
+| [T-0061](tickets/T-0061.md) | sprint_widerspruch (SWR-106) hat nach der Umstellung keinen möglichen Fall mehr — prüfen, ob die Prüfung selbst B033 ist | change-request | einmalig | cm | Team | mittel | 0 | — |
+| [T-0063](tickets/T-0063.md) | CR (pm/T-0028 Teil b): Charter-Entwurf und Gründungs-DR aus dem geprüften Steckbrief | change-request | einmalig | chg | Team | mittel | 0 | T-0062 |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | Team | niedrig | 0 | — |
 
-## blocked (1)
+## in_progress (1)
 
 | ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|---|
-| [T-0060](tickets/T-0060.md) | CR (pm/T-0039 Teil b): HMI — je Brief ein Antwortfeld, Beiträge mit Absender und Zeit | change-request | einmalig | dev | Team | mittel | 0 | T-0059 |
+| [T-0060](tickets/T-0060.md) | CR (pm/T-0039 Teil b): HMI — je Brief ein Antwortfeld, Beiträge mit Absender und Zeit | change-request | einmalig | dev | Team | mittel | 0 | — |
 
-## done (50)
+## done (52)
 
 | ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|---|
@@ -56,6 +57,7 @@ Stand: 2026-08-17 · Tickets: 60 · davon wiederkehrend: 3
 | [T-0049](tickets/T-0049.md) | Befund: Der Plan sagt „erledigt\", das Ticket sagt „open\" — die Statusspalte wird gegen nichts gehalten | problem | einmalig | pl | Team | hoch | 0 | — |
 | [T-0055](tickets/T-0055.md) | Bug (pm/N-0039): Briefkasten meldet „Commit fehlgeschlagen\" und verschweigt, dass die Nachricht gespeichert ist — Ursache: verwaiste index.lock | problem | einmalig | dev | Team | hoch | 0 | — |
 | [T-0056](tickets/T-0056.md) | DR (pm/N-0040): promt-team gründen? — Klasse A: Profil, Datenklasse, Zugänge und Wirkbereich brauchen deine Freigabe | decision-request | einmalig | mensch | MENSCH | hoch | 0 | — |
+| [T-0059](tickets/T-0059.md) | CR (pm/T-0039 Teil a): Der Brief wird ein Verlauf — Beitragsformat, Schreibpfad, Statusrücksetzung | change-request | einmalig | dev | Team | hoch | 0 | — |
 | [T-0010](tickets/T-0010.md) | Problem (N-0007): board-check-Flake — Stand-Datum kippt um Mitternacht | problem | einmalig | prob | Team | mittel | 0 | — |
 | [T-0014](tickets/T-0014.md) | CR (N-0017): Cockpit zeigt wiederkehrende Aufgaben im Klartext statt als Symbol | change-request | einmalig | chg | Team | mittel | 0 | — |
 | [T-0015](tickets/T-0015.md) | CR (N-0018): Team-Chat zeigt die neuesten Nachrichten zuerst | change-request | einmalig | chg | Team | mittel | 0 | — |
@@ -77,3 +79,4 @@ Stand: 2026-08-17 · Tickets: 60 · davon wiederkehrend: 3
 | [T-0051](tickets/T-0051.md) | CR (Teil c aus pm/T-0038): Cockpit- und Preflight-Zähler „n Tickets warten auf den Menschen\" — mit Refs, nicht nur der Zahl | change-request | einmalig | pl | Team | mittel | 0 | — |
 | [T-0053](tickets/T-0053.md) | Frage: 21-mal open -> in_review in der Historie — verbietet UEBERGAENGE einen Weg, den die Organisation tatsächlich geht? | problem | einmalig | pl | Team | mittel | 0 | — |
 | [T-0057](tickets/T-0057.md) | Befund: Das Pool-Formular nimmt beliebig langen Text in eine Tabellenzelle — 9.000 Zeichen in einer Zeile von projekt-pool.md | problem | einmalig | dev | Team | mittel | 0 | — |
+| [T-0062](tickets/T-0062.md) | CR (pm/T-0028 Teil a): Die entschiedene Steckbrief-Feldliste gilt im Code — Prüfung und Auflage | change-request | einmalig | chg | Team | mittel | 0 | — |
