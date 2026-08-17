@@ -275,6 +275,34 @@ Klammer über drei Teiltickets ist. Es trug die Nummer aus der Zeit **vor** der 
 > **Wer ein Ticket zerlegt, zieht die Klammer auf den Termin des letzten Teils nach —
 > sonst meldet sie einen Verzug für Arbeit, die sie gar nicht mehr enthält.**
 
+
+### ✅⚠ Die neue Prüfung hat ihren eigenen Erbauer erwischt — vierter Sprint in Folge
+
+Beim Abschluss-Preflight, **nach** dem Fortschreiben des Sprintplans, meldete die eine
+Stunde zuvor gebaute Zeile:
+
+```
+[org] BEFUND: 5 Planzeile(n) nennen eine andere Sprintnummer als ihr Ticket:
+    pm/T-0028, pm/T-0054, pm/T-0052, p11/T-0008, promt-team/T-0001
+```
+
+**Das ist wörtlich der Fehler, den dieser Sprint an Sprint 9 gefunden hat** — die
+Plantabelle auf „Sprint 11" gesetzt, die Ticketfelder auf 10 stehen gelassen. Fünfmal, in
+demselben Lauf, der den Befund erhoben hat.
+
+Zwei Dinge stehen damit fest, und beide sind wichtiger als der Fehler selbst:
+
+1. **Der Fehler ist keine Nachlässigkeit einer einzelnen Session, sondern eine Eigenschaft
+   des Arbeitsschritts.** Wer eine Plantabelle mit 25 Zeilen fortschreibt, ändert Termine
+   an einer Stelle und muss sie an einer zweiten nachziehen; das geht schief, und zwar
+   zuverlässig. Sprint 9 war darin nicht schlechter als Sprint 10.
+2. **Die Prüfung sitzt an der richtigen Stelle.** Sie hat den Fehler **vor** dem Bericht
+   gefunden, nicht einen Sprint später. Genau das war ihre Begründung.
+
+Damit ist es der **vierte Sprint in Folge**, in dem eine Verifikation einen Fehler des
+Laufs findet, der sie gebaut hat (Sprint 7: SWR-109 nie committet; 8: `platform/T-0010`
+offen; 9: SWR-118 über leerer Wurzel; 10: fünf Plan-Drifts im eigenen Abschluss).
+
 ### Verifikation dieses Sprints
 
 Preflight **STARTKLAR** — und diesmal **nach** allen Änderungen dieses Laufs gemessen,
