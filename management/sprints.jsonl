@@ -13,3 +13,4 @@
 {"nr": 13, "kennung": "2026-08-17T1210-cowork-s13", "start": "2026-08-17 12:10", "takt_min": 60}
 {"nr": 14, "kennung": "2026-08-17T1330-cowork-s14", "start": "2026-08-17 13:31", "takt_min": 60}
 {"nr": 15, "kennung": "2026-08-17T1410-cowork-s15", "start": "2026-08-17 14:13", "takt_min": 60}
+{"kennung": "2026-08-17T1410-cowork-s15", "ende": "2026-08-17 15:35", "ende_notiz": "Sprint 15 abgeschlossen: SWR-136/137/138, drei Zerlegungen, ein selbstverschuldeter Buchungsfehler benannt"}
