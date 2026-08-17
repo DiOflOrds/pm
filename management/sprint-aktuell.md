@@ -75,8 +75,8 @@ die Folge, nicht die Sache. `pm/T-0043` blieb bei `prob` bis zum Schluss.
 **Geplant beim Start:** 16 nicht geschlossene Aufgaben (Werkzeugzahl nach der in diesem
 Sprint festgelegten Zählweise, SWR-113), davon **11 in diesem Sprint** — 5 Sachtickets
 (`pm/T-0043`, `team-dashboard/T-0002`, `pm/T-0045`, `pm/T-0046`, `pm/T-0036`) plus 6
-Takt-Pflichten. Im Lauf kamen **2** Tickets dazu: `platform/T-0010` (aus dem Startcheck)
-und `pm/T-0047` (Abtrennung aus `pm/T-0036`).
+Takt-Pflichten. Im Lauf kamen **3** Tickets dazu: `platform/T-0010` (aus dem Startcheck),
+`pm/T-0047` (Abtrennung aus `pm/T-0036`) und `pm/T-0048` (aus der Schlussverifikation).
 
 **Geschlossen:** `pm/T-0043`, `platform/T-0010` (neu entstanden und im selben Sprint
 geschlossen), `team-dashboard/T-0002`, `pm/T-0045`, `pm/T-0046`, `pm/T-0036` und die sechs
@@ -282,9 +282,9 @@ das überlebt eine Verschiebung ihren Anlass.
 
 | | Sprint 2 | Sprint 3 | Sprint 4 | Sprint 5 | Sprint 6 | Sprint 7 |
 |---|---|---|---|---|---|---|
-| Tickets gesamt | 246 | 248 | 250 | 254 | 258 | **260** |
-| nicht geschlossen | 15 ⚠ | 15 ⚠ | 15 ⚠ | 15 ⚠ | 17 (Start: 17) | **14** (Start: 16) |
-| davon Sachtickets | — | — | — | — | 11 | **8** |
+| Tickets gesamt | 246 | 248 | 250 | 254 | 258 | **261** |
+| nicht geschlossen | 15 ⚠ | 15 ⚠ | 15 ⚠ | 15 ⚠ | 17 (Start: 17) | **15** (Start: 16) |
+| davon Sachtickets | — | — | — | — | 11 | **9** |
 | Tests | 463 | 471 | 486 | 492 | 514 | **568** |
 | Matrix | 107 / 0 | 107 / 0 | 108 / 0 | 108 / 0 | 109 / 0 | **114 / 0** |
 | offene Briefe | 0 | 0 | 0 | 0 | 0 | **0** |
