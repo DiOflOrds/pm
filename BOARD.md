@@ -17,13 +17,7 @@ Stand: 2026-08-17 · Tickets: 63 · davon wiederkehrend: 3
 | [T-0063](tickets/T-0063.md) | CR (pm/T-0028 Teil b): Charter-Entwurf und Gründungs-DR aus dem geprüften Steckbrief | change-request | einmalig | chg | Team | mittel | 0 | T-0062 |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | Team | niedrig | 0 | — |
 
-## in_review (1)
-
-| ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
-|---|---|---|---|---|---|---|---|---|
-| [T-0058](tickets/T-0058.md) | CR (pm/T-0055 Teil 3): Die abgeschickte Nachricht erscheint ohne Reload in der Liste | change-request | einmalig | dev | Team | mittel | 0 | — |
-
-## done (53)
+## done (54)
 
 | ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|---|
@@ -78,5 +72,6 @@ Stand: 2026-08-17 · Tickets: 63 · davon wiederkehrend: 3
 | [T-0051](tickets/T-0051.md) | CR (Teil c aus pm/T-0038): Cockpit- und Preflight-Zähler „n Tickets warten auf den Menschen\" — mit Refs, nicht nur der Zahl | change-request | einmalig | pl | Team | mittel | 0 | — |
 | [T-0053](tickets/T-0053.md) | Frage: 21-mal open -> in_review in der Historie — verbietet UEBERGAENGE einen Weg, den die Organisation tatsächlich geht? | problem | einmalig | pl | Team | mittel | 0 | — |
 | [T-0057](tickets/T-0057.md) | Befund: Das Pool-Formular nimmt beliebig langen Text in eine Tabellenzelle — 9.000 Zeichen in einer Zeile von projekt-pool.md | problem | einmalig | dev | Team | mittel | 0 | — |
+| [T-0058](tickets/T-0058.md) | CR (pm/T-0055 Teil 3): Die abgeschickte Nachricht erscheint ohne Reload in der Liste | change-request | einmalig | dev | Team | mittel | 0 | — |
 | [T-0060](tickets/T-0060.md) | CR (pm/T-0039 Teil b): HMI — je Brief ein Antwortfeld, Beiträge mit Absender und Zeit | change-request | einmalig | dev | Team | mittel | 0 | — |
 | [T-0062](tickets/T-0062.md) | CR (pm/T-0028 Teil a): Die entschiedene Steckbrief-Feldliste gilt im Code — Prüfung und Auflage | change-request | einmalig | chg | Team | mittel | 0 | — |
