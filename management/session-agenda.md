@@ -1,39 +1,42 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
-## Das Wichtigste (Stand Sprint 18, 2026-08-17)
+## Das Wichtigste (Stand Sprint 19, 2026-08-17)
 
-1. **✅ Die Aufgabe, die seit gestern die dringlichste war, ist erledigt.** Das Goldset —
-   die Sammlung echter Beispiele, an denen sich die Qualität unserer KI-Rollen messen lässt.
-   **51 Fälle**, jeder mit einem Beleg, wo er im Bestand steht.
-2. **⚠⚠ Und dabei ist uns etwas Unangenehmes über unsere eigene Arbeit aufgefallen.** Wir
-   haben, ohne dass es jemand verlangt hatte, eine zweite Messung eingebaut: *Unterscheidet
-   unsere Prüfung überhaupt irgendetwas?* Ergebnis beim ersten Entwurf: **41 von 46
-   Prüfungen gingen auch bei den falschen Beispielen auf.**
-   > **Sie waren alle grün. Und sie haben nichts gemessen.**
+1. **✅ Die Zusammenführung im Cockpit ist fertig — und sie ist an einer Zahl nachweisbar.**
+   Es gab zwei Wege, Text auf dem Bildschirm darzustellen: einer konnte Formatierung und
+   keine Ticketnummern, der andere Ticketnummern und keine Formatierung. Jetzt gibt es
+   **einen**. Der alte Weg ist **entfernt**, nicht nur unbenutzt — von **4** Verwendungen auf
+   **0**.
+2. **⚠⚠ Und dabei haben wir etwas gebaut, das niemand erreichen konnte.** Ein neuer Zweig für
+   Code-Blöcke war fertig, die Prüfung war **grün** — und der Zweig wurde nie aufgerufen. Der
+   Absatz davor hat ihn stillschweigend verschluckt.
+   > **Die Prüfung las den Quelltext und sah den Zweig dastehen. Ob ihn jemand erreicht,
+   > konnte sie nicht sehen.**
 
-   Repariert **vor** dem ersten Speichern: jetzt sind es 2 von 40. Ohne diese Messung wäre
-   eine wertlose Sammlung als Maßstab in den Bestand gegangen.
-3. **⚠ Wir schreiben ausdrücklich dazu, dass unsere gute Zahl nichts wert ist.** Der Bericht
-   nennt eine Erfolgsquote von 100 % — und sagt **vor** der Tabelle, dass man sie **nicht**
-   als Zeugnis über die Rollen lesen darf: die Prüfungen sind aus dem Bestand abgeleitet,
-   ihr Aufgehen ist zum Teil Bauart. Die Zahl, die zählt, fehlt noch — dafür brauchen wir
-   eine Entscheidung von dir (siehe unten).
-4. **✅ Links, die ins richtige Ticket führen.** Neun Stellen im Cockpit haben die Adresse
-   eines Tickets **selbst zusammengebaut**, obwohl der Server sie fertig liefert.
-   > **Der Text unter dem Link kam vom Server, das Ziel aus einer Bastelei daneben. Zwei
-   > Aussagen über dasselbe Ticket — solange beide gleich sind, merkt es niemand.**
-
-   Sie sind nicht immer gleich: **68 Ticketnummern gibt es bei uns mehrfach**, `T-0002`
-   allein in **17** Projekten. Ab jetzt gibt es **eine** Stelle, und eine Nummer ohne
-   Projekt wird gar nicht mehr verlinkt — ein Link ins falsche Projekt ist schlimmer als
-   keiner, weil er richtig aussieht.
-5. **⚠ Sprint 17 stand seit gestern Abend als „läuft" da, obwohl er fertig war.** Er hatte
-   sich absichtlich nicht abgeschlossen, weil ein zweiter Lauf noch in denselben Ordnern
-   arbeitete. Unser Werkzeug hätte ihn jetzt automatisch als **„abgebrochen"** eingetragen —
-   und das wäre falsch gewesen, er hat vier Aufgaben erledigt. Wir haben ihn von Hand
-   korrekt geschlossen und dazugeschrieben, woran wir gemessen haben.
-6. **1061 Prüfungen für die Technik (1 rot, der alte Befund von vorgestern — unverändert),
-   78 für die Oberfläche (von 73), 150 Anforderungen ohne Lücke.**
+   Gefunden hat es eine Prüfung, die stattdessen das **Ergebnis** anschaut. ⚠ Und deren
+   erster Versuch war ebenfalls grün, weil sein Beispiel die Stelle nicht traf.
+3. **✅ Du kannst dein Dashboard jetzt selbst einrichten.** Welche Kacheln du siehst und in
+   welcher Reihenfolge — und es bleibt so, auch nach einem Neustart.
+   ⚠ **Was ausgeblendet ist, steht immer oben**, mit Namen und einem Knopf zurück. Das ist
+   kein Beiwerk: wir hatten dieselbe Speicherei beim Zuklappen der Cockpit-Gruppen mit gutem
+   Grund **abgelehnt** — *sonst fehlt etwas und niemand weiß, warum.* Der Einwand gilt
+   weiter; er verbietet das Speichern nicht, er verlangt die Erklärung.
+4. **⚠ Ein neues Team-Widget erscheint bei dir von selbst.** Gespeichert wird, was du
+   **weggeklickt** hast — nicht, was du ausgewählt hast.
+   > **Eine gespeicherte Auswahl veraltet: sie sagt „zeig diese vier", und alles, was danach
+   > dazukommt, ist unsichtbar. Man vermisst nichts, von dem man nie erfahren hat.**
+5. **✅ Eine Entscheidung getroffen, die wir seit einem Sprint aufgeschoben hatten** — und die
+   Antwort kam aus einer **Messung**, nicht aus einer Meinung. Es ging um eine Schnittstelle,
+   die niemand mehr liest. Zwei der drei Möglichkeiten haben sich erledigt, sobald feststand,
+   dass die einzige Anwendung, die sie hätte brauchen können, sie nicht braucht.
+6. **⚠⚠ Unser Werkzeug bremst sich selbst aus, und jetzt wissen wir warum.** Jeder
+   Speichervorgang lässt in dem Ordner, den du uns gegeben hast, Reste zurück, die Git dort
+   nicht löschen darf — und der **nächste** Speichervorgang scheitert daran. Dreimal
+   hintereinander gemessen.
+   > **Unsere Startprüfung räumt am Anfang auf. Was sie stört, entsteht danach — durch genau
+   > die Arbeit, die sie ermöglichen soll.**
+7. **1079 Prüfungen für die Technik (1 rot, der alte Befund von vorgestern — unverändert),
+   104 für die Oberfläche (von 78), 151 Anforderungen ohne Lücke.**
 
 ---
 
@@ -41,9 +44,10 @@
 
 | Was | Warum |
 |---|---|
-| ⚠⚠ **Eine neue Frage, und sie kostet möglicherweise Geld** | Um zu messen, wie gut eine KI-Rolle **heute wirklich** arbeitet, muss sie einmal über die 51 Beispiele laufen. Das braucht einen Anbieter. **Option A:** das lokale Ollama — kostenlos, sofort, misst aber nur die kleine Stufe. **Option B:** Claude mit Deckel — die Zahl, auf die es ankommt, kostet aber. **Option C:** warten. Wir empfehlen **A zuerst, B danach**; Default ist **A**. Steht in `promt-team/T-0009`, Frist 19.08. **Wir haben nichts vorbereitet, das ohne deine Antwort losläuft.** |
-| ⚠ **Die Frage zu den Mail-Zugangsdaten steht weiter offen** | Aus Sprint 17, `team-mail/N-0003`: Sind `MAIL_IMAP_HOST/USER/PASS` in der Umgebung gesetzt, in der die **Routine** läuft? Davon hängt der Tages-Digest ab. Der für den 17.08. fehlt weiterhin. |
-| ⚠ **Deine Zählung von vorgestern steht weiter aus** | Wie viele Kacheln siehst du im Reiter „Dashboard" **ohne Scrollen**? ⚠ Wir können es nicht selbst messen — dafür bräuchten wir einen echten Browser, und den hat unsere Prüfstrecke bewusst nicht. |
+| ⚠⚠ **Eine NEUE Entscheidung: das Abnahmetor für den Renderer** | Die Arbeit ist fertig und geprüft, aber die Abnahme (**G4**) dürfen wir nicht selbst erteilen. Dazu gehört eine zweite Frage: Ticket-Texte, Entscheidungs-Texte und die zwei Dokumentenansichten zeigen weiterhin **Rohtext**. ⚠ **Etwas hat sich dort trotzdem geändert, und das gehört gesagt:** ihre Ticketlinks kamen aus dem alten Weg, der weg musste — **fett** und `Code` werden dort ab jetzt mitdargestellt. Die *Struktur* (Überschriften, Tabellen) bleibt Rohtext, und ob sie umgestellt wird, entscheidest du. Steht in `projects/p12/T-0010`, **Frist 20.08.**, Default **A** (so lassen). |
+| ⚠⚠ **Die Anbieter-Frage von gestern steht weiter offen** | `promt-team/T-0009`: Um zu messen, wie gut eine KI-Rolle **heute wirklich** arbeitet, braucht sie einen Anbieter. **A:** lokales Ollama, kostenlos. **B:** Claude mit Deckel, kostet. **C:** warten. Empfehlung **A zuerst, B danach**; Default **A**. **Frist 19.08.** — das ist morgen. Daran hängt der Erstauftrag des promt-teams. |
+| ⚠ **Die Frage zu den Mail-Zugangsdaten steht weiter offen** | Aus Sprint 17, `team-mail/N-0003`: Sind `MAIL_IMAP_HOST/USER/PASS` in der Umgebung gesetzt, in der die **Routine** läuft? Der Tages-Digest fehlt weiterhin. |
+| ⚠ **Deine Zählung steht weiter aus** | Wie viele Kacheln siehst du im Reiter „Dashboard" **ohne Scrollen**? ⚠ Wir können es nicht selbst messen — dafür bräuchten wir einen echten Browser, und den hat unsere Prüfstrecke bewusst nicht. |
 | ⚠ **Unsere Prüfung bleibt rot, und zwar zu Recht** | Die drei übersprungenen Aufgabenstände aus den Sprints 13 und 15 stehen unverändert in der Geschichte. Neu dazugekommen ist **keiner**. |
 | ⚠ **`abschluss.cmd` prüfen (aus Sprint 1)** | Unverändert dein einziger Altpunkt. |
 | ✅ **Zu pushen gibt es wieder etwas** | Zeile steht in `PUSH-ANFORDERUNG.txt`. Wir pushen nie selbst. |
@@ -52,56 +56,67 @@
 
 ## Was heute wichtig war — in Ruhe erklärt
 
-### Ein Satz, der ehrlich klang, und niemand hat ihn je geprüft
+### Wir haben etwas gebaut, das nie aufgerufen wurde — und die Prüfung war grün
 
-In der Aufgabenbeschreibung des Goldsets stand seit drei Tagen: *„Real heißt: aus dem
-Bestand belegt, nicht ausgedacht."* Ein guter Satz. Nur: **keine unserer Prüfungen liest
-Sätze.** Sie lesen Felder.
+Der Renderer sollte lernen, Code-Blöcke unverändert darzustellen. Der Zweig dafür war
+geschrieben, und unsere Prüfung bestätigte: „ja, der Zweig steht da."
 
-Ein Lauf hätte 51 gut klingende, frei erfundene Beispiele schreiben, „erledigt" melden und
-niemandem auffallen können. Der Satz hätte danebengestanden und ausgesehen, als hätte er
-etwas verhindert.
+Nur: der Renderer arbeitet Zeile für Zeile. Steht vor einem Code-Block ein normaler Absatz,
+sammelt der Absatz alle Folgezeilen ein, bis eine Zeile kommt, die er als **etwas anderes**
+erkennt. Und „Code-Block" stand in dieser Liste nicht. Der Absatz hat den Block einfach
+mitgenommen.
 
-Jetzt trägt jedes Beispiel ein **Feld** mit der Stelle, an der es im Bestand steht — Datei
-**und** Textstelle darin. Beim Speichern wird nachgeschlagen, ob die Stelle wirklich dort
-ist. Der Grund für „und Textstelle" statt nur „Datei":
+> **Beide Stellen waren einzeln richtig. Falsch war nur, dass die eine nichts von der
+> anderen wusste.**
 
-> **Eine Datei existiert auch für ein erfundenes Beispiel.**
+Gefunden hat es eine Prüfung, die nicht in den Quelltext schaut, sondern nachsieht, was
+tatsächlich auf dem Bildschirm entsteht. Und die erste Fassung dieser Prüfung war auch grün —
+weil sie den Code-Block ganz an den Anfang gesetzt hatte, wo kein Absatz davorstehen kann.
 
-Das ist derselbe Merksatz, an dem wir dir gestern die falsche Auskunft zum IMAP gegeben
-haben — was nur im Fließtext steht, prüft niemand. Diesmal an der Sache angewandt statt im
-Rückblick zitiert.
+### Warum dein Dashboard sich etwas merkt und das Cockpit nicht
 
-### Warum wir eine 100 % nicht als Erfolg verkaufen
+Als wir im Cockpit die Gruppen zuklappbar gemacht haben, hatten wir uns bewusst dagegen
+entschieden, das zu speichern. Die Begründung von damals steht bis heute im Code: *ein
+Zustand, der einen Neustart überlebt, müsste beim Wiedersehen erklärt werden — sonst fehlt
+etwas und niemand weiß, warum.*
 
-Unser Bericht sagt: von den entscheidbaren Fällen gehen alle auf. Das klingt hervorragend
-und wäre irreführend. Die Prüfausdrücke sind **aus denselben Dateien abgeleitet**, gegen die
-sie laufen — dass sie aufgehen, ist zu einem großen Teil Bauart und kein Befund.
+Beim Dashboard speichern wir jetzt. Das sieht nach Widerspruch aus, und wir haben uns die
+Antwort nicht leicht gemacht:
 
-Wir haben den Satz deshalb **über** die Tabelle gesetzt, nicht darunter. Eine Zahl mit einem
-Vorbehalt dahinter wird ohne den Vorbehalt gelesen.
+> **Zuklappen ist ein Griff beim Lesen. Eine Auswahl ist eine Aussage. Das eine wieder
+> aufzumachen kostet einen Klick — das andere jedes Mal neu zu treffen macht es wertlos.**
 
-Was der Bericht wirklich belegt: dass jeder Fall **ausführbar** ist, dass jeder **belegt**
-ist, und **welche sechs** sich gegen den Bestand gar nicht entscheiden lassen — die stehen
-namentlich da, mit ihrer Belegstelle. Sie sind ausdrücklich **nicht** als durchgefallen
-gezählt: das hätte die Quote schlechter gemacht, sie wegzulassen hätte sie besser gemacht,
-und beides wäre eine erfundene Zahl.
+Der alte Einwand ist damit nicht überholt, sondern zur **Auflage** geworden: was du
+ausgeblendet hast, steht oben in der Ansicht — mit Anzahl, mit Namen, mit einem Knopf
+zurück. Und wir haben eine Prüfung eingebaut, die aufpasst, dass das Cockpit-Zuklappen
+weiterhin **nicht** gespeichert wird. Sonst wäre unsere Begründung eines Tages
+gegenstandslos, ohne dass jemand sie zurückgenommen hätte.
 
-### Eine Prüfung, die an ihrer eigenen Erklärung gescheitert ist
+### Eine Entscheidung, die sich durch Nachsehen fast von selbst erledigt hat
 
-Wir haben eine Prüfung gebaut, die zählt, ob eine bestimmte Adresse im Code nur **einmal**
-vorkommt. Sie meldete „zweimal". Der zweite Fund war das **Beispiel im Kommentar direkt
-darüber**, das erklärt, wofür die erste da ist.
+Eine Schnittstelle im Programm hatte keinen Nutzer mehr. Drei Möglichkeiten standen zur
+Wahl: behalten, wegbauen, umwidmen. „Behalten" und „umwidmen" stützten sich beide auf
+dieselbe Annahme — *die neue Dashboard-Konfiguration wird sie schon brauchen.*
 
-> **Eine Textsuche kann eine Erklärung nicht von ihrem Gegenstand unterscheiden — und die
-> Erklärung steht nun einmal genau dort, wo der Gegenstand ist.**
+Diese Konfiguration ist heute gebaut worden. Sie braucht die Schnittstelle **nicht**.
 
-Das ist uns in zwei Tagen jetzt **fünfmal** passiert. Gemessen wird ab hier der Code ohne
-Kommentare.
+> **Damit waren zwei der drei Möglichkeiten erledigt, ohne dass jemand über ihre Vor- und
+> Nachteile reden musste. Beide waren Aussagen über etwas, das es noch nicht gab.**
+
+### Und eine Zahl in unserem eigenen Bericht war zum zweiten Mal geschätzt
+
+Gestern haben wir aufgeschrieben, dass wir unsere Testzahl **fortgeschrieben statt gezählt**
+hatten. Heute stand im ersten Entwurf dieses Berichts wieder eine geschätzte Zahl — 1077
+statt der gemessenen 1079.
+
+> **Der Lauf, der die Warnung von gestern beim Schreiben vor Augen hatte, hat denselben
+> Fehler an derselben Stelle gemacht. Eine Lesson aufzuschreiben schließt keine Lücke.**
+
+Korrigiert, bevor es jemand liest. Die richtige Antwort ist kein dritter Merksatz, sondern
+eine Prüfung — sie steht als offene Frage in `platform/T-0020`.
 
 ### Was als Nächstes kommt
 
-Sprint 19: die **Zusammenführung der beiden Textdarstellungen** (dafür liegt jetzt eine
-vollständige Vorlage vor, samt einer Zahl, die auf null muss), die **Widget-Konfiguration
-mit Speichern** und das **Mail-Widget hinter dem PIN**. Dazu deine Antwort auf die
-Anbieter-Frage, sobald sie vorliegt.
+Sprint 20: der **Werkzeugbefund** (er kostet jeden Lauf Zeit), das **Mail-Widget hinter dem
+PIN**, der **Rückbau** der ungenutzten Schnittstelle und die dritte Berührung von
+`platform/T-0020`. Dazu deine zwei Antworten, sobald sie vorliegen.
