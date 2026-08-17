@@ -2,215 +2,170 @@
 
 ## Das Wichtigste
 
-1. **Wir sind in Sprint 17** (2026-08-17, Start 16:49, Kennung
-   `2026-08-17T1650-cowork-s17`). ⚠ **Dieser Lauf hat den Sprint nicht eröffnet, sondern
-   übernommen.** Die Registerzeile stand um 16:49 in der Datei und war **nicht committet**;
-   seit dem Ende von Sprint 16 (17:10) hatte **kein** Repo einen Commit. Der Lauf, der die
-   Zeile schrieb, ist zwischen dem Schreiben und seinem ersten Commit abgebrochen.
-   > **Ein Lauf, der zwischen Registerzeile und erstem Commit stirbt, hinterlässt einen
-   > Sprint, der laufend aussieht und nichts hervorgebracht hat.**
+1. **Wir sind in Sprint 18** (2026-08-17, Start 19:03, Kennung `2026-08-17T1905-cowork-s18`).
+   ⚠ **Dieser Lauf hat zuerst eine fremde Buchung nachgetragen.** Sprint 17 hatte seine
+   Arbeit um 18:50 abgeschlossen und committet, aber **bewusst kein `ende`** gebucht, weil
+   eine zweite Session in denselben Repos arbeitete. Beide Läufe endeten; niemand schloss
+   ihn.
+   > **Das Register kennt „läuft" und „abgebrochen". Für „fertig, aber aus Rücksicht nicht
+   > gebucht" hat es kein Wort — und der automatische Weg wählt dann das falsche.**
 
-   Gewählt ist der **idempotente Wiedereintritt**, den `beginne()` seit SWR-136
-   ausdrücklich vorsieht („ein Lauf, der zweimal startet, erhöht den Zähler nicht") — keine
-   Übernahme mit neuer Nummer, die eine Sprintnummer für einen Lauf ohne Ergebnis
-   verbraucht hätte. Verankert als `L-2026-08-17ap`.
-2. **✅ Die zwei Tickets bei der VIERTEN Berührung sind gebaut, nicht verschoben.**
-   `pm/T-0065` (**SWR-144**, Terminierungsknopf) und `pm/T-0063` (**SWR-147**,
-   Team-Gründung vorlegen). Beide sagten in ihrem eigenen Text, dass sie **keine Naht**
-   haben und eine erfundene Zerlegung schlimmer wäre als der Bau.
-3. **✅ `platform/T-0016` ist geschlossen — der benannte Altbestand ist von 3 auf 0**
-   (**SWR-146**, Widget-Vertrag **v2.5**). Der Cockpit-Payload trägt den Zustand je Feld;
-   die drei Inline-Formulierungen der Regel sind durch **eine** Stelle ersetzt.
-   > **Ein Ticket gegen B033 zu lösen, indem man einen neuen B033-Fall anlegt, ist keine
-   > Lösung, sondern eine Verschiebung mit besserer Presse.**
-4. **⚠⚠ Und dieser Lauf hat einen Werkzeugfehler AUSGELÖST, nicht gelesen** (`platform/T-0019`,
-   **SWR-145**): `trace_matrix.py` **ohne** `--alle-projekte` hat die kanonische Matrix mit
-   **24 von 145** Anforderungen überschrieben — 121 Zeilen weg, Meldung „Matrix
-   geschrieben", **Exit 0**.
-   > **Ein Werkzeug, dessen unvollständiger Modus an den Ort des vollständigen schreibt,
-   > macht aus einem Tippfehler einen Totalbefund.**
+   `beginne()` hätte Sprint 17 beim zweiten Anlauf als **`abgebrochen: true`** geschlossen.
+   Das wäre eine **falsche Angabe** gewesen: Sprint 17 hat vier Sachtickets geschlossen und
+   SWR-144 bis SWR-147 hervorgebracht. Geschlossen wurde er deshalb mit `beende()` **ohne**
+   Abbruchmarke und mit einer Notiz, die die **Messung** nennt (Schreibspur unbewegt, alle
+   17 Repos clean). Verankert als `L-2026-08-17ay`.
+2. **✅ Das seit Sprint 17 dringlichste Sachticket der Organisation ist gebaut**, nicht zum
+   zweiten Mal verschoben: `promt-team/T-0007` (**SWR-149**) liefert **51 belegte
+   Goldset-Fälle** — CM 23, DEV 28 — und die gemessene Baseline. Damit ist die **Klammer
+   `promt-team/T-0002` nach FÜNF Berührungen geschlossen**.
+3. **⚠⚠ Und der Befund dieses Tickets war einer an seiner eigenen DoD.** Sie verlangt
+   wörtlich *„real heißt: aus dem Bestand belegt, nicht ausgedacht"* — und dieser Satz stand
+   seit Sprint 15 **nur im Ticket**.
+   > **Keine Prüfung liest einen Satz. Ein Lauf hätte 51 plausibel formulierte Fälle
+   > schreiben und die DoD als erfüllt melden können — und nichts hätte widersprochen.**
 
-   Keine der beiden Voreinstellungen ist allein falsch — genau deshalb hat es keine
-   bestehende Prüfung gefunden. Es ist die Bauart von **SWR-143** eine Etage höher: die
-   Richtigkeit hing am Wissen des Aufrufers. Reparatur **im selben Lauf**: Discovery ist
-   der Normalfall, beide Aufrufe liefern jetzt dasselbe.
-5. **⚠⚠ Der Fingerprint-Schutz (SWR-080) durfte für den Knopf entfallen, und das Argument
-   hängt an EINEM Feld.** SWR-080 schützt den Wert, den der Client **gesehen** hat; eine
-   Terminierung bringt keinen mit. Deshalb steht die Feldmenge als Konstante da und wird
-   **gezählt** — käme ein zweites Feld dazu, wäre das Argument still falsch.
-6. **⚠ Der eigentliche Befund von SWR-144 saß nicht im Knopf, sondern in der
-   Fehlerabbildung darunter.** `tickets.speichere` übersetzte **jeden** `ValueError` in
-   HTTP 400 — auch „das Feld trägt den Wert schon".
-   > **Ein Knopf, dessen „schon erledigt" von seinem „hat nicht funktioniert" nicht zu
-   > unterscheiden ist, ist eine Anzeige ohne Aussage.**
+   Gebaut ist `herkunft` als **Pflichtfeld mit Belegstelle**, gegen den Bestand aufgelöst.
+   ⚠ Die **Stelle** ist die eigentliche Prüfung: *eine Datei existiert auch für einen
+   erfundenen Fall.* Alle 51 Fälle belegen sich mit einer Stelle — zugesichert.
+4. **⚠⚠ Eine Messung, die die DoD NICHT verlangt hat, hat die eigene Arbeit dieses Laufs
+   widerlegt.** Die **Trennschärfe**: von 46 textbasierten Prüfungen des ersten Entwurfs
+   gingen **41** auch in **fremden** Artefakten des Sets auf.
+   > **Eine Prüfung, deren Suchtext überall steht, geht auf, ohne etwas zu unterscheiden.
+   > Ein Goldset aus solchen Prüfungen ist kein Maßstab, sondern ein Maß für die
+   > Beliebigkeit seiner Suchtexte — und es war grün.**
 
-   Gebaut ist ein **eigener Typ** und kein Textvergleich (`L-2026-08-17ak` angewandt statt
-   zitiert), und die Unterscheidung ist bis in die Ansicht durchgehalten: drei Zustände,
-   drei Gestalten.
-7. **⚠ Vier Zusicherungen haben in diesem Lauf ihre eigenen Verfasser korrigiert.**
-   (a) Der Rollback-Test schob `.git` weg und maß damit **404 statt 503** — die Rücknahme
-   wurde nie erreicht. (b) Eine Zusicherung verlangte `BOARD.md` im Commit; das Board
-   ändert sich bei einer Terminierung **nicht**. (c) `cockpitFeldText` fiel bei unbekanntem
-   Zustand auf `"undefined"` durch — *wörtlich* der Fehler, den der Kommentar drei
-   Funktionen weiter oben beschreibt. (d) Ein Test namens *„die Version wird gelesen und
-   nicht eingetragen"* trug die Version selbst als Literal.
-   > **Eine Warnung, die im Nachbarcode steht, verhindert den Fehler nicht — die
-   > Zusicherung, die sie messbar macht, tut es.**
-8. **⚠ Eine fünfte Zusicherung war auf eine ZEILENNUMMER geprüft** und wurde von einer
-   Einfügung zwanzig Zeilen darüber rot. Der geprüfte Sachverhalt stand unverändert da.
-   > **Eine Zeilennummer ist keine Eigenschaft des Bestands, sondern eine Eigenschaft des
-   > Tages, an dem gemessen wurde.**
+   Geschärft auf **2 von 40**, **vor dem ersten Commit**. Die Zahl wird **berichtet und
+   nicht erzwungen**: eine Prüfung über eine **Konvention** soll überall aufgehen.
+5. **⚠⚠ Der Bericht sagt VOR seiner Tabelle, dass seine hohe Quote KEIN gutes Zeugnis ist.**
+   Die Prüfausdrücke sind aus den Artefakten **abgeleitet**; dass sie dort aufgehen, ist zum
+   Teil **Bauart und nicht Befund**. Was fehlt, ist **benannt statt geschätzt**: die
+   Erfolgsquote eines **frischen** Laufs je Rolle. Sie braucht einen Provider, kostet Geld
+   und ist **Klasse A** → `promt-team/T-0009` liegt als Inbox-DR beim Menschen.
+6. **✅ `projects/p11/T-0012` bei der ZWEITEN Verschiebung gebaut** (**SWR-150**). ⚠ Der
+   Befund war nicht der fehlende Link, sondern der **zweite Bauplatz**: **neun** Stellen in
+   `app.js` setzten die Route selbst zusammen, und in **sieben** davon war die Beschriftung
+   `x.ref` — die Kennung **vom Server**.
+   > **Ein Link, dessen Aufschrift der Server liefert und dessen Ziel die Ansicht
+   > zusammenbaut, ist zwei Aussagen über dasselbe Ticket. Solange beide gleich sind, merkt
+   > es niemand.**
 
-   Besonders teuer hier, weil dieser Test **gegen das Wegsehen** existiert (SWR-125) und
-   ein Fehlalarm genau dazu erzieht.
-9. **✅ Der Widget-Vertrag ist diesmal NICHT vom Wächter nachgezogen worden**, sondern im
-   selben Lauf wie der Payload — die erste Ausnahme von `L-2026-08-17y` („wer Code ändert,
-   sieht den Vertrag nicht"). Der Grund ist kein Vorsatz, sondern die **Reihenfolge**: DoD 1
-   von `platform/T-0016` stand einen ganzen Sprint **vor** dem Code.
-10. **⚠⚠ Der Auftraggeber hat uns MITTEN IM LAUF bei einer falschen Behauptung erwischt**
-    (`team-mail/N-0003`, 17:54): *„team-mail/T-0001 -> IMAP ist schon längst
-    eingerichtet."* Er hat recht. `team-mail/T-0002` steht auf **`done`**, und trotzdem
-    stand in **diesem** Plan bis eben „wartet-auf-Mensch — fällig ab IMAP-Einrichtung".
-    > **Eine Aufgabe, die fälschlich „wartet auf den Menschen" sagt, verschiebt die Schuld
-    > an ihrem Liegenbleiben — das ist schlimmer als eine, die einfach offen dasteht.**
-
-    Der Grund stand als **Satz im Plan** und nicht als **Feld am Ticket**; `blocked_by` war
-    korrekt und längst erfüllt, und keine Prüfung liest den Plansatz. Das ist wörtlich
-    `L-2026-08-17ag` — an einer anderen Stelle desselben Tages angewandt und hier nicht.
-11. **⚠⚠ Und dieser Lauf war NICHT allein im Repo.** Ab etwa 18:10 arbeitet eine **zweite
-    Session** in denselben Ordnern (`team-mail/T-0004`, `platform/tests/test_widget_post.py`,
-    Widget-Vertrag **v2.6** / SWR-148). Gemessen an Dateizeiten, nicht vermutet.
-    **Folge, und sie ist die wichtigste Entscheidung dieses Abschlusses: Sprint 17 wird
-    NICHT beendet.** `beende()` würde den laufenden Sprint unter der anderen Session
-    schließen und ihre Commits in einen abgeschlossenen Sprint fallen lassen — genau der
-    Buchhaltungsschaden, gegen den SWR-136 gebaut wurde.
-12. **⚠ Eine Zusicherung DIESES Laufs war binnen 30 Minuten falsch.** `test_vertragsversion_ist_25`
-    schrieb die Vertragsversion fest; die parallele Session hat sie zu Recht auf v2.6
-    gehoben. Es ist derselbe Fehler, den dieser Lauf eine Stunde vorher als
-    `L-2026-08-17an` **aufgeschrieben** hat.
-    > **Eine Versionsnummer festzuschreiben heißt, jeden künftigen Bump zum Fehler zu
-    > erklären — und der Bump ist genau das, was der Vertrag verlangt.**
-
-    Geprüft wird jetzt die Untergrenze und vor allem der **Sachverhalt** (steht `zustaende`
-    in der Feldliste?). Die Nummer ist der Beleg, das Feld ist die Sache.
-13. **1016 Python-Tests, davon 1 rot** (der Altbefund über drei unzulässige Statusübergänge
-    aus den Sprints 13 und 15 — **keiner aus diesem Lauf**), **65 JS-Tests grün** (von 51),
-    Matrix **147 SWRs / 0 Lücken** (Stand unserer Messung; der Bestand steht beim Abschluss bei **148 / 0** — SWR-148 kommt vom parallelen Lauf), Briefkasten **0 offen** (Start, mittendrin **1 neuer**,
-    beantwortet, Abschluss wieder 0), entschiedene unverbuchte DRs **0**, Plan-Drift 0,
-    Statusdrift 0.
-    ⚠ **Nicht startklar**, und das bleibt die richtige Meldung. Kein Stichtag verschoben,
-    keine Historie umgeschrieben, kein Test angepasst, um grün zu werden.
+   Und sie sind nicht theoretisch verschieden: **68 Ticketnummern gibt es in mehr als einem
+   Projekt**, `T-0002` allein in **17** — gemessen. Eine nackte Nummer ergibt jetzt
+   **keinen** Link.
+7. **✅ `projects/p12/T-0009` liefert ADR-P12-001** — die Regel gegen den zweiten Renderpfad
+   als **Zähltest** und nicht als Vorsatz. Damit ist auch die **Klammer `p12/T-0005`**
+   geschlossen, und `SWR-097`–`SWR-100` haben zum ersten Mal **Prüfungen**.
+   ⚠ Der Bestand liefert den Beweis selbst: `tlinks(String(text).replace(/\*\*/g, ""), …)` —
+   *ein Aufrufer, der Markup wegwirft, damit der Renderer nicht daran scheitert, hat die
+   Lücke repariert statt sie zu melden.*
+8. **⚠ Zwei Zähltests dieses Laufs halten bewusst den HEUTIGEN Zustand fest** („der
+   Inline-Pass kennt die Ticketnummer heute **nicht**"). Sie werden rot, sobald `p12/T-0006`
+   baut — **und das ist ihr Zweck**: sie sagen dem Lauf, der es tut, dass er den Altbestand
+   mitzunehmen hat, statt dieselbe Erkennung zweimal stehen zu lassen.
+   > **Ein Altbestand, der als Warnung dasteht, wächst. Einer, der als Zahl dasteht, kann
+   > nur sinken.**
+9. **⚠ Eine Zusicherung dieses Laufs ist an ihrem eigenen Kommentar rot geworden.** Der
+   Zähltest über das Routenpräfix suchte dateiweit und fand das **Beispiel in der Erklärung
+   darüber**. *Eine Textsuche kann eine Erklärung nicht von ihrem Gegenstand unterscheiden —
+   und die Erklärung steht nun einmal genau dort, wo der Gegenstand ist.* **Fünfter
+   Fehlalarm derselben Art in zwei Tagen.** Gemessen wird jetzt die **Zuweisung im Code**.
+10. **1069 Python-Tests, davon 1 rot** (der Altbefund über drei unzulässige Übergänge aus
+    den Sprints 13 und 15 — **keiner aus diesem Lauf**), **78 JS-Tests grün** (von 73),
+    Matrix **150 SWRs / 0 Lücken**, Briefkasten **0 offen**, entschiedene unverbuchte DRs
+    **0**. ⚠ **Nicht startklar**, und das bleibt die richtige Meldung.
 
 ## Sprint-Plan (Abschlussstand)
 
-*Sprint 17 = dieser Lauf. Default nach `pm/D006`: in diesem Sprint schließen. **Fest
-geplant** ist Sprint 18; ab Sprint 19 ist die Nummer eine Reihenfolge, keine Zusage.*
+*Sprint 18 = dieser Lauf. Default nach `pm/D006`: in diesem Sprint schließen. **Fest
+geplant** ist Sprint 19; ab Sprint 20 ist die Nummer eine Reihenfolge, keine Zusage.*
 
 ⚠ **Jede Verschiebung trägt ihren Grund IM TICKET**, nicht hier (`L-2026-08-17ag`).
 
 | Aufgabe | Rolle | Fällig | Status | Grund / nächster Schritt |
 |---|---|---|---|---|
-| pm/T-0065 | chg | dieser Sprint | **erledigt** | ✅ **SWR-144.** 4. Berührung, gebaut statt verschoben. Ein Klick, **ein** Feld, Wert aus dem Register; „unverändert" ist ein Erfolg mit eigenem Typ und **ohne** Commit. 15 Python- + 7 JS-Zusicherungen. |
-| platform/T-0019 | cm | dieser Sprint | **erledigt** | ✅ **SWR-145, NEU aus einem Werkzeugfehler DIESES Laufs.** Discovery ist der Normalfall; der falsche Aufruf existiert nicht mehr. ⚠ Der Beleg ist die **Gleichheit** zweier Aufrufe. |
-| platform/T-0016 | cm | dieser Sprint | **erledigt** | ✅ **SWR-146**, DoD 2–4. Payload trägt den Zustand (Schwesterschlüssel, v2.5), Altbestand **3 → 0**. ⚠ Die Zustandsmenge folgt dem **Vertrag**, nicht der Ansicht. |
-| pm/T-0063 | chg | dieser Sprint | **erledigt** | ✅ **SWR-147.** 4. Berührung. **Klasse A gewahrt:** vorgelegt, nicht gegründet — am Dateisystem zugesichert. Auflagen aus SWR-127 als **Prosa** im DR. |
-| pm/T-0028 | chg | Klammer | **erledigt** | ✅ Klammer geschlossen (`T-0062` + `T-0063`). Acht wortgleiche Verschiebungen in der Historie — die Zerlegung hat gewirkt. |
-| pm/T-0054 | chg | Klammer | **erledigt** | ✅ Klammer geschlossen (`T-0064` + `T-0065`). |
+| promt-team/T-0007 | test | dieser Sprint | **erledigt** | ✅ **SWR-149.** 51 belegte Fälle (CM 23, DEV 28), Format **v2** mit auflösbarer Herkunft, gemessene Baseline. ⚠ Die Trennschärfe hat den ersten Entwurf widerlegt (41 von 46) und ihn vor dem Commit auf 2 von 40 geschärft. |
+| projects/p11/T-0012 | dev | dieser Sprint | **erledigt** | ✅ **SWR-150.** 2. Verschiebung eingelöst statt einer dritten. **Ein** Bauplatz statt neun; nackte Nummer ergibt keinen Link. |
+| projects/p12/T-0009 | pl | dieser Sprint | **erledigt** | ✅ **ADR-P12-001.** Die Regel gegen den zweiten Renderpfad ist eine **Prüfung**: Altbestand `tlinks`-Aufrufe eingefroren bei **4**. SWR-097–100 haben Tests. |
+| promt-team/T-0002 | test | Klammer | **erledigt** | ✅ Klammer nach **fünf** Berührungen geschlossen (`T-0006` + `T-0007`). |
+| projects/p12/T-0005 | pl | Klammer | **erledigt** | ✅ Klammer geschlossen (`T-0008` + `T-0009`). |
 | pm/T-0001 | pl | jeder Sprint | **erfüllt** | Takt: Session-Agenda fortgeschrieben. |
-| pm/T-0002 | pl | jeder Sprint | **erfüllt** | Takt: Briefkasten **zweimal** geprüft, beide Male **0 offen** (55 Briefe). |
-| pm/T-0003 | coach | jeder Sprint | **erfüllt** | Takt: **acht** Lessons SOFORT verankert (`L-2026-08-17al` bis `as`), verteilt auf cm/pl/test. |
-| platform/T-0001 | cm | jeder Sprint | **erfüllt** | Takt: 1013 Python-Tests (1 rot, Altbefund), 65 JS-Tests grün, Matrix 147/0. ⚠ Die Suite läuft in **Blöcken** — ein Durchlauf überschreitet das Zeitfenster des Werkzeugs. |
-| team-dashboard/T-0001 | pl | jeder Sprint | **erfüllt** | Takt: Widget-Vertrag — Bump auf **v2.5** vollzogen, Übergangsdoppelung im selben Lauf zurückgebaut. |
-| team-mail/T-0001 | dev | jeder Sprint | offen | ⚠⚠ **Korrigiert in diesem Lauf, auf Zuruf des Auftraggebers** (`team-mail/N-0003`): hier stand mehrere Sprints lang „wartet-auf-Mensch — fällig ab IMAP-Einrichtung". `T-0002` ist **`done`**. Der Digest für den 17.08. fehlt; diese Sandbox hat die Zugangsdaten nicht (Datenklasse `geheim`). Rückfrage im Brief gestellt. |
-| promt-team/T-0007 | test | Sprint 18 | offen | ⚠ **1. Verschiebung**, Grund im Ticket. Blocker erfüllt — terminiert, nicht blockiert. **Ab Sprint 18 das dringlichste Sachticket:** ohne die 20 Fälle läuft das Eval-Gate nicht. |
-| projects/p11/T-0012 | dev | Sprint 18 | offen | ⚠ **2. Verschiebung**, Grund im Ticket. Spitze einer Kette von zwei. |
-| projects/p11/T-0011 | dev | Sprint 18 | offen | ⚠ **2. Verschiebung**, Grund im Ticket. Es hat **keine** Naht, und das steht im Ticket — damit ein späterer Lauf nicht danach sucht. |
-| projects/p12/T-0009 | pl | Sprint 18 | offen | ⚠ **1. Verschiebung**, Grund im Ticket. `blocked_by` erfüllt. |
-| projects/p11/T-0013 | dev | Sprint 18 | offen | `blocked_by: [T-0012]` — **echt blockiert**, der Termin folgt dem Blocker. |
-| projects/p12/T-0006 | pl | Sprint 18 | offen | `blocked_by` zieht auf `T-0009` nach — nicht erfüllt. |
-| promt-team/T-0003 | dev | Sprint 18 | blocked | `blocked_by` T-0001 (erfüllt) / T-0002 (Klammer über `T-0007`). |
-| platform/T-0020 | cm | Sprint 18 | offen | **Neu**, abgetrennt von `T-0019`. ⚠ **Nicht** dessen Reparatur: drei Fragen sind vor dem Bauen zu beantworten, sonst wird die Prüfung ein Dauerbefund. |
-| promt-team/T-0002 | test | Klammer | **zerlegt** | Klammer über `T-0006` (erledigt) / `T-0007`. |
-| projects/p11/T-0003 | pl | Klammer | **zerlegt** | Klammer über `T-0007`–`T-0013`. |
-| projects/p11/T-0008 | dev | Klammer | **zerlegt** | Klammer über `T-0010` (erledigt) / `T-0011`. |
-| projects/p11/T-0009 | dev | Klammer | **zerlegt** | Klammer über `T-0012` / `T-0013`. |
-| projects/p12/T-0003 | pl | Klammer | **zerlegt** | Klammer über `T-0004`–`T-0009`. |
-| projects/p12/T-0005 | pl | Klammer | **zerlegt** | Klammer über `T-0008` (erledigt) / `T-0009`. |
+| pm/T-0002 | pl | jeder Sprint | **erfüllt** | Takt: Briefkasten **zweimal** geprüft, beide Male **0 offen**. |
+| pm/T-0003 | coach | jeder Sprint | **erfüllt** | Takt: **fünf** Lessons SOFORT verankert (`L-2026-08-17au` bis `ay`), verteilt auf test/cm. |
+| platform/T-0001 | cm | jeder Sprint | **erfüllt** | Takt: 1069 Python-Tests (1 rot, Altbefund), 78 JS-Tests grün, Matrix 150/0. ⚠ Die Suite läuft in **Blöcken** — ein Durchlauf überschreitet das Zeitfenster des Werkzeugs. |
+| team-dashboard/T-0001 | pl | jeder Sprint | **erfüllt** | Takt: Widget-Vertrag unverändert bei **v2.6** — dieser Lauf hat keine Vertragsfläche berührt. |
+| team-mail/T-0001 | dev | jeder Sprint | offen | ⚠ Der Digest für den 17.08. fehlt weiter. Diese Sandbox hat die Zugangsdaten nicht (Datenklasse `geheim`); die Rückfrage steht seit Sprint 17 in `team-mail/N-0003` und ist **nicht** beantwortet. **Kein „wartet auf dich"** — es wartet auf eine Umgebung mit Zugangsdaten. |
+| promt-team/T-0009 | pl | **beim Menschen** | offen | ⚠ **Neu, Inbox-DR (Klasse A).** Wie messen wir die Erfolgsquote eines **frischen** Rollenlaufs, wenn sie Geld kostet? Optionen A/B/C, Frist **2026-08-19**, Default **A** (Ollama, 0 €). |
+| promt-team/T-0003 | dev | Sprint 19 | blocked | ⚠ `blocked_by` **ausgetauscht statt geleert**: `T-0001`/`T-0002` sind erfüllt, aber es fehlt die eine Zahl aus S0. Steht jetzt auf **`T-0009`** — der Wartegrund ist ein **Feld** und kein Fließtext. |
+| projects/p11/T-0011 | dev | Sprint 19 | offen | ⚠ **3. Verschiebung**, Grund im Ticket. Bei der **vierten** greift `L-2026-08-17x`: dann wird gebaut, nicht zerlegt — es hat **keine Naht**, und das steht im Ticket. |
+| projects/p11/T-0013 | dev | Sprint 19 | offen | `blocked_by: [T-0012]` ist mit SWR-150 **erfüllt** — ab Sprint 19 terminiert, nicht blockiert. ⚠ Ein PIN-Lesegate ist eine **Zugriffsentscheidung** (B025). |
+| projects/p11/T-0014 | pl | Sprint 19 | offen | ⚠ **1. Terminierung.** Eine **Entscheidung**, kein Bau. Diesen Lauf **nicht** stillschweigend entschieden: einen Endpunkt ohne Leser abzuräumen wäre eine Entscheidung ohne Entscheider. |
+| projects/p12/T-0006 | pl | Sprint 19 | offen | ⚠ **1. Verschiebung**, `blocked_by` mit ADR-P12-001 **erfüllt**. Die Vorlage ist vollständig — **und die Zusage ist eine Zahl**: `ALTBESTAND_TLINKS_AUFRUFE` muss von **4** auf **0**. |
+| platform/T-0020 | cm | Sprint 19 | offen | ⚠ **1. Verschiebung**, Grund im Ticket: **drei Fragen vor dem Bauen**. Dieser Lauf hat die erste beantwortet — der eingefrorene Zähler ist zweimal angewandt statt behauptet. |
+| promt-team/T-0008 | test | Sprint 20 | offen | ⚠ **Neu**: Goldset für die **übrigen zehn** aktiven Rollen. Die Lücke ist **benannt** und nicht stiller Rest. ⚠ Sprint 20, weil es Läufe braucht, die es selbst nicht erzeugt. |
+| projects/p11/T-0003 | pl | Klammer | nachgezogen | Klammer über `T-0007`–`T-0014` — folgt ihrem letzten Teil (Sprint 19). |
+| projects/p11/T-0008 | dev | Klammer | nachgezogen | Klammer über `T-0010` (done) / `T-0011`. |
+| projects/p11/T-0009 | dev | Klammer | nachgezogen | Klammer über `T-0012` (**done**) / `T-0013`. |
+| projects/p12/T-0003 | pl | Klammer | nachgezogen | Klammer über `T-0004`–`T-0009`; offen ist nur noch `T-0006`. |
+
+⚠ **Eine Klammer zählt nicht als verschoben.** Sie war nie an der Reihe — sie wartet auf
+ihren letzten Teil. Die Verschiebungszählung läuft an den **Teilen** (`L-2026-08-17x`).
 
 ### Endzustand, kein Plan (Vollständigkeit der Zählung)
 
 `p0/T-0008` (API-Key), `p0/T-0047` (Hub-VM), `p0/T-0072` / `p1/T-0018` (Copilot-PoC) stehen
-auf `rejected` und warten auf eine **Handlung des Menschen**. Sie erscheinen seit SWR-138
-im Abschnitt „Für dich: Handlungen".
+auf `rejected` und warten auf eine **Handlung des Menschen**. Sie erscheinen seit SWR-138 im
+Abschnitt „Für dich: Handlungen".
 
-## Sprint-Abschluss (Sprint 17, 2026-08-17)
+## Sprint-Abschluss (Sprint 18, 2026-08-17)
 
-**Geschlossen:** `pm/T-0065`, `platform/T-0019`, `platform/T-0016`, `pm/T-0063` — **vier
-Sachtickets**, dazu die **zwei** Klammern `pm/T-0028` und `pm/T-0054` und **fünf**
-Takt-Pflichten.
+**Geschlossen:** `promt-team/T-0007`, `projects/p11/T-0012`, `projects/p12/T-0009` — **drei
+Sachtickets**, dazu die **zwei** Klammern `promt-team/T-0002` (nach fünf Berührungen) und
+`p12/T-0005`, sowie **fünf** Takt-Pflichten.
 
-**Im Lauf dazugekommen:** `platform/T-0019` (im selben Lauf gebaut und geschlossen) und
-`platform/T-0020` (Naht benannt, drei Fragen offen).
+**Im Lauf dazugekommen:** `promt-team/T-0008` (die zehn übrigen Rollen, benannte Lücke) und
+`promt-team/T-0009` (**Inbox-DR, Klasse A**).
 
-**Neue Anforderungen:** **SWR-144** bis **SWR-147** — vier.
+**Neue Anforderungen:** **SWR-149** und **SWR-150** — zwei. Dazu **ADR-P12-001**, das
+`SWR-097`–`SWR-100` zum ersten Mal Prüfungen gibt.
 
-**Verifikation:** **1016 Python-Tests, 1015 grün / 1 rot** (der Altbefund über drei
-unzulässige Übergänge — **keiner aus diesem Lauf**), **65 JS-Tests grün** (von 51) — beim Abschluss **73**, weil der parallele Lauf acht beigesteuert hat —, Matrix **147 SWRs / 0 Lücken** bei unserer Messung und **148 / 0** beim Abschluss, Briefkasten **0 offen** (Start; **1 neuer Brief mitten im Lauf**,
-beantwortet; Abschluss wieder 0), entschiedene unverbuchte DRs **0**, Plan-Drift 0,
-Statusdrift 0.
+**Verifikation:** **1069 Python-Tests, 1068 grün / 1 rot** (der Altbefund über drei
+unzulässige Übergänge — **keiner aus diesem Lauf**), **78 JS-Tests grün** (von 73), Matrix
+**150 SWRs / 0 Lücken**, Briefkasten **0 offen**, entschiedene unverbuchte DRs **0**,
+Plan-Drift 0, Statusdrift 0.
 
 ⚠ **Der Lauf ist NICHT startklar, und das ist die richtige Meldung.** Drei unzulässige
 Statusübergänge seit dem Stichtag: zwei aus Sprint 13 (`platform/T-0014`, `pm/T-0064`) und
-einer aus Sprint 15 (`pm/T-0052`), **alle unverändert**. Nichts geglättet.
-
-### ⚠⚠ Sprint 17 bleibt OFFEN — bewusst, mit Grund
-
-Ab etwa 18:10 arbeitet eine **zweite Session** in denselben Repos: `team-mail/T-0004`
-(Dashboard-Widget), `platform/tests/test_widget_post.py`, Widget-Vertrag **v2.6** mit einer
-**SWR-148**, die in `p9` noch nicht steht. Gemessen an Dateizeiten und am Inhalt der
-Arbeitskopie, nicht vermutet.
-
-`beende()` aufzurufen hieße, den laufenden Sprint **unter** dieser Session zu schließen —
-ihre Commits fielen danach in einen abgeschlossenen Sprint, und das Register trüge eine
-Lücke, die niemand mehr zuordnen kann. Genau dagegen ist SWR-136 gebaut.
-
-> **Ein Sprint, der beendet wird, während noch jemand darin arbeitet, ist kein
-> abgeschlossener Sprint, sondern eine falsche Buchung mit Zeitstempel.**
-
-Diese Session hat deshalb **alles committet**, aber **nicht abgeschlossen**. Die
-Registerzeile für Sprint 17 trägt weiterhin kein `ende` — das ist hier **kein** Befund,
-sondern die Meldung. Der Lauf, der als letzter fertig wird, schließt ihn.
-
-⚠ Und die Kehrseite ist benannt: bleibt die andere Session ebenfalls stehen, hat Sprint 17
-am Ende **kein** `ende`, und `nicht_beendete()` wird ihn beim nächsten Lauf melden. Das ist
-der richtige Ausgang — ein gemeldeter offener Sprint ist ein Befund, ein falsch
-geschlossener ist eine Lüge in der Buchhaltung.
+einer aus Sprint 15 (`pm/T-0052`), **alle unverändert**. Nichts geglättet, kein Test
+angepasst, um grün zu werden.
 
 ### ⚠⚠ Der Befund dieses Laufs über sich selbst
 
-Sprint 16 hat einen Fehler **in Produktion während des Laufs** gefunden (SWR-143) und ihn
-im selben Lauf repariert. Sprint 17 hat einen **ausgelöst** — und der Unterschied ist die
-Pointe:
+Sprint 17 hat einen Werkzeugfehler **ausgelöst** (SWR-145). Sprint 18 hat etwas anderes
+getan: er hat eine **Messung gebaut, die seine eigene Arbeit widerlegt hat**.
 
-> **SWR-143 fand eine Funktion, die ihre Abhängigkeit nur fand, wenn der Aufrufer sie
-> mitbrachte. SWR-145 ist dasselbe eine Etage höher: ein Werkzeug, das seine Quellen nur
-> findet, wenn der Aufrufer ein Flag mitbringt — und beide Male ist das Ergebnis eines
-> unwissenden Aufrufers nicht als falsch erkennbar.**
+> **Das Goldset war mangelfrei, belegt, vollständig — und seine Prüfungen unterschieden
+> nichts. Ohne die Trennschärfe wäre es als Maßstab in den Bestand gegangen, und das
+> Eval-Gate hätte darauf gemessen.**
 
-Dazu haben **fünf** Zusicherungen in diesem Lauf ihre eigenen Verfasser korrigiert, davon
-vier beim **ersten** Lauf. Eine von ihnen fand einen Fehler, dessen Beschreibung drei
-Funktionen weiter oben in derselben Datei stand — als Kommentar.
+Dazu zwei Zusicherungen, die ihre Verfasser korrigiert haben: der Präfix-Zähltest an seinem
+eigenen Kommentar (fünfter Fehlalarm derselben Art), und die Board-Validierung, die das
+Frontmatter des neuen Inbox-DR beim ersten Wurf zu Recht abgelehnt hat (`frist` kein Datum,
+`default` kein Token aus `optionen`).
 
 ⚠ Die Erkennungsfrage aus Sprint 16 — *welche unserer inzwischen über 1000 Zusicherungen
 prüfen etwas, das die Testdatei selbst eingerichtet hat?* — bleibt **unbeantwortet** und
-steht weiter in `L-2026-08-17ai`. Dieser Lauf hat sie nicht angefasst und behauptet nicht,
-sie beantwortet zu haben.
+steht weiter in `L-2026-08-17ai`. Dieser Lauf hat sie **nicht** beantwortet; er hat aber in
+allen neuen Zusicherungen gegen den **wirklichen** Bestand gemessen statt gegen Attrappen,
+und das ist an `_WURZEL` in den drei neuen Testdateien nachzählbar.
 
-### Was in Sprint 18 zuerst kommt
+### Was in Sprint 19 zuerst kommt
 
-1. **`promt-team/T-0007`** (Goldset-**Fälle**) — der Blocker ist seit Sprint 16 erfüllt, und
-   ohne die 20 Fälle läuft das Eval-Gate `T-0003` nicht. Eine zweite Verschiebung hier
-   verschiebt eine ganze Kette.
-2. **`projects/p11/T-0012`** und **`p11/T-0011`** — beide bei der **dritten** Berührung; bei
-   der vierten greift `L-2026-08-17x`, und `T-0011` sagt im Voraus, dass es keine Naht hat.
-3. **`projects/p12/T-0009`** — Blocker erfüllt, und es entblockt `p12/T-0006`.
+1. **`projects/p12/T-0006`** — die Umstellung auf **einen** Renderweg. Die Vorlage ist
+   vollständig, und die Zusage ist eine Zahl: `ALTBESTAND_TLINKS_AUFRUFE` von 4 auf 0.
+2. **`projects/p11/T-0011`** — **dritte** Verschiebung hinter sich; bei der vierten greift
+   `L-2026-08-17x`, und das Ticket sagt im Voraus, dass es keine Naht hat.
+3. **`projects/p11/T-0013`** — Blocker mit SWR-150 erfüllt, und es schließt die Klammer
+   `p11/T-0009`.
+4. **`promt-team/T-0009`** verbuchen, sobald die Antwort da ist — daran hängt der
+   Erstauftrag des promt-teams.
