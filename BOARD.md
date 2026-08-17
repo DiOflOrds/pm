@@ -3,7 +3,7 @@
 Stand: 2026-08-17 · Tickets: 68 · davon wiederkehrend: 3
 
 
-## open (10)
+## open (9)
 
 | ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|---|
@@ -12,11 +12,16 @@ Stand: 2026-08-17 · Tickets: 68 · davon wiederkehrend: 3
 | [T-0054](tickets/T-0054.md) | CR (pm/N-0038): Der Mensch priorisiert offene Aufgaben aller Teams/Projekte für den nächsten Durchlauf — Knopf statt Einzelbearbeitung | change-request | einmalig | chg | Team | hoch | 0 | — |
 | [T-0065](tickets/T-0065.md) | CR (pm/T-0054 Teil b): Knopf je Zeile setzt geplant_sprint auf den nächsten Sprint | change-request | einmalig | chg | Team | hoch | 0 | T-0064 |
 | [T-0028](tickets/T-0028.md) | CR (pm/N-0022): Projekt-Pool — Team gründen im HMI (Steckbrief, Profil, Datenklasse, Zugänge) | change-request | einmalig | chg | Team | mittel | 0 | — |
-| [T-0052](tickets/T-0052.md) | CR (Teil e aus pm/T-0038, pm/N-0031): HMI-Abschnitt „Für dich: Handlungen\" neben der Inbox — eigener Abschnitt, nicht dieselbe Liste | change-request | einmalig | pl | Team | mittel | 0 | — |
 | [T-0061](tickets/T-0061.md) | sprint_widerspruch (SWR-106) hat nach der Umstellung keinen möglichen Fall mehr — prüfen, ob die Prüfung selbst B033 ist | change-request | einmalig | cm | Team | mittel | 0 | — |
 | [T-0063](tickets/T-0063.md) | CR (pm/T-0028 Teil b): Charter-Entwurf und Gründungs-DR aus dem geprüften Steckbrief | change-request | einmalig | chg | Team | mittel | 0 | T-0062 |
 | [T-0066](tickets/T-0066.md) | CR (pm/N-0042): Cockpit kompakter — falten statt kürzen | change-request | einmalig | pl | Team | mittel | 0 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | Team | niedrig | 0 | — |
+
+## in_progress (1)
+
+| ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
+|---|---|---|---|---|---|---|---|---|
+| [T-0052](tickets/T-0052.md) | CR (Teil e aus pm/T-0038, pm/N-0031): HMI-Abschnitt „Für dich: Handlungen\" neben der Inbox — eigener Abschnitt, nicht dieselbe Liste | change-request | einmalig | pl | Team | mittel | 0 | — |
 
 ## done (58)
 
