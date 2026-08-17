@@ -42,8 +42,17 @@
    **deinen Briefen** — die treffen zuerst die Technik darunter. **So bekommt die
    Oberfläche nie einen Lauf.** Beschluss: **der nächste Lauf ist ein
    Oberflächen-Lauf.**
-9. **Drei Aufgaben geschlossen**, 738 Tests grün, 127 Anforderungen ohne Lücke, Startcheck
-   startklar — am Ende gemessen, nicht am Anfang. **Es liegt nichts bei dir.**
+9. **Zwei weitere Briefe von dir kamen mitten im Lauf herein — beide sind beantwortet.**
+   Deine Frage nach Ollama/Claude je Rolle und die nach dem Dashboard-Prototyp. ⚠ Der
+   Startcheck am Laufbeginn kannte sie noch nicht; gefunden hat sie erst der Abschlusscheck.
+   **Ein Briefkasten-Stand vom Laufbeginn ist am Laufende keine Aussage mehr.**
+10. **⚠ Deine Ollama-Frage hat dieselbe Wunde getroffen wie deine Fristen-Frage.** Die
+    Zuordnung „welche Rolle auf welches Modell" **existiert seit Sprint 3** — neun
+    Aufgabentypen laufen dort auf Ollama, mit genau deiner Begründung. Nur: unsere
+    Laufprotokolle enthalten **7 Läufe insgesamt**, davon **einen** auf Ollama. Beschlossen,
+    nie geprüft, Wirkung unbekannt. **Zum dritten Mal an einem Tag derselbe Fehlertyp.**
+11. **Drei Aufgaben geschlossen**, 738 Tests grün, 127 Anforderungen ohne Lücke, Startcheck
+    startklar — am Ende gemessen, nicht am Anfang. **Es liegt nichts bei dir.**
 
 ---
 
@@ -56,6 +65,8 @@
 | ✅ **Du kannst jetzt im selben Brief weiterschreiben** | Der Brief ist ein Verlauf geworden. Dein Beitrag wird angehängt, und der Brief springt automatisch auf „offen" zurück — das ist der Punkt, an dem es kippt: ohne ihn hätte dein Kommentar in einem als „beantwortet" markierten Brief gelegen und **keine Session hätte ihn gesehen**. Das **Antwortfeld in der Oberfläche** fehlt noch, das ist der nächste Lauf. |
 | ⚠ **Eine Zahl in unserem gestrigen Bericht war richtig — eine Behauptung in unserer heutigen Antwort war es nicht** | Wir hatten geschrieben, der Startcheck werde ohne Kalenderdatum rot. Er wurde es nicht. Wir haben aus dem Namen einer Funktion geschlossen statt hineinzusehen — und zwar in der Antwort, die genau diesen Fehler aufarbeitet. Korrigiert, mit dem falschen Satz daneben stehengelassen. |
 | ⚠ **Der nächste Lauf ist ein Oberflächen-Lauf — und das ist eine Zusage an dich** | Vier Dinge, die du direkt siehst, warten auf die Bedienoberfläche: der Priorisieren-Knopf (dein Brief vom 17.08.), der Abschnitt „Für dich: Handlungen", die Nachricht, die ohne Neuladen erscheint, und das Antwortfeld je Brief. Alle vier wurden mit demselben Satz verschoben. Der Satz ist ab jetzt durch einen Plan ersetzt. |
+| ✅ **Deine Ollama-Frage: die Antwort existierte schon, der Beleg nicht** | Du fragst, welche Rollen über Ollama statt Claude laufen können. **Genau diese Zuordnung steht seit Sprint 3 in unserer Rollen-Registry** — neun Aufgabentypen (Zusammenfassungen, Formulare, Einordnen in geschlossene Listen) laufen dort auf Ollama; alles, was ein Gate passiert, fest auf Claude. Dein Gedanke ist also schon Regel. ⚠ **Was fehlt, ist der Beweis, dass es passiert:** wir haben **7 Läufe** protokolliert, einen davon auf Ollama. Wir geben dir deshalb **keine Empfehlung** — dein eigener Rollentext sagt „ohne Baseline kein Optimierungslauf", und unser Playbook erlaubt Routing-Änderungen nur datenbasiert. Die Messung ist die nächste Arbeit dieses Teams. |
+| ✅ **Dashboard: aufrufen kannst du es heute, das Widget-Dashboard fehlt noch** | `mission-control.cmd` starten, dann `http://localhost:8080` (im Heimnetz `mission-control-lan.cmd`, das zeigt dir die IP). Das **Widget-Dashboard** ist eigenes Projekt: **7 von 9 Aufgaben sind fertig** — Anforderungen freigegeben, Layout entworfen, deine Entscheidung LAY-a als ADR festgehalten. Offen: der Endpunkt, der die Kacheln liefert, und die Detailseiten. Beide im **Oberflächen-Lauf** als Nächstes. |
 | ⚠ `abschluss.cmd` prüfen (aus Sprint 1, weiter offen) | Die Datei wurde in Sprint 1 versehentlich geleert und aus dem Protokoll **rekonstruiert**. Wenn du eine Vorgängerversion hast, vergleiche sie. Das ist der einzige Punkt, der weiter auf dich wartet. |
 
 ---

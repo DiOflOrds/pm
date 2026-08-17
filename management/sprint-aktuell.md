@@ -108,7 +108,7 @@ an einer Teamaufgabe), beide zählen als Befund.*
 | promt-team/T-0002 | test | Sprint 12 | offen | Goldset je KI-Rolle. **1. Verschiebung**, gleicher Grund. |
 | promt-team/T-0003 | dev | Sprint 13 | blocked | ⚠ **Feld von 12 auf 13**: stand auf **demselben** Sprint wie seine beiden Blocker und behauptete damit, beides gehe in einem Lauf — während das Ticket selbst sagt *„ohne Baseline kein Optimierungslauf"*. Stiller Widerspruch; keine Prüfung hält `geplant_sprint` gegen den Sprint des Blockers. |
 | pm/T-0001 | pl | jeder Sprint | erfüllt | Takt: Session-Agenda fortgeschrieben. |
-| pm/T-0002 | pl | jeder Sprint | erfüllt | Takt: Briefkasten qualifiziert — **ein** Brief eingegangen (`pm/N-0041`), beantwortet, keiner offen. |
+| pm/T-0002 | pl | jeder Sprint | erfüllt | Takt: Briefkasten qualifiziert — **drei** Briefe eingegangen (`pm/N-0041` beim Start, `promt-team/N-0001` und `team-dashboard/N-0002` **während** des Laufs), alle drei beantwortet, keiner offen. ⚠ Die beiden späten kannte der Startcheck nicht: **ein Briefkasten-Stand vom Laufbeginn ist am Laufende keine Aussage mehr.** |
 | pm/T-0003 | coach | jeder Sprint | erfüllt | Takt: Lessons sofort verankert. |
 | platform/T-0001 | cm | jeder Sprint | erfüllt | Takt: Preflight, Tests, Matrix. |
 | team-mail/T-0001 | dev | jeder Sprint | erfüllt | Takt: Digest — fällig ab IMAP-Einrichtung, die weiterhin aussteht. Keine Arbeit, kein Verzug. |
@@ -130,7 +130,9 @@ Zuweisung von `pm/T-0053` an `pl` in Sprint 10.
 ## Sprint-Abschluss (Sprint 11, 2026-08-17)
 
 **Geplant beim Start:** 20 nicht geschlossene Aufgaben (14 Sachtickets + 6 Takt-Pflichten),
-dazu **ein offener Brief** (`pm/N-0041`), der Vorrang hatte. Im Lauf kamen **sechs**
+dazu **ein offener Brief** (`pm/N-0041`), der Vorrang hatte — und **zwei weitere, die
+während des Laufs eintrafen** (`promt-team/N-0001`, `team-dashboard/N-0002`) und noch in
+ihm beantwortet wurden. Im Lauf kamen **sechs**
 Tickets dazu: `platform/T-0012` aus dem Brief, `pm/T-0061` als Nebenbefund und vier aus
 Zerlegungen (`pm/T-0062`, `pm/T-0063`, `p12/T-0004`, `T-0005`, `T-0006` — fünf, davon
 `T-0062` im selben Lauf geschlossen).
@@ -147,4 +149,5 @@ HMI-Sprint zu machen, statt eine sechste Runde B025 zu schreiben.
 **Verifikation (nach allen Änderungen des Laufs gemessen, nicht davor):**
 Preflight **STARTKLAR**, 738 Tests grün, Matrix **127 SWRs / 0 Lücken**, unterminiert **0**,
 **Kalenderfristen 0**, Plan-Drift 0, überfällig 0, Statusdrift 0, Statusübergänge seit
-Stichtag 0, Altbestand 52 (unverändert). Briefkasten: **kein offener Brief**.
+Stichtag 0, Altbestand 52 (unverändert). Briefkasten: **drei Briefe eingegangen, drei
+beantwortet, kein offener**.
