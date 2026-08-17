@@ -1,58 +1,49 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
-## Das Wichtigste (Stand Sprint 16, 2026-08-17)
+## Das Wichtigste (Stand Sprint 17, 2026-08-17)
 
-1. **✅ Der Fehler, den wir dir gestern gemeldet haben, kann jetzt nicht mehr passieren —
-   und er ist heute zweimal aufgetreten, ohne Schaden.** Wir hatten geschrieben: einen
-   Aufgabenstand zu ändern sind bei uns zwei Schritte, und klemmt der zweite, ist der Stand
-   in der Datei und nicht in der Geschichte. Jetzt sind es **keine zwei Schritte mehr**:
-   wer den Stand ändert, speichert ihn im selben Zug. Klemmt es, gilt die Änderung als
-   **nicht passiert** und die Datei steht wieder wie vorher.
-   > **Beim letzten Mal ging es gut aus, weil jemand hingesehen hat. Heute ging es gut aus,
-   > weil eine Vorkehrung gegriffen hat — zweimal, an einem echten Fall.**
-2. **⚠⚠ Dafür haben wir mitten im Lauf einen Fehler gefunden, der einen ganzen Sprint lang
-   unentdeckt war.** Wir hatten letzte Woche eine Reparatur gebaut, die eine bekannte
-   Klemme im Speichern automatisch löst. Heute stellte sich heraus: **sie lief meistens gar
-   nicht.** Sie suchte ihr Werkzeug an der falschen Stelle und fand es nur, wenn der
-   Aufrufer es zufällig schon dabeihatte.
-   > **Die Reparatur wirkte überall dort, wo man sie ohnehin mitbrachte — also genau dort
-   > nicht, wo sie hin sollte.**
+1. **✅ Du hattest recht, und wir hatten es falsch stehen.** Dein Zuruf um 17:54 — *„IMAP ist
+   schon längst eingerichtet"* — stimmt. Die Aufgabe, die den Tages-Digest baut, stand bei
+   uns seit mehreren Durchläufen als **„wartet auf dich"**. Der Handgriff, auf den sie
+   angeblich wartete, war längst erledigt und bei uns auch so vermerkt — nur eben an einer
+   anderen Stelle als in dem Satz, den wir dir vorgelegt haben.
+   > **Eine Aufgabe, die fälschlich sagt „wartet auf dich", schiebt dir die Schuld dafür zu,
+   > dass sie liegen bleibt. Das ist schlimmer, als wenn sie einfach offen dastünde.**
 
-   ⚠ Und das Unangenehmste daran: **unsere Prüfung dafür war die ganze Zeit grün.** Die
-   Testdatei brachte das Werkzeug selbst mit. Gefunden hat es kein Test, sondern drei
-   Speicherversuche, die während der Arbeit scheiterten.
-3. **✅ Die Zahlen, auf die du seit deinem Brief zu den KI-Rollen wartest, sind da — und
-   sie sind leer.** Von **7** aufgezeichneten Läufen meldet **kein einziger** Token; bei
-   **6 von 7** fehlt die Angabe, um welche Art Aufgabe es ging. Auswertbar ist damit genau
-   **ein** Lauf, und der lief über **Ollama**.
-   > **Wir wissen jetzt, dass wir es nicht wissen — und an welchen Stellen genau.**
+   Wir haben den Satz gestrichen. ⚠ Eine Frage bleibt, und sie ist die einzige: die Routine
+   läuft in einer abgeschotteten Umgebung, und dort sind die **Zugangsdaten nicht gesetzt**
+   — nachgesehen, nicht vermutet. Sie gehören dorthin auch nicht ins Projekt (sie sind
+   geheim). Die Frage steht im Brief.
+2. **✅ Drei Aufgaben, die viermal bzw. dreimal liegengeblieben sind, sind erledigt statt
+   erneut verschoben.** Der Knopf, mit dem du Aufgaben auf den nächsten Durchlauf setzen
+   kannst; die Vorlage für eine Team-Gründung; und das Aufräumen einer Regel, die im
+   Cockpit dreimal danebenstand.
+3. **⚠⚠ Unser eigenes Werkzeug hat uns in diesem Lauf einen Totalschaden vorgetäuscht.**
+   Wir wollten die Übersicht erneuern, welche Anforderung von welchem Test abgedeckt ist —
+   und haben den Befehl **ohne einen Zusatz** aufgerufen. Ergebnis: die Übersicht wurde mit
+   **24 statt 145** Anforderungen überschrieben und meldete **101 Lücken**. Ohne Fehler,
+   ohne Warnung, mit den Worten „Übersicht geschrieben".
+   > **Das sah aus wie ein Einbruch unserer Qualität und war ein vergessener Zusatz.**
 
-   Wir hätten dir stattdessen sieben Nullen zeigen können. Die hätten wie ein Ergebnis
-   ausgesehen.
-4. **⚠ Und wir haben uns die naheliegende Bequemlichkeit verboten.** Ein Durchschnitt über
-   die Läufe, die zufällig etwas gemeldet haben, ist kein Durchschnitt über die Läufe.
-   Jede Zahl in unserem Bericht sagt deshalb dazu, **auf wie vielen von wie vielen** sie
-   beruht.
-5. **✅ Messen statt schätzen — auch da, wo es unbequem war.** Für die Token verlangst du
-   eine Trennung in „fester Anteil" und „wechselnder Anteil". Das Werkzeug liefert nur
-   **eine** Zahl. Wir haben die Aufteilung deshalb **nicht** geschätzt, sondern **zweimal
-   gemessen** und subtrahiert. Fehlt eine der beiden Messungen, schreiben wir **gar keine**
-   Zahl hin.
-6. **✅ Eine Aufgabe, die viermal liegengeblieben ist, ist zerlegt und ihr erster Teil
-   erledigt:** wir haben nachgemessen, ob unsere Briefanzeige Text verschluckt. **Sie tut
-   es nicht** — geprüft an **57** deiner und unserer Briefe.
-7. **⚠ Dabei ist unsere eigene Messung zuerst falsch gewesen, nicht die Anzeige.** Sie
-   meldete an sieben Briefen „fehlende Zeichen" — es waren die **Nummern der
-   Aufzählungen**, die die Anzeige selbstverständlich selbst erzeugt.
-   > **Ein erster roter Alarm ist genauso oft ein Fehler des Messgeräts wie einer des
-   > Gemessenen.**
-8. **✅ Eine Frage, die seit gestern zwischen zwei unserer Teams hing, ist entschieden.**
-   Es ging darum, ob eine Zusatzangabe künftig vom Server mitgeliefert wird oder in der
-   Anzeige selbst berechnet. Antwort: **vom Server**. Der Grund ist keine Vorliebe, sondern
-   Zählung — die zweite Variante hätte dieselbe Regel ein fünftes Mal irgendwo
-   hingeschrieben.
-9. **936 Tests für die Technik (1 rot, der alte Befund von gestern — unverändert), 51 für
-   die Oberfläche (von 45), 143 Anforderungen ohne Lücke.** **Bei dir liegt nichts Neues.**
+   Wäre der Lauf an dieser Stelle abgebrochen, hätte der nächste versucht, 101 erfundene
+   Lücken zu „reparieren". Repariert ist es im selben Lauf: den falschen Aufruf gibt es
+   nicht mehr, beide Varianten liefern jetzt dasselbe.
+4. **⚠ Fünf unserer Prüfungen haben in diesem Lauf ihre eigenen Verfasser widerlegt** — vier
+   davon beim allerersten Versuch. Eine wollte einen Fehler messen und maß einen anderen.
+   Eine verlangte, dass eine Datei mitgespeichert wird, die sich gar nicht ändert. Eine
+   fiel genau in die Falle, vor der drei Absätze weiter oben in derselben Datei gewarnt
+   wird. Und zwei schrieben eine Zahl fest, die sich planmäßig ändert.
+   > **Eine Warnung im Nachbarcode verhindert den Fehler nicht. Die Prüfung, die ihn
+   > durchprobiert, tut es.**
+5. **⚠⚠ Wir waren heute nicht allein in deinen Ordnern.** Ab etwa 18:10 arbeitet eine
+   **zweite Sitzung** an denselben Dateien (ein Post-Widget fürs Dashboard). Wir haben ihre
+   Arbeit **nicht angefasst** und aus demselben Grund den Durchlauf **nicht
+   abgeschlossen**: ein Sprint, der beendet wird, während noch jemand darin arbeitet, ist
+   keine abgeschlossene Runde, sondern eine falsche Buchung. Wer zuletzt fertig wird,
+   schließt ihn.
+6. **1016 Prüfungen für die Technik (1 rot, der alte Befund von vorgestern — unverändert),
+   65 für die Oberfläche (von 51), 147 Anforderungen ohne Lücke.** **Bei dir liegt nichts
+   Neues** — außer der einen Frage zu den Zugangsdaten.
 
 ---
 
@@ -60,9 +51,10 @@
 
 | Was | Warum |
 |---|---|
-| ⚠ **Deine Zählung von vorgestern steht weiter aus** | Wir hatten dich gebeten, im Reiter „Dashboard" nachzusehen, **wie viele Kacheln du ohne Scrollen siehst**. Die Frage ist weiter offen; davon hängt ab, ob auch die lange Sprint-Tabelle im Cockpit eine Kur braucht. ⚠ Wir können es nicht selbst messen — dafür bräuchten wir einen echten Browser, und den hat unsere Prüfstrecke bewusst nicht. |
-| ✅ **Deine Frage zu den KI-Rollen ist beantwortet — mit einer Messung** | *„Welche Rollen über Claude, welche über Ollama?"* Antwort: **auswertbar ist genau ein Lauf, und der lief über Ollama.** Alles andere ist nicht erhoben. Der Bericht liegt in `promt-team/management/telemetrie-baseline.md`. |
-| ⚠ **Unsere Prüfung bleibt rot, und zwar zu Recht** | Die drei übersprungenen Aufgabenstände aus den Sprints 13 und 15 stehen unverändert in der Geschichte. Wir haben nichts umgeschrieben und keinen Stichtag verschoben. Neu dazugekommen ist **keiner**. |
+| ⚠ **Eine Frage zu den Mail-Zugangsdaten** | Sind `MAIL_IMAP_HOST/USER/PASS` in der Umgebung gesetzt, in der die **Routine** läuft — nicht nur in deiner eigenen Shell? Ein `setx` wirkt erst in **neu gestarteten** Programmen. Läuft Mission Control noch aus einer Sitzung von vorher, sieht es die Daten nicht. Davon hängt der Tages-Digest ab. Antwort in `team-mail/N-0003`. |
+| ⚠ **Deine Zählung von vorgestern steht weiter aus** | Wie viele Kacheln siehst du im Reiter „Dashboard" **ohne Scrollen**? Davon hängt ab, ob auch die lange Sprint-Tabelle eine Kur braucht. ⚠ Wir können es nicht selbst messen — dafür bräuchten wir einen echten Browser, und den hat unsere Prüfstrecke bewusst nicht. |
+| ✅ **Der Knopf, um den du gebeten hattest, ist da** | *„Offene Aufgaben aller Teams für den nächsten Durchlauf priorisieren — Knopf statt Einzelbearbeitung."* An jeder Zeile der Aufgabenliste steht er jetzt. Klickst du ihn an einer Aufgabe, die schon dran ist, sagt er dir das — und tut nichts. |
+| ⚠ **Unsere Prüfung bleibt rot, und zwar zu Recht** | Die drei übersprungenen Aufgabenstände aus den Sprints 13 und 15 stehen unverändert in der Geschichte. Neu dazugekommen ist **keiner**. |
 | ⚠ **`abschluss.cmd` prüfen (aus Sprint 1)** | Unverändert dein einziger Altpunkt. |
 | ✅ **Zu pushen gibt es wieder etwas** | Zeile steht in `PUSH-ANFORDERUNG.txt`. Wir pushen nie selbst. |
 
@@ -70,53 +62,57 @@
 
 ## Was heute wichtig war — in Ruhe erklärt
 
-### Die Vorkehrung, die im selben Lauf gebraucht wurde
+### Der Satz, der dir die Schuld zugeschoben hat
 
-Gestern haben wir dir geschrieben, dass „besser aufpassen" keine Reparatur ist. Heute haben
-wir die Reparatur gebaut: das Ändern eines Aufgabenstands und das Abspeichern sind **ein**
-Vorgang geworden. Klemmt das Speichern, wird die Datei auf den Stand von vorher
-zurückgesetzt — Zeichen für Zeichen — und wir bekommen eine Fehlermeldung statt eines
-stillen Verlusts.
+In unserem Plan stand bei der Digest-Aufgabe: *„fällig ab IMAP-Einrichtung, und die ist
+eine Handlung des Menschen."* Das war ein Satz, der einmal gestimmt hat. Danach wurde die
+Einrichtung erledigt — und bei uns auch abgehakt, im Feld des zugehörigen Tickets. Nur der
+**Satz** blieb stehen.
 
-Und dann ist genau das passiert. Bei einer Aufgabe klemmte es zweimal. Beim ersten Mal
-wurde die Änderung zurückgenommen; beim zweiten Anlauf hat unser System den nächsten
-Schritt **verweigert**, weil der vorherige noch nicht gespeichert war. Beides ist richtig,
-und beides wäre gestern schiefgegangen.
+Keine unserer Prüfungen hat widersprochen, und der Grund ist einfach: sie lesen **Felder**,
+keine Sätze. Der Satz war für jede Prüfung unsichtbar und ist lautlos gealtert.
 
-### Der Fehler, der grün getestet wurde
+Das Unangenehme daran ist nicht der Fehler selbst, sondern seine Richtung. Ein Satz, der
+„wartet auf den Menschen" sagt, sieht aus wie eine Erklärung und ist eine Zuweisung. Bei
+einer Aufgabe, die einfach offen dagestanden hätte, wärst du beim Lesen vermutlich
+gestolpert. So bist du es erst gestolpert, als du es zufällig besser wusstest.
 
-Das ist der Teil, der uns beschäftigt. Wir hatten eine Reparatur für eine bekannte Klemme,
-und wir hatten eine Prüfung dafür. Die Prüfung war grün. Die Reparatur lief nicht.
+Wir haben denselben Merksatz — *was nur im Fließtext steht, prüft niemand* — heute an einer
+anderen Stelle sauber angewandt. Hier nicht.
 
-Der Grund: Die Reparatur suchte ihr Werkzeug im falschen Ordner. In der Prüfung fiel das
-nicht auf, weil die **Testdatei** den richtigen Ordner ohnehin bereitstellt — sie hat also
-die Bedingung selbst hergestellt, die sie prüfen sollte.
+### Wie ein vergessener Zusatz aussah wie ein Zusammenbruch
 
-> **Eine Prüfung, die ihre eigene Voraussetzung mitbringt, prüft die Voraussetzung und
-> nicht die Sache.**
+Wir führen eine Übersicht, welche unserer Anforderungen von welchen Prüfungen abgedeckt
+sind. Gestern standen dort 143 Anforderungen und **keine** Lücke.
 
-Wir haben es repariert und eine Prüfung geschrieben, die den Ordner ausdrücklich
-wegnimmt, bevor sie misst. Was wir **nicht** wissen: wie viele unserer 936 Prüfungen
-dieselbe Schwäche haben. Wir haben die Frage aufgeschrieben statt sie für erledigt zu
-erklären.
+Heute haben wir das Werkzeug aufgerufen, das diese Übersicht erzeugt — und einen Zusatz
+vergessen, mit dem es **alle** Bereiche durchsucht statt nur den ersten. Es hat daraufhin
+die Übersicht mit 24 Anforderungen und **101 Lücken** überschrieben. Keine Fehlermeldung.
+Die Meldung lautete „Übersicht geschrieben".
 
-### Warum wir dir keine sieben Nullen zeigen
+Beides für sich war vernünftig eingestellt: ein Zusatz schaltet etwas *hinzu*, und der
+Normalfall soll ohne Zusätze laufen. Zusammen ergeben sie: *der unvollständige Modus
+schreibt an die Stelle des vollständigen.*
 
-Du hattest nach Zahlen je KI-Rolle gefragt. Wir könnten dir eine Tabelle mit Nullen
-liefern; sie wäre in jeder Zelle formal korrekt und in ihrer Aussage falsch, weil eine Null
-zweierlei heißen kann — „gemessen, es war nichts" oder „nie erhoben".
+Wir haben es umgedreht. Das Werkzeug durchsucht jetzt immer alles; wer etwas Bestimmtes
+will, sagt es ausdrücklich. Und findet es gar nichts, schreibt es **nichts** — statt eine
+leere Übersicht an die Stelle der echten zu legen.
 
-Bei uns steht deshalb überall dabei, auf wie vielen Läufen eine Zahl beruht. Wo es null
-sind, steht **„nicht geliefert"** und nicht **„0"**.
+### Warum wir heute nicht „fertig" melden
 
-Und weil die Aufteilung der Token in einen festen und einen wechselnden Anteil vom Werkzeug
-nur als **eine** Zahl kommt, haben wir sie nicht aufgeteilt, sondern ein zweites Mal
-gemessen — mit einer Anfrage, die nichts erzeugt und nur zählt. Die Differenz ist dann
-keine Schätzung, sondern die zweite Messung.
+Seit etwa 18:10 arbeitet eine zweite Sitzung an denselben Dateien. Wir haben ihre Arbeit
+nicht angerührt und deshalb auch den Durchlauf nicht abgeschlossen: Wer eine Runde für
+beendet erklärt, während ein anderer noch darin arbeitet, sortiert dessen Arbeit
+nachträglich in eine abgeschlossene Runde ein — und dann stimmt hinterher keine Zählung
+mehr.
+
+Uns ist bewusst, dass am Ende möglicherweise **niemand** die Runde schließt und unser
+Startcheck das beim nächsten Mal meldet. Das ist der bessere von beiden Ausgängen: eine
+gemeldete offene Runde ist ein Hinweis, eine falsch geschlossene ist eine falsche Angabe.
 
 ### Was als Nächstes kommt
 
-Sprint 17: die **Umsetzung** der heute entschiedenen Vertragsfrage, die beiden
-Änderungsanträge zum Projekt-Pool (beide zum dritten Mal verschoben — beim vierten Mal
-entscheiden wir sie, statt sie noch einmal zu verschieben), und die **Goldset-Fälle**, für
-die heute das Format entstanden ist.
+Sprint 18: die **Goldset-Fälle** (20 reale Beispiele — ohne sie läuft die Qualitätsprüfung
+der KI-Rollen nicht an), die **Deep-Links** vom Dashboard in die Detailseiten, und die
+**Widget-Konfiguration** mit Speichern. Dazu die Antwort auf die Zugangsdaten-Frage, sobald
+sie vorliegt.
