@@ -87,7 +87,8 @@ Sprint 13; ab Sprint 14 ist die Nummer eine **Reihenfolge**, keine Zusage.*
 | pm/T-0039 | pl | dieser Sprint | **erledigt** | **Klammer geschlossen** — `T-0059` (Sprint 11) und `T-0060` (Sprint 12) sind beide erledigt. Der CR aus `pm/N-0031` ist vollständig. |
 | projects/p12/T-0007 | mensch | **Frist 2026-08-24** | offen (DR) | **Neu.** Darf Node Voraussetzung werden? Optionen A/B/C, Default `B-node-optional`. ⚠ Kostet nichts und blockiert nichts — bis zur Antwort meldet der Preflight „übersprungen". |
 | platform/T-0013 | cm | Sprint 13 | offen | **Neu, aus dem Nebenläufigkeitsbefund 11:05.** Sprintregister braucht ein **Ende**; `beginne()` verweigert bei laufendem Sprint. ⚠ Vor dem Bauen die Taktabstände **messen** — 07:10 / 09:14 / 10:04 / 11:27 sind nicht gleichmäßig 60 Min. Erste Terminierung. |
-| pm/T-0064 | pl | Sprint 13 | offen | **Neu, erster Teil von `T-0054`.** Projektübergreifende Liste der offenen Aufgaben, lesend, aus `aggregation`. ⚠ **Nicht auf drei gekürzt** wie die Kachel — der Zweck ist, dass der Auftraggeber alles sieht. Renderregeln nach ADR-008. |
+| pm/T-0064 | pl | Sprint 13 | offen | **Neu, erster Teil von `T-0054`.** Projektübergreifende Liste der offenen Aufgaben, lesend, aus `aggregation`. ⚠ **Nicht auf drei gekürzt** wie die Kachel — der Zweck ist, dass der Auftraggeber alles sieht. Renderregeln nach ADR-008. ⚠ **Erweitert um die Rollen-Sicht aus `pm/N-0042`** — dieselbe Liste, anders gruppiert, ausdrücklich **keine zweite Ansicht** (B033). |
+| pm/T-0066 | pl | Sprint 13 | offen | **Neu, aus Brief `pm/N-0042` (12:00).** Cockpit kompakter: **falten statt kürzen**. ⚠ Die beiden Briefe des Tages ziehen gegeneinander — `N-0038` verlangt, **alle** Aufgaben zu sehen, `N-0042` weniger Scrollen. Auflösung im Ticket und **dem Auftraggeber offengelegt**, statt sie als Auslegung anzuwenden. |
 | pm/T-0065 | chg | Sprint 14 | offen | **Neu, zweiter Teil von `T-0054`.** Knopf setzt `geplant_sprint`, `blocked_by: [T-0064]`. Die drei Festlegungen stehen bereits. |
 | pm/T-0054 | chg | Sprint 14 | **zerlegt** | ⚠ **Zwei Verschiebungen statt vier** — die Naht stand im Ticket („eine Liste … und der Knopf daneben"). Klammer trägt den Termin des letzten Teils. |
 | pm/T-0052 | pl | Sprint 13 | offen | **3. Verschiebung, erster Grund dieser Art:** der HMI-Sprint musste zuerst seine Abnahmefähigkeit herstellen (0 JS-Tests). ⚠ Verfallsdatum: gilt nur für Sprint 12. **Beim vierten Mal wird zerlegt** — Naht zwischen „Für dich: Entscheidungen" und „Für dich: Handlungen". |
@@ -104,7 +105,7 @@ Sprint 13; ab Sprint 14 ist die Nummer eine **Reihenfolge**, keine Zusage.*
 | promt-team/T-0002 | test | Sprint 13 | offen | **2. Verschiebung**, gleicher Grund, gleiches Verfallsdatum. |
 | promt-team/T-0003 | dev | Sprint 13 | blocked | `blocked_by` T-0001/T-0002. ⚠ Steht damit wieder auf **demselben** Sprint wie seine Blocker — derselbe stille Widerspruch, den Sprint 11 hier gefunden hat. **Muss in Sprint 13 auf 14 gezogen werden, sobald die Blocker terminiert sind.** |
 | pm/T-0001 | pl | jeder Sprint | erfüllt | Takt: Session-Agenda fortgeschrieben. |
-| pm/T-0002 | pl | jeder Sprint | erfüllt | Takt: Briefkasten qualifiziert — **kein offener Brief**, weder beim Start noch beim Abschluss (beide Male geprüft, Lehre aus Sprint 11). |
+| pm/T-0002 | pl | jeder Sprint | erfüllt | Takt: Briefkasten qualifiziert. Beim Start **kein** offener Brief; ⚠ die **Abschluss**prüfung fand `pm/N-0042` (eingegangen **12:00**, mitten im Abschluss) — noch in diesem Lauf beantwortet und als Klasse B eingestuft. **Zweiter Sprint in Folge, in dem der Startstand am Laufende nicht mehr galt.** |
 | pm/T-0003 | coach | jeder Sprint | erfüllt | Takt: Lessons sofort verankert (`L-2026-08-17y`, `L-2026-08-17z`). |
 | platform/T-0001 | cm | jeder Sprint | erfüllt | Takt: Preflight, Tests, Matrix — **und ab jetzt die JS-Strecke**. |
 | team-mail/T-0001 | dev | jeder Sprint | erfüllt | Takt: Digest — fällig ab IMAP-Einrichtung, die weiterhin aussteht. Keine Arbeit, kein Verzug. |
@@ -147,4 +148,13 @@ die Zerlegungsnaht **jetzt** benannt, statt sie beim vierten Mal zu suchen.
 Preflight **STARTKLAR**, **754 Python-Tests** grün, **16 JS-Tests** grün, Matrix **130
 SWRs / 0 Lücken**, unterminiert 0, Kalenderfristen 0, Plan-Drift 0, überfällig 0,
 Statusdrift 0, Statusübergänge seit Stichtag 0, Altbestand 52 (unverändert).
-Briefkasten: **beim Start kein offener Brief, beim Abschluss erneut geprüft.**
+Briefkasten: beim Start **kein** offener Brief; die Abschlussprüfung fand `pm/N-0042`
+(12:00) — **beantwortet, keiner offen.** Daraus zwei Tickets: `pm/T-0066` (neu) und eine
+Erweiterung von `pm/T-0064`.
+
+⚠ **Zweiter Sprint in Folge, in dem ein Brief erst vom Abschluss-Preflight gefunden wurde.**
+Sprint 11 hat daraus die Regel abgeleitet, zweimal zu prüfen; dieser Lauf hat sie angewandt
+und dabei gemessen, dass sie kein Sonderfall ist: bei 60-Minuten-Takt und Briefen zu
+beliebiger Zeit ist der **Regelfall**, dass ein Brief mitten im Lauf eintrifft. Kandidat
+für die nächste Runbook-Verschärfung: der Abschluss-Preflight läuft **vor** dem Schreiben
+der Berichte, nicht danach — dieser Lauf musste die Berichte nachträglich ergänzen.

@@ -46,7 +46,14 @@
     ändern, und *bevor* der Fehler gemeldet wurde. Folgenlos, weil wir auf einer Kopie
     gearbeitet haben. Es ist **dieselbe Sache wie `abschluss.cmd` in Sprint 1**, der
     einzige Punkt, der bis heute bei dir liegt. Die Regel dagegen steht jetzt.
-11. **754 Tests für die Technik (+13), 16 für die Oberfläche (+16, von null)**, 130
+11. **✅ Dein Brief von 12:00 ist schon beantwortet — im selben Lauf.** Du willst Aufgaben
+    nach Rollen sehen und ein kompakteres Cockpit. Beides kommt im nächsten Lauf. ⚠ Die
+    Rollen-Sicht bauen wir **in die Liste hinein**, die wir heute ohnehin geplant haben —
+    zwei Listen derselben Sache driften auseinander und sagen dir dann zwei verschiedene
+    Dinge. Und beim „kompakter" haben wir einen Widerspruch zu deinem Brief von heute
+    Morgen gefunden und dir im Antwortbrief offengelegt statt ihn still aufzulösen:
+    **kompakt heißt falten, nicht weglassen.**
+12. **754 Tests für die Technik (+13), 16 für die Oberfläche (+16, von null)**, 130
     Anforderungen ohne Lücke, Startcheck startklar — am Ende gemessen. **Es liegt eine
     Sache bei dir: die Node-Frage.**
 
