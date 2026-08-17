@@ -2,181 +2,114 @@
 
 ## Das Wichtigste
 
-1. **Wir sind in Sprint 13** (2026-08-17, Start 12:10, Kennung
-   `2026-08-17T1210-cowork-s13`). Der Zähler steht in `pm/management/sprints.jsonl`.
-2. **⚠⚠ Der Startcheck dieses Laufs hat einen Fehler von Sprint 12 gefunden: wir haben den
-   Auftraggeber um eine Antwort gebeten, die er zwölf Minuten zuvor gegeben hatte.** Der DR
-   `projects/p12/T-0007` (Node) wurde **11:48:25** über die Inbox mit `B-node-optional`
-   entschieden und committet. Danach schrieb derselbe Sprint 12 drei Berichte — Sprintplan
-   (11:50), Agenda (~12:00), Projektstatus (12:03) — die alle sagen, die Frage liege noch
-   beim Menschen, Frist 24.08.
-   > **Eine Entscheidung im Fließtext ist für jede Prüfung unsichtbar.**
-3. **⚠ Die Ursache sind zwei Wahrheiten über ein Wort.** `inbox` liest „entschieden" am
-   **Rumpfmarker** (`ENTSCHIEDEN`, SWR-039); `board.wartet_auf_mensch`, `aggregation` und
-   der Preflight lesen ihn am **Status**. `inbox.entscheide` fasst `status` nie an. Der
-   Docstring von `aggregation.wartet_auf_mensch` sagt seit SWR-120 wörtlich *„Ein
-   entschiedener DR wartet auf niemanden"* — der Satz war **richtig und unwirksam**.
-   Aufgenommen als **`platform/T-0014`**.
-4. **⚠ Vierte Gestalt derselben Familie in vier Sprints.** SWR-122 (Prüfung ohne Leser),
-   SWR-125 (Regel ohne Prüfung), SWR-128 (Fläche ohne Prüfung), jetzt **Entscheidung ohne
-   Leser**. ⚠ Und Sprint 12 hatte die Lehre schon gezogen — nur nebenan: sein Punkt 16
-   stellt fest, dass bei 60-Minuten-Takt ein **Brief mitten im Lauf der Regelfall** ist,
-   und baute daraus die Doppelprüfung des Briefkastens. Für **Entscheidungen**, die über
-   dieselbe Inbox zur selben beliebigen Zeit kommen, wurde sie nicht gebaut. Das ist die
-   Erkennungsfrage aus `L-2026-08-17x`, unbeantwortet gelassen.
-5. **⚠ Die Messung zu `platform/T-0013` widerlegt dessen eigene DoD — vor dem Bauen.** Das
-   Ticket verlangt, `beginne()` solle verweigern, wenn der Vorsprint kein Ende hat **und
-   sein Start weniger als einen Takt (60 Min) zurückliegt**. Gemessen über 12 Abstände:
-   **Median 57 Min, Minimum 15, Maximum 124 — 7 von 12 liegen unter 60.** Die Zeitgrenze
-   hätte also **die Mehrheit der regulären Folgeläufe abgewiesen**. Der Takt war eine
-   Annahme; das Ticket hat selbst verlangt, sie zu messen. **Ergebnis: die Zeitgrenze
-   trägt nicht, das Kriterium muss `ende` sein.** Die Neufassung steht im Ticket.
-6. **Dieser Lauf löst zuerst zwei Zusagen aus Sprint 12 ein** (`pm/T-0064`, `pm/T-0066`) —
-   die Agenda von gestern schrieb dem Auftraggeber wörtlich *„Beides kommt im nächsten
-   Lauf"*, und **dieser Lauf ist der nächste**. Drei Zusagen in Folge nicht zu halten wäre
-   die Wiederholung des Musters, das er zweimal gerügt hat (B025).
+1. **Wir sind in Sprint 14** (2026-08-17, Start 13:31, Kennung
+   `2026-08-17T1330-cowork-s14`).
+2. **⚠⚠ ZWEI Läufe halten diesen Sprint gleichzeitig — und diesmal haben BEIDE
+   geschrieben.** Der eine baute `platform/T-0015` (Git-Schreibweg, **SWR-134**), der andere
+   `p11/T-0010` (Dashboard-Endpunkt, **SWR-135**) und `pm/T-0068`. Am 11:05 hat der zweite
+   Lauf noch verzichtet; hier ist der Fall eingetreten, vor dem `platform/T-0013` warnt.
+3. **⚠⚠ Die Kollision ist eingetreten — bei der SWR-Nummer, nicht bei der Ticket-ID.**
+   Beide Läufe nannten ihre Anforderung **`SWR-134`**. Entdeckt wurde es **nicht von einer
+   Prüfung**, sondern beim Lesen des fremden Commits.
+   > **Eine Kollisionsregel schützt die Kennungen, die sie nennt — und keine anderen.**
+
+   Die Regel vom 2026-08-16 verlangt die Prüfung der nächsten freien **Ticket-ID** gegen
+   HEAD; für `SWR-xxx`, `D0xx`, `N-xxxx`, `L-…`, `ADR-…` gab es sie nicht. Aufgelöst: der
+   **committete** SWR-134 gewinnt, das Dashboard wurde auf **SWR-135** umgenummert.
+   Verankert als `L-2026-08-17ae`.
+4. **⚠ Und die Prüfung wäre auch mit Regel wirkungslos gewesen.** Der Nebenlauf hat die 134
+   *unmittelbar vor* seinem Commit gegen HEAD geprüft. Gegen einen bewegten HEAD ist das ein
+   Wettlauf. Die Reparatur heißt `platform/T-0013` (Sprintregister mit **Ende**), nicht
+   „gründlicher prüfen".
+5. **✅ Der Auftraggeber hat die Messung geliefert, die dem Team fehlte** — zwei Aufnahmen
+   seines 4K-Bildschirms (`pm/T-0068`, verbucht). Ergebnis: **3 Projektkacheln** ohne
+   Scrollen sichtbar, links und rechts je rund ein Fünftel der Breite **leer**.
+6. **⚠⚠ Die Messung hat die Annahme hinter `pm/T-0066` widerlegt.** Wir hatten die *Menge*
+   der Kacheln für die Ursache des Scrollens gehalten und deshalb das Falten gebaut
+   (`pm/T-0067`, SWR-133). Die Ursache ist das **Layout**: eine Kachel pro Zeile in einer
+   62rem-Spalte. Dazu die Sprint-Plan-Tabelle, die mit ~25 Zeilen **über** den Gruppen steht.
+   > **Wir haben das Richtige gebaut und die falsche Ursache behandelt.** Beides gleichzeitig
+   > wahr. Das Falten bleibt richtig — es war nur nicht die Antwort auf seine Frage.
+7. **✅ `p11/T-0008` zerlegt — vierte Berührung, Naht lag seit Sprint 12 bereit.** Neu:
+   `p11/T-0010` (Endpunkt, lesend, **erledigt**) und `p11/T-0011` (Konfiguration,
+   schreibend, Sprint 15).
+8. **✅ Zwei Festlegungen aus Sprint 9 sind nach fünf Sprints eingelöst** — DR `p11/T-0006`
+   (LAY-a, entschieden 2026-08-17 08:11) und `ADR-P11-002`. Das Dashboard verlässt den
+   62rem-Korridor, **und die Ausnahme sitzt an der Ansicht**, nicht am Korridor.
+   ⚠ Fünfte Gestalt der SWR-131-Familie: **eine Entscheidung, die vorlag und nicht wirkte** —
+   diesmal nicht, weil niemand sie las, sondern weil ihr Ticket viermal verschoben wurde.
+9. **⚠ SWR-135 hat einen Altbestand gefunden, den niemand gesucht hat.** Die Prüfung, dass
+   die neue Ansicht die Drei-Zustände-Regel aus `regeln.js` liest, wurde rot — an **drei
+   Inline-Kopien in `cockpitKarte`**. Alle drei sind **sachlich richtig**; das ist der Punkt.
+   Aufgenommen als `platform/T-0016`, **benannt und bei 3 eingefroren** statt geglättet —
+   und ausdrücklich **nicht** mitmigriert, weil `/api/cockpit` kein `zustand`-Feld führt und
+   eine zweite Herleitung in JavaScript ein *neuer* B033-Fall wäre.
+10. **826 Python-Tests, 2 rot** (beide aus Sprint 13, unverändert und benannt), **40
+    JS-Tests grün** (von 29), Matrix **135 SWRs / 0 Lücken**.
 
 ## Sprint-Plan
 
-*Sprint 13 = dieser Lauf. Default nach `pm/D006`: in diesem Sprint schließen. Verschieben
-nur mit Grund — Mensch nötig, zu groß (dann zerlegen) oder blockiert. **Fest geplant** ist
-Sprint 14; ab Sprint 15 ist die Nummer eine **Reihenfolge**, keine Zusage.*
+*Sprint 14 = dieser Lauf. Default nach `pm/D006`: in diesem Sprint schließen. **Fest
+geplant** ist Sprint 15; ab Sprint 16 ist die Nummer eine Reihenfolge, keine Zusage.*
 
-*Keine Kalenderdaten in der Fälligkeitsspalte (SWR-125). Ein Datum steht nur dort, wo ein
-**Mensch** wartet.*
+⚠ **Diese Tabelle bildet die Arbeit BEIDER Läufe ab**, nicht nur die eines. Der Nebenlauf
+hat `platform/T-0015` gebaut; das steht hier, weil ein Plan, der die Hälfte der Wahrheit
+zeigt, schlechter ist als keiner.
 
 | Aufgabe | Rolle | Fällig | Status | Grund / nächster Schritt |
 |---|---|---|---|---|
-| projects/p12/T-0007 | pl | dieser Sprint | **erledigt** | **Entschieden am 11:48:25 (`B-node-optional`), 16 Minuten lang nicht verbucht.** Über den legalen Weg geschlossen; Folgearbeit erledigt: die Skip-Meldung nennt jetzt die **getroffene Entscheidung** statt einer Frist, die niemand mehr abwartet. |
-| platform/T-0014 | cm | dieser Sprint | **erledigt** | **SWR-131.** Eine Stelle (`board.dr_entschieden`), **vier** Leser delegieren, neuer Preflight-Befund `dr_entschieden_nicht_verbucht`. ⚠ **Wiedereröffnet im selben Lauf**, weil die Nachprüfung zwei weitere Leser fand — darunter den Versandweg. 19 Zusicherungen, 5 Gegenproben. |
-| pm/T-0064 | pl | dieser Sprint | **erledigt** | **SWR-132, erste Zusage aus Sprint 12 eingelöst.** ⚠ Quelle ist `sprint.offene_tickets` und nicht eine neue Funktion in `aggregation`: `offen_gesamt` kommt schon von dort, also sind Zahl und Liste **ein Objekt** und können nicht auseinanderlaufen. Abweichung im Ticket begründet. 6 Python-, 9 JS-Zusicherungen. |
-| pm/T-0067 | pl | dieser Sprint | **erledigt** | **SWR-133, zweite Zusage eingelöst** (Teil a von `T-0066`). Cockpit-Gruppen zuklappbar, Zahl bleibt am Titel. ⚠ Gegenprobe: *nie angefasst* ist **nicht** *zugeklappt* — sonst startete jede Gruppe zu und er sähe **weniger** als vorher. |
-| pm/T-0066 | pl | Sprint 14 | **zerlegt** | ⚠ **Zerlegt, weil die halbe DoD nicht erfüllbar war.** DoD 4 („wie viele Kacheln bei 1920×1080") ist eine Frage an einen gerenderten Browser; ADR-008 hat bewusst keinen, ein Headless-Browser wäre **Klasse A**. Klammer trägt den Termin des letzten Teils. |
-| pm/T-0068 | pl | Sprint 14 | offen | **Neu, Teil b von `T-0066`, `verantwortlich: mensch`.** Die Messung — billigster Weg zuerst: der Auftraggeber sitzt vor dem Bildschirm. ⚠ **Einmal messen, zweimal zitieren:** `p11/T-0008` R2 stellt dieselbe Frage. |
-| platform/T-0015 | cm | Sprint 14 | offen | **Neu, gemessen in diesem Lauf.** SWR-123 räumt Locks per `unlink`; auf diesem Mount ist genau das verboten, `rename` gelingt. ⚠ Die Regel steht in `L-2026-08-17ac` und **nicht im Code** — als Schuld geführt, nicht als erledigt gemeldet (SWR-125-Lage). |
-| pm/T-0052 | pl | Sprint 14 | offen | ⚠ **4. Verschiebung — die Zerlegung ist damit überfällig, und dieser Lauf hat sie NICHT gemacht.** Grund: der Befund `platform/T-0014` und die zwei Zusagen haben den Lauf gefüllt. Das ist ein Grund, keine Entschuldigung. **Naht liegt seit Sprint 12 bereit** („Für dich: Entscheidungen" / „Für dich: Handlungen") — in Sprint 14 wird zerlegt, nicht wieder verschoben. |
-| projects/p11/T-0008 | dev | Sprint 14 | offen | ⚠⚠ **4. Berührung, zweite nicht eingelöste Zusage in Folge.** Naht seit Sprint 12 benannt: Endpunkt (lesend) / Widget-Konfiguration (schreibend). Steht im Bericht an den Auftraggeber, nicht in einer Fußnote. |
-| promt-team/T-0001 | dev | Sprint 14 | offen | ⚠ **4. Verschiebung.** Naht benannt: (a) erheben, (b) auswerten. Der Auftraggeber wartet (`promt-team/N-0001`); *„ohne Baseline kein Optimierungslauf"* ist sein eigener Satz. |
-| pm/T-0061 | cm | Sprint 14 | offen | **1. Verschiebung.** Messen, ob `sprint_widerspruch` nach SWR-125 je einen möglichen Fall hatte — **messen vor entscheiden**. |
-| platform/T-0013 | cm | Sprint 14 | offen | ⚠ **Verschoben mit gemessenem Grund, und die Messung ist das Ergebnis dieses Laufs**: die DoD-Zeitgrenze („weniger als ein Takt") hätte **7 von 12** regulären Läufen abgewiesen. Die DoD ist im Ticket **korrigiert** (Kriterium `ende`, Abbruch­erkennung über Schreibspuren statt Uhr). Bauen gegen eine widerlegte DoD wäre der Fehler, den das Ticket selbst verbietet. **Erste Verschiebung.** |
-| pm/T-0063 | chg | Sprint 14 | offen | Charter-Entwurf + Gründungs-DR. ⚠ **Team-Gründung ist Klasse A** — das Ergebnis ist eine Vorlage an den Menschen, kein Bau. Zurückgestellt hinter die eingelösten Zusagen. **1. Verschiebung.** |
-| projects/p12/T-0005 | pl | Sprint 14 | offen | ADR-Delta + Vollständigkeitsnachweis. **1. Verschiebung**, Grund: dieser Lauf gehört den beiden Zusagen und dem Befund. |
-| promt-team/T-0002 | test | Sprint 14 | offen | **3. Verschiebung.** Sachlich hinter `T-0001a` (ohne Telemetrie kein Goldset-Maßstab). ⚠ Beim vierten Mal wird zerlegt — Naht: (a) Goldset-Format festlegen, (b) Fälle je Rolle erheben. |
-| promt-team/T-0003 | dev | Sprint 15 | blocked | `blocked_by` T-0001/T-0002. ⚠ Sprint 12 hat notiert, dass es **auf demselben Sprint wie seine Blocker** stand — das ist hiermit aufgelöst: Blocker in 13/14, dieses Ticket in 15. |
-| pm/T-0028 | chg | Sprint 14 | **zerlegt** | **Klammer**, Termin des letzten Teils (`T-0063`). Keine Verschiebung — sie enthält selbst nichts. |
-| pm/T-0054 | chg | Sprint 14 | **zerlegt** | **Klammer** über `T-0064`/`T-0065`, Termin des letzten Teils. |
-| pm/T-0065 | chg | Sprint 14 | offen | Zweiter Teil von `T-0054`. Knopf setzt `geplant_sprint`. ✅ `blocked_by: [T-0064]` ist durch diesen Lauf **erfüllt** — die Sperre ist gefallen. |
-| projects/p11/T-0009 | dev | Sprint 14 | offen | **3. Verschiebung.** Sachlich hinter `T-0008`. ⚠ Beim vierten Mal wird zerlegt — Naht: Deep-Link-Detailseiten / Mail-Widget hinter dem PIN-Leser. |
-| projects/p11/T-0003 | pl | Sprint 14 | offen | **Klammer** über `T-0007`/`T-0008`/`T-0009`, nachgezogen auf `T-0009`. Keine Verschiebung. |
-| projects/p12/T-0006 | pl | Sprint 14 | offen | Umstellung, Tests, G4, `blocked_by: [T-0005]`. |
-| projects/p12/T-0003 | pl | Sprint 14 | **zerlegt** | **Klammer**, Termin des letzten Teils. |
-| pm/T-0001 | pl | jeder Sprint | geplant | Takt: Session-Agenda fortschreiben. |
-| pm/T-0002 | pl | jeder Sprint | geplant | Takt: Briefkasten qualifizieren — **zweimal**, beim Start und beim Abschluss (Regel aus Sprint 11/12). |
-| pm/T-0003 | coach | jeder Sprint | geplant | Takt: Lessons sofort verankern (D005). |
+| pm/T-0068 | pl | dieser Sprint | **erledigt** | ✅ **Der Auftraggeber hat gemessen.** 3 Kacheln sichtbar, ein Fünftel der Breite je Seite leer. ⚠ Widerlegt die Annahme hinter `pm/T-0066`: das Scrollen kam vom **Layout**. Zahlen stehen an **einer** Stelle, `p11` zitiert von dort (B033). |
+| projects/p11/T-0010 | dev | dieser Sprint | **erledigt** | **SWR-135.** `/api/dashboard` **ausschließlich** auf `cockpit_alle` — der Test ersetzt die Quelle durch eine Attrappe und verlangt, dass **nichts** übrig bleibt. Drei Zustände je Feld, `nicht_geliefert` auch **sichtbar** anders als `0`. Kacheln als Raster, Korridor-Ausnahme an der Ansicht. 21 Python-, 12 JS-Zusicherungen. |
+| projects/p11/T-0008 | dev | Sprint 15 | **zerlegt** | ⚠ **Vierte Berührung, Naht geschnitten** statt ein fünftes Mal angekündigt. Klammer trägt den Termin des letzten Teils. DoD 3 (die Messung) ist über `pm/T-0068` beantwortet. |
+| platform/T-0015 | cm | dieser Sprint | **in_review** (Nebenlauf) | **SWR-134**, gebaut vom parallelen Lauf: **ein** Schreibweg nach Git, gehalten von einem Zähltest über den Syntaxbaum. ⚠ Dessen eigene Messung hat die Ursachenaussage **meines** Tickets widerlegt: der `rename`-Rückfall existierte seit `pm/T-0023`, der Befund war die **Reichweite** (7 von 8 Commit-Stellen ohne Räumung). |
+| platform/T-0016 | cm | Sprint 15 | offen | **Neu, Nebenbefund von SWR-135.** Drei Inline-Kopien der Vertragsregel in `cockpitKarte`. ⚠ **Zuerst die Vertragsfrage** (trägt der Cockpit-Payload künftig den Zustand? Eigentümer `team-dashboard`, B066, Versions-Bump), **dann** Code. Bis dahin bei 3 eingefroren. |
+| projects/p11/T-0011 | dev | Sprint 15 | offen | Zweiter Teil von `T-0008`, `blocked_by: [T-0010]` — ab jetzt **erfüllt**. ⚠ Persistenz hier ist das **Gegenteil** von SWR-133 (Faltzustand bewusst flüchtig); der Unterschied ist im Ticket zu begründen, nicht zu behaupten. |
+| platform/T-0013 | cm | dieser Sprint | offen | ⚠⚠ **Dringlichkeit gemessen, nicht vermutet:** dieser Sprint ist der Fall, vor dem das Ticket warnt, **und die Kollision ist eingetreten**. DoD in Sprint 13 korrigiert (Kriterium `ende`, nicht die Uhr). Nach `L-2026-08-17ae` zusätzlich: die Prüfung gilt für **alle** fortlaufenden Kennungen. |
+| pm/T-0052 | pl | dieser Sprint | offen | ⚠ **5. Verschiebung, wenn dieser Lauf sie nicht anfasst.** Naht liegt seit Sprint 12 bereit. |
+| projects/p11/T-0009 | dev | Sprint 15 | offen | **4. Verschiebung.** Sachlich hinter `T-0008`/`T-0010`. ⚠ Naht benannt: Deep-Link-Detailseiten / Mail-Widget hinter dem PIN-Leser — bei der nächsten Berührung schneiden. |
+| projects/p11/T-0003 | pl | Sprint 15 | offen | **Klammer** über `T-0007`–`T-0011`, nachgezogen auf den letzten Teil. |
+| pm/T-0066 | pl | Sprint 15 | **zerlegt** | **Klammer** über `T-0067` (erledigt) und `T-0068` (erledigt). ⚠ Beide Teile sind fertig — die Klammer kann in Sprint 15 geschlossen werden, **sobald** entschieden ist, ob aus der widerlegten Ursache ein neuer CR folgt (DoD 3 des Tickets: *„erst wenn die Zahlen zeigen, dass das Falten nicht reicht"* — sie zeigen es). |
+| pm/T-0061 | cm | Sprint 15 | offen | **2. Verschiebung.** Messen, ob `sprint_widerspruch` je einen möglichen Fall hatte. |
+| pm/T-0063 | chg | Sprint 15 | offen | **2. Verschiebung.** Charter + Gründungs-DR — ⚠ Team-Gründung ist **Klasse A**, Ergebnis ist eine Vorlage an den Menschen. |
+| pm/T-0028 | chg | Sprint 15 | **zerlegt** | **Klammer**, Termin des letzten Teils (`T-0063`). |
+| pm/T-0054 | chg | Sprint 15 | **zerlegt** | **Klammer** über `T-0064` (erledigt) / `T-0065`. |
+| pm/T-0065 | chg | Sprint 15 | offen | Knopf setzt `geplant_sprint`. `blocked_by: [T-0064]` seit Sprint 13 **erfüllt**. |
+| projects/p12/T-0005 | pl | Sprint 15 | offen | **2. Verschiebung.** ADR-Delta + Vollständigkeitsnachweis. |
+| projects/p12/T-0006 | pl | Sprint 15 | offen | `blocked_by: [T-0005]`. |
+| projects/p12/T-0003 | pl | Sprint 15 | **zerlegt** | **Klammer**, Termin des letzten Teils. |
+| promt-team/T-0001 | dev | Sprint 15 | offen | ⚠ **5. Verschiebung.** Der Auftraggeber wartet (`promt-team/N-0001`). Naht benannt: (a) erheben, (b) auswerten. **Kandidat Nr. 1 für Sprint 15.** |
+| promt-team/T-0002 | test | Sprint 15 | offen | **4. Verschiebung → Zerlegung fällig.** Naht: (a) Goldset-Format, (b) Fälle je Rolle. |
+| promt-team/T-0003 | dev | Sprint 16 | blocked | `blocked_by` T-0001/T-0002 — nachgezogen, damit es nicht auf demselben Sprint wie seine Blocker steht. |
+| pm/T-0001 | pl | jeder Sprint | geplant | Takt: Session-Agenda. |
+| pm/T-0002 | pl | jeder Sprint | **erfüllt** | Takt: Briefkasten **zweimal** geprüft (Start und Abschluss), beide Male 0 offen. |
+| pm/T-0003 | coach | jeder Sprint | **erfüllt** | Takt: `L-2026-08-17ae` sofort verankert. |
 | platform/T-0001 | cm | jeder Sprint | geplant | Takt: Preflight, Tests, Matrix, JS-Strecke. |
-| team-mail/T-0001 | dev | jeder Sprint | geplant | Takt: Digest — fällig ab IMAP-Einrichtung, die weiterhin aussteht. |
-| team-dashboard/T-0001 | pl | jeder Sprint | geplant | Takt: Widget-Vertrag — bei Änderung am Cockpit-Payload **prüfen**, nicht annehmen. |
+| team-mail/T-0001 | dev | jeder Sprint | geplant | Takt: Digest — fällig ab IMAP-Einrichtung, die aussteht. |
+| team-dashboard/T-0001 | pl | jeder Sprint | **erfüllt** | Takt: Widget-Vertrag — ⚠ **geprüft, nicht angenommen**: SWR-135 fügt **kein** Feld hinzu, ein Test hält `KACHEL_FELDER` gegen die Vertragsdatei. Vertrag bleibt v2.4. |
 
-**Warum sechs Zeilen keine Nummer tragen.** `pm/T-0001`, `pm/T-0002`, `pm/T-0003`,
-`platform/T-0001`, `team-mail/T-0001` und `team-dashboard/T-0001` sind Takt-Dauerläufer
-(`takt: je-session`) und laufen in **jedem** Sprint. Eine Nummer daneben wäre eine zweite
-Aussage über dieselbe Sache (B033); genau deshalb nehmen `plan_drift`, `status_drift`,
-`sprint_vergangen` und `unterminiert` sie aus.
+## Sprint-Abschluss (Sprint 14, 2026-08-17 — Stand dieses Laufs)
 
-**Rollenzuweisungen in diesem Sprint (D006).** `platform/T-0014` liegt bei `cm` — dieselbe
-Prüfstrecken- und Werkzeugfläche wie `platform/T-0011`/`T-0012`/`T-0013`. Die Verbuchung
-von `projects/p12/T-0007` liegt bei `pl` und **nicht** bei `mensch`: der Mensch hat seinen
-Teil getan, ab hier ist es Teamarbeit — genau diese Übergabe hat gefehlt.
+**Geschlossen:** `pm/T-0068`, `projects/p11/T-0010`, Zerlegung `p11/T-0008`, plus drei
+Takt-Pflichten. Vom **Nebenlauf**: `platform/T-0015` (in_review).
 
-## Sprint-Abschluss (Sprint 13, 2026-08-17)
+**Im Lauf dazugekommen:** `projects/p11/T-0010`, `p11/T-0011`, `platform/T-0016`.
 
-**Geplant beim Start:** 25 offene Sachtickets (davon 4 vom Menschen `rejected`, Altbestand)
-+ 6 Takt-Pflichten, **kein offener Brief**. Der Startcheck fand **einen unverbuchten
-Entscheid** — das wurde die Arbeit dieses Laufs.
+**Verifikation:** **826 Python-Tests** (2 rot, beide aus Sprint 13 — unverändert, benannt,
+nicht geglättet), **40 JS-Tests** grün, Matrix **135 SWRs / 0 Lücken**, Briefkasten 0 offen
+(zweimal geprüft), entschiedene unverbuchte DRs **0**.
 
-**Im Lauf dazugekommen:** vier Tickets — `platform/T-0014` (Befund), `platform/T-0015`
-(Lock-Räumung), `pm/T-0067` und `pm/T-0068` (Zerlegung von `pm/T-0066`).
+⚠ **Der Lauf ist nicht startklar**, und der Grund ist unverändert der aus Sprint 13: zwei
+unzulässige Statusübergänge (`platform/T-0014` `done → in_review`, `pm/T-0064`
+`open → in_review`). **Dieser Lauf hat keinen neuen erzeugt** — alle Übergänge sind einzeln
+committet. Die Regel aus `L-2026-08-17ad` hat gehalten.
 
-**Geschlossen:** `projects/p12/T-0007`, `platform/T-0014`, `pm/T-0064`, `pm/T-0067` und die
-sechs Takt-Pflichten — **zehn Stück**.
+### ⚠⚠ Der offene Punkt, der bleibt: zwei Läufe im selben Takt
 
-**Verschoben, mit Grund:** sieben Sachtickets nach Sprint 14, drei als Klammer nachgezogen.
-⚠ **`pm/T-0052`, `p11/T-0008` und `promt-team/T-0001` sind vierte Verschiebungen** — die
-Regel `L-2026-08-17x` verlangt bei vier die Zerlegung, und dieser Lauf hat sie **nicht
-gemacht**. Die Nähte liegen seit Sprint 12 benannt bereit; in Sprint 14 wird zerlegt.
+Sprint 13 hat `platform/T-0013` mit gemessener DoD verschoben. Sprint 14 hat den Schaden
+**erlebt**: eine doppelt vergebene Anforderungsnummer, gefunden durch Zufall beim Lesen
+eines fremden Commits. Es ist gut ausgegangen, weil beide Läufe verschiedene Dateien
+angefasst haben — das war **Glück, keine Vorkehrung**.
 
-**Nicht eingelöst:** `p11/T-0008` — zweiter Lauf in Folge, nachdem Sprint 11 es zugesagt
-hatte.
-
----
-
-### ⚠⚠ Verifikation — dieser Lauf ist NICHT startklar, und der Grund ist er selbst
-
-| Prüfung | Ergebnis |
-|---|---|
-| Python-Tests | **786 grün, 1 rot** (der Test meldet **2** Verstöße) |
-| JS-Tests | **29 grün** (von 16) |
-| Trace-Matrix | **133 SWRs / 0 Lücken** |
-| Briefkasten (Start **und** Abschluss geprüft) | 0 offen |
-| Entschiedene, unverbuchte DRs | **0** (war 1 beim Start) |
-| Unzulässige Statusübergänge **seit dem Stichtag** | **2** ⚠⚠ |
-| Altbestand unzulässiger Übergänge | 52 (unverändert, bewusst nicht geglättet) |
-
-Der rote Test ist `test_uebergang_historie::test_seit_dem_stichtag_gibt_es_keinen_verstoss`,
-und er hat recht: **dieser Lauf hat selbst ZWEI unzulässige Statusübergänge committet.**
-
-`platform/T-0014` wurde geschlossen, dann bewusst wiedereröffnet (die Nachprüfung fand zwei
-weitere Leser). Die Datei ging `done → in_progress → in_review → done`, die **Commits** aber
-`done → in_review`: der Zwischenstand bekam keinen eigenen Commit, weil die Wiederöffnung
-sich wie Buchhaltung anfühlte und nicht wie ein Zustandswechsel.
-
-⚠⚠ **Und derselbe Fall ein zweites Mal: `pm/T-0064` (`open → in_review`).** Er lag bereits
-in der Historie, als die Lesson zum ersten Fall geschrieben wurde, und wurde erst vom
-**Abschluss**-Preflight gefunden. *Eine Regel aufzuschreiben ist nicht dasselbe wie den
-Bestand danach zu prüfen.* Aufgenommen in `L-2026-08-17ad`; die Erkennungsfrage lautet ab
-jetzt: wer eine Lesson formuliert, misst im selben Zug, **wie oft der Fall schon eingetreten
-ist**.
-
-> **Der Lauf, der die Prüfung gegen „Zustand nur in Prosa" gebaut hat, hat im selben Ticket
-> den Zustand in der Historie verloren.**
-
-**Nicht geglättet.** Kein Verschieben des Stichtags, kein Umschreiben der Historie, keine
-Anpassung des Tests. Verankert als `L-2026-08-17ad`. Der Befund gehört in den Bericht, weil
-ein grüner Bericht, der durch Verschieben des Maßstabs grün wird, nichts wert ist — genau
-der Satz, aus dem SWR-128 entstanden ist.
-
-**Zwei weitere Tests waren rot und sind reparierte Fehlalarme, keine Befunde:**
-`test_org_kopfblock` suchte ein Literal, das SWR-133 um einen Eintrag verlängert hat
-(Fehlalarm über die Schreibweise — dieselbe Art wie der Kommentar-Fehlalarm in SWR-128; der
-Test prüft jetzt den Gruppennamen statt die Zeile). `test_sprint_statusdrift` meldete, dass
-der Plan `p12/T-0007` noch als „geplant" führte, während das Ticket `done` war — durch diese
-Fortschreibung erledigt.
-
-### Taktmessung (Auftrag aus `platform/T-0013`, vor dem Bauen)
-
-| n | Median | Minimum | Maximum | unter 60 Min |
-|---|---|---|---|---|
-| 12 Abstände | 57 Min | **15 Min** | 124 Min | **7 von 12** |
-
-Die DoD von `platform/T-0013` wollte die Eröffnung verweigern, wenn der Vorsprint kein Ende
-hat **und sein Start weniger als einen Takt zurückliegt**. Bei dieser Verteilung hätte die
-Zeitgrenze **die Mehrheit der regulären Folgeläufe abgewiesen**. Das Ticket hat selbst
-verlangt, den Takt zu messen statt ihn anzunehmen — die Messung widerlegt seinen eigenen
-Vorschlag. Die DoD ist im Ticket korrigiert: **Kriterium ist `ende`**, die Abbrucherkennung
-läuft über Schreibspuren (Commit-Zeitpunkte), nicht über die Uhr.
-
-### Was dieser Lauf über sich gelernt hat
-
-Vier Wiederholungen desselben Musters an einem Tag — **die Regel war bekannt und wurde am
-Nachbarfall nicht angewandt:**
-
-1. Sprint 12 baute die Doppelprüfung für **Briefe** und nicht für **Entscheidungen** aus
-   derselben Inbox (→ SWR-131).
-2. Der erste Anlauf von SWR-131 stellte drei Leser um und übersah zwei (→ Zähltest über den
-   Quelltext).
-3. Ein bestehender Test **sicherte das Fehlverhalten zu** (`["gesendet"]` an einen
-   entschiedenen DR) — geprüft und bestätigt, nicht ungeprüft.
-4. Und dieser Lauf verlor den eigenen Statusübergang (→ `L-2026-08-17ad`).
-
-Die Erkennungsfrage aus `L-2026-08-17x` bleibt die produktivste Frage des Teams: *auf welche
-anderen offenen Fälle trifft dieser Satz gerade zu?*
+`platform/T-0013` ist damit das dringlichste offene Ticket der Organisation. Nicht weil es
+neu ist, sondern weil sein Schadensfall zum zweiten Mal eingetreten ist und beim zweiten Mal
+Spuren hinterlassen hat.
