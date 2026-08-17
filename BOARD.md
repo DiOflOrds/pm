@@ -17,13 +17,7 @@ Stand: 2026-08-17 · Tickets: 52 · davon wiederkehrend: 3
 | [T-0052](tickets/T-0052.md) | CR (Teil e aus pm/T-0038, pm/N-0031): HMI-Abschnitt „Für dich: Handlungen\" neben der Inbox — eigener Abschnitt, nicht dieselbe Liste | change-request | einmalig | pl | mittel | 0 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | niedrig | 0 | — |
 
-## in_review (1)
-
-| ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
-|---|---|---|---|---|---|---|---|
-| [T-0047](tickets/T-0047.md) | CR (aus pm/T-0036 Teil a): Org-Summe „unterminiert\" mit Referenzliste im Cockpit-Kopfblock | change-request | einmalig | pl | mittel | 0 | — |
-
-## done (42)
+## done (43)
 
 | ID | Titel | Typ | Takt | Rolle | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|
@@ -69,3 +63,4 @@ Stand: 2026-08-17 · Tickets: 52 · davon wiederkehrend: 3
 | [T-0044](tickets/T-0044.md) | Problem: Plandatei und Ticket sagten verschiedene Sprints — sieben Zeilen, unbemerkt, weil beide Quellen für sich stimmig aussahen | problem | einmalig | pl | mittel | 0 | — |
 | [T-0045](tickets/T-0045.md) | Problem: Ein offenes Ticket auf einem vergangenen Sprint fällt niemandem auf — „überfällig 0\" sagt nichts darüber | problem | einmalig | pl | mittel | 0 | — |
 | [T-0046](tickets/T-0046.md) | Problem: Die Kennzahl „nicht geschlossen\" stand vier Sprints auf 15 und stimmt mit keiner Zählweise des Werkzeugs überein | problem | einmalig | pl | mittel | 0 | — |
+| [T-0047](tickets/T-0047.md) | CR (aus pm/T-0036 Teil a): Org-Summe „unterminiert\" mit Referenzliste im Cockpit-Kopfblock | change-request | einmalig | pl | mittel | 0 | — |
