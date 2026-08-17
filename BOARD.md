@@ -12,13 +12,7 @@ Stand: 2026-08-17 · Tickets: 68 · davon wiederkehrend: 3
 | [T-0028](tickets/T-0028.md) | CR (pm/N-0022): Projekt-Pool — Team gründen im HMI (Steckbrief, Profil, Datenklasse, Zugänge) | change-request | einmalig | chg | Team | mittel | 0 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | Team | niedrig | 0 | — |
 
-## in_review (1)
-
-| ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
-|---|---|---|---|---|---|---|---|---|
-| [T-0063](tickets/T-0063.md) | CR (pm/T-0028 Teil b): Charter-Entwurf und Gründungs-DR aus dem geprüften Steckbrief | change-request | einmalig | chg | Team | mittel | 0 | T-0062 |
-
-## done (63)
+## done (64)
 
 | ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|---|
@@ -82,6 +76,7 @@ Stand: 2026-08-17 · Tickets: 68 · davon wiederkehrend: 3
 | [T-0060](tickets/T-0060.md) | CR (pm/T-0039 Teil b): HMI — je Brief ein Antwortfeld, Beiträge mit Absender und Zeit | change-request | einmalig | dev | Team | mittel | 0 | — |
 | [T-0061](tickets/T-0061.md) | sprint_widerspruch (SWR-106) hat nach der Umstellung keinen möglichen Fall mehr — prüfen, ob die Prüfung selbst B033 ist | change-request | einmalig | cm | Team | mittel | 0 | — |
 | [T-0062](tickets/T-0062.md) | CR (pm/T-0028 Teil a): Die entschiedene Steckbrief-Feldliste gilt im Code — Prüfung und Auflage | change-request | einmalig | chg | Team | mittel | 0 | — |
+| [T-0063](tickets/T-0063.md) | CR (pm/T-0028 Teil b): Charter-Entwurf und Gründungs-DR aus dem geprüften Steckbrief | change-request | einmalig | chg | Team | mittel | 0 | T-0062 |
 | [T-0066](tickets/T-0066.md) | CR (pm/N-0042): Cockpit kompakter — falten statt kürzen | change-request | einmalig | pl | Team | mittel | 0 | — |
 | [T-0067](tickets/T-0067.md) | CR (pm/T-0066 Teil a): Cockpit-Gruppen zuklappbar — falten statt weglassen | change-request | einmalig | pl | Team | mittel | 0 | — |
 | [T-0068](tickets/T-0068.md) | CR (pm/T-0066 Teil b): Wie viele Kacheln passen bei 1920×1080 auf eine Seite? — die Messung, die dem Team fehlt | change-request | einmalig | pl | Team | mittel | 0 | — |
