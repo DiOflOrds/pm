@@ -15,7 +15,7 @@ Stand: 2026-08-17 · Tickets: 53 · davon wiederkehrend: 3
 | [T-0053](tickets/T-0053.md) | Frage: 21-mal open -> in_review in der Historie — verbietet UEBERGAENGE einen Weg, den die Organisation tatsächlich geht? | problem | einmalig | pl | Team | mittel | 0 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | Team | niedrig | 0 | — |
 
-## in_progress (2)
+## in_review (2)
 
 | ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|---|
