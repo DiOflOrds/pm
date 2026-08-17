@@ -3,7 +3,7 @@
 Stand: 2026-08-17 · Tickets: 63 · davon wiederkehrend: 3
 
 
-## open (10)
+## open (9)
 
 | ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|---|
@@ -13,15 +13,15 @@ Stand: 2026-08-17 · Tickets: 63 · davon wiederkehrend: 3
 | [T-0054](tickets/T-0054.md) | CR (pm/N-0038): Der Mensch priorisiert offene Aufgaben aller Teams/Projekte für den nächsten Durchlauf — Knopf statt Einzelbearbeitung | change-request | einmalig | chg | Team | hoch | 0 | — |
 | [T-0028](tickets/T-0028.md) | CR (pm/N-0022): Projekt-Pool — Team gründen im HMI (Steckbrief, Profil, Datenklasse, Zugänge) | change-request | einmalig | chg | Team | mittel | 0 | — |
 | [T-0052](tickets/T-0052.md) | CR (Teil e aus pm/T-0038, pm/N-0031): HMI-Abschnitt „Für dich: Handlungen\" neben der Inbox — eigener Abschnitt, nicht dieselbe Liste | change-request | einmalig | pl | Team | mittel | 0 | — |
-| [T-0058](tickets/T-0058.md) | CR (pm/T-0055 Teil 3): Die abgeschickte Nachricht erscheint ohne Reload in der Liste | change-request | einmalig | dev | Team | mittel | 0 | — |
 | [T-0061](tickets/T-0061.md) | sprint_widerspruch (SWR-106) hat nach der Umstellung keinen möglichen Fall mehr — prüfen, ob die Prüfung selbst B033 ist | change-request | einmalig | cm | Team | mittel | 0 | — |
 | [T-0063](tickets/T-0063.md) | CR (pm/T-0028 Teil b): Charter-Entwurf und Gründungs-DR aus dem geprüften Steckbrief | change-request | einmalig | chg | Team | mittel | 0 | T-0062 |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | Team | niedrig | 0 | — |
 
-## in_progress (1)
+## in_progress (2)
 
 | ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|---|
+| [T-0058](tickets/T-0058.md) | CR (pm/T-0055 Teil 3): Die abgeschickte Nachricht erscheint ohne Reload in der Liste | change-request | einmalig | dev | Team | mittel | 0 | — |
 | [T-0060](tickets/T-0060.md) | CR (pm/T-0039 Teil b): HMI — je Brief ein Antwortfeld, Beiträge mit Absender und Zeit | change-request | einmalig | dev | Team | mittel | 0 | — |
 
 ## done (52)
