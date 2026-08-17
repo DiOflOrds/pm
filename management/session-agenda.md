@@ -26,8 +26,9 @@
    entscheiden.
 7. **Vier Sachaufgaben geschlossen**, 655 Tests grün (+54), 120 Anforderungen ohne Lücke,
    Preflight startklar.
-8. **Deine Entscheidung `p11/T-0006` liegt weiter in der Inbox — Frist ist übermorgen
-   (19.08.).**
+8. **✅ Deine Entscheidung `p11/T-0006` ist heute um 08:11 eingegangen: LAY-a.** Verbucht
+   und **im selben Lauf** weiterverarbeitet — das Dashboard-Ticket ist entsperrt, in drei
+   Teile zerlegt und der erste Teil gebaut. **In der Inbox liegt jetzt nichts mehr.**
 
 ---
 
@@ -35,7 +36,7 @@
 
 | Was | Warum |
 |---|---|
-| ⚠ **Eine Entscheidung: `p11/T-0006`, Frist 19.08. — das ist übermorgen.** | Unverändert seit Sprint 5. Das Dashboard passt bei 1920×1080 nur auf eine Seite, wenn es den 62rem-Textkorridor verlässt, an den Mission Control heute überall gebunden ist. **LAY-a (Default): breit nur im Dashboard**, alles andere unverändert. LAY-b: überall breit. LAY-c: Korridor behalten und scrollen — das gäbe das erste Abnahmekriterium des Projektauftrags auf und käme als eigener DR. **Schweigen führt zu LAY-a.** An der Entscheidung hängt `p11/T-0003` (Frist 20.08.): reißt der 19., reißt der 20. mit. |
+| ✅ **Danke — deine Entscheidung ist da und schon verbaut.** | Du hast heute um 08:11 **LAY-a** gewählt, zwei Tage vor der Frist. Wir haben sie **im selben Lauf** verbucht und die Folgearbeit sofort gemacht: das Dashboard-Ticket ist entsperrt, in drei Teile zerlegt, und der erste Teil ist fertig. **Es liegt jetzt nichts mehr bei dir.** Was LAY-a bedeutet: das Dashboard darf breiter sein als der Textkorridor, alle anderen Ansichten bleiben, wie sie sind. |
 | ✅ **Dein Wunsch von heute früh: kommt, du musst nichts tun** | `pm/N-0038` („Knopf zum Priorisieren für den nächsten Durchlauf") ist beantwortet und als `pm/T-0054` für den nächsten Lauf eingeplant, Frist 24.08. Das ist eine Sache, die das Team allein entscheiden darf — es wartet nichts auf dich. **Eine Frage steckte darin, die wir gleich mitentschieden haben**, damit der nächste Lauf bauen kann statt zu überlegen: der Knopf setzt den **Termin** („kommt in den nächsten Durchlauf"), nicht die Wichtigkeit. Beides in einen Knopf zu legen hätte zwei Angaben über dieselbe Sache erzeugt. |
 | ✅ **Die Organisation sagt jetzt von selbst, was bei dir liegt** | Neu seit heute: Cockpit und Startcheck melden „n Tickets warten auf den Menschen" — **mit Namen**, nicht nur als Zahl. Heute: eines, `p11/T-0006`. Das ist die Gegenrichtung zu deinem Wunsch: du siehst, was auf dich wartet, und bald sagst du uns, was wir zuerst tun sollen. |
 | ✅ **Die Zusage aus gestern hat gehalten** | Gestern haben wir dir gemeldet, dass wir dir etwas als erledigt gemeldet hatten, das nicht verbucht war, und eine Prüfung dagegen gebaut. Heute meldet sie „0". Nichts aus Sprint 8 stand noch offen. |
@@ -150,7 +151,9 @@ gebaut hat.
 | **10** | `pm/T-0039` | Am Brief weiterkommentieren (Frist 23.08.) |
 | **10** | `pm/T-0028` | Projekt-Pool: Team gründen im HMI (Klasse A — nur vorbereiten, Frist 23.08.) |
 | 11 | `projects/p12/T-0003` | Renderer zusammenführen |
-| — | `projects/p11/T-0003` | **blockiert** — wartet auf `T-0006` bei dir |
+| **10** | `projects/p11/T-0008` | Dashboard Teil b): Endpunkt + Widget-Konfiguration (Frist 27.08.) |
+| 11 | `projects/p11/T-0009` | Dashboard Teil c): Deep-Links + Mail-Widget (Frist 03.09.) |
+| — | `projects/p11/T-0003` | **entsperrt**, Klammer für die SWR-Nachweise und das **G4** |
 
 **Ab Sprint 11 ist die Nummer eine Reihenfolge, keine Zusage.** Der vollständige Plan steht
 in `pm/management/sprint-aktuell.md` und stimmt mit den Ticketfeldern überein (SWR-109,

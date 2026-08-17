@@ -64,8 +64,11 @@ blockiert. **Fest geplant** ist Sprint 10 (HORIZONT 2); ab Sprint 11 ist die Num
 | pm/T-0039 | pl | Sprint 10 | offen | Am Brief weiterkommentieren — eigene Fläche (Dateiformat, Schreibpfad, Statuslogik, HMI). Grund unten im Abschluss. Frist 23.08. |
 | pm/T-0052 | pl | Sprint 10 | offen | HMI-Abschnitt „Für dich: Handlungen" neben der Inbox. **Jetzt technisch bereit** — der Zähler aus `T-0051` liefert die Refs. |
 | pm/T-0028 | chg | Sprint 10 | offen | Team-Gründung im HMI berührt Klasse A (Playbook Kap. 16); das HMI darf sie nur **vorbereiten**. Frist 23.08. |
-| projects/p11/T-0006 | pl | wartet-auf-Mensch | vorgelegt | DR an den Auftraggeber (LAY-a/b/c, **Frist 19.08.**, Default LAY-a). Für das Team ist daran nichts offen. Von `sprint_vergangen` ausgenommen — begründet in SWR-112. |
-| projects/p11/T-0003 | pl | wartet-auf-Mensch | **blocked** | `blocked_by: [T-0006]`. Frist 20.08. Reißt die DR-Frist am 19.08., reißt diese einen Tag später mit. |
+| projects/p11/T-0006 | pl | dieser Sprint | **erledigt** | **✅ Der Auftraggeber hat während des Laufs entschieden: LAY-a** (`D002`, 08:11) — zwei Tage vor der Frist. Verbucht, Folgearbeit sofort ausgeführt. |
+| projects/p11/T-0003 | pl | dieser Sprint | **entsperrt + zerlegt** | **Sperre gefallen.** `blocked` → `open`, `blocked_by` geleert. Umfang „mehrerer Läufe" → nach D006 **zerlegt** statt verschoben: `T-0007` (dieser Sprint), `T-0008` (10), `T-0009` (11). Bleibt als Klammer für SWR-Nachweise und **G4**. |
+| projects/p11/T-0007 | arch | dieser Sprint | **erledigt** | **Teil a), im selben Sprint gebaut.** `ADR-P11-002`: die Korridor-Ausnahme sitzt an der **Ansicht**, nicht am Korridor — LAY-a legt die Fläche fest, nicht die Bauform. Mit drei prüfbaren Bruchmerkmalen. |
+| projects/p11/T-0008 | dev | Sprint 10 | offen | Teil b): Backend-Endpunkt auf der Cockpit-Quelle + Widget-Konfiguration. Frist 27.08. |
+| projects/p11/T-0009 | dev | Sprint 11 | offen | Teil c): Deep-Links + Mail-Widget hinter dem PIN-Lesegate. Frist 03.09. |
 | projects/p12/T-0003 | pl | Sprint 11 | offen | Sprint 1 des Projekts (Renderer zusammenführen) — Umfang mehrerer Läufe. |
 | pm/T-0001 | pl | jeder Sprint | erfüllt | Takt: Session-Agenda fortgeschrieben. |
 | pm/T-0002 | pl | jeder Sprint | erfüllt | Takt: Briefkasten qualifiziert — **ein Brief** (`pm/N-0038`) eingegangen, beantwortet und als `pm/T-0054` eingeplant. |
@@ -95,8 +98,9 @@ damit Planungsfläche (dieselbe Begründung wie bei `pm/T-0049` in Sprint 8).
 `pm/T-0051`) plus 6 Takt-Pflichten. Im Lauf kam **1** Ticket dazu: `pm/T-0053` aus dem
 Befund in `T-0048`.
 
-**Geschlossen:** `pm/T-0047`, `pm/T-0048`, `pm/T-0050`, `pm/T-0051` und die sechs
-Takt-Pflichten — **zehn Stück**. Alle vier über den **legalen** Weg
+**Geschlossen:** `pm/T-0047`, `pm/T-0048`, `pm/T-0050`, `pm/T-0051`, `p11/T-0006`
+(entschieden), `p11/T-0007` (neu entstanden und im selben Sprint gebaut) und die sechs
+Takt-Pflichten — **zwölf Stück**. Alle vier über den **legalen** Weg
 (`open → in_progress → in_review → done`) mit je drei Commits.
 
 ### ⚠ Der Startcheck fand diesmal nichts — und das ist die Nachricht
@@ -213,8 +217,22 @@ denn gegen einen Fehler, den der Parser schluckt, hilft der Parser nicht.
   zählbaren Begründung statt einer gefühlten. **Erste Verschiebung.**
 * `pm/T-0028` — Sprint 10, Frist 23.08. Klasse A, das HMI darf nur vorbereiten.
 * `projects/p12/T-0003` — Sprint 11, unverändert in der Reihenfolge.
-* `projects/p11/T-0006` bleibt **vorgelegt** (Frist 19.08.), `p11/T-0003` bleibt
-  **blocked**. ⚠ **Die DR-Frist ist übermorgen.** Reißt sie, reißt `T-0003` am 20.08. mit.
+* `projects/p11/T-0008` — Sprint 10, `p11/T-0009` — Sprint 11, **neu aus der Zerlegung**
+  von `T-0003`. Der Umfang war ausdrücklich „mehrerer Läufe"; das ist nach D006 ein Grund
+  zum **Zerlegen**, und der erste Teil ist in diesem Sprint erledigt.
+* `projects/p11/T-0003` bleibt als **Klammer** offen — sie trägt die SWR-Nachweise und den
+  **G4-DR**, und beides steht erst nach b) und c) an.
+
+### ✅ Die Entscheidung kam während des Laufs — und die Frist-Kette hat gehalten
+
+`p11/T-0006` war seit Sprint 5 vorgelegt. Der Auftraggeber hat um **08:11**, mitten in
+diesem Sprint, **LAY-a** gewählt — den Default, **zwei Tage vor der Frist**. Verbucht als
+`D002`, Folgearbeit **im selben Lauf** ausgeführt: `T-0003` entsperrt und zerlegt, Teil a)
+gebaut.
+
+Der Sprintabschluss 8 hatte gewarnt: *„Reißt die DR-Frist am 19.08., reißt `T-0003` am
+20.08. mit."* **Sie ist nicht gerissen** — und die Warnung war trotzdem richtig, denn sie
+hat den Zusammenhang sichtbar gemacht, bevor er gefährlich wurde.
 
 **Widerlegbare Vorhersage für Sprint 10.** SWR-118 läuft ab jetzt in jedem Preflight.
 Wenn dieser Sprint sauber gearbeitet hat, meldet der nächste Startcheck
