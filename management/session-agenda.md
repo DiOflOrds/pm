@@ -1,25 +1,28 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
-## Das Wichtigste (Stand Sprint 6, 2026-08-17)
+## Das Wichtigste (Stand Sprint 7, 2026-08-17)
 
-1. **⚠ Der Wächter bricht weiter ab — aber später, und genau das ist der Beleg.** Der
-   erste Lauf nach der Reparatur (03:59) kam bis `PREFLIGHT: STARTKLAR` und starb dann
-   beim **Melden** eines Befundes statt beim **Lesen**. Behoben: `platform/T-0009`.
-2. **Die Reparatur aus Sprint 5 hatte nur ein Ende des Rohrs angefasst.** Sie stellte
-   das Lesen fest auf UTF-8 — und zerstörte damit an drei Stellen eine Paarung, die
-   vorher zufällig funktioniert hat. Dazu ein zweiter, älterer Grund: 121 Ticketdateien
-   tragen ein „→", das die Windows-Konsole nicht ausgeben kann.
-3. **⚠ Drei Sätze aus früheren Sprints sind widerlegt — alle drei ungezählte Zahlen
-   neben einer richtigen Diagnose.** Nicht „zweihundert Läufe", sondern 9. Nicht
-   „sieben Zeilen", sondern 6. Nicht „was dabei auftaucht, braucht Urteil", sondern 0.
-4. **⚠ Und dann ist der Wächter um 04:29 durchgelaufen** — erster erfolgreicher Push seit
-   01:31. `CI-STATUS.md` ist neu (04:32), **`platform` ist grün** (die Vorhersage aus
-   Sprint 3, eingetroffen), und der Bericht nennt erstmals den roten Schritt. Damit ist
-   `platform/T-0004` **geschlossen** und für `pm/T-0043` sind zwei Ursachen ausgeschlossen
-   — darunter das Secret. **Fünf Tickets geschlossen.** Deine Entscheidung `p11/T-0006`
-   liegt weiter in der Inbox (Frist 19.08.).
-5. **514 Tests grün** (+22), Matrix 109/0, Preflight STARTKLAR, kein offener Brief (48),
-   unterminiert 0, überfällig 0, **Plan-Drift 0**.
+1. **✅ Es ist alles grün — zum ersten Mal überhaupt.** `CI-STATUS.md` (Stand 05:02) meldet
+   **ALLES GRÜN, 14 Abfragen**. `p3` und `p5`, die seit dem 16.08. rot waren, sind grün für
+   ihren Commit. Damit ist **`pm/T-0043` nach fünf Sprints geschlossen** — und die
+   Vorhersage aus Sprint 6 ist eingetroffen.
+2. **Es war nie ein Defekt.** Beide Repos trugen einen Stand vom 16.08., der gegen ein
+   neueres Werkzeug geprüft wurde — und ohne Push entsteht kein neuer CI-Lauf. Das „ROT"
+   war 21 Stunden lang ein **Standbild** und wurde vier Sprints als laufende Störung
+   gelesen. Aufgelöst hat es der Sprint, der den Auslöser **hergestellt** hat.
+3. **⚠ Der Startcheck fand einen Fehler von Sprint 6 an uns selbst.** Wir haben viermal
+   „Matrix 109 SWRs / 0 Lücken" gemeldet und gepusht — die Anforderung SWR-109 stand aber
+   nur auf der Festplatte, nie im Git. Der Code war gepusht, sein Requirement nicht.
+   Sofort repariert und ein Werkzeug gebaut, das das künftig **vor** dem Push meldet.
+4. **⚠ Und warum es niemand sah, ist die eigentliche Lehre.** Die Meldung **war** da —
+   neben fünf gleich aussehenden, die jeden Tag erscheinen und nie etwas bedeuten. Eine
+   Prüfung, die häufiger belanglos als richtig anschlägt, bringt einem bei, wegzusehen.
+   Beide Meldungen nennen ab jetzt **die Datei** statt einer Zahl.
+5. **Sechs Sachtickets geschlossen** (`pm/T-0043`, `platform/T-0010`,
+   `team-dashboard/T-0002`, `pm/T-0045`, `pm/T-0046`, `pm/T-0036`) plus sechs
+   Takt-Pflichten. **568 Tests grün** (+54), Matrix 114/0, Preflight STARTKLAR, kein
+   offener Brief, unterminiert 0, überfällig 0, Plan-Drift 0.
+6. **Deine Entscheidung `p11/T-0006` liegt weiter in der Inbox** (Frist 19.08.).
 
 ---
 
@@ -27,33 +30,86 @@
 
 | Was | Warum |
 |---|---|
-| **Eine Entscheidung: `p11/T-0006`, Frist 19.08.** | Unverändert aus Sprint 5. Das Dashboard passt bei 1920×1080 nur auf eine Seite, wenn es den 62rem-Textkorridor verlässt, an den Mission Control heute überall gebunden ist. **LAY-a (Default): breit nur im Dashboard**, alles andere unverändert. LAY-b: überall breit. LAY-c: Korridor behalten und scrollen — das gäbe das erste Abnahmekriterium des Projektauftrags auf und käme als eigener DR. Schweigen führt zu LAY-a. |
-| ✅ **Es läuft wieder — belegt, nicht versprochen** | Der Wächterlauf um **04:29** ist durchgelaufen und hat gepusht: der erste Erfolg seit 01:31. Er lief mit der Korrektur aus `platform/T-0009`, die 04:20 committet wurde. `CI-STATUS.md` trägt jetzt den Stand **04:32**. **Du musst nichts tun.** |
-| ✅ **Die Vorhersage aus Sprint 3 ist eingetroffen** | `platform` ist im neuen `CI-STATUS.md` **grün**. Sie stand seit drei Sprints offen und konnte nie geprüft werden, weil kein Bericht entstand. |
-| ✅ **Der Punkt „falls du ohnehin auf GitHub bist" ist erledigt — du musst dort nicht mehr nachsehen** | Der Bericht nennt den roten Schritt jetzt selbst: bei `p3` und `p5` ist es „BOARD.md aktuell?". Der liegt **nach** dem Checkout, für den das Secret gebraucht wird — **also ist es kein Zugangsproblem**. Die seit Sprint 2 in Aussicht gestellte Klasse-A-Entscheidung entfällt. |
-| ⚠ **Korrektur an unserer eigenen Meldung aus Sprint 5** | Wir haben geschrieben, seit dem 17.08. sei „kein einziger Push durchgekommen, rund zweihundert Mal". Nachgezählt: am 17.08. gab es **12 Läufe, davon 4 erfolgreich**; die Fehlserie begann um **02:14**, zwanzig Minuten nach dem Commit, der die Ursache einbrachte. Die Diagnose war richtig, die Zahl war geschätzt. Wir haben sie nachgezählt und die Lehre verankert (L-2026-08-17m). |
-| Zur Kenntnis: `p3` und `p5` bleiben vorerst rot | Ihr letzter CI-Lauf stammt vom **16.08. 07:0x** — ohne Push gibt es keinen neuen Lauf, das „ROT" ist ein Standbild und keine laufende Störung. Wir haben ihre `BOARD.md` neu erzeugt und committet; der nächste Push löst den Lauf aus, der die Frage entscheidet. |
-| ⚠ `abschluss.cmd` prüfen (aus Sprint 1, weiter offen) | Die Datei wurde in Sprint 1 versehentlich geleert und aus dem Protokoll **rekonstruiert**. Wenn du eine Vorgängerversion hast, vergleiche sie. |
+| **Eine Entscheidung: `p11/T-0006`, Frist 19.08.** | Unverändert seit Sprint 5. Das Dashboard passt bei 1920×1080 nur auf eine Seite, wenn es den 62rem-Textkorridor verlässt, an den Mission Control heute überall gebunden ist. **LAY-a (Default): breit nur im Dashboard**, alles andere unverändert. LAY-b: überall breit. LAY-c: Korridor behalten und scrollen — das gäbe das erste Abnahmekriterium des Projektauftrags auf und käme als eigener DR. **Schweigen führt zu LAY-a.** |
+| ✅ **Alles grün — und der letzte offene Problemfall ist zu** | `p3` und `p5` sind grün, `CI-STATUS.md` meldet zum ersten Mal **alle 14 Abfragen grün**. `pm/T-0043` hat fünf Sprints gebraucht und ist geschlossen. **Du musst nichts tun.** |
+| ✅ **Die Klasse-A-Sorge um das Secret ist endgültig vom Tisch** | Sie war schon in Sprint 6 ausgeschlossen; jetzt ist sie auch praktisch widerlegt — dieselben Repos, dasselbe Secret, grün. |
+| ⚠ **Wir haben einen Fehler von uns selbst gefunden und korrigiert** | Sprint 6 hat viermal gemeldet, die Anforderungsmatrix sei vollständig. Das stimmte für die Dateien auf der Platte, aber eine Anforderung war **nie ins Git eingecheckt** — ausgeliefert wurde also Code ohne die dazugehörige Anforderung. Repariert (nachgetragen) und abgesichert: das Prüfwerkzeug schlägt jetzt an, **bevor** gepusht wird. Nichts davon war nach außen sichtbar. |
+| ⚠ **Eine Kennzahl, die wir dir vier Sprints lang gemeldet haben, war nicht definiert** | „Nicht geschlossen: 15" stand von Sprint 2 bis 5 unverändert da und passte zu keiner nachvollziehbaren Zählweise. Wir haben jetzt festgelegt, was sie zählt, und beziehen sie aus dem Werkzeug statt sie fortzuschreiben. Die alten Zahlen lassen wir **bewusst unkorrigiert** stehen, mit Warnzeichen — damit sichtbar bleibt, wo einmal etwas Ungeprüftes durchging. |
+| ⚠ `abschluss.cmd` prüfen (aus Sprint 1, weiter offen) | Die Datei wurde in Sprint 1 versehentlich geleert und aus dem Protokoll **rekonstruiert**. Wenn du eine Vorgängerversion hast, vergleiche sie. Das ist der einzige Punkt, der weiter auf dich wartet. |
 
 ## Für das Team — die nächsten Sprints
 
 | Sprint | Ticket | Inhalt |
 |---|---|---|
 | jeder | `pm/T-0001`–`T-0003`, `platform/T-0001`, `team-mail/T-0001`, `team-dashboard/T-0001` | Takt-Dauerläufer |
-| **7** | `team-dashboard/T-0002` | `letzte_baseline`: zwei Tatsachen in einem Feld, keine Längengrenze (Frist 19.08.) |
-| **7** | `pm/T-0043` | Entscheidet sich am CI-Lauf, den der nächste Push für `p3`/`p5` auslöst |
-| **7** | `pm/T-0045` | Offenes Ticket auf einem vergangenen Sprint meldet niemand |
-| **7** | `projects/p11/T-0003` | Rest von P11 — Bau beginnt nach `T-0006` und `team-dashboard/T-0002` |
-| 7 | `pm/T-0036` + `pm/T-0038` | Board-Format, gebündelt (B053) |
-| 8 | `pm/T-0039` | Am Brief weiterkommentieren |
+| **8** | `pm/T-0038` | Feld `verantwortlich` — Board-Formatänderung, die jedes Repo-CI prüft (Frist 23.08.) |
+| **8** | `pm/T-0047` | Org-Summe „unterminiert" im Cockpit-Kopfblock (Teil a aus `pm/T-0036`) |
+| **8** | `projects/p11/T-0003` | Rest von P11 — **eine Sperre ist gefallen**, es hängt nur noch an `T-0006` |
+| **8** | `pm/T-0039` | Am Brief weiterkommentieren |
 | 9 | `pm/T-0028` | Projekt-Pool: Team gründen im HMI (Klasse A — nur vorbereiten) |
 | 10 | `projects/p12/T-0003` | Renderer zusammenführen |
 
-**Ab Sprint 8 ist die Nummer eine Reihenfolge, keine Zusage.** Der vollständige Plan steht
-in `pm/management/sprint-aktuell.md` — und stimmt seit diesem Sprint nachweislich mit den
-Ticketfeldern überein (SWR-109).
+**Ab Sprint 9 ist die Nummer eine Reihenfolge, keine Zusage.** Der vollständige Plan steht
+in `pm/management/sprint-aktuell.md` und stimmt mit den Ticketfeldern überein (SWR-109) —
+in diesem Sprint hat die Prüfung dabei **zwei eigene Abweichungen** gefunden und sie wurden
+korrigiert, bevor der Plan stand.
 
 ---
+
+## Sprint 7 (2026-08-17)
+
+**Der Startcheck war zum dritten Mal in Folge der wertvollste Teil des Sprints — und zum
+zweiten Mal war er Pflicht.** Sprint 6 hatte eine widerlegbare Vorhersage hinterlassen
+(„der nächste Lauf erreicht [3/5] oder weiter"). Nachgesehen: der Lauf um 05:02 ist
+komplett durchgelaufen, hat gepusht, und `CI-STATUS.md` meldet **ALLES GRÜN**.
+
+**`pm/T-0043` — fünf Sprints, und die Ursache war eine Abwesenheit.** `p3` und `p5` waren
+rot, weil ihr letzter Commit (16.08. 07:0x) von einer `board.py`-Fassung **vor** der
+Takt-Spalten-Änderung stammte. Danach bekam keines der beiden je wieder einen Push — und
+ohne Push kein neuer Lauf. Das rote Ergebnis konnte sich nicht ändern, egal wie lange man
+wartete. Sprint 6 hat den Auslöser hergestellt (BOARD.md neu erzeugt und committet),
+Sprint 7 hat das Ergebnis eingesammelt: **beide grün**.
+
+**`platform/T-0010` — die Verifikation misst die Arbeitskopie, der Push liefert HEAD.**
+Sprint 6 schrieb `SWR-109` in `p9/requirements/...` und committete `p9` **nicht**. Der
+Plattformcode und seine sieben Tests waren gepusht, die Anforderung nicht; die Matrix
+meldete „109 SWRs / 0 Lücken", weil sie die Datei liest und nicht den Commit. Sofort
+repariert, dann gebaut: `preflight` **nennt** unsaubere Dateien und macht eine unverbuchte
+Anforderungs-, Ticket- oder Board-Datei zum **Befund**, der `abschluss.cmd` in `[1/5]`
+anhält.
+
+**⚠ Die Ausnahme, die dieses Werkzeug erst brauchbar macht.** Fünf Repos sind **jeden Tag**
+unsauber, weil `board.py` die `Stand:`-Zeile bei jedem Lauf neu schreibt. Ohne Ausnahme
+hätte der neue Befund täglich gefeuert. Die Ausnahme wird am **Diff** entschieden und nicht
+am Dateinamen — mit einem Gegentest, der eine `BOARD.md` mit einer zweiten geänderten Zeile
+sehr wohl meldet. Ohne diesen Gegentest wäre die Ausnahme nicht widerlegbar.
+
+**Und ein Test hat beim Schreiben eine zweite Lücke gefunden:** `git status` fasst einen
+nicht getrackten **Ordner** zu einer Zeile zusammen, ein neu angelegtes Ticket in einem
+neuen Ordner wäre also unsichtbar geblieben. Behoben mit `-uall`.
+
+**`team-dashboard/T-0002` — entschieden und gebaut.** `letzte_baseline` trug Tag **und**
+Annotation in einem String (bei `p1` 300 Zeichen). Getrennt in der **Quelle**, nicht im
+Widget: `letzte_baseline` ist der Tag, `letzte_baseline_text` die Annotation, Vertrag
+**v2.1**. Am echten Payload geprüft. Es ist der **vierte** Befund an diesem einen Feld —
+und der erste, bei dem beide Werte richtig waren und trotzdem etwas nicht stimmte: sie
+teilten sich einen Namen.
+
+**`pm/T-0045`, `pm/T-0046`, `pm/T-0036` — drei Befunde in den eigenen Zahlen, alle
+geschlossen.** Ein offenes Ticket auf einem vergangenen Sprint meldet jetzt
+`sprint_vergangen` (SWR-112, mit begründeter DR-Ausnahme). „Nicht geschlossen" hat eine
+aufgeschriebene Zählweise und kommt aus dem Werkzeug (SWR-113). Und der „ohne Frist"-Zähler
+wird org-weit **mit Namen** gemeldet statt kachelweise gezählt (SWR-114).
+
+**⚠ Bei `pm/T-0036` ist zum zweiten Mal in zwei Sprints ein Verschiebungsgrund an der
+Messung gescheitert.** Er lautete „Änderung an der Prüfstrecke, nicht nebenbei zu bauen".
+Gemessen: **0 unterminierte Tickets im ganzen Bestand**. Der Anlass war leer, die Lücke
+nicht — und weil der Bestand leer war, war der Bau billig **und** beidseitig testbar.
+
+**Lessons sofort verankert (D005, noch in diesem Lauf): L-2026-08-17n** mit fünf Regeln,
+darunter die Bauregel, die aus vier gleichartigen Abwägungen entstanden ist: *zu jeder
+neuen Prüfung gehört die Frage, was sie am ersten Tag melden würde, und ein Test für den
+Fall, den sie **nicht** melden soll.*
 
 ## Sprint 6 (2026-08-17)
 
