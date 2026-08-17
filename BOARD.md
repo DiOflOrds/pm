@@ -17,11 +17,16 @@ Stand: 2026-08-17 · Tickets: 63 · davon wiederkehrend: 3
 | [T-0063](tickets/T-0063.md) | CR (pm/T-0028 Teil b): Charter-Entwurf und Gründungs-DR aus dem geprüften Steckbrief | change-request | einmalig | chg | Team | mittel | 0 | T-0062 |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | Team | niedrig | 0 | — |
 
-## in_progress (2)
+## in_progress (1)
 
 | ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|---|
 | [T-0058](tickets/T-0058.md) | CR (pm/T-0055 Teil 3): Die abgeschickte Nachricht erscheint ohne Reload in der Liste | change-request | einmalig | dev | Team | mittel | 0 | — |
+
+## in_review (1)
+
+| ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
+|---|---|---|---|---|---|---|---|---|
 | [T-0060](tickets/T-0060.md) | CR (pm/T-0039 Teil b): HMI — je Brief ein Antwortfeld, Beiträge mit Absender und Zeit | change-request | einmalig | dev | Team | mittel | 0 | — |
 
 ## done (52)
