@@ -1,5 +1,117 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
+## Das Wichtigste (Stand Sprint 3, 2026-08-17)
+
+1. **Die Zwickmühle aus Sprint 2 ist entschieden** — und nicht als Reihenfolgefrage. Das
+   Matrix-Gate hat die CI von `platform` **verlassen**: eine CI, die je Repo läuft, kann eine
+   Aussage über **alle Repos gleichzeitig** grundsätzlich nicht prüfen. Es läuft weiter, aber
+   dort, wo es wahr sein kann — in `abschluss.cmd` vor dem Push, mit Abbruch (`pm/T-0042`).
+2. **Der Widget-Vertrag steht** und damit die Eingangsbedingung für P11
+   (`team-dashboard/T-0001`): normativ als YAML, begründet als eigenes Dokument.
+3. **⚠ Beim Prüfen des Vertrags kam ein falscher Wert heraus, kein fehlender.** `p11` und `p12`
+   trugen die Baseline von `p10` — seit P10 in Mission Control sichtbar. Ursache: `git tag`
+   antwortet über das *Repository*, nicht über den Ordner. **In diesem Sprint behoben** (B064,
+   `platform/T-0005`).
+4. **Eine Annahme des Auftrags war falsch, zu unseren Gunsten.** „Kein Projekt liefert heute
+   Widget-Daten" stimmt nicht: alle **16** Einträge liefern **dieselben 17 Felder**. Gefehlt hat
+   die Zusage, nicht die Lieferung — das macht P11 kleiner als gedacht.
+5. **468 Tests grün**, Matrix **107 SWRs / 0 Lücken**, Preflight STARTKLAR, **kein offener Brief**,
+   unterminiert 0, überfällig 0.
+
+---
+
+## Für dich (E. John)
+
+| Was | Warum |
+|---|---|
+| **Nichts Dringendes, nichts Blockierendes** | Kein Ticket wartet auf eine Handlung am Host. |
+| Der nächste `abschluss.cmd` schließt zwei Tickets von selbst | `platform/T-0004` (Netzweg der Jobs-Abfrage) und `pm/T-0043` (welcher Schritt macht `p3`/`p5` rot) warten beide nur auf einen `CI-STATUS.md`, der **nach** 01:17 entstanden ist. Ohne dein Zutun. |
+| Zur Kenntnis: `platform` sollte ab dem nächsten Lauf grün sein | Das ist eine **Vorhersage** und als solche notiert: trifft sie nicht ein, ist die Diagnose aus `pm/T-0042` widerlegt und das Ticket wird wiedereröffnet. |
+| Zur Kenntnis: ein stiller Anzeigefehler ist weg | `p11` und `p12` zeigten im Cockpit die Baseline von `p10` als ihre eigene. Falls dir das je aufgefallen ist — es lag nicht an dir. |
+| Optional, ohne Frist | Falls du ohnehin auf GitHub bist: die Lauf-Seite von `p3` nennt den roten Schritt sofort. Ist es das Secret `PLATFORM_READ_TOKEN`, ist die Behebung **Klasse A** (Zugang) und kommt dir als Inbox-DR vor — nicht vom Team entschieden. |
+| ⚠ `abschluss.cmd` prüfen (aus Sprint 1, weiter offen) | Die Datei wurde in Sprint 1 versehentlich geleert und aus dem Protokoll **rekonstruiert**. Wenn du eine Vorgängerversion hast, vergleiche sie. Dieser Sprint hat **eine Zeile** darin geändert (`process` wird vor `platform` gepusht), sauber kommentiert. |
+
+## Für das Team — die nächsten Sprints
+
+| Sprint | Ticket | Inhalt |
+|---|---|---|
+| jeder | `pm/T-0001`, `pm/T-0002`, `pm/T-0003`, `platform/T-0001`, `team-mail/T-0001`, **`team-dashboard/T-0001`** | Takt-Dauerläufer |
+| **4** | `platform/T-0006` | Cockpit unterscheidet „echte Null" nicht von „nicht geliefert" — Eingangsbedingung für SWR-096 |
+| **4** | `platform/T-0004`, `pm/T-0043` | Beide nur Beleg lesen, sobald der nächste `CI-STATUS.md` vorliegt |
+| **5** | `projects/p11/T-0003` | Widget-Dashboard — **hinter** `platform/T-0006`, sonst werden die SWR-096-Tests zweimal geschrieben |
+| 6 | `pm/T-0036` + `pm/T-0038` | Board-Format, gebündelt (B053) |
+| 7 | `pm/T-0039` | Am Brief weiterkommentieren |
+| 8 | `pm/T-0028` | Projekt-Pool: Team gründen im HMI (Klasse A — nur vorbereiten) |
+| 9 | `projects/p12/T-0003` | Renderer zusammenführen |
+
+**Ab Sprint 6 ist die Nummer eine Reihenfolge, keine Zusage.** Der vollständige Plan steht in
+`pm/management/sprint-aktuell.md`. Die Warteschlange wurde in diesem Sprint neu geordnet, weil
+`platform/T-0006` dazukam — Gründe je Zeile im Plan.
+
+**Die Feldkorrektur aus Sprint 2 ist erledigt:** `team-dashboard/T-0001` trägt weder `frist` noch
+`geplant_sprint` mehr und steht damit wie die fünf anderen Takt-Dauerläufer.
+
+---
+
+*Ab hier: Belege und Details zum Nachlesen.*
+
+## Sprint 3 (2026-08-17)
+
+**`pm/T-0042` — die Entscheidung, die keiner der vier vorgeschlagenen Wege war.** Das Ticket bot
+vier Wege an, drei davon Reihenfolge- oder Wiederholungsvarianten. Sprint 3 hat die Frage eine
+Ebene tiefer gestellt: *Kann dieses Gate den Zustand, über den es urteilt, überhaupt jemals
+sehen?* Nein — die SWR↔Test-Matrix ist eine Aussage über **alle** Repos **zur gleichen Zeit**, und
+eine CI je Repo sieht die anderen immer so, wie der Push sie hinterlassen hat. Gewählt ist Weg 3,
+aber als **Ortswechsel** und nicht als Abschwächung: dieselbe Prüfung läuft in `abschluss.cmd`
+[2/5] über den vollständigen, gleichzeitigen lokalen Stand — **vor** dem Push, mit Abbruch. Für
+jeden Push über `abschluss.cmd` konnte das Gate in der CI nur überflüssig (grün) oder falsch (rot)
+sein. **Der Preis steht im Ticket und im Kopf der Workflow-Datei:** ein Push, der `abschluss.cmd`
+umgeht, wird nicht mehr gegen die Matrix geprüft. Der Lauf checkt jetzt drei Repos aus statt
+vierzehn.
+
+**Bewusst nicht mitgerissen:** der Katalog-Check in derselben CI ist von derselben Bauart, hat aber
+noch nie falsch rot gemeldet. Ein Gate auf theoretischen Verdacht abzuräumen wäre das Gegenteil der
+Sorgfalt, die den Befund gefunden hat. Stattdessen eine Zeile in `abschluss.cmd`: `process` geht
+vor `platform`, damit ist die häufigere Hälfte seines Rennens weg.
+
+**`team-dashboard/T-0001` — der Widget-Vertrag.** `vertrag/widget-vertrag-v1.yaml` ist die
+**einzige** Stelle mit der Feldliste; `docs/02-widget-vertrag.md` begründet und wiederholt sie
+ausdrücklich nicht (zwei Listen wären B033 — eine schlechte erste Arbeit für ein Team, dessen Zweck
+es ist, dass eine Seite dasselbe sagt wie ihre Quelle). Die wichtigste Frage ist damit beantwortet:
+**die Felder kommen aus der vorhandenen Cockpit-Aggregation, aus keiner zweiten Quelle.**
+
+**⚠ B064 — beim Feld-für-Feld-Prüfen fiel ein falscher Wert heraus.** `p11` und `p12` meldeten
+`p10-v1.0` als ihre letzte Baseline. `git tag` beantwortet die Frage nach dem **Repository**; seit
+`pm/D003` liegen Projekte ab P10 als Ordner in `projects`. Der Nachbar in derselben Funktion
+(`einstufung`) war **zufällig** richtig — er sucht nach `"<projekt>-v1.0"` und filtert damit
+implizit; nur die Baseline-Zeile las denselben Text ungefiltert. Dieselbe Familie wie B059.
+Behoben über **eine** gemeinsame Funktion (`projekt_tags`), 5 Regressionstests, darunter der Fall,
+der die Korrektur widerlegen würde (`p0` trägt `genesis-v1.0` — ein globaler Filter hätte ihm
+Baseline und Status genommen). **Gegenprobe über den echten Bestand:** der Altstand aus
+`git archive HEAD` meldet für p11/p12 weiterhin `p10-v1.0`, der Neustand leer.
+
+**Neu und bewusst nicht in diesem Sprint: `platform/T-0006`.** 15 von 16 Einträgen melden
+`kpi: {laeufe: 0}`, obwohl nur `p0` eine Run-Registry führt — „0 gemessen" und „nichts erhoben"
+sind derselbe Wert. SWR-096 verlangt genau diese Unterscheidung. Der Weg dorthin ist **offen
+gelassen**: drei Varianten stehen im Ticket, jede mit ihrem Preis, entschieden wird im Sprint, der
+es baut.
+
+**Verankert (D005, noch in diesem Lauf):** **L-2026-08-17e** (B064 — wechselt der Behälter,
+wechselt die Bedeutung jeder Frage an ihn; ein Nachbar, der richtig aussieht, kann aus Versehen
+richtig sein) und **L-2026-08-17f** (B061-Auflösung — vor dem Justieren eines Gates kommt die Frage
+nach seinem Ort; wer ein Gate entfernt, schreibt auf, welcher echte Befund verloren geht).
+
+**Board-Check gegen die Erwartung gelesen (B041 Regel 3):** platform **6** Tickets (+2: `T-0005`,
+`T-0006`), pm **43** (unverändert — `T-0042` hat nur den Status gewechselt), gesamt **248** (+2).
+Briefe organisationsweit **48**, davon **0 offen**. Matrix **107 SWRs / 0 Lücken** (unverändert —
+dieser Sprint hat keine neue Anforderung gebracht, sondern einen Fehler behoben und einen Vertrag
+geschrieben), **468 Tests** (vorher 463). Nicht geschlossen: **15** (unverändert — zwei zu, zwei
+neu).
+
+---
+
+## Vorheriger Stand (Sprint 2, 2026-08-17)
+
 ## Das Wichtigste (Stand Sprint 2, 2026-08-17)
 
 1. **Die CI-Statusprüfung hat beim ersten Lauf drei rote Repos gefunden** — `p3`, `p5` und
