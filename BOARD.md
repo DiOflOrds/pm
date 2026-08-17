@@ -1,9 +1,9 @@
 # Board (generiert von platform/scripts/board.py — nicht von Hand editieren)
 
-Stand: 2026-08-17 · Tickets: 55 · davon wiederkehrend: 3
+Stand: 2026-08-17 · Tickets: 57 · davon wiederkehrend: 3
 
 
-## open (9)
+## open (11)
 
 | ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|---|
@@ -12,9 +12,11 @@ Stand: 2026-08-17 · Tickets: 55 · davon wiederkehrend: 3
 | [T-0039](tickets/T-0039.md) | CR (B054, pm/N-0031): Am Brief weiterkommentieren statt einen neuen zu schreiben — der Briefkasten kennt nur ein Frage/Antwort-Paar je Datei | change-request | einmalig | pl | Team | hoch | 0 | — |
 | [T-0054](tickets/T-0054.md) | CR (pm/N-0038): Der Mensch priorisiert offene Aufgaben aller Teams/Projekte für den nächsten Durchlauf — Knopf statt Einzelbearbeitung | change-request | einmalig | chg | Team | hoch | 0 | — |
 | [T-0055](tickets/T-0055.md) | Bug (pm/N-0039): Briefkasten meldet „Commit fehlgeschlagen\" und verschweigt, dass die Nachricht gespeichert ist — Ursache: verwaiste index.lock | problem | einmalig | dev | Team | hoch | 0 | — |
+| [T-0056](tickets/T-0056.md) | DR (pm/N-0040): promt-team gründen? — Klasse A: Profil, Datenklasse, Zugänge und Wirkbereich brauchen deine Freigabe | decision-request | einmalig | mensch | MENSCH | hoch | 0 | — |
 | [T-0028](tickets/T-0028.md) | CR (pm/N-0022): Projekt-Pool — Team gründen im HMI (Steckbrief, Profil, Datenklasse, Zugänge) | change-request | einmalig | chg | Team | mittel | 0 | — |
 | [T-0052](tickets/T-0052.md) | CR (Teil e aus pm/T-0038, pm/N-0031): HMI-Abschnitt „Für dich: Handlungen\" neben der Inbox — eigener Abschnitt, nicht dieselbe Liste | change-request | einmalig | pl | Team | mittel | 0 | — |
 | [T-0053](tickets/T-0053.md) | Frage: 21-mal open -> in_review in der Historie — verbietet UEBERGAENGE einen Weg, den die Organisation tatsächlich geht? | problem | einmalig | pl | Team | mittel | 0 | — |
+| [T-0057](tickets/T-0057.md) | Befund: Das Pool-Formular nimmt beliebig langen Text in eine Tabellenzelle — 9.000 Zeichen in einer Zeile von projekt-pool.md | problem | einmalig | dev | Team | mittel | 0 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | Team | niedrig | 0 | — |
 
 ## done (46)
