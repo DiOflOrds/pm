@@ -1,6 +1,160 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
-## Das Wichtigste (Stand Sprint 9, 2026-08-17)
+## Das Wichtigste (Stand Sprint 10, 2026-08-17)
+
+1. **⚠⚠ Unser Startcheck hat heute grünes Licht gegeben und dabei sechs Probleme
+   verschwiegen.** Er meldete „alles startklar". Zwei Prüfungen, die es seit Wochen gibt,
+   hatten in demselben Moment **drei plus drei** Befunde — sie werden bei jedem Lauf
+   berechnet, und **niemand hat sie je gelesen**. Heute repariert.
+2. **⚠ Deshalb war eine Zahl in unserem gestrigen Bericht an dich falsch.** Wir haben dir
+   gemeldet „Plan-Drift 0, überfällig 0". Tatsächlich waren es 3 und 1. **Die Null war
+   richtig, als wir sie gemessen haben** — danach hat derselbe Lauf den Plan geändert und
+   den Fehler damit erst erzeugt. Wir haben zu früh gemessen und zu spät berichtet.
+3. **⚠ Eine Aufgabe ist viermal hintereinander um genau einen Durchlauf verschoben
+   worden** — jedes Mal mit demselben, wörtlich unveränderten Grund. Aufgefallen ist es
+   erst beim fünften Mal, und zwar nur, weil es diesmal **nachlässiger** gemacht wurde.
+   Wäre es sauber gemacht worden, hätte es niemand gesehen.
+4. **✅ Dein Bug ist zu Ende repariert.** Die Sperre, an der dein Absenden gescheitert ist,
+   wird jetzt automatisch geräumt und der Vorgang einmal wiederholt. **Du bekommst die
+   Meldung gar nicht mehr zu sehen.**
+5. **⚠ Beim Reparieren sind drei eigene Tests umgefallen — und sie hatten recht.** Sie
+   hatten den Fehler nachgestellt, indem sie genau die Sperre setzten, die wir jetzt
+   wegräumen. **Ein Test, der einen Fehler nachstellt, den wir später beheben, prüft
+   danach nicht mehr das, was in seinem Namen steht.**
+6. **⚠ Beim Pool-Problem waren zwei von drei Ursachen, die wir selbst aufgeschrieben
+   hatten, falsch.** Die Beschreibung *wird* geprüft, und deine Zeilenumbrüche gingen nicht
+   „beim Einfügen" verloren — sie werden **absichtlich** zusammengezogen, weil du im August
+   selbst darum gebeten hattest. Gefehlt hat weder Prüfung noch Grenze, sondern ein
+   **Ablageort**. Langer Text bekommt jetzt eine eigene Datei.
+7. **Vier Aufgaben geschlossen**, 689 Tests grün (+30), 124 Anforderungen ohne Lücke,
+   Startcheck startklar — **und diesmal am Ende gemessen, nicht am Anfang.**
+8. **Es liegt nichts bei dir.** Kein offener Brief, keine offene Entscheidung.
+
+---
+
+## Für dich (E. John)
+
+| Was | Warum |
+|---|---|
+| ✅ **Dein Bug ist fertig — du wirst ihn nicht mehr sehen** | Am Sonntag hast du gemeldet, dass beim ersten Absenden „Git-Commit fehlgeschlagen" erscheint. Gestern haben wir die **Meldung** ehrlich gemacht („deine Nachricht ist gespeichert, bitte nicht erneut senden"). Heute ist die **Ursache** weg: die Sperrdatei, die dazwischenfunkt, wird automatisch weggeräumt und der Vorgang einmal wiederholt. Es bleibt nur noch ein Rest: dass die Nachricht auch **ohne Neuladen** in der Liste auftaucht — das kommt als `pm/T-0058` im nächsten Lauf. |
+| ⚠ **Wir müssen eine Zahl aus dem gestrigen Bericht zurücknehmen** | Wir haben dir „Plan-Drift 0, überfällig 0" gemeldet. Richtig waren **3 und 1**. Nichts ist dadurch kaputtgegangen — es ging um Aufgaben, deren Termin im Plan und im Ticket auseinanderliefen. Der Grund ist unangenehm einfach: wir haben die Zahl gemessen, **danach** den Plan geändert und die alte Zahl berichtet. Ab heute prüft der Startcheck das selbst, am Ende jedes Laufs. |
+| ✅ **Dein Pool-Eintrag: der lange Text bekommt jetzt automatisch eine eigene Datei** | Als du die Rollenbeschreibung für `promt-team` eingefügt hast, wurde daraus **eine** Tabellenzeile mit 9.000 Zeichen. Ab jetzt wandert langer Text automatisch in eine eigene Datei, und in der Tabelle steht ein Anfang plus ein Link. **Du wirst zu nichts gezwungen** — nichts wird abgelehnt und nichts gekürzt. ⚠ Eine Sache müssen wir richtigstellen: wir hatten geschrieben, deine Zeilenumbrüche seien „beim Einfügen verloren gegangen". Das stimmt nicht — sie werden **absichtlich** zu Leerzeichen zusammengezogen, weil du am 16.08. genau darum gebeten hattest, damit du Text nicht selbst umformatieren musst. |
+| ✅ **Die Frage nach den 21 Grenzfällen ist beantwortet — ohne eine Zeile Code** | Gestern fanden wir 52 Fälle, in denen Häkchen in falscher Reihenfolge gesetzt wurden; 21 davon sahen nach einem Arbeitsweg aus, den unsere Regel nicht kennt. Nach Datum sortiert sind es **drei Ereignisse**: 7 aus der Zeit vor der Prüfung, 13 aus **einer einzigen** Sitzung binnen einer knappen Stunde, 1 Einzelfall. In allen anderen Projekten: **kein einziger**. Die Regel bleibt, wie sie ist. |
+| ⚠ **Eine Aufgabe hat sich vier Läufe lang selbst weitergereicht** | Es geht um deinen Wunsch, im selben Brief weiterzukommentieren (`pm/T-0039`, aus deinem Brief vom 16.08.). Sie wurde viermal um genau einen Durchlauf verschoben, **immer mit demselben Satz**. Wir haben sie jetzt in zwei Teile zerlegt; der wichtige Teil ist die **erste** Sacharbeit im nächsten Lauf. Der heutige Grund („wir haben diese Datei in diesem Lauf schon angefasst") ist im Ticket ausdrücklich mit **Verfallsdatum** eingetragen — er darf nicht noch einmal verwendet werden. |
+| ⚠ `abschluss.cmd` prüfen (aus Sprint 1, weiter offen) | Die Datei wurde in Sprint 1 versehentlich geleert und aus dem Protokoll **rekonstruiert**. Wenn du eine Vorgängerversion hast, vergleiche sie. Das ist der einzige Punkt, der weiter auf dich wartet. |
+
+---
+
+## Was heute wichtig war — in Ruhe erklärt
+
+### ⚠⚠ Der Wächter, der zwei seiner drei Augen nie geöffnet hat
+
+Vor jedem Lauf und nach jedem Lauf läuft bei uns ein Startcheck. Er sagt entweder
+„startklar" oder er listet auf, was nicht stimmt. Heute früh sagte er **startklar**.
+
+Im selben Moment, gegen genau dieselben Daten, ergaben zwei andere Prüfungen zusammen
+**sechs** Befunde. Diese beiden Prüfungen gibt es seit Wochen. Sie werden bei jedem Aufruf
+berechnet. Sie stehen in derselben Datenstruktur, aus der der Startcheck seine dritte
+Prüfung liest — **einen Eintrag daneben**.
+
+Niemand hat sie je gelesen.
+
+Das ist kein Programmierfehler im üblichen Sinn: nichts war kaputt, nichts hat falsch
+gerechnet. **Es fehlte die Zeile, die das Ergebnis ausspricht.** Und weil sie fehlte,
+konnte man drei Sprints lang die richtige Antwort berechnen und die falsche berichten.
+
+Die Lehre, die wir daraus festgeschrieben haben: **wer eine Prüfung baut, muss im selben
+Zug festlegen, wer ihr Ergebnis liest.** Eine Prüfung ohne Leser ist keine Prüfung.
+
+### ⚠ Warum unsere gestrige Null falsch war — obwohl sie stimmte
+
+Das ist der Teil, den wir am unangenehmsten finden, weil er nichts mit Technik zu tun hat.
+
+Gestern haben wir dir gemeldet: „Plan-Drift 0". Die Zahl war **richtig gemessen**. Danach
+hat derselbe Lauf noch etwas getan: er hat den Sprintplan umgeschrieben und zwei Aufgaben
+von „Sprint 9" auf „Sprint 10" gesetzt — aber vergessen, dasselbe auch in den beiden
+Aufgaben selbst einzutragen. Genau dadurch entstand der Widerspruch, den die Zahl daneben
+mit „0" bestritt.
+
+> **Eine Messung, die vor der Änderung liegt, die sie abdecken soll, misst nicht das
+> Ergebnis, sondern den Zustand vorher.**
+
+Wir haben das nicht mit „besser aufpassen" beantwortet, sondern damit, dass die Prüfung
+jetzt **am Ende jedes Laufs automatisch** läuft — an einer Stelle, an der die Reihenfolge
+keine Rolle mehr spielt.
+
+### ⚠ Ein sauber ausgeführter Verzug ist unsichtbar
+
+Die Aufgabe aus deinem Brief („im selben Brief weiterkommentieren") ist viermal verschoben
+worden — Durchlauf 6, 7, 8, 9 — und **jedes Mal mit demselben, wörtlich unveränderten
+Begründungstext**. Vier Verschiebungen, kein einziger neuer Gedanke.
+
+Aufgefallen ist es beim fünften Mal. Und zwar deshalb, weil es diesmal **schlampiger**
+gemacht wurde: statt die Zahl in der Aufgabe zu ändern, wurde nur die Tabelle geändert —
+und dieser Widerspruch ist beim Nachmessen aufgefallen.
+
+Hätte jemand es ordentlich gemacht, wäre es das fünfte Mal geworden, das niemand sieht.
+
+### ⚠ Zweimal an einem Tag stand in einem Test etwas anderes als in seinem Namen
+
+Ein Test soll eine Zusage prüfen. Heute haben wir zwei Fälle gefunden, in denen er
+stattdessen die zufällige Bauform von gestern geprüft hat.
+
+**Der erste:** Drei Tests von gestern stellten einen Fehler nach, indem sie eine bestimmte
+Sperrdatei anlegten. Heute räumen wir genau diese Sperre weg — der Vorgang gelang, und die
+drei Tests wurden rot. **An keiner der beiden Sachen war etwas falsch.** Wir haben Glück
+gehabt, dass sie rot wurden; hätte die Erwartung anders gelautet, wären sie still grün
+geworden, ohne noch irgendetwas zu prüfen.
+
+**Der zweite:** Zwei Tests aus deinen Briefen vom 16.08. prüften, ob dein langer Text *in
+der Pool-Datei* steht. Deine Zusage lautete aber „wird angenommen und nicht gekürzt" — das
+ist eine Aussage über den **Text**, nicht über die Datei. Jetzt wandert der Text in eine
+eigene Datei; die Zusage gilt unverändert.
+
+**In beiden Fällen haben wir die Versuchsanordnung geändert, nie die Erwartung.** Das ist
+die Grenze, an der aus Testpflege ein Selbstbetrug würde.
+
+### ✅ 21 Fälle, die sich als drei Ereignisse herausstellten
+
+Gestern fanden wir 52 Vorgänge, bei denen Häkchen in der falschen Reihenfolge gesetzt
+wurden. 21 davon waren derselbe Sprung, und das las sich wie ein Arbeitsweg, den unsere
+Regel schlicht nicht kennt — also womöglich ein Fehler in der **Regel**.
+
+Nach Datum sortiert:
+
+* **7** stammen vom 6. August, aus **einem** Vorgang — da gab es die Prüfung noch nicht.
+* **13** stammen vom 7. August, aus **einer** Sitzung, verteilt über 56 Minuten.
+* **1** ist ein Einzelfall vom 15. August.
+
+Und: **kein einziger** Fall außerhalb der beiden ältesten Projekte, obwohl seither der
+weitaus größte Teil der Arbeit anderswo lief.
+
+> **Eine Zahl von Befunden zählt Vorgänge, keine Entscheidungen.** 13 Häkchen aus einer
+> Sitzung sind ein Ereignis, nicht dreizehn.
+
+Die Regel bleibt. Wir haben aufgeschrieben, woran wir merken würden, dass wir falsch
+liegen.
+
+---
+
+## Für das Team — die nächsten Sprints
+
+**Sprint 11** (fest): `pm/T-0059` **zuerst** (Briefverlauf, Datenmodell — der Grund für
+den heutigen Aufschub verfällt mit diesem Lauf), dann `pm/T-0028` (Team-Gründung im HMI,
+Feldliste ist entschieden), `pm/T-0054` (Priorisier-Knopf), `pm/T-0058` (Anzeige ohne
+Reload), `pm/T-0052`, `p11/T-0008`, `p11/T-0009`, `p12/T-0003`, `promt-team/T-0001` und
+`T-0002`.
+
+**Sprint 12** (Reihenfolge, keine Zusage): `pm/T-0060` (HMI-Briefverlauf, blockiert durch
+`T-0059`), `promt-team/T-0003` (blockiert durch `T-0001`/`T-0002`).
+
+**Widerlegbare Vorhersage:** Der Startcheck von Sprint 11 meldet `Plan-Drift 0` und
+`Offen auf vergangenem Sprint 0` — **nicht weil jemand daran denkt, sondern weil er es
+prüft.**
+
+---
+
+## Sprint 9 (2026-08-17)
 
 1. **✅ Was wir dir gestern versprochen haben, hat gehalten.** Sprint 8 hat eine Prüfung
    gebaut, die verhindern soll, dass wir dir etwas als erledigt melden, das nicht verbucht
@@ -35,7 +189,7 @@
 
 ---
 
-## Für dich (E. John)
+### Für dich (E. John) — Stand Sprint 9
 
 | Was | Warum |
 |---|---|
@@ -49,7 +203,7 @@
 
 ---
 
-## Was heute wichtig war — in Ruhe erklärt
+### Was in Sprint 9 wichtig war
 
 ### ⚠ Ein Ticket, das darauf wartete, dass es anfängt
 
@@ -145,7 +299,7 @@ gebaut hat.
 
 ---
 
-## Für das Team — die nächsten Sprints
+### Für das Team (Stand Sprint 9)
 
 | Sprint | Ticket | Inhalt |
 |---|---|---|
