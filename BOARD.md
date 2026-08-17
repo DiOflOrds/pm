@@ -1,15 +1,17 @@
 # Board (generiert von platform/scripts/board.py — nicht von Hand editieren)
 
-Stand: 2026-08-17 · Tickets: 63 · davon wiederkehrend: 3
+Stand: 2026-08-17 · Tickets: 65 · davon wiederkehrend: 3
 
 
-## open (8)
+## open (10)
 
 | ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|---|
 | [T-0001](tickets/T-0001.md) | Takt: Session-Agenda pflegen (jede Session) | task | je Session | pl | Team | hoch | 0 | — |
 | [T-0002](tickets/T-0002.md) | Takt: Intake-Queue — neue Wünsche/Briefe qualifizieren (jede Session) | task | je Session | pl | Team | hoch | 0 | — |
 | [T-0054](tickets/T-0054.md) | CR (pm/N-0038): Der Mensch priorisiert offene Aufgaben aller Teams/Projekte für den nächsten Durchlauf — Knopf statt Einzelbearbeitung | change-request | einmalig | chg | Team | hoch | 0 | — |
+| [T-0064](tickets/T-0064.md) | CR (pm/T-0054 Teil a): Projektübergreifende Liste der offenen Aufgaben im HMI | change-request | einmalig | pl | Team | hoch | 0 | — |
+| [T-0065](tickets/T-0065.md) | CR (pm/T-0054 Teil b): Knopf je Zeile setzt geplant_sprint auf den nächsten Sprint | change-request | einmalig | chg | Team | hoch | 0 | T-0064 |
 | [T-0028](tickets/T-0028.md) | CR (pm/N-0022): Projekt-Pool — Team gründen im HMI (Steckbrief, Profil, Datenklasse, Zugänge) | change-request | einmalig | chg | Team | mittel | 0 | — |
 | [T-0052](tickets/T-0052.md) | CR (Teil e aus pm/T-0038, pm/N-0031): HMI-Abschnitt „Für dich: Handlungen\" neben der Inbox — eigener Abschnitt, nicht dieselbe Liste | change-request | einmalig | pl | Team | mittel | 0 | — |
 | [T-0061](tickets/T-0061.md) | sprint_widerspruch (SWR-106) hat nach der Umstellung keinen möglichen Fall mehr — prüfen, ob die Prüfung selbst B033 ist | change-request | einmalig | cm | Team | mittel | 0 | — |
