@@ -16,13 +16,7 @@ Stand: 2026-08-17 · Tickets: 63 · davon wiederkehrend: 3
 | [T-0063](tickets/T-0063.md) | CR (pm/T-0028 Teil b): Charter-Entwurf und Gründungs-DR aus dem geprüften Steckbrief | change-request | einmalig | chg | Team | mittel | 0 | T-0062 |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | Team | niedrig | 0 | — |
 
-## in_review (1)
-
-| ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
-|---|---|---|---|---|---|---|---|---|
-| [T-0039](tickets/T-0039.md) | CR (B054, pm/N-0031): Am Brief weiterkommentieren statt einen neuen zu schreiben — der Briefkasten kennt nur ein Frage/Antwort-Paar je Datei | change-request | einmalig | pl | Team | hoch | 0 | — |
-
-## done (54)
+## done (55)
 
 | ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|---|
@@ -49,6 +43,7 @@ Stand: 2026-08-17 · Tickets: 63 · davon wiederkehrend: 3
 | [T-0034](tickets/T-0034.md) | Problem: team-mail-Wochendigest ist seit Teamgründung fällig und wurde nie erzeugt — seit fünf Sessions unveränderte Randnotiz | problem | einmalig | prob | Team | hoch | 0 | — |
 | [T-0036](tickets/T-0036.md) | CR (B049): Unterminierte offene Tickets sind für die Eskalationsregel B044 unsichtbar — der „ohne Frist\"-Zähler wird pro Kachel gelesen, nie als Summe | change-request | einmalig | pl | Team | hoch | 0 | — |
 | [T-0038](tickets/T-0038.md) | CR (B053, pm/N-0030): Tickets nennen keinen Verantwortlichen — `rolle` sagt die Fachrolle, nicht wer die Handlung tut (Team oder Mensch) | change-request | einmalig | pl | Team | hoch | 0 | — |
+| [T-0039](tickets/T-0039.md) | CR (B054, pm/N-0031): Am Brief weiterkommentieren statt einen neuen zu schreiben — der Briefkasten kennt nur ein Frage/Antwort-Paar je Datei | change-request | einmalig | pl | Team | hoch | 0 | — |
 | [T-0040](tickets/T-0040.md) | CR (B055, pm/N-0032+N-0033): Session-Zusammenfassung in Mission Control — was eine Session getan hat, steht heute nur in Dateien, die die HMI nicht zeigt | change-request | einmalig | pl | Team | hoch | 0 | — |
 | [T-0041](tickets/T-0041.md) | CR: Terminierung auf Sprints statt auf Kalenderdaten — jeder Routine-Lauf ist ein Sprint | change-request | einmalig | pl | Team | hoch | 0 | — |
 | [T-0042](tickets/T-0042.md) | Problem (B061): Die Push-Reihenfolge kann nicht beide Gates grün machen — platform prüft p0/p9, p0–p9 prüfen platform | problem | einmalig | prob | Team | hoch | 0 | — |
