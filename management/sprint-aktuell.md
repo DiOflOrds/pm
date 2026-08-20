@@ -55,8 +55,13 @@
    ⚠ Nebenbefund aus `T-0008`: es gibt **drei** Run-Registries, nicht eine. Der Tick
    schreibt in die des Ziel-Repos, `T-0008` liest nur die von `p0` — **die Bedingung zeigt
    auf ein Register, in das die Ticks nicht schreiben.** Benannt, nicht gebaut.
-6. **⚠ Zum FÜNFTEN Lauf in Folge hat ein Werkzeug den frischen Entwurf verworfen — zweimal
-   in einem Lauf, und beide Male war es ein Test gegen seinen eigenen Verfasser.**
+6. **⚠⚠ Zum FÜNFTEN Lauf in Folge hat ein Werkzeug den frischen Entwurf verworfen — und
+   diesmal DREIMAL in einem Lauf.** Zweimal war es ein Test gegen seinen eigenen Verfasser,
+   einmal der Preflight gegen den Sprintplan: die Planzeile zu `p9/T-0008` sagte
+   **„erledigt“**, weil der *Brief* beantwortet war — der *DR* ist es nicht.
+   > **Ein beantworteter Brief ist keine getroffene Entscheidung. Die Zeile hätte den
+   > Zähler „auf dich wartende Entscheidungen“ um eins zu niedrig gehalten, und zwar in
+   > genau dem Bericht, der ihn nennt.**
    `test_kein_return_im_finally` suchte nach dem **Wort** „return" und wurde von dem
    Kommentar rot gemacht, der das Verbot erklärt. `test_am_echten_bestand…` erwartete
    `MAIL-RED@mail` — aus dem Team-Kürzel **gebildet** statt aus dem Register **gelesen**;
@@ -77,7 +82,8 @@ Grund **im Ticket**, nicht hier (`L-2026-08-17ag`).*
 | Aufgabe | Rolle | Fällig | Status | Grund / nächster Schritt |
 |---|---|---|---|---|
 | Briefkasten (alle Repos) | pl | Sprint 26 | **erfüllt** | ✅ Beim Sprintstart 0 offen (59 Briefe). ⚠ **Zwei kamen WÄHREND des Laufs** (20:36, 20:40) und sind beantwortet: `p9/N-0001`, `promt-team/N-0002`. |
-| p9/N-0001 → p9/T-0008 | pl | Sprint 26 | **erledigt** | ✅ *„kann dieses Projekt geschlossen werden?"* — gemessen: 7/7 Tickets `done`, **78 Commits in 7 Tagen**, 81 SWRs, davon 9 der letzten 25 aus `platform`. Als DR vorgelegt statt selbst entschieden. |
+| p9/N-0001 (Brief) | pl | Sprint 26 | **erledigt** | ✅ *„kann dieses Projekt geschlossen werden?"* — gemessen: 7/7 Tickets `done`, **78 Commits in 7 Tagen**, 81 SWRs, davon 9 der letzten 25 aus `platform`. Beantwortet und committet. |
+| p9/T-0008 (DR) | mensch | Frist 27.08. | offen | ⚠ **Neu, Klasse C, drei Optionen, Default A = alles bleibt.** Liegt in der Inbox. ⚠ Der erste Entwurf der Planzeile schrieb **„erledigt“** — der Brief war beantwortet, der DR ist es nicht. **Der Preflight hat es als Plan-Drift gemeldet**, und er hatte recht: *ein beantworteter Brief ist keine getroffene Entscheidung.* |
 | promt-team/N-0002 | pl | Sprint 26 | **erledigt** | ✅ *„beim prompt team bewegen sich die Aufgaben nicht mehr"* — gemessen: 8/10 `done`, die zwei offenen warten auf Läufe mit Ergebnis. Nebenbefund: drei Run-Registries. |
 | Tick-Schaden `platform` | cm | Sprint 26 | **erledigt** | ✅ **Reparatur vor Bau.** `platform` zurück auf `main`, `T-0001` auf `open`, der nur auf dem Branch liegende Run-Registry-Eintrag nachgetragen (`logging.run_registry: required`). Commit `e532681`. |
 | platform/T-0031 | dev | Sprint 26 | **erledigt** | ✅ **Neu und geschlossen im selben Lauf** (`prio: kritisch`). **SWR-167/168.** Vier Gegenproben gefahren (Mutation → rot, Rücknahme → 17/17 grün). |
