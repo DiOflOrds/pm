@@ -57,6 +57,34 @@
 
 ---
 
+## ⚠⚠ Nachtrag: dein Takt hat um 21:30 selbst nachgeprüft — und eine Reparatur wirkt noch nicht
+
+Mitten in unserem Lauf ist die Automatik erneut gestartet. Damit haben wir doch gesehen,
+was wir oben noch als „können wir nicht prüfen" aufgeschrieben hatten:
+
+| | |
+|---|---|
+| Die Meldung ist ehrlich | ✅ Im Log steht jetzt **„Tick OHNE ERGEBNIS"** statt „Tick abgeschlossen". |
+| Kein Nebenzweig mehr | ✅ Beide Ordner stehen danach sauber auf `main`. |
+| Die neue Modell-Prüfung | ✅ Steht in der Ausgabe. |
+| **Das Modell selbst** | ⚠⚠ **Wird immer noch falsch angefragt.** |
+
+**Warum.** Deine Entscheidung von heute Vormittag lautete: der Takt läuft für
+**platform/PROB** und **team-mail/MAIL-RED** — also für zwei *Besetzungen*. Das Startskript
+übergibt aber nur den *Ordner*, nicht die Rolle. Die Automatik greift sich daraufhin die
+nächstbeste Aufgabe im Ordner — heute waren das Aufgaben der Rollen CM und DEV, und für
+die steht in deiner Besetzungstabelle kein Modell.
+
+> **Unsere Reparatur ist richtig gebaut und durch vier Gegenproben belegt. Sie bekommt die
+> Rolle im Betrieb nur nie zu sehen. Wir hätten dir ohne diesen zufälligen Lauf berichtet,
+> das sei erledigt.**
+
+Das ist als `platform/T-0033` aufgenommen und der **erste Punkt des nächsten Laufs**. Wir
+bauen es bewusst nicht mehr heute: es verändert, **welche Aufgaben** deine Automatik alle
+15 Minuten anfasst, und das ist eine Frage und keine Reparatur.
+
+---
+
 ## Was in Sprint 26 passiert ist — in Ruhe erklärt
 
 ### Die Automatik lief, und das war die schlechte Nachricht

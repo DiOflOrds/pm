@@ -99,6 +99,36 @@ Grund **im Ticket**, nicht hier (`L-2026-08-17ag`).*
 | p0/T-0008, T-0047, T-0072 · p1/T-0018 | mensch/cm/dev | — | **rejected** | Kein offener Arbeitsvorrat. Sie stehen hier, weil „nicht im Plan" sonst von „nicht nachgesehen" nicht zu unterscheiden wäre. |
 | pm/T-0001..0003, platform/T-0001, team-dashboard/T-0001 | pl/coach/cm | jeder Sprint | **erfüllt** | Takt: Agenda + Briefkasten (0 offen) + Lessons (**vier**: `ci` `cj` cm · `ck` test · `cl` pl) + Verifikation + Widget-Vertrag unverändert **v2.7**. |
 
+### ⚠⚠ NACHTRAG: der Schnelltakt hat um 21:30 selbst die Gegenprobe gefahren
+
+Während dieses Laufs ist der Takt erneut gefeuert — und damit ist die Wirkungsprüfung
+passiert, die oben ausdrücklich als *„nicht messbar"* offengelassen war.
+
+| | |
+|---|---|
+| `SWR-167` | ✅ Das Log sagt **„Tick OHNE ERGEBNIS (status=fehler, artefakte=0)"** statt „Tick abgeschlossen". |
+| `SWR-168` | ✅ Beide Repos stehen nach dem Tick auf `main`, sauber. Kein Branch-Rückfall. |
+| `SWR-170` | ✅ Die neue Zeile steht in der Preflight-Ausgabe des Ticks selbst. |
+| `SWR-169` | ⚠⚠ **Greift nicht.** Der Tick fragt weiter nach `llama3.1:8b`. |
+
+**Die Ursache:** `pm/D010` hat den Takt **je Besetzung** entschieden (*platform/PROB*),
+`ollama-schnelltakt.cmd` übergibt aber nur die **Einheit**. `waehle_ticket` zieht daraufhin
+das nächste Ticket **jeder** aktiven KI-Rolle — gezogen wurden `CM@platform` und
+`DEV@team-mail`, und für die steht im Register kein Modell.
+
+> **⚠⚠ `SWR-169` ist richtig gebaut und in vier Gegenproben belegt — es bekommt Rolle und
+> Einheit zur Laufzeit nur nie. Die Anforderung ist grün, die Wirkung ist null. Ohne den
+> zufälligen Lauf um 21:30 hätte dieser Sprint „SWR-169 gebaut" berichtet und wäre damit
+> durchgekommen.**
+
+⚠ Und das ist ein Befund über **diesen Lauf**: alle vier Gegenproben zu `T-0032` prüften
+die **Auflösungsfunktion**, keine ihren **Aufrufer**. *Eine Gegenprobe, die die Funktion
+prüft und nicht ihren Aufrufer, misst die Hälfte, die man selbst geschrieben hat.*
+
+Aufgenommen als **`platform/T-0033`** (`prio: kritisch`), **erster Punkt von Sprint 27**.
+⚠ Bewusst **nicht** mehr hier gebaut: die Änderung greift in die alle 15 Minuten laufende
+Automatik des Auftraggebers ein und trägt eine Entscheidung in sich.
+
 ## Sprint-Abschluss (Sprint 26, 2026-08-20)
 
 **Geschlossen:** `platform/T-0031` und `platform/T-0032` (beide neu und geschlossen im
@@ -109,8 +139,8 @@ Reparatur des Tick-Schadens im `platform`-Repo.
 (Branch-Rückkehr wird nachgeprüft), **SWR-169** (Modell aus dem Besetzungsregister),
 **SWR-170** (Abweichung Register/Guardrails wird gemeldet).
 
-**Neu angelegt:** `platform/T-0031`, `platform/T-0032`, `p9/T-0008` (DR, Frist 27.08.,
-Default A).
+**Neu angelegt:** `platform/T-0031`, `platform/T-0032`, `platform/T-0033` (Nachtrag,
+`prio: kritisch`), `p9/T-0008` (DR, Frist 27.08., Default A).
 
 **Briefe:** `p9/N-0001` und `promt-team/N-0002` — beide **während** des Laufs eingegangen
 und im selben Lauf beantwortet.
