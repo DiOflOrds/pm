@@ -1,5 +1,136 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
+## Das Wichtigste (Sprint 27, 2026-08-20)
+
+1. **⚠⚠ Wir haben dir letztes Mal berichtet, der Modellname sei repariert. Er war es —
+   und es hat nichts genützt.** Die Reparatur ist richtig gebaut und war durch vier
+   Gegenproben belegt. Sie bekommt im Betrieb nur nie die Angabe, um die es geht.
+   > **Aufgefallen ist das nur, weil deine Automatik um 21:30 zufällig mitten in unseren
+   > Lauf hineingefeuert hat. Ohne diesen Zufall stünde in diesem Bericht „erledigt".**
+2. **⚠⚠ Und der wirkliche Fehler ist größer als ein Modellname: deine Automatik hat
+   Aufgaben bearbeitet, die ihr nie zugeteilt waren.** Du hast im August entschieden, dass
+   der 15-Minuten-Takt für **zwei bestimmte Besetzungen** läuft. Das Startskript übergibt
+   aber nur den *Ordner*, nicht die *Rolle* — also hat sie sich die nächstbeste Aufgabe
+   gegriffen. Eine der beiden so bearbeiteten Besetzungen **gibt es in deiner
+   Besetzungstabelle gar nicht.**
+   > **Der falsche Modellname war die Folge. Die Ursache war, dass die Rolle zwischen
+   > deiner Entscheidung und dem Aufruf verlorengeht.**
+
+   Ab jetzt prüft die Automatik das **vorher** und rührt nichts an, wenn es nicht passt.
+3. **⚠ Wir haben gezählt, bevor wir gebaut haben — und die Zahl hat uns aufgehalten: 0.**
+   Von **14** offenen Aufgaben im ganzen Projekt gehört **keine einzige** einer der beiden
+   Besetzungen, für die dein Schnelltakt läuft.
+   > **Damit wäre die wörtliche Umsetzung deiner Entscheidung keine Reparatur, sondern
+   > eine Abschaltung. Deshalb haben wir den Schalter gebaut und NICHT umgelegt — das ist
+   > deine Automatik, und du bekommst die Frage vorgelegt.**
+4. **✅ Dein Takt hat um 22:00 selbst nachgeprüft, dass die neue Sperre wirkt.** In deinem
+   Log steht jetzt „Tick OHNE ERGEBNIS (Besetzung)". Nachgemessen: nichts angefasst, beide
+   Ordner sauber, die Aufgabe unverändert.
+   > **⚠⚠ Und dabei hat er eine absichtlich kaputte Zwischenfassung von uns ausgeführt.**
+   > Wir hatten den Code für eine Gegenprobe kurzzeitig verfälscht; in deinem Log steht
+   > deshalb einmal das Wort „IMMER ABBRUCH". Es ist **nichts passiert** — die kaputte
+   > Fassung tut nichts. **Wir schreiben es auf, weil du es sonst nicht erfahren würdest,
+   > und weil wir dabei gelernt haben, dass man an Code, den deine Automatik alle 15
+   > Minuten startet, nicht einfach herumprobiert.**
+5. **⚠⚠ Und unsere eigene Gegenprobe hat sich beim ersten Versuch selbst getäuscht.** Sie
+   meldete „alles gut" für eine **ausgeschaltete** Prüfung. Der Grund war nicht die
+   Prüfung, sondern dass unsere Fälschung zum Messzeitpunkt noch gar nicht auf der Platte
+   stand.
+   > **„Grün" hieß hier nicht „es funktioniert", sondern „wir haben den Zustand von vorhin
+   > gemessen". Beim zweiten, kontrollierten Versuch war sie korrekt rot.**
+6. **✅ Eine alte Baustelle ist zu — die vierte Berührung war fällig.** Fünfmal in sechs
+   Berichten stand eine abgeschriebene statt einer gemessenen Zahl. Jedes Mal ist sie vor
+   dem Absenden gefunden worden — jedes Mal durch Nachrechnen von Hand.
+   > **Nicht die Sorgfalt hat gefehlt, sondern eine Stelle, an der die Zahl entsteht.**
+   Ab jetzt misst ein Werkzeug sie, und eine Prüfung hält den Bericht dagegen, **bevor** er
+   dich erreicht.
+7. **⚠ Eine Bedingung, die wir uns letzten Sprint selbst gesetzt haben, war schon erfüllt,
+   als wir sie aufgeschrieben haben.** Wir wollten warten auf „einen Durchgang mit
+   Ergebnis" — und schrieben dazu „Stand: 0". In der Aufzeichnung steht seit dem
+   **6. August** einer.
+   > **Wir haben eine Bedingung über den Bestand formuliert und an einem einzelnen Abend
+   > gemessen. Das ist derselbe blinde Fleck wie oben, zum dritten Mal.**
+8. **1276 Prüfungen für die Technik** (gezählt, nicht geschätzt), **175 Anforderungen ohne
+   Lücke**. Briefkasten: **0 offen**, keiner eingegangen.
+
+---
+
+## Für dich (E. John)
+
+| Was | Warum |
+|---|---|
+| ⚠⚠ **Eine neue Frage an dich: `platform/T-0035`** | Dein Schnelltakt hat nichts zu tun — 0 von 14 Aufgaben gehören seinen Besetzungen. **A** = alles bleibt (er läuft weiter und meldet ehrlich „nichts für mich"), **B** = er wird streng auf seine Besetzungen begrenzt, **C** = du schaltest ihn ab. **Frist 27.08., Voreinstellung A. Schweigen kostet nichts.** ⚠ Bei C halten drei Aufgaben dauerhaft an, die auf einen Durchgang mit Ergebnis warten. |
+| ⚠ **Wenn du willst, dass er wirklich arbeitet** | Dann braucht er eine Aufgabe, die einer seiner beiden Besetzungen gehört (`PROB` in `platform` oder `MAIL-RED` in `team-mail`). Heute gibt es keine. Das ist keine Panne, das ist einfach nie geplant worden — und es ist der Grund, warum er seit Tagen leerläuft. |
+| ⚠⚠ **`abschluss.cmd` ausführen** | Der Rückstand ist jetzt vier Tage plus **drei** Läufe. **Stichprobe:** danach steht in `abschluss-auto.log` `OK - alles geprueft und gepusht` und `PUSH-ANFORDERUNG.txt` ist verschwunden. |
+| ⚠ **Prüf bitte weiterhin `ollama list`** | Ob `gemma3:27b` bei dir installiert ist, können wir von hier aus nicht sehen und behaupten es deshalb nicht. Solange der Takt ohnehin nichts zu tun hat, ist es nicht dringend. |
+| ⚠ **Die alten Punkte** | Mail-Zugangsdaten (`team-mail/N-0003`), deine Zählung der Kacheln im Reiter „Dashboard", und die Frage zu `p9` (`p9/T-0008`, Frist 27.08., Voreinstellung A). |
+| ⚠ **Nicht eilig** | `.git/verwaiste-locks`: **10470** Dateien (Stand 22:31 dieses Laufs — die Zahl trägt ab jetzt ihren Zeitpunkt, weil sie sonst beim Lesen schon falsch ist). Wir können sie nicht löschen, du schon. Es stört nichts. |
+
+---
+
+## ⚠ Ein Fehler von uns, den du wissen sollst
+
+Beim Schließen einer Aufgabe haben wir ihren Status in einem Schritt von „offen" auf
+„fertig" gesetzt und damit den Weg übersprungen, den dieses Haus vorschreibt. Unser
+eigenes Prüfwerkzeug hat das korrekt abgelehnt — aber es lief **neben** dem Speichern
+statt davor, und so ist der falsche Schritt kurz in der Historie gelandet.
+
+Repariert, ordentlich nachgeholt, und die Regel dazu steht jetzt im Betriebshandbuch
+(Kap. 16). Der fehlerhafte Eintrag war nur lokal und ist zurückgenommen.
+
+> **Wir schreiben das auf, weil es sonst stillschweigend geschähe — und weil es genau der
+> Fehler ist, den wir in diesem Lauf an anderer Stelle repariert haben: eine Prüfung, die
+> neben dem Vorgang läuft statt vor ihm, ist eine Meinung.**
+
+---
+
+
+---
+
+## ⚠⚠ NACHTRAG: der Auftraggeber hat WÄHREND des Laufs BEIDE offenen Fragen beantwortet
+
+| Frage | gestellt | beantwortet | Antwortzeit |
+|---|---|---|---|
+| `platform/T-0035` (Schnelltakt) | 22:18, **in diesem Lauf** | 22:21, **A** | **3 Minuten** |
+| `p9/T-0008` (Wo leben die Anforderungen?) | Sprint 26, Frist 27.08. | 22:25, **A** + Anweisung | **7 Minuten** |
+
+> **Zum zweiten Mal in zwei Sprints kostet das Fragen weniger als das Ausweichen. `T-0035`
+> war die Frage, die diesen Sprint daran gehindert hat, die Automatik selbst umzustellen —
+> sie war in drei Minuten beantwortet.**
+
+**`platform/T-0035` = A:** alles bleibt. Der Takt läuft weiter und meldet ehrlich, dass es
+für seine Besetzungen nichts zu tun gibt. **Keine Folgearbeit** — A ist der Zustand, den
+dieser Lauf hergestellt hat. Kein Nachfolgeticket.
+
+**`p9/T-0008` = A *plus* Anweisung:** *„Nennen P9 in Org-Cockpit um."* Der Antrag hatte A
+und C als **Alternativen** angeboten; die Antwort nimmt A und den Kern von C.
+> **Das ist keine Unentschlossenheit, sondern die genauere Auskunft: die Anforderungen
+> bleiben liegen, wo sie liegen, und der Name sagt ab jetzt, was dort liegt. Identität und
+> Beschriftung sind zwei Dinge — der Antrag hat sie als Alternativen behandelt.**
+
+Ausgeführt als **`SWR-175`**: `steckbrief.yaml` trägt ein Feld `name`, Rangfolge
+Team-Registry > Steckbrief > Ordnername. Im Organigramm steht **Org-Cockpit**; die
+Discovery-Kennung, der Ordner und jeder Querverweis `p9/...` bleiben **`p9`**.
+
+⚠ **Was damit NICHT erledigt ist:** *keine Prüfung dieses Hauses fragt, ob der Name über
+einem Ordner noch stimmt.* Ein Anzeigename macht diesen einen Fall lesbar und lässt die
+Prüfung fehlen (`platform/T-0034`).
+
+### ⚠ Und das Verbuchen selbst hat einen Befund geliefert: `platform/T-0036`
+
+Der Entscheidungsmarker lautet **`D000`** — und `D000` gibt es in diesem Haus **17-mal**.
+Die IDs werden **je Repo** vergeben (`inbox._naechste_d_id` liest das Log des jeweiligen
+Repos), zitiert werden sie in den Berichten **global**: „D004", „D005", „D000".
+⚠ Härter: `pm/.../decision-log.md` führt **`D005` dreimal und `D006` zweimal** — eine
+Kollision in **einer** Datei, die `max+1` nicht erzeugt haben kann. Es gibt einen zweiten,
+handgeschriebenen Schreibweg ins Entscheidungslog, und der hat keine Nummernvergabe.
+> **Das ist `L-2026-08-20ce` an neuer Stelle: eine Angabe, die ihren Ort verloren hat.**
+**Benannt, nicht gebaut** — eine Umstellung von Entscheidungs-IDs berührt jede Zitatstelle
+in jedem Bericht dieses Hauses.
+
+# Anhang: Sprint 26
+
+
 ## Das Wichtigste (Stand Sprint 26, 2026-08-20)
 
 1. **⚠⚠ Zum ersten Mal hat die Automatik wirklich gearbeitet — und nichts zustande

@@ -1,5 +1,183 @@
 # Sprint aktuell — Genesis-Gesamtsprint (Workflow-Sicht des PM, pm/D006)
 
+## Das Wichtigste (Sprint 27, 2026-08-20)
+
+1. **⚠⚠ EINE ANFORDERUNG WAR GRÜN UND IHRE WIRKUNG WAR NULL — UND GEFUNDEN HAT DAS KEINE
+   PRÜFUNG, SONDERN EIN ZUFALL.** `SWR-169` holt das Ollama-Modell aus dem
+   Besetzungsregister und ist in **vier** Gegenproben belegt. Im Betrieb hat es nie
+   gegriffen: **alle vier prüften die Auflösungsfunktion, keine ihren Aufrufer.**
+   > **Ohne den ungeplanten Lauf um 21:30 hätte Sprint 26 „SWR-169 gebaut" berichtet und
+   > wäre damit durchgekommen.**
+
+   `platform/T-0033` (kritisch), `SWR-171`/`SWR-172`. `L-2026-08-20cn` (cm, Regel 5).
+2. **⚠⚠ UND DER BEFUND IST GRÖSSER ALS DER MODELLNAME: DER TICK HAT ARBEIT AN EINE
+   INSTANZ GEGEBEN, DIE NIEMAND BESETZT.** Gezogen wurden `CM@platform` und
+   `DEV@team-mail`. `CM@platform` steht im Register mit `motor: cowork` — **`DEV@team-mail`
+   steht dort überhaupt nicht.**
+   > **Der leere Modellname war die FOLGE und nicht die Ursache. Eine Prüfung auf den
+   > Modellnamen wäre still geworden, sobald irgendjemand irgendein Modell einträgt.**
+
+   `SWR-171` prüft deshalb die **Besetzung**, vor Gateway-Aufruf, Branch und Statuswechsel.
+3. **⚠ ERST GEZÄHLT, DANN GEBAUT — und die Zahl hat die Bauart entschieden: 0 von 14.**
+   Kein einziges der 14 offenen Tickets trägt eine Rolle mit ollama-Besetzung. Damit ist
+   die wörtliche Umsetzung von `pm/D010` **keine Lösung, sondern eine Abschaltung**.
+   > **Der Schalter (`--rolle`, `SWR-172`) ist deshalb GEBAUT und NICHT UMGELEGT; eine
+   > Zusicherung wacht darüber, dass „gebaut, nicht umgelegt" nicht stillschweigend zu
+   > „umgelegt" wird.** Die Frage liegt als `platform/T-0035` beim Auftraggeber
+   (A/B/C, Frist 27.08., Default A) — es ist seine Automatik.
+4. **✅ DER NACHWEIS KAM AUS SEINEM BETRIEB, NICHT AUS UNSEREM TEST.** Um **22:00** hat
+   der Schnelltakt erneut gefeuert, mitten in diesem Lauf. Im Log steht
+   `Tick OHNE ERGEBNIS (Besetzung): …`; nachgemessen: **kein** neuer Registry-Eintrag,
+   beide Repos sauber auf `main`, `T-0001` unverändert `open`.
+   > **⚠⚠ Und derselbe Lauf hat unsere MUTATION ausgeführt.** Zum Zeitpunkt 22:00 stand
+   > die absichtlich verfälschte Fassung aus der Gegenprobe auf der Platte — im Log des
+   > Auftraggebers steht wörtlich `IMMER ABBRUCH`. Folgenlos (der Abbruch tut nichts), und
+   > **es steht hier, weil es sonst niemand erfahren würde.** Eine Gegenprobe an Code, den
+   > alle 15 Minuten eine fremde Automatik startet, ist ein Eingriff in den Betrieb.
+5. **⚠⚠ DIE GEGENPROBE ZUR GEGENPROBE HAT SICH SELBST GETÄUSCHT.** Der erste
+   Mutationsdurchgang meldete **grün** für eine **ausgeschaltete** Prüfung — die Mutation
+   stand zum Testzeitpunkt noch nicht auf der Platte, ein alter `__pycache__` lag daneben.
+   Erst der verifizierte zweite Durchgang zeigte 2 rote Zusicherungen.
+   > **Grün ist zweideutig: „die Prüfung greift nicht" oder „die Mutation ist nicht
+   > angekommen". Es hätte als „Gegenprobe bestanden" in genau dem Bericht gestanden, der
+   > aus einer Gegenprobe entstanden ist, die die falsche Hälfte gemessen hat.**
+   `L-2026-08-20cm`.
+6. **✅ `platform/T-0027` BEI DER VIERTEN BERÜHRUNG: GEBAUT *UND* GESCHNITTEN.**
+   `SWR-173` (die Kennzahlen entstehen aus ihren Quellen: `platform/scripts/kennzahlen.py`)
+   und `SWR-174` (eine Zusicherung hält den Bericht dagegen, **vor** dem Push). Erwartungswert
+   **vor** dem Bauen aufgeschrieben: 0 Abweichungen. Gemessen: 0.
+   ⚠ Der Parkplatz ist **mit Begründung im Test** von der Gleichheit ausgenommen und muss
+   stattdessen einen **Zeitpunkt** tragen — *eine gemessene Zahl ohne den Zeitpunkt ihrer
+   Messung altert genauso lautlos wie eine geschätzte.*
+   ⚠ Geschnitten: die Rubrik **„gelernt ohne Vertreter"** ist `platform/T-0034` geworden —
+   der eigene Text von `T-0027` hatte das als erste Frage des nächsten Anlaufs vorgegeben.
+   `L-2026-08-20cp` (coach), Runbook **Kap. 15**.
+7. **⚠⚠ EINE BEDINGUNG, DIE GEGEN FEHLSCHLÄGE GESCHÄRFT WURDE, WAR DURCH EINEN ERFOLG VON
+   VOR VIERZEHN TAGEN SCHON ERFÜLLT.** `promt-team/T-0008` verlangte seit Sprint 26 *„ein
+   Tick mit `status: ok` und Artefakt"* und schrieb dazu **„Stand: 0 von 3"**. In
+   `p0/.../run-registry.jsonl` steht seit dem **2026-08-06**:
+   `cm | ok | provider: ollama | artefakte: ['process/']`.
+   > **Die Bedingung liest über den BESTAND und ist an einem EREIGNIS gemessen worden.
+   > Zweimal hintereinander war die Grundmenge das, worauf niemand gesehen hat — `SWR-128`
+   > zum dritten Mal.** Neue Bedingung mit benannter Grundmenge **und Stichtag**.
+8. **⚠ UND DER EIGENE FEHLER DIESES LAUFS, DER NICHT DURCHGEHT.** Der Abschluss von
+   `T-0033` schrieb `status: done` direkt auf `open`. `board.py` hat das abgelehnt —
+   **neben** dem Commit statt davor (`;` statt `&&`), der unzulässige Übergang stand in
+   der Historie. Repariert über den richtigen Weg (`open → in_progress → in_review → done`,
+   je ein Commit); der Fehlcommit war lokal und ungepusht und ist zurückgenommen.
+   > **Eine Prüfung, die neben dem Schreibvorgang läuft statt vor ihm, ist eine Meinung.**
+   `L-2026-08-20cn`/`co`, Runbook **Kap. 16 und 17**.
+
+## Sprint-Plan (Sprint 27)
+
+*Default nach `pm/D006`: in diesem Sprint schließen. ⚠ Jede Verschiebung trägt ihren
+Grund **im Ticket**, nicht hier (`L-2026-08-17ag`).*
+
+| Aufgabe | Rolle | Fällig | Status | Grund / nächster Schritt |
+|---|---|---|---|---|
+| Briefkasten (alle Repos) | pl | Sprint 27 | **erfüllt** | ✅ **0 offen** über 61 Briefe in 11 Repos, beim Start und beim Abschluss gemessen. Kein Brief ist während dieses Laufs eingegangen. |
+| platform/T-0033 | dev | Sprint 27 | **erledigt** | ✅ **Erster Punkt des Sprints wie geplant** (`prio: kritisch`). **SWR-171/172.** Frage 3 zuerst beantwortet (**0 von 14**), Frage 2 verworfen, Frage 1 als DR vorgelegt statt selbst entschieden. |
+| platform/T-0027 | cm | Sprint 27 | **erledigt** | ✅ **Vierte Berührung: gebaut UND geschnitten.** **SWR-173/174** + Abtrennung nach `T-0034`. Erwartungswert 0 Abweichungen vor dem Bau notiert und getroffen. |
+| platform/T-0035 | mensch | Sprint 27 | **erledigt** | ✅ **Neu gestellt (22:18) und nach DREI MINUTEN mit A entschieden** (`platform/D000`, 22:21). Verbucht, geschlossen, **keine Folgearbeit** — A ist der Ist-Zustand. Kein Nachfolgeticket. |
+| platform/T-0036 | cm | Sprint 28 | offen | ⚠ **Neu, nullte Terminierung** — Nebenbefund der Verbuchung: `D000` gibt es 17-mal, `pm/D005` dreimal in einer Datei. **Benannt, nicht gebaut.** |
+| platform/T-0034 | coach | Sprint 28 | offen | ⚠ **Neu, nullte Terminierung** (abgetrennt, nicht verschoben). „Gelernt ohne Vertreter". Sofort-Wirkung als Runbook Kap. 15 **noch in diesem Lauf** — ausdrücklich als Provisorium markiert. |
+| pm/T-0071 | pl | Sprint 28 | offen | ⚠ **Schritt 2 ist ZU ENDE beantwortet, und die Antwort ist nein:** der Takt hat nie an dem gearbeitet, wofür er entschieden wurde. Schritt 3 wartet auf einen Arbeitsvorrat für PROB/MAIL-RED, nicht auf Betriebszeit. Kein `blocked`. |
+| promt-team/T-0008 | test | Sprint 28 | offen | ⚠ **3. Verschiebung der neuen Fassung** — und diesmal mit einem Befund über die Bedingung selbst (erfüllt seit dem 06.08.). Neue Bedingung mit Grundmenge **und Stichtag**. |
+| promt-team/T-0003 | dev | Sprint 28 | offen | ⚠ **3. Terminierung mit dem richtigen Grund.** Ein Eintrag vom 6. August ist keine Baseline für den heutigen Prompt; der Weg zu einem frischen ist gemessen versperrt. |
+| platform/T-0030 | dev | Sprint 28 | offen | ⚠ **2. Verschiebung.** Neu dazu: der Schnelltakt hat **während** dieses Laufs in dieselben Repos gegriffen — DoD 8 (Konflikterkennung) ist damit kein Papierpunkt mehr. |
+| projects/p11/T-0016 | dev | Sprint 28 | offen | ⚠ **3. Verschiebung**, Kapazität. Umfang unverändert **gezählt** (4 Bausteine, 11 von 111 JS-Zusicherungen), drei Vorabfragen bewusst unbeantwortet. |
+| p9/T-0008 | mensch | Sprint 27 | **erledigt** | ✅ **Nach SIEBEN Minuten mit A entschieden** (`p9/D003`, 22:25) — **plus** der Anweisung *„Nennen P9 in Org-Cockpit um"*. Verbucht **und ausgeführt**: **SWR-175**, Anzeigename im Steckbrief. Der Ordner bleibt `p9`. |
+| team-mail/T-0001 | dev | jeder Sprint | offen (Takt) | ⚠ Vom 22:00-Tick gezogen und **korrekt unangetastet gelassen** (SWR-171). Unverändert offen: `N-0003` (Zugangsdaten) — der Brief ist beantwortet, die Daten fehlen. |
+| p0/T-0008, T-0047, T-0072 · p1/T-0018 | mensch/cm/dev | — | **rejected** | Kein offener Arbeitsvorrat. Sie stehen hier, weil „nicht im Plan" sonst von „nicht nachgesehen" nicht zu unterscheiden wäre. |
+| pm/T-0001..0003, platform/T-0001, team-dashboard/T-0001 | pl/coach/cm | jeder Sprint | **erfüllt** | Takt: Agenda + Briefkasten (0 offen) + Lessons (**vier**: `cm` `cn` `co` cm · `cp` coach) + drei Runbook-Kapitel (15/16/17) + Verifikation. |
+
+## Sprint-Abschluss (Sprint 27, 2026-08-20)
+
+**Geschlossen:** `platform/T-0033` (kritisch, erster Punkt des Sprints) und
+`platform/T-0027` (vierte Berührung, gebaut **und** geschnitten).
+
+**Entscheidungen des Auftraggebers, im Lauf verbucht:** `platform/D000` (T-0035 = **A**, 3 Min Antwortzeit, keine Folgearbeit) und `p9/D003` (T-0008 = **A** plus Umbenennung, 7 Min, ausgeführt als **SWR-175**).
+
+**Neue Anforderungen:** **SWR-171** (die Besetzung wird vor dem Gateway-Aufruf geprüft),
+**SWR-172** (`--rolle` — gebaut und nicht umgelegt), **SWR-173** (die Kennzahlen entstehen
+aus ihren Quellen), **SWR-174** (eine Zusicherung hält den Bericht dagegen; der Parkplatz
+ist mit Begründung ausgenommen), **SWR-175** (Anzeigename für Einheiten ohne Team).
+
+**Neu angelegt:** `platform/T-0034` (abgetrennt von `T-0027`, Sprint 28), `platform/T-0035`
+(DR — gestellt und im selben Lauf entschieden), `platform/T-0036` (Nebenbefund der
+Verbuchung, Sprint 28).
+
+**Verschoben:** `pm/T-0071`, `promt-team/T-0008` (3. der neuen Fassung),
+`promt-team/T-0003` (3.), `platform/T-0030` (2.), `projects/p11/T-0016` (3.) — jede mit
+Grund **im Ticket**.
+
+**Lessons:** `L-2026-08-20cm` (Mutationsprobe ohne Wirkungsnachweis), `L-2026-08-20cn`
+(Statuswechsel an der Übergangsmatrix vorbei), `L-2026-08-20co` (Git über den einen
+Schreibweg), `L-2026-08-20cp` (gelernt ohne Vertreter). **Runbook Kap. 15, 16, 17.**
+
+### ⚠ Was dieser Lauf ausdrücklich NICHT gemessen hat
+
+1. Ob ein Tick jemals ein brauchbares Artefakt liefert. Dazu bräuchte es ein offenes
+   Ticket für `PROB@platform` oder `MAIL-RED@team-mail`, und davon gibt es **null**.
+   Der Satz steht hier aus demselben Grund wie in Sprint 25 und 26: damit er nicht später
+   als erledigt gilt, weil ihm niemand widersprochen hat.
+2. Ob `gemma3:27b` auf dem Rechner des Auftraggebers installiert ist — von hier aus nicht
+   messbar (`L-2026-08-20ce`) und deshalb nicht behauptet.
+3. Ob `SWR-173/174` künftig falsche Zahlen verhindern. Sie decken **sieben**
+   wiederkehrende Kennzahlen ab. Der achte Beleg von `T-0027` — `9` statt `11` in einem
+   Fließtext — wäre **nicht** gefunden worden, und das steht so im Abschluss des Tickets.
+4. ⚠ `main` und `feature/t-0001-…` in `platform` sind weiterhin **repariert, nicht
+   aufgelöst**. Unverändert seit Sprint 26.
+
+
+
+---
+
+## ⚠⚠ NACHTRAG: der Auftraggeber hat WÄHREND des Laufs BEIDE offenen Fragen beantwortet
+
+| Frage | gestellt | beantwortet | Antwortzeit |
+|---|---|---|---|
+| `platform/T-0035` (Schnelltakt) | 22:18, **in diesem Lauf** | 22:21, **A** | **3 Minuten** |
+| `p9/T-0008` (Wo leben die Anforderungen?) | Sprint 26, Frist 27.08. | 22:25, **A** + Anweisung | **7 Minuten** |
+
+> **Zum zweiten Mal in zwei Sprints kostet das Fragen weniger als das Ausweichen. `T-0035`
+> war die Frage, die diesen Sprint daran gehindert hat, die Automatik selbst umzustellen —
+> sie war in drei Minuten beantwortet.**
+
+**`platform/T-0035` = A:** alles bleibt. Der Takt läuft weiter und meldet ehrlich, dass es
+für seine Besetzungen nichts zu tun gibt. **Keine Folgearbeit** — A ist der Zustand, den
+dieser Lauf hergestellt hat. Kein Nachfolgeticket.
+
+**`p9/T-0008` = A *plus* Anweisung:** *„Nennen P9 in Org-Cockpit um."* Der Antrag hatte A
+und C als **Alternativen** angeboten; die Antwort nimmt A und den Kern von C.
+> **Das ist keine Unentschlossenheit, sondern die genauere Auskunft: die Anforderungen
+> bleiben liegen, wo sie liegen, und der Name sagt ab jetzt, was dort liegt. Identität und
+> Beschriftung sind zwei Dinge — der Antrag hat sie als Alternativen behandelt.**
+
+Ausgeführt als **`SWR-175`**: `steckbrief.yaml` trägt ein Feld `name`, Rangfolge
+Team-Registry > Steckbrief > Ordnername. Im Organigramm steht **Org-Cockpit**; die
+Discovery-Kennung, der Ordner und jeder Querverweis `p9/...` bleiben **`p9`**.
+
+⚠ **Was damit NICHT erledigt ist:** *keine Prüfung dieses Hauses fragt, ob der Name über
+einem Ordner noch stimmt.* Ein Anzeigename macht diesen einen Fall lesbar und lässt die
+Prüfung fehlen (`platform/T-0034`).
+
+### ⚠ Und das Verbuchen selbst hat einen Befund geliefert: `platform/T-0036`
+
+Der Entscheidungsmarker lautet **`D000`** — und `D000` gibt es in diesem Haus **17-mal**.
+Die IDs werden **je Repo** vergeben (`inbox._naechste_d_id` liest das Log des jeweiligen
+Repos), zitiert werden sie in den Berichten **global**: „D004", „D005", „D000".
+⚠ Härter: `pm/.../decision-log.md` führt **`D005` dreimal und `D006` zweimal** — eine
+Kollision in **einer** Datei, die `max+1` nicht erzeugt haben kann. Es gibt einen zweiten,
+handgeschriebenen Schreibweg ins Entscheidungslog, und der hat keine Nummernvergabe.
+> **Das ist `L-2026-08-20ce` an neuer Stelle: eine Angabe, die ihren Ort verloren hat.**
+**Benannt, nicht gebaut** — eine Umstellung von Entscheidungs-IDs berührt jede Zitatstelle
+in jedem Bericht dieses Hauses.
+
+---
+
+# Anhang: Sprint 26
+
 ## Das Wichtigste (Sprint 26, 2026-08-20)
 
 1. **⚠⚠ DER ERSTE TICK, DER JEMALS DURCHGELAUFEN IST — UND ER HAT NICHTS GETAN.** `SWR-166`
@@ -970,3 +1148,7 @@ Auftraggebers**), dazu die **Klammer `p12/T-0003`**.
 
 **Verifikation:** 1087 Python-Tests, 104 JS-Tests grün, Matrix 152/0, Briefkasten 0
 offen, Plan-Drift 0, Statusdrift 0. ⚠ Nicht startklar — Altbefund unverändert.
+
+<!-- kennzahlen v1 | gemessen 2026-08-20 22:31 | sprint 27
+briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=10470 swr=175 testdateien=79 tests=1276 tickets_offen=13 wartet_auf_mensch=0
+-->
