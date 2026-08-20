@@ -1,5 +1,141 @@
 # Sprint aktuell — Genesis-Gesamtsprint (Workflow-Sicht des PM, pm/D006)
 
+## Das Wichtigste (Sprint 23, 2026-08-20)
+
+1. **✅ DAS TICKET, DAS VIER SPRINTS LANG NUR VERSCHOBEN WURDE, IST GEBAUT.**
+   `platform/T-0020` → **SWR-158**: der Matrix-Generator liest seinen **Vorgänger**,
+   bevor er ihn ersetzt. Verglichen wird an **IDs**, es gibt **kein Flag**, und bei einer
+   verschwundenen ID wird **nichts geschrieben**.
+   > **Der Schaden von Sprint 17 lebte und starb in einer Arbeitskopie. Eine Warnung nach
+   > dem Schreiben hätte ihn gemeldet und trotzdem angerichtet.**
+2. **✅ Die negative Pause ist gemessen — und das Ticket verdächtigte die falsche Zeile.**
+   `platform/T-0026` → **SWR-159**. Über alle 31 Registerereignisse: sechs reguläre `ende`
+   bei **+0,6 bis +1,1 Min**, der dokumentierte Nachtrag bei **+21,3**, und **eines bei
+   −37,4**. Commit `911e57a` von **16:32:36** trägt die Zeile `"ende": "17:10"`.
+   > **⚠⚠ Kein Prozess kann 38 Minuten vor seiner eigenen Uhr liegen. Nicht der START von
+   > Sprint 17 ist falsch, sondern das ENDE von Sprint 16.**
+
+   ⚠ Zwei der drei Hypothesen fallen am **Vorzeichen** und an der **Größe**: ein Nachtrag
+   liefert einen positiven Abstand, ein Zonenversatz ein Vielfaches von 15 Minuten.
+   ⚠ Die im Ticket vorgeschlagene Abhilfe (Register mit Offset) hätte den Fall **nicht
+   gefunden** — beide Commits tragen `+02:00`. Deshalb **nicht gebaut**. `L-2026-08-20br`.
+3. **✅ Zwei Tickets bei der VIERTEN Berührung — mit verschiedenem Ausgang, und das ist
+   die Lehre.** `p11/T-0013` wartete auf **Kapazität** → **gebaut** (SWR-160, Widget-Inhalt
+   hinter dem PIN-Lesegate). `promt-team/T-0008` wartete auf eine **Tatsache** → **`blocked`**
+   mit eigenem Vorbedingungsticket.
+   > **Ein Ticket viermal auf „Kapazität" zu terminieren, während es auf etwas wartet, das
+   > kein Lauf herstellt, indem er das Ticket anfasst, heißt den Grund viermal falsch
+   > aufzuschreiben.** `L-2026-08-20bv`.
+4. **⚠⚠ DER GRÖSSTE BEFUND DIESES LAUFS IST DURCH EINEN EIGENEN FEHLER ANS LICHT
+   GEKOMMEN.** Dieser Lauf hat `p11/T-0009` von `in_progress` direkt auf `done` gebucht —
+   verboten seit Sprint 1. Die Frage *„warum ist dabei nichts rot geworden?"* ergab:
+   **die Übergangsprüfung hat `projects/` (p10, p11, p12) seit Sprint 9 NIE angesehen.**
+   **66 Statuswechsel ungeprüft**, darin vier Altfälle und der eigene.
+   > **Zwei unabhängige Ursachen, beide für sich plausibel: ein übersprungener Zweig,
+   > dessen KOMMENTAR das Gegenteil sagte, und ein Pfadfilter relativ zur Repo-Wurzel.**
+
+   Repariert als **SWR-162**, Altbestand **52 → 56**. ⚠ Der eigene Verstoß wird **nicht
+   geglättet**: er ist ab jetzt der **vierte** stehende Befund und der einzige, der diesem
+   Lauf gehört. `L-2026-08-20bs`, `L-2026-08-20bw`.
+5. **✅ Zum dritten Mal in zwei Läufen hat die Zählung vor der Reparatur den Ertrag
+   geliefert — und zum dritten Mal fiel sie KLEINER aus als die Vermutung.**
+   `platform/T-0022` Fragen 2+3 → **SWR-161**: von **sechs** Pflichtartefakten des
+   Gründungswegs fehlte über 17 Repos genau **eines** (`platform` hatte kein
+   Entscheidungslog), vier fehlten **nirgends**.
+   > **Und die Antwort auf Frage 3 ist gemessen: der selbstheilende Weg aus SWR-152 hat
+   > GENAU das Repo geheilt, in das jemand hineingelaufen ist. Den Mangel, in den noch
+   > niemand gelaufen ist, findet nur eine Prüfung, die alle Repos durchgeht.**
+6. **⚠ Eine Zusicherung aus Sprint 16 hat den eigenen Entwurf verworfen.** Die Uhrenprobe
+   rief zuerst `git` **im Sprintzähler** auf — und wurde rot an
+   `test_die_messung_ruft_KEIN_git_auf` (SWR-134): auf diesem Mount hinterlässt schon ein
+   **lesender** Git-Aufruf eine Sperre.
+   > **Eine Prüfung, die Uneinigkeit zwischen zwei Läufen erkennen soll und dabei selbst
+   > sperrt, ist ihr eigener Schadensfall.** Nicht die Zusicherung wurde aufgeweicht,
+   > sondern Material und Regel getrennt. `L-2026-08-20bt`.
+7. **⚠ Und eine Zahl in diesem Lauf war ZUM SECHSTEN MAL geschätzt statt gemessen** — im
+   Kommentar der eigenen Reparatur („kostet rund 2 s"; gemessen: 10 s → 36 s über alle
+   Repos). ⚠ **Im selben Lauf, in dem `platform/T-0027` genau dafür aufgemacht wurde.**
+8. **1185 Python-Tests** (über die Sammlung **gemessen**, **70** Testdateien), **111
+   JS-Tests grün**, Matrix **162 SWRs / 0 Lücken**, Briefkasten **0 offen**, entschiedene
+   unverbuchte DRs **0**, Plan-Drift **0**, Statusdrift **0**.
+   ⚠ **Nicht startklar:** der Altbefund aus den Sprints 13/15 (**unverändert**) **plus
+   ein neuer aus diesem Lauf**. Nichts geglättet.
+
+## Sprint-Plan (Sprint 23)
+
+*Default nach `pm/D006`: in diesem Sprint schließen. ⚠ Jede Verschiebung trägt ihren
+Grund **im Ticket**, nicht hier (`L-2026-08-17ag`).*
+
+| Aufgabe | Rolle | Fällig | Status | Grund / nächster Schritt |
+|---|---|---|---|---|
+| platform/T-0020 | cm | Sprint 23 | **erledigt** | ✅ **SWR-158**, bei der fünften Berührung gebaut. ID-Vergleich gegen den Bestand, kein Flag, es wird nichts geschrieben. Frage 3 **abgetrennt** als `T-0027`. |
+| platform/T-0026 | cm | Sprint 23 | **erledigt** | ✅ **SWR-159**, nullte Verschiebung eingehalten. Die Messung dreht die Vermutung des Tickets um; der Offset-Vorschlag ist **verworfen**, weil er den Fall nicht fände. |
+| projects/p11/T-0013 | dev | Sprint 23 | **erledigt** | ✅ **SWR-160**, **vierte Berührung: gebaut**. Inhalt hinter dem PIN-Lesegate, Kachel bleibt sichtbar, Vertrag **v2.7**. |
+| projects/p11/T-0009 | dev | Sprint 23 | **erledigt** | ✅ Klammer über `T-0012` (SWR-150) und `T-0013` (SWR-160). ⚠ **Fehlerhaft gebucht** — siehe unten. |
+| platform/T-0022 | dev | Sprint 24 | offen | ✅ Fragen **2+3 beantwortet und gebaut** (SWR-161). ⚠ **Dritte Verschiebung, nur noch Frage 1** (Reihenfolge der drei Schreibvorgänge) — ein Bau am Schreibweg einer Klasse-A-Entscheidung, Grund im Ticket. |
+| platform/T-0021 | cm | Sprint 24 | offen | ⚠ **3. Verschiebung**, Grund im Ticket. In diesem Lauf **erneut in Produktion getroffen** (drei Commits, jedes Mal mit `--nur-locks` umgangen). Neue Auflage aus SWR-159 im Ticket vermerkt. |
+| platform/T-0027 | cm | Sprint 24 | offen | ⚠ **Neu, 0. Verschiebung.** Der Abschlussbericht ohne Prüfung für die eigenen Kennzahlen — **sechster** Beleg, einer davon aus diesem Lauf. |
+| projects/p11/T-0015 | dev | Sprint 24 | offen | ⚠ **3. Verschiebung**, Grund im Ticket. Bei der **vierten** Berührung: gebaut oder geschnitten. |
+| projects/p12/T-0011 | pl | Sprint 24 | offen | ⚠ **3. Verschiebung**, Grund im Ticket. SWR-162 hat in diesem Lauf **belegt**, was ein Nachweis über den falschen Bestand kostet. |
+| promt-team/T-0008 | test | Sprint 24 | **blocked** | ⚠ **Vierte Berührung, kein vierter Termin.** Gemessen: 0 Läufe für zehn Rollen, unverändert seit Sprint 18. `blocked_by: [T-0010]`. |
+| promt-team/T-0010 | dev | Sprint 24 | offen | ⚠ **Neu, 0. Verschiebung.** Die Vorbedingung: Läufe je Rolle. ⚠ Drei Ausgänge, einer davon schafft `T-0008` ab. |
+| promt-team/T-0003 | dev | wartet-auf-Umgebung | offen | ⚠ Wartet auf **Ollama** — in diesem Lauf erneut gemessen: `which ollama` leer, `localhost:11434` ohne Antwort. **Kein „wartet auf dich".** |
+| team-mail/T-0001 | dev | wartet-auf-Umgebung | offen | ⚠ Wartet auf **Mail-Zugangsdaten** — gemessen: **0** `MAIL_IMAP_*` gesetzt. **Kein „wartet auf dich".** |
+| projects/p11/T-0003 | pl | Klammer | nachgezogen | Klammer über `T-0007`–`T-0015`; offen ist **nur noch `T-0015`**. ✅ Zum zweiten Mal in Folge vom PM nachgezogen, nicht vom Preflight. |
+| p0/T-0008, T-0047, T-0072 · p1/T-0018 | mensch/cm/dev | — | **rejected** | Kein offener Arbeitsvorrat: verworfen und als solche geführt. Sie stehen hier, weil „nicht im Plan" sonst von „nicht nachgesehen" nicht zu unterscheiden wäre. |
+| pm/T-0001..0003, platform/T-0001, team-dashboard/T-0001 | pl/coach/cm | jeder Sprint | **erfüllt** | Takt: Agenda + Briefkasten (0 offen) + Lessons (**sechs**: `br` `bs` cm · `bt` `bu` test · `bv` `bw` pl) + Verifikation + Widget-Vertrag auf **v2.7** nachgezogen. |
+
+## Sprint-Abschluss (Sprint 23, 2026-08-20)
+
+**Geschlossen:** `platform/T-0020` (nach vier Verschiebungen), `platform/T-0026` (nullte
+Verschiebung gehalten), `projects/p11/T-0013` (vierte Berührung) und die Klammer
+`projects/p11/T-0009`.
+
+**Neue Anforderungen:** **SWR-158, SWR-159, SWR-160, SWR-161, SWR-162** — alle fünf
+`reviewed` mit Nachweis. Widget-Vertrag **v2.7**.
+
+**Neu angelegt:** `platform/T-0027` (der Abschlussbericht ohne eigene Prüfung),
+`promt-team/T-0010` (Läufe je Rolle).
+
+**Verschoben:** `platform/T-0021` (3.), `platform/T-0022` (3., nur noch Frage 1),
+`p11/T-0015` (3.), `p12/T-0011` (3.) — **alle mit Grund im Ticket**.
+**Blockiert statt verschoben:** `promt-team/T-0008`, mit gemessener Bedingung.
+
+**Verifikation:** **1185 Python-Tests** (über die Sammlung **gemessen**, 70 Testdateien),
+**111 JS-Tests grün**, Matrix **162 SWRs / 0 Lücken**, Briefkasten 0 offen, entschiedene
+unverbuchte DRs 0, Plan-Drift 0, Statusdrift 0, Pflichtartefakte 0 fehlend.
+
+⚠ **Nicht startklar, und zum ersten Mal seit vielen Läufen mit einem Befund MEHR:**
+der Altbefund über drei Statusübergänge aus den Sprints 13/15 steht unverändert, **und
+dieser Lauf hat einen vierten hinzugefügt** (`p11/T-0009`, `in_progress → done`).
+
+### ⚠⚠ Der Befund dieses Laufs über sich selbst
+
+Der eigene Buchungsfehler war die billigste Sonde, die dieser Lauf bekommen konnte.
+
+> **Ein eigener Fehler an einer geprüften Stelle ist ein kostenloser Test der Prüfung.
+> Wer ihn schnell wegräumt, bezahlt mit der Antwort auf die einzige interessante Frage —
+> und die Antwort war hier, dass die Prüfung seit Sprint 9 ein Drittel des Bestands nicht
+> angesehen hat.**
+
+Verankert in `L-2026-08-20bw` und gebaut als SWR-162.
+
+### ⚠ Und zwei Zahlen dieses Laufs waren geschätzt statt gemessen
+
+**(a)** Der Kommentar der eigenen Reparatur behauptete „rund 2 s" Mehrkosten; gemessen
+sind es **10 s → 36 s** über alle 17 Repos. **Sechster** Beleg für `platform/T-0027`, im
+selben Lauf, in dem das Ticket entstand.
+**(b)** Die Commit-Nachricht zu den Lessons nennt **fünf**; es sind **sechs**. Korrigiert
+im Bericht, nicht in der Historie.
+
+> **Zweimal in einem Lauf, beide Male in einer Nebensache, beide Male vor dem Leser
+> korrigiert und keines von beiden durch eine Prüfung gefunden. Genau das ist der
+> Gegenstand von `platform/T-0027`.**
+
+---
+
+# Anhang: Sprint 22 (2026-08-20, abgeschlossen)
+
 ## Das Wichtigste (Sprint 22, 2026-08-20)
 
 1. **✅ Der Brief, den Sprint 21 nur beantworten konnte, ist jetzt gebaut.**

@@ -1,5 +1,121 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
+## Das Wichtigste (Stand Sprint 23, 2026-08-20)
+
+1. **✅ Die Aufgabe, die vier Läufe lang nur verschoben wurde, ist erledigt.** Unser
+   Werkzeug für die Anforderungsübersicht **liest ab jetzt seinen Vorgänger, bevor es ihn
+   ersetzt**. Verschwindet dabei auch nur eine Anforderung, schreibt es **gar nichts** und
+   sagt, welche fehlt.
+   > **Der Schaden vom 17.08. ist entstanden und repariert worden, ohne je in unserer
+   > Geschichte aufzutauchen. Eine Warnung nach dem Schreiben hätte ihn gemeldet und
+   > trotzdem angerichtet.**
+2. **✅ Die negative Zeitmessung von gestern ist aufgeklärt — und wir haben die falsche
+   Zeile verdächtigt.** Wir haben jede Registerzeit gegen den Zeitpunkt gehalten, zu dem
+   sie gespeichert wurde. Ergebnis: **eine Zeile behauptet 17:10 und wurde um 16:32:36
+   gespeichert.**
+   > **Niemand kann 38 Minuten vor seiner eigenen Uhr liegen. Falsch ist also nicht der
+   > Beginn des späteren Laufs, sondern das Ende des früheren.**
+
+   ⚠ Zwei der drei denkbaren Erklärungen fallen damit weg, ohne dass wir raten mussten.
+   ⚠ Die Abhilfe, die im Ticket stand, hätten wir gebaut und sie hätte diesen Fall **nicht
+   gefunden** — deshalb ist sie **nicht** gebaut worden.
+3. **✅ Zwei Aufgaben standen zum vierten Mal an, und sie sind verschieden ausgegangen.**
+   Die eine wartete auf Zeit → **gebaut** (die Mail-Kachel zeigt ihre Inhalte jetzt erst
+   nach PIN-Eingabe, bleibt aber sichtbar). Die andere wartete auf etwas, das kein Lauf
+   herstellen kann → **blockiert**, mit einer eigenen Vorbereitungsaufgabe.
+   > **Eine Aufgabe viermal auf „keine Zeit" zu verschieben, während sie in Wahrheit auf
+   > etwas anderes wartet, heißt den Grund viermal falsch aufzuschreiben.**
+4. **⚠⚠ Unser größter Fund heute kommt aus einem eigenen Fehler.** Wir haben einen
+   Aufgabenstand falsch gebucht — ein Zwischenschritt fehlte. Statt ihn wegzuräumen, haben
+   wir gefragt, **warum unsere Prüfung dabei nicht angeschlagen hat**. Antwort: sie hat
+   **ein Drittel unserer Projekte seit dem 17.08. nie angesehen**. 66 Vorgänge ungeprüft.
+   > **Ein eigener Fehler an einer geprüften Stelle ist ein kostenloser Test der Prüfung.
+   > Wer ihn schnell wegräumt, bezahlt mit der Antwort.**
+
+   Repariert. ⚠ Unser eigener Fehler bleibt **stehen und gemeldet** — nichts geglättet.
+5. **⚠ Und zum sechsten Mal stand eine geschätzte Zahl da, wo eine gemessene hingehört** —
+   diesmal in einer Nebenbemerkung unserer eigenen Reparatur. Dafür gibt es ab heute eine
+   eigene Aufgabe; fünf aufgeschriebene Ermahnungen haben es nicht verhindert.
+6. **1185 Prüfungen für die Technik** (gezählt, nicht geschätzt), **111 für die
+   Oberfläche**, **162 Anforderungen ohne Lücke**. Rote Prüfungen: **eine** — der alte
+   Befund aus den Sprints 13/15, **plus unser heutiger Fehler darin**.
+
+---
+
+## Für dich (E. John)
+
+| Was | Warum |
+|---|---|
+| ⚠ **Eine neue Frage an dich gibt es NICHT** | Dieser Lauf hat nichts vorgelegt, was du entscheiden müsstest. |
+| ⚠ **Wir melden einen eigenen Fehler** | Wir haben einen Aufgabenstand falsch gebucht. Er steht in der Geschichte und wird **nicht** herausgerechnet. Er hat uns einen viel größeren Fund eingebracht — eine Prüfung, die seit dem 17.08. ein Drittel unserer Projekte nicht angesehen hat. Beides ist repariert bzw. benannt. **Klasse B**, du musst nichts entscheiden. |
+| ⚠ **Die alten Punkte stehen unverändert** | Die Mail-Zugangsdaten (`team-mail/N-0003`), Ollama in der Umgebung, deine Zählung der Kacheln im Reiter „Dashboard", und `abschluss.cmd` aus Sprint 1. |
+| ⚠ **Der Startcheck ist langsamer geworden** | Von rund 60 auf rund 85 Sekunden. Der Grund ist die reparierte Prüfung: sie sieht jetzt alles an. Gemessen und bewusst bezahlt. |
+| ✅ **Zu pushen gibt es etwas** | Zeile steht in `PUSH-ANFORDERUNG.txt`. Wir pushen nie selbst. |
+
+---
+
+## Was in Sprint 23 passiert ist — in Ruhe erklärt
+
+### Warum wir vier Sprints gebraucht haben und der fünfte dann kurz war
+
+Die Aufgabe „das Werkzeug soll merken, wenn die Anforderungsübersicht schrumpft" stand
+seit dem 17.08. Sie wurde viermal verschoben, und dreimal war der Grund schlicht
+Kapazität. Beim vierten Mal war es etwas anderes: im Ticket standen **drei Fragen**, die
+vor dem Bauen zu beantworten waren.
+
+Gestern sind sie beantwortet worden — als Messung über alle 95 gespeicherten Fassungen.
+Heute war der Bau eine knappe Stunde. **Zwei der drei Antworten fielen umgekehrt aus als
+im Ticket vermutet**, und genau deshalb war die Reihenfolge richtig: wer zuerst gebaut
+hätte, hätte ein Flag eingebaut, das jeder Aufrufer setzt.
+
+### Warum wir eine falsche Zeit nicht korrigiert haben
+
+Gestern fanden wir eine negative Pause im Sprintregister. Heute wissen wir, **welche der
+beiden Zeitangaben falsch ist** — und zwar durch einen dritten Zeugen: den Zeitpunkt, zu
+dem die Zeile gespeichert wurde. Eine Zeile kann nicht später entstanden sein als ihre
+Speicherung.
+
+Das Ticket schlug vor, das Register künftig mit Zeitzonenangabe zu schreiben. Wir haben
+nachgesehen: beide beteiligten Speicherungen tragen dieselbe Zeitzone. Die vorgeschlagene
+Abhilfe hätte den einzigen Fall, den wir haben, **nicht gefunden**.
+
+> **Eine Abhilfe, die den belegten Vorfall nicht erkennt, ist keine Abhilfe.**
+
+Gebaut ist stattdessen eine Prüfung auf eine **Unmöglichkeit** statt auf eine Schwelle.
+Über unsere gesamte Geschichte findet sie **genau einen** Fall und **keinen** Fehlalarm.
+
+### Warum unser eigener Fehler heute nützlich war
+
+Wir haben eine Aufgabe von „in Arbeit" direkt auf „fertig" gesetzt und den Zwischenschritt
+„in Prüfung" ausgelassen. Das ist seit dem ersten Sprint verboten und wird geprüft.
+
+Es ist **nichts** rot geworden. Diese Frage war interessanter als der Fehler selbst.
+
+Die Antwort: unsere Prüfung suchte Aufgabendateien an einer Stelle, an der sie in einem
+Drittel unserer Projekte gar nicht liegen — und übersprang diese Projekte zusätzlich aus
+einem zweiten, unabhängigen Grund. **Beides sah für sich völlig harmlos aus, und daneben
+stand ein Kommentar, der das Gegenteil behauptete.**
+
+> **Ein Kommentar altert nicht mit. Er wird nur irgendwann unwahr, und niemand merkt es.**
+
+Die Reparatur kostet uns 26 Sekunden je Startcheck. Wir zahlen sie, weil eine Prüfung, die
+zwei Drittel prüft, nicht zu zwei Dritteln gut ist — sie ist grün.
+
+### Warum eine Aufgabe jetzt „blockiert" heißt statt „nächster Sprint"
+
+Für zehn unserer Rollen wollen wir Beispielfälle sammeln, an denen man messen kann, ob
+eine Änderung besser oder schlechter ist. Das geht nur, wenn es **aufgezeichnete Läufe**
+dieser Rollen gibt. Gemessen: es gibt **vier** für eine Rolle, **drei** für eine zweite
+und **null** für die übrigen zehn — unverändert seit fünf Sprints.
+
+Diese Aufgabe wartet also nicht auf Zeit. Sie wartet auf etwas, das kein Lauf herstellt,
+indem er sie anfasst. Deshalb steht sie ab heute auf **blockiert**, und davor steht eine
+eigene Aufgabe mit drei möglichen Ausgängen — einer davon ist, die Sache **zu streichen**.
+
+---
+
+# Anhang: Session-Agenda Sprint 22 (2026-08-20)
+
 ## Das Wichtigste (Stand Sprint 22, 2026-08-20)
 
 1. **✅ Dein zweiter Brief von heute Morgen ist nicht nur beantwortet, sondern gebaut.**
