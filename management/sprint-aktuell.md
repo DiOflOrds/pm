@@ -1,5 +1,163 @@
 # Sprint aktuell — Genesis-Gesamtsprint (Workflow-Sicht des PM, pm/D006)
 
+## Das Wichtigste (Sprint 24, 2026-08-20)
+
+1. **✅ DREIMAL DIE REGEL DER VIERTEN BERÜHRUNG ANGEWANDT — UND DREIMAL GEBAUT.**
+   `p11/T-0015` (Rückbau), `platform/T-0021` (Git-Sperre), `platform/T-0022` (Frage 1)
+   standen alle bei der **vierten** Berührung. Keines ist ein viertes Mal verschoben
+   worden.
+   > **Drei Tickets, die zusammen zehn Verschiebungen trugen, in einem Lauf geschlossen.
+   > Der Grund war jedes Mal derselbe und jedes Mal richtig: „Kapazität". Er wird nicht
+   > falsch, wenn man ihn viermal aufschreibt — er hört nur auf, eine Aussage zu sein.**
+2. **✅ DER RÜCKBAU IST DURCH, UND SEINE TEUERSTE STELLE WAR DIE, AN DER NICHTS ZU TUN
+   WAR.** `p11/T-0015`: `/api/dashboard`, `aggregation.dashboard` und `KACHEL_FELDER` sind
+   weg, **SWR-135 auf die Layout-Hälfte zurückgeschnitten** (v1.61). Der erste Entwurf des
+   Wächters prüfte nur, was **fehlt**.
+   > **⚠⚠ Eine Prüfung, die nur Abwesenheit misst, ist nach einem Kahlschlag ebenfalls
+   > grün. `_zustand` und `zustaende_von` sehen aus wie Dashboard-Code und tragen seit
+   > SWR-146 den `zustaende`-Block des COCKPITS.**
+
+   Der Wächter ist deshalb ein **Paar**: neben jedes „das ist weg" gehört ein „und das ist
+   noch da", mit echter Auswertung. `L-2026-08-20by`.
+3. **⚠⚠ DIE MESSUNG ZU `platform/T-0021` HAT DEN TITEL DES TICKETS WIDERLEGT.** Die
+   `tmp_obj`-Reste, nach denen es benannt ist, sind **Müll und keine Sperre** (ein Commit
+   lief mit fünf `unlink`-Warnungen und **Exit 0** durch). Die Sperre, die tötet, ist
+   `index.lock` — und sie wird vom **gelingenden** Aufruf hinterlassen.
+
+   | Aufruf | Exit | Sperre bleibt liegen |
+   |---|---|---|
+   | `git status --porcelain` | **0** | **JA** |
+   | `git add`, `git commit`, `git log`, `git diff` | 0 | nein |
+
+   > **Git beendet einen SCHREIBENDEN Indexvorgang durch Umbenennen — das geht durch.
+   > Einen bloß LESENDEN Refresh beendet es durch LÖSCHEN — und das ist hier verboten. Der
+   > harmlose Lesevorgang hinterlässt die Sperre, an der der nächste Aufruf stirbt.**
+
+   ⚠ Damit war **Frage 2 des Tickets falsch gestellt** („nach dem Commit räumen?" — nach
+   dem Commit ist nichts zu räumen), und der Rückfall aus **SWR-134** sah drei Sprints lang
+   wie die Lösung aus: er repariert den Aufruf, der **gescheitert** ist, und verlegt die
+   Kosten auf den nächsten. **SWR-163**, `L-2026-08-20bx`.
+4. **✅ Frage 3 desselben Tickets ist beantwortet und die Antwort ist ja — SWR-164.** Der
+   Parkplatz `verwaiste-locks` wächst unbegrenzt, weil die erste Räumstufe (`os.remove`)
+   auf diesem Mount **immer** scheitert: **1975** (Sprint 21) → **2099** (heute) allein in
+   `pm`, **9382** über alle Repos.
+   ⚠ Die Zeile ist ausdrücklich **kein Befund**: reparierbar ist das von hier aus nicht,
+   was fehlte, war die **Messung**. Eine ungemessene Größe ist von einer, die nicht wächst,
+   nicht zu unterscheiden.
+5. **⚠⚠ DER GRÖSSTE BEFUND DIESES LAUFS IST WIEDER EINER ÜBER SICH SELBST — UND WIEDER HAT
+   IHN EINE ALTE ZUSICHERUNG GEFUNDEN.** `SWR-165` verlangt wörtlich, der Rumpfmarker
+   stehe an **einer** Stelle. Ihr erster Entwurf legte eine **zweite** Konstante an.
+   > **Rot gemacht hat das nicht der Autor, sondern ein Zähltest aus Sprint 17, der nichts
+   > tut, als zu zählen, in wie vielen Dateien ein Literal vorkommt. Zum ZWEITEN Lauf in
+   > Folge hat eine ältere Zusicherung den eigenen Entwurf verworfen** (Sprint 23:
+   > SWR-134 gegen die Uhrenprobe).
+
+   `L-2026-08-20cd`. ⚠ Das ist das Argument dafür, Zähltests zu behalten, auch wenn sie
+   pedantisch wirken.
+6. **✅ `platform/T-0022` ist nach drei Verschiebungen GANZ geschlossen — SWR-165.** Die
+   drei Schreibvorgänge von `inbox.entscheide` sind **gezählt**, und die Zählung hat die
+   Frage umgestellt: nicht die Reihenfolge ist offen, sondern **welche Lücke die schlimmere
+   ist**. Es ist die zwischen dem **ersten** und dem **zweiten** Schreibvorgang.
+   > **Eine Entscheidung, die protokolliert ist und im Ticket unsichtbar bleibt, ist
+   > schlimmer als eine, die gar nicht ankam: die eine merkt der Mensch, die andere nicht.**
+
+   ⚠ Gebaut ist eine **Prüfung** und **kein Umbau** des Schreibwegs — ein Bau am Schreibpfad
+   einer Klasse-A-Entscheidung verlangt eine Aussage über den Teilausfall, und die Frage ist
+   niemandem gestellt worden. Gemessen: 93 Logzeilen, 46 von der Inbox, **0** ohne Marker.
+7. **✅ Eine Entscheidung, die eine fünfte Terminierung ersetzt hat.** `promt-team/T-0010`
+   → **Klasse C, PL**: (a) *je Sprint eine Rolle aufrufen* und (b) *Übungsläufe* sind
+   verworfen, weil beide einen Lauf **um der Messung willen** erzeugen.
+   > **Ein Goldset folgt dem Betrieb. Es geht nicht voran und es wird nicht nachgeholt.**
+
+   `promt-team/T-0008` ist deshalb **umgeschnitten** statt geschnitten: nicht *„zehn Rollen
+   vermessen"*, sondern *„bemerken, wenn eine Rolle vermessbar wird"* — mit Prüfung, weil
+   eine Regel ohne Vertreter keine drei Sprints hält. `blocked_by` entfällt.
+   `L-2026-08-20cb`.
+8. **⚠ ACHTER geschätzter Wert — und er stand unter einer Überschrift, die „gezählt, nicht
+   übersehen" heißt.** Der Abschluss von `p11/T-0015` nannte **9** betroffene
+   JS-Zusicherungen; gemessen sind es **11**. ⚠ Und dieser Fall widerlegt einen
+   naheliegenden Zuschnitt von `platform/T-0027`: die dort genannten fünf Rubriken hätten
+   ihn **nicht** gefunden, und eine Schablone auch nicht — die Zahl stand in Fließtext.
+   Gefunden hat sie ein **Skript**. `L-2026-08-20cc`.
+9. **1201 Python-Tests** (über die Sammlung **gemessen**, **72** Testdateien), **111
+   JS-Tests grün**, Matrix **165 SWRs / 0 Lücken**, Briefkasten **0 offen**, entschiedene
+   unverbuchte DRs **0**, Pflichtartefakte **0** fehlend, Decision-Log gegen Ticketmarker
+   **0**.
+   ⚠ **Nicht startklar:** der Altbefund über vier Statusübergänge (drei aus den Sprints
+   13/15, einer aus Sprint 23) steht **unverändert**. Dieser Lauf hat **keinen** neuen
+   hinzugefügt.
+10. **Sechs Tickets geschlossen** (`p11/T-0015`, `p11/T-0003`, `platform/T-0021`,
+    `platform/T-0022`, `promt-team/T-0010` — und `promt-team/T-0008` **entsperrt und
+    umgeschnitten**), **eines neu** (`p11/T-0016`), **drei Anforderungen** (SWR-163, 164,
+    165), **eine Entscheidung** (Klasse C), **sieben Lessons**.
+    ⚠ **Nichts liegt beim Menschen** — dieser Lauf hat nichts vorzulegen.
+
+## Sprint-Plan (Sprint 24)
+
+*Default nach `pm/D006`: in diesem Sprint schließen. ⚠ Jede Verschiebung trägt ihren
+Grund **im Ticket**, nicht hier (`L-2026-08-17ag`).*
+
+| Aufgabe | Rolle | Fällig | Status | Grund / nächster Schritt |
+|---|---|---|---|---|
+| projects/p11/T-0015 | dev | Sprint 24 | **erledigt** | ✅ **Vierte Berührung: gebaut.** Kachelhälfte zurückgebaut, SWR-135 auf die Layout-Hälfte (v1.61), Teststrecke **umgedreht** statt gelöscht. |
+| projects/p11/T-0003 | pl | Sprint 24 | **erledigt** | ✅ Klammer geschlossen — letzter Teil (`T-0015`) gebaut. ⚠ Zum **dritten** Mal in Folge vom PM nachgezogen, nicht vom Preflight. |
+| platform/T-0021 | cm | Sprint 24 | **erledigt** | ✅ **Vierte Berührung: gebaut.** **SWR-163** (der gelingende Aufruf räumt hinter sich her) + **SWR-164** (Parkplatz gemessen). Fragen 2 und 3 beantwortet, Frage 2 als **falsch gestellt** erkannt. |
+| platform/T-0022 | dev | Sprint 24 | **erledigt** | ✅ **Vierte Berührung: gebaut.** Frage 1 gezählt → **SWR-165**. Alle drei Fragen des Tickets beantwortet (SWR-152 / SWR-161 / SWR-165). |
+| promt-team/T-0010 | dev | Sprint 24 | **erledigt** | ✅ **Frage 1 entschieden** (Klasse C, PL). (a) und (b) verworfen, (c) als **Umkehrung** statt als Schnitt. |
+| promt-team/T-0008 | test | Sprint 25 | offen | ✅ **Entsperrt und umgeschnitten** statt ein fünftes Mal terminiert. Neue DoD: Regel + **Prüfung**. `blocked_by` leer. **Nullte Terminierung der neuen Fassung.** |
+| projects/p11/T-0016 | dev | Sprint 25 | offen | ⚠ **Neu, 0. Verschiebung.** Die Frontend-Hälfte des Rückbaus — **gezählt** (4 Bausteine, 11 von 111 JS-Zusicherungen) und bewusst **nicht** mitgenommen. |
+| platform/T-0027 | cm | Sprint 25 | offen | ⚠ **1. Verschiebung**, Grund im Ticket. ⚠ Dieser Lauf hat den **achten** Beleg geliefert **und zwei Argumente für den Zuschnitt**: die fünf genannten Rubriken hätten ihn nicht gefunden, und eine Schablone auch nicht. |
+| projects/p12/T-0011 | pl | Sprint 25 | offen | ⚠⚠ **4. Verschiebung — die Regel der vierten Berührung ist hier ÜBERZOGEN.** Sie ist in diesem Lauf dreimal angewandt und einmal nicht. **In Sprint 25 ist dieses Ticket das erste, nicht das letzte.** |
+| promt-team/T-0003 | dev | wartet-auf-Umgebung | offen | ⚠ Erneut **gemessen**: `which ollama` leer, `localhost:11434` ohne Antwort. **Kein „wartet auf dich".** |
+| team-mail/T-0001 | dev | wartet-auf-Umgebung | offen | ⚠ Erneut **gemessen**: **0** `MAIL_IMAP_*` gesetzt. **Kein „wartet auf dich".** |
+| p0/T-0008, T-0047, T-0072 · p1/T-0018 | mensch/cm/dev | — | **rejected** | Kein offener Arbeitsvorrat: verworfen und als solche geführt. Sie stehen hier, weil „nicht im Plan" sonst von „nicht nachgesehen" nicht zu unterscheiden wäre. |
+| pm/T-0001..0003, platform/T-0001, team-dashboard/T-0001 | pl/coach/cm | jeder Sprint | **erfüllt** | Takt: Agenda + Briefkasten (0 offen) + Lessons (**sieben**: `bx` `by` `cc` cm · `bz` `cd` test · `ca` `cb` pl) + Verifikation + Widget-Vertrag unverändert **v2.7**. |
+
+## Sprint-Abschluss (Sprint 24, 2026-08-20)
+
+**Geschlossen:** `projects/p11/T-0015` (vierte Berührung), `projects/p11/T-0003` (Klammer),
+`platform/T-0021` (vierte Berührung), `platform/T-0022` (vierte Berührung, alle drei Fragen),
+`promt-team/T-0010` (Entscheidung).
+
+**Neue Anforderungen:** **SWR-163, SWR-164, SWR-165** — alle drei `reviewed` mit Nachweis.
+**Geändert: SWR-135** auf die Layout-Hälfte zurückgeschnitten (v1.61) — *eine abgenommene
+Anforderung wird geändert, und das ist dokumentiert, nicht stillschweigend getan.*
+
+**Neu angelegt:** `projects/p11/T-0016` (die Frontend-Hälfte des Rückbaus, gezählt).
+**Umgeschnitten statt terminiert:** `promt-team/T-0008` (entsperrt, neue DoD).
+
+**Verschoben:** `platform/T-0027` (1.), `projects/p12/T-0011` (**4.**) — beide mit Grund im
+Ticket.
+
+**Verifikation:** **1201 Python-Tests** (über die Sammlung **gemessen**, **72**
+Testdateien), **111 JS-Tests grün**, Matrix **165 SWRs / 0 Lücken**, Briefkasten 0 offen,
+entschiedene unverbuchte DRs 0, Pflichtartefakte 0 fehlend, Decision-Log gegen Ticketmarker
+0, Parkplatz 9382 (gemeldet, kein Befund).
+
+⚠ **Nicht startklar:** der Altbefund über **vier** Statusübergänge steht unverändert. ✅
+**Dieser Lauf hat keinen neuen hinzugefügt** — zum ersten Mal seit Sprint 22 wächst die
+Zahl nicht.
+
+### ⚠⚠ Der Befund dieses Laufs über sich selbst
+
+Zum zweiten Lauf in Folge hat eine **ältere Zusicherung** den eigenen Entwurf verworfen —
+und zum zweiten Mal war es eine, die für sich genommen pedantisch aussieht.
+
+> **Ein Zähltest über ein Literal prüft nichts über das Verhalten und alles über die
+> Bauart. Wer ihn beim Aufräumen entfernt, weil er „nichts testet", entfernt genau den
+> Wächter, der in zwei aufeinanderfolgenden Läufen zugeschlagen hat.**
+
+### ⚠ Und der achte geschätzte Wert stand in einer Überschrift, die das Gegenteil verspricht
+
+*„Was dieser Rückbau NICHT angefasst hat — gezählt, nicht übersehen"*: darunter stand
+**9**, gemessen sind es **11**. Korrigiert vor dem Leser, gefunden durch Nachzählen und
+nicht durch eine Prüfung. **Achter Fall in sieben Sprints.**
+
+
+---
+
+# Anhang: Sprint 23 (2026-08-20, abgeschlossen)
+
 ## Das Wichtigste (Sprint 23, 2026-08-20)
 
 1. **✅ DAS TICKET, DAS VIER SPRINTS LANG NUR VERSCHOBEN WURDE, IST GEBAUT.**

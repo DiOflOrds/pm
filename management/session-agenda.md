@@ -1,5 +1,122 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
+## Das Wichtigste (Stand Sprint 24, 2026-08-20)
+
+1. **✅ Drei Aufgaben, die zusammen zehnmal verschoben worden waren, sind erledigt.** Alle
+   drei standen zum **vierten** Mal an, und bei uns gilt dann: gebaut oder gestrichen.
+   Keine ist ein viertes Mal verschoben worden.
+   > **Der Grund für jede einzelne Verschiebung war „keine Zeit", und er war jedes Mal
+   > wahr. Er wird nicht falsch, wenn man ihn viermal aufschreibt — er hört nur auf, eine
+   > Aussage zu sein.**
+2. **✅ Der Umbau, den wir dreimal aufgeschoben haben, ist durch — und die teuerste Stelle
+   war die, an der nichts zu tun war.** Wir haben eine alte, ungenutzte Schnittstelle
+   ausgebaut. Direkt daneben steht Code, der **genauso aussieht** und in Wahrheit an einer
+   ganz anderen, abgenommenen Zusage hängt.
+   > **Hätten wir ihn mitgenommen, wäre nichts rot geworden: unsere Prüfung fragte nur,
+   > ob das Alte weg ist. Sie fragt ab jetzt beides — was weg sein muss und was dableiben
+   > muss.**
+3. **⚠⚠ Bei einem alten Werkzeugärger haben wir vier Sprints lang den Falschen verdächtigt.**
+   Unsere Commits scheitern gelegentlich an einer Sperre. Wir dachten, sie bleibe liegen,
+   wenn etwas **schiefgeht**. Gemessen: sie bleibt liegen, wenn etwas **klappt** — und
+   zwar ausgerechnet beim harmlosesten Vorgang, dem reinen Nachsehen.
+   > **Der Grund ist die Umgebung: Umbenennen darf unser Ordner, Löschen nicht. Wer
+   > schreibt, benennt um und kommt durch. Wer nur liest, will löschen und scheitert.**
+
+   Repariert. Ab jetzt räumt jeder Aufruf hinter sich her, statt die Rechnung dem nächsten
+   zu hinterlassen.
+4. **✅ Eine Zahl, die niemand je gemessen hat, ist jetzt sichtbar.** Weggeräumte Sperren
+   werden bei uns nicht gelöscht (das darf der Ordner nicht), sondern beiseitegelegt.
+   Inzwischen liegen dort **9382 Dateien**. Das ist kein Fehler und von hier aus nicht
+   reparierbar — aber es steht ab sofort in jedem Startcheck.
+   ⚠ Du kannst diesen Ablageplatz gelegentlich auf deinem Rechner leeren
+   (`.git/verwaiste-locks` in den Projektordnern). **Eilig ist es nicht.**
+5. **⚠⚠ Unser größter Fund heute ist wieder einer über uns selbst — und wieder hat ihn eine
+   alte Prüfung gemacht.** Wir haben eine Regel gebaut, die wörtlich sagt: *dieser eine
+   Textbaustein darf nur an einer Stelle stehen.* Und beim Bauen haben wir eine zweite
+   Stelle angelegt.
+   > **Aufgefallen ist es nicht uns, sondern einer Prüfung aus einem früheren Sprint, die
+   > nichts weiter tut, als mitzuzählen, in wie vielen Dateien ein Textbaustein vorkommt.
+   > Zum zweiten Lauf in Folge hat eine alte Prüfung unseren eigenen Entwurf gestoppt.**
+6. **⚠ Und zum achten Mal stand eine geschätzte Zahl da, wo eine gemessene hingehört** —
+   diesmal unter einer Überschrift, die ausdrücklich *„gezählt, nicht übersehen"* heißt.
+   Korrigiert. Der Fall hat uns aber etwas gebracht: er zeigt, dass die naheliegende
+   Lösung für dieses wiederkehrende Problem **nicht funktioniert hätte**.
+7. **1201 Prüfungen für die Technik** (gezählt, nicht geschätzt), **111 für die
+   Oberfläche**, **165 Anforderungen ohne Lücke**. Rote Prüfungen: **eine** — der bekannte
+   Altbefund. ✅ **Zum ersten Mal seit zwei Läufen ist er nicht gewachsen.**
+
+---
+
+## Für dich (E. John)
+
+| Was | Warum |
+|---|---|
+| ⚠ **Eine neue Frage an dich gibt es NICHT** | Dieser Lauf hat nichts vorgelegt, was du entscheiden müsstest. |
+| ⚠ **Wir melden wieder einen eigenen Fehler** | Wir haben beim Bauen einer Regel gegen sie selbst verstoßen. Gefunden hat es eine Prüfung aus einem früheren Sprint, nicht wir. Repariert und aufgeschrieben. **Klasse B**, du musst nichts entscheiden. |
+| ⚠ **Eine geänderte Anforderung** | `SWR-135` (das Dashboard) ist auf seine **Layout-Hälfte** zurückgeschnitten worden — die Ausführung deiner Entscheidung vom 17.08. Eine abgenommene Anforderung zu ändern gehört dokumentiert, deshalb steht es hier. |
+| ⚠ **Die alten Punkte stehen unverändert** | Die Mail-Zugangsdaten (`team-mail/N-0003`), Ollama in der Umgebung, deine Zählung der Kacheln im Reiter „Dashboard", und `abschluss.cmd` aus Sprint 1. |
+| ⚠ **Neu und nicht eilig** | In den Projektordnern liegt unter `.git/verwaiste-locks` inzwischen einiges an Ballast (9382 Dateien). Wir können ihn nicht löschen, du schon. Es stört nichts. |
+| ✅ **Zu pushen gibt es etwas** | Zeile steht in `PUSH-ANFORDERUNG.txt`. Wir pushen nie selbst. |
+
+---
+
+## Was in Sprint 24 passiert ist — in Ruhe erklärt
+
+### Warum wir heute drei alte Aufgaben auf einmal geschlossen haben
+
+Bei uns gilt eine Regel: wird eine Aufgabe zum vierten Mal angefasst, wird sie **gebaut
+oder gestrichen**. Ein vierter Termin ist keine Planung mehr.
+
+Heute standen **drei** Aufgaben gleichzeitig an dieser Grenze. Alle drei sind gebaut. Eine
+vierte steht ebenfalls dort und ist es **nicht** — das haben wir im Plan ausdrücklich
+vermerkt, statt es zu begründen. Sie ist im nächsten Lauf die erste.
+
+### Warum ein Ausbau gefährlicher ist, als er aussieht
+
+Etwas wegzunehmen liefert nichts Neues und kann alles kaputt machen. Deshalb hat dieser
+Ausbau drei Sprints gewartet, bis ein Lauf ihn ganz tragen konnte.
+
+Beim Bauen hat sich gezeigt, warum das richtig war: unmittelbar neben dem Auszubauenden
+stand Code, der genauso aussah und in Wahrheit zu einer **anderen** Zusage gehörte. Unsere
+erste Prüfung hätte das nicht bemerkt — sie fragte nur, ob das Alte verschwunden ist. Eine
+solche Prüfung ist auch dann grün, wenn jemand zu viel weggeräumt hat.
+
+> **Wer etwas entfernt, muss neben jedes „das ist weg" ein „und das ist noch da"
+> schreiben.**
+
+### Warum wir vier Sprints lang die falsche Ursache verdächtigt haben
+
+Unsere Commits scheitern manchmal an einer Sperrdatei. Die Aufgabe dazu trug seit Tagen
+einen Titel, der eine bestimmte Sorte Datei beschuldigte. Die Messung zeigt: diese Dateien
+sind harmlos.
+
+Die Sperre entsteht durch etwas, das niemand verdächtigt hätte — durch **erfolgreiches
+Nachsehen**. Dein Ordner erlaubt Umbenennen, aber kein Löschen. Wer schreibt, benennt um
+und kommt durch. Wer nur nachsieht, will die Sperre löschen und scheitert dabei still.
+
+> **Der harmlose Lesevorgang hinterlässt die Sperre, an der der nächste Vorgang stirbt.**
+
+Was wir vorher gebaut hatten, half nur dem Vorgang, der **schon gescheitert** war — also
+dem Falschen. Ab jetzt räumt jeder Vorgang hinter sich her.
+
+### Warum unser eigener Fehler heute wieder nützlich war
+
+Wir haben eine Regel gebaut, die sagt: ein bestimmter Textbaustein darf nur an **einer**
+Stelle im Code stehen. Und beim Bauen haben wir eine zweite Stelle angelegt — mit dem
+eigenen Satz vor Augen.
+
+Gestoppt hat uns eine Prüfung aus einem früheren Sprint, die nichts weiter tut, als
+mitzuzählen, in wie vielen Dateien dieser Textbaustein vorkommt. Solche Prüfungen wirken
+kleinlich; sie haben jetzt in **zwei aufeinanderfolgenden Läufen** je einen Fehler
+verhindert, den ein Mensch beim Lesen nicht gesehen hat.
+
+> **Eine aufgeschriebene Regel verhindert den Fehler nicht. Die Prüfung, die sie messbar
+> macht, tut es.**
+
+---
+
+# Anhang: Sprint 23
+
 ## Das Wichtigste (Stand Sprint 23, 2026-08-20)
 
 1. **✅ Die Aufgabe, die vier Läufe lang nur verschoben wurde, ist erledigt.** Unser
