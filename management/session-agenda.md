@@ -1,5 +1,117 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
+## Das Wichtigste (Stand Sprint 25, 2026-08-20)
+
+1. **⚠⚠ Seit drei Tagen ist nichts mehr auf GitHub angekommen, und wir haben es nicht
+   gemerkt.** Der Wächter, der alle 15 Minuten hochlädt, hat zuletzt am **17.08. um
+   11:32** etwas hochgeladen. Seither hat er **83-mal** angefangen und **83-mal**
+   abgebrochen.
+   > **Es stand die ganze Zeit in seiner Protokolldatei. Kein Startcheck liest sie.
+   > Gefunden hat es deine dritte Nachfrage.**
+2. **⚠⚠ Der Grund ist eine Sperre, die wir selbst eingebaut haben — und sie sperrt gegen
+   etwas, das niemand mehr in Ordnung bringen kann.** Unser Startcheck sagt „nicht in
+   Ordnung", sobald er *irgendetwas* findet. Vier seiner Funde sind Fehler aus
+   **abgeschlossenen** Läufen, die in den Berichten stehen und die man nicht mehr rückgängig
+   machen kann — Vergangenheit schreiben wir nicht um.
+   > **Ein Wächter, der auf etwas blockiert, das niemand mehr ändern kann, ist kein
+   > Wächter mehr, sondern ein Schalter, den jemand umgelegt und niemand bemerkt hat.**
+
+   Repariert: solche Funde werden ab jetzt **weiterhin gemeldet, mit Namen und
+   Fundstelle**, aber sie halten die Maschine nicht mehr an. Ein Fehler aus dem
+   **laufenden** Lauf hält sie weiter an — dafür steht eine eigene Prüfung daneben.
+3. **⚠⚠ Und dieselbe Sperre hat den Ollama-Schnelltakt gestoppt, den du heute eingerichtet
+   hast.** Er läuft, brav alle 15 Minuten, **6-mal** bisher. Er hat **12-mal** versucht,
+   eine Aufgabe anzufassen, und **12-mal** sofort wieder aufgehört. **Kein einziger
+   Durchlauf.**
+4. **⚠⚠ Du hattest recht, und der Beweis stand in unserem eigenen Commit.** Du hast
+   geschrieben, Ollama und die Mail-Anbindung liefen bei dir. Wir haben drei Läufe lang das
+   Gegenteil behauptet — mit dem Wort „gemessen" davor.
+   > **Wir haben in unserer eigenen Arbeitsumgebung nachgesehen, nicht auf deinem
+   > Rechner. Dort KANN es gar nicht da sein. Die Messung hat ihr Ergebnis selbst
+   > erzeugt.**
+
+   Im selben Commit, der den Satz „ist nicht eingerichtet" enthält, liegt dein
+   Mail-Digest vom 20.08. mit 26 Mails. Ab jetzt schreibt jede solche Messung dazu, **wo**
+   sie gemacht wurde.
+5. **✅ Die Aufgabe, die fünfmal verschoben wurde, ist erledigt — und der Grund war nie
+   „keine Zeit".** In ihr steckte eine **Frage an dich**, die ihr niemand angesehen hat.
+   Fällig war etwas Kleineres: unsere Prüfung zählte, **wie viele** Ansichten anders
+   aussehen, und nicht **welche**. Wer eine umstellt und woanders eine neue anlegt, bleibt
+   damit grün. Das ist gebaut; die Frage liegt jetzt bei dir.
+6. **⚠ Die Arbeit von heute Nachmittag stand nicht in Git.** Die Vorsession hatte den
+   Umbau der Organisationsstruktur fertig und **nichts committet** — 60 Dateien. Erst
+   gegen die Werkzeuge geprüft, dann nachgetragen. Auch das hat den Wächter blockiert.
+7. **1219 Prüfungen für die Technik** (gezählt, nicht geschätzt), **111 für die
+   Oberfläche**, **166 Anforderungen ohne Lücke**. ✅ **Der Startcheck ist zum ersten Mal
+   seit dem 17.08. wieder grün.**
+
+---
+
+## Für dich (E. John)
+
+| Was | Warum |
+|---|---|
+| ⚠ **Eine neue Frage an dich — die erste seit vier Läufen** | Sollen Aufgaben-Texte so dargestellt werden wie Briefe (mit Überschriften und Tabellen) oder wie heute als Rohtext? Drei Knöpfe in der Inbox, **keine Frist**, Voreinstellung = heutiger Zustand. **Schweigen kostet nichts.** |
+| ⚠⚠ **Wir melden einen schweren eigenen Fehler** | Drei Tage ohne Upload, dein Schnelltakt lief 12-mal ins Leere, und wir haben dir dreimal gesagt, deine Umgebung sei nicht eingerichtet, obwohl sie es war. Alles repariert und aufgeschrieben. **Klasse B**, du musst nichts entscheiden. |
+| ✅ **Zwei Briefe beantwortet** | `team-mail/N-0004` (warum die Routine nicht lief) und `platform/N-0007` (Kommentare an Aufgaben — eingeplant für den nächsten Lauf). |
+| ✅ **Zu pushen gibt es viel** | Drei Tage Rückstand plus dieser Lauf. Zeile steht in `PUSH-ANFORDERUNG.txt`. Wir pushen nie selbst. |
+| ⚠ **Die alten Punkte** | Mail-Zugangsdaten (`team-mail/N-0003`), deine Zählung der Kacheln im Reiter „Dashboard", `abschluss.cmd` aus Sprint 1. |
+| ⚠ **Nicht eilig** | `.git/verwaiste-locks` in den Projektordnern: **9754** Dateien. Wir können sie nicht löschen, du schon. Es stört nichts. |
+
+---
+
+## Was in Sprint 25 passiert ist — in Ruhe erklärt
+
+### Warum eine Sicherung zur Sperre wurde
+
+Vor jedem Upload und vor jedem automatischen Arbeitsschritt läuft bei uns ein Startcheck.
+Findet er irgendetwas, bricht alles ab. Das ist richtig, solange das Gefundene auch
+abstellbar ist.
+
+Vier seiner Funde sind es nicht: Es sind Buchungsfehler aus abgeschlossenen Läufen. Sie
+stehen in den Berichten, wir haben sie zugegeben, und wir schreiben Vergangenheit nicht um.
+Sie können also nie verschwinden — und damit war der Startcheck ab dem 17.08. dauerhaft
+rot.
+
+> **Eine Warnung, die nie weggeht, ist keine Warnung. Sie ist ein Dauerzustand, den man
+> nach zwei Tagen nicht mehr liest.**
+
+Das Bittere daran: Genau diese Regel steht seit Monaten in derselben Datei und wird dort
+**zweimal** angewandt — für ältere Fehler derselben Art und für eine schiefe Uhrzeit. An
+der dritten Stelle hat sie einfach niemand angewandt.
+
+### Warum das Wort „gemessen" uns nicht geschützt hat
+
+Wir haben uns angewöhnt, statt „ist wohl nicht da" zu schreiben: „nachgemessen, ist nicht
+da". Das sollte vor Vermutungen schützen. Hier hat es das Gegenteil bewirkt.
+
+Wir arbeiten in einer abgeschotteten Arbeitsumgebung, die deinen Projektordner sieht und
+sonst nichts von deinem Rechner. Wenn wir dort fragen „ist Ollama installiert?", lautet die
+Antwort immer nein — egal, was bei dir läuft.
+
+> **Wir haben eine Frage an einer Stelle gestellt, an der die Antwort schon feststand, und
+> das Ergebnis als Auskunft über deinen Rechner aufgeschrieben.**
+
+Ab jetzt steht bei jeder solchen Messung dabei, **wo** sie gemacht wurde.
+
+### Warum wir eine Aufgabe geschlossen und dir dafür eine Frage gestellt haben
+
+Eine Aufgabe stand seit dem 17.08. und ist fünfmal verschoben worden, immer mit „keine
+Zeit". Beim genauen Hinsehen war das nicht der Grund: In ihr steckte eine Entscheidung, die
+nur du treffen kannst — wie Aufgaben-Texte aussehen sollen.
+
+> **Eine Aufgabe, die dreimal am selben Punkt hängenbleibt, enthält meistens eine Frage,
+> die niemand gestellt hat.**
+
+Fällig und machbar war etwas anderes, Kleineres: Unsere Prüfung merkte sich, **wie viele**
+Ansichten anders dargestellt werden — vier —, aber nicht **welche**. Wer eine davon
+umbaut und an anderer Stelle eine neue anlegt, bleibt bei vier, und niemand merkt etwas.
+Das ist gebaut.
+
+---
+
+# Anhang: Sprint 24
+
 ## Das Wichtigste (Stand Sprint 24, 2026-08-20)
 
 1. **✅ Drei Aufgaben, die zusammen zehnmal verschoben worden waren, sind erledigt.** Alle

@@ -1,5 +1,136 @@
 # Sprint aktuell — Genesis-Gesamtsprint (Workflow-Sicht des PM, pm/D006)
 
+## Das Wichtigste (Sprint 25, 2026-08-20)
+
+1. **⚠⚠ DER AUTO-PUSH-WÄCHTER WAR SEIT DREI TAGEN TOT, UND ES STAND DIE GANZE ZEIT IN
+   ZWEI LOGDATEIEN.** Letzter erfolgreicher Lauf: **17.08. 11:32:30**. Seither **83
+   Läufe, 83 Abbrüche**, nichts auf GitHub. Der **Ollama-Schnelltakt**, den der
+   Auftraggeber selbst eingerichtet hat, lief **6-mal** und brach **alle 12** Ticks ab.
+   > **Beide brechen ab, weil `preflight` Exit 1 liefert, solange irgendein Befund
+   > dasteht — und vier Befunde sind Statusübergänge aus ABGESCHLOSSENEN Sprints, die
+   > niemand mehr reparieren kann. Ein Wächter, der auf eine Tatsache blockiert, die
+   > niemand mehr ändern kann, ist kein Wächter mehr, sondern ein Schalter, den jemand
+   > umgelegt und niemand bemerkt hat.**
+
+   ⚠ Gefunden hat es **kein Startcheck**, sondern die dritte Nachfrage des Auftraggebers.
+   `SWR-166`, `platform/T-0029`, `L-2026-08-20cg`.
+2. **⚠⚠ DIE REGEL DAGEGEN STAND SEIT SPRINT 9 IM SELBEN MODUL UND WIRD DORT ZWEIMAL
+   ANGEWANDT.** Für den Altbestand vor dem Stichtag: *„wird GEMELDET und blockiert NICHT
+   — kein Dauerbefund, der das Wegsehen trainiert."* Für die Uhrenprobe: *„nicht
+   reparierbar … das hieße das Wegsehen zu trainieren."* An der dritten Stelle nicht.
+   > **Das ist B033 — nur ist die vergessene Kopie diesmal keine Codestelle, sondern eine
+   > BEGRÜNDUNG.**
+
+   ⚠ Der Stichtag ist **nicht** verschoben (`ALTBESTAND_ERWARTET` bleibt 56), es entsteht
+   **kein** Register von Einzelfällen, und die vier Fälle stehen weiterhin **namentlich
+   und mit Commit** in jeder Preflight-Ausgabe. Geändert hat sich nur, wen sie stoppen.
+3. **⚠⚠ DER AUFTRAGGEBER HATTE RECHT, UND DER GEGENBEWEIS LAG IN UNSEREM EIGENEN COMMIT.**
+   `team-mail/N-0004`: *„sowohl OLAMA wie IMAP ist eingerichtet und funktioniert."* Commit
+   **`70d5aa1`** (16:01:05) trägt den Tages-Digest vom 20.08. (26 Mails, lokales Ollama),
+   231 Zeilen IMAP-Rohdaten **und** den Absatz *„Gesetzte `MAIL_IMAP_*`-Variablen: 0 —
+   erneut GEMESSEN, nicht angenommen"*. Eine Sekunde später ging derselbe Satz in den Plan.
+   > **Die Zahl stimmte. Gemessen wurde in der Cowork-SANDBOX, wo sie nicht anders
+   > ausfallen kann. Eine Umgebungsmessung gilt für die Maschine, auf der sie lief — und
+   > in der Angabe stand nur die Zahl, nie der Ort.**
+
+   `L-2026-08-20ce`. Drei Sprints lang hat das Wort „gemessen" genau das getan, wogegen es
+   eingeführt wurde: die Prüfung beendet.
+4. **✅ `p12/T-0011` BEI DER FÜNFTEN BERÜHRUNG GELIEFERT — und der Grund war nie
+   Kapazität.** Fünfmal terminiert, fünfmal „keine Zeit", fünfmal wahr. Darin steckte eine
+   **Entscheidung**, die niemandem vorgelegt worden ist. Fällig war etwas Kleineres:
+   `RohtextAnsichtTest` maß, **wie viele** Rohtext-Ansichten es gibt, nicht **welche** —
+   ein Tausch wäre grün geblieben. Gebaut (`ROHTEXT_STELLEN`, vier Ansichten einzeln
+   benannt), Rest als `p12/T-0012` **gefragt** statt ein sechstes Mal terminiert.
+   `L-2026-08-20ch`.
+5. **⚠⚠ ZUM VIERTEN LAUF IN FOLGE HAT EIN WERKZEUG DEN FRISCHEN ENTWURF VERWORFEN — UND
+   DIESMAL ZWEIMAL IN EINEM LAUF.** `board.py` wies `p12/T-0012` ab und widerlegte damit
+   dessen eigenen Satz, es gehe *nicht* in die Inbox (`inbox.py` legt **jeden** offenen DR
+   vor). Und `test_konsole` fand `scripts/organigramm.py` aus dem Orga-Rework von heute als
+   **Einstiegspunkt ohne `konsole.sichere_ausgabe()`**.
+   > **Beide Entwürfe waren plausibel, und kein Mensch hat sie beim Lesen bemerkt.**
+
+   `L-2026-08-20cf`.
+6. **✅ Die Arbeit der Vorsession war fertig und stand nicht in Git** — 60 Dateien aus dem
+   Orga-Rework (`pm/T-0070/T-0072`, `platform/T-0028`). Erst gegen die Werkzeuge
+   verifiziert (`organigramm --check` grün, 8/8), dann nachverbucht (B025). ⚠ Genau das
+   hat den Wächter zusätzlich blockiert.
+7. **1219 Python-Tests** (über die Sammlung **gemessen**, **74** Testdateien) + **42**
+   `produkt-datakonv`, **111 JS-Tests grün**, Matrix **166 SWRs / 0 Lücken**, Briefkasten
+   **0 offen**. ✅ **`PREFLIGHT: STARTKLAR (5 fortgeschrieben)`** — zum ersten Mal seit
+   dem 17.08.
+   ⚠ Die vier Statusübergänge sind **nicht verschwunden**: sie stehen namentlich in der
+   Ausgabe und in der Schlusszeile. Dieser Lauf hat **keinen neuen** hinzugefügt.
+8. **Parkplatz `verwaiste-locks`: 9754** (Sprint 24: 9506) — gemeldet, **kein Befund**,
+   Momentaufnahme.
+
+## Sprint-Plan (Sprint 25)
+
+*Default nach `pm/D006`: in diesem Sprint schließen. ⚠ Jede Verschiebung trägt ihren
+Grund **im Ticket**, nicht hier (`L-2026-08-17ag`).*
+
+| Aufgabe | Rolle | Fällig | Status | Grund / nächster Schritt |
+|---|---|---|---|---|
+| team-mail/N-0004 · platform/N-0007 | pl | Sprint 25 | **erledigt** | ✅ Briefkasten zuerst: beide beantwortet und sofort committet. N-0004 → `platform/T-0029`, N-0007 → `platform/T-0030`. |
+| platform/T-0029 | cm | Sprint 25 | **erledigt** | ✅ **Neu und geschlossen im selben Lauf** (`prio: kritisch`). **SWR-166**: blockierende vs. fortgeschriebene Befunde. Nachweis am echten System: STARTKLAR, die vier Übergänge weiterhin namentlich. |
+| projects/p12/T-0011 | pl | Sprint 25 | **erledigt** | ✅ **FÜNFTE Berührung: geliefert.** Die Prüfung nennt jetzt **DIESE vier** Ansichten. Rest als DR `p12/T-0012` gestellt statt terminiert. |
+| Orga-Rework-Nachverbuchung | cm | Sprint 25 | **erledigt** | ✅ 60 Dateien der Vorsession gegen die Werkzeuge verifiziert und in 16 Repos nachverbucht. |
+| pm/T-0071 | pl | Sprint 25 | **in Arbeit** | ✅ Schritt 1 (Mensch) erledigt, Schritt 2 **gemessen**: 6 Läufe, 12 Ticks, **0 durchgelaufen**. Ursache gefunden und behoben. ⚠ Schritt 3 (Wirkung) beginnt erst mit dem ersten wirklich gelaufenen Tick. |
+| team-mail/T-0001 | dev | jeder Sprint | offen (Takt) | ⚠ **Wartegrund korrigiert, nicht der Zustand.** Der Digest vom 20.08. existiert (manueller Lauf des Auftraggebers). Kein „wartet auf Umgebung" mehr. |
+| promt-team/T-0003 | dev | Sprint 26 | offen | ⚠ **Erste Terminierung mit dem RICHTIGEN Grund** — der alte („wartet auf Umgebung") ist widerlegt. Bedingung: ein durchgelaufener Tick. |
+| promt-team/T-0008 | test | Sprint 26 | offen | ⚠ **1. Verschiebung der neuen Fassung.** Grund **gemessen**: 0 durchgelaufene Ticks über alle Rollen — die Prüfung wäre auf leerer Grundmenge grün (SWR-128). Kein `blocked`. |
+| platform/T-0027 | cm | Sprint 26 | offen | ⚠ **2. Verschiebung**, Grund im Ticket. Dieser Lauf lieferte **zwei** weitere Belege: die Parkplatzzahl 9506→9754 (gemessen, aber ohne Zeitpunkt) und eine neue Rubrik — *gemessen ohne Angabe, WO*. ⚠ Beim vierten Mal gilt: gebaut oder geschnitten. |
+| projects/p11/T-0016 | dev | Sprint 26 | offen | ⚠ **1. Verschiebung**, Grund: Kapazität. Umfang unverändert **gezählt** (4 Bausteine, 11 von 111 JS-Zusicherungen). |
+| platform/T-0030 | dev | Sprint 26 | offen | ⚠ **0. Verschiebung.** Zuschnitt fertig, Bau nicht. Reihenfolge wie B039: erst der Weg nach außen, dann neue Fläche. |
+| projects/p12/T-0012 | mensch | wartet-auf-Menschen | offen | ⚠ **Neu, Klasse C, drei Optionen, KEINE Frist, Default A = heutiger Zustand.** Liegt in der Inbox. Schweigen kostet nichts. |
+| p0/T-0008, T-0047, T-0072 · p1/T-0018 | mensch/cm/dev | — | **rejected** | Kein offener Arbeitsvorrat. Sie stehen hier, weil „nicht im Plan" sonst von „nicht nachgesehen" nicht zu unterscheiden wäre. |
+| pm/T-0001..0003, platform/T-0001, team-dashboard/T-0001 | pl/coach/cm | jeder Sprint | **erfüllt** | Takt: Agenda + Briefkasten (0 offen) + Lessons (**vier**: `ce` `cg` cm · `cf` test · `ch` pl) + Verifikation + Widget-Vertrag unverändert **v2.7**. |
+
+## Sprint-Abschluss (Sprint 25, 2026-08-20)
+
+**Geschlossen:** `platform/T-0029` (neu und geschlossen im selben Lauf), `projects/p12/T-0011`
+(fünfte Berührung), dazu die Nachverbuchung des Orga-Reworks in 16 Repos und zwei Briefe.
+
+**Neue Anforderung:** **SWR-166** — `reviewed` mit Nachweis und mit gefahrener Gegenprobe.
+
+**Neu angelegt:** `platform/T-0029`, `platform/T-0030`, `projects/p12/T-0012` (DR).
+
+**Verschoben:** `platform/T-0027` (2.), `projects/p11/T-0016` (1.), `promt-team/T-0008` (1.
+der neuen Fassung), `promt-team/T-0003` (erste Terminierung mit dem richtigen Grund),
+`platform/T-0030` (0.) — jede mit Grund **im Ticket**.
+
+**Verifikation:** **1219 Python-Tests** (über die Sammlung gemessen, **74** Testdateien) +
+**42** `produkt-datakonv`, **111 JS-Tests grün**, Matrix **166 SWRs / 0 Lücken**,
+Briefkasten 0 offen, entschiedene unverbuchte DRs 0, Pflichtartefakte 0 fehlend,
+Decision-Log gegen Ticketmarker 0, Plan-/Statusdrift 0, Parkplatz **9754** (kein Befund).
+
+✅ **`PREFLIGHT: STARTKLAR (5 fortgeschrieben)`.** ⚠ Die 5 sind die vier Statusübergänge aus
+abgeschlossenen Sprints und die Pause seit Sprint 24 — **gemeldet, namentlich, mit Commit**,
+und ausdrücklich nicht geglättet.
+
+### ⚠ Zwei Zusicherungen sind GESCHÄRFT worden, keine gelöscht
+
+1. `test_seit_dem_stichtag_gibt_es_keinen_verstoss` stand **seit dem 17.08. rot** und
+   musste es bleiben — ihr Gegenstand kann sich nicht mehr ändern. Sie fragt jetzt nach dem
+   **laufenden** Sprint; was sie vorher zusicherte, sichert ihr Nachbar zu
+   (`test_die_fortgeschriebenen_verschwinden_dabei_nicht`).
+2. `test_der_ausfall_wird_ein_befund_mit_zahl_und_zeitraum` prüfte auf das Wort `BEFUND`.
+   Der Gegenstand war *„mit Zahl und Zeitraum genannt"* — das prüft sie weiter, dazu die
+   neue Marke, und ihr Nachbar prüft, dass die Pause im Fortgeschrieben-**Zähler** landet.
+
+> **Ein Test, der rot ist und rot bleiben muss, sagt nichts mehr. Ihn zu löschen wäre
+> Glätten, ihn stehenzulassen war drei Tage Stillstand. Verschoben wird sein Gegenstand,
+> und der Nachbar hält fest, was er vorher hielt.**
+
+### ⚠ Was dieser Lauf ausdrücklich NICHT gemessen hat
+
+Ob ein Tick nach dem Entsperren inhaltlich etwas Sinnvolles tut. Es ist **nie einer
+gelaufen**. Der Satz steht hier, damit er nicht später als erledigt gilt, weil ihm niemand
+widersprochen hat.
+
+---
+
+# Anhang: Sprint 24
+
 ## Das Wichtigste (Sprint 24, 2026-08-20)
 
 1. **✅ DREIMAL DIE REGEL DER VIERTEN BERÜHRUNG ANGEWANDT — UND DREIMAL GEBAUT.**
