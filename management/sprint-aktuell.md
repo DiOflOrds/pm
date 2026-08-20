@@ -40,7 +40,10 @@
 4. **✅ Frage 3 desselben Tickets ist beantwortet und die Antwort ist ja — SWR-164.** Der
    Parkplatz `verwaiste-locks` wächst unbegrenzt, weil die erste Räumstufe (`os.remove`)
    auf diesem Mount **immer** scheitert: **1975** (Sprint 21) → **2099** (heute) allein in
-   `pm`, **9382** über alle Repos.
+   `pm`, **9506** über alle Repos (gemessen am Ende dieses Laufs). ⚠ Die Zahl ist eine
+   **Momentaufnahme und keine Konstante**: sie wächst mit jedem Commit — allein dieser Lauf
+   hat sie um rund 170 erhöht. Genau deshalb prüft die Zusicherung daneben eine
+   **Größenordnung** und keine feste Zahl (der Fehler aus SWR-157).
    ⚠ Die Zeile ist ausdrücklich **kein Befund**: reparierbar ist das von hier aus nicht,
    was fehlte, war die **Messung**. Eine ungemessene Größe ist von einer, die nicht wächst,
    nicht zu unterscheiden.
@@ -132,7 +135,8 @@ Ticket.
 **Verifikation:** **1201 Python-Tests** (über die Sammlung **gemessen**, **72**
 Testdateien), **111 JS-Tests grün**, Matrix **165 SWRs / 0 Lücken**, Briefkasten 0 offen,
 entschiedene unverbuchte DRs 0, Pflichtartefakte 0 fehlend, Decision-Log gegen Ticketmarker
-0, Parkplatz 9382 (gemeldet, kein Befund).
+0, Parkplatz **9506** am Ende des Laufs (gemeldet, **kein Befund**; die Zahl ist eine
+Momentaufnahme und wächst mit jedem Commit).
 
 ⚠ **Nicht startklar:** der Altbefund über **vier** Statusübergänge steht unverändert. ✅
 **Dieser Lauf hat keinen neuen hinzugefügt** — zum ersten Mal seit Sprint 22 wächst die

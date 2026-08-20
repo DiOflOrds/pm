@@ -26,7 +26,8 @@
    zu hinterlassen.
 4. **✅ Eine Zahl, die niemand je gemessen hat, ist jetzt sichtbar.** Weggeräumte Sperren
    werden bei uns nicht gelöscht (das darf der Ordner nicht), sondern beiseitegelegt.
-   Inzwischen liegen dort **9382 Dateien**. Das ist kein Fehler und von hier aus nicht
+   Am Ende dieses Laufs liegen dort **9506 Dateien** — die Zahl wächst mit jedem Commit,
+   allein heute um rund 170. Das ist kein Fehler und von hier aus nicht
    reparierbar — aber es steht ab sofort in jedem Startcheck.
    ⚠ Du kannst diesen Ablageplatz gelegentlich auf deinem Rechner leeren
    (`.git/verwaiste-locks` in den Projektordnern). **Eilig ist es nicht.**
@@ -55,7 +56,7 @@
 | ⚠ **Wir melden wieder einen eigenen Fehler** | Wir haben beim Bauen einer Regel gegen sie selbst verstoßen. Gefunden hat es eine Prüfung aus einem früheren Sprint, nicht wir. Repariert und aufgeschrieben. **Klasse B**, du musst nichts entscheiden. |
 | ⚠ **Eine geänderte Anforderung** | `SWR-135` (das Dashboard) ist auf seine **Layout-Hälfte** zurückgeschnitten worden — die Ausführung deiner Entscheidung vom 17.08. Eine abgenommene Anforderung zu ändern gehört dokumentiert, deshalb steht es hier. |
 | ⚠ **Die alten Punkte stehen unverändert** | Die Mail-Zugangsdaten (`team-mail/N-0003`), Ollama in der Umgebung, deine Zählung der Kacheln im Reiter „Dashboard", und `abschluss.cmd` aus Sprint 1. |
-| ⚠ **Neu und nicht eilig** | In den Projektordnern liegt unter `.git/verwaiste-locks` inzwischen einiges an Ballast (9382 Dateien). Wir können ihn nicht löschen, du schon. Es stört nichts. |
+| ⚠ **Neu und nicht eilig** | In den Projektordnern liegt unter `.git/verwaiste-locks` inzwischen einiges an Ballast (9506 Dateien, Tendenz steigend). Wir können ihn nicht löschen, du schon. Es stört nichts. |
 | ✅ **Zu pushen gibt es etwas** | Zeile steht in `PUSH-ANFORDERUNG.txt`. Wir pushen nie selbst. |
 
 ---
