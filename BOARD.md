@@ -1,17 +1,18 @@
 # Board (generiert von platform/scripts/board.py — nicht von Hand editieren)
 
-Stand: 2026-08-20 · Tickets: 69 · davon wiederkehrend: 3
+Stand: 2026-08-20 · Tickets: 72 · davon wiederkehrend: 3
 
 
-## open (3)
+## open (4)
 
 | ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|---|
 | [T-0001](tickets/T-0001.md) | Takt: Session-Agenda pflegen (jede Session) | task | je Session | pl | Team | hoch | 0 | — |
 | [T-0002](tickets/T-0002.md) | Takt: Intake-Queue — neue Wünsche/Briefe qualifizieren (jede Session) | task | je Session | pl | Team | hoch | 0 | — |
+| [T-0071](tickets/T-0071.md) | F18: Ollama-Schnelltakt in Betrieb nehmen — Aufgabenplanung registrieren, ersten Lauf prüfen, Wirkung messen (pm/D010) | task | einmalig | pl | Team | hoch | 0 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | Team | niedrig | 0 | — |
 
-## done (66)
+## done (68)
 
 | ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|---|
@@ -50,6 +51,8 @@ Stand: 2026-08-20 · Tickets: 69 · davon wiederkehrend: 3
 | [T-0064](tickets/T-0064.md) | CR (pm/T-0054 Teil a): Projektübergreifende Liste der offenen Aufgaben im HMI | change-request | einmalig | pl | Team | hoch | 0 | — |
 | [T-0065](tickets/T-0065.md) | CR (pm/T-0054 Teil b): Knopf je Zeile setzt geplant_sprint auf den nächsten Sprint | change-request | einmalig | chg | Team | hoch | 0 | T-0064 |
 | [T-0069](tickets/T-0069.md) | Der Status in_progress lebt 22 Sekunden: er wird vor dem Fertigmelden gesetzt statt beim Anfangen (Brief pm/N-0043) | problem | einmalig | pl | Team | hoch | 0 | — |
+| [T-0070](tickets/T-0070.md) | Orga-Rework Rollenmodell v2: Instanzen-Registry, Rollenkarten allgemein/projektspezifisch, Organigramme, Live-/Planungsansicht (Auftraggeber-Auftrag 2026-08-20) | change-request | einmalig | pl | Team | hoch | 0 | — |
+| [T-0072](tickets/T-0072.md) | Rollenkarten v2 komplett: 10 Bestandskarten gehoben + 4 neue (REL, MAIL-RED, DASH-RED, PROMPT-OPT); Takt vereinheitlicht (session = sprint, D006) | change-request | einmalig | coach | Team | hoch | 0 | — |
 | [T-0010](tickets/T-0010.md) | Problem (N-0007): board-check-Flake — Stand-Datum kippt um Mitternacht | problem | einmalig | prob | Team | mittel | 0 | — |
 | [T-0014](tickets/T-0014.md) | CR (N-0017): Cockpit zeigt wiederkehrende Aufgaben im Klartext statt als Symbol | change-request | einmalig | chg | Team | mittel | 0 | — |
 | [T-0015](tickets/T-0015.md) | CR (N-0018): Team-Chat zeigt die neuesten Nachrichten zuerst | change-request | einmalig | chg | Team | mittel | 0 | — |
