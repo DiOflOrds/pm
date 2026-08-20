@@ -149,6 +149,49 @@ Verankert als `L-2026-08-20bh`.
 
 ---
 
+## ⚠⚠ Nachtrag zu Sprint 21 (2026-08-20 11:50) — nach dem Abschluss, und deshalb kein neuer Sprint
+
+**Zum DRITTEN Mal in vier Tagen ist etwas nach dem Abschlussbericht eingetroffen.** Diesmal
+ein Brief (`team-mail/N-0004`, **11:35**), der genau diesem Bericht (**11:16**) vorwirft,
+etwas übersehen zu haben — und er hat recht.
+
+> *„in der konfiguration ist tägliches routine eigerichtet, jedoch wurde das nicht
+> ausgeführt. die letzten 2 tage war server down, aber im aktuellen sprint müsste das
+> aufgefallen sein!?"*
+
+**Gemessen aus dem eigenen Register:** die Pause zwischen dem Ende von Sprint 20 und dem
+Start von Sprint 21 betrug **3 612 Minuten = 60,2 Stunden** bei einem hinterlegten Takt
+von **60 Minuten** — das **Sechzigfache**. Sprint 21 hat es nicht gemeldet.
+
+> **`nicht_beendete()` prüft Sprints OHNE `ende` — also Läufe, die mittendrin abbrachen.
+> Das ist eine Prüfung auf eine SPUR. Ein Lauf, der ausfällt, hinterlässt keine Spur.**
+
+⚠ **Und dieser Lauf ist an der Stelle vorbeigelaufen, an der es sichtbar war:** SWR-153 hat
+der Kachel „Letzte Session" an genau diesem Tag den Zeitpunkt und die Sprintnummer des
+letzten Laufs gegeben. Niemand hat gefragt, warum dieser Zeitpunkt zweieinhalb Tage
+zurücklag. **Die Angabe existierte, die Frage nicht.** `L-2026-08-20bk`, neu als
+`platform/T-0025`.
+
+### ⚠ Und die Nachprüfung des eigenen Abschlusses hat zwei Fehler in ihm gefunden
+
+1. **`platform/T-0021` wurde ohne Begründung von Sprint 20 auf 22 gezogen**, während dieser
+   Bericht an **zwei** Stellen „Grund im Ticket" behauptete. Grund nachgetragen.
+   > **Ein Ticket, in dem in diesem Sprint etwas Gutes passiert ist, sieht bearbeitet aus —
+   > die Verschiebung daneben verschwindet hinter dem Teilerfolg.** (`L-2026-08-20bl`)
+2. **Drei Testzahlen in den Anforderungszeilen SWR-153/154/155 waren geschätzt statt
+   gezählt** (10/17/10 statt **12/20/9**). Das ist derselbe Fehlertyp, den Punkt 8 oben an
+   sich selbst rügt — **im selben Lauf noch einmal und eine Etage tiefer**. Korrigiert.
+
+⚠ Beides ist der **vierte** Beleg für **Frage 3 von `platform/T-0020`**: der
+Abschlussbericht hat für seine eigenen Aussagen keine Zusicherung. Gefunden hat es beide
+Male eine **Nachprüfung** und keine Prüfung.
+
+**Der Abschluss von Sprint 21 wird dadurch nicht umgeschrieben.** Was oben steht, war zu
+seinem Zeitpunkt der gemessene Stand; dieser Nachtrag steht darunter und nicht an seiner
+Stelle.
+
+---
+
 # Anhang: Sprint 20 (2026-08-17, abgeschlossen)
 
 ## Das Wichtigste (Sprint 20, 2026-08-17)

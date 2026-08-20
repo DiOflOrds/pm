@@ -26,7 +26,21 @@
    Digest entstanden — **vier Minuten nachdem wir den letzten Sprint als grün gemeldet
    haben**. Seitdem ist sie rot, und niemand hat es gesehen, weil in diesen drei Tagen
    niemand alle Prüfungen laufen ließ. Wir haben sie **nicht** grün gemacht.
-5. **1128 Prüfungen für die Technik** (gezählt, nicht geschätzt), **111 für die
+5. **⚠⚠ Nachtrag um 11:50 — dein zweiter Brief von heute hat recht.** Die Routine hat
+   **60,2 Stunden** ausgesetzt, obwohl sie stündlich laufen soll: das **Sechzigfache des
+   eigenen Takts**. Wir haben es nicht gemeldet, und der Grund ist unangenehm einfach:
+   > **Wir prüfen, ob ein Lauf sauber zu Ende gekommen ist. Wir prüfen nicht, ob der
+   > nächste jemals angefangen hat. Ein Lauf, der ausfällt, hinterlässt keine Spur — und
+   > alle unsere Prüfungen sehen nur Spuren.**
+
+   ⚠ Wir sind an der Stelle sogar **vorbeigelaufen**: die Kachel „Letzte Session" hat
+   heute die Sprintnummer und den Zeitpunkt des letzten Laufs bekommen — und niemand hat
+   gefragt, warum dieser Zeitpunkt zweieinhalb Tage zurücklag.
+6. **⚠ Und beim Nachprüfen unseres eigenen Abschlusses haben wir zwei Fehler darin
+   gefunden**: eine verschobene Aufgabe ohne Begründung (obwohl der Bericht zweimal
+   „Grund im Ticket" behauptete) und drei geschätzte statt gezählte Testzahlen. Beides
+   korrigiert, beides benannt.
+7. **1128 Prüfungen für die Technik** (gezählt, nicht geschätzt), **111 für die
    Oberfläche**, **155 Anforderungen ohne Lücke**.
 
 ---
@@ -43,6 +57,7 @@
 | ⚠ **Ollama fehlt weiterhin in unserer Umgebung** | Nachgesehen, nicht vermutet. **Kein Handlungsbedarf**, wenn die Routine ohnehin schon dort läuft, wo Ollama erreichbar ist. |
 | ⚠ **Deine Zählung steht weiter aus** | Wie viele Kacheln siehst du im Reiter „Dashboard" **ohne Scrollen**? |
 | ⚠ **`abschluss.cmd` prüfen (aus Sprint 1)** | Unverändert dein einziger Altpunkt. |
+| ⚠⚠ **Dein zweiter Brief von heute ist beantwortet — und du hattest recht** | `team-mail/N-0004`. Die Routine hat **60,2 Stunden** ausgesetzt bei 60 Minuten Takt, und wir haben es nicht bemerkt. **Den Ausfall selbst können wir nicht verhindern** — ob die App läuft, liegt außerhalb unserer Reichweite. Dass wir ihn nicht **melden** konnten, liegt vollständig in ihr. Als `platform/T-0025` eingeplant. |
 | ✅ **Zu pushen gibt es etwas** | Zeile steht in `PUSH-ANFORDERUNG.txt`. Wir pushen nie selbst. |
 
 ---
