@@ -50,7 +50,7 @@
    **6. August** einer.
    > **Wir haben eine Bedingung über den Bestand formuliert und an einem einzelnen Abend
    > gemessen. Das ist derselbe blinde Fleck wie oben, zum dritten Mal.**
-8. **1276 Prüfungen für die Technik** (gezählt, nicht geschätzt), **175 Anforderungen ohne
+8. **1280 Prüfungen für die Technik** (gezählt, nicht geschätzt), **176 Anforderungen ohne
    Lücke**. Briefkasten: **0 offen**, keiner eingegangen.
 
 ---
@@ -64,7 +64,7 @@
 | ⚠⚠ **`abschluss.cmd` ausführen** | Der Rückstand ist jetzt vier Tage plus **drei** Läufe. **Stichprobe:** danach steht in `abschluss-auto.log` `OK - alles geprueft und gepusht` und `PUSH-ANFORDERUNG.txt` ist verschwunden. |
 | ⚠ **Prüf bitte weiterhin `ollama list`** | Ob `gemma3:27b` bei dir installiert ist, können wir von hier aus nicht sehen und behaupten es deshalb nicht. Solange der Takt ohnehin nichts zu tun hat, ist es nicht dringend. |
 | ⚠ **Die alten Punkte** | Mail-Zugangsdaten (`team-mail/N-0003`), deine Zählung der Kacheln im Reiter „Dashboard", und die Frage zu `p9` (`p9/T-0008`, Frist 27.08., Voreinstellung A). |
-| ⚠ **Nicht eilig** | `.git/verwaiste-locks`: **10470** Dateien (Stand 22:31 dieses Laufs — die Zahl trägt ab jetzt ihren Zeitpunkt, weil sie sonst beim Lesen schon falsch ist). Wir können sie nicht löschen, du schon. Es stört nichts. |
+| ⚠ **Nicht eilig** | `.git/verwaiste-locks`: **10533** Dateien (Stand 23:02 dieses Laufs — die Zahl trägt ab jetzt ihren Zeitpunkt, weil sie sonst beim Lesen schon falsch ist). Wir können sie nicht löschen, du schon. Es stört nichts. |
 
 ---
 
@@ -127,6 +127,36 @@ handgeschriebenen Schreibweg ins Entscheidungslog, und der hat keine Nummernverg
 > **Das ist `L-2026-08-20ce` an neuer Stelle: eine Angabe, die ihren Ort verloren hat.**
 **Benannt, nicht gebaut** — eine Umstellung von Entscheidungs-IDs berührt jede Zitatstelle
 in jedem Bericht dieses Hauses.
+
+
+### ⚠⚠ Nachtrag 2: der Preflight hat einen echten Drift gemeldet und das FALSCHE Paar genannt
+
+Bei der Schlussverifikation stand `1 Befund`: *„Plan sagt Sprint 27, Ticket sagt Sprint 28"*
+für `promt-team/T-0008`. Die Planzeile sagt **28**, das Ticket sagt **28**.
+
+Die Zeile, die den Befund auslöste, war eine **andere**: `p9/T-0008`. Sie gehört einem
+**geschlossenen** Ticket und steht deshalb nicht in der Menge der offenen; die Auflösung
+fiel auf die nackte `T-0008` zurück, und die war unter den **offenen** Tickets eindeutig —
+`promt-team/T-0008`, anderes Repo, anderer Sprint.
+
+> **⚠⚠ Die Eindeutigkeit ist über die OFFENEN Tickets geprüft, die Zeile gehörte einem
+> GESCHLOSSENEN. Eine ID wird nicht dadurch eindeutig, dass die Restmenge klein ist.**
+
+⚠ Das Schwestermodul `statusdrift` löst über **alle** Tickets auf und ist nie in diese
+Falle gelaufen — dieselbe Frage, zwei Grundmengen, eine davon falsch gewählt.
+
+> **Damit ist es der DRITTE Befund dieses Sprints aus derselben Familie (`SWR-128`, *grün,
+> weil niemand fragt, worüber*): die Gegenprobe ohne Aufrufer, die Bedingung, die den
+> Bestand liest und an einem Ereignis gemessen wurde — und jetzt die Grundmenge einer
+> Nachschlagetabelle.**
+
+⚠ Und der Fund selbst ist kein Zufall: die Zeile entstand, **weil dieser Lauf `p9/T-0008`
+geschlossen hat**. *Eine Prüfung kann dadurch falsch werden, dass ein Ticket erledigt
+wird.*
+
+Behoben als **`SWR-176`** — nennt eine Planzeile ein Repo, gilt nur die qualifizierte
+Form. Vier Zusicherungen, darunter das Paar (die eigene Zeile wird weiterhin geprüft) und
+der Notnagel (eine Zeile **ohne** Repo löst weiterhin über die nackte ID auf).
 
 # Anhang: Sprint 26
 

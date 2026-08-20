@@ -101,7 +101,8 @@ Grund **im Ticket**, nicht hier (`L-2026-08-17ag`).*
 **Neue Anforderungen:** **SWR-171** (die Besetzung wird vor dem Gateway-Aufruf geprüft),
 **SWR-172** (`--rolle` — gebaut und nicht umgelegt), **SWR-173** (die Kennzahlen entstehen
 aus ihren Quellen), **SWR-174** (eine Zusicherung hält den Bericht dagegen; der Parkplatz
-ist mit Begründung ausgenommen), **SWR-175** (Anzeigename für Einheiten ohne Team).
+ist mit Begründung ausgenommen), **SWR-175** (Anzeigename für Einheiten ohne Team), **SWR-176** (die qualifizierte
+Planzeile gewinnt gegen die nackte ID).
 
 **Neu angelegt:** `platform/T-0034` (abgetrennt von `T-0027`, Sprint 28), `platform/T-0035`
 (DR — gestellt und im selben Lauf entschieden), `platform/T-0036` (Nebenbefund der
@@ -173,6 +174,36 @@ handgeschriebenen Schreibweg ins Entscheidungslog, und der hat keine Nummernverg
 > **Das ist `L-2026-08-20ce` an neuer Stelle: eine Angabe, die ihren Ort verloren hat.**
 **Benannt, nicht gebaut** — eine Umstellung von Entscheidungs-IDs berührt jede Zitatstelle
 in jedem Bericht dieses Hauses.
+
+
+### ⚠⚠ Nachtrag 2: der Preflight hat einen echten Drift gemeldet und das FALSCHE Paar genannt
+
+Bei der Schlussverifikation stand `1 Befund`: *„Plan sagt Sprint 27, Ticket sagt Sprint 28"*
+für `promt-team/T-0008`. Die Planzeile sagt **28**, das Ticket sagt **28**.
+
+Die Zeile, die den Befund auslöste, war eine **andere**: `p9/T-0008`. Sie gehört einem
+**geschlossenen** Ticket und steht deshalb nicht in der Menge der offenen; die Auflösung
+fiel auf die nackte `T-0008` zurück, und die war unter den **offenen** Tickets eindeutig —
+`promt-team/T-0008`, anderes Repo, anderer Sprint.
+
+> **⚠⚠ Die Eindeutigkeit ist über die OFFENEN Tickets geprüft, die Zeile gehörte einem
+> GESCHLOSSENEN. Eine ID wird nicht dadurch eindeutig, dass die Restmenge klein ist.**
+
+⚠ Das Schwestermodul `statusdrift` löst über **alle** Tickets auf und ist nie in diese
+Falle gelaufen — dieselbe Frage, zwei Grundmengen, eine davon falsch gewählt.
+
+> **Damit ist es der DRITTE Befund dieses Sprints aus derselben Familie (`SWR-128`, *grün,
+> weil niemand fragt, worüber*): die Gegenprobe ohne Aufrufer, die Bedingung, die den
+> Bestand liest und an einem Ereignis gemessen wurde — und jetzt die Grundmenge einer
+> Nachschlagetabelle.**
+
+⚠ Und der Fund selbst ist kein Zufall: die Zeile entstand, **weil dieser Lauf `p9/T-0008`
+geschlossen hat**. *Eine Prüfung kann dadurch falsch werden, dass ein Ticket erledigt
+wird.*
+
+Behoben als **`SWR-176`** — nennt eine Planzeile ein Repo, gilt nur die qualifizierte
+Form. Vier Zusicherungen, darunter das Paar (die eigene Zeile wird weiterhin geprüft) und
+der Notnagel (eine Zeile **ohne** Repo löst weiterhin über die nackte ID auf).
 
 ---
 
@@ -1149,6 +1180,6 @@ Auftraggebers**), dazu die **Klammer `p12/T-0003`**.
 **Verifikation:** 1087 Python-Tests, 104 JS-Tests grün, Matrix 152/0, Briefkasten 0
 offen, Plan-Drift 0, Statusdrift 0. ⚠ Nicht startklar — Altbefund unverändert.
 
-<!-- kennzahlen v1 | gemessen 2026-08-20 22:31 | sprint 27
-briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=10470 swr=175 testdateien=79 tests=1276 tickets_offen=13 wartet_auf_mensch=0
+<!-- kennzahlen v1 | gemessen 2026-08-20 23:02 | sprint 27
+briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=10533 swr=176 testdateien=79 tests=1280 tickets_offen=13 wartet_auf_mensch=0
 -->
