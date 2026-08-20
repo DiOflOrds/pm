@@ -142,6 +142,26 @@ Momentaufnahme und wächst mit jedem Commit).
 **Dieser Lauf hat keinen neuen hinzugefügt** — zum ersten Mal seit Sprint 22 wächst die
 Zahl nicht.
 
+### ✅ Ein Widerspruch in der eigenen Schlussmessung — und er ist aufgelöst
+
+Die Schlussverifikation lieferte **zwei** Zahlen für dieselbe Sache: die Sammlung meldete
+**1201** Tests, die Summe der gefahrenen Blöcke **1208**.
+
+Die Ursache war eine **veraltete Stapelliste**: die Blöcke waren nach Dateiindex
+geschnitten, und dieser Lauf hat *währenddessen* zwei Testdateien angelegt — eine Datei lief
+dadurch in zwei Blöcken.
+
+> **Gefunden hat das nicht die Sorgfalt, sondern der Widerspruch zwischen zwei unabhängigen
+> Messungen derselben Größe. Eine allein wäre unwidersprochen geblieben.**
+
+⚠ Nachgerechnet über neu geschnittene, überschneidungsfreie Blöcke:
+**387 + 288 + 384 + 122 + 20 = 1201**, deckungsgleich mit der Sammlung. Alle Blöcke grün
+bis auf den einen bekannten Altbefund.
+
+⚠ Das ist im selben Zug ein **Argument für den Zuschnitt von `platform/T-0027`**: eine
+Prüfung, die die Berichtszahl gegen **eine** Quelle hält, hätte hier nichts gemerkt — beide
+Zahlen waren korrekt erhoben, nur über verschiedene Mengen.
+
 ### ⚠⚠ Der Befund dieses Laufs über sich selbst
 
 Zum zweiten Lauf in Folge hat eine **ältere Zusicherung** den eigenen Entwurf verworfen —
