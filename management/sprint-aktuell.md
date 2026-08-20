@@ -81,8 +81,8 @@ Grund **im Ticket**, nicht hier (`L-2026-08-17ag`).*
 | promt-team/T-0008 | test | Sprint 22 | offen | ⚠ **2. Verschiebung**, Grund im Ticket. Goldset für die übrigen zehn Rollen. |
 | promt-team/T-0003 | dev | wartet-auf-Umgebung | offen | ⚠ **Entblockt** (D000), wartet auf eine Umgebung mit **Ollama** — in diesem Lauf erneut gemessen: `which ollama` leer, `localhost:11434` ohne Antwort. **Kein „wartet auf dich".** |
 | team-mail/T-0001 | dev | wartet-auf-Umgebung | offen | ⚠ Wartet auf eine Umgebung mit **Mail-Zugangsdaten** — gemessen: keine `MAIL_IMAP_*` gesetzt. **Kein „wartet auf dich".** |
-| projects/p11/T-0003 | pl | Klammer | nachgezogen | Klammer über `T-0007`–`T-0015`; offen sind `T-0013` und `T-0015` (beide Sprint 22). |
-| projects/p11/T-0009 | dev | Klammer | nachgezogen | Klammer über `T-0013` (Sprint 22). |
+| projects/p11/T-0003 | pl | Klammer | nachgezogen | Klammer über `T-0007`–`T-0015`; offen sind `T-0013` und `T-0015` (beide Sprint 22). ⚠ Stand beim Planen noch auf Sprint 20 — **vom Preflight nachgezogen, zum zweiten Mal in Folge**. |
+| projects/p11/T-0009 | dev | Klammer | nachgezogen | Klammer über `T-0013` (Sprint 22). ⚠ Ebenso vom Preflight nachgezogen. |
 | platform/T-0024 | test | Sprint 22 | offen | ⚠ **Neu, 0. Verschiebung.** Die rote Zusicherung mit festgeschriebenem Datum. Erste DoD ist eine **Zählung**: wie viele Zusicherungen derselben Bauart gibt es? |
 | pm/T-0001..0003, platform/T-0001, team-dashboard/T-0001 | pl/coach/cm | jeder Sprint | **erfüllt** | Takt: Agenda + Briefkasten (0 offen, **zweimal** geprüft) + Lessons (`bh`, `bi`, `bj`) + Verifikation + Widget-Vertrag unverändert (v2.6 — SWR-153/154 berühren `/api/session` und `/api/sprint`, keine Vertragsfläche). |
 
@@ -118,6 +118,18 @@ entschiedene unverbuchte DRs 0.
    Lauf, als eigenes Ticket `platform/T-0024` verbucht.
 
 Nichts geglättet, kein Test angepasst, um grün zu werden.
+
+### ⚠ Zum zweiten Mal in Folge hat der Preflight dieselben zwei Klammern nachgezogen
+
+`p11/T-0003` und `p11/T-0009` standen beim Planen wieder auf **Sprint 20** — genau wie in
+Sprint 20 selbst, wo derselbe Befund an denselben zwei Tickets stand. Gefunden hat es
+wieder der **Preflight** und nicht der, der den Plan geschrieben hat.
+
+> **Dass derselbe Handgriff zweimal hintereinander vergessen wurde, ist kein
+> Konzentrationsproblem. „Eine Klammer folgt ihren Teilen" ist eine mechanische Regel —
+> und mechanische Regeln gehören an eine Prüfung, nicht an eine Erinnerung.**
+
+Notiert als Nachbar von `platform/T-0020`.
 
 ### ⚠ Der Befund dieses Laufs über sich selbst
 
