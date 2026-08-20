@@ -33,8 +33,14 @@
    warteten auf „mindestens einen durchgelaufenen Durchgang". Drei sind durchgelaufen —
    und haben nichts getan. Bedingung überall nachgeschärft auf: **ein Durchgang mit
    Ergebnis**.
-6. **1236 Prüfungen für die Technik** (gezählt, nicht geschätzt), **170 Anforderungen ohne
-   Lücke**, Briefkasten **0 offen**.
+6. **⚠ Zwei Briefe von dir kamen mitten in den Lauf** (20:36, 20:40) und sind beantwortet.
+   Deine Frage zu `p9` hat etwas sichtbar gemacht, das keine unserer Prüfungen je gemeldet
+   hätte: **ein Projekt, dessen sieben Aufgaben alle erledigt sind und das trotzdem 78-mal
+   in sieben Tagen beschrieben wurde** — weil die Anforderungen der ganzen Plattform in
+   seinem Ordner liegen.
+   > **Keine Prüfung fragt, ob der Name über einem Ordner noch stimmt. Gefunden hast du es.**
+7. **1236 Prüfungen für die Technik** (gezählt, nicht geschätzt), **170 Anforderungen ohne
+   Lücke**. Briefkasten: **0 offen beim Start, 2 eingegangen, 2 beantwortet**.
 
 ---
 
@@ -45,7 +51,7 @@
 | ⚠⚠ **Prüf bitte, ob `gemma3:27b` bei dir installiert ist** | `ollama list` auf deinem Rechner. Wir können das von hier aus nicht sehen und behaupten es deshalb nicht. Ab jetzt fragt die Automatik nach dem Namen aus deiner Besetzungstabelle — steht er dort falsch, scheitert sie weiter, aber dann an einer Stelle, die du siehst und ändern kannst. |
 | ⚠ **Nächsten Durchgang ansehen** (alle 15 Min) | In `ollama-schnelltakt.log` darf jetzt weder „Tick abgebrochen" noch „Fehler" stehen. Steht dort **„Tick OHNE ERGEBNIS"**, ist das die neue, ehrliche Meldung — sie sagt dir sofort, dass nichts entstanden ist. |
 | ⚠ **`abschluss.cmd` ausführen** | Der Rückstand ist jetzt vier Tage plus zwei Läufe. **Stichprobe:** danach steht in `abschluss-auto.log` `OK - alles geprueft und gepusht` und `PUSH-ANFORDERUNG.txt` ist verschwunden. |
-| ✅ **Keine offene Frage an dich** | Die Inbox ist leer. Die einzige, die dort stand, hast du beantwortet. |
+| ⚠ **Eine neue Frage an dich** | Deine eigene: `p9` — die Anforderungen der Plattform liegen im Requirements-Ordner eines **abgeschlossenen** Projekts (81 Stück, 9 der letzten 25 aus `platform`). Drei Optionen in der Inbox (`p9/T-0008`), Frist **27.08.**, Voreinstellung **A = alles bleibt**. Schweigen kostet nichts. |
 | ⚠ **Die alten Punkte** | Mail-Zugangsdaten (`team-mail/N-0003`), deine Zählung der Kacheln im Reiter „Dashboard". |
 | ⚠ **Nicht eilig** | `.git/verwaiste-locks` in den Projektordnern: **10043** Dateien (Stand 20:20 dieses Laufs). Wir können sie nicht löschen, du schon. Es stört nichts. |
 

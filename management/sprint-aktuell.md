@@ -62,7 +62,8 @@
    `MAIL-RED@mail` — aus dem Team-Kürzel **gebildet** statt aus dem Register **gelesen**;
    die Instanz heißt `MAIL-RED@team-mail`. `L-2026-08-20ck`.
 7. **Verifikation:** **1236 Python-Tests** in der Sammlung (**gemessen**, **76**
-   Testdateien), Matrix **170 SWRs / 0 Lücken**, Briefkasten **0 offen**, entschiedene
+   Testdateien), Matrix **170 SWRs / 0 Lücken**, Briefkasten **0 offen beim Start, 2
+   eingegangen und beantwortet**, entschiedene
    unverbuchte DRs **0** (nach der Verbuchung), Parkplatz **10043**.
    ✅ Neue Preflight-Zeile (`SWR-170`): *2 von 2 ollama-Besetzungen weichen ab* — erwartet
    waren 2. *Eine Prüfung, deren erwarteter Wert vor dem Bauen aufgeschrieben wird, prüft
@@ -75,7 +76,9 @@ Grund **im Ticket**, nicht hier (`L-2026-08-17ag`).*
 
 | Aufgabe | Rolle | Fällig | Status | Grund / nächster Schritt |
 |---|---|---|---|---|
-| Briefkasten (alle Repos) | pl | Sprint 26 | **erfüllt** | ✅ **0 offen** — 59 Briefe, alle `beantwortet`. Nichts zu tun, und das steht hier, damit „nichts offen" von „nicht nachgesehen" unterscheidbar bleibt. |
+| Briefkasten (alle Repos) | pl | Sprint 26 | **erfüllt** | ✅ Beim Sprintstart 0 offen (59 Briefe). ⚠ **Zwei kamen WÄHREND des Laufs** (20:36, 20:40) und sind beantwortet: `p9/N-0001`, `promt-team/N-0002`. |
+| p9/N-0001 → p9/T-0008 | pl | Sprint 26 | **erledigt** | ✅ *„kann dieses Projekt geschlossen werden?"* — gemessen: 7/7 Tickets `done`, **78 Commits in 7 Tagen**, 81 SWRs, davon 9 der letzten 25 aus `platform`. Als DR vorgelegt statt selbst entschieden. |
+| promt-team/N-0002 | pl | Sprint 26 | **erledigt** | ✅ *„beim prompt team bewegen sich die Aufgaben nicht mehr"* — gemessen: 8/10 `done`, die zwei offenen warten auf Läufe mit Ergebnis. Nebenbefund: drei Run-Registries. |
 | Tick-Schaden `platform` | cm | Sprint 26 | **erledigt** | ✅ **Reparatur vor Bau.** `platform` zurück auf `main`, `T-0001` auf `open`, der nur auf dem Branch liegende Run-Registry-Eintrag nachgetragen (`logging.run_registry: required`). Commit `e532681`. |
 | platform/T-0031 | dev | Sprint 26 | **erledigt** | ✅ **Neu und geschlossen im selben Lauf** (`prio: kritisch`). **SWR-167/168.** Vier Gegenproben gefahren (Mutation → rot, Rücknahme → 17/17 grün). |
 | platform/T-0032 | dev | Sprint 26 | **erledigt** | ✅ **Neu und geschlossen im selben Lauf** (`prio: kritisch`). **SWR-169/170.** Am echten Bestand: erwartet 2 Abweichungen, gemessen 2. |
@@ -100,7 +103,11 @@ Reparatur des Tick-Schadens im `platform`-Repo.
 (Branch-Rückkehr wird nachgeprüft), **SWR-169** (Modell aus dem Besetzungsregister),
 **SWR-170** (Abweichung Register/Guardrails wird gemeldet).
 
-**Neu angelegt:** `platform/T-0031`, `platform/T-0032`.
+**Neu angelegt:** `platform/T-0031`, `platform/T-0032`, `p9/T-0008` (DR, Frist 27.08.,
+Default A).
+
+**Briefe:** `p9/N-0001` und `promt-team/N-0002` — beide **während** des Laufs eingegangen
+und im selben Lauf beantwortet.
 
 **Verschoben:** `platform/T-0027` (3.), `platform/T-0030` (1.), `projects/p11/T-0016` (2.),
 `promt-team/T-0008` (2. der neuen Fassung), `promt-team/T-0003` (2. mit dem richtigen
@@ -108,7 +115,8 @@ Grund), `pm/T-0071` (Bedingung nachgeschärft statt Grund wiederholt) — jede m
 **im Ticket**.
 
 **Verifikation:** **1236 Python-Tests** in der Sammlung (gemessen, **76** Testdateien),
-Matrix **170 SWRs / 0 Lücken**, Briefkasten 0 offen, entschiedene unverbuchte DRs 0,
+Matrix **170 SWRs / 0 Lücken**, Briefkasten 0 offen (2 eingegangen, 2 beantwortet),
+entschiedene unverbuchte DRs 0,
 Parkplatz **10043**.
 
 ### ⚠ Was dieser Lauf ausdrücklich NICHT gemessen hat
