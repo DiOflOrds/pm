@@ -1,0 +1,54 @@
+# Workflows PM-Team (SWR-187). Drei Takt-Tickets, drei Workflows — Abdeckung 3/3.
+
+workflows:
+  - id: WF-PM-AGENDA
+    name: Session-Agenda pflegen
+    takt: je-session
+    geplant_von: pl
+    ticket: T-0001
+    arch_review: "2026-08-21 (platform/T-0044 — Bestandsablauf dokumentiert, kein Neuschnitt)"
+    cm_verankert: "Output management/session-agenda.md (pm-Repo; pm ist kein Projekt und fuehrt keinen cm-plan — benannt, nicht versteckt)"
+    schritte:
+      - rolle: script
+        werkzeug: board.py + /api/cockpit
+        aktion: Boards und Cockpit-Stand aller Einheiten lesen
+        input: BOARD.md aller Repos, Sprint-Register
+        output: Lagebild (fluechtig)
+      - rolle: pl
+        aktion: Agenda schreiben — welche Einheiten dieser Lauf tickt, Prioritaeten, Ollama-Serialisierung
+        input: Lagebild + Briefkasten
+        output: management/session-agenda.md
+  - id: WF-PM-INTAKE
+    name: Intake-Queue — Wuensche/Briefe qualifizieren
+    takt: je-session
+    geplant_von: pl
+    ticket: T-0002
+    arch_review: "2026-08-21 (platform/T-0044)"
+    cm_verankert: "Outputs sind Tickets/Pool-Zeilen/DRs — gefuehrt in den Ziel-Repos"
+    schritte:
+      - rolle: script
+        werkzeug: briefkasten.py (HMI)
+        aktion: neue Briefe/Wuensche einsammeln
+        input: management/briefkasten/N-*.md + Chat
+        output: Intake-Liste (fluechtig)
+      - rolle: pl
+        aktion: qualifizieren — Klasse A/B/C zuordnen, herunterbrechen
+        input: Intake-Liste
+        output: Ticket / Pool-Kandidat (management/projekt-pool.md) / DR an den Menschen
+  - id: WF-PM-LELE
+    name: Lessons Learned konsolidieren
+    takt: je-session
+    geplant_von: coach
+    ticket: T-0003
+    arch_review: "2026-08-21 (platform/T-0044)"
+    cm_verankert: "Outputs: Historien-LeLe-Abschnitte + Wissensbasis-CRs (process/knowledge/)"
+    schritte:
+      - rolle: script
+        werkzeug: feedback_route.py / Reports
+        aktion: Findings, Retro-Punkte, Historien-Zeilen einsammeln
+        input: Sprint-Reports, docs/historie.md aller Einheiten, QM-Findings
+        output: LeLe-Kandidatenliste (fluechtig)
+      - rolle: coach
+        aktion: destillieren und kuratieren (Kuratieren heisst auch Loeschen)
+        input: LeLe-Kandidatenliste
+        output: LeLe mit ID + Verbleib (Historie/Wissensbasis/Checkliste) — Uebernahme als Prozess-CR

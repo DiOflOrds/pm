@@ -1,6 +1,6 @@
 # Board (generiert von platform/scripts/board.py — nicht von Hand editieren)
 
-Stand: 2026-08-20 · Tickets: 72 · davon wiederkehrend: 3
+Stand: 2026-08-21 · Tickets: 76 · davon wiederkehrend: 3
 
 
 ## open (4)
@@ -12,10 +12,11 @@ Stand: 2026-08-20 · Tickets: 72 · davon wiederkehrend: 3
 | [T-0071](tickets/T-0071.md) | F18: Ollama-Schnelltakt in Betrieb nehmen — Aufgabenplanung registrieren, ersten Lauf prüfen, Wirkung messen (pm/D010) | task | einmalig | pl | Team | hoch | 25 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | Team | niedrig | 0 | — |
 
-## done (68)
+## done (72)
 
 | ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|---|
+| [T-0073](tickets/T-0073.md) | Orga-Rework 2: Projektmodell — PM + nur Projekte, Core Team implizit je Projekt, Projekt-Setup-Prozess, Umwidmung team-* zu P13–P15 (Auftraggeber-Auftrag 2026-08-21) | change-request | einmalig | pl | Team | kritisch | 0 | — |
 | [T-0004](tickets/T-0004.md) | DR (Klasse A): Gründung Pilot-Team „team-mail" (Mail-Zusammenfassung) + IMAP-Lesezugriff | decision-request | einmalig | pl | Team | hoch | 0 | — |
 | [T-0005](tickets/T-0005.md) | DR (Klasse A): P7 „Teams im HMI" beauftragen — Digest-Ansicht + Team-Konfiguration in Mission Control | decision-request | einmalig | pl | Team | hoch | 0 | — |
 | [T-0006](tickets/T-0006.md) | CR (N-0004): Ollama-Modell anzeigen + im Konfigurator auswählbar | change-request | einmalig | chg | Team | hoch | 0 | — |
@@ -53,6 +54,8 @@ Stand: 2026-08-20 · Tickets: 72 · davon wiederkehrend: 3
 | [T-0069](tickets/T-0069.md) | Der Status in_progress lebt 22 Sekunden: er wird vor dem Fertigmelden gesetzt statt beim Anfangen (Brief pm/N-0043) | problem | einmalig | pl | Team | hoch | 0 | — |
 | [T-0070](tickets/T-0070.md) | Orga-Rework Rollenmodell v2: Instanzen-Registry, Rollenkarten allgemein/projektspezifisch, Organigramme, Live-/Planungsansicht (Auftraggeber-Auftrag 2026-08-20) | change-request | einmalig | pl | Team | hoch | 0 | — |
 | [T-0072](tickets/T-0072.md) | Rollenkarten v2 komplett: 10 Bestandskarten gehoben + 4 neue (REL, MAIL-RED, DASH-RED, PROMPT-OPT); Takt vereinheitlicht (session = sprint, D006) | change-request | einmalig | coach | Team | hoch | 0 | — |
+| [T-0074](tickets/T-0074.md) | Setup-Nachzieh koordinieren: 7 Projekte ziehen die Initial-Artefakte des Projektmodells nach (Konzept 04 Kap. 8 Schritt 7) | task | einmalig | pl | Team | hoch | 0 | — |
+| [T-0075](tickets/T-0075.md) | Review-Lauf (Auftraggeber-Weisung „mache weiter“): SWR-177–184 reviewed, Matrix 184/0, QM-Review der 36 Setup-Artefakte, T-0039/T-0040/T-0042 geschlossen | task | einmalig | qm | Team | hoch | 0 | — |
 | [T-0010](tickets/T-0010.md) | Problem (N-0007): board-check-Flake — Stand-Datum kippt um Mitternacht | problem | einmalig | prob | Team | mittel | 0 | — |
 | [T-0014](tickets/T-0014.md) | CR (N-0017): Cockpit zeigt wiederkehrende Aufgaben im Klartext statt als Symbol | change-request | einmalig | chg | Team | mittel | 0 | — |
 | [T-0015](tickets/T-0015.md) | CR (N-0018): Team-Chat zeigt die neuesten Nachrichten zuerst | change-request | einmalig | chg | Team | mittel | 0 | — |
@@ -84,3 +87,4 @@ Stand: 2026-08-20 · Tickets: 72 · davon wiederkehrend: 3
 | [T-0066](tickets/T-0066.md) | CR (pm/N-0042): Cockpit kompakter — falten statt kürzen | change-request | einmalig | pl | Team | mittel | 0 | — |
 | [T-0067](tickets/T-0067.md) | CR (pm/T-0066 Teil a): Cockpit-Gruppen zuklappbar — falten statt weglassen | change-request | einmalig | pl | Team | mittel | 0 | — |
 | [T-0068](tickets/T-0068.md) | CR (pm/T-0066 Teil b): Wie viele Kacheln passen bei 1920×1080 auf eine Seite? — die Messung, die dem Team fehlt | change-request | einmalig | pl | Team | mittel | 0 | — |
+| [T-0076](tickets/T-0076.md) | Prozess-CR (LeLe aus pm/T-0074): projektplan-Template v1.1 — Leichtvarianten Dauerauftrag und Ruhezustand | change-request | einmalig | coach | Team | mittel | 0 | — |

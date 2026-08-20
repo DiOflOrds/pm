@@ -21,10 +21,10 @@ graph TB
 
 ## Beteiligte
 
-| Instanz | Rolle | Motor | Takt | Status | Hinweis |
-|---|---|---|---|---|---|
-| COACH@pm | Prozess-Coach | Cowork/Session | sprint | aktiv | LeLe-Register über alle Teams; kuratiert Wissensbasen (Lernzyklus) |
-| PL@pm | Projektleiter | Cowork/Session | sprint | aktiv | Koordiniert alle PL-Instanzen (Session-Agenda, Prioritäten, Besetzungen) |
-| QM@pm | Qualitätsmanager | Cowork/Session | sprint | aktiv | — |
+| Instanz | Rolle | Motor | Takt | Status | Quelle | Hinweis |
+|---|---|---|---|---|---|---|
+| COACH@pm | Prozess-Coach | Cowork/Session | sprint | aktiv | explizit | LeLe-Register über alle Projekte; kuratiert Wissensbasen (Lernzyklus) |
+| PL@pm | Projektleiter | Cowork/Session | sprint | aktiv | explizit | Koordiniert alle PL-Instanzen (Session-Agenda, Prioritäten, Besetzungen) |
+| QM@pm | Qualitätsmanager | Cowork/Session | sprint | aktiv | explizit | — |
 
 Rollen-Bauplan: `process/roles/<rolle>.md` · projektspezifischer Teil: `roles/<rolle>.md` in diesem Repo · Historie: `docs/historie.md`
