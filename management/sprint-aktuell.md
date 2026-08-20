@@ -1,5 +1,121 @@
 # Sprint aktuell — Genesis-Gesamtsprint (Workflow-Sicht des PM, pm/D006)
 
+## Das Wichtigste (Sprint 22, 2026-08-20)
+
+1. **✅ Der Brief, den Sprint 21 nur beantworten konnte, ist jetzt gebaut.**
+   `team-mail/N-0004` sagte: *„im aktuellen sprint müsste das aufgefallen sein!?"* Der
+   Preflight nennt ab jetzt **jedes Mal** die Pause seit dem letzten Sprintende — in
+   Minuten und in Vielfachen des Takts, **auch wenn sie unauffällig ist**. Heute:
+   *56 Min = 0,93x Takt.* Beim nächsten Ausfall steht dort *60,2x Takt — BEFUND*.
+2. **⚠⚠ Die Messung dafür hat zwei Befunde geliefert, nach denen niemand gefragt hatte.**
+   (a) `session.TAKT_MINUTEN` stand auf **30**, während das Register seit dem 17.08.
+   **60** führt — die Kachel meldete Stille nach **einer** statt nach **zwei** Stunden.
+   > **B033 in seiner leisesten Gestalt: nicht zwei Anzeigen, die sich widersprechen,
+   > sondern zwei Konstanten, die sich nie begegnen.**
+
+   (b) **Eine von sieben Pausen im Register ist negativ** (Sprint 17 startet 16:49,
+   Sprint 16 endet 17:10). Nicht auf 0 geklemmt, als **Überlappung** gemeldet, Ursache
+   **nicht geraten** — `platform/T-0026`. `L-2026-08-20bm`, `L-2026-08-20bn`.
+3. **⚠ Und ein Test hielt eine DRITTE Kopie derselben Zahl fest.** `minutes=95` als
+   „zwei Takte" — grün, solange der Irrtum galt, rot in dem Moment, in dem die beiden
+   anderen Kopien in Einklang kamen.
+   > **Ein Test, der eine Zahl festschreibt, die anderswo eine Tatsache ist, hält nicht
+   > den Code fest, sondern den Irrtum.**
+4. **✅ Die seit drei Tagen rote Zusicherung ist repariert — und das Datum NICHT
+   hochgezählt** (`platform/T-0024`, SWR-157). Der Ertrag ist die **Zählung davor**:
+   über 66 Testdateien gibt es **genau eine** Fundstelle dieser Bauart, während die
+   richtige Gegenbauart (Schranke statt Gleichheit) an **zwei** Stellen längst existierte.
+   > **Der Fehler war nicht Unwissen, sondern eine Gelegenheit — die Zahl stand gerade
+   > da und war richtig.** `L-2026-08-20bp`.
+5. **⚠ Die drei Fragen, die `platform/T-0020` seit vier Sprints blockierten, sind
+   beantwortet — und zwei davon UMGEKEHRT zur Vermutung im Ticket.** Gemessen über alle
+   **95 Commits** der Trace-Matrix: in **94 Übergängen** ist **nie** eine Anforderungs-ID
+   verschwunden.
+   > **⚠⚠ Der Vorfall, der das Ticket ausgelöst hat (143 → 24), steht NICHT in der
+   > Historie. Er ist im selben Lauf entstanden und im selben Lauf repariert worden — er
+   > hat die Arbeitskopie ruiniert und die Commits nie erreicht.** Wieder eine Prüfung
+   > auf eine Spur, die es nicht gibt (dieselbe Familie wie `platform/T-0025`).
+6. **⚠ Die zwei Klammern sind diesmal VOM PM nachgezogen worden und nicht vom
+   Preflight** — nach zwei Läufen, in denen er es tun musste.
+7. **1147 Python-Tests** (über die Sammlung **gemessen**, 66 Testdateien), Matrix
+   **157 SWRs / 0 Lücken**, Briefkasten **0 offen** (58/58 beantwortet).
+   ⚠ **Nicht startklar**: der Altbefund über drei Statusübergänge aus den Sprints 13
+   und 15 steht unverändert. **Der rote Test von Sprint 21 ist weg** — es bleibt
+   **einer** statt zweier. Nichts geglättet.
+
+## Sprint-Plan (Sprint 22)
+
+*Default nach `pm/D006`: in diesem Sprint schließen. ⚠ Jede Verschiebung trägt ihren
+Grund **im Ticket**, nicht hier (`L-2026-08-17ag`).*
+
+| Aufgabe | Rolle | Fällig | Status | Grund / nächster Schritt |
+|---|---|---|---|---|
+| platform/T-0025 | cm | Sprint 22 | **erledigt** | ✅ **SWR-156.** Pause seit dem letzten Sprintende, immer genannt, ab 2 Takten Befund. Aus Brief `team-mail/N-0004`. |
+| platform/T-0024 | test | Sprint 22 | **erledigt** | ✅ **SWR-157.** Zusicherung ohne Ablaufdatum; Zählung vor der Reparatur: genau **1** Fundstelle. |
+| platform/T-0020 | cm | Sprint 23 | offen | ⚠ **4. Verschiebung des BAUS** — die **drei Vorabfragen sind in diesem Lauf beantwortet**, als Messung an 95 Commits. Grund im Ticket, und er ist diesmal **nicht** Kapazität. |
+| platform/T-0026 | cm | Sprint 23 | offen | ⚠ **Neu, 0. Verschiebung.** Die negative Pause. Erste DoD ist eine **Messung** an den Commit-Zeiten der beiden Läufe. |
+| platform/T-0021 | cm | Sprint 23 | offen | ⚠ **2. Verschiebung des Baus**, Grund im Ticket. ⚠ In diesem Lauf **erneut in Produktion getroffen** (`cannot lock ref 'HEAD'`), Umgehung hat wieder gewirkt. |
+| platform/T-0022 | dev | Sprint 23 | offen | ⚠ **2. Verschiebung**, Grund im Ticket. Frage 2 ist eine **Zählung** — dieselbe Bauart, die in diesem Lauf zum zweiten Mal den Ertrag geliefert hat. |
+| projects/p11/T-0013 | dev | Sprint 23 | offen | ⚠ **3. Verschiebung**, Grund im Ticket. Bei der **vierten** Berührung: gebaut oder geschnitten. |
+| projects/p11/T-0015 | dev | Sprint 23 | offen | ⚠ **2. Verschiebung**, Grund im Ticket. Rückbau gehört in einen Lauf, der ihn ganz trägt. |
+| projects/p12/T-0011 | pl | Sprint 23 | offen | ⚠ **2. Verschiebung**, Grund im Ticket. |
+| promt-team/T-0008 | test | Sprint 23 | offen | ⚠ **3. Verschiebung**, Grund im Ticket. Beim nächsten Mal ist der Zuschnitt („eine Rolle je Lauf") die **erste** Frage. |
+| promt-team/T-0003 | dev | wartet-auf-Umgebung | offen | ⚠ Wartet auf eine Umgebung mit **Ollama**. **Kein „wartet auf dich".** |
+| team-mail/T-0001 | dev | wartet-auf-Umgebung | offen | ⚠ Wartet auf eine Umgebung mit **Mail-Zugangsdaten** (`MAIL_IMAP_*`). **Kein „wartet auf dich".** |
+| projects/p11/T-0003 | pl | Klammer | nachgezogen | Klammer über `T-0007`–`T-0015`; offen sind `T-0013` und `T-0015`. ✅ **Diesmal vom PM nachgezogen**, nicht vom Preflight. |
+| projects/p11/T-0009 | dev | Klammer | nachgezogen | Klammer über `T-0013`. ✅ Ebenso vom PM. |
+| p0/T-0008, T-0047, T-0072 · p1/T-0018 | mensch/cm/dev | — | **rejected** | Kein offener Arbeitsvorrat: verworfen und als solche geführt. Sie stehen hier, weil „nicht im Plan" sonst von „nicht nachgesehen" nicht zu unterscheiden wäre. |
+| pm/T-0001..0003, platform/T-0001, team-dashboard/T-0001 | pl/coach/cm | jeder Sprint | **erfüllt** | Takt: Agenda + Briefkasten (0 offen) + Lessons (`bm` cm · `bn` cm · `bo` pl · `bp` test · `bq` test) + Verifikation + Widget-Vertrag unverändert (v2.6 — SWR-156/157 berühren keine Vertragsfläche). |
+
+## Sprint-Abschluss (Sprint 22, 2026-08-20)
+
+**Geschlossen:** `platform/T-0025` und `platform/T-0024` — beide **Befunde über die
+eigene Arbeit**, einer davon vom Auftraggeber gemeldet.
+
+**Neue Anforderungen:** **SWR-156**, **SWR-157**, beide `reviewed` mit Nachweis.
+
+**Im Lauf beantwortet, ohne dass es geplant war:** die **drei Vorabfragen von
+`platform/T-0020`** — die Messung an 95 Commits ist als Nebenprodukt der
+Terminierungspflicht entstanden (jede offene Aufgabe wird terminiert, und wer terminiert,
+liest das Ticket).
+
+**Verschoben:** `platform/T-0020` (4., nur der Bau), `platform/T-0021` (2.),
+`platform/T-0022` (2.), `p11/T-0013` (3.), `p11/T-0015` (2.), `p12/T-0011` (2.),
+`promt-team/T-0008` (3.) — **alle mit Grund im Ticket**.
+
+**Im Lauf dazugekommen:** `platform/T-0026` — die negative Pause im Register.
+
+**Verifikation:** **1147 Python-Tests** (über die Sammlung **gemessen**, 66 Testdateien),
+Matrix **157 SWRs / 0 Lücken**, Briefkasten 0 offen, entschiedene unverbuchte DRs 0.
+
+⚠ **Nicht startklar**, aber **ein** roter Test statt zweier: der **Altbefund** über drei
+unzulässige Statusübergänge aus den Sprints 13 und 15 — unverändert, **keiner aus diesem
+Lauf**. `test_widget_post.BestandTest` ist **grün**.
+
+### ⚠ Der Befund dieses Laufs über sich selbst
+
+Zweimal in Folge hat eine Prüfung gefehlt, weil sie auf eine **Spur** schaute: Sprint 21
+fand, dass ein ausgefallener Lauf keine hinterlässt. Sprint 22 fand, dass der
+Matrix-Vorfall aus Sprint 17 ebenfalls keine hinterlassen hat — er lebte und starb in
+einer Arbeitskopie.
+
+> **Unsere Prüfungen lesen Commits, und Commits sind das, was übrig bleibt, wenn ein Lauf
+> gut ging. Was einen Lauf zerstört oder gar nicht erst stattfinden lässt, steht dort
+> nicht drin.**
+
+Verankert in `L-2026-08-20bn` und im Kopf von `platform/T-0020`.
+
+### ⚠ Und eine Zahl in diesem Bericht wäre ZUM VIERTEN MAL fortgeschrieben worden
+
+Der Entwurf trug **1128** Python-Tests aus dem Bericht von Sprint 21. Gemessen über die
+Sammlung sind es **1147** (66 statt 65 Dateien). Korrigiert **vor** dem Commit — wieder
+durch **Nachzählen**, wieder ohne Prüfung. ⚠ **Fünfter Beleg für Frage 3 von
+`platform/T-0020`**; sie ist jetzt der einzige Teil dieses Tickets, der noch offen ist.
+
+---
+
+# Anhang: Sprint 21 (2026-08-20, abgeschlossen)
+
 ## Das Wichtigste (Sprint 21, 2026-08-20)
 
 1. **Ein neuer Brief des Auftraggebers hat den Sprint bestimmt** (`pm/N-0043`, 08:24) —

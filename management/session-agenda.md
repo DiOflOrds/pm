@@ -1,5 +1,115 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
+## Das Wichtigste (Stand Sprint 22, 2026-08-20)
+
+1. **✅ Dein zweiter Brief von heute Morgen ist nicht nur beantwortet, sondern gebaut.**
+   Du hast gefragt, warum uns nicht aufgefallen ist, dass die Routine zweieinhalb Tage
+   aussetzte. Ab jetzt steht in **jedem** Startbericht eine Zeile mit der Pause seit dem
+   letzten Lauf — heute *„56 Min = 0,93x Takt"*. Beim nächsten Ausfall steht dort
+   *„60,2x Takt — BEFUND"*.
+2. **⚠⚠ Beim Nachmessen dafür haben wir etwas gefunden, wonach niemand gefragt hatte:
+   zwei Stellen unseres Programms führten zwei verschiedene Zahlen für denselben
+   Sachverhalt.** Wie oft die Routine läuft, stand an einer Stelle als **30 Minuten** und
+   an der anderen als **60**. Die Kachel „Letzte Session" hat deshalb seit dem 17.08.
+   **eine Stunde zu früh** Alarm geschlagen.
+   > **Zwei Anzeigen, die sich widersprechen, sieht man. Zwei Zahlen tief im Programm,
+   > die einander nie begegnen, sieht niemand — beide sehen für sich richtig aus.**
+3. **⚠⚠ Und der zweite Nebenbefund ist unangenehmer: eine unserer Zeitmessungen ist
+   negativ.** Ein Lauf hat einen Start eingetragen, der **21 Minuten vor dem Ende des
+   vorherigen** liegt. Das kann nur heißen, dass zwei Läufe verschiedene Uhren abgelesen
+   haben. Wir haben den Wert **nicht auf null gerundet** — er ist der einzige Beleg dafür,
+   dass es das Problem gibt. Als eigene Aufgabe verbucht, Ursache **noch nicht geraten**.
+4. **✅ Die rote Prüfung aus dem letzten Bericht ist grün — ohne dass wir das Datum
+   hochgezählt hätten.** Wir haben vorher gezählt, wie oft es diese Bauart bei uns gibt:
+   **genau einmal**, über 66 Testdateien. Die *richtige* Bauart gab es dagegen schon an
+   zwei Stellen.
+   > **Der Fehler war also nicht Unwissen. Die Zahl stand gerade da und war richtig, und
+   > jemand hat zugegriffen.**
+5. **⚠ Eine Aufgabe, die seit vier Sprints an drei offenen Fragen hing, hat ihre
+   Antworten bekommen — und zwei davon fielen umgekehrt aus als vermutet.** Wir haben
+   alle **95 Fassungen** unserer Anforderungsübersicht verglichen: in **94 Übergängen**
+   ist **nie** eine Anforderung verschwunden.
+   > **⚠ Der Vorfall, der die Aufgabe ausgelöst hat, steht gar nicht in unserer
+   > Geschichte. Er ist in einem Lauf entstanden und im selben Lauf repariert worden —
+   > und alle unsere Prüfungen lesen nur, was ein Lauf hinterlässt.** Zum zweiten Mal in
+   > zwei Läufen derselbe blinde Fleck.
+6. **1147 Prüfungen für die Technik** (gezählt, nicht geschätzt), **157 Anforderungen
+   ohne Lücke**. Rote Prüfungen: **eine statt zwei** — der alte Befund aus den Sprints 13
+   und 15, unverändert.
+
+---
+
+## Für dich (E. John)
+
+| Was | Warum |
+|---|---|
+| ✅ **Dein Brief von heute Morgen ist erledigt, nicht nur beantwortet** | `team-mail/N-0004` → `platform/T-0025`. **Den Ausfall selbst können wir weiterhin nicht verhindern** — ob die App läuft, liegt außerhalb unserer Reichweite. Dass wir ihn künftig **melden**, liegt jetzt drin. **Klasse B**, du musst nichts entscheiden. |
+| ⚠ **Eine neue Frage an dich gibt es NICHT** | Dieser Lauf hat nichts vorgelegt, was du entscheiden müsstest. |
+| ⚠ **Die alten Punkte stehen unverändert** | Die Mail-Zugangsdaten (`team-mail/N-0003`), Ollama in der Umgebung, deine Zählung der Kacheln im Reiter „Dashboard", und `abschluss.cmd` aus Sprint 1. |
+| ⚠ **Der alte rote Befund steht unverändert** | Die drei übersprungenen Aufgabenstände aus den Sprints 13 und 15. Neu dazugekommen ist **keiner** — und der zweite rote Test von gestern ist weg. |
+| ✅ **Zu pushen gibt es etwas** | Zeile steht in `PUSH-ANFORDERUNG.txt`. Wir pushen nie selbst. |
+
+---
+
+## Was in Sprint 22 passiert ist — in Ruhe erklärt
+
+### Warum eine Zahl an zwei Stellen zwei Werte haben konnte
+
+Wie oft die Routine läuft, ist eine Tatsache. Sie steht in unserem Sprintregister, und
+jeder Lauf schreibt sie mit: **60 Minuten**. Daneben stand dieselbe Tatsache noch einmal
+als feste Zahl im Programmtext der Kachel — **30 Minuten**, aus einer Zeit, als das
+stimmte.
+
+Nichts wurde dadurch rot. Beide Zahlen waren plausibel, keine Prüfung hat sie je
+nebeneinandergelegt, und die Kachel hat einfach eine Stunde zu früh „keine Session"
+gemeldet.
+
+> **Wo eine Tatsache mitgeschrieben wird, ist die mitgeschriebene die Quelle. Eine feste
+> Zahl daneben ist eine Annahme über die Vergangenheit — sie kann nur veralten.**
+
+Beim Reparieren fiel eine **dritte** Kopie derselben Zahl auf: ein Test, der „zwei Takte"
+als feste 95 Minuten schrieb. Er war grün, solange der Irrtum galt, und wurde in dem
+Moment rot, in dem die anderen beiden zusammenfanden.
+
+### Warum wir eine negative Zeit stehen lassen
+
+Beim Durchmessen aller Pausen kam heraus, dass eine von sieben **negativ** ist: Sprint 17
+trägt einen Start um 16:49, Sprint 16 ein Ende um 17:10.
+
+Die Reihenfolge in der Datei ist einwandfrei. Wenn die Reihenfolge stimmt und die
+Uhrzeiten sich widersprechen, dann stammen die Uhrzeiten nicht aus derselben Uhr.
+
+Eine Zeile Programmtext hätte den Wert auf null gerundet und die Anzeige schön gemacht.
+Wir haben es nicht getan, weil dieser negative Wert der einzige Beleg dafür ist, dass es
+das Problem überhaupt gibt. Woran es lag, haben wir **nicht geraten** — es gibt drei
+mögliche Erklärungen, sie führen zu verschiedenen Antworten, und der Fall trat einmal in
+22 Sprints auf. Das rechtfertigt eine Messung und keine Umstellung.
+
+### Warum wir vor einer Zehn-Minuten-Reparatur erst gezählt haben
+
+Die rote Prüfung von gestern war in zehn Minuten zu reparieren. Ihr Ticket verlangte
+vorher eine Zählung: *wie viele Prüfungen dieser Bauart gibt es bei uns?*
+
+Die Antwort war **eine**. Die richtige Gegenbauart gab es an **zwei** Stellen bereits.
+
+Das dreht die Schlussfolgerung um. Es lag nicht daran, dass wir es nicht besser wussten —
+wir wussten es besser und haben an dieser einen Stelle die Zahl genommen, die gerade
+dastand und richtig war. Eine Regel gegen Unwissen hätte nichts geändert.
+
+### Der blinde Fleck, den wir zum zweiten Mal in zwei Läufen finden
+
+Gestern: ein ausgefallener Lauf hinterlässt keine Spur, also kann keine Prüfung ihn
+finden. Heute: der Vorfall, bei dem unsere Anforderungsübersicht von 143 auf 24 Einträge
+schrumpfte, steht **nicht in unserer Geschichte** — er ist in einem Lauf entstanden und
+im selben Lauf repariert worden.
+
+> **Unsere Prüfungen lesen das, was ein Lauf hinterlässt. Was einen Lauf zerstört oder
+> gar nicht erst stattfinden lässt, hinterlässt nichts.**
+
+---
+
+# Anhang: frühere Sessions
+
 ## Das Wichtigste (Stand Sprint 21, 2026-08-20)
 
 1. **✅ Dein Brief von heute Morgen ist beantwortet — und drei der vier Punkte sind schon
