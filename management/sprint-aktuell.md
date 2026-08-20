@@ -44,9 +44,10 @@
    `L-2026-08-20ch`.
 5. **⚠⚠ ZUM VIERTEN LAUF IN FOLGE HAT EIN WERKZEUG DEN FRISCHEN ENTWURF VERWORFEN — UND
    DIESMAL ZWEIMAL IN EINEM LAUF.** `board.py` wies `p12/T-0012` ab und widerlegte damit
-   dessen eigenen Satz, es gehe *nicht* in die Inbox (`inbox.py` legt **jeden** offenen DR
-   vor). Und `test_konsole` fand `scripts/organigramm.py` aus dem Orga-Rework von heute als
-   **Einstiegspunkt ohne `konsole.sichere_ausgabe()`**.
+   dessen eigenen Satz, es gehe *nicht* in die Inbox. `test_konsole` fand
+   `scripts/organigramm.py` aus dem Orga-Rework als **Einstiegspunkt ohne
+   `konsole.sichere_ausgabe()`**. Und der **Preflight** widerlegte denselben DR ein zweites
+   Mal: ohne `frist` ist er ein unterminiertes Ticket — **dreimal in einem Lauf**.
    > **Beide Entwürfe waren plausibel, und kein Mensch hat sie beim Lesen bemerkt.**
 
    `L-2026-08-20cf`.
@@ -81,7 +82,7 @@ Grund **im Ticket**, nicht hier (`L-2026-08-17ag`).*
 | platform/T-0027 | cm | Sprint 26 | offen | ⚠ **2. Verschiebung**, Grund im Ticket. Dieser Lauf lieferte **zwei** weitere Belege: die Parkplatzzahl 9506→9754 (gemessen, aber ohne Zeitpunkt) und eine neue Rubrik — *gemessen ohne Angabe, WO*. ⚠ Beim vierten Mal gilt: gebaut oder geschnitten. |
 | projects/p11/T-0016 | dev | Sprint 26 | offen | ⚠ **1. Verschiebung**, Grund: Kapazität. Umfang unverändert **gezählt** (4 Bausteine, 11 von 111 JS-Zusicherungen). |
 | platform/T-0030 | dev | Sprint 26 | offen | ⚠ **0. Verschiebung.** Zuschnitt fertig, Bau nicht. Reihenfolge wie B039: erst der Weg nach außen, dann neue Fläche. |
-| projects/p12/T-0012 | mensch | wartet-auf-Menschen | offen | ⚠ **Neu, Klasse C, drei Optionen, KEINE Frist, Default A = heutiger Zustand.** Liegt in der Inbox. Schweigen kostet nichts. |
+| projects/p12/T-0012 | mensch | Frist 27.08. | offen | ⚠ **Neu, Klasse C, drei Optionen, Default A = heutiger Zustand.** Liegt in der Inbox. ⚠ Der fristlose Entwurf ist vom Preflight widerlegt worden — *eine Frage ohne Frist ist eine, deren Ausgang niemand aufgeschrieben hat*. Schweigen kostet trotzdem nichts: A ist der Ist-Zustand. |
 | p0/T-0008, T-0047, T-0072 · p1/T-0018 | mensch/cm/dev | — | **rejected** | Kein offener Arbeitsvorrat. Sie stehen hier, weil „nicht im Plan" sonst von „nicht nachgesehen" nicht zu unterscheiden wäre. |
 | pm/T-0001..0003, platform/T-0001, team-dashboard/T-0001 | pl/coach/cm | jeder Sprint | **erfüllt** | Takt: Agenda + Briefkasten (0 offen) + Lessons (**vier**: `ce` `cg` cm · `cf` test · `ch` pl) + Verifikation + Widget-Vertrag unverändert **v2.7**. |
 

@@ -51,7 +51,7 @@
 
 | Was | Warum |
 |---|---|
-| ⚠ **Eine neue Frage an dich — die erste seit vier Läufen** | Sollen Aufgaben-Texte so dargestellt werden wie Briefe (mit Überschriften und Tabellen) oder wie heute als Rohtext? Drei Knöpfe in der Inbox, **keine Frist**, Voreinstellung = heutiger Zustand. **Schweigen kostet nichts.** |
+| ⚠ **Eine neue Frage an dich — die erste seit vier Läufen** | Sollen Aufgaben-Texte so dargestellt werden wie Briefe (mit Überschriften und Tabellen) oder wie heute als Rohtext? Drei Knöpfe in der Inbox, Frist **27.08.**, Voreinstellung = heutiger Zustand. **Schweigen kostet nichts** — verstreicht die Frist, bleibt alles, wie es ist. |
 | ⚠⚠ **Wir melden einen schweren eigenen Fehler** | Drei Tage ohne Upload, dein Schnelltakt lief 12-mal ins Leere, und wir haben dir dreimal gesagt, deine Umgebung sei nicht eingerichtet, obwohl sie es war. Alles repariert und aufgeschrieben. **Klasse B**, du musst nichts entscheiden. |
 | ✅ **Zwei Briefe beantwortet** | `team-mail/N-0004` (warum die Routine nicht lief) und `platform/N-0007` (Kommentare an Aufgaben — eingeplant für den nächsten Lauf). |
 | ✅ **Zu pushen gibt es viel** | Drei Tage Rückstand plus dieser Lauf. Zeile steht in `PUSH-ANFORDERUNG.txt`. Wir pushen nie selbst. |
