@@ -1,5 +1,105 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
+## Das Wichtigste (Stand Sprint 26, 2026-08-20)
+
+1. **⚠⚠ Zum ersten Mal hat die Automatik wirklich gearbeitet — und nichts zustande
+   gebracht.** Deine Reparatur von gestern Abend hat gewirkt: von 26 Versuchen sind
+   **drei** durchgekommen statt keiner. Alle drei sind sofort gescheitert und haben nichts
+   erzeugt.
+   > **Wir hatten im letzten Bericht aufgeschrieben, dass wir das noch nicht wissen. Jetzt
+   > wissen wir es.**
+2. **⚠⚠ Der Grund ist ein Modellname — und wir wussten es seit vierzehn Tagen.** Die
+   Automatik fragt bei Ollama nach `llama3.1:8b`. Bei dir läuft `gemma3:27b`, und das steht
+   auch so in deiner Besetzungstabelle. **Am 6. August haben wir genau das schon einmal
+   festgestellt**, an drei Stellen aufgeschrieben und dazugeschrieben, was zu tun ist:
+   *„Modell-Defaults gegen das Geräteregister prüfen."* Es hat es nie jemand getan.
+   > **Wir haben die Lehre dreimal aufgeschrieben und kein einziges Mal in etwas verwandelt,
+   > das von allein wieder auftaucht. Vierzehn Tage später hat sie null Wirkung gehabt.**
+
+   Ab jetzt nimmt die Automatik das Modell **aus deiner Besetzungstabelle**. Steht dort
+   etwas Falsches, siehst du es in der Oberfläche und kannst es an einer Stelle ändern.
+3. **⚠⚠ Und die Automatik hat gemeldet, sie sei fertig — nach jedem Fehlschlag.** In deiner
+   Protokolldatei steht untereinander „Fehler" und „Tick abgeschlossen". Dazu hat sie im
+   `platform`-Ordner einen Nebenzweig aufgemacht und ist nicht zurückgekehrt; dadurch stand
+   eine Aufgabe dort als „in Arbeit", während unsere Prüfung „nichts in Arbeit" meldete —
+   sie hat auf dem Nebenzweig nachgesehen. **Beides repariert, beides mit Prüfung.**
+4. **✅ Danke — deine Antwort kam nach fünf Minuten.** Du hast `p12/T-0012` mit **A**
+   entschieden (alles bleibt, wie es ist). Verbucht und geschlossen; **es wird nichts
+   gebaut und nichts zurückgebaut**.
+   > **Diese Frage stand fünf Sprints lang als Aufgabe im Plan und wurde jedes Mal
+   > verschoben. Gefragt haben wir sie einmal, und du hast in fünf Minuten geantwortet. Der
+   > Aufwand lag nie bei dir.**
+5. **⚠ Drei Aufgaben hatten sich eine Bedingung gesetzt, die ein Fehlschlag erfüllt.** Sie
+   warteten auf „mindestens einen durchgelaufenen Durchgang". Drei sind durchgelaufen —
+   und haben nichts getan. Bedingung überall nachgeschärft auf: **ein Durchgang mit
+   Ergebnis**.
+6. **1236 Prüfungen für die Technik** (gezählt, nicht geschätzt), **170 Anforderungen ohne
+   Lücke**, Briefkasten **0 offen**.
+
+---
+
+## Für dich (E. John)
+
+| Was | Warum |
+|---|---|
+| ⚠⚠ **Prüf bitte, ob `gemma3:27b` bei dir installiert ist** | `ollama list` auf deinem Rechner. Wir können das von hier aus nicht sehen und behaupten es deshalb nicht. Ab jetzt fragt die Automatik nach dem Namen aus deiner Besetzungstabelle — steht er dort falsch, scheitert sie weiter, aber dann an einer Stelle, die du siehst und ändern kannst. |
+| ⚠ **Nächsten Durchgang ansehen** (alle 15 Min) | In `ollama-schnelltakt.log` darf jetzt weder „Tick abgebrochen" noch „Fehler" stehen. Steht dort **„Tick OHNE ERGEBNIS"**, ist das die neue, ehrliche Meldung — sie sagt dir sofort, dass nichts entstanden ist. |
+| ⚠ **`abschluss.cmd` ausführen** | Der Rückstand ist jetzt vier Tage plus zwei Läufe. **Stichprobe:** danach steht in `abschluss-auto.log` `OK - alles geprueft und gepusht` und `PUSH-ANFORDERUNG.txt` ist verschwunden. |
+| ✅ **Keine offene Frage an dich** | Die Inbox ist leer. Die einzige, die dort stand, hast du beantwortet. |
+| ⚠ **Die alten Punkte** | Mail-Zugangsdaten (`team-mail/N-0003`), deine Zählung der Kacheln im Reiter „Dashboard". |
+| ⚠ **Nicht eilig** | `.git/verwaiste-locks` in den Projektordnern: **10043** Dateien (Stand 20:20 dieses Laufs). Wir können sie nicht löschen, du schon. Es stört nichts. |
+
+---
+
+## Was in Sprint 26 passiert ist — in Ruhe erklärt
+
+### Die Automatik lief, und das war die schlechte Nachricht
+
+Seit gestern Abend ist die Sperre weg, die drei Tage lang alles angehalten hat. Seither
+versucht die Automatik alle 15 Minuten, eine Aufgabe zu bearbeiten. **Dreimal ist sie
+durchgekommen. Dreimal hat sie nichts erzeugt.**
+
+Sie fragt das lokale Sprachmodell nach einem Namen, den es bei dir nicht gibt. Dein Modell
+heißt `gemma3:27b` — das steht in der Tabelle, in der du deine Besetzungen pflegst, und in
+der Entscheidung vom Vormittag. Gefragt hat sie nach `llama3.1:8b`, weil dieser Name in
+einer *zweiten* Datei steht, die niemand pflegt.
+
+> **Zwei Stellen trugen den Wert. Beide waren gepflegt, keine war falsch, und die Maschine
+> lief trotzdem gegen die Wand — weil sie die falsche gelesen hat.**
+
+### Warum wir das schon einmal wussten
+
+Am 6. August ist uns genau das passiert, und wir haben es aufgeschrieben. Dreimal, an drei
+Stellen, mit dem Satz, was zu tun sei, und sogar mit einer Zielzahl: *„Wiederholungsquote
+in Sprint 2 = 0."*
+
+Wir haben es nie in ein Ticket verwandelt und nie in eine Prüfung. Vierzehn Tage später ist
+die Quote 3 von 3.
+
+> **Eine aufgeschriebene Lehre ist ein Zettel. Sie wirkt erst, wenn sie etwas ist, das von
+> allein wieder auftaucht — eine Aufgabe oder eine Prüfung.**
+
+Die Prüfung gibt es jetzt. Sie sagt bei jedem Start, welche Besetzung ein anderes Modell
+trägt als die Voreinstellung. Beim ersten Lauf hat sie **zwei** gemeldet — genau die
+beiden, die wir vorher aufgeschrieben hatten.
+
+### Warum „fertig" nicht heißt, dass etwas fertig ist
+
+In deiner Protokolldatei standen zwei Zeilen untereinander: „Fehler, nichts erzeugt" und
+„Tick abgeschlossen". Die untere sah aus wie ein Ergebnis und war keins — sie stand einfach
+immer da, egal was passiert war.
+
+> **„Abgeschlossen" war kein falsches Wort für einen Fehler. Es war gar kein Wort über das
+> Ergebnis, sondern eines über das Ende des Programms.**
+
+Dasselbe eine Ebene höher: Drei Aufgaben von uns warteten darauf, dass „mindestens ein
+Durchgang durchläuft". Drei sind durchgelaufen und haben nichts getan — die Bedingung war
+buchstabengetreu erfüllt und sinngemäß nicht. Auch das ist korrigiert.
+
+---
+
+# Anhang: Sprint 25
+
 ## Das Wichtigste (Stand Sprint 25, 2026-08-20)
 
 1. **⚠⚠ Seit drei Tagen ist nichts mehr auf GitHub angekommen, und wir haben es nicht

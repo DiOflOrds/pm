@@ -1,5 +1,133 @@
 # Sprint aktuell — Genesis-Gesamtsprint (Workflow-Sicht des PM, pm/D006)
 
+## Das Wichtigste (Sprint 26, 2026-08-20)
+
+1. **⚠⚠ DER ERSTE TICK, DER JEMALS DURCHGELAUFEN IST — UND ER HAT NICHTS GETAN.** `SWR-166`
+   hat den Preflight entsperrt; seither sind **3 von 26** Versuchen durchgekommen (20:00
+   `platform`, 20:15 `platform`, 20:15 `team-mail`). Alle drei: `status=fehler`,
+   `artefakte=[]`.
+   > **Sprint 25 hatte ausdrücklich aufgeschrieben, dass er das NICHT gemessen hat —
+   > „damit es nicht später als erledigt gilt, weil ihm niemand widersprochen hat". Dies
+   > ist die Messung, und die Antwort ist nein.**
+
+   `platform/T-0031`, `platform/T-0032`, `SWR-167`–`SWR-170`.
+2. **⚠⚠ DIE URSACHE STAND SEIT VIERZEHN TAGEN ALS LEHRE IM BESTAND — DREIMAL, MIT
+   ERWARTUNGSWERT.** `404: model 'llama3.1:8b' not found`. **L-003** vom **2026-08-06**
+   nennt den Guardrails-Default, nennt `gemma3:27b` als das installierte Modell und nennt
+   die Gegenmaßnahme wörtlich: *„Modell-Defaults gegen das Geräteregister prüfen;
+   Abweichungen als Registry-/Guardrails-CR nachziehen."* Abgelegt in `T-0036-prompt.md`,
+   `p0/sprint-1/retro.md` und `p0/T-0016` — dort mit **„Erwartungswert: Wiederholungsquote
+   in Sprint 2 = 0"**. Die Quote ist **3 von 3**.
+   > **Es fehlte NICHT die Sorgfalt beim Aufschreiben. Die Lehre ist vorbildlich
+   > formuliert, dreifach abgelegt und mit Erwartungswert versehen — und hat vierzehn Tage
+   > lang exakt null Wirkung gehabt, weil der Satz, der ihren Vollzug trug, nie ein Ticket
+   > geworden ist.**
+
+   Das ist der **elfte** Beleg für `platform/T-0027` und der härteste; die neue Rubrik
+   heißt **„gelernt ohne Vertreter"**. `L-2026-08-20ci`.
+3. **⚠⚠ UND DER TICK HAT DEN SCHADEN SELBST VERLÄNGERT — DREI BEFUNDE IN EINER FUNKTION.**
+   (a) `print("Tick abgeschlossen…")` stand **unbedingt** vor `return 0` — auch nach
+   `fehler`. (b) Der Branchname ist bei **jedem** Tick derselbe; beim zweiten Tick von
+   `T-0001` zog `checkout <branch>` HEAD **zwei Commits zurück**, `main` und Branch sind
+   divergiert. (c) Die Rückkehr auf `main` stand mit `fehler_ok=True` da und ist
+   stillschweigend misslungen.
+   > **⚠⚠ Folge: `main` behielt `in_progress`, der Arbeitsbaum stand auf dem Branch mit
+   > `open` — und der Preflight, der den ARBEITSBAUM liest, meldete „In Arbeit
+   > liegengeblieben: 0". Eine Prüfung, die den Arbeitsbaum liest, prüft den Branch, auf
+   > dem sie zufällig steht.**
+
+   Repariert (Commit `e532681`), gebaut (`SWR-167/168`). `L-2026-08-20cj`.
+4. **✅ DER AUFTRAGGEBER HAT GEANTWORTET — NACH FÜNF MINUTEN.** `p12/T-0012` (Rendern von
+   Ticket-Bodys) ist am 20.08. um **20:34** mit **A** entschieden (`D004`), fünf Minuten
+   nach Beginn dieses Sprints. Verbucht, geschlossen, **nichts gebaut und nichts
+   zurückgebaut** — A ist der Ist-Zustand.
+   > **Fünfmal als Aufgabe terminiert, einmal gefragt, fünf Minuten Antwortzeit. Der
+   > Aufwand lag nie im Beantworten, sondern darin, die Frage als Frage zu erkennen.**
+
+   ⚠ Bemerkt hat die Antwort **kein** Preflight (der lief vorher), sondern
+   `test_dr_verbuchung` über den **echten Bestand**, mitten im Lauf. *Die rote Zeile war
+   nicht die Störung des Laufs, sie war sein Ergebnis.*
+5. **⚠ EINE BEDINGUNG, DIE EIN FEHLSCHLAG ERFÜLLT, IST KEINE BEDINGUNG.** `pm/T-0071`,
+   `promt-team/T-0003` und `promt-team/T-0008` warteten alle auf *„mindestens einen
+   durchgelaufenen Tick"*. Drei sind durchgelaufen — die Bedingung war **wörtlich erfüllt
+   und inhaltlich nicht**. Nachgeschärft in allen dreien auf: **ein Tick mit `status: ok`
+   und mindestens einem Artefakt** (Stand: **0 von 3**).
+   ⚠ Nebenbefund aus `T-0008`: es gibt **drei** Run-Registries, nicht eine. Der Tick
+   schreibt in die des Ziel-Repos, `T-0008` liest nur die von `p0` — **die Bedingung zeigt
+   auf ein Register, in das die Ticks nicht schreiben.** Benannt, nicht gebaut.
+6. **⚠ Zum FÜNFTEN Lauf in Folge hat ein Werkzeug den frischen Entwurf verworfen — zweimal
+   in einem Lauf, und beide Male war es ein Test gegen seinen eigenen Verfasser.**
+   `test_kein_return_im_finally` suchte nach dem **Wort** „return" und wurde von dem
+   Kommentar rot gemacht, der das Verbot erklärt. `test_am_echten_bestand…` erwartete
+   `MAIL-RED@mail` — aus dem Team-Kürzel **gebildet** statt aus dem Register **gelesen**;
+   die Instanz heißt `MAIL-RED@team-mail`. `L-2026-08-20ck`.
+7. **Verifikation:** **1236 Python-Tests** in der Sammlung (**gemessen**, **76**
+   Testdateien), Matrix **170 SWRs / 0 Lücken**, Briefkasten **0 offen**, entschiedene
+   unverbuchte DRs **0** (nach der Verbuchung), Parkplatz **10043**.
+   ✅ Neue Preflight-Zeile (`SWR-170`): *2 von 2 ollama-Besetzungen weichen ab* — erwartet
+   waren 2. *Eine Prüfung, deren erwarteter Wert vor dem Bauen aufgeschrieben wird, prüft
+   beim ersten Lauf sich selbst mit.*
+
+## Sprint-Plan (Sprint 26)
+
+*Default nach `pm/D006`: in diesem Sprint schließen. ⚠ Jede Verschiebung trägt ihren
+Grund **im Ticket**, nicht hier (`L-2026-08-17ag`).*
+
+| Aufgabe | Rolle | Fällig | Status | Grund / nächster Schritt |
+|---|---|---|---|---|
+| Briefkasten (alle Repos) | pl | Sprint 26 | **erfüllt** | ✅ **0 offen** — 59 Briefe, alle `beantwortet`. Nichts zu tun, und das steht hier, damit „nichts offen" von „nicht nachgesehen" unterscheidbar bleibt. |
+| Tick-Schaden `platform` | cm | Sprint 26 | **erledigt** | ✅ **Reparatur vor Bau.** `platform` zurück auf `main`, `T-0001` auf `open`, der nur auf dem Branch liegende Run-Registry-Eintrag nachgetragen (`logging.run_registry: required`). Commit `e532681`. |
+| platform/T-0031 | dev | Sprint 26 | **erledigt** | ✅ **Neu und geschlossen im selben Lauf** (`prio: kritisch`). **SWR-167/168.** Vier Gegenproben gefahren (Mutation → rot, Rücknahme → 17/17 grün). |
+| platform/T-0032 | dev | Sprint 26 | **erledigt** | ✅ **Neu und geschlossen im selben Lauf** (`prio: kritisch`). **SWR-169/170.** Am echten Bestand: erwartet 2 Abweichungen, gemessen 2. |
+| projects/p12/T-0012 | pl | Sprint 26 | **erledigt** | ✅ **Entscheidung `D004` (A) verbucht.** Keine Folgearbeit: A ist der Ist-Zustand. Kein Nachfolgeticket — eines für „nichts tun" wäre ein Vorgang ohne Gegenstand. |
+| pm/T-0071 | pl | Sprint 27 | offen | ⚠ **Schritt 2 IST beantwortet** (Ticks laufen, nur ollama-fähige Typen, Gate-relevantes unberührt) — und die Antwort ist halb: 0 Artefakte. Schritt 3 wartet auf **Betriebszeit mit Ergebnis**, nicht auf einen Menschen. Bedingung nachgeschärft. |
+| promt-team/T-0003 | dev | Sprint 27 | offen | ⚠ **2. Terminierung mit dem richtigen Grund.** Baseline über drei Fehlläufe wäre eine Messung des Modellnamens, nicht des Prompts. |
+| promt-team/T-0008 | test | Sprint 27 | offen | ⚠ **2. Verschiebung der neuen Fassung.** Grund gemessen (0 Läufe mit Ergebnis) **plus** neuer Befund: drei Run-Registries statt einer. |
+| platform/T-0027 | cm | Sprint 27 | offen | ⚠ **3. Verschiebung**, Grund im Ticket. Elfter Beleg geliefert, Rubrik **„gelernt ohne Vertreter"** ergänzt. ⚠ **Beim vierten Mal: gebaut oder geschnitten.** |
+| platform/T-0030 | dev | Sprint 27 | offen | ⚠ **1. Verschiebung.** Ein zweiter Schreibweg in eine Ticketdatei ist erst dann eine Verbesserung, wenn der erste nachweislich dort landet, wo er soll — das ist mit `SWR-168` gerade hergestellt worden. |
+| projects/p11/T-0016 | dev | Sprint 27 | offen | ⚠ **2. Verschiebung**, Kapazität. Umfang unverändert **gezählt** (4 Bausteine, 11 von 111 JS-Zusicherungen), nicht neu geschätzt. |
+| team-mail/T-0001 | dev | jeder Sprint | offen (Takt) | ⚠ Der Tick hat dieses Ticket gezogen und ist am Modellnamen gescheitert — **aber korrekt aufgeräumt** (zurück auf `main`, Status `open`, Fehler im Rumpf). Unverändert offen: `N-0003` (Zugangsdaten). |
+| p0/T-0008, T-0047, T-0072 · p1/T-0018 | mensch/cm/dev | — | **rejected** | Kein offener Arbeitsvorrat. Sie stehen hier, weil „nicht im Plan" sonst von „nicht nachgesehen" nicht zu unterscheiden wäre. |
+| pm/T-0001..0003, platform/T-0001, team-dashboard/T-0001 | pl/coach/cm | jeder Sprint | **erfüllt** | Takt: Agenda + Briefkasten (0 offen) + Lessons (**vier**: `ci` `cj` cm · `ck` test · `cl` pl) + Verifikation + Widget-Vertrag unverändert **v2.7**. |
+
+## Sprint-Abschluss (Sprint 26, 2026-08-20)
+
+**Geschlossen:** `platform/T-0031` und `platform/T-0032` (beide neu und geschlossen im
+selben Lauf), `projects/p12/T-0012` (Entscheidung des Auftraggebers verbucht), dazu die
+Reparatur des Tick-Schadens im `platform`-Repo.
+
+**Neue Anforderungen:** **SWR-167** (Ergebniswort folgt dem Gateway-Status), **SWR-168**
+(Branch-Rückkehr wird nachgeprüft), **SWR-169** (Modell aus dem Besetzungsregister),
+**SWR-170** (Abweichung Register/Guardrails wird gemeldet).
+
+**Neu angelegt:** `platform/T-0031`, `platform/T-0032`.
+
+**Verschoben:** `platform/T-0027` (3.), `platform/T-0030` (1.), `projects/p11/T-0016` (2.),
+`promt-team/T-0008` (2. der neuen Fassung), `promt-team/T-0003` (2. mit dem richtigen
+Grund), `pm/T-0071` (Bedingung nachgeschärft statt Grund wiederholt) — jede mit Grund
+**im Ticket**.
+
+**Verifikation:** **1236 Python-Tests** in der Sammlung (gemessen, **76** Testdateien),
+Matrix **170 SWRs / 0 Lücken**, Briefkasten 0 offen, entschiedene unverbuchte DRs 0,
+Parkplatz **10043**.
+
+### ⚠ Was dieser Lauf ausdrücklich NICHT gemessen hat
+
+Ob ein Tick **nach** `SWR-169` ein brauchbares Artefakt liefert. Dazu muss einer laufen,
+und dazu muss `gemma3:27b` auf dem Rechner des Auftraggebers installiert sein — von hier
+aus **nicht messbar** (`L-2026-08-20ce`). Der Satz steht hier aus demselben Grund, aus dem
+er in Sprint 25 stand: damit er nicht später als erledigt gilt, weil ihm niemand
+widersprochen hat.
+
+⚠ Und ein zweiter: dass `main` und `feature/t-0001-…` in `platform` divergiert sind, ist
+**repariert, nicht aufgelöst** — der Branch steht weiterhin da, als Beleg. Ihn zu löschen
+wäre Glätten; ihn zu mergen hieße, einen Commit aus einem Fehllauf in die Historie zu
+holen. `SWR-168` sorgt dafür, dass kein neuer dazukommt.
+
+---
+
+# Anhang: Sprint 25
+
 ## Das Wichtigste (Sprint 25, 2026-08-20)
 
 1. **⚠⚠ DER AUTO-PUSH-WÄCHTER WAR SEIT DREI TAGEN TOT, UND ES STAND DIE GANZE ZEIT IN
