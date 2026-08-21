@@ -1,3 +1,42 @@
+## Sprint 34 (2026-08-21) — Planung und Abschluss
+
+**Geschlossen:** `platform/T-0062`, `T-0063`, `T-0061`, `T-0056` (**SWR-207–209, 211**),
+`team-dashboard/T-0005` (**SWR-210**), `pm/T-0083`. **Verschoben:** sechs nach Sprint 35,
+Grund je im Ticket. **Briefkasten:** 0 offen, am **Ende** gemessen — ⚠ **1 Beitrag** kam
+um 12:26 während des Laufs und wurde im selben Sprint umgesetzt.
+
+**Gegründet: P16 `team-termine`** (`pm/D016` = B, Brief `pm/N-0044`) — erstes Projekt
+**oberhalb** von `projects/`, mit `.kein-remote`. ⚠ Die Planung des Tickets sagte
+„als Ordner unter `projects/`“; das wäre falsch gewesen, weil `projects` gepusht wird und
+das Projekt den Kalender eines **fremden Kontos** verarbeitet.
+
+**⚠⚠ Der teuerste Fund: 91 Lehren waren gelöscht — und der Wächter meldete Fortschritt.**
+Der Abschluss-Commit von Sprint 32 (`process@a82f207`, Betreff *„Lehren cq-cv verankert“*)
+hat `cm/lessons.md` von 1931 auf 26 und `pl/lessons.md` von 831 auf 26 Zeilen gekürzt:
+**91 Abschnitte gelöscht, 2 hinzugefügt**, geschrieben statt angehängt.
+
+> **Ein Bestand kann verschwinden, während sein Wächter Erfolg meldet. Und die Erklärung
+> aus Sprint 33 — die Lehren hätten „nie in einem Lehrbuch gelebt“ — war ebenfalls falsch:
+> beide Male wurde der BESTAND gezählt und nie die GESCHICHTE der Datei.**
+
+Wiederhergestellt; der Beweis ist eine Zahl, die niemand gewählt hat: `ohne_vertreter`
+liefert wieder **exakt die 91** aus Sprint 31, in beide Richtungen leer.
+
+**⚠⚠ Das Gegenlesen fand sieben Fehler in fertig gemeldeter Arbeit — keinen der Autor.**
+Dritter Sprint in Folge. Der bitterste: derselbe Bau, der eine Doppelung **benennt**, hat
+eine neue angelegt — mit einem Kommentar, der die Gleichheit zweier Listen *behauptet*.
+
+> **Ein Kommentar behauptet. `assertIs` stellt her.**
+
+**⚠ Zwei eigene Fehler, benannt statt geglättet:** derselbe Schreib-statt-Anhängen-Fehler
+keine Stunde nach seiner Lehre (wiederhergestellt) — und die erste Erklärung dafür war
+falsch: `board.py` **hat** ihn gefunden und den Dateinamen genannt, der Aufruf lief mit
+weggeworfener Ausgabe. **Eine Prüfung, deren Ausgabe man wegwirft, ist teurer als keine.**
+
+**Zahlen:** 211 SWRs / 0 Lücken, 1529 Tests / 107 Dateien, JS 114, Organigramm grün
+(21 Dateien), Workflows 8 / 0 unabgedeckt, Work Products 56 / 0, offene Aufgaben 33,
+auf den Menschen wartend 0, Baselines 13 abgenommen / 13 getaggt.
+
 ## Sprint 33 (2026-08-21) — Planung und Abschluss
 
 **Geschlossen:** `platform/T-0054`, `T-0057`, `T-0058` (**SWR-204/205/206**).

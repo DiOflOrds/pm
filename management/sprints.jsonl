@@ -52,3 +52,4 @@
 {"nr": 33, "kennung": "cowork-2026-08-21-s33", "start": "2026-08-21 10:24", "takt_min": 60}
 {"kennung": "cowork-2026-08-21-s33", "ende": "2026-08-21 11:37"}
 {"nr": 34, "kennung": "s34-2026-08-21-1206", "start": "2026-08-21 12:07", "takt_min": 60, "notiz": "Routine-Session Sprint 34"}
+{"kennung": "s34-2026-08-21-1206", "ende": "2026-08-21 14:08", "ende_notiz": "Sprint 34 abgeschlossen: 6 geschlossen, 6 verschoben, P16 team-termine gegruendet, 91 Lehren wiederhergestellt, 7 Review-Befunde behoben"}

@@ -1,5 +1,186 @@
 # Sprint aktuell — Genesis-Gesamtsprint (Workflow-Sicht des PM, pm/D006)
 
+## Sprint-Plan (Sprint 34) — Planung VOR der Arbeit
+
+*Default nach `pm/D006`: in diesem Sprint schließen. ⚠ Jede Verschiebung trägt ihren Grund
+**im Ticket**, nicht hier (`L-2026-08-17ag`). Gesichtet: **alle** Tickets **aller** Repos
+über **beide** Ebenen. Offen beim Start: **21**. Briefkasten beim Start: **0 offen** —
+⚠ und das ist nach `L-2026-08-21cs` ausdrücklich KEINE Zusicherung für den Abschluss; die
+Nachmessung am Ende ist Pflichtteil dieses Plans.*
+
+| Aufgabe | Rolle | Fällig | Status | Grund / nächster Schritt |
+|---|---|---|---|---|
+| Briefkasten (beide Ebenen) | pl | Sprint 34 | **erfüllt** | 0 offen beim Start — **1 Beitrag um 12:26 während des Laufs**, beantwortet und umgesetzt. |
+| **platform/T-0062** | dev | Sprint 34 | **geschlossen** | Sieben rote Zusicherungen seit Sprint 32; zuerst zählen (DoD 1), dann bauen. |
+| **platform/T-0061** | coach | Sprint 34 | **geschlossen** | Zuerst zählen (DoD 1: echte Lehre gegen Zitat), dann entscheiden. |
+| **pm/T-0083** | pl | Sprint 34 | **geschlossen** | Projektgründung `team-termine` (`pm/D016` = B) — in Sprint 32 zugesagt, in 33 verschoben. |
+| **platform/T-0056** | cm | Sprint 34 | **geschlossen** | Ursache **messen**, bevor gebaut wird. |
+| **team-dashboard/T-0005** | dev | Sprint 34 | **geschlossen (Teil 1)** | Entsperrt durch die Antwort des Auftraggebers um 12:26; Teil 2 abgetrennt als `T-0006`. |
+| **platform/T-0063** | cm | Sprint 34 | **geschlossen** | ⚠ **Nicht geplant** — beim Ausführen von `pm/T-0083` gefunden. |
+| **platform/T-0055** | dev | Sprint 34 | **verschoben → 35** | Grund im Ticket; Gegenstand ist durch `T-0064` gewachsen. |
+| **platform/T-0060** | dev | Sprint 34 | **verschoben → 35** | ⚠ Nicht Kapazität: Ollama ist aus der Sandbox **gemessen unerreichbar**, der Nachweis braucht den Team-Node. |
+| **pm/T-0080**, **pm/T-0082** | dev/pl | Sprint 34 | **verschoben → 35** | Grund je im Ticket. |
+| **team-dashboard/T-0004**, **team-mail/T-0006** | dev | Sprint 34 | **verschoben → 35** | Grund je im Ticket; `team-mail/T-0006` ist **entsperrt** (`pm/D015` = B). |
+| pm/T-0071, pm/T-0079, promt-team/T-0003, promt-team/T-0012 | pl/dev/prompt-opt | — | **blocked** | ⚠ Alle vier zeigen auf **`platform/T-0060`**, das **offen** ist und ein echtes, benanntes Hindernis trägt — `SWR-204` erfüllt. |
+| pm/T-0001–T-0003, platform/T-0001, team-dashboard/T-0001, team-mail/T-0001 | pl/coach/cm/dev | jeder Sprint | geplant | Takt-Dauerläufer. |
+| team-termine/T-0001 (+11 blockiert) | pl | Sprint 35 | **neu** | Reihenfolge des Projektmodells: Planung zuerst. |
+
+**Unterminiert: nichts.**
+
+⚠⚠ **Ollama-Offload, vor der Arbeit gemessen (nicht geschätzt):** `pm/T-0071` hat
+unverändert **keinen** Tick mit `status: ok` + Artefakt. **Neu gemessen und damit die
+Diagnose aus Sprint 33 präzisiert:** Der Grund ist nicht mehr das Modell, sondern die
+**Erreichbarkeit** — aus dieser Sandbox ist `localhost:11434` tot und
+`host.docker.internal` von der Netz-Allowlist gesperrt. **Token-Ersparnis 0**, alles selbst
+erledigt, der fehlende Nachweis ist im Fazit benannt.
+
+---
+
+## Sprint-Abschluss (Sprint 34, 2026-08-21)
+
+**Geschlossen: sechs** — `platform/T-0062` (**SWR-207**), `platform/T-0063` (**SWR-208**),
+`platform/T-0061` (**SWR-209**), `team-dashboard/T-0005` (**SWR-210**),
+`platform/T-0056` (**SWR-211**), `pm/T-0083` (Projektgründung).
+**Verschoben: sechs** — Grund je im Ticket.
+
+**Neu angelegt: sechs** — `platform/T-0063`, `T-0064`, `T-0065`, `pm/T-0085`,
+`team-dashboard/T-0006`, `team-mail/T-0007`.
+
+**Neu gegründet:** **P16 `team-termine`** — erstes Projekt oberhalb von `projects/`, mit
+`.kein-remote`, 12 Tickets, 2 Workflows.
+
+---
+
+### ⚠⚠ Der teuerste Fund des Laufs: 91 Lehren waren gelöscht, und der Wächter meldete Fortschritt
+
+`platform/T-0061` sollte klären, warum „84 von 119 Lehren in keinem Lehrbuch stehen". Die
+Zählung hat die Frage **um 180 Grad gedreht**.
+
+| Stand | `## L-`-Köpfe in `process/knowledge/*/lessons.md` |
+|---|---|
+| `386627d` (Sprint 32, Abschluss) | **120** |
+| `a82f207` (Sprint 32, **nächster Commit**) | **31** |
+
+`a82f207` trägt den Betreff *„Sprint 32: … **Lehren cq-cv verankert** …"*. Sein Diff:
+**91 Lehr-Abschnitte gelöscht, 2 hinzugefügt** — `cm/lessons.md` von 1931 auf 26 Zeilen,
+`pl/lessons.md` von 831 auf 26. Die Dateien wurden **geschrieben** statt **angehängt**.
+**90 der 91 hatten heute nirgends im Haus mehr einen Kopf.**
+
+> **⚠⚠ Ein Commit, der „verankert" im Betreff trägt, hat 91 Lehren entfernt. Und die
+> Prüfung, die das hätte finden müssen, meldete es als FORTSCHRITT: „Diese Lehre(n) haben
+> einen Vertreter bekommen — bitte die Basis nachziehen."**
+
+⚠ Die Folgerung von Sprint 33 war **ebenfalls falsch**: das Ticket schloss, die Lehren
+hätten *„nie in einem Lehrbuch gelebt"*. Zwei Sprints hintereinander trug dieselbe Lücke
+eine falsche Erklärung — weil beide Male der **Bestand** gezählt wurde und nie die
+**Geschichte der Datei**.
+
+**Der Nachweis der Wiederherstellung ist eine Zahl, die niemand gewählt hat:**
+`ohne_vertreter()` liefert wieder **exakt 91** — namentlich dieselbe Menge wie
+`OHNE_VERTRETER_BASIS` aus Sprint 31, in **beide** Richtungen leer.
+
+> **Die Basis hatte die ganze Zeit recht. Und die Zurückhaltung von Sprint 33 — „die Basis
+> nachzuziehen hätte die Zusicherung in einer Minute grün gemacht und den Befund
+> gelöscht" — hat 90 Lehren gerettet.**
+
+---
+
+### ⚠⚠ Das Gegenlesen hat SIEBEN Befunde gefunden. Keinen davon der Autor.
+
+Der dritte Sprint in Folge, in dem das unabhängige Gegenlesen mehr wert ist als der Bau.
+Alle sieben sind im selben Lauf behoben.
+
+| # | Befund | Kern |
+|---|---|---|
+| 1 | `SWR-208`: „jeder Gründungsweg schreibt `status: aktiv`" hatte **keine Zusicherung** | Halbsatz aus **beiden** Wegen entfernt → **139 Tests, keiner rot** — und genau dieser Halbsatz hatte `p13` sein Core Team gekostet |
+| 2 | `SWR-208` hat die B033-Falle, die es **benennt**, wieder aufgestellt | `KLASSEN_OHNE_REMOTE` als **Kopie** (2 Werte gegen 4 in `pool`) mit einem Kommentar, der die Gleichheit *behauptet* |
+| 3 | `SWR-211`: die Ausnahmeliste konnte **nie feuern** | und ihre „Verfallsprüfung" maß etwas anderes als das, was sie verfallen ließe |
+| 4 | `SWR-211`: die Auflage „nie auf HEAD" stand nur im **Fehlertext** | eine Bitte, keine Schranke |
+| 5 | `SWR-210`: „JS 107 → 114" war eine **Behauptung** | gemessen 113 → 114; der Läufer zählt die **Datei**, die Datei trägt 7 Zusicherungen |
+| 6 | `SWR-209`: „831" stand als **871** da | die Datei hatte nie 871 Zeilen; Gegenmessung 99 statt 95 |
+| 7 | `SWR-210`: der Vertragssprung auf **v2.8** wurde zweimal nicht nachgezogen | kein Altbestand, ein **Rückfall** — beide Dateien waren bei v2.7 mitgezogen worden |
+
+> **⚠⚠ Befund 2 ist der bitterste: derselbe Bau, der die Doppelung BENENNT, legt eine neue
+> an — mit einem Kommentar, der die Gleichheit behauptet, statt sie herzustellen. Ein
+> Kommentar behauptet; `assertIs` stellt her.**
+
+---
+
+### ⚠ Zwei eigene Fehler dieses Laufs, benannt statt geglättet
+
+**Erstens: derselbe Schreib-statt-Anhängen-Fehler, keine Stunde nach seiner Lehre.**
+`team-dashboard/tickets/T-0005.md` wurde beim Fortschreiben überschrieben; der Kopf mit
+Frontmatter war weg. Wiederhergestellt aus Git.
+
+⚠⚠ **Und die erste Erklärung dafür war falsch — sie stand schon im Ticket, bevor sie
+nachgemessen wurde.** Sie lautete: *„`board.py` sieht ein Ticket ohne Frontmatter gar
+nicht."* Gemessen an einer Kopie: `Probleme: ['T-0005.md: kein Frontmatter']`.
+
+> **Das Werkzeug hat den Fehler gefunden und den Dateinamen genannt. Der Aufruf lief mit
+> `>/dev/null 2>&1`. Eine Prüfung, deren Ausgabe man wegwirft, ist teurer als keine — sie
+> erzeugt den Eindruck, geprüft zu haben.**
+
+**Zweitens: die eigene Kennzahl hat den Brief dieses Laufs nicht gesehen.**
+`briefe_im_lauf` meldet **0**; nachgemessen ist es **1** (12:26). Die Größe liest nur das
+Frontmatter `zeit` — den Zeitpunkt, zu dem ein Brief **angelegt** wurde, nicht den eines
+neuen **Beitrags**. Aufgeschrieben als `platform/T-0065`, **nicht** im Bericht
+stillschweigend korrigiert.
+
+---
+
+### Verschoben: sechs — mit Grund, neuem Termin und ohne Floskel
+
+`platform/T-0055`, `platform/T-0060`, `pm/T-0080`, `pm/T-0082`,
+`team-dashboard/T-0004`, `team-mail/T-0006` → **Sprint 35**, Grund **im jeweiligen
+Ticket**. Alle sind **zweite** Verschiebungen; die Regel der vierten Berührung ist nicht
+berührt.
+
+⚠ **`platform/T-0060` ist der Sonderfall und steht als solcher da:** der Nachweis braucht
+einen **fremden Rechner**. Gemessen: `localhost:11434` antwortet nicht,
+`host.docker.internal` ist von der Netz-Allowlist gesperrt. Bei der vierten Berührung wird
+**entschieden** (Lauf auf dem Team-Node oder Ollama-Weg schneiden), nicht terminiert.
+
+---
+
+## Verifikation (Sprint 34)
+
+| Größe | Wert |
+|---|---|
+| Anforderungen / Lücken | **211** SWRs (v1.97) / **0** |
+| Tests / Testdateien | **1529** / **107** |
+| JS-Teststrecke | **114** grün (Läufer-Zählung; die neue Datei trägt 7 eigene Zusicherungen) |
+| Briefkasten | **0 offen** — am **Ende** gemessen |
+| `briefe_im_lauf` | **0** — ⚠⚠ **falsch**, nachgemessen **1** (`platform/T-0065`) |
+| Offene Tickets | **33** (davon **12** aus dem neuen Projekt `team-termine`) |
+| Auf den Menschen wartend | **0** |
+| Workflows / unabgedeckte Takte | **8** / **0** |
+| Work Products / undeklariert | **56** / **0** |
+| Lehren / ohne Vertreter | **132** / **91** — ⚠ und **91 = 91** gegen die Basis aus Sprint 31, in beide Richtungen leer |
+| Verschwundene Lehren | **0** (vor der Wiederherstellung: **99**) |
+| Baselines: abgenommen / getaggt | **13** / **13** — `p12-v1.0` nach vier Tagen nachgetragen |
+| Organigramm | grün (**21** Dateien) |
+| `board.py --check` | grün über **19** Einheiten |
+
+⚠ **Nicht vollständig gefahren, und das ist eine Aussage über die Menge, die NICHT geprüft
+wurde (`SWR-189`):** Die volle Python-Teststrecke (107 Module) überschreitet in dieser
+Sandbox das Zeitlimit von 178 s und ist **nicht am Stück** gelaufen. Einzeln nachgewiesen
+sind: **405 Tests** im ersten Modul-Block (1 Fehlschlag, die Berichtskennzahlen — vor der
+Schlussmessung erwartet), die **60** Zusicherungen der sechs in diesem Lauf berührten
+Module, `board.py --check` über alle 19 Einheiten, `trace_matrix` 211/0,
+`organigramm.py --check` grün, JS-Strecke 114 grün. Die übrigen Module sind **nicht**
+gelaufen — „nicht betroffen" wäre eine Behauptung und kein Messergebnis.
+
+⚠⚠ **Ollama-Offload: nichts delegiert, Token-Ersparnis 0 — gemessen, nicht geschätzt.**
+`pm/T-0071` hat unverändert **keinen** Tick mit `status: ok` + Artefakt. Neu gemessen: der
+fehlende Nachweis ist **kein Modellproblem** (das war die Diagnose von Sprint 33) und auch
+kein fehlender Versuch, sondern **fehlende Erreichbarkeit** aus dieser Sandbox.
+
+---
+
+<details><summary>Archiv: Sprint 33</summary>
+
+
+
 ## Sprint-Plan (Sprint 33) — Planung VOR der Arbeit
 
 *Default nach `pm/D006`: in diesem Sprint schließen. ⚠ Jede Verschiebung trägt ihren Grund
@@ -2176,6 +2357,8 @@ offen, Plan-Drift 0, Statusdrift 0. ⚠ Nicht startklar — Altbefund unverände
 
 </details>
 
-<!-- kennzahlen v1 | gemessen 2026-08-21 11:39 | sprint 33
-briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=11941 swr=206 testdateien=101 tests=1481 tickets_offen=21 wartet_auf_mensch=0
+<!-- kennzahlen v1 | gemessen 2026-08-21 14:07
+briefe_im_lauf=0 briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=12291 swr=211 testdateien=107 tests=1529 tickets_offen=33 wartet_auf_mensch=0
 -->
+
+</details>

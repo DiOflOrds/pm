@@ -1,6 +1,90 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
-## Das Wichtigste (Sprint 33, 2026-08-21)
+## Das Wichtigste (Sprint 34, 2026-08-21)
+
+1. **✅ Sechs Aufgaben geschlossen, sechs verschoben, ein Projekt gegründet** — und der
+   Ertrag steckt in zwei Funden, die niemand geplant hatte.
+2. **⚠⚠⚠ 91 Lehren waren GELÖSCHT — und unser Wächter hat es als FORTSCHRITT gemeldet.**
+   Der Abschluss-Commit von Sprint 32 trägt die Worte *„Lehren verankert"* im Betreff und
+   hat dabei **91 Lehr-Abschnitte entfernt**: zwei Dateien wurden **geschrieben** statt
+   **angehängt**. 90 davon hatten heute nirgends mehr einen Kopf.
+   > **Ein Bestand kann verschwinden, während sein Wächter Erfolg meldet. Unsere Prüfung
+   > konnte „Fortschritt" nicht von „Gegenstand weg" unterscheiden und nannte beides beim
+   > Namen des angenehmeren Falls.**
+   ⚠ Und **unsere Erklärung aus Sprint 33 war ebenfalls falsch**: wir hatten geschlossen,
+   die Lehren hätten *„nie in einem Lehrbuch gelebt"*. Zwei Sprints hintereinander trug
+   dieselbe Lücke eine falsche Erklärung — weil wir beide Male den **Bestand** gezählt
+   haben und nie die **Geschichte der Datei**.
+   **Alles wiederhergestellt.** Der Beweis ist eine Zahl, die niemand gewählt hat:
+   `ohne_vertreter` liefert wieder **exakt die 91** aus Sprint 31, in beide Richtungen leer.
+   > **Und gerettet hat sie die Zurückhaltung von Sprint 33 — dort steht wörtlich, die
+   > Liste nachzuziehen hätte „die Zusicherung in einer Minute grün gemacht und den Befund
+   > gelöscht". Genau das hätte 90 Lehren endgültig gekostet.**
+3. **⚠⚠ Das Gegenlesen hat SIEBEN Fehler in unserer fertig gemeldeten Arbeit gefunden.
+   Keinen davon wir selbst.** Dritter Sprint in Folge. Der bitterste: **derselbe Bau, der
+   eine Doppelung BENENNT, hat eine neue angelegt** — mit einem Kommentar, der die
+   Gleichheit zweier Listen *behauptet*.
+   > **Ein Kommentar behauptet. `assertIs` stellt her.**
+   Der teuerste: eine Anforderung verlangte drei Dinge und sicherte zwei —
+   **der ungeprüfte Halbsatz war genau der, dessen Fehlen schon einmal Schaden angerichtet
+   hatte.**
+4. **⚠⚠ Beim Gründen deines Projekts `team-termine` ist aufgefallen, dass unser
+   Gründungswerkzeug die Datenklasse nur BESCHRIFTET hat.** Es nahm „sensibel" entgegen,
+   prüfte es — und legte das Projekt trotzdem in ein Repo **mit** GitHub-Remote, das wir
+   bei jedem Lauf pushen. Der Kalender deiner Familie wäre mitgegangen.
+   > **Eine Datenklasse, die nur beschriftet und nicht platziert, ist keine Schranke,
+   > sondern eine Aufschrift — und sie stand in einem Kommentar, also an der einzigen
+   > Stelle, die kein Werkzeug von uns liest.**
+   ⚠ Nebenbefund am echten Bestand: `p13` war seit seiner Freigabe **ohne Mannschaft** —
+   sein Steckbrief trug keinen Status, und unser Resolver überspringt Einheiten ohne
+   Status stillschweigend. Repariert; `p13` hat jetzt seine 10 Rollen.
+5. **⚠ Eine Abnahme, die du erteilt hast, war vier Tage lang ohne Gegenstand.** Du hast am
+   17.08. um 21:57 die Baseline `p12-v1.0` abgenommen — der Tag wurde nie gesetzt.
+   Nachgetragen, und zwar auf den Stand von damals und **nicht** auf heute.
+6. **Zahlen:** Anforderungen **211 / 0 Lücken**, Tests **1529** in **107** Dateien, JS
+   **114**, Organigramm grün (21 Dateien), Briefkasten **0 offen** (am **Ende** gemessen),
+   offene Aufgaben **33** (davon 12 aus dem neuen Projekt), auf dich wartend **0**.
+
+---
+
+## Für dich (E. John)
+
+| Was | Warum |
+|---|---|
+| ⚠⚠ **`abschluss.cmd` ausführen** | **Der wichtigste Punkt, und er wächst weiter: fünf Tage plus sieben komplette Sprints.** Wir pushen nie selbst. **Stichprobe:** danach steht in `abschluss-auto.log` `OK - alles geprueft und gepusht` und `PUSH-ANFORDERUNG.txt` ist verschwunden. |
+| ✅ **Dein Projekt `team-termine` steht** | Gegründet als **P16**, mit Auftrag, Abgrenzung, Sprint-0-Plan und 12 Aufgaben. ⚠ **Es liegt bewusst NICHT in `projects/`**, sondern als eigenes Repo **ohne GitHub-Remote** — wie `team-mail`. Der Kalender deiner Familie geht nirgendwohin. **Die Zugangsdaten sind dein nächster Schritt**; sie blockieren das Widget nicht. |
+| ✅ **Dein Brief zum Post-Widget ist umgesetzt** | Deine drei Antworten von 12:26 haben es entsperrt, gebaut ist es im selben Lauf. ⚠ **Eine Kachel deiner Vorlage können wir nicht füllen:** für **SPAM** führt dein Digest keine Rubrik. Wir haben dort **keine 0** hingeschrieben — eine 0 hieße „kein Spam". **Sag einmal Bescheid, wenn du die Zahl willst**, dann bekommt der Digest die Rubrik. ⚠ Das **Aufklappen** kommt in Sprint 35 (erster Punkt, an dem die Oberfläche das PIN-Gate benutzt). |
+| ⚠ **Dein Ollama-Takt: die Diagnose ist wieder eine andere — und diesmal ehrlich zu Ende gemessen** | Sprint 33 sagte „kein Versuch seit der Reparatur". Jetzt gemessen: **wir können es aus unserer Umgebung gar nicht erreichen** (`localhost:11434` tot, `host.docker.internal` von der Netz-Allowlist gesperrt). Der Nachweis braucht **deinen** Rechner, nicht unsere Sandbox. Vier Aufgaben hängen daran — beim nächsten Anlauf **entscheiden** wir statt zu verschieben. |
+| ⚠ **Die Sperr-Reste löschen, wenn du magst** | **12286 Dateien** (Stand 13:0x). Wir können sie nicht löschen, du schon. |
+| ⚠ **Die alten Punkte** | Mail-**Versand**daten (`team-mail/N-0003`) — dein **ältester** offener Punkt, seit Sprint 21. Dazu deine Zählung der Kacheln im Reiter „Dashboard". |
+
+---
+
+## ⚠ Drei Dinge, die wir über uns selbst aufschreiben
+
+**Erstens: wir haben denselben Fehler gemacht, den wir eine Stunde vorher aufgeschrieben
+hatten.** Beim Fortschreiben eines Tickets haben wir die Datei **überschrieben** statt
+angehängt — genau der Vorgang, der die 91 Lehren gekostet hat. Die Lehre zu kennen hat
+nicht gereicht; sie hatte an dieser Stelle keine Prüfung.
+
+**Zweitens: unser Werkzeug hat den Fehler gemeldet, und wir haben ihm die Stimme
+genommen.** Unsere erste Erklärung lautete, `board.py` sehe ein kaputtes Ticket gar nicht.
+Nachgemessen: es sah es und nannte den Dateinamen. Der Aufruf lief mit weggeworfener
+Ausgabe.
+
+> **Eine Prüfung, deren Ausgabe man wegwirft, ist teurer als keine — sie erzeugt den
+> Eindruck, geprüft zu haben.**
+
+**Drittens: unsere eigene Kennzahl hat deinen Brief nicht gesehen.** `briefe_im_lauf`
+meldet **0**; eingegangen ist **1**. Sie liest nur, wann ein Brief **angelegt** wurde, und
+du hast in einen **vorhandenen** geschrieben. Die Zahl steht im Bericht **falsch und
+danebengestellt richtig** — sie stillschweigend zu korrigieren hätte den Befund gelöscht.
+
+---
+
+<details><summary>Archiv: Sprint 33</summary>
+
+, 2026-08-21)
 
 1. **✅ Drei Aufgaben erledigt, acht verschoben — und die Verschiebung hat einen Grund,
    der kein Wort für „keine Zeit" ist.**
@@ -77,7 +161,10 @@ Aufgeschrieben als `platform/T-0061` und ausdrücklich **nicht** stillgelegt —
 
 ---
 
+</details>
+
 <details><summary>Archiv: Sprint 32</summary>
+
 
 ## Das Wichtigste (Sprint 32, 2026-08-21)
 
