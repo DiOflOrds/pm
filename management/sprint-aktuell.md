@@ -487,21 +487,41 @@ Zahl ist trotzdem als Verifikationszeile geführt worden.
 
 Die sechs, nach Ursache sortiert und terminiert:
 
-| Ursache | Rote Zusicherungen | Ticket |
+| Ursache | Rot 21:14 | Rot 21:55 | Ticket |
+|---|---|---|---|
+| `goldset` prüft mit `os.path.isabs` — auf dem Host ist `/etc/passwd` **kein** absoluter Pfad | 1 | 1 | **`platform/T-0068`** (dev, hoch) |
+| `git_schreibweg`-Nachräumung hängt an `git_prozess_aktiv()`, also an der Prozessliste des Rechners | 2 | **0** | **`platform/T-0069`** (prob, mittel) |
+| acht Lehren `L-2026-08-21dj…dq` ohne Vertreter | 3 | 3 | **`platform/T-0070`** (coach, hoch) |
+| **Kennzahlenblock veraltet — von DIESEM Lauf verursacht** | 0 | **1** | Befund 4 unten |
+| **Summe** | **6** | **5** | |
+
+⚠⚠ **Die zwei `git_schreibweg`-Zusicherungen sind zwischen 21:14 und 21:55 grün geworden,
+ohne dass eine Codezeile geändert wurde.** Das ist kein Nebensatz, sondern der Beweis für
+`T-0069`: eine Zusicherung, die in 41 Minuten ohne Änderung die Farbe wechselt, misst
+nicht ihren Gegenstand.
+
+### Befund 2 — acht Lehren ohne Vertreter, und die Herkunft ist NICHT die, die dieser Bericht zuerst behauptet hat
+
+`test_keine_NEUE_lehre_ohne_vertreter` nennt acht Namen: `L-2026-08-21dj`…`dq`.
+
+⚠⚠ **Die Erstfassung dieses Abschnitts schrieb „alle acht aus den Läufen ohne Shell". Das
+unabhängige Gegenlesen hat es nachgezählt und widerlegt — im selben Lauf, vor dem
+Abschluss:**
+
+| Lehre | Anlass laut Lehrbuch | Shell? |
 |---|---|---|
-| `goldset` prüft mit `os.path.isabs` — auf dem Host ist `/etc/passwd` **kein** absoluter Pfad | 1 | **`platform/T-0068`** (dev, hoch) |
-| `git_schreibweg`-Nachräumung hängt an `git_prozess_aktiv()`, also an der Prozessliste des Rechners | 2 | **`platform/T-0069`** (prob, mittel) |
-| acht Lehren `L-2026-08-21dj…dq` ohne Vertreter | 3 | **`platform/T-0070`** (coach, hoch) |
+| `dj` `dk` `dl` `dm` `dn` `do` | **Sprint 35** | **ja** — Sprint 35 hat gebaut (`SWR-213`) |
+| `dp` `dq` | Folgelauf, „Shell ausgefallen" | nein |
 
-### Befund 2 — die acht Lehren stammen aus den Läufen, die sich das Bauen versagt haben
+> **⚠⚠ Sechs von acht, nicht acht von acht. Damit fällt die bequeme Erzählung und die
+> unbequeme bleibt: die drei Zusicherungen waren am Ende von Sprint 35 BEREITS ROT — von
+> demselben Sprint, der „1551 Tests" als Verifikation führte und dazuschrieb, dass 1136
+> davon nicht gelaufen sind.**
 
-`test_keine_NEUE_lehre_ohne_vertreter` nennt acht Namen. **Alle acht sind in Sprint 35
-und seinen zwei Folgeläufen geschrieben worden** — von Läufen, die keine Ticketdatei
-anfassen wollten und deshalb Lehren schrieben.
-
-> **⚠⚠ Die Läufe, die nichts rot machen wollten, haben mit dem Einzigen, was sie sich
-> erlaubt haben, drei Zusicherungen rot gemacht. Und keiner konnte es merken, weil Merken
-> die Shell gebraucht hätte, die ihnen fehlte.**
+Die zwei Läufe ohne Shell haben den Befund um zwei Namen **vergrößert**, nicht erzeugt —
+und konnten es nicht merken. Das ist weniger, als hier zuerst stand, und es ist das, was
+belegbar ist. **Fünfter Sprint in Folge, in dem das Gegenlesen findet, was der Autor
+nicht sah** — diesmal an einem Bericht über genau dieses Muster.
 
 `L-2026-08-21dq` — *„Ohne `git` ist die Ticketdatei tabu, der Rest des Hauses frei"* — ist
 **einer der acht.** Beide Hälften sind widerlegt:
@@ -524,9 +544,12 @@ Die Lehre ist **samt Nachtrag stehen geblieben** und nicht umgeschrieben; das Me
 | Schnelltakt-Läufe | **114** | 87 |
 | Tick-Abbrüche | **177** | 138 |
 | Erfolge | **0** | 0 |
-| Preflight seit 20:00 | **STARTKLAR** | Befunde |
+| Preflight ab 20:00 | **überwiegend STARTKLAR** (20:00, 20:15, 20:45, 21:00, 21:15) | durchgehend Befunde |
 
-Seit 20:00 bricht der Tick **nicht mehr** ab. Er endet mit einem anderen Satz:
+⚠ **„Seit 20:00 STARTKLAR" stand hier zuerst und war zu glatt** (Gegenlesen): der Lauf um
+**20:30** meldete `1 Befund` und brach ab. Fünf von sechs, nicht sechs von sechs.
+
+In den STARTKLAR-Läufen bricht der Tick **nicht mehr** ab. Er endet mit einem anderen Satz:
 
 > *„Kein bearbeitbares Ticket (Besetzung): 5 offene(s) Ticket(s) geprüft, keines trägt eine
 > Rolle mit motor 'ollama' in Einheit 'platform' — Rollen im Bestand: CM, COACH, DEV, PL;
@@ -546,13 +569,52 @@ eigenen Takts*. Die fünfte ist banaler und lag hinter allen vieren:
 
 **Behandelt statt berichtet:** `platform/T-0069` ist mit `rolle: prob` und
 `aufgaben_typ: problem-klassifikation` angelegt — Kette `[ollama, session, claude]`,
-`tier: standard`, **nicht gate-relevant**. Der Schnelltakt des Auftraggebers wählt es beim
-nächsten 15-Minuten-Lauf ohne weiteres Zutun.
+`tier: standard`, **nicht gate-relevant**. Damit trägt zum ersten Mal ein offenes Ticket
+die Rolle, für die diese Besetzung existiert.
 
-⚠ **Das ist ein gelegter Nachweis, kein geführter.** `pm/T-0071` hat weiterhin **null**
-Ticks mit `status: ok` + Artefakt; Token-Ersparnis dieses Laufs **0**, alles selbst
-erledigt. Ob der Tick durchläuft, steht im nächsten `ollama-schnelltakt.log` und
-**nicht hier**.
+⚠⚠ **Das ist ein gelegter Nachweis, kein geführter — und der erste Versuch ist bereits
+fehlgeschlagen.** Der Lauf um **21:40** hat den `platform`-Tick abgebrochen, und zwar an
+den drei Ticketdateien dieses Laufs:
+
+```
+UNVERBUCHT tickets/T-0068.md · T-0069.md · T-0070.md
+BEFUND: 3 Datei(en), die eine Verifikation liest, sind nicht committet
+PREFLIGHT: 1 Befund(e) → Tick abgebrochen
+```
+
+Der Host hat es um 21:55 per Nachverbuchung geheilt. **Die Wirkung bleibt trotzdem
+gemessen und wird nicht weggeschrieben:** ein Ticket, das ohne Shell entsteht, kostet
+mindestens einen Tick. `pm/T-0071` hat weiterhin **null** Ticks mit `status: ok` +
+Artefakt; Token-Ersparnis dieses Laufs **0**. Ob der nächste Lauf durchgeht, steht im
+`ollama-schnelltakt.log` und **nicht hier**.
+
+### ⚠⚠ Befund 4 — dieser Lauf hat selbst eine Zusicherung rot gemacht, und der Host hat es 14 Minuten später gemessen
+
+`abschluss-20260821-215500.log` (nach der Nachverbuchung der vier neuen Tickets):
+
+```
+FAIL: test_berichtskennzahlen.SprintplanTest.test_die_zahlen_im_bericht_stimmen_mit_der_messung
+AssertionError: [('tickets_offen', 34, 38), ('wartet_auf_mensch', 0, 1)] != []
+Ran 1551 tests — FAILED (failures=5)
+```
+
+**Der Kennzahlenblock ist unangetastet geblieben — und genau deshalb ist er jetzt falsch.**
+Die Schutzregel aus `L-2026-08-21dq` (*„Plantabelle und Kennzahlenblock in Ruhe lassen"*)
+schützt vor der falschen Gefahr: der Block veraltet durch das **Ticket**, nicht durch das
+Bearbeiten dieser Datei. Dieser Lauf hat die neuen Zahlen oben selbst ausgerechnet und den
+Block danebenstehen lassen.
+
+> **⚠ Nicht geglättet:** Der Block wird **nicht** von Hand nachgezogen. `kennzahlen.miss()`
+> ist die Quelle, `kennzahlen.py --schreibe` der Weg, und beides braucht eine Shell. Eine
+> von Hand eingetragene Zahl wäre eine Behauptung an der Stelle, an der eine Messung steht.
+> **Erster Schritt des nächsten Laufs mit Shell:**
+> `python platform/scripts/kennzahlen.py --repos . --schreibe`.
+
+⚠ **Zugleich sind zwei rote Zusicherungen von allein grün geworden** — die beiden
+`git_schreibweg`-Nachräumungen, **ohne dass eine Codezeile geändert wurde** (6 rot um
+21:14, 5 rot um 21:55, davon eine neue). Das ist die Bestätigung der These von
+`platform/T-0069`, und sie ist stärker als die Herleitung im Ticket: eine Zusicherung, die
+zwischen zwei Läufen ohne Codeänderung die Farbe wechselt, misst nicht ihren Gegenstand.
 
 ### Zahlen dieses Laufs — gemessen, mit Quelle
 
@@ -585,7 +647,26 @@ geklärt** (keine eigene Karteileiche: es ist Vorabfrage 3 in `platform/T-0069`)
 * **Keine neue Lehre geschrieben.** Das ist die Anwendung von Befund 2 auf den eigenen
   Lauf: Der Nachtrag steht **in** `L-2026-08-21dq`, wo er hingehört, und legt keine
   neunte Lehre ohne Vertreter an.
+* **Den Kennzahlenblock NICHT von Hand nachgezogen** (Befund 4) — er ist die Stelle, an
+  der eine Messung steht, und eine Shell fehlt.
 * **Kein Commit, kein Push.** Es gibt keinen; der Host verbucht (Schritt `[0/6]`).
+
+### Was das Gegenlesen an DIESEM Bericht gefunden hat — vor dem Abschluss, nicht danach
+
+Sechs Befunde, alle im Lauf korrigiert statt geglättet:
+
+| # | Befund | Behandlung |
+|---|---|---|
+| 1 | *„alle acht Lehren aus Läufen ohne Shell"* — es sind **sechs aus Sprint 35** und zwei | an vier Stellen richtiggestellt; die unbequemere Aussage steht jetzt da |
+| 2 | *„drei Zusicherungen rot gemacht"* — sie waren nach Sprint 35 **schon** rot | „vergrößert, nicht erzeugt" |
+| 3 | *„seit 20:00 STARTKLAR"* — 20:30 meldete 1 Befund und brach ab | „fünf von sechs" |
+| 4 | *„der Grund war weg"* (Ticketdatei ohne Shell) — der Tick um **21:40 ist genau daran abgebrochen** | Befund 3/4 oben; die Regel in `dq` nennt jetzt den Preis |
+| 5 | `pm/T-0086`: *„114 Läufe … am 21.08."* — 114 ist der Stand **seit 20.08. 17:15** | im Ticket berichtigt |
+| 6 | **Neu und von diesem Lauf verursacht:** `test_berichtskennzahlen` rot | Befund 4, benannt statt nachgetragen |
+
+> **⚠⚠ Fünfter Sprint in Folge, in dem das unabhängige Gegenlesen mehr findet als der
+> Bau — und dieses Mal an einem Bericht, dessen Gegenstand genau dieses Muster ist. Der
+> Autor hat über das Nichtzählen geschrieben und dabei nicht gezählt.**
 
 ---
 

@@ -28,14 +28,40 @@ Arbeitskopien **0 von 18** · Parkplatz `verwaiste-locks` **12461** · Ollama-Of
    Formulierung** schon überholt — `abschluss.cmd` Schritt `[0/6]` verbucht seither jede
    Arbeitskopie vor dem Preflight. Sie hat zwei Läufe lang die Entscheidungsanfrage
    verhindert, die jetzt als `pm/T-0086` vorliegt.
-2. Ihre zweite Hälfte („Lehrdateien sind frei") ist teurer: die acht Lehren, die die
-   Läufe ohne Shell statt Arbeit geschrieben haben, machen **drei Zusicherungen rot**
-   (`platform/T-0070`). **Die Läufe, die nichts rot machen wollten, haben genau damit
-   etwas rot gemacht — und konnten es nicht merken.**
+2. Ihre zweite Hälfte („Lehrdateien sind frei") ist teurer: acht Lehren ohne Vertreter
+   machen **drei Zusicherungen rot** (`platform/T-0070`).
 
 Die Lehre steht **samt Nachtrag** und ist nicht umgeschrieben; `NOTBETRIEB-OHNE-SHELL.md`
-ist berichtigt. ⚠ **Dieser Lauf hat bewusst KEINE neue Lehre angelegt** — das ist die
-Anwendung des Befunds auf den eigenen Lauf.
+ist berichtigt. ⚠ **Dieser Lauf hat bewusst KEINE neue Lehre angelegt.**
+
+### ⚠⚠ Das Gegenlesen hat SECHS Befunde an diesem Bericht gefunden. Keinen davon der Autor.
+
+**Fünfter Lauf in Folge** — und diesmal an einem Bericht, dessen Gegenstand genau dieses
+Muster ist. Alle sechs im selben Lauf korrigiert, keiner geglättet:
+
+| # | Behauptung | Gemessen |
+|---|---|---|
+| 1 | „alle acht Lehren aus Läufen ohne Shell" | **sechs aus Sprint 35** (mit Shell, hat gebaut), zwei aus Läufen ohne |
+| 2 | „drei Zusicherungen rot gemacht" | sie waren nach Sprint 35 **schon** rot — vergrößert, nicht erzeugt |
+| 3 | „seit 20:00 STARTKLAR" | 20:30 meldete 1 Befund und brach ab — **fünf von sechs** |
+| 4 | „der Grund für das Ticket-Verbot war weg" | der Tick um **21:40 ist genau daran abgebrochen** (`UNVERBUCHT tickets/T-0068.md …`) |
+| 5 | „114 Schnelltakt-Läufe am 21.08." | **87** am 21.08.; 114 ist der Stand seit dem 20.08. |
+| 6 | — | **neu und von diesem Lauf verursacht:** `test_berichtskennzahlen` rot (`tickets_offen 34→38`) |
+
+> **⚠⚠ Der Autor hat einen Bericht über das Nichtzählen geschrieben und dabei nicht
+> gezählt. Die bessere Geschichte („alle acht") hätte die eigentliche Ursache verdeckt:
+> nicht der Ausfall der Shell, sondern ein Sprint MIT Shell, der 1551 Tests als
+> Verifikation führte und 1136 davon nicht ausführte.**
+
+⚠ Befund 6 ist **nicht von Hand repariert**: `kennzahlen.miss()` ist die Quelle,
+`kennzahlen.py --schreibe` der Weg, und beides braucht eine Shell. Eine eingetragene
+Zahl wäre eine Behauptung an der Stelle, an der eine Messung steht. **Erster Schritt des
+nächsten Laufs mit Shell.**
+
+⚠ **Beweis frei Haus:** zwischen 21:14 und 21:55 sind die zwei
+`git_schreibweg`-Zusicherungen **ohne jede Codeänderung grün geworden**. Eine
+Zusicherung, die in 41 Minuten ohne Änderung die Farbe wechselt, misst nicht ihren
+Gegenstand — das belegt `platform/T-0069` besser als dessen eigene Herleitung.
 
 ⚠ **Der Ollama-Takt ist seit 20:00 STARTKLAR und hat trotzdem nichts zu tun:** genau zwei
 Besetzungen tragen `motor: ollama` (`PROB@platform`, `MAIL-RED@team-mail`), und kein
