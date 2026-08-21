@@ -1,5 +1,186 @@
 # Sprint aktuell — Genesis-Gesamtsprint (Workflow-Sicht des PM, pm/D006)
 
+## Das Wichtigste (Sprint 31, 2026-08-21)
+
+1. **✅ DREI TICKETS GESCHLOSSEN, NICHTS VERSCHOBEN — DARUNTER BEIDE NULLTEN
+   TERMINIERUNGEN AUS SPRINT 30 UND DIE VIERTE BERÜHRUNG.**
+   `platform/T-0051` (**SWR-198**), `platform/T-0050` (**SWR-199**), `platform/T-0049`
+   (**SWR-200**, gebaut **und** geschnitten). Ein neues Ticket: `T-0052` — aus einer
+   **Messung am laufenden Betrieb** entstanden, nicht aus einem Vorrat.
+2. **⚠⚠ DER FEHLER LAG NICHT IN EINER PRÜFUNG, SONDERN ZWISCHEN ZWEIEN — UND DAS IST DER
+   ROTE FADEN DIESES LAUFS.** Für ein **gesperrtes** Ticket gab es keinen zulässigen
+   Terminwert: alter Sprint → Befund, leer → Befund, Zukunft → still, aber eine Zusage
+   über fremdes Handeln.
+   > **Eine Lage, in der die bequeme Handlung die einzige ist, die grün macht, ist genau
+   > die Bauart, gegen die `SWR-166` gebaut wurde.**
+   Die Ausnahme **gab es schon** — an einem **Typ** (`decision-request`) statt an einem
+   **Zustand**, weil `blocked` erst seit `SWR-193` existiert, **einen Sprint alt**.
+   > **⚠⚠ Ein Stellvertreter, der lange mit der Sache zusammenfiel, wird zum Loch in dem
+   > Moment, in dem die Sache einen eigenen Namen bekommt.**
+   `SWR-198`. **Am echten Bestand gemessen: `unterminierte_tickets` 3 → 0**, und der
+   Schnelltakt des Auftraggebers meldet seitdem `[org] 0 Tickets ohne Sprint`.
+3. **⚠⚠ ZUM VIERTEN MAL „ERST ZÄHLEN, DANN BAUEN" — UND ZUM VIERTEN MAL HAT DIE ZAHL DIE
+   FRAGE VERÄNDERT.** `SWR-194` nannte seine Grundmenge die *„ehrliche Untermenge"*.
+   Gemessen: **24 %** der 38 „Erkannten" haben einen Vertreter, **15 %** der 73
+   „Übersehenen" — nahezu dasselbe.
+   > **Die 34er-Menge war nie eine Auswahl von Lehren, die einen Vertreter BRAUCHEN. Sie
+   > war eine Auswahl von Lehren, die jemand mit Doppelpunkt geschrieben hat.**
+   ⚠ Und die zweite Messung hat die **Bauform** bestimmt: zwischen „Muster erweitern"
+   (111 von 112) und „Filter weglassen" (112) liegen **null** Lehren — beide ergeben 91.
+   **Von zwei gleichwertigen Bauformen ist die mit einem Begriff weniger die richtige.**
+   `SWR-199`; der Ausstieg heißt jetzt `**Beobachtung:**` und ist eine **Handlung** statt
+   eines Nebeneffekts der Zeichensetzung.
+4. **⚠⚠ DIE VIERTE BERÜHRUNG HAT IHRE EIGENE VERMUTUNG WIDERLEGT.** Drei Sprints lang
+   galt: *„es gibt einen zweiten SCHREIBWEG ins Entscheidungslog, und er hat keine
+   Nummernvergabe."* Gemessen über 17 Logs und 158 Zeilen: **es gibt keine zweite
+   Funktion.**
+   > **Der zweite Schreibweg ist die HAND — und er ist nicht die Ausnahme, sondern die
+   > MEHRHEIT: 103 von 158 Zeilen (65 %).**
+   ⚠ Geschnitten ist die Nummernvergabe, und der Grund ist gemessen: der Schaden ist seit
+   `SWR-195` (Sprint 29) und `SWR-197` (Sprint 30) bereits gefangen — von Tickets, die
+   **nach** dieser Frage entstanden sind. **Die Frage hat ihre eigene Antwort überlebt.**
+5. **⚠⚠ EINE ZUSICHERUNG AUS SPRINT 30 HAT DIESE SESSION AUFGEHALTEN — UND GENAU DAFÜR
+   WAR SIE GEBAUT.** `test_termin_zange_blocked.py` sicherte den **Mangel** und trug den
+   Auftrag *„wird mit T-0051 UMGEDREHT und nicht gelöscht"* in ihrem eigenen Docstring.
+   Nach dem Bau von `SWR-198` wurde sie rot.
+   > **Eine Zusicherung, die einen Mangel BENENNT statt ihn zu verschweigen, meldet seine
+   > Behebung von allein. Wäre der Mangel nur in Prosa vermerkt gewesen, hätte die Datei
+   > nach dem Fix schweigend weiter den alten Zustand beschrieben.**
+   ⚠ **Und sie hat dabei einen zweiten, echten Fehler gefunden**, den keine neue
+   Zusicherung dieses Laufs gesehen hätte: ihre Vorrichtung baut `blocked_by` als **echte
+   Liste**, und `board.parse_liste` brach daran mit `AttributeError` — es kannte nur Text
+   aus dem Frontmatter. **Eine Zerlegefunktion, die an ihrem eigenen Ergebnis scheitert,
+   ist nicht idempotent.** `L-2026-08-21cp`.
+6. **⚠⚠ DER SCHNELLTAKT LÄUFT — UND DIESE SESSION HAT IHN SELBST BLOCKIERT.** Um **06:15**
+   meldete der Preflight zweimal `STARTKLAR`. Ab **06:30** bis **07:01**: dreimal
+   `1 Befund`, **6 Ticks abgebrochen** — und der Befund war jedes Mal die Statusdrift, die
+   **diese Session** erzeugt hat, indem sie ihre drei Tickets schloss.
+   > **⚠⚠ Der Plan wird laut `pm/D006` am Sprint-ABSCHLUSS fortgeschrieben. Also ist der
+   > Bestand während JEDES Sprints widersprüchlich — per Konstruktion —, und genau in
+   > diesem Fenster kann der Schnelltakt nie laufen. Das Fenster ist kein Ausrutscher, es
+   > ist die Dauer eines Sprints.**
+   ⚠ Das stellt eine Aussage der Agenda richtig: `pm/T-0077` ist **nicht** die einzige
+   Sperre vor dem Ollama-Offload. `platform/T-0052`, prio hoch. **Beide bisherigen
+   Diagnosen waren für ihren Messzeitpunkt richtig** — gemessen wurde jeweils am *Ende*
+   einer Session, wenn der Plan schon stand. **Eine Ursache, die nur am Ende eines Laufs
+   gemessen wird, kann einen Zustand nicht sehen, der nur WÄHREND des Laufs besteht.**
+7. **⚠ DER OLLAMA-OFFLOAD IST WEITERHIN NICHT DELEGIERT — mit einem dritten Grund.**
+   `pm/T-0071` hat unverändert **keinen** Tick mit `status: ok` + Artefakt; der Nachweis
+   fehlt und wird hier benannt statt übergangen. Neu ist, dass der Grund messbar **nicht
+   allein** der leere Arbeitsvorrat ist (siehe 6).
+   **Kein Ticket delegiert; Token-Ersparnis 0 — gemessen, nicht geschätzt.**
+8. **1429 Python-Tests** über **95** Testdateien, Matrix **200 SWRs / 0 Lücken**,
+   Briefkasten **0 offen / 0 eingegangen**, auf den Menschen wartend **1**
+   (`pm/T-0077`, Frist 28.08.), Workflows **6 / 0 unabgedeckte Takte**,
+   Work-Product-Lücken **0** (56 WPs), Lehren **115 / 91 ohne Vertreter** (= die benannte
+   Basis), Parkplatz **11480** (Stand 07:10 — die Zahl trägt ihren Zeitpunkt, `SWR-174`).
+   > ⚠ **Zwei unabhängige Messungen, deckungsgleich:** die Summe der Einzelläufe je
+   > Testmodul ergibt **1429**; `kennzahlen.py` zählt **1429** über **95** Dateien.
+   > Sprint 30 stand bei 1404/93; dieser Lauf hat **zwei** Dateien mit 15 + 5 = 20 und
+   > eine bestehende um 5 ergänzt — 1404 + 25 = **1429**. Deckungsgleich.
+   >
+   > ⚠⚠ **Offene Tickets stehen hier mit ZWEI Zahlen und ihren Definitionen, weil die
+   > Werkzeuge zwei geben:** **11** nach `SWR-113` (Status weder `done` noch `rejected`,
+   > Takt-Dauerläufer eingeschlossen — die in Sprint 7 getroffene Festlegung) und **8**
+   > nach `kennzahlen.py` (`status == "open"`). Die Differenz sind die **3 gesperrten**
+   > Tickets. Eine der beiden still zu wählen wäre genau der Zustand, gegen den `SWR-113`
+   > gebaut wurde. `platform/T-0053`.
+
+## Sprint-Plan (Sprint 31)
+
+*Default nach `pm/D006`: in diesem Sprint schließen. ⚠ Jede Verschiebung trägt ihren
+Grund **im Ticket**, nicht hier (`L-2026-08-17ag`).*
+
+| Aufgabe | Rolle | Fällig | Status | Grund / nächster Schritt |
+|---|---|---|---|---|
+| Briefkasten (alle Repos) | pl | Sprint 31 | **erfüllt** | ✅ **0 offen**, beim Start und beim Abschluss gemessen. Kein Brief eingegangen. |
+| **platform/T-0051** | dev | Sprint 31 | **erledigt** | ✅ **SWR-198.** Nullte Terminierung aus Sprint 30, im Folgelauf gebaut wie angekündigt. Befunde **1 → 0** am echten Bestand gemessen. |
+| **platform/T-0050** | coach | Sprint 31 | **erledigt** | ✅ **SWR-199.** Nullte Terminierung aus Sprint 30. Die Messung hat die Bauform bestimmt: Filter fällt, statt erweitert zu werden. |
+| **platform/T-0049** | cm | Sprint 31 | **erledigt** | ✅ **SWR-200.** **Vierte Berührung — entschieden**, nicht terminiert: gebaut (Zusicherung über die Code-Wege) **und** geschnitten (keine Nummernvergabe für die Hand). |
+| **platform/T-0052** | dev | Sprint 32 | offen | ⚠⚠ **Nullte Terminierung, prio hoch.** Am laufenden Schnelltakt gemessen: 6 abgebrochene Ticks in 46 Minuten, Ursache ist die Statusdrift **dieses** Sprints. Zwei richtige Regeln, dazwischen ein garantierter Zustand — dieselbe Familie wie `T-0051`. |
+| **platform/T-0053** | cm | Sprint 32 | offen | ⚠ **Nullte Terminierung.** Beim Abgleich der Abschlusszahlen gefunden: zwei Werkzeuge zählen „offene Tickets" verschieden (**9** gegen **12**) — und `SWR-113` hat genau das vor **vier** Sprints entschieden. Die Festlegung stand in einem Docstring und in keiner Zusicherung. |
+| promt-team/T-0003 | dev | — | **blocked** | ⚠ `blocked_by: [pm/T-0077]`, unverändert. Keine Terminierung — und ab `SWR-198` erzeugt das keinen Befund mehr. |
+| promt-team/T-0012 | prompt-opt | — | **blocked** | ⚠ dito. |
+| pm/T-0071 | pl | — | **blocked** | ⚠ `blocked_by: [T-0077]`. ⚠⚠ Der **Grund** ist um einen dritten ergänzt: nicht nur leerer Arbeitsvorrat, sondern auch das Drift-Fenster (`T-0052`). Die Sperre bleibt dieselbe. |
+| **pm/T-0077** | mensch | Frist 28.08. | **wartet** | ⚠ Unverändert offen, Frist **nicht** erreicht (heute 21.08.). Default **A**, Schweigen genügt. |
+| pm/T-0001, pm/T-0002, pm/T-0003, platform/T-0001, team-dashboard/T-0001, team-mail/T-0001 | pl/coach/cm/dev | jeder Sprint | **erfüllt** | Takt: Agenda + Briefkasten (0 offen) + Lessons (**vier**, alle mit Vertreter) + Chronik in **vier** Einheiten + Verifikation. Workflow-Abdeckung **6/6, 0 Lücken**, WP-Lücken **0** — kein neues Takt-Ticket, also keine neue Workflow-Pflicht. |
+
+## Sprint-Abschluss (Sprint 31, 2026-08-21)
+
+**Geschlossen:** `platform/T-0051` (**SWR-198**), `platform/T-0050` (**SWR-199**),
+`platform/T-0049` (**SWR-200**). **Nichts verschoben.**
+
+**Neue Anforderungen:** **SWR-198** (Ausnahme am Zustand statt am Typ, gebunden an den
+Verweis), **SWR-199** (Grundmenge der Lehren-Prüfung gemessen statt gesetzt), **SWR-200**
+(benannte Menge der Code-Schreibwege ins Entscheidungslog, über den Syntaxbaum).
+
+**Neu angelegt:** `platform/T-0052` (das Drift-Fenster des laufenden Sprints),
+`platform/T-0053` (zwei Zählweisen für „offene Tickets").
+
+### ⚠⚠ Drei eigene Fehler, alle von Werkzeugen oder Vorsprint-Zusicherungen gefunden
+
+1. **Eine Zahl war falsch formuliert** — der erste Entwurf des `SWR-199`-Docstrings
+   behauptete, der Regel-Filter entferne *„in jeder Schreibweise genau null"* Lehren.
+   Richtig: das **Erweitern** entfernt nichts mehr, die **enge** Schreibweise entfernt 62.
+   Aufgefallen, weil die eigene Zusicherung die Behauptung nicht hergab. **Korrigiert
+   statt stehengelassen** (`L-2026-08-21cb`).
+2. **Die Zusicherung zu `SWR-200` hat sich im ersten Entwurf selbst widerlegt** — sie fand
+   `inbox.py` **nicht**, weil sie den Schreibmodus in *derselben Zeile* wie den Dateinamen
+   suchte; `entscheide` legt den Pfad in `log_pfad` ab und öffnet drei Zeilen später.
+   **Eine Textsuche über eine Zeile findet nur den Schreiber, der seinen Pfad nicht
+   zwischenspeichert** — sie hätte genau den Hauptweg übersehen. Auf den Syntaxbaum
+   umgestellt, **bevor** sie geglaubt wurde.
+3. **⚠⚠ Zwei Werkzeuge zählen „offene Tickets" verschieden — und es war schon
+   entschieden.** `sprint.kennzahlen` sagt **12** (Status weder `done` noch `rejected`,
+   `SWR-113`), `kennzahlen.py` sagt **9** (`status == "open"`). Die Differenz sind die
+   **3 gesperrten** Tickets. `SWR-113` ist in Sprint 7 **genau zu dieser Frage** gebaut
+   worden — *„eine unwiderlegbare Kennzahl ist keine"* —, und das zwanzig Sprints später
+   entstandene `kennzahlen.py` hat die Festlegung nicht übernommen.
+   > **Die Festlegung stand in einem Docstring und in keiner Zusicherung. Das ist wörtlich
+   > `SWR-125`: eine Entscheidung, die keine Prüfung mitgeändert hat, ist eine
+   > Absichtserklärung.**
+   ⚠ Beide Zahlen stehen **mit ihrer Definition** in Punkt 8 — keine wird stillschweigend
+   gewählt. `platform/T-0053`.
+4. **Eine neue Lehre stand kurzzeitig ohne Vertreter da** (`ohne_vertreter` 92 statt 91),
+   und die Prüfung nannte sie beim Namen: ihr Vertreter lag in `test_lehren_vertreter.py`
+   — der Datei, die aus dem Vertreter-Korpus **ausgeschlossen** ist.
+   > **Eine Lehre, die BEI der Vertreter-Prüfung gelernt wird, kann ihren Vertreter nicht
+   > IN ihr haben. Sie braucht eine zweite Stelle, an der dieselbe Regel wirklich trägt —
+   > und wenn es keine gibt, ist die Regel noch keine.**
+
+**Auf `blocked` geblieben statt terminiert:** `promt-team/T-0003`, `promt-team/T-0012`,
+`pm/T-0071` — alle `blocked_by: [pm/T-0077]`, Frist läuft. ⚠ Ab `SWR-198` ist das zum
+ersten Mal **befundfrei** und nicht mehr die Wahl zwischen zwei Befunden.
+
+**Lessons (vier, alle sofort verankert UND mit Vertreter):** `L-2026-08-21cm`
+(Stellvertreter wird zum Loch, sobald die Sache einen Namen bekommt), `cn` (Verhältnis
+gemeint, Ungleichung geschrieben), `co` (die Frage hat ihre Antwort überlebt), `cp`
+(Zerlegefunktion nicht idempotent). **Verbleib:** `process/knowledge/dev/lessons.md`
+(cm, cp), `.../coach/lessons.md` (cn), `.../cm/lessons.md` (co), Historie `platform`,
+Vertreter in `test_gesperrt_terminzange.py`, `test_termin_zange_blocked.py`,
+`test_entscheidungslog_schreibwege.py`.
+
+### ⚠ Was dieser Lauf ausdrücklich NICHT gemessen hat
+
+* **Ob ein Ollama-Tick inhaltlich etwas Sinnvolles tut.** Unverändert: es ist nie einer
+  gelaufen. Der Nachweis für `pm/T-0071` (`status: ok` + Artefakt) **fehlt** und wird hier
+  benannt, damit er nicht später als erledigt gilt, weil ihm niemand widersprochen hat.
+* **Die Länge des Drift-Fensters über mehrere Sprints.** Gemessen ist **ein** Sprint
+  (46 Minuten, 6 abgebrochene Ticks). Ob das die Regel ist, ist die Frage von `T-0052` —
+  und sie ist offen.
+* **Ob die 91 Lehren ohne Vertreter einen brauchen.** `SWR-199` hat die Grundmenge
+  gewechselt und den Bestand **benannt**; ob er schrumpfen soll, ist damit nicht
+  entschieden.
+* **Die volle Testsuite in EINEM Lauf.** Unverändert: ein Gesamtlauf läuft in ein
+  Werkzeug-Zeitlimit. Gefahren modulweise; die Summe steht oben mit ihrer Herkunft und
+  ist durch `kennzahlen.py` unabhängig bestätigt.
+* **Ob `gemma3:27b` auf dem Rechner des Auftraggebers installiert ist.** Von hier aus
+  nicht messbar (`L-2026-08-20ce`).
+
+---
+
+<details><summary>Archiv: Sprint 30</summary>
+
 ## Das Wichtigste (Sprint 30, 2026-08-21)
 
 1. **✅ ZWEI TICKETS GESCHLOSSEN, NICHTS VERSCHOBEN — UND BEIDE WAREN NULLTE
@@ -83,7 +264,7 @@ Grund **im Ticket**, nicht hier (`L-2026-08-17ag`).*
 | promt-team/T-0012 | prompt-opt | — | **blocked** | ⚠ dito. |
 | pm/T-0071 | pl | — | **blocked** | ⚠ `blocked_by: [T-0077]`. ⚠⚠ Der **Grund** hat sich geändert: nicht mehr Preflight, sondern leerer Arbeitsvorrat (`SWR-196`). Die Sperre bleibt dieselbe. |
 | **pm/T-0077** | mensch | Frist 28.08. | **wartet** | ⚠ Unverändert offen, Frist **nicht** erreicht (heute 21.08.). Default **A**, Schweigen genügt. |
-| pm/T-0001..0003, platform/T-0001, team-dashboard/T-0001, team-mail/T-0001 | pl/coach/cm/dev | jeder Sprint | **erfüllt** | Takt: Agenda + Briefkasten (0 offen) + Lessons (**drei**, alle mit Vertreter) + Chronik in **vier** Einheiten + Verifikation. Workflow-Abdeckung **6/6, 0 Lücken**, WP-Lücken **0** — kein neues Takt-Ticket, also keine neue Workflow-Pflicht. |
+| pm/T-0001, pm/T-0002, pm/T-0003, platform/T-0001, team-dashboard/T-0001, team-mail/T-0001 | pl/coach/cm/dev | jeder Sprint | **erfüllt** | Takt: Agenda + Briefkasten (0 offen) + Lessons (**drei**, alle mit Vertreter) + Chronik in **vier** Einheiten + Verifikation. Workflow-Abdeckung **6/6, 0 Lücken**, WP-Lücken **0** — kein neues Takt-Ticket, also keine neue Workflow-Pflicht. |
 
 ## Sprint-Abschluss (Sprint 30, 2026-08-21)
 
@@ -144,6 +325,7 @@ Meldung). **Verbleib:** `process/knowledge/dev/lessons.md`, `.../cm/lessons.md`,
 * **Ob `gemma3:27b` auf dem Rechner des Auftraggebers installiert ist.** Von hier aus
   nicht messbar (`L-2026-08-20ce`).
 
+</details>
 
 ---
 
@@ -247,7 +429,7 @@ Grund **im Ticket**, nicht hier (`L-2026-08-17ag`).*
 | pm/T-0071 | pl | — | **blocked** | ⚠⚠ `blocked_by: [T-0077]` — **im selben Repo, war die ganze Zeit möglich.** Siehe Punkt 3. |
 | **pm/T-0077** | mensch | Frist 28.08. | **wartet** | ⚠ Unverändert offen, Frist **nicht** erreicht (heute 21.08.). Default **A**, Schweigen genügt. |
 | **platform/T-0047** | cm | Sprint 30 | offen | ⚠ **Neu, nullte Terminierung.** Schnitt aus `T-0036`, mit der Messung im Rumpf. Erbt die Berührungszählung von `T-0036` **nicht** — der gebaute Teil ist gebaut. |
-| pm/T-0001..0003, platform/T-0001, team-dashboard/T-0001, team-mail/T-0001 | pl/coach/cm/dev | jeder Sprint | **erfüllt** | Takt: Agenda + Briefkasten (0 offen) + Lessons (**neun**) + Chronik in **drei** Einheiten + Verifikation. Workflow-Abdeckung **6/6, 0 Lücken**, WP-Lücken **0** — kein neues Takt-Ticket, also keine neue Workflow-Pflicht. |
+| pm/T-0001, pm/T-0002, pm/T-0003, platform/T-0001, team-dashboard/T-0001, team-mail/T-0001 | pl/coach/cm/dev | jeder Sprint | **erfüllt** | Takt: Agenda + Briefkasten (0 offen) + Lessons (**neun**) + Chronik in **drei** Einheiten + Verifikation. Workflow-Abdeckung **6/6, 0 Lücken**, WP-Lücken **0** — kein neues Takt-Ticket, also keine neue Workflow-Pflicht. |
 
 ## Sprint-Abschluss (Sprint 29, 2026-08-21)
 
@@ -1482,6 +1664,6 @@ offen, Plan-Drift 0, Statusdrift 0. ⚠ Nicht startklar — Altbefund unverände
 
 </details>
 
-<!-- kennzahlen v1 | gemessen 2026-08-21 05:07
-briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=11325 swr=197 testdateien=93 tests=1404 tickets_offen=10 wartet_auf_mensch=1
+<!-- kennzahlen v1 | gemessen 2026-08-21 07:15
+briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=11480 swr=200 testdateien=95 tests=1429 tickets_offen=9 wartet_auf_mensch=1
 -->

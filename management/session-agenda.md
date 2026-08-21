@@ -1,5 +1,86 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
+## Das Wichtigste (Sprint 31, 2026-08-21)
+
+1. **✅ Drei Aufgaben erledigt, keine verschoben.** Darunter beide, die letzter Sprint
+   ausdrücklich für „diesmal" angekündigt hatte, und eine, die zum **vierten** Mal
+   drankam und deshalb entschieden werden **musste**.
+2. **⚠⚠ Dreimal an einem Tag lag der Fehler nicht in einer Prüfung, sondern zwischen
+   zweien — und das ist der eigentliche Ertrag dieses Laufs.**
+   Für eine **gesperrte** Aufgabe gab es bisher **keinen** zulässigen Termin: ein alter
+   Termin war ein Fehler, kein Termin war ein Fehler, und ruhig blieb es nur mit einer
+   Zusage, die das Team gar nicht halten kann.
+   > **Eine Lage, in der die bequeme Handlung die einzige ist, die grün macht, ist genau
+   > die Bauart, die uns 83 abgebrochene Läufe gekostet hat.**
+   Die Ausnahme gab es längst — sie hing nur an der falschen Sorte Merkmal. **Repariert
+   und am echten Bestand nachgemessen**, nicht im Test: drei Meldungen sind weg.
+3. **⚠⚠ Unsere eigene Prüfung von letztem Sprint hat ihre Grundmenge nicht verdient.**
+   Sie las eine **Schreibweise** und nannte sie eine Konvention. Nachgezählt: **111 von
+   112** Lehren tragen eine Regel — als Auswahl ist das keine Auswahl. Und die
+   Trefferquote ist innerhalb (24 %) und außerhalb (15 %) fast gleich.
+   > **Die Prüfung hat nie Lehren getrennt, die eine Absicherung BRAUCHEN. Sie hat
+   > Lehren getrennt, die jemand mit Doppelpunkt geschrieben hat.**
+   Umgebaut, ohne einen einzigen Dauerbefund zu erzeugen: der Bestand ist **benannt** und
+   bleibt still, rot wird nur Neues — ab jetzt in **jeder** Schreibweise.
+4. **⚠⚠ Eine Frage, die dreimal weitergereicht wurde, war längst beantwortet.** Seit drei
+   Sprints suchten wir einen „zweiten Schreibweg" ins Entscheidungslog. Gemessen: **es
+   gibt ihn nicht als Programm** — es ist die **Hand**, und sie schreibt mit 103 von 158
+   Zeilen die **Mehrheit**. Der Schaden, den ein Bau verhindert hätte, wird seit zwei
+   Sprints ohnehin gefangen.
+   > **Wir haben bei jeder Verschiebung den GRUND geprüft und nie die GÜLTIGKEIT der
+   > Frage. Das ist ab jetzt Teil jeder Terminierung.**
+5. **⚠⚠ Der unangenehmste Punkt betrifft wieder uns selbst: diese Session hat Ihren
+   15-Minuten-Takt blockiert.** Um **06:15** lief er zweimal sauber durch. Ab **06:30**
+   bis **07:01** brach er **sechsmal** ab — weil wir unsere Aufgaben geschlossen haben,
+   bevor wir den Plan neu geschrieben hatten.
+   > **Der Plan wird laut Beschluss am Sprint-ENDE geschrieben. Also ist der Bestand
+   > während JEDES Sprints widersprüchlich — und genau dann kann Ihr Takt nie laufen.
+   > Das ist kein Ausrutscher, das ist die Dauer eines Sprints.**
+   ⚠ **Das stellt richtig, was hier letzten Sprint stand:** `pm/T-0077` ist **nicht** die
+   einzige Sperre. Aufgeschrieben und terminiert, nicht schnell repariert.
+6. **1429 Prüfungen für die Technik** über 95 Dateien (zweimal unabhängig gezählt),
+   **200 Anforderungen ohne Lücke**. Briefkasten: **0 offen**, keiner eingegangen.
+   Offene Aufgaben: **12** (drei geschlossen, zwei neu angelegt) — ⚠ oder **9**, je
+   nachdem, welches unserer beiden Werkzeuge man fragt; siehe unten.
+
+---
+
+## Für dich (E. John)
+
+| Was | Warum |
+|---|---|
+| ⚠⚠ **`pm/T-0077` beantworten** | Unverändert offen, **Frist 28.08.** — noch nicht abgelaufen. **A** = alles bleibt (Voreinstellung, Schweigen genügt). **B** = dein 15-Minuten-Takt bekommt echte Aufgaben. **C** = der Ollama-Zweig wird beendet. ⚠ **Korrektur gegenüber letztem Sprint:** die Frage ist **nicht** die einzige Sperre — siehe Punkt 5. |
+| ⚠⚠ **`abschluss.cmd` ausführen** | Der Rückstand ist jetzt **fünf Tage plus vier komplette Sprints**. **Stichprobe:** danach steht in `abschluss-auto.log` `OK - alles geprueft und gepusht` und `PUSH-ANFORDERUNG.txt` ist verschwunden. |
+| ✅ **Dein Schnelltakt läuft grundsätzlich** | Um 06:15 zweimal `STARTKLAR`. Dass er danach wieder abbrach, war **unsere** Arbeit und nicht dein Rechner — repariert wird das im nächsten Sprint (`platform/T-0052`). |
+| ⚠ **Die Sperr-Reste löschen, wenn du magst** | **11480 Dateien** (Stand 07:15). Wir können sie nicht löschen, du schon. |
+| ⚠ **Die alten Punkte** | Mail-Zugangsdaten (`team-mail/N-0003`), deine Zählung der Kacheln im Reiter „Dashboard", `ollama list`. |
+
+---
+
+## ⚠ Drei Dinge, die wir über uns selbst aufschreiben
+
+**Erstens:** Eine Zusicherung aus dem **letzten** Sprint hat diese Session aufgehalten —
+und genau dafür war sie gebaut. Sie hielt einen **bekannten Mangel** fest und trug in
+ihrem eigenen Text den Auftrag, beim Beheben umgedreht zu werden. Nach der Reparatur
+wurde sie rot. **Hätten wir den Mangel nur in Prosa vermerkt, hätte die Datei nach dem
+Fix schweigend weiter den alten Zustand beschrieben.** Sie hat dabei noch einen zweiten,
+echten Fehler gefunden, den keine unserer neuen Prüfungen gesehen hätte.
+
+**Zweitens:** Eine unserer eigenen Zahlen war zuerst falsch formuliert. Wir haben sie
+**korrigiert und benannt**, statt sie stehen zu lassen — aufgefallen ist es, weil unsere
+eigene Prüfung die Behauptung nicht hergab.
+
+**Drittens:** Beim Zusammenstellen der Abschlusszahlen haben wir gemerkt, dass **zwei
+unserer Werkzeuge „offene Aufgaben" verschieden zählen** (9 gegen 12; die Differenz sind
+die drei gesperrten). Das war vor **vier** Sprints schon einmal entschieden worden — die
+Festlegung stand in einem Kommentar und in keiner Prüfung, und das neuere Werkzeug hat sie
+nicht übernommen. **Wir schreiben deshalb beide Zahlen mit ihrer Definition hin, statt
+eine still zu wählen.**
+
+---
+
+<details><summary>Archiv: Sprint 30</summary>
+
 ## Das Wichtigste (Sprint 30, 2026-08-21)
 
 1. **✅ Dein 15-Minuten-Takt bricht nicht mehr ab — und das ist jetzt gemessen statt
@@ -70,6 +151,8 @@ sichern. Beim Bauen ist aufgefallen, dass die Zahl allein dadurch stieg, dass wi
 **über** das Problem geschrieben haben — 1023 wurden zu 1030. **Eine Prüfung auf diese
 Zahl hätte jeden Bericht bestraft, der den Befund erklärt.** Deshalb sichern wir jetzt die
 Nummernvergabe und nicht den Text.
+
+</details>
 
 ---
 
