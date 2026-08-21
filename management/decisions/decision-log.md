@@ -81,3 +81,4 @@
 | D015 | 2026-08-21 09:37 | Mensch (E. John, via Inbox) | **B** | lt. T-0081 | Nur dimitri.john83@gmail.com, kein zweites | T-0081 |
 | D016 | 2026-08-21 09:38 | Mensch (E. John, via Inbox) | **B** | lt. T-0078 | — | T-0078 |
 | D029 | 2026-08-21 10:41 | Mensch (E. John, via Inbox) | **C** | lt. T-0084 | also ollama modell gemma3.27b ist aktuell, kein llama3.1:8b. | T-0084 |
+| D030 | 2026-08-22 00:23 | Mensch (E. John, via Inbox) | **C** | lt. T-0086 | — | T-0086 |

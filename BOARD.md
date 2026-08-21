@@ -1,15 +1,16 @@
 # Board (generiert von platform/scripts/board.py — nicht von Hand editieren)
 
-Stand: 2026-08-21 · Tickets: 85 · davon wiederkehrend: 3
+Stand: 2026-08-22 · Tickets: 86 · davon wiederkehrend: 3
 
 
-## open (6)
+## open (7)
 
 | ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|---|
 | [T-0001](tickets/T-0001.md) | Takt: Session-Agenda pflegen (jede Session) | task | je Session | pl | Team | hoch | 0 | — |
 | [T-0002](tickets/T-0002.md) | Takt: Intake-Queue — neue Wünsche/Briefe qualifizieren (jede Session) | task | je Session | pl | Team | hoch | 0 | — |
 | [T-0080](tickets/T-0080.md) | Vollstaendiger Arbeitsverlauf je Aufgabe — als SICHT auf vorhandene Spuren, nicht als zweiter Speicher (Brief N-0046) | change-request | einmalig | dev | Team | hoch | 32 | — |
+| [T-0086](tickets/T-0086.md) | Vier Cowork-Läufe in Folge ohne Shell — Sandbox reparieren, Takt auf den Host ziehen, oder beides? | decision-request | einmalig | mensch | Team | hoch | 35 | — |
 | [T-0082](tickets/T-0082.md) | Sprint-0-Planung p13 Produkt-Architekturbilder — Projektauftrag ist freigegeben (D000/G0a) | task | einmalig | pl | Team | mittel | 32 | — |
 | [T-0085](tickets/T-0085.md) | Die Projektnummer P13 ist ZWEIMAL vergeben — team-mail und projects/p13 tragen dieselbe Kennung | problem | einmalig | pl | Team | mittel | 34 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | Team | niedrig | 0 | — |
