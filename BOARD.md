@@ -1,24 +1,28 @@
 # Board (generiert von platform/scripts/board.py — nicht von Hand editieren)
 
-Stand: 2026-08-21 · Tickets: 77 · davon wiederkehrend: 3
+Stand: 2026-08-21 · Tickets: 82 · davon wiederkehrend: 3
 
 
-## open (4)
+## open (7)
 
 | ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|---|
 | [T-0001](tickets/T-0001.md) | Takt: Session-Agenda pflegen (jede Session) | task | je Session | pl | Team | hoch | 0 | — |
 | [T-0002](tickets/T-0002.md) | Takt: Intake-Queue — neue Wünsche/Briefe qualifizieren (jede Session) | task | je Session | pl | Team | hoch | 0 | — |
-| [T-0077](tickets/T-0077.md) | Drei Tickets warten seit vier Sprints auf einen Ollama-Lauf, den nichts auslösen kann — soll dein Schnelltakt einen Arbeitsvorrat bekommen? | decision-request | einmalig | pl | Team | hoch | 28 | — |
+| [T-0078](tickets/T-0078.md) | Neues Projekt team-termine mit Google-Kalender — Gruendung und SCHREIBrecht auf ein fremdes Konto (Brief N-0044) | decision-request | einmalig | mensch | MENSCH | hoch | 32 | — |
+| [T-0080](tickets/T-0080.md) | Vollstaendiger Arbeitsverlauf je Aufgabe — als SICHT auf vorhandene Spuren, nicht als zweiter Speicher (Brief N-0046) | cr | einmalig | dev | Team | hoch | 32 | — |
+| [T-0081](tickets/T-0081.md) | Digest-Versand: der Brief nennt ZWEI Empfaenger und Guardrail 1 erlaubt einen (Brief team-mail/N-0005) | decision-request | einmalig | mensch | Team | hoch | 32 | — |
+| [T-0082](tickets/T-0082.md) | Sprint-0-Planung p13 Produkt-Architekturbilder — Projektauftrag ist freigegeben (D000/G0a) | task | einmalig | pl | Team | mittel | 32 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | Team | niedrig | 0 | — |
 
-## blocked (1)
+## blocked (2)
 
 | ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|---|
 | [T-0071](tickets/T-0071.md) | F18: Ollama-Schnelltakt in Betrieb nehmen — Aufgabenplanung registrieren, ersten Lauf prüfen, Wirkung messen (pm/D010) | task | einmalig | pl | Team | hoch | 25 | T-0077 |
+| [T-0079](tickets/T-0079.md) | Muessen Core-Rollen organisationsweit gleich BESETZT sein — oder nur gleich definiert? (Brief N-0045) | problem | einmalig | pl | Team | hoch | 32 | T-0077 |
 
-## done (72)
+## done (73)
 
 | ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|---|
@@ -62,6 +66,7 @@ Stand: 2026-08-21 · Tickets: 77 · davon wiederkehrend: 3
 | [T-0072](tickets/T-0072.md) | Rollenkarten v2 komplett: 10 Bestandskarten gehoben + 4 neue (REL, MAIL-RED, DASH-RED, PROMPT-OPT); Takt vereinheitlicht (session = sprint, D006) | change-request | einmalig | coach | Team | hoch | 0 | — |
 | [T-0074](tickets/T-0074.md) | Setup-Nachzieh koordinieren: 7 Projekte ziehen die Initial-Artefakte des Projektmodells nach (Konzept 04 Kap. 8 Schritt 7) | task | einmalig | pl | Team | hoch | 0 | — |
 | [T-0075](tickets/T-0075.md) | Review-Lauf (Auftraggeber-Weisung „mache weiter“): SWR-177–184 reviewed, Matrix 184/0, QM-Review der 36 Setup-Artefakte, T-0039/T-0040/T-0042 geschlossen | task | einmalig | qm | Team | hoch | 0 | — |
+| [T-0077](tickets/T-0077.md) | Drei Tickets warten seit vier Sprints auf einen Ollama-Lauf, den nichts auslösen kann — soll dein Schnelltakt einen Arbeitsvorrat bekommen? | decision-request | einmalig | pl | Team | hoch | 28 | — |
 | [T-0010](tickets/T-0010.md) | Problem (N-0007): board-check-Flake — Stand-Datum kippt um Mitternacht | problem | einmalig | prob | Team | mittel | 0 | — |
 | [T-0014](tickets/T-0014.md) | CR (N-0017): Cockpit zeigt wiederkehrende Aufgaben im Klartext statt als Symbol | change-request | einmalig | chg | Team | mittel | 0 | — |
 | [T-0015](tickets/T-0015.md) | CR (N-0018): Team-Chat zeigt die neuesten Nachrichten zuerst | change-request | einmalig | chg | Team | mittel | 0 | — |
