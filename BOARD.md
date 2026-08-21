@@ -1,6 +1,6 @@
 # Board (generiert von platform/scripts/board.py — nicht von Hand editieren)
 
-Stand: 2026-08-21 · Tickets: 84 · davon wiederkehrend: 3
+Stand: 2026-08-21 · Tickets: 85 · davon wiederkehrend: 3
 
 
 ## open (6)
@@ -10,9 +10,15 @@ Stand: 2026-08-21 · Tickets: 84 · davon wiederkehrend: 3
 | [T-0001](tickets/T-0001.md) | Takt: Session-Agenda pflegen (jede Session) | task | je Session | pl | Team | hoch | 0 | — |
 | [T-0002](tickets/T-0002.md) | Takt: Intake-Queue — neue Wünsche/Briefe qualifizieren (jede Session) | task | je Session | pl | Team | hoch | 0 | — |
 | [T-0080](tickets/T-0080.md) | Vollstaendiger Arbeitsverlauf je Aufgabe — als SICHT auf vorhandene Spuren, nicht als zweiter Speicher (Brief N-0046) | change-request | einmalig | dev | Team | hoch | 32 | — |
-| [T-0083](tickets/T-0083.md) | Projektgruendung team-termine ausfuehren — Steckbrief, Intake, Sprint-0 (pm/D016 = B) | task | einmalig | pl | Team | hoch | 33 | — |
 | [T-0082](tickets/T-0082.md) | Sprint-0-Planung p13 Produkt-Architekturbilder — Projektauftrag ist freigegeben (D000/G0a) | task | einmalig | pl | Team | mittel | 32 | — |
+| [T-0085](tickets/T-0085.md) | Die Projektnummer P13 ist ZWEIMAL vergeben — team-mail und projects/p13 tragen dieselbe Kennung | problem | einmalig | pl | Team | mittel | 34 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | Team | niedrig | 0 | — |
+
+## in_progress (1)
+
+| ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
+|---|---|---|---|---|---|---|---|---|
+| [T-0083](tickets/T-0083.md) | Projektgruendung team-termine ausfuehren — Steckbrief, Intake, Sprint-0 (pm/D016 = B) | task | einmalig | pl | Team | hoch | 34 | — |
 
 ## blocked (2)
 
