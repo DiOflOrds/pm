@@ -159,6 +159,81 @@ der Arbeit auf `in_progress` gesetzt worden. Das ist wörtlich der Vorgang, den 
 gemessen hat (Median-Lebensdauer 22 Sekunden) und den die Rollenkarte PL als **Lehre 1**
 führt. **Die Prüfung war grün, weil sie die Reihenfolge nicht kennt — nur das Vorkommen.**
 
+## ⚠⚠ NACHTRAG 3: zwei weitere eigene Fehler, beide von fremden Zusicherungen gefunden
+
+### 1. Wir haben `D014`–`D016` doppelt vergeben — und `SWR-197` war genau dagegen gebaut
+
+Als der Auftraggeber seine drei Entscheidungen traf, vergab `inbox._naechste_d_id`
+`D014`, `D015`, `D016` in `pm` — IDs, die `p0` seit dem **06.08.** trägt. Die mehrdeutige
+Menge wuchs **an einem Tag von 14 auf 17**.
+
+> **⚠⚠ `SWR-197` (Sprint 30) hat gemessen, dass alle mehrdeutigen Zitate aus `D000`–`D013`
+> stammen, und geschrieben, die Sperrklinke sei „an der Vergabe" gebaut. Sie war es nicht:
+> `_naechste_d_id` bildete `max + 1` über EIN Log. Die ersten drei Vergaben nach der
+> Sperrklinke haben sie gebrochen.**
+>
+> **Eine Prüfung, die neben der Vergabe steht und sie nicht anfasst, ist kein Riegel,
+> sondern ein Zeuge.**
+
+**`SWR-203`**: die Vergabe liest ab jetzt **alle** Entscheidungslogs der Organisation.
+⚠ Der Altbestand ist ehrlich auf **17** fortgeschrieben — **aber ausdrücklich nur
+zusammen mit der Reparatur**. Ihn allein zu erweitern wäre die bequeme Handlung gewesen.
+`platform/T-0059`, `L-2026-08-21cu`.
+
+### 2. Wir haben viermal `open -> done` committet — im selben Lauf, in dem wir darüber schrieben
+
+`test_uebergang_historie` (Sprint 23) meldete **vier** unzulässige Übergänge:
+`platform/T-0052`, `T-0053`, `pm/T-0077`, `p13/T-0001`. Wir hatten `in_progress` gesetzt —
+aber erst am Ende, und zusammen mit `done` committet. **Die Prüfung liest Commits, nicht
+Arbeitsspeicher.**
+
+> **⚠⚠ Der Abschluss dieses Laufs BESCHREIBT den Fehler zwei Absätze weiter oben („die
+> Tickets standen bis kurz vor dem Schließen auf `open`") — und hat ihn im selben Atemzug
+> BEGANGEN. Ein Fehler, den man aufschreibt, ist damit nicht behoben; er ist nur belegt.**
+
+⚠ Nicht repariert (Kap. 16): die vier stehen ab jetzt **namentlich** in der Liste der
+fortgeschriebenen Übergänge, die damit von **4 auf 8** wächst — **die Hälfte davon gehört
+diesem Lauf.** Rollenkarte PL Lehre 1 ist um das Wort **committet** ergänzt; sie stand
+dort bereits und hat nicht getragen. `L-2026-08-21cv`.
+
+### ⚠ Und ein achter Brief kam nach dem Preflight
+
+`team-dashboard/N-0004` (08:07, Post-Widget nach Design-Vorlage) — **beantwortet und als
+`team-dashboard/T-0005` qualifiziert.** Die Vorlage
+(`projects/p11/design/widget_design_mail.png`) ist gelesen und ihre **Lesart als Tabelle
+im Ticket festgehalten**: ein Bild ist keine Zusicherung.
+
+**Damit sind es acht Briefe in einem Lauf**, alle beantwortet — und `L-2026-08-21cs` hat
+seinen dritten Beleg am selben Tag.
+
+## Verifikation (Sprint 32, gemessen 10:03)
+
+| Größe | Wert |
+|---|---|
+| `PREFLIGHT` | **STARTKLAR** (8 fortgeschrieben) |
+| Anforderungen / Lücken | **202** SWRs (v1.88) / **0** |
+| Tests / Testdateien | **1452** / **99** |
+| Organigramm | grün, **20** Dateien |
+| Briefkasten | **0 offen** — ⚠ am **Ende** gemessen (8 im Lauf eingegangen und beantwortet) |
+| Workflows / unabgedeckte Takte | **6** / **0** |
+| Work Products / Lücken | **56** / **0** |
+| Lehren / ohne Vertreter | **121** / **91** (unverändert — alle **sechs** neuen haben einen) |
+| Offene Tickets | **19**, einstimmig über alle drei Erzeuger (`SWR-202`) |
+| Auf den Menschen wartend | **0** — ⚠ **alle drei DRs wurden im Lauf beantwortet** |
+| Parkplatz | **11714** (Stand 10:07 — die Zahl trägt ihren Zeitpunkt, `SWR-174`) |
+
+⚠ **Nicht gefahren, und das ist eine Aussage über die Menge, die wir NICHT geprüft haben
+(`SWR-189`):** `test_js_teststrecke` überschreitet in dieser Sandbox das Zeitlimit. **Es
+ist in diesem Lauf kein JavaScript geändert worden**, aber „nicht betroffen" ist eine
+Behauptung und kein Messergebnis. Alle **98** übrigen Testmodule sind einzeln gelaufen.
+
+⚠ **Ollama-Offload: nichts delegiert, Token-Ersparnis 0 — gemessen, nicht geschätzt.**
+`pm/T-0071` hat unverändert **keinen** Tick mit `status: ok` + Artefakt; die Run-Registry
+zeigt ausschließlich `status: fehler` (`model 'llama3.1:8b' not found`). Mit `pm/D014` = A
+ist entschieden, dass sich daran nichts ändert.
+
+---
+
 <details><summary>Archiv: Sprint 31</summary>
 
 ## Das Wichtigste (Sprint 31, 2026-08-21)
@@ -1861,6 +1936,6 @@ offen, Plan-Drift 0, Statusdrift 0. ⚠ Nicht startklar — Altbefund unverände
 
 </details>
 
-<!-- kennzahlen v1 | gemessen 2026-08-21 10:03
-briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=11665 swr=202 testdateien=99 tests=1452 tickets_offen=19 wartet_auf_mensch=0
+<!-- kennzahlen v1 | gemessen 2026-08-21 10:12
+briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=11714 swr=203 testdateien=99 tests=1452 tickets_offen=20 wartet_auf_mensch=0
 -->
