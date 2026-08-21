@@ -19,7 +19,6 @@
 | 6 | mail_digest → Katalog-Produkt (Promotion mit SWRs) | B003, Pilotreview 29.08. |
 | 8 | JS-Frontend-Tests | P3-R1 |
 | 9 | Schätz-Kalibrierung (E5-Auswertung automatisiert) | P2-R1 |
-| 10 | Produkt-Architekturbilder | P3-R2 |
 | 11 | Live-API-Chat (kostenpflichtig — Budget-DR nötig) | P4-Rest |
 | 12 | B4 Integrationsstrategie · B8 Embedded-Vorbereitung · B10 VM | P0-Überhang |
 
@@ -30,6 +29,7 @@
 | 13 | **team-dashboard** — Dashboards verwalten/koordinieren + kompaktes Widget-Dashboard | Team `team-dashboard` (Gründung) **und** Projekt **P11 „Widget-Dashboard"** (Bau, `projects/p11`) — „verwalten" ist Daueraufgabe, „bauen" ist ein Projekt | pm/N-0027, pm/T-0031 → pm/D006 (TG-a, 15:21), pm/T-0033 → pm/D007 (G0a, 15:55) |
 | 14 | **promt-team** — Prompt- und Kontext-Optimierer (Meta-Rolle) | Team `promt-team` (Gründung, lokal ohne Remote — Datenklasse `sensibel`). Erstauftrag ist **Messgrundlage**, nicht Optimieren — die Rollenbeschreibung verlangt „ohne Baseline kein Optimierungslauf", und die Baseline gab es nicht. | pm/N-0040, pm/T-0056 → pm/D009 (TG-a, 08:47); Volltext: `management/kandidaten/promt-team-rollenbeschreibung.md` |
 | 7 | Markdown-Renderer auch für Briefe/Reports (Quelle: P7-LeLe) | Projekt **P12** (`projects/p12`) — über den „Starten"-Knopf (pm/T-0022 Teil 2) angelegt, vom Auftraggeber freigegeben | p12/T-0001 → p12/D000 (G0a, 18:04) |
+| 10 | Produkt-Architekturbilder (Quelle: P3-R2) | Projekt **P13** (`projects/p13`) — über den „Starten"-Knopf angelegt (pm/T-0022 Teil 2) | p13/T-0001 (G0-Antrag, gestartet 2026-08-21) |
 
 *Zeile 7 wurde **von Hand nachgetragen**: Der „Starten"-Knopf hat den Kandidaten aus der
 Technik-Tabelle gelöscht und nichts hinterlassen — er kennt diesen Abschnitt nicht, weil er am
