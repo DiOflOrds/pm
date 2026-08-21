@@ -252,6 +252,83 @@ Post im Lauf **0 Erstbriefe / 0 Beiträge**.
 
 ---
 
+## ⚠⚠ Nachtrag Folgelauf 2026-08-21 (DRITTER Lauf ohne Shell — kein Sprint 36)
+
+Fünf identische Startfehler (`useradd failed: exit status 12`, kein Wiederanlauf). Kein
+`git`, kein `board.py`, kein `preflight`, keine Tests, kein Ollama-Tick, kein Register.
+**Nichts gebaut, nichts geschlossen, nichts terminiert, kein Ticket angefasst** — die
+Grenze aus Befund C (`ist_verifikationsquelle`) ist eingehalten.
+
+Dieser Lauf hat **eine** Aufgabe erfüllt, die ohne Shell erfüllbar ist: er hat
+nachgemessen, ob die Reparaturen, die der Host-Lauf für sich **berichtet** hat,
+im Bestand auch **stehen** — `L-2026-08-17ag` („eine Korrektur, die nur im Bericht
+steht, ist keine") gilt auch für Korrekturen, die uns willkommen sind.
+
+### Befund A — nachgemessen: eingelöst
+
+| Ticket | `status` | `geplant_sprint` |
+|---|---|---|
+| `platform/T-0055` | open | **36** |
+| `platform/T-0060` | in_review | **36** |
+| `platform/T-0064` | open | **36** |
+| `pm/T-0080` | open | **36** |
+| `pm/T-0082` | open | **36** |
+| `team-dashboard/T-0004` | open | **36** |
+| `team-dashboard/T-0006` | open | **36** |
+| `team-mail/T-0006` | open | **36** |
+| `team-mail/T-0007` | open | **36** |
+| `team-termine/T-0001` | open | **36** |
+
+**Zehn von zehn.** Die Zeitbombe am `--beginne` ist entschärft; `sprint_vergangen`
+findet nach `--beende` + `--beginne` keines dieser Tickets mehr.
+
+### Befund B — nachgemessen: eingelöst, und die vermutete Folgelücke gibt es nicht
+
+`team-termine/T-0011` und `T-0012` stehen auf `status: blocked` mit `blocked_by`
+(`[T-0001]` bzw. `[T-0006]`). ⚠ **Beide tragen kein `geplant_sprint`** — das war der
+Verdacht dieses Laufs auf einen neuen `ohne Sprint`-Befund. **Am Code widerlegt, nicht
+am Gefühl:** `aggregation._ist_unterminiert` nimmt `blocked` **mit** `blocked_by`
+ausdrücklich aus (SWR-198, `platform/T-0051`). Kein Befund. Der Verdacht ist hier
+notiert, damit ihn der nächste Lauf nicht ein zweites Mal prüfen muss.
+
+### ⚠ Eine Zählung dieses Laufs war falsch, bevor sie berichtet wurde
+
+Die Erstzählung ergab **19** `open`. Nachgeprüft: `pm/T-0049` steht im Frontmatter auf
+`done` und trägt die Zeichenfolge `status: open` im **Fließtext** (Zeile 28, Zitat eines
+Befunds). Ohne Shell wird mit einem Zeilenmuster gezählt, nicht mit
+`board.parse_frontmatter` — und ein Zeilenmuster kennt die Grenze des Frontmatters nicht.
+
+> **Ein Ersatzwerkzeug misst nicht dieselbe Größe, nur weil es dieselbe Zahl ausgibt.**
+
+### Zahlen dieses Laufs — gemessen, mit Definition und mit ihrer Unschärfe
+
+| Größe | Wert | Wie gemessen |
+|---|---|---|
+| Briefkasten offen | **0** | 70 Briefdateien, beide Ebenen, kein `status: offen` |
+| Offene Aufgaben | **34** = 18 `open` + 15 `blocked` + 1 `in_review` | Zeilenmuster auf `*/tickets/T-*.md`, **ein** Fließtext-Treffer von Hand entfernt |
+| `blocked` namentlich | **15** | `team-termine/T-0002…T-0012` (11), `promt-team/T-0003`, `promt-team/T-0012`, `pm/T-0071`, `pm/T-0079` |
+| Ollama-Offload | **0** delegiert, Ersparnis **0** | `pm/T-0071` unverändert ohne Tick `status: ok` + Artefakt; `tick.py` mangels Shell nicht gelaufen |
+| Tests / Matrix / `organigramm.py --check` / `preflight` | **nicht gelaufen** | keine Shell — **keine Zahl behauptet** |
+
+⚠ `platform/T-0066` und `T-0067` fehlen in der Plantabelle oben — **kein Befund**: sie
+tragen `geplant_sprint: 36`, die Tabelle plant Sprint 35. Sie gehören in den Plan, den
+der nächste Lauf nach `--beginne` aufmacht.
+
+### Was dieser Lauf NICHT tun durfte und deshalb nicht getan hat
+
+* **Kein Inbox-DR zur Shell.** Drei Läufe ohne Shell sind kein Betriebsunfall mehr,
+  sondern eine Frage an den Auftraggeber (Betriebsmittel/Zugänge → **Klasse A**): den
+  Takt in der Sandbox reparieren oder ihn ganz auf den Host ziehen, wo
+  `abschluss.cmd` und `reparatur-sprint35.cmd` ohnehin laufen. Ein DR ist eine
+  Ticketdatei und damit Verifikationsquelle (Befund C) — **benannt statt angelegt**,
+  zum zweiten Mal.
+* **Kein Commit, kein Push, keine Zeile über gepushte Inhalte.** Es gibt keinen
+  Commit, den man pushen könnte.
+* **`PROJEKTSTATUS-UPDATE.md` nicht fortgeschrieben** — dieser Lauf hat keinen
+  Zustand geändert, den sie melden müsste. Nichts geglättet, kein Termin verschoben.
+
+---
+
 ### ⚠⚠ Der Fund des Laufs war der MESSPUNKT, nicht die Messung
 
 Der Ollama-Takt läuft. Er läuft seit dem 20.08. auf dem Rechner des Auftraggebers, und
