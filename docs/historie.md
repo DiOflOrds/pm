@@ -29,29 +29,44 @@ Arbeitskopien **0 von 18** · Parkplatz `verwaiste-locks` **12461** · Ollama-Of
    Arbeitskopie vor dem Preflight. Sie hat zwei Läufe lang die Entscheidungsanfrage
    verhindert, die jetzt als `pm/T-0086` vorliegt.
 2. Ihre zweite Hälfte („Lehrdateien sind frei") ist teurer: acht Lehren ohne Vertreter
-   machen **drei Zusicherungen rot** (`platform/T-0070`).
+   machen **drei Zusicherungen rot** (`platform/T-0070`). ⚠ **Sechs der acht stammen aus
+   Sprint 35**, einem Lauf **mit** Shell — die Läufe ohne Shell haben den Befund
+   vergrößert, nicht erzeugt (Befund 1/2 unten).
 
 Die Lehre steht **samt Nachtrag** und ist nicht umgeschrieben; `NOTBETRIEB-OHNE-SHELL.md`
 ist berichtigt. ⚠ **Dieser Lauf hat bewusst KEINE neue Lehre angelegt.**
 
-### ⚠⚠ Das Gegenlesen hat SECHS Befunde an diesem Bericht gefunden. Keinen davon der Autor.
+### ⚠⚠ Das Gegenlesen hat ZEHN Befunde an diesem Bericht gefunden — in ZWEI Durchgängen. Keinen davon der Autor.
 
 **Fünfter Lauf in Folge** — und diesmal an einem Bericht, dessen Gegenstand genau dieses
-Muster ist. Alle sechs im selben Lauf korrigiert, keiner geglättet:
+Muster ist. Alle im selben Lauf korrigiert, keiner geglättet:
 
 | # | Behauptung | Gemessen |
 |---|---|---|
 | 1 | „alle acht Lehren aus Läufen ohne Shell" | **sechs aus Sprint 35** (mit Shell, hat gebaut), zwei aus Läufen ohne |
 | 2 | „drei Zusicherungen rot gemacht" | sie waren nach Sprint 35 **schon** rot — vergrößert, nicht erzeugt |
 | 3 | „seit 20:00 STARTKLAR" | 20:30 meldete 1 Befund und brach ab — **fünf von sechs** |
-| 4 | „der Grund für das Ticket-Verbot war weg" | der Tick um **21:40 ist genau daran abgebrochen** (`UNVERBUCHT tickets/T-0068.md …`) |
+| 4 | „der Grund für das Ticket-Verbot war weg" | der Tick ist **genau daran abgebrochen** (`UNVERBUCHT tickets/T-0068.md …`) |
 | 5 | „114 Schnelltakt-Läufe am 21.08." | **87** am 21.08.; 114 ist der Stand seit dem 20.08. |
 | 6 | — | **neu und von diesem Lauf verursacht:** `test_berichtskennzahlen` rot (`tickets_offen 34→38`) |
 
-> **⚠⚠ Der Autor hat einen Bericht über das Nichtzählen geschrieben und dabei nicht
-> gezählt. Die bessere Geschichte („alle acht") hätte die eigentliche Ursache verdeckt:
-> nicht der Ausfall der Shell, sondern ein Sprint MIT Shell, der 1551 Tests als
-> Verifikation führte und 1136 davon nicht ausführte.**
+**Ein zweites Gegenlesen der Korrekturen fand vier weitere — einer davon IN der Korrektur:**
+
+| # | Behauptung der Korrektur | Gemessen |
+|---|---|---|
+| 7 | „der Tick um **21:40** brach ab" + „eine Minute später geheilt" | falscher Lauf **und** falsche Entwarnung: **21:55, 22:10, 22:25** — drei Abbrüche in Folge, weil jede Korrektur eine neue unverbuchte Fassung erzeugt |
+| 8 | „an **vier Stellen** richtiggestellt" | mindestens **sieben**, und an einer achten zuerst gar nicht |
+| 9 | „5" bzw. „6" Abschlussläufe am 21.08. | **8 und wachsend** — ein Stand, keine Kennzahl |
+| 10 | drei Kurzfassungen trugen die widerlegte Zuschreibung weiter | nachgezogen |
+
+> **⚠⚠ Der Lauf, der den Ollama-Nachweis LEGEN wollte, hat den Ollama-Takt drei Takte
+> lang blockiert — mit genau den Ticketdateien, die den Nachweis tragen sollen.**
+
+> **⚠⚠ Der Autor hat einen Bericht über das Nichtzählen geschrieben, dabei nicht gezählt
+> — und beim Berichtigen des Nichtzählens wieder nicht gezählt (Befund 7). Die bessere
+> Geschichte („alle acht") hätte die eigentliche Ursache verdeckt: nicht der Ausfall der
+> Shell, sondern ein Sprint MIT Shell, der 1551 Tests als Verifikation führte und 1136
+> davon nicht ausführte.**
 
 ⚠ Befund 6 ist **nicht von Hand repariert**: `kennzahlen.miss()` ist die Quelle,
 `kennzahlen.py --schreibe` der Weg, und beides braucht eine Shell. Eine eingetragene
@@ -63,7 +78,8 @@ nächsten Laufs mit Shell.**
 Zusicherung, die in 41 Minuten ohne Änderung die Farbe wechselt, misst nicht ihren
 Gegenstand — das belegt `platform/T-0069` besser als dessen eigene Herleitung.
 
-⚠ **Der Ollama-Takt ist seit 20:00 STARTKLAR und hat trotzdem nichts zu tun:** genau zwei
+⚠ **Der Ollama-Takt meldet ab 20:00 in fünf von sechs Läufen STARTKLAR (Stand 21:16;
+20:30 ist die Ausnahme) und hat trotzdem nichts zu tun:** genau zwei
 Besetzungen tragen `motor: ollama` (`PROB@platform`, `MAIL-RED@team-mail`), und kein
 offenes Ticket trug je eine dieser Rollen — **die fünfte Antwort auf „warum läuft Ollama
 nie", und die banalste.** `platform/T-0069` ist als `rolle: prob` /

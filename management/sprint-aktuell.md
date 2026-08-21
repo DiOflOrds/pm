@@ -478,7 +478,7 @@ Lauf daraus gemacht hat.
 | Tests gelaufen | **1551** in 210,4 s | `abschluss-logs/abschluss-20260821-211400.log:10102` |
 | **Rot** | **6** | ebd. `:10104` |
 | Preflight (Abschlusslauf, alle Repos inkl. p1/Produkte) | **4 Befunde** | `review-20260821-211400.md` |
-| Abschlussläufe des Hosts am 21.08. | **5** (20:44 – 21:40) | `abschluss-logs/` |
+| Abschlussläufe des Hosts am 21.08. | **8 und wachsend** (20:44 – 22:25) | `abschluss-logs/` |
 
 ⚠⚠ **Sprint 35 hat „1551 Tests" als Verifikation berichtet und dazugeschrieben, dass 1136
 davon nicht gelaufen sind.** Der erste vollständige Lauf sagt: **sechs sind rot, und keine
@@ -520,8 +520,8 @@ Abschluss:**
 
 Die zwei Läufe ohne Shell haben den Befund um zwei Namen **vergrößert**, nicht erzeugt —
 und konnten es nicht merken. Das ist weniger, als hier zuerst stand, und es ist das, was
-belegbar ist. **Fünfter Sprint in Folge, in dem das Gegenlesen findet, was der Autor
-nicht sah** — diesmal an einem Bericht über genau dieses Muster.
+belegbar ist. **Fünfter Lauf in Folge, in dem das Gegenlesen findet, was der Autor nicht
+sah** — diesmal an einem Bericht über genau dieses Muster.
 
 `L-2026-08-21dq` — *„Ohne `git` ist die Ticketdatei tabu, der Rest des Hauses frei"* — ist
 **einer der acht.** Beide Hälften sind widerlegt:
@@ -572,21 +572,34 @@ eigenen Takts*. Die fünfte ist banaler und lag hinter allen vieren:
 `tier: standard`, **nicht gate-relevant**. Damit trägt zum ersten Mal ein offenes Ticket
 die Rolle, für die diese Besetzung existiert.
 
-⚠⚠ **Das ist ein gelegter Nachweis, kein geführter — und der erste Versuch ist bereits
-fehlgeschlagen.** Der Lauf um **21:40** hat den `platform`-Tick abgebrochen, und zwar an
-den drei Ticketdateien dieses Laufs:
+⚠⚠ **Das ist ein gelegter Nachweis, kein geführter — und dieser Lauf hat den Takt, dem er
+Arbeit hinlegen wollte, DREI Takte lang blockiert.** Gemessen im `ollama-schnelltakt.log`:
 
-```
-UNVERBUCHT tickets/T-0068.md · T-0069.md · T-0070.md
-BEFUND: 3 Datei(en), die eine Verifikation liest, sind nicht committet
-PREFLIGHT: 1 Befund(e) → Tick abgebrochen
-```
+| Lauf | Befund | Tick |
+|---|---|---|
+| 21:55 | `UNVERBUCHT tickets/T-0068.md · T-0069.md · T-0070.md` | **abgebrochen** |
+| 22:10 | `UNVERBUCHT tickets/T-0070.md`, `T-0086.md` | **abgebrochen** |
+| 22:25 | `UNVERBUCHT tickets/T-0069.md`, `T-0070.md`, `T-0086.md` | **abgebrochen** |
 
-Der Host hat es um 21:55 per Nachverbuchung geheilt. **Die Wirkung bleibt trotzdem
-gemessen und wird nicht weggeschrieben:** ein Ticket, das ohne Shell entsteht, kostet
-mindestens einen Tick. `pm/T-0071` hat weiterhin **null** Ticks mit `status: ok` +
-Artefakt; Token-Ersparnis dieses Laufs **0**. Ob der nächste Lauf durchgeht, steht im
-`ollama-schnelltakt.log` und **nicht hier**.
+⚠⚠ **Die erste Fassung dieses Absatzes nannte den Lauf um „21:40" und schrieb, der Host
+habe es „eine Minute später geheilt". Beides war falsch** (das zweite Gegenlesen hat es
+gefunden): der 21:40-Lauf wurde abgebrochen, bevor der Preflight lief, und die Heilung
+ist keine — **jede Korrektur an einem Ticket erzeugt eine neue unverbuchte Fassung, und
+der Verbucher läuft im 15-Minuten-Takt hinterher.**
+
+> **⚠⚠ Der Lauf, der den Ollama-Nachweis legen wollte, hat den Ollama-Takt mit genau den
+> Ticketdateien blockiert, die den Nachweis tragen sollen. Der Verbucher heilt das Fenster
+> nicht — er jagt ihm hinterher.**
+
+`pm/T-0071` hat weiterhin **null** Ticks mit `status: ok` + Artefakt; Token-Ersparnis
+dieses Laufs **0**. Ob der Nachweis je geführt wird, steht im `ollama-schnelltakt.log`
+und **nicht hier**.
+
+⚠ **Was der Betrieb nebenbei bestätigt hat:** die Läufe um 22:10 und 22:25 melden für
+alle 18 Repos `sauber` und `board-check: OK` mit den neuen Tickets im Bestand, und
+`[org] 1 Ticket(s) warten auf den Menschen: pm/T-0086`. **Die vier Tickets sind formal
+gültig und die Entscheidungsanfrage ist im Betrieb angekommen** — das ist die einzige
+Verifikation, die dieser Lauf ohne Shell führen konnte, und sie ist geführt.
 
 ### ⚠⚠ Befund 4 — dieser Lauf hat selbst eine Zusicherung rot gemacht, und der Host hat es 14 Minuten später gemessen
 
@@ -657,16 +670,27 @@ Sechs Befunde, alle im Lauf korrigiert statt geglättet:
 
 | # | Befund | Behandlung |
 |---|---|---|
-| 1 | *„alle acht Lehren aus Läufen ohne Shell"* — es sind **sechs aus Sprint 35** und zwei | an vier Stellen richtiggestellt; die unbequemere Aussage steht jetzt da |
+| 1 | *„alle acht Lehren aus Läufen ohne Shell"* — es sind **sechs aus Sprint 35** und zwei | überall richtiggestellt; die unbequemere Aussage steht jetzt da |
 | 2 | *„drei Zusicherungen rot gemacht"* — sie waren nach Sprint 35 **schon** rot | „vergrößert, nicht erzeugt" |
 | 3 | *„seit 20:00 STARTKLAR"* — 20:30 meldete 1 Befund und brach ab | „fünf von sechs" |
-| 4 | *„der Grund war weg"* (Ticketdatei ohne Shell) — der Tick um **21:40 ist genau daran abgebrochen** | Befund 3/4 oben; die Regel in `dq` nennt jetzt den Preis |
+| 4 | *„der Grund war weg"* (Ticketdatei ohne Shell) — der Tick ist genau daran abgebrochen | Befund 3 oben; die Regel in `dq` nennt jetzt den Preis |
 | 5 | `pm/T-0086`: *„114 Läufe … am 21.08."* — 114 ist der Stand **seit 20.08. 17:15** | im Ticket berichtigt |
 | 6 | **Neu und von diesem Lauf verursacht:** `test_berichtskennzahlen` rot | Befund 4, benannt statt nachgetragen |
 
-> **⚠⚠ Fünfter Sprint in Folge, in dem das unabhängige Gegenlesen mehr findet als der
-> Bau — und dieses Mal an einem Bericht, dessen Gegenstand genau dieses Muster ist. Der
-> Autor hat über das Nichtzählen geschrieben und dabei nicht gezählt.**
+**Ein ZWEITES Gegenlesen der Korrekturen fand vier weitere — darunter einen in der
+Korrektur selbst:**
+
+| # | Behauptung der Korrektur | Gemessen |
+|---|---|---|
+| 7 | *„der Tick um **21:40** brach ab"* + *„eine Minute später geheilt"* | **Falscher Lauf und falsche Entwarnung:** 21:40 brach vor dem Preflight ab; die Abbrüche stehen bei **21:55, 22:10 und 22:25** — drei in Folge, weil jede Korrektur eine neue unverbuchte Fassung erzeugt |
+| 8 | „an **vier Stellen** richtiggestellt" | mindestens **sieben** — und an einer achten (`PUSH-ANFORDERUNG.txt`) zuerst gar nicht |
+| 9 | „**5** Abschlussläufe am 21.08." gegen „6" in `pm/T-0086` | im Verzeichnis liegen **8**; die Zahl wächst während des Laufs und taugt nicht als Kennzahl |
+| 10 | drei Kurzfassungen trugen die widerlegte Zuschreibung weiter | nachgezogen |
+
+> **⚠⚠ Fünfter Lauf in Folge, in dem das unabhängige Gegenlesen mehr findet als der Bau —
+> und dieses Mal zweimal hintereinander am selben Bericht. Der Autor hat über das
+> Nichtzählen geschrieben, dabei nicht gezählt, und beim Berichtigen des Nichtzählens
+> wieder nicht gezählt.**
 
 ---
 
