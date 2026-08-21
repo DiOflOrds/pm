@@ -168,6 +168,30 @@ entstandenen Befunde haben den Rest des Laufs gekostet.
 
 ---
 
+### ⚠⚠ NACHTRAG: die Pflicht-Nachmessung am Ende hat einen Fehler in der Kennzahl gefunden, die sie ermöglicht
+
+Die Briefkasten-Nachmessung am Sprint-Ende (`L-2026-08-21cs`) hat **0 offene Briefe** und
+**0 während des Laufs eingegangene** bestätigt — und dabei einen Fehler in `briefe_im_lauf`
+selbst aufgedeckt: **sobald der Sprint beendet war, meldete die Größe 14 statt 0.**
+
+`_sprint_start` nahm den höchstnummerierten Sprint **ohne** `ende`. **15 von 33** Sprints
+haben nie eine Endezeile bekommen — abgebrochene Läufe. Solange Sprint 33 lief, war die
+Antwort richtig; danach fiel sie auf ein altes, offen gebliebenes Fenster zurück.
+
+> **⚠⚠ „Kein Ende" heißt abgebrochen und nicht aktiv. Eine Funktion, die nur solange
+> richtig antwortet, wie der Normalfall gilt, ist im Ausnahmefall nicht ungenau — sie ist
+> beliebig. Und der Ausnahmefall war hier die Mehrheit.**
+
+⚠ `sprint_register` führt für genau diese Lage ein eigenes Merkmal (`abgebrochen`), und der
+neue Leser hat es nicht übernommen — dieselbe Familie wie `SWR-198`. Repariert, mit
+Zusicherung; `L-2026-08-21da`.
+
+**Damit sind es vier eigene Fehler in diesem Lauf, gefunden von drei verschiedenen
+Stellen** — drei vom unabhängigen Gegenlesen, einer von der Pflicht-Nachmessung am Ende.
+**Keinen hat der Autor beim Bauen gefunden.**
+
+---
+
 ## Verifikation (Sprint 33)
 
 | Größe | Wert |
@@ -2152,6 +2176,6 @@ offen, Plan-Drift 0, Statusdrift 0. ⚠ Nicht startklar — Altbefund unverände
 
 </details>
 
-<!-- kennzahlen v1 | gemessen 2026-08-21 11:36 | sprint 33
-briefe_im_lauf=0 briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=11939 swr=206 testdateien=101 tests=1480 tickets_offen=21 wartet_auf_mensch=0
+<!-- kennzahlen v1 | gemessen 2026-08-21 11:39 | sprint 33
+briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=11941 swr=206 testdateien=101 tests=1481 tickets_offen=21 wartet_auf_mensch=0
 -->
