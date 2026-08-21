@@ -82,9 +82,9 @@
    > Aufruf, kein Eingriff in `.git` — die Sperre wird UMGANGEN statt entfernt.** Das ist
    > der brauchbarste Nebenertrag dieses Laufs und steht als Lehre 8 in der Historie.
 10. **1311 Python-Tests** über **85** Testdateien (**gemessen**), Matrix **190 SWRs /
-    0 Lücken**, **107** JS-Tests grün, Briefkasten **0 offen**, offene Tickets **14**,
+    0 Lücken**, **107** JS-Tests grün, Briefkasten **0 offen**, offene Tickets **15** (zwei geschlossen, **drei** neu),
     auf den Menschen wartend **1** (`pm/T-0077`), Workflows **6 / 0 unabgedeckte Takte**,
-    Parkplatz **10904** (Stand 02:16).
+    Parkplatz **11001** (Stand 02:35 — **+468 in diesem Lauf**).
 
 ## Sprint-Plan (Sprint 28)
 
@@ -146,8 +146,8 @@ Aufruf zu räumen). **Verbleib: Historie `platform` Lehren 5–8, Rollenkarten T
   ist seine Änderung) — aber „wahrscheinlich" ist keine Messung, und ein Bisect über
   ungepushte Arbeitskopien wäre einer gewesen, den niemand nachvollziehen kann.
 
-<!-- kennzahlen v1 | gemessen 2026-08-21 02:16 | sprint 28
-briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=10904 swr=190 testdateien=85 tests=1311 tickets_offen=14 wartet_auf_mensch=1
+<!-- kennzahlen v1 | gemessen 2026-08-21 02:35 | sprint 28
+briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=11001 swr=190 testdateien=85 tests=1311 tickets_offen=15 wartet_auf_mensch=1
 -->
 
 ---
