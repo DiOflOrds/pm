@@ -51,7 +51,7 @@ angeschlossen), **SWR-206** (EINE Brief-Discovery und EINE Auslegung von „offe
 Kennzahl `briefe_im_lauf` als Aussage über das **Fenster**).
 
 **Neu angelegt:** `platform/T-0060` (Ollama: ein echter Lauf, aus `pm/D029`),
-`platform/T-0061` (84 von 119 Lehren stehen in keinem Lehrbuch), `pm/T-0083`
+`platform/T-0061` (84 von 119 Lehren stehen in keinem Lehrbuch), `platform/T-0062` (SWR-203 nimmt seine Wurzel aus dem eigenen Dateipfad), `pm/T-0083`
 (Projektgründung `team-termine` — **war in Sprint 32 zugesagt und nie angelegt**),
 `pm/T-0084` (Inbox-DR, im Lauf beantwortet).
 
@@ -181,10 +181,27 @@ entstandenen Befunde haben den Rest des Laufs gekostet.
 | Tote Sperren (`SWR-204`) | **0**, Ausnahmeliste **leer** |
 | Lehren / ohne Vertreter | **35** / **20** — ⚠ und diese Zahl ist Gegenstand von `T-0061` |
 
-⚠ **Rot und benannt statt repariert:**
-`test_lehren_vertreter::test_ein_gewonnener_vertreter_wird_gebucht_und_nicht_nebenbei_getan`
-(→ `platform/T-0061`) und die Test-Isolation von `test_backend` (die D-ID-Vergabe liest
-seit `SWR-203` das **echte** Entscheidungslog; `pm/D029` hat das scharf gemacht).
+⚠ **Rot und benannt statt repariert (Kap. 16):**
+
+* `test_lehren_vertreter::test_ein_gewonnener_vertreter_wird_gebucht_und_nicht_nebenbei_getan`
+  → **`platform/T-0061`** (84 von 119 Lehren stehen in keinem Lehrbuch).
+* **sieben** Zusicherungen in `test_backend` → **`platform/T-0062`**. Gemessen ist die
+  Ursache eine **Zeile**: `inbox._naechste_d_id` leitet seine Wurzel aus dem **Dateipfad
+  des eigenen Moduls** ab statt vom Aufrufer.
+  > **⚠⚠ Eine Funktion, die „die ganze Organisation" liest, bestimmt damit selbst, welche
+  > Organisation gemeint ist — und die Antwort ist immer: die, in der der Quelltext
+  > zufällig liegt. Der ausdrücklich vorgesehene Rückfall („bei unbekannter Wurzel das
+  > einzelne Log", `SWR-193`-Auflage) kann nie greifen: die Wurzel ist nie unbekannt,
+  > sie wird erfunden.**
+  ⚠ Sie sind seit **Sprint 32** rot, und dessen Abschluss meldete *„alle 98 übrigen
+  Testmodule sind einzeln gelaufen"*. Diese Aussage war zu großzügig.
+
+⚠ **Nicht vollständig gefahren, und das ist eine Aussage über die Menge, die NICHT geprüft
+wurde (`SWR-189`):** `preflight.py` überschreitet in dieser Sandbox das Zeitlimit (178 s)
+und ist **nicht durchgelaufen**. Einzeln nachgewiesen sind stattdessen: `board.py --check`
+über **alle 18** Einheiten grün, `trace_matrix` 206/0, `organigramm.py --check` grün (20
+Dateien), und **413 Tests** in 26 gezielt ausgewählten Modulen. Die übrigen Module sind
+**nicht** gelaufen — „nicht betroffen" wäre eine Behauptung und kein Messergebnis.
 
 ⚠⚠ **Ollama-Offload: nichts delegiert, Token-Ersparnis 0 — gemessen, nicht geschätzt.**
 `pm/T-0071` hat unverändert **keinen** Tick mit `status: ok` + Artefakt. **Neu gemessen und
@@ -2135,6 +2152,6 @@ offen, Plan-Drift 0, Statusdrift 0. ⚠ Nicht startklar — Altbefund unverände
 
 </details>
 
-<!-- kennzahlen v1 | gemessen 2026-08-21 11:18 | sprint 33
-briefe_im_lauf=0 briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=11830 swr=206 testdateien=101 tests=1480 tickets_offen=20 wartet_auf_mensch=0
+<!-- kennzahlen v1 | gemessen 2026-08-21 11:36 | sprint 33
+briefe_im_lauf=0 briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=11939 swr=206 testdateien=101 tests=1480 tickets_offen=21 wartet_auf_mensch=0
 -->
