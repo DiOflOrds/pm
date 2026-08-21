@@ -1,5 +1,129 @@
 # Sprint aktuell — Genesis-Gesamtsprint (Workflow-Sicht des PM, pm/D006)
 
+## Das Wichtigste (Sprint 30, 2026-08-21)
+
+1. **✅ ZWEI TICKETS GESCHLOSSEN, NICHTS VERSCHOBEN — UND BEIDE WAREN NULLTE
+   TERMINIERUNGEN AUS SPRINT 29, IM FOLGELAUF GEBAUT WIE ANGEKÜNDIGT.**
+   `platform/T-0047` (**SWR-197**) und `platform/T-0048` (**SWR-196**). Drei neue Tickets
+   angelegt: `T-0049`, `T-0050` — beide aus **Messungen** entstanden, nicht aus Vorräten.
+2. **⚠⚠ DIE VORHERSAGE AUS SPRINT 29 IST EINGETRETEN UND IST JETZT EINE MESSUNG: DER
+   SCHNELLTAKT BRICHT NICHT MEHR AB.** Um **04:15** — dem ersten Lauf nach dem Commit von
+   `SWR-191` um 04:10 — steht im Log `PREFLIGHT: STARTKLAR` statt `Preflight hat Befunde`.
+   Davor: **65** Abbrüche.
+   > **⚠⚠ UND DAHINTER STAND EIN ZWEITER BLOCKER, DEN DER ERSTE VERDECKT HAT.** 2 von 2
+   > Ticks endeten trotzdem ohne Ergebnis: `waehle_ticket` gab `kandidaten[0]` zurück und
+   > prüfte die Besetzung erst **danach**.
+   > **Eine Prüfung nach der Auswahl ist kein Filter, sondern ein Veto gegen genau einen
+   > Kandidaten — die Zweitplatzierten werden nie angesehen.**
+   `SWR-196`. Wirkung am echten Bestand gemessen (`--dry-run`), nicht versprochen.
+3. **⚠⚠ UND DIE ALTE MELDUNG WAR WAHR UND ZU ENG — GENAU DAS IST TEUER.** *„Rolle CM hat
+   … keine Besetzung … T-0001 bleibt unangetastet"* liest sich wie ein **Zufall**.
+   Gemessen ist ein **Zustand**: **0 von 8** offenen Tickets der Organisation tragen eine
+   ollama-besetzte Rolle (cm 2, pl 4, coach 1, dev 1; besetzt: `PROB@platform`,
+   `MAIL-RED@team-mail`).
+   > **Die enge Aussage lädt zum Wiederkommen in 15 Minuten ein — und der Takt hat das
+   > 90-mal getan. Zwilling von `L-2026-08-21ce`: dasselbe Wegsehen mit besserem
+   > Gewissen.**
+   ⚠ Der Zustand war seit dem 20.08. gemessen — die Zahl stand im **Docstring einer
+   Funktion**, nicht in der Meldung, die der Betrieb 90-mal gedruckt hat.
+4. **✅ ZUM DRITTEN MAL „ERST ZÄHLEN, DANN BAUEN" — UND ZUM DRITTEN MAL HAT DIE ZAHL DIE
+   FRAGE VERÄNDERT.** `T-0047`, Vorabfrage 1 ausgeführt: von **1023** praefixlosen
+   Entscheidungs-Zitaten stehen **743 (73 %)** im besitzenden Repo, **65 (6 %)** nennen
+   eine nur einmal vergebene ID, **214 (21 %)** sind echt mehrdeutig.
+   > **⚠⚠ Und alle 214 nennen eine von VIERZEHN IDs — `D000` bis `D013`. Ab `D014` ist
+   > jede ID organisationsweit einmal vergeben. Der Mangel ist ein PRÄFIX DES
+   > NUMMERNRAUMS und keine Eigenschaft des Korpus.**
+   Deshalb ist die Sperrklinke an der **Vergabe** gebaut und nicht an 1023 Zitatstellen.
+5. **⚠⚠ DAS ARGUMENT GEGEN DEN GEPLANTEN ZUSCHNITT IST AN DIESER SESSION SELBST
+   GEMESSEN.** Während des Baus stiegen die Zahlen von 1023/214 auf **1030/216** — allein
+   dadurch, dass Ticket und Anforderung **über** das Problem schreiben und dabei IDs
+   nennen.
+   > **Eine Prüfung auf die Zitatzahl hätte jeden Bericht bestraft, der den Befund
+   > erklärt: ein Dauerbefund, den das Erklären selbst füttert.**
+6. **⚠⚠ DER UNANGENEHMSTE BEFUND DIESES LAUFS BETRIFFT DIE EIGENE PRÜFUNG AUS SPRINT 29.**
+   `SWR-194` hätte **drei** Lehren dieses Laufs übersehen — sie standen als `**Regel.**`
+   statt `**Regel:**`, und die Zählung blieb bei 34/29, als gäbe es sie nicht.
+   > **Der Fehler ist nicht, dass drei durchgerutscht sind. Der Fehler ist, dass die
+   > Prüfung dabei GRÜN geblieben ist. Eine Sperrklinke, die man mit einem anders
+   > gesetzten Doppelpunkt umgeht, ist keine.**
+   Gemessen: **34** von **111** Lehren tragen `**Regel:**`, **110** tragen irgendeine
+   Regel-Schreibweise — **76 übersehen**. ⚠ Die *„gefundene, nicht erfundene"* Konvention
+   unterscheidet **nichts**; die 34 sind eine Schreibweise. `platform/T-0050`.
+   ⚠ Die drei Lehren sind nachgezogen und haben Vertreter bekommen — `ohne_vertreter`
+   steht wieder bei **29**. Die Lücke bleibt und ist terminiert, nicht geschlossen.
+7. **⚠ DER OLLAMA-OFFLOAD IST WEITERHIN NICHT DELEGIERT — ABER DER GRUND IST EIN NEUER.**
+   `pm/T-0071` hat unverändert keinen Tick mit `status: ok` + Artefakt. Neu ist, **woran
+   es liegt**: nicht mehr am Preflight, sondern am leeren Arbeitsvorrat.
+   **Kein Ticket delegiert; Token-Ersparnis 0 — gemessen, nicht geschätzt.**
+8. **1399 Python-Tests** über **92** Testdateien (**gemessen**, `kennzahlen.py` 04:47),
+   Matrix **197 SWRs / 0 Lücken**,
+   Briefkasten **0 offen / 0 eingegangen**, offene Tickets **9**, auf den Menschen
+   wartend **1** (`pm/T-0077`, Frist 28.08.), Workflows **6 / 0 unabgedeckte Takte**,
+   Work-Product-Lücken **0**, Parkplatz **11259** (Stand 04:47 — die Zahl trägt ihren
+   Zeitpunkt, `SWR-174`).
+   > ⚠ **Die Summe ist durch zwei unabhängige Messungen belegt:** `kennzahlen.py` zählt
+   > **1399**; Sprint 29 stand bei **1367** über 90 Dateien, dieser Lauf hat **zwei**
+   > Dateien mit **11 + 21 = 32** Zusicherungen ergänzt — 1367 + 32 = **1399**.
+   > **Deckungsgleich.**
+
+## Sprint-Plan (Sprint 30)
+
+*Default nach `pm/D006`: in diesem Sprint schließen. ⚠ Jede Verschiebung trägt ihren
+Grund **im Ticket**, nicht hier (`L-2026-08-17ag`).*
+
+| Aufgabe | Rolle | Fällig | Status | Grund / nächster Schritt |
+|---|---|---|---|---|
+| Briefkasten (alle Repos) | pl | Sprint 30 | **erfüllt** | ✅ **0 offen**, beim Start und beim Abschluss gemessen. Kein Brief eingegangen. |
+| **platform/T-0048** | dev | Sprint 30 | **erledigt** | ✅ **SWR-196.** Aus der Messung des ersten startklaren Schnelltakt-Laufs entstanden und im selben Lauf geschlossen. |
+| **platform/T-0047** | cm | Sprint 30 | **erledigt** | ✅ **SWR-197.** Nullte Terminierung aus Sprint 29, im Folgelauf gebaut wie angekündigt. |
+| **platform/T-0049** | cm | Sprint 31 | offen | ⚠ **Dritte Berührung**, Zählung fortgeführt. Der zweite Schreibweg ins Entscheidungslog — er wäre mit `T-0047` untergegangen und bekommt deshalb einen eigenen Termin. **Bei der vierten wird entschieden, nicht terminiert.** |
+| **platform/T-0050** | coach | Sprint 31 | offen | ⚠⚠ **Nullte Terminierung.** Die Lücke in `SWR-194`. Nicht in diesem Lauf gebaut, und der Grund steht im Ticket: die naheliegende Reparatur erzeugte ~100 Dauerbefunde und wäre `SWR-166` ein viertes Mal. **Erst messen, dann bauen.** |
+| promt-team/T-0003 | dev | — | **blocked** | ⚠ `blocked_by: [pm/T-0077]`, unverändert. Keine Terminierung. |
+| promt-team/T-0012 | prompt-opt | — | **blocked** | ⚠ dito. |
+| pm/T-0071 | pl | — | **blocked** | ⚠ `blocked_by: [T-0077]`. ⚠⚠ Der **Grund** hat sich geändert: nicht mehr Preflight, sondern leerer Arbeitsvorrat (`SWR-196`). Die Sperre bleibt dieselbe. |
+| **pm/T-0077** | mensch | Frist 28.08. | **wartet** | ⚠ Unverändert offen, Frist **nicht** erreicht (heute 21.08.). Default **A**, Schweigen genügt. |
+| pm/T-0001..0003, platform/T-0001, team-dashboard/T-0001, team-mail/T-0001 | pl/coach/cm/dev | jeder Sprint | **erfüllt** | Takt: Agenda + Briefkasten (0 offen) + Lessons (**drei**, alle mit Vertreter) + Chronik in **vier** Einheiten + Verifikation. Workflow-Abdeckung **6/6, 0 Lücken**, WP-Lücken **0** — kein neues Takt-Ticket, also keine neue Workflow-Pflicht. |
+
+## Sprint-Abschluss (Sprint 30, 2026-08-21)
+
+**Geschlossen:** `platform/T-0047` (**SWR-197**), `platform/T-0048` (**SWR-196**).
+**Nichts verschoben.**
+
+**Neue Anforderungen:** **SWR-196** (Besetzung als Kandidatenfilter), **SWR-197**
+(Sperrklinke am Nummernraum der Entscheidungs-IDs).
+
+**Neu angelegt:** `platform/T-0049` (zweiter Schreibweg, dritte Berührung),
+`platform/T-0050` (Schreibweise statt Konvention in `SWR-194`).
+
+**Auf `blocked` geblieben statt terminiert:** `promt-team/T-0003`, `promt-team/T-0012`,
+`pm/T-0071` — alle `blocked_by: [pm/T-0077]`, Frist läuft.
+
+**Lessons (drei, alle sofort verankert UND mit Vertreter):** `L-2026-08-21cj` (Prüfung
+nach der Auswahl = Veto), `ck` (Präfix des Nummernraums), `cl` (wahre, aber zu enge
+Meldung). **Verbleib:** `process/knowledge/dev/lessons.md`, `.../cm/lessons.md`, Historie
+`platform` Lehren 18–21, Vertreter in `test_tick_besetzungsfilter.py` und
+`test_entscheidungs_ids.py`.
+
+### ⚠ Was dieser Lauf ausdrücklich NICHT gemessen hat
+
+* **Ob ein Ollama-Tick inhaltlich etwas Sinnvolles tut.** Unverändert: es ist nie einer
+  gelaufen. Der Grund hat sich verschoben (Preflight → leerer Arbeitsvorrat), die Aussage
+  nicht. Sie steht hier, damit sie nicht später als erledigt gilt, weil ihr niemand
+  widersprochen hat.
+* **Ob die 76 von `SWR-194` übersehenen Lehren einen Vertreter BRAUCHEN.** Gemessen ist,
+  dass die Prüfung sie nicht sieht. Ob das schadet, ist die Frage von `T-0050` — und sie
+  ist offen. ⚠ Die naheliegende Antwort („Muster erweitern") ist **nicht** gewählt worden,
+  weil sie ~100 Dauerbefunde erzeugt hätte.
+* **Die volle Testsuite in EINEM Lauf.** Unverändert: ein Gesamtlauf läuft in ein
+  Werkzeug-Zeitlimit. Gefahren in Blöcken; die Summe steht unten mit ihrer Herkunft.
+* **Ob `gemma3:27b` auf dem Rechner des Auftraggebers installiert ist.** Von hier aus
+  nicht messbar (`L-2026-08-20ce`).
+
+
+---
+
+<details><summary>Archiv: Sprint 29</summary>
+
 ## Das Wichtigste (Sprint 29, 2026-08-21)
 
 1. **✅ FÜNF TICKETS GESCHLOSSEN, DARUNTER BEIDE NULLTEN TERMINIERUNGEN AUS SPRINT 28 UND
@@ -1334,4 +1458,10 @@ offen, Plan-Drift 0, Statusdrift 0. ⚠ Nicht startklar — Altbefund unverände
 
 <!-- kennzahlen v1 | gemessen 2026-08-20 23:02 | sprint 27
 briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=10533 swr=176 testdateien=79 tests=1280 tickets_offen=13 wartet_auf_mensch=0
+-->
+
+
+</details>
+<!-- kennzahlen v1 | gemessen 2026-08-21 04:47
+briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=11259 swr=197 testdateien=92 tests=1399 tickets_offen=9 wartet_auf_mensch=1
 -->

@@ -1,5 +1,80 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
+## Das Wichtigste (Sprint 30, 2026-08-21)
+
+1. **✅ Dein 15-Minuten-Takt bricht nicht mehr ab — und das ist jetzt gemessen statt
+   vorhergesagt.** Letzter Sprint stand hier *„das ist eine Vorhersage, keine Messung"*.
+   Um **04:15** steht im Log zum ersten Mal `STARTKLAR`. Davor: **65** Abbrüche.
+2. **⚠⚠ Dahinter kam sofort der nächste Grund zum Vorschein, und der erste hatte ihn
+   verdeckt: der Takt läuft jetzt — und findet nichts zu tun.**
+   Er suchte sich die wichtigste offene Aufgabe, stellte dann fest, dass niemand sie in
+   der lokalen Besetzung bearbeiten darf, und hörte auf. **Die zweitwichtigste hat er nie
+   angesehen.**
+   > **Eine Prüfung, die erst nach der Auswahl greift, ist kein Filter — sie legt gegen
+   > genau einen Kandidaten ein Veto ein und lässt den Rest ungesehen.** Repariert.
+3. **⚠⚠ Und die Meldung war zwar wahr, aber zu eng — genau das ist teuer.** Sie las sich
+   wie ein Zufall (*„diese eine Aufgabe passt nicht"*). Tatsächlich ist es ein Zustand:
+   **keine einzige** deiner 8 offenen Aufgaben kann von den beiden lokalen Besetzungen
+   bearbeitet werden.
+   > **Die enge Formulierung lädt dazu ein, es in 15 Minuten nochmal zu versuchen — und
+   > genau das ist 90-mal passiert. Jetzt steht im Log, wie viele Aufgaben geprüft wurden
+   > und dass ein weiterer Lauf daran nichts ändert.**
+   ⚠ **Das ändert nichts daran, dass nichts gearbeitet wird.** Das kann nur deine Antwort
+   auf `pm/T-0077`.
+4. **✅ Die Frage nach den Entscheidungsnummern ist zu Ende gezählt — und die Zahl hat den
+   Bau wieder verändert.** Von 1023 Nennungen ohne Ordnerangabe sind **nur 214 wirklich
+   mehrdeutig** (21 %); der Rest steht dort, wo die Datei selbst sagt, welche gemeint ist.
+   > **Und alle 214 nennen eine von **vierzehn** Nummern: `D000` bis `D013`. Ab `D014` ist
+   > jede Nummer im ganzen Haus nur einmal vergeben.** Also haben wir nicht 1023
+   > Fundstellen aufgeräumt, sondern eine Sperre eingebaut, die dafür sorgt, dass es bei
+   > vierzehn bleibt.
+5. **⚠⚠ Der unangenehmste Punkt betrifft unsere eigene Prüfung von letztem Sprint.** Sie
+   soll melden, wenn eine neue Lehre ohne Absicherung bleibt. **Drei Lehren aus diesem
+   Lauf hat sie nicht gesehen** — sie waren mit einem Punkt statt einem Doppelpunkt
+   geschrieben.
+   > **Schlimm ist nicht, dass drei durchgerutscht sind. Schlimm ist, dass die Prüfung
+   > dabei grün blieb. Eine Sperre, die man mit einem anders gesetzten Satzzeichen umgeht,
+   > ist keine.**
+   Nachgezählt: von 111 Lehren erkennt sie **34**; **110** tragen tatsächlich eine Regel.
+   Die drei sind nachgezogen, die Lücke ist aufgeschrieben und terminiert — **nicht**
+   schnell repariert, weil die naheliegende Reparatur rund hundert Dauerwarnungen erzeugt
+   hätte.
+6. **1399 Prüfungen für die Technik** über 92 Dateien (gezählt, und durch eine zweite,
+   unabhängige Rechnung bestätigt), **197 Anforderungen ohne Lücke**. Briefkasten: **0
+   offen**, keiner eingegangen. Offene Aufgaben: **9** (zwei geschlossen, zwei neu
+   angelegt).
+
+---
+
+## Für dich (E. John)
+
+| Was | Warum |
+|---|---|
+| ⚠⚠ **`pm/T-0077` beantworten** | Unverändert offen, **Frist 28.08.** — noch nicht abgelaufen. **A** = alles bleibt (Voreinstellung, Schweigen genügt). **B** = dein 15-Minuten-Takt bekommt echte Aufgaben. **C** = der Ollama-Zweig wird beendet. ⚠ **Neu seit heute:** die Frage ist jetzt die *einzige* Sperre. Alles Technische davor ist repariert. |
+| ⚠⚠ **`abschluss.cmd` ausführen** | Der Rückstand ist jetzt **fünf Tage plus drei komplette Sprints**. **Stichprobe:** danach steht in `abschluss-auto.log` `OK - alles geprueft und gepusht` und `PUSH-ANFORDERUNG.txt` ist verschwunden. |
+| ✅ **Der Abbruch deines Schnelltakts hat aufgehört** | Wie letzten Sprint vorhergesagt — und diesmal **gemessen**: 04:15, `STARTKLAR`. Du musst dafür nichts tun. |
+| ⚠ **Die Sperr-Reste löschen, wenn du magst** | **11259 Dateien** (Stand 04:47). Wir können sie nicht löschen, du schon. |
+| ⚠ **Die alten Punkte** | Mail-Zugangsdaten (`team-mail/N-0003`), deine Zählung der Kacheln im Reiter „Dashboard", `ollama list`. |
+
+---
+
+## ⚠ Zwei Dinge, die wir über uns selbst aufschreiben
+
+**Erstens:** Unsere Prüfung aus dem letzten Sprint hätte drei Lehren dieses Laufs
+stillschweigend übersehen. Wir haben es nur gemerkt, weil wir nachgesehen haben, ob die
+Zahl sich bewegt — sie tat es nicht. **Eine Prüfung, die grün bleibt, sagt nicht dasselbe
+wie eine Prüfung, die gesehen hat.**
+
+**Zweitens:** Wir hatten geplant, die Nennungen der Entscheidungsnummern im Text zu
+sichern. Beim Bauen ist aufgefallen, dass die Zahl allein dadurch stieg, dass wir
+**über** das Problem geschrieben haben — 1023 wurden zu 1030. **Eine Prüfung auf diese
+Zahl hätte jeden Bericht bestraft, der den Befund erklärt.** Deshalb sichern wir jetzt die
+Nummernvergabe und nicht den Text.
+
+---
+
+<details><summary>Archiv: Sprint 29</summary>
+
 ## Das Wichtigste (Sprint 29, 2026-08-21)
 
 1. **✅ Fünf Aufgaben abgeschlossen, keine einzige verschoben.** Darunter beide, die
@@ -89,3 +164,6 @@ Neu gemessen: 436 + 111 + 28 + 350 + 209 + 108 + 56 + 69 = **1367** — und das 
 sagt ebenfalls 1367. **Zwei unabhängige Wege, dasselbe Ergebnis.**
 
 > **Eine Summe aus Teilmessungen zu verschiedenen Ständen ist keine Summe.**
+
+
+</details>
