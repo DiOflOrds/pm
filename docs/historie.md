@@ -1,3 +1,51 @@
+## Lauf 2026-08-21, spätabends — **kein Sprint (vierter Lauf ohne Shell)**, und der erste, der die Verifikation trotzdem hatte
+
+**Kein Sprint 36 begonnen** (kein `sprint_register.py`). ⚠ Sprint 35 ist seit **20:21**
+sauber beendet — `reparatur-sprint35.cmd` auf dem Host hat den offenen Registereintrag
+geschlossen, den drei Läufe als Blocker gemeldet hatten. `--beginne` ist der erste Schritt
+des nächsten Laufs mit Shell.
+
+> **⚠⚠ Der Fund des Laufs ist wieder ein Messpunkt und keine Messung — und es ist
+> derselbe wie in Sprint 35, eine Ebene höher.** Drei Läufe haben „keine Shell → keine
+> Zahl" berichtet, während der Host im selben Ordner die volle Teststrecke fuhr und ihr
+> Ergebnis in `abschluss-logs/` ablegte. Sprint 35 hat vier Sprints lang die
+> Erreichbarkeit einer Maschine diskutiert, auf der der Ollama-Takt gar nicht lief.
+> **Zweimal lag die Antwort unangetastet im Arbeitsordner.**
+
+**Gemessen (Quelle je genannt):** Teststrecke **1551 / 6 rot** (Host 21:14, erster
+vollständiger Lauf seit vier Sprints) · Preflight Abschlusslauf **4 Befunde** gegen
+Schnelltakt **STARTKLAR** — *sie messen nicht dasselbe, welche die Organisation meint,
+ist ungeklärt* · Briefkasten **0 offen** · offene Aufgaben **34 → 38** · unverbuchte
+Arbeitskopien **0 von 18** · Parkplatz `verwaiste-locks` **12461** · Ollama-Offload
+**0 delegiert, Ersparnis 0**.
+
+**Neu angelegt: vier** — `platform/T-0068`, `T-0069`, `T-0070`, `pm/T-0086`
+(Klasse-A-Entscheidungsanfrage zum Shell-Ausfall, Frist 2026-08-28, Default C).
+
+⚠⚠ **Zwei Regeln dieses Hauses sind an ihrer eigenen Wirkung widerlegt worden:**
+
+1. `L-2026-08-21dq` („ohne `git` ist die Ticketdatei tabu") war **am Tag ihrer
+   Formulierung** schon überholt — `abschluss.cmd` Schritt `[0/6]` verbucht seither jede
+   Arbeitskopie vor dem Preflight. Sie hat zwei Läufe lang die Entscheidungsanfrage
+   verhindert, die jetzt als `pm/T-0086` vorliegt.
+2. Ihre zweite Hälfte („Lehrdateien sind frei") ist teurer: die acht Lehren, die die
+   Läufe ohne Shell statt Arbeit geschrieben haben, machen **drei Zusicherungen rot**
+   (`platform/T-0070`). **Die Läufe, die nichts rot machen wollten, haben genau damit
+   etwas rot gemacht — und konnten es nicht merken.**
+
+Die Lehre steht **samt Nachtrag** und ist nicht umgeschrieben; `NOTBETRIEB-OHNE-SHELL.md`
+ist berichtigt. ⚠ **Dieser Lauf hat bewusst KEINE neue Lehre angelegt** — das ist die
+Anwendung des Befunds auf den eigenen Lauf.
+
+⚠ **Der Ollama-Takt ist seit 20:00 STARTKLAR und hat trotzdem nichts zu tun:** genau zwei
+Besetzungen tragen `motor: ollama` (`PROB@platform`, `MAIL-RED@team-mail`), und kein
+offenes Ticket trug je eine dieser Rollen — **die fünfte Antwort auf „warum läuft Ollama
+nie", und die banalste.** `platform/T-0069` ist als `rolle: prob` /
+`aufgaben_typ: problem-klassifikation` angelegt; der Schnelltakt wählt es ohne weiteres
+Zutun. Das ist ein **gelegter** Nachweis, kein geführter.
+
+---
+
 ## Lauf 2026-08-21, später — **kein Sprint**, Shell erneut nicht verfügbar; ein Blocker VOR seinem Einsatz gefunden
 
 **Kein Sprint 36 begonnen.** Die Linux-Shell war zum zweiten Lauf in Folge nicht

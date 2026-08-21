@@ -460,6 +460,135 @@ fehlende Nachweis ist weder ein Modellproblem noch fehlende Erreichbarkeit, sond
 
 ---
 
+## ⚠⚠ Nachtrag Folgelauf 2026-08-21 (VIERTER Lauf ohne Shell — und der erste, der etwas geschlossen hat)
+
+Vier identische Startfehler, kein `git`, kein `board.py`, kein `preflight`, keine Tests,
+kein Ollama-Tick, kein Register — **wie in den drei Läufen davor.** Anders ist, was dieser
+Lauf daraus gemacht hat.
+
+> **⚠⚠ Drei Läufe haben „keine Shell → keine Zahl" berichtet, während auf demselben
+> Rechner, im selben Ordner, der Host die volle Teststrecke fuhr und ihr Ergebnis in
+> `abschluss-logs/` ablegte. Die Zahlen lagen die ganze Zeit da. Es hat nur niemand
+> nachgesehen — dieselbe Bewegung wie beim Ollama-Protokoll in Sprint 35, eine Ebene höher.**
+
+### Befund 1 — die Teststrecke ist zum ersten Mal seit vier Sprints vollständig gelaufen, und sie ist ROT
+
+| Größe | Wert | Quelle |
+|---|---|---|
+| Tests gelaufen | **1551** in 210,4 s | `abschluss-logs/abschluss-20260821-211400.log:10102` |
+| **Rot** | **6** | ebd. `:10104` |
+| Preflight (Abschlusslauf, alle Repos inkl. p1/Produkte) | **4 Befunde** | `review-20260821-211400.md` |
+| Abschlussläufe des Hosts am 21.08. | **5** (20:44 – 21:40) | `abschluss-logs/` |
+
+⚠⚠ **Sprint 35 hat „1551 Tests" als Verifikation berichtet und dazugeschrieben, dass 1136
+davon nicht gelaufen sind.** Der erste vollständige Lauf sagt: **sechs sind rot, und keine
+davon ist neu.** Die Zahl war nie eine Aussage über Grün — das stand im Bericht, und die
+Zahl ist trotzdem als Verifikationszeile geführt worden.
+
+Die sechs, nach Ursache sortiert und terminiert:
+
+| Ursache | Rote Zusicherungen | Ticket |
+|---|---|---|
+| `goldset` prüft mit `os.path.isabs` — auf dem Host ist `/etc/passwd` **kein** absoluter Pfad | 1 | **`platform/T-0068`** (dev, hoch) |
+| `git_schreibweg`-Nachräumung hängt an `git_prozess_aktiv()`, also an der Prozessliste des Rechners | 2 | **`platform/T-0069`** (prob, mittel) |
+| acht Lehren `L-2026-08-21dj…dq` ohne Vertreter | 3 | **`platform/T-0070`** (coach, hoch) |
+
+### Befund 2 — die acht Lehren stammen aus den Läufen, die sich das Bauen versagt haben
+
+`test_keine_NEUE_lehre_ohne_vertreter` nennt acht Namen. **Alle acht sind in Sprint 35
+und seinen zwei Folgeläufen geschrieben worden** — von Läufen, die keine Ticketdatei
+anfassen wollten und deshalb Lehren schrieben.
+
+> **⚠⚠ Die Läufe, die nichts rot machen wollten, haben mit dem Einzigen, was sie sich
+> erlaubt haben, drei Zusicherungen rot gemacht. Und keiner konnte es merken, weil Merken
+> die Shell gebraucht hätte, die ihnen fehlte.**
+
+`L-2026-08-21dq` — *„Ohne `git` ist die Ticketdatei tabu, der Rest des Hauses frei"* — ist
+**einer der acht.** Beide Hälften sind widerlegt:
+
+* **„Ticketdatei tabu"**: `abschluss.cmd` hat seit dem 21.08. Schritt **[0/6]
+  Nachverbuchung** — `git add -A` + Commit in jedem Repo, **vor** dem Preflight, alle
+  15 Minuten. Nachgemessen: **0 von 18** Repos unverbucht (21:15), CM-Review-Prüfpunkt
+  „Nachverbuchung: **OK**".
+  ⚠⚠ Diese Zeile steht in `NOTBETRIEB-OHNE-SHELL.md` **neun Zeilen unter** dem Verbot,
+  dem sie den Grund nimmt. Ein Lauf, eine Datei, ein Autor.
+* **„der Rest frei"**: Befund 2 selbst.
+
+Die Lehre ist **samt Nachtrag stehen geblieben** und nicht umgeschrieben; das Merkblatt
+`NOTBETRIEB-OHNE-SHELL.md` ist berichtigt.
+
+### ⚠⚠ Befund 3 — der Ollama-Takt läuft, ist STARTKLAR, und hat trotzdem nichts zu tun. Das ist die FÜNFTE Antwort auf dieselbe Frage.
+
+| Größe (Stand 21:16) | Wert | Vorlauf (14:46) |
+|---|---|---|
+| Schnelltakt-Läufe | **114** | 87 |
+| Tick-Abbrüche | **177** | 138 |
+| Erfolge | **0** | 0 |
+| Preflight seit 20:00 | **STARTKLAR** | Befunde |
+
+Seit 20:00 bricht der Tick **nicht mehr** ab. Er endet mit einem anderen Satz:
+
+> *„Kein bearbeitbares Ticket (Besetzung): 5 offene(s) Ticket(s) geprüft, keines trägt eine
+> Rolle mit motor 'ollama' in Einheit 'platform' — Rollen im Bestand: CM, COACH, DEV, PL;
+> mit motor 'ollama' besetzt: PROB@platform. **Der Bestand hat für diese Besetzung nichts —
+> ein weiterer Lauf ändert das nicht.**"*
+
+Für `team-mail` dasselbe: Rollen im Bestand **DEV**, ollama-besetzt **MAIL-RED**.
+
+Die vier bisherigen Antworten auf „warum läuft Ollama nie?" lauteten: *Modell fehlt* (404)
+· *aus der Sandbox unerreichbar* · *unsere eigenen Preflight-Befunde* · *Git-Sperren des
+eigenen Takts*. Die fünfte ist banaler und lag hinter allen vieren:
+
+> **⚠⚠ Genau zwei Besetzungen des Hauses tragen `motor: ollama` — `PROB@platform` und
+> `MAIL-RED@team-mail` —, und seit ihrer Einrichtung hat kein einziges offenes Ticket eine
+> dieser beiden Rollen getragen. Vier Sprints Diagnose an einer Maschine, der nie jemand
+> Arbeit hingelegt hat.**
+
+**Behandelt statt berichtet:** `platform/T-0069` ist mit `rolle: prob` und
+`aufgaben_typ: problem-klassifikation` angelegt — Kette `[ollama, session, claude]`,
+`tier: standard`, **nicht gate-relevant**. Der Schnelltakt des Auftraggebers wählt es beim
+nächsten 15-Minuten-Lauf ohne weiteres Zutun.
+
+⚠ **Das ist ein gelegter Nachweis, kein geführter.** `pm/T-0071` hat weiterhin **null**
+Ticks mit `status: ok` + Artefakt; Token-Ersparnis dieses Laufs **0**, alles selbst
+erledigt. Ob der Tick durchläuft, steht im nächsten `ollama-schnelltakt.log` und
+**nicht hier**.
+
+### Zahlen dieses Laufs — gemessen, mit Quelle
+
+| Größe | Wert | Wie gemessen |
+|---|---|---|
+| Briefkasten offen | **0** | 69 Briefdateien, beide Ebenen, kein `status: offen` |
+| Offene Aufgaben vor dem Lauf | **34** = 18 `open` + 15 `blocked` + 1 `in_review` | Zeilenmuster über `*/tickets/T-*.md`, Fließtext-Treffer `pm/T-0049` von Hand entfernt |
+| Offene Aufgaben nach dem Lauf | **38** | + `platform/T-0068`, `T-0069`, `T-0070`, `pm/T-0086` |
+| Auf den Menschen wartend | **0 → 1** | `pm/T-0086` (Klasse A, Frist 2026-08-28, Default C) |
+| Repos mit unverbuchter Arbeitskopie | **0 von 18** | `ollama-schnelltakt.log` 21:15 |
+| Sprintregister | **Sprint 35 beendet 20:21**, kein Sprint läuft (Pause 55 Min) | ebd. |
+| Plandrift / Statusdrift / Tickets ohne Sprint / unverbuchte DRs | **0 / 0 / 0 / 0** | ebd. |
+| Parkplatz `verwaiste-locks` | **12461** (von 12351) | ebd. |
+| Ollama-Offload | **0** delegiert, Ersparnis **0** | `pm/T-0071` unverändert ohne Tick `status: ok` + Artefakt |
+
+⚠ **Zwei Zahlen widersprechen sich, und das bleibt so stehen:** der Abschlusslauf um 21:14
+meldet **4 Preflight-Befunde**, der Schnelltakt um 21:15 **STARTKLAR**. Sie messen nicht
+dasselbe — `abschluss.cmd` fährt alle Repos **inklusive `p1`/Produkte**, der Schnelltakt
+eine Teilmenge. **Welche der beiden die Organisation meint, ist ungeklärt und gehört
+geklärt** (keine eigene Karteileiche: es ist Vorabfrage 3 in `platform/T-0069`).
+
+### Was dieser Lauf NICHT getan hat
+
+* **Kein Sprint 36 eröffnet** — ohne Shell kein `sprint_register.py`. Sprint 35 ist seit
+  20:21 sauber beendet; `--beginne` ist der erste Schritt des nächsten Laufs mit Shell.
+* **Keine Zeile Plattformcode geändert.** Drei Defekte sind diagnostiziert und terminiert,
+  keiner gebaut: ohne Teststrecke wäre jede Reparatur eine Behauptung. ⚠ `T-0068` wäre
+  eine Zeile gewesen — genau die bequeme Handlung, gegen die dieses Haus seine teuerste
+  Lehre trägt.
+* **Keine neue Lehre geschrieben.** Das ist die Anwendung von Befund 2 auf den eigenen
+  Lauf: Der Nachtrag steht **in** `L-2026-08-21dq`, wo er hingehört, und legt keine
+  neunte Lehre ohne Vertreter an.
+* **Kein Commit, kein Push.** Es gibt keinen; der Host verbucht (Schritt `[0/6]`).
+
+---
+
 <details><summary>Archiv: Sprint 34</summary>
 
 ## Sprint-Plan (Sprint 34) — Planung VOR der Arbeit
