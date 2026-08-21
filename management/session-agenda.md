@@ -41,8 +41,9 @@
 5. **⚠ Eine Abnahme, die du erteilt hast, war vier Tage lang ohne Gegenstand.** Du hast am
    17.08. um 21:57 die Baseline `p12-v1.0` abgenommen — der Tag wurde nie gesetzt.
    Nachgetragen, und zwar auf den Stand von damals und **nicht** auf heute.
-6. **Zahlen:** Anforderungen **211 / 0 Lücken**, Tests **1529** in **107** Dateien, JS
-   **114**, Organigramm grün (21 Dateien), Briefkasten **0 offen** (am **Ende** gemessen),
+6. **Zahlen:** Anforderungen **211 / 0 Lücken**, Tests **1529** in **107** Dateien — in
+   Blöcken gefahren, **1496 grün**, ⚠ **zwei Module ungeprüft** (Zeitlimit der Sandbox),
+   JS **114**, Organigramm grün (21 Dateien), Briefkasten **0 offen** (am **Ende** gemessen),
    offene Aufgaben **33** (davon 12 aus dem neuen Projekt), auf dich wartend **0**.
 
 ---
