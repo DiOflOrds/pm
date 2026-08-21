@@ -1,5 +1,84 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
+## Das Wichtigste (Sprint 33, 2026-08-21)
+
+1. **✅ Drei Aufgaben erledigt, acht verschoben — und die Verschiebung hat einen Grund,
+   der kein Wort für „keine Zeit" ist.**
+2. **⚠⚠ Zum zweiten Mal in Folge ist der Ertrag das GEGENLESEN und nicht der Bau — und
+   diesmal hat es eine ANFORDERUNG umgedreht.** Wir hatten drei Aufgaben gebaut,
+   abgesichert und für fertig erklärt. Ein unabhängiger Leser hat darin **drei ernste
+   Fehler** gefunden. Keinen davon haben wir selbst gefunden.
+   Der schwerste: wir haben zwei Uhren verglichen, die verschieden ticken — die Briefe
+   tragen Weltzeit, unser Sprintzähler die Uhr des Rechners. **Zwei Stunden Unterschied,
+   länger als ein ganzer Sprint.**
+   > **Eine Zeitzone ist keine Formatfrage, sondern eine Maßeinheit. Und eine falsche
+   > Messung, die eine KORREKTUR behauptet, ist teurer als gar keine — sie überschreibt
+   > die richtige Aussage und begründet das auch noch.**
+   Wir hatten damit ein eigenes Ticket „korrigiert", das die ganze Zeit **recht** hatte,
+   und diese falsche Behauptung stand bereits in einer Anforderung.
+3. **⚠⚠ Sie haben WÄHREND des Laufs geantwortet — zum vierten Mal an einem Tag, diesmal
+   nach 47 Minuten bei sieben Tagen Frist.** Und Ihre Antwort hat unsere Ausnahmeliste
+   **leer** gemacht, vier Stunden nachdem sie entstand.
+   > **Eine Ausnahmeliste, die man leer bekommt, war die richtige Bauform. Der vierte
+   > Aufgaben-Zustand, den wir stattdessen hätten bauen können, wäre für immer geblieben.**
+   ⚠ **Und Sie hatten inhaltlich recht:** unsere Ollama-Diagnose war fünf Sprints alt.
+   Alle 11 Fehlschläge liegen **vor** der Reparatur vom 20.08. um 20:45 — seither hat es
+   **keinen einzigen Versuch** gegeben, und der eine erfolgreiche Lauf trug `gemma3:27b`.
+   > **Eine Fehlerliste ohne Zeitachse ist keine Diagnose, sondern ein Archiv, das sich
+   > wie ein Befund liest.**
+4. **⚠⚠ Beide Zählungen dieses Laufs haben ihr eigenes Ticket umgestellt.** Die Frage war
+   „brauchen wir einen vierten Aufgaben-Zustand für drei Fälle?". Gezählt: **acht**
+   Verweise — und **kein einziger** gesperrter Vorgang im ganzen Haus zeigte auf etwas
+   Offenes, obwohl unsere Regel genau das verlangt.
+   > **Der Befund war nicht „uns fehlt ein Zustand", sondern „eine Sperre wird nie
+   > zurückgenommen, weil nichts danach fragt". Die Hälfte war Altpapier.**
+5. **⚠ Eine Zusage von uns hatte keinen Leser.** Die Gründung Ihres Projekts
+   `team-termine` stand als „nächster Schritt" im Schlussabsatz einer **geschlossenen**
+   Aufgabe — mit Nummer, aber ohne Aufgabe dahinter. Jetzt angelegt (`pm/T-0083`).
+6. **Zahlen:** Anforderungen **206 / 0 Lücken**, Tests **1480** in **101** Dateien,
+   Organigramm grün (20 Dateien), Briefkasten **0 offen** (am **Ende** gemessen), offene
+   Aufgaben **20**, auf Sie wartend **0**.
+
+---
+
+## Für dich (E. John)
+
+| Was | Warum |
+|---|---|
+| ⚠⚠ **`abschluss.cmd` ausführen** | **Der wichtigste Punkt, und er wächst weiter: fünf Tage plus sechs komplette Sprints.** Wir pushen nie selbst. **Stichprobe:** danach steht in `abschluss-auto.log` `OK - alles geprueft und gepusht` und `PUSH-ANFORDERUNG.txt` ist verschwunden. |
+| ✅ **Nichts wartet gerade auf dich** | Alle drei Entscheidungen von heute sind verbucht, der Briefkasten ist leer. **Frei zum Lesen statt zum Antworten.** |
+| ⚠ **Dein Ollama-Takt: eine gute Nachricht und eine ehrliche** | Gut: dein Hinweis auf `gemma3:27b` stimmt, und das Modellproblem ist seit dem 20.08. abends repariert. Ehrlich: **wir haben es seitdem kein einziges Mal ausprobiert** und trotzdem fünf Sprints lang „Modell fehlt" berichtet. Der nächste Schritt ist **ein** echter Lauf (`platform/T-0060`) — der braucht deinen Rechner, nicht unsere Sandbox. ⚠ Der Takt bricht derzeit an **Preflight-Befunden** ab, nicht am Modell — zwei verschiedene Ursachen, die wir bisher vermischt haben. |
+| ⚠ **Dein Projekt `team-termine` startet im nächsten Lauf** | `pm/T-0083`. Verschoben, weil dieser Lauf drei eigene Fehler reparieren musste — eine Projektgründung nebenbei wäre genau die Reihenfolge, die den Sprint teuer gemacht hat. Die **Zugangsdaten** für den Kalender bleiben dein Punkt. |
+| ⚠ **Die Sperr-Reste löschen, wenn du magst** | **11830 Dateien** (Stand 11:18). Wir können sie nicht löschen, du schon. |
+| ⚠ **Die alten Punkte** | Mail-**Versand**daten (`team-mail/N-0003`) — ⚠ präzisiert: das **Lesen** läuft seit Sprint 21, offen ist nur der **Versand**. Dazu deine Zählung der Kacheln im Reiter „Dashboard". |
+
+---
+
+## ⚠ Drei Dinge, die wir über uns selbst aufschreiben
+
+**Erstens: unsere Prüfung war durch ihren eigenen Erklärtext erfüllt.** Sie suchte einen
+Namen im Quelltext — und der Name stand im Kommentar darüber. **Anwesenheit ist nicht
+Verwendung.** Eine zweite verglich eine leere Liste mit einer leeren Liste und wäre auch
+dann grün geblieben, wenn das ganze Haus unlesbar gewesen wäre.
+
+**Zweitens: wir haben eine ganze Datei von einer Prüfung ausgenommen.** Deshalb konnten wir
+den **fünften** Namen für denselben Begriff nicht finden — er stand ausgerechnet in der
+ausgenommenen Datei. **Eine Ausnahme für eine ganze Datei ist keine Ausnahme, sondern ein
+blinder Fleck an der teuersten Stelle.**
+
+**Drittens: von 119 Lehren stehen 84 in keinem Lehrbuch.** Sie leben nur als Zitat in
+Berichten — dort findet sie niemand, der nach Lehren sucht. Unsere Kennzahl „Lehren" zählt
+die Zitate, unsere Prüfung zählt die Einträge im Buch: **zwei Zahlen unter einem Namen.**
+Aufgeschrieben als `platform/T-0061` und ausdrücklich **nicht** stillgelegt — eine Zeile
+Änderung hätte die Prüfung grün gemacht und den Befund gelöscht.
+
+> **Eine Lehre, die nur im Abschlussbericht steht, ist eine Erinnerung an einen Sprint.
+> Erst im Lehrbuch ist sie eine Regel für den nächsten.**
+
+---
+
+<details><summary>Archiv: Sprint 32</summary>
+
 ## Das Wichtigste (Sprint 32, 2026-08-21)
 
 1. **✅ Zwei Aufgaben erledigt, keine verschoben** — beide waren letzten Sprint für
@@ -76,6 +155,8 @@ während unser Werkzeug es tut. Beim Briefkasten ist nichts passiert; bei den Au
 der engere war der, den wir von Hand gegangen sind.**
 
 ---
+
+</details>
 
 <details><summary>Archiv: Sprint 31</summary>
 

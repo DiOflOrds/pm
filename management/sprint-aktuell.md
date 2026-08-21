@@ -39,6 +39,162 @@ wird im Fazit benannt. Mit `pm/D014` = A ist entschieden, dass sich daran nichts
 
 ---
 
+## Sprint-Abschluss (Sprint 33, 2026-08-21)
+
+**Geschlossen:** `platform/T-0058` (**SWR-204**), `platform/T-0054` (**SWR-205**),
+`platform/T-0057` (**SWR-206**). **Verschoben:** sieben — Grund unten, jeder im Ticket.
+
+**Neue Anforderungen:** **SWR-204** (eine Sperre muss auf ein nicht geschlossenes Ticket
+zeigen; Ausnahmen namentlich **und** mit Verfallsprüfung), **SWR-205** (der Endzustand hat
+EINEN Namen, `board.STATUS_FINAL`; drei Fundstellen beurteilt und bewusst nicht
+angeschlossen), **SWR-206** (EINE Brief-Discovery und EINE Auslegung von „offen"; die
+Kennzahl `briefe_im_lauf` als Aussage über das **Fenster**).
+
+**Neu angelegt:** `platform/T-0060` (Ollama: ein echter Lauf, aus `pm/D029`),
+`platform/T-0061` (84 von 119 Lehren stehen in keinem Lehrbuch), `pm/T-0083`
+(Projektgründung `team-termine` — **war in Sprint 32 zugesagt und nie angelegt**),
+`pm/T-0084` (Inbox-DR, im Lauf beantwortet).
+
+---
+
+### ⚠⚠ Der Ertrag dieses Sprints ist wieder das REVIEW — und diesmal hat es eine ANFORDERUNG umgedreht
+
+Drei Tickets waren gebaut, zugesichert und auf `in_review` gesetzt. Das unabhängige
+Gegenlesen hat darin **drei ernste Fehler** gefunden. Keinen davon hat der Autor gefunden,
+keinen eine der eigenen Zusicherungen.
+
+**1. Der teuerste: ein Zeitzonenfehler, der eine Anforderung mit einer falschen Aussage gefüllt hat.**
+`briefe_im_lauf` verglich den Brief-Zeitstempel (**UTC**, `+00:00`) mit dem Sprintstart
+(**Wanduhrzeit**, CEST) und warf den Offset mit `.replace(tzinfo=None)` weg statt
+umzurechnen.
+
+> **⚠⚠ Zwei Stunden Versatz — länger als ein ganzer Sprint. Die Kennzahl hätte bei
+> Sprintlängen von ein bis zwei Stunden IMMER 0 gemeldet: eine Größe, die den Satz
+> „keiner eingegangen" verhindern sollte, hätte ihn maschinell erzeugt.**
+
+Und sie hatte bereits Schaden angerichtet, bevor jemand sie prüfte: der Bau hatte damit
+das **Ursprungsticket „korrigiert"** — die sieben Briefe seien während Sprint 31 gekommen —
+und diese Behauptung stand in **`SWR-206`**, im Ticket und in einer **eingefrorenen
+Regressionsschranke**. Richtig ist: die Briefe tragen **08:32–09:03 Ortszeit** und kamen
+während **Sprint 32** (08:13–10:03). `platform/T-0057` hatte die ganze Zeit recht.
+
+> **Eine Zeitzone ist keine Formatfrage, sondern eine Maßeinheit. Und eine falsche
+> Messung, die eine KORREKTUR behauptet, ist teurer als gar keine — sie überschreibt die
+> richtige Aussage und begründet das auch noch.**
+
+⚠ Nachgemessen in Ortszeit: **17 von 21** Briefen seit Registerbeginn (**81 %**) kamen,
+während ein Sprint lief. Die Kernaussage von `SWR-206` wird dadurch **stärker**, nicht
+schwächer — nur ihr Beleg saß im falschen Sprint.
+
+**2. Ein fünfter Name, den die eigene Zusicherung strukturell nicht sehen konnte.**
+`SWR-205` zählte vier Namen für den Endzustand. Es sind **fünf** — `board.GESCHLOSSEN`
+stand im selben Modul, in dem die Menge wohnt.
+
+> **⚠⚠ Die Zusicherung nahm `board.py` PAUSCHAL aus. Eine Ausnahme für eine ganze Datei
+> ist keine Ausnahme, sondern ein blinder Fleck — und er saß an der teuersten Stelle.**
+> Jetzt ist genau **eine Zuweisungszeile** ausgenommen.
+
+**3. Eine Ausnahmeliste ohne Verfallsprüfung — und sie ist noch im selben Lauf abgelaufen.**
+`TOTE_SPERREN_BESTAND` nahm vier Verweise namentlich aus, bis der Auftraggeber `pm/T-0084`
+beantwortet. Er hat **vier Stunden später** geantwortet (`pm/D029` = C) — und **nichts**
+hätte gemeldet, dass die Ausnahme ihren Grund verloren hat.
+
+> **Eine Ausnahme ohne Verfallsprüfung ist ein Dauerbefund mit umgekehrtem Vorzeichen:
+> sie meldet nicht zu viel, sondern für immer zu wenig.**
+
+⚠ Dazu drei kleinere, ebenfalls vom Review: eine Zusicherung war **durch ihren eigenen
+Docstring** erfüllt (Anwesenheit statt Verwendung), eine war **vakuum-grün** (`[] == []`,
+mit `except Exception` als Schlucker), und `SWR-206` hatte die **Discovery** vereinheitlicht
+und die **Auslegung** von „offen" doppelt gelassen — dieselbe Fehlerfamilie, eine Ebene
+tiefer, im selben Sprint, der sie schloss.
+
+---
+
+### ⚠⚠ Die Zählungen haben BEIDE Tickets umgestellt — schon wieder
+
+| Ticket | nahm an | gemessen |
+|---|---|---|
+| `T-0058` | 3 Tickets in der Lage, „brauchen wir einen vierten Zustand?" | **8** Verweise in **5** Tickets — und **kein einziger** `blocked_by` des Hauses zeigte auf ein **offenes** Ticket, obwohl `SWR-193` genau das verlangt |
+| `T-0054` | 3 Namen, 6 Literale, „kein Schaden" | **5** Namen, **7** Literale — und ein echter Schaden (`offene_blocker` mit `!= "done"`) |
+
+> **⚠⚠ Der Befund von `T-0058` war nicht „uns fehlt ein Zustand", sondern „eine Sperre
+> wird nie zurückgenommen, weil nichts danach fragt". Vier der acht Verweise waren
+> Altpapier.**
+
+Der vierte Ticket-Zustand ist deshalb **verworfen** — gemessener Preis: 9 Quelldateien,
+153 Zustands-Literale, für eine Lage, die in 386 Tickets **einmal** vorkam. Gebaut ist die
+fehlende **Prüfung**: Preis null neue Wörter, Wirkung 4 Befunde → 0.
+
+> **Und die Entscheidung ist nachträglich gemessen: die Ausnahmeliste war nach vier
+> Stunden leer. Ein vierter Zustand wäre für immer geblieben.**
+
+---
+
+### ⚠ Zwei Dinge, die dieser Sprint gefunden und NICHT repariert hat (Kap. 16)
+
+**`platform/T-0061` — 84 von 119 Lehren stehen in keinem Lehrbuch.** Eine rote Zusicherung
+meldete „71 gewonnene Vertreter". Nachgemessen ist es das Gegenteil: die 71 sind nie in der
+Grundmenge gewesen. Die Kennzahl „Lehren: 121" zählt **Zitate im ganzen Haus**, die Prüfung
+„ohne Vertreter" zählt **Köpfe im Lehrbuch** — zwei Zahlen unter einem Namen.
+
+> **Eine Lehre, die nur im Abschlussbericht steht, ist eine Erinnerung an einen Sprint.
+> Erst im Lehrbuch ist sie eine Regel für den nächsten.**
+
+⚠ `OHNE_VERTRETER_BASIS` auf den heutigen Stand zu setzen hätte die Zusicherung in einer
+Minute grün gemacht — **und den Befund gelöscht**. Sie bleibt rot.
+
+**`platform/T-0060` — unsere Ollama-Diagnose war fünf Sprints alt.** Plan und Bericht
+zitierten *„11 × Fehler, `model 'llama3.1:8b' not found`"* als **aktuellen** Zustand.
+Gemessen liegen **alle 11** vor der Reparatur vom 20.08. 20:45, seither gab es **keinen
+einzigen Versuch**, und der eine erfolgreiche Ollama-Lauf des Hauses (06.08.) trug
+**`gemma3:27b`** — genau das, was der Auftraggeber in `pm/D029` geschrieben hat.
+
+> **Eine Fehlerliste ohne Zeitachse ist keine Diagnose, sondern ein Archiv, das sich wie
+> ein Befund liest.**
+
+---
+
+### Verschoben: sieben — mit Grund, neuem Termin und ohne Floskel
+
+`platform/T-0055`, `platform/T-0056`, `pm/T-0080`, `pm/T-0082`, `pm/T-0083`,
+`team-dashboard/T-0004`, `team-dashboard/T-0005`, `team-mail/T-0006` → **Sprint 34**,
+Grund **im jeweiligen Ticket**: die Reparatur der drei eigenen Fehler und die zwei daraus
+entstandenen Befunde haben den Rest des Laufs gekostet.
+
+> **Eigene Fehler zu reparieren geht vor neuer Arbeit. Ein Sprint, der beides gleichzeitig
+> versucht, liefert zwei halbe Sachen und einen Bericht, der beide für ganz erklärt.**
+
+⚠ Alle sind **erste** Verschiebungen — die Regel der vierten Berührung ist nicht berührt.
+
+---
+
+## Verifikation (Sprint 33)
+
+| Größe | Wert |
+|---|---|
+| Anforderungen / Lücken | **206** SWRs (v1.91) / **0** |
+| Tests / Testdateien | **1480** / **101** |
+| Briefkasten | **0 offen** — am **Ende** gemessen |
+| `briefe_im_lauf` | **0** (neu; über beide Ebenen, in Ortszeit gerechnet) |
+| Offene Tickets | **19** |
+| Auf den Menschen wartend | **0** — ⚠ `pm/T-0084` wurde **im Lauf** beantwortet |
+| Tote Sperren (`SWR-204`) | **0**, Ausnahmeliste **leer** |
+| Lehren / ohne Vertreter | **35** / **20** — ⚠ und diese Zahl ist Gegenstand von `T-0061` |
+
+⚠ **Rot und benannt statt repariert:**
+`test_lehren_vertreter::test_ein_gewonnener_vertreter_wird_gebucht_und_nicht_nebenbei_getan`
+(→ `platform/T-0061`) und die Test-Isolation von `test_backend` (die D-ID-Vergabe liest
+seit `SWR-203` das **echte** Entscheidungslog; `pm/D029` hat das scharf gemacht).
+
+⚠⚠ **Ollama-Offload: nichts delegiert, Token-Ersparnis 0 — gemessen, nicht geschätzt.**
+`pm/T-0071` hat unverändert **keinen** Tick mit `status: ok` + Artefakt. **Neu gemessen und
+gegen den Plan dieses Laufs korrigiert:** die Fehlschläge liegen alle **vor** der Reparatur
+vom 20.08., seither gab es keinen Versuch — der fehlende Nachweis ist also **kein**
+Modellproblem mehr, sondern ein fehlender Lauf (`platform/T-0060`, Sprint 34, braucht den
+Team-Node).
+
+---
+
 <details><summary>Archiv: Sprint 32</summary>
 
 ## Sprint-Plan (Sprint 32) — Planung VOR der Arbeit
@@ -1979,6 +2135,6 @@ offen, Plan-Drift 0, Statusdrift 0. ⚠ Nicht startklar — Altbefund unverände
 
 </details>
 
-<!-- kennzahlen v1 | gemessen 2026-08-21 10:12
-briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=11714 swr=203 testdateien=99 tests=1452 tickets_offen=20 wartet_auf_mensch=0
+<!-- kennzahlen v1 | gemessen 2026-08-21 11:18 | sprint 33
+briefe_im_lauf=0 briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=11830 swr=206 testdateien=101 tests=1480 tickets_offen=20 wartet_auf_mensch=0
 -->
