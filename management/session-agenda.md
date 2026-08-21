@@ -1,5 +1,114 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
+## Das Wichtigste (Folgelauf 2026-08-21 — **wieder kein Sprint 36**)
+
+1. **Die Shell ist zum zweiten Lauf in Folge ausgefallen** (vier identische Startfehler,
+   `useradd`/ENOSPC-Familie). Kein `git`, kein `board.py`, kein `preflight`, keine Tests,
+   kein Ollama-Tick, kein `sprint_register.py`. **Sprint 35 bleibt im Register offen**
+   (`s35-2026-08-21-1450`) — nach `SWR-136` hätte `beginne()` einen Sprint 36 ohnehin
+   verweigert. **Wieder bewusst nichts gebaut, geschlossen oder terminiert.**
+2. **⚠⚠ Der Ertrag ist ein Blocker, den wir zum ersten Mal VOR seinem Einsatz sehen.**
+   Der Abschluss von Sprint 35 hat **neun Tickets in Prosa nach Sprint 36 verschoben** —
+   und **kein einziges Ticket trägt es**. Alle stehen auf `geplant_sprint: 35`, dazu
+   `platform/T-0060` (`in_review`): **zehn**. Heute still, weil `sprint_vergangen`
+   (SWR-112) gegen den **laufenden** Sprint vergleicht.
+   > **Nach `--beende` und `--beginne` meldet die Prüfung alle zehn — und der Schnelltakt
+   > bricht zum dritten Mal in Folge an unserem eigenen Abschluss ab. Diesmal wissen wir
+   > es vorher.**
+   ⚠ Vom Gegenlesen korrigiert: **ein** Befund mit zehn genannten Tickets, nicht zehn
+   Befunde; für den Exit-Code gleichwertig, für jede Zählung nicht.
+   **Behandlung:** in `sprint-aktuell.md` als **Schritt 0** vor `--beende` eingetragen —
+   nicht angehängt, sondern **vor** die bestehende Liste gestellt.
+3. **⚠ Zweiter Befund: neun von elf geräumt.** `team-termine/T-0011` und `T-0012` stehen
+   auf `open` **und** tragen `blocked_by` — genau der Widerspruch, den Sprint 35 für
+   `T-0002…T-0010` auflöste. Und **keine Prüfung** findet den Rest: `board.validiere`
+   prüft nur `blocked` **ohne** `blocked_by`, nie die Gegenrichtung.
+   > **Eine Regel, die von Hand auf neun Fälle angewandt und nicht als Prüfung gebaut
+   > wird, ist beim zehnten wieder weg.**
+4. **⚠⚠ Beides wurde NICHT repariert — und der Grund ist der wertvollste Teil des Laufs.**
+   `preflight.ist_verifikationsquelle` nennt drei Sorten Datei, die eine Verifikation
+   liest: `BOARD.md`, `software-requirements.md` und **jede** Datei unter `*/tickets/`.
+   Eine geänderte, nicht committete Verifikationsquelle **ist** ein Preflight-Befund.
+   > **Ohne `git` verwandelt jede Ticket-Änderung Arbeit in einen neuen Takt-Blocker.
+   > Zehn Tickets richtigzustellen hieße, zehn Befunde anzulegen, um zehn zu vermeiden.**
+   Damit hat `L-2026-08-21db` erstmals eine **nachlesbare Grenze** statt eines Gefühls
+   (`L-2026-08-21dp` und `dq`, verankert mit `## L-`-Kopf in
+   `process/knowledge/pl/lessons.md`, dazu `process/roles/pl.md` Punkte 11–12).
+   ⚠ „Frei" heißt nicht „folgenlos": `sprint-aktuell.md` wird von `plandrift`,
+   `statusdrift` und `test_berichtskennzahlen` gelesen — **Plantabelle und
+   Kennzahlenblock blieben deshalb unangetastet**.
+5. **⚠ Das Gegenlesen hat vier Fehler in dieser eigenen Arbeit gefunden, keinen davon der
+   Autor** — fünfter Lauf in Folge. Darunter eine Zahl („zehn Befunde"), eine
+   Reihenfolge (`--beginne` allein genügt nicht) und eine **richtige Antwort aus dem
+   falschen Grund** (die zwei Wurzeldateien). Alle vier oben eingearbeitet statt
+   stillschweigend geglättet.
+   > **Und ein Befund über das Gegenlesen selbst: es meldete unsere neue Lehren-ID als
+   > „bereits vergeben" — gelesen hatte es die Dateien, die derselbe Lauf gerade
+   > geschrieben hatte. Eine Prüfung gegen die Arbeitskopie kann „vergeben" nicht von
+   > „soeben von dir vergeben" unterscheiden.**
+6. **Zahlen (gemessen):** Briefkasten **0 offen** (69 Briefe, beide Ebenen), offene
+   Aufgaben **34** = **20 `open` + 13 `blocked` + 1 `in_review`** — ⚠ der Vorlauf nannte
+   „22 + 12": **gleiche Summe, andere Aufteilung**, die 13 sind namentlich belegt.
+   Ollama-Offload **0 delegiert / Ersparnis 0**. **Tests, Trace-Matrix, Organigramm,
+   `board --check` und `preflight` sind nicht gelaufen und werden deshalb nicht als Zahl
+   behauptet.**
+
+### Erste Aufgabe des Folgelaufs
+
+**Schritt 0 aus `sprint-aktuell.md` zuerst** — die zehn Tickets auf `geplant_sprint: 36`
+nachziehen —, **dann** Sprint 35 schließen, die Reste aus `PUSH-ANFORDERUNG.txt`
+verbuchen, `preflight` fahren und den Takt nachmessen. Die Reihenfolge ist der Punkt:
+umgekehrt erzeugt Schritt 1 zehn Befunde, die Schritt 0 verhindert hätte.
+
+---
+
+<details><summary>Archiv: Lauf ~16:4x</summary>
+
+## Das Wichtigste (Lauf 2026-08-21 ~16:4x — **kein Sprint 36**)
+
+1. **Die Shell dieser Session war durchgehend ausgefallen** (fünf identische Startfehler).
+   Ohne sie: kein `git`, kein `board.py`, kein `preflight`, keine Tests, kein Ollama-Tick,
+   kein `sprint_register.py`. **Sprint 35 ist im Register weiterhin offen**
+   (`s35-2026-08-21-1450`) — nach `SWR-136` hätte `beginne()` einen Sprint 36 ohnehin
+   verweigert. **Bewusst nichts gebaut, geschlossen oder terminiert.**
+2. **⚠⚠ Der Schnelltakt ist wieder blockiert, und wieder durch uns.** Gemessen aus
+   `ollama-schnelltakt.log` (Lauf 21.08. 16:01:20): `PREFLIGHT: 3 Befund(e)` →
+   `Tick abgebrochen`. **Alle drei stammen aus dem Abschluss von Sprint 35**: zwei
+   unverbuchte Dateien (`p9/.../software-requirements.md`, `pm/tickets/T-0085.md`) und
+   eine Planzeile, die `pm/T-0085` auf Sprint 35 führte, während das Ticket
+   `geplant_sprint: 36` trägt.
+   > **Zum zweiten Mal in Folge sperrt unser eigener Abschluss den Takt, den derselbe
+   > Sprint entsperrt hat. Die Sperre trägt wieder den Namen der Sorgfalt.**
+3. **✅ Behoben wurde genau der Befund, den `abschluss.cmd` NICHT gelöst hätte** — die
+   Planzeile. Ein Commit der falschen Zeile hätte den Befund mitgenommen. Die anderen
+   beiden brauchen `git` auf dem Host.
+   > **`L-2026-08-21db`: Fällt ein Werkzeug aus, ist die nützlichste Arbeit die Teilmenge
+   > der Blockade, die das Werkzeug ohnehin nicht gelöst hätte.** Verankert in
+   > `process/roles/pl.md` (Lehren 8–10) und `pm/docs/historie.md`.
+4. **⚠ Ehrliche Grenze:** die Korrektur ist **nicht nachgemessen** — `preflight` konnte
+   nicht laufen. Dass der nächste Takt `STARTKLAR` meldet, ist eine **Erwartung, keine
+   Messung**.
+5. **Zahlen (gemessen):** Briefkasten **0 offen** (69 Briefe, kein `status: offen`),
+   offene Aufgaben **34** (22 `open`, 12 `blocked`), Preflight **3 Befunde / 10
+   fortgeschrieben**, Ollama-Offload **0 delegiert / Ersparnis 0** (`pm/T-0071` ohne Tick
+   mit `status ok` + Artefakt). **Tests, Trace-Matrix und Organigramm sind nicht gelaufen
+   und werden deshalb nicht als Zahl behauptet.**
+
+### Erste Aufgabe des Folgelaufs
+
+Vor jeder neuen Planung: **Sprint 35 im Register schließen**, die Reste aus
+`PUSH-ANFORDERUNG.txt` verbuchen, `preflight` fahren und den Takt nachmessen.
+
+⚠ **Vom Folgelauf korrigiert:** diese Reihenfolge war unvollständig — vor dem Schließen
+müssen die zehn Tickets auf `geplant_sprint: 36` nachgezogen werden, sonst erzeugt der
+Sprintstart zehn `sprint_vergangen`-Befunde (siehe oben, Punkt 2).
+
+</details>
+
+---
+
+<details><summary>Archiv: Sprint 34</summary>
+
 ## Das Wichtigste (Sprint 34, 2026-08-21)
 
 1. **✅ Sechs Aufgaben geschlossen, sechs verschoben, ein Projekt gegründet** — und der
@@ -82,6 +191,8 @@ du hast in einen **vorhandenen** geschrieben. Die Zahl steht im Bericht **falsch
 danebengestellt richtig** — sie stillschweigend zu korrigieren hätte den Befund gelöscht.
 
 ---
+
+</details>
 
 <details><summary>Archiv: Sprint 33</summary>
 

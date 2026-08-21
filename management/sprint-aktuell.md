@@ -18,18 +18,19 @@ diese sechs erneut schiebt, schiebt sie in einen Zwang.
 | Aufgabe | Rolle | Fällig | Status | Grund / nächster Schritt |
 |---|---|---|---|---|
 | Briefkasten (beide Ebenen) | pl | Sprint 35 | geplant | 0 offen beim Start. ⚠ Nachmessung am **Ende** ist Pflicht (`L-2026-08-21cs`). |
-| **platform/T-0060** | dev | Sprint 35 | geplant | ⚠⚠ **Dritte Terminierung — und die Diagnose ist zum vierten Mal eine andere.** Vor der Arbeit gemessen am Log des Auftraggeber-Rechners: **87 Läufe, 138 Abbrüche, 0 Erfolge.** Zuerst die zwei Preflight-Befunde räumen, die den Takt abbrechen. |
+| **platform/T-0060** | dev | Sprint 36 | geplant | ⚠⚠ **Dritte Terminierung — und die Diagnose ist zum vierten Mal eine andere.** Vor der Arbeit gemessen am Log des Auftraggeber-Rechners: **87 Läufe, 138 Abbrüche, 0 Erfolge.** Zuerst die zwei Preflight-Befunde räumen, die den Takt abbrechen. ⚠ Sprintnummer am 21.08. vom Host-Lauf auf **36** gezogen — Ticket steht `in_review`, Nachweis entsteht beim Auftraggeber (Befund A). |
 | **platform/T-0065** | dev | Sprint 35 | geplant | Nullte Terminierung. Erst die Beiträge über den ganzen Bestand **zählen** (DoD 1), dann bauen. |
-| **platform/T-0064** | cm | Sprint 35 | geplant | Nullte Terminierung. Ursache des 91-Lehren-Verlusts. ⚠ **Zusammen mit `T-0055` zu betrachten** — so steht es in `T-0055`. |
-| **platform/T-0055** | dev | Sprint 35 | geplant | Dritte Terminierung. Gegenstand ist durch `T-0064` gewachsen; erst die Taktliste **zählen** (DoD 1). |
-| **pm/T-0085** | pl | Sprint 35 | geplant | Nullte Terminierung. Erst Zitate je Bedeutung **zählen** (DoD 1), dann entscheiden. |
-| **team-termine/T-0001** | pl | Sprint 35 | geplant | Projektplanung P16 — sie entsperrt neun Tickets. |
+| **platform/T-0064** | cm | Sprint 36 | geplant | Nullte Terminierung. Ursache des 91-Lehren-Verlusts. ⚠ **Zusammen mit `T-0055` zu betrachten** — so steht es in `T-0055`. ⚠ Sprintnummer am 21.08. vom Host-Lauf auf **36** gezogen (Befund A). |
+| **platform/T-0055** | dev | Sprint 36 | geplant | Dritte Terminierung. Gegenstand ist durch `T-0064` gewachsen; erst die Taktliste **zählen** (DoD 1). ⚠ Sprintnummer am 21.08. vom Host-Lauf auf **36** gezogen (Befund A); in Sprint 36 vierte Berührung → Entscheidung statt Termin. |
+| **pm/T-0085** | pl | Sprint 36 | geplant | Erste Terminierung. DoD 1 und 3 sind in Sprint 35 **beantwortet** (siehe „Gemessen statt verschoben" unten); offen ist die Entscheidung. ⚠ Sprintnummer am 21.08. auf **36** gezogen — das Ticket sagte bereits `geplant_sprint: 36`, diese Zeile noch 35; die Abweichung war einer der drei Preflight-Befunde, die den Schnelltakt seit 16:01 abbrechen lassen. |
+| **team-termine/T-0001** | pl | Sprint 36 | geplant | Projektplanung P16 — sie entsperrt neun Tickets. ⚠ Sprintnummer am 21.08. vom Host-Lauf auf **36** gezogen (Befund A). |
 | **team-termine/T-0002–T-0010** | div | Sprint 36 | **blocked** | ⚠ Sie standen auf `open` **und** trugen `blocked_by: [T-0001]` — zwei Aussagen zu derselben Frage. Status auf `blocked` gezogen, Termin Sprint 36. |
-| **pm/T-0080**, **pm/T-0082** | dev/pl | Sprint 35 | geplant | Je dritte Terminierung. |
-| **team-dashboard/T-0004**, **T-0006** | dev | Sprint 35 | geplant | `T-0004` dritte, `T-0006` nullte Terminierung. |
-| **team-mail/T-0006**, **T-0007** | dev | Sprint 35 | geplant | `T-0006` dritte Terminierung (entsperrt, `pm/D015` = B); `T-0007` braucht **eine Zahl vom Auftraggeber** — als Rückfrage, nicht als Annahme. |
+| **pm/T-0080**, **pm/T-0082** | dev/pl | Sprint 36 | geplant | Je dritte Terminierung. ⚠ Sprintnummern am 21.08. vom Host-Lauf auf **36** gezogen (Befund A); in Sprint 36 vierte Berührung → Entscheidung statt Termin. |
+| **team-dashboard/T-0004**, **T-0006** | dev | Sprint 36 | geplant | `T-0004` dritte, `T-0006` nullte Terminierung. ⚠ Sprintnummern am 21.08. vom Host-Lauf auf **36** gezogen (Befund A). |
+| **team-mail/T-0006**, **T-0007** | dev | Sprint 36 | geplant | `T-0006` dritte Terminierung (entsperrt, `pm/D015` = B); `T-0007` braucht **eine Zahl vom Auftraggeber** — als Rückfrage, nicht als Annahme. ⚠ Sprintnummern am 21.08. vom Host-Lauf auf **36** gezogen (Befund A). |
 | pm/T-0071, pm/T-0079, promt-team/T-0003, promt-team/T-0012 | pl/dev/prompt-opt | — | **blocked** | Alle vier zeigen auf **`platform/T-0060`**. ⚠ Wird `T-0060` in diesem Lauf geschlossen, sind sie **im selben Lauf** zu entsperren — sonst bleibt eine Sperre stehen, deren Hindernis weg ist (`SWR-204`). |
-| pm/T-0001–T-0003, platform/T-0001, team-dashboard/T-0001, team-mail/T-0001, team-termine/T-0011, T-0012 | pl/coach/cm/dev/qm | jeder Sprint | geplant | Takt-Dauerläufer. |
+| pm/T-0001–T-0003, platform/T-0001, team-dashboard/T-0001, team-mail/T-0001 | pl/coach/cm/dev | jeder Sprint | geplant | Takt-Dauerläufer. |
+| team-termine/T-0011, T-0012 | pl/qm | — | **blocked** | ⚠ Standen auf `open` **und** trugen `blocked_by` (`[T-0001]` bzw. `[T-0006]`) — derselbe Widerspruch, den Sprint 35 für `T-0002`–`T-0010` aufgelöst hat (Befund B des Folgelaufs). Status am 21.08. vom Host-Lauf auf `blocked` gezogen. |
 
 **Unterminiert: nichts.**
 
@@ -42,9 +43,9 @@ Der Offload-Vorbehalt der Session-Anweisung verlangt für `pm/T-0071` einen Tick
 
 | Größe | Wert | Quelle |
 |---|---|---|
-| Ticks mit `status: ok` in allen Run-Registries | **0** | `*/management/runs/run-registry.jsonl` |
-| Schnelltakt-Läufe seit 20.08. 17:15 | **87** | `ollama-schnelltakt.log` |
-| Abbrüche, alle mit **derselben** Meldung | **138** | ebd. |
+| Ticks mit `status: ok` in den Run-Registries **seit 20.08.** | **0** (über den ganzen Bestand: 4 von 16, einer davon ollama am 06.08.) | `*/management/runs/run-registry.jsonl` |
+| Schnelltakt-Läufe seit 20.08. 17:15 (Stichzeit 14:46) | **87** | `ollama-schnelltakt.log` |
+| Tick-Abbrüche, alle mit **derselben** Meldung | **138** (davon **110** nach dem Fix von 22:05) | ebd. |
 | Erfolgszeilen im Log | **0** | ebd. |
 
 ⚠⚠ **Und die Diagnose aus Sprint 34 („aus dieser Sandbox unerreichbar") misst den
@@ -63,7 +64,7 @@ antwortet, und zwar mit `404: model 'llama3.1:8b' not found`.
 | 20.08. 20:44 | `SWR-167..170` — die „Reparatur", auf die Sprint 33 sich berief |
 | 20.08. 21:15 / 21:30 / 21:45 | **6 Versuche, alle `404 llama3.1:8b`** — Sprint 33 schrieb „seither hat es keinen einzigen Versuch gegeben" |
 | 20.08. 22:05 | `platform/T-0033` → `done`: Besetzung wird **vor** dem Aufruf geprüft (`SWR-171/172`) |
-| seit 22:05 | **138 Abbrüche, 0 Versuche** — der eigentliche Fix ist **nie ausgeführt worden** |
+| seit 22:05 | **110 Abbrüche, 0 Versuche** — der eigentliche Fix ist **nie ausgeführt worden** |
 
 ⚠⚠ **Und der Grund der 138 Abbrüche ist unsere eigene Buchführung.** Der Preflight meldet
 im Lauf von 14:46 **zwei** Befunde, und beide hat **Sprint 34 selbst erzeugt**:
@@ -84,6 +85,301 @@ nicht hier.
 ⚠⚠ **Ollama-Offload in diesem Lauf: nichts delegiert, Token-Ersparnis 0 — gemessen.**
 `pm/T-0071` hat unverändert **keinen** Tick mit `status: ok` + Artefakt. Alles selbst
 erledigt; der fehlende Nachweis ist im Fazit benannt.
+
+---
+
+## Sprint-Abschluss (Sprint 35, 2026-08-21)
+
+> ⚠⚠ **ERSTER PUNKT FÜR DIE NÄCHSTE SESSION — SPRINT 35 IST IM REGISTER NICHT GESCHLOSSEN.**
+> Die Sandbox-Shell ist während des Abschlusses ausgefallen (`ENOSPC`) und nicht
+> wiedergekommen; `sprint_register.py --beende s35-2026-08-21-1450` konnte nicht laufen.
+> `beginne()` verweigert nach `SWR-136` einen neuen Sprint, solange einer läuft, **und
+> nennt den laufenden** — das ist die gewollte Wirkung und kein Defekt.
+>
+> **Zu tun, in dieser Reihenfolge:**
+> 0. ⚠⚠ **ZUERST — und diese Zeile ist am 21.08. (Folgelauf) VOR die anderen gestellt
+>    worden, nicht dazugeschrieben:** die **zehn** Tickets nachziehen, die noch
+>    `geplant_sprint: 35` tragen, obwohl der Abschluss unten neun von ihnen nach
+>    Sprint 36 verschoben hat — `platform/T-0055`, `platform/T-0060`,
+>    `platform/T-0064`, `pm/T-0080`, `pm/T-0082`, `team-dashboard/T-0004`,
+>    `team-dashboard/T-0006`, `team-mail/T-0006`, `team-mail/T-0007`,
+>    `team-termine/T-0001`. Je Ticket `geplant_sprint: 36` **und** die
+>    Verschiebungsnotiz (`L-2026-08-17ag`: der Grund wohnt im Ticket).
+>    **Warum vor Schritt 1:** `sprint_vergangen` (SWR-112) vergleicht gegen
+>    `sprint_register.aktuell()`. Solange 35 der laufende Sprint ist, schweigt die
+>    Prüfung; nach `--beende` **und** `--beginne` meldet sie **alle zehn** — keines ist
+>    `decision-request` oder `blocked`, also greift keine Ausnahme. Wer mit Schritt 1
+>    anfängt, sperrt den Schnelltakt zum dritten Mal in Folge mit dem eigenen Abschluss
+>    (`L-2026-08-21dp`). ⚠ Genau gezählt: **ein** Befund, der zehn Tickets namentlich
+>    nennt (`befunde += 1`) — für den Exit-Code gleichwertig, für jede Zählung nicht.
+> 1. `python platform/scripts/sprint_register.py --repos . --beende s35-2026-08-21-1450 --notiz "Sprint 35: Ollama-Blocker geraeumt, SWR-212/213, 17 Gegenlese-Befunde; Abschluss durch Sandbox-Ausfall nur teilweise committet"`
+> 2. `python platform/scripts/kennzahlen.py --repos . --schreibe` — der Block unten ist
+>    **nicht** fortgeschrieben, deshalb ist `test_berichtskennzahlen` rot.
+> 3. Die unter „nicht committet" in `PUSH-ANFORDERUNG.txt` genannten Dateien verbuchen.
+> 4. Die Teststrecke ab **Block 2** nachfahren (Module 28–109).
+>
+> ✅ **Stand 21.08., Host-Lauf des Auftraggebers:** Schritt 0 ist **erledigt** (zehn
+> Tickets auf `geplant_sprint: 36` mit Notiz, dazu Befund B: `team-termine/T-0011`/`T-0012`
+> auf `blocked`; Planzeilen oben nachgezogen). Schritt 1 und 2 übernimmt
+> `reparatur-sprint35.cmd` auf dem Host; Schritt 3 erledigt ab jetzt der neue
+> Schritt [0/6] „Nachverbuchung" in `abschluss.cmd`; Schritt 4 läuft dort als
+> Schritt [2/6] ohnehin vollständig. ⚠ Neu im Arbeitsordner: `waechter.py`/`waechter.cmd`
+> (Brief `platform/N-0008`, Ticket `platform/T-0055` — Betriebsmittel des Auftraggebers,
+> DoD des Tickets bleibt offen).
+>
+> ⚠ **Nicht geglättet:** Der offene Registereintrag wird nicht nachträglich mit einer
+> erfundenen Endezeit versehen. `L-2026-08-21da` sagt, „kein Ende" heißt **abgebrochen**
+> und nicht aktiv — und dieser Lauf ist genau das: abgebrochen, nach getaner Arbeit.
+
+---
+
+## ⚠⚠ Nachtrag Folgelauf 2026-08-21 (kein Sprint 36, Shell erneut ausgefallen)
+
+Die Shell war zum **zweiten Lauf in Folge** nicht verfügbar (vier identische
+Startfehler). Kein `git`, kein `board.py`, kein `preflight`, keine Tests, kein
+Ollama-Tick, kein Register. **Nichts gebaut, nichts geschlossen, nichts terminiert.**
+Der Lauf hat **gelesen und gerechnet** — und dabei zwei Befunde gefunden, die keine
+unserer Prüfungen heute meldet.
+
+### Befund A — zehn Verschiebungen, die nur im Bericht stattgefunden haben
+
+Der Abschluss oben schreibt: *„`platform/T-0055` (+`T-0064`), `pm/T-0080`, `pm/T-0082`,
+`team-dashboard/T-0004`, `T-0006`, `team-mail/T-0006`, `T-0007`, `team-termine/T-0001`
+→ **Sprint 36**"* und *„Grund je im Ticket"*.
+
+Am Bestand nachgezählt: **kein einziges dieser Tickets trägt `geplant_sprint: 36`.** Alle
+neun stehen auf **35**, dazu `platform/T-0060` (`in_review`, ebenfalls 35) — zusammen
+**zehn**. `platform/T-0055` trägt als letzte Notiz *„⚠ Verschoben nach Sprint 34"* und
+*„⚠ Verschoben nach Sprint 35"*; eine Sprint-36-Notiz existiert nicht. Damit ist auch
+„Grund je im Ticket" für diese Tickets **nicht eingelöst** — dieselbe Lücke, die
+`L-2026-08-17ag` schon einmal benannt hat.
+
+> **⚠⚠ Eine Verschiebung, die nur im Abschlussbericht steht, hat nicht stattgefunden.
+> Sie ist eine Zeitbombe mit Zünder am `--beginne`: heute still, weil `sprint_vergangen`
+> gegen den LAUFENDEN Sprint vergleicht — und alle zehn auf einmal in der Sekunde, in der
+> der nächste beginnt.**
+
+⚠ **Zwei Korrekturen der eigenen Erstfassung, vom Gegenlesen gefunden:** es ist **ein**
+Befund mit zehn genannten Tickets, nicht zehn Befunde; und die Auslösung braucht
+`--beende` **und** `--beginne`, weil `beginne()` nach SWR-136 verweigert, solange die
+letzte Registerzeile kein `ende` trägt.
+
+Behandlung: **Schritt 0** oben, vor `--beende`. **Nicht in diesem Lauf repariert** — der
+Grund steht unter Befund C und ist der wichtigere Teil dieses Nachtrags.
+
+### Befund B — neun von elf geräumt, und keine Prüfung merkt den Rest
+
+`team-termine/T-0011` und `T-0012` stehen auf `status: open` **und** tragen
+`blocked_by: [T-0001]` bzw. `[T-0006]` — genau der Widerspruch, den die Planzeile oben
+für `T-0002…T-0010` aufgelöst hat (*„zwei Aussagen zu derselben Frage"*). **Neun gezogen,
+zwei liegengeblieben** — und beide stehen in der Zeile der Takt-Dauerläufer als
+„jeder Sprint / geplant", während `board.offene_blocker` sie dem Orchestrator dauerhaft
+entzieht.
+
+Warum es niemand meldet: `board.validiere` prüft nur `blocked` **ohne** `blocked_by`,
+nie `open` **mit** `blocked_by`. `board.gesperrt` verlangt beides, also gelten die zwei
+als planbar.
+
+> **Eine Regel, die von Hand auf neun Fälle angewandt und nicht als Prüfung gebaut wird,
+> ist beim zehnten wieder weg.**
+
+⚠ Als Ticket gehört das in `platform` (Prüfung in `board.validiere`) — **in diesem Lauf
+bewusst nicht angelegt**: die nächste freie ID lässt sich ohne `git` nicht gegen HEAD
+prüfen (harte Regel), und eine Ticketdatei ist eine Verifikationsquelle (Befund C).
+
+### Befund C — warum A und B NICHT repariert wurden, und warum das die Arbeit ist
+
+`preflight.ist_verifikationsquelle` nennt drei Sorten Datei, die eine Verifikation liest:
+`BOARD.md`, `*/requirements/**/software-requirements.md` und **jede** Datei unter
+`*/tickets/`. Eine geänderte, **nicht committete** Verifikationsquelle **ist** ein
+Preflight-Befund — genau die Sorte, die den Takt gerade blockiert (`pm/tickets/T-0085.md`,
+`p9/.../software-requirements.md`).
+
+> **⚠⚠ Ohne `git` verwandelt jede Ticket-Änderung Arbeit in einen neuen Takt-Blocker.
+> Zehn Tickets richtigzustellen hieße, zehn Befunde anzulegen, um zehn Befunde zu
+> vermeiden.**
+
+Damit bekommt `L-2026-08-21db` („die Teilmenge, die das Werkzeug ohnehin nicht gelöst
+hätte") zum ersten Mal eine **nachlesbare Grenze** statt eines Gefühls:
+`ist_verifikationsquelle` **ist** die Liste dessen, was ein Lauf ohne Shell nicht anfassen
+darf. Alles andere — Plan, Chronik, Rollenkarte, Agenda, Statusbericht — darf er, und
+genau das ist in diesem Lauf geschrieben worden (`L-2026-08-21dq`).
+
+⚠ **Zwei Schärfungen, die das Gegenlesen erzwungen hat — „frei" heißt nicht
+„folgenlos":**
+
+1. **Diese Datei ist frei, aber nicht ungelesen.** `plandrift`, `statusdrift` und
+   `plannachlauf` lesen sie über `backend.sprint.plan`, und `test_berichtskennzahlen`
+   vergleicht ihren Kennzahlenblock gegen `kennzahlen.miss()` — über
+   `preflight.unit_tests()` ist eine veraltete Kennzahlenzeile also sehr wohl ein
+   Blocker. **Dieser Nachtrag hat deshalb weder die Plantabelle noch den
+   Kennzahlenblock angefasst.** Zusätzlich abgesichert durch den Bau selbst:
+   `plan_tabelle` schneidet ausschließlich die **erste** Tabelle nach der
+   Plan-Überschrift; die Tabellen dieses Nachtrags sind für den Plan unsichtbar.
+   ⚠ Verbleibende Bruchstelle, benannt statt übermalt: eine Tabelle, die **zwischen**
+   Plan-Überschrift und Plantabelle geriete, würde die Plantabelle verdrängen.
+2. **`PROJEKTSTATUS-UPDATE.md` und `PUSH-ANFORDERUNG.txt` sind unbedenklich — aber aus
+   einem anderen Grund als angenommen.** Sie liegen in der **Arbeitswurzel**, und die ist
+   kein Git-Repo; `repos_im_root` sammelt nur Unterverzeichnisse mit `.git`. Sie
+   erscheinen in keinem `git status`, statt von `ist_verifikationsquelle` verneint zu
+   werden.
+   > **Die richtige Antwort aus dem falschen Grund ist keine Messung.**
+
+### Zahlen dieses Laufs — gemessen, mit Definition
+
+| Größe | Wert | Wie gemessen |
+|---|---|---|
+| Briefkasten offen | **0** | 69 Briefe, beide Ebenen, kein `status: offen` |
+| Offene Aufgaben | **34** = 20 `open` + 13 `blocked` + 1 `in_review` | Frontmatter aller `*/tickets/T-*.md` |
+| Tickets auf `geplant_sprint: 35`, nicht geschlossen | **10** | Befund A |
+| Ollama-Offload | **0** delegiert, Ersparnis **0** | `pm/T-0071` ohne Tick `status ok` + Artefakt; Tick lief mangels Shell nicht |
+| Tests / Matrix / Organigramm / `board --check` / `preflight` | **nicht gelaufen** | keine Shell — deshalb **keine Zahl behauptet** |
+
+⚠ **Abweichung zum Vorlauf, benannt statt geglättet:** dieser meldete „34 = 22 `open` +
+12 `blocked`". **Die Summe stimmt in beiden Fällen**, die Aufteilung nicht. Die 13
+`blocked` sind namentlich: `team-termine/T-0002…T-0010` (9), `promt-team/T-0003`,
+`promt-team/T-0012`, `pm/T-0071`, `pm/T-0079`.
+
+
+**Geschlossen: eins** — `platform/T-0065` (**SWR-213**).
+**In Review: eins** — `platform/T-0060` (**SWR-212**); der Blocker ist geräumt, der
+Nachweis entsteht auf dem Rechner des Auftraggebers.
+**Gemessen statt verschoben: eins** — `pm/T-0085` (DoD 1 und **3** beantwortet).
+**Verschoben: der Rest** — Grund je im Ticket.
+**Neu angelegt: zwei** — `platform/T-0066`, `platform/T-0067`.
+**Briefkasten: 0 offen beim Start UND am Ende** (nachgemessen, `L-2026-08-21cs`);
+Post im Lauf **0 Erstbriefe / 0 Beiträge**.
+
+---
+
+### ⚠⚠ Der Fund des Laufs war der MESSPUNKT, nicht die Messung
+
+Der Ollama-Takt läuft. Er läuft seit dem 20.08. auf dem Rechner des Auftraggebers, und
+sein Protokoll lag die ganze Zeit unangetastet im Arbeitsordner.
+
+| Größe (Stichzeit 14:46) | Wert |
+|---|---|
+| Schnelltakt-Läufe seit 20.08. 17:15 | **87** |
+| Tick-Abbrüche, alle mit **derselben** Meldung | **138** |
+| davon **nach** dem eigentlichen Fix (20.08. 22:05) | **110** |
+| Erfolgszeilen | **0** |
+
+> **⚠⚠ Drei Sprints lang haben wir die Erreichbarkeit einer Maschine diskutiert, auf der
+> der Takt gar nicht läuft. Sprint 34 hat sauber gemessen — nur den falschen Rechner.**
+
+Und die 138 Abbrüche sind **unsere eigene Buchführung**: vier Planzeilen mit der alten
+Sprintnummer, neun `team-termine`-Tickets ohne Sprint — **beides von Sprint 34 selbst
+erzeugt**.
+
+> **Unser eigener Sprint-Abschluss hat den Nachweis blockiert, den derselbe Sprint als
+> „nicht führbar" gemeldet hat. Die Sperre trug den Namen der Sorgfalt.**
+
+**Geräumt und nachgemessen:** `unterminierte_tickets` = **0**, `plandrift` = **0**.
+
+---
+
+### ⚠⚠ Das Gegenlesen hat SIEBZEHN Befunde gefunden. Keinen davon der Autor.
+
+**Vierter Sprint in Folge.** Die schwersten drei sind echte Defekte in bereits fertig
+gemeldeter Arbeit:
+
+| # | Befund | Kern |
+|---|---|---|
+| 2 | Ein Feld erbte den Wert seines **Vorgängers** | `provider='claude' modell='gemma3:27b'` — claude hat gemma3 nie angefasst |
+| 3 | Ein unbekanntes letztes Kettenglied **löschte die Meldung** des echten Versuchs | `meldung` folgte der Kette, `provider` dem Versuch |
+| 10 | Ein Erstbrief mit datumslosem Zeitstempel fiel durch **alle drei** Zahlen | weder gezählt noch `unbestimmbar` — spurlos weg |
+| 1 | *„never re-resolved in the core"* hatte **keinen Vertreter** | die verbotene Kopie ließ sich einbauen, **6/6 grün** |
+| 4 | Die Klassifikationsprobe war **blind** | alle drei Negativbeispiele ohne Klammer — der Ausdruck wurde nie befragt |
+| 7 | Der DoD-Wächter war eine **Stichwortsuche** | ein zweiter Parser blieb grün, `re.compile` im **Kommentar** machte ihn rot |
+| 8 | Die Zeitregel wurde zur **Kopie** — im selben Bau, der eine andere Doppelung auflöste | und der Wächter kannte nur die ältere |
+| 9 | Die Zusicherung hing an der **Uhr des Läufers** | unter `TZ=UTC` rot, ohne dass etwas kaputt ist |
+| 16 | **Fünf** Zusicherungen blieben bei kaputtem Code grün | `assertGreaterEqual` statt Gleichheit; eine Schranke, die strukturell nie greifen kann |
+| 17 | Der zurückgegebene **WERT** wanderte | die volle ISO-Zeit ging **unformatiert** in die Briefansicht |
+
+> **⚠⚠ Befund 8 ist der bitterste: derselbe Bau, der eine Doppelung auflöst wie verlangt,
+> legt zwanzig Zeilen tiefer eine neue an. Und ihr Wächter kannte nur die ältere Kopie —
+> die unbewachte Hälfte ist immer die jüngere.**
+
+**Vier falsche Zahlen korrigiert statt geglättet:** „48 von 74 (65 %)" → gemessen
+**46 (62 %)** · „9 von 9 ollama-Einträgen" → **alle 11 `fehler`-Einträge**, 9 ollama und
+2 copilot (die Grundmenge war zu klein **und** der Defekt zu eng zugeschnitten) ·
+„138 Abbrüche seit 22:05" → **110** · „0 Ticks mit `status: ok`" gilt **seit dem 20.08.**
+und nicht überhaupt (Bestand: 4 von 16).
+
+---
+
+### ⚠ Ein eigener Fehler, den das GATE gefunden hat und nicht der Autor
+
+Die Katalogzeile für `SWR-212` wurde **ohne Zeilenumbruch an die Zeile von `SWR-211`
+angehängt**. Der Trace-Matrix-Lauf meldete daraufhin *„1 Lücke"* und `SWR-212` als
+*„in Tests referenziert, aber nicht im Anforderungsdokument"*.
+
+> **Eine Anforderung, die physisch in der Zeile ihrer Vorgängerin steht, ist vorhanden und
+> für jedes Werkzeug unsichtbar. Gefunden hat es das Lücken-Gate — nicht der Autor, der
+> die Zeile geschrieben hat, und auch nicht das Gegenlesen.**
+
+Getrennt; danach **213 SWRs / 0 Lücken**.
+
+---
+
+### Verschoben — mit Grund und neuem Termin
+
+`platform/T-0055` (+`T-0064`), `pm/T-0080`, `pm/T-0082`, `team-dashboard/T-0004`,
+`T-0006`, `team-mail/T-0006`, `T-0007`, `team-termine/T-0001` → **Sprint 36**.
+
+⚠⚠ **Der Grund ist benennbar und er ist derselbe wie in Sprint 33 und 34 — und genau das
+ist das Beunruhigende:**
+
+> **Vier Sprints in Folge hat das Reparieren eigener, bereits fertig gemeldeter Arbeit den
+> Lauf gefüllt. 7, dann 7, jetzt 17 Befunde. Das ist keine Pechsträhne mehr, sondern eine
+> Eigenschaft unseres Bauens — und sie gehört als solche behandelt, nicht als Ausrede.**
+
+⚠⚠ **`platform/T-0055`, `pm/T-0080`, `pm/T-0082`, `team-dashboard/T-0004` und
+`team-mail/T-0006` stehen in Sprint 36 bei ihrer VIERTEN Terminierung.** Nach `pl.md`
+Regel 2 bekommen sie dort **keinen Termin, sondern eine Entscheidung** — bauen,
+umschneiden oder verwerfen. Das steht hier, damit es nicht wieder erst im Abschluss
+auffällt (`L-2026-08-21dk`).
+
+---
+
+## Verifikation (Sprint 35)
+
+| Größe | Wert |
+|---|---|
+| Anforderungen / Lücken | **213** SWRs (v1.99) / **0** |
+| Tests / Testdateien | **1551** / **109** |
+| JS-Teststrecke | **116** grün (`js_tests.py`, 114 → 116) |
+| Briefkasten | **0 offen** — am **Ende** gemessen |
+| Post im Lauf | **0** Erstbriefe / **0** Beiträge / 9 unbestimmbar (`SWR-213`) |
+| Offene Tickets | **34** |
+| Auf den Menschen wartend | **0** |
+| Workflows / unabgedeckte Takte | **8** / **0** |
+| Work Products / undeklariert | **56** / **0** |
+| `board.py --check` | grün (platform 67, pm 85, team-termine 12) |
+| `preflight --nur-locks` | **STARTKLAR** |
+| Parkplatz `verwaiste-locks` | **12351** Dateien (Stand 14:46) — nur auf dem Host löschbar |
+
+⚠⚠ **DIE TESTSTRECKE IST NICHT VOLLSTÄNDIG GELAUFEN, UND DAS IST EINE AUSSAGE UND KEINE
+FUSSNOTE.** Block 1 (Module 1–27) lief: **415 Tests**, davon **414 grün** und **1 rot** —
+`test_berichtskennzahlen` meldet die veraltete Kennzahlenzeile im Plan (erwartetes
+Verhalten, sie ist oben fortgeschrieben). **Ab Block 2 ist die Sandbox-Shell
+ausgefallen** (`ENOSPC` auf dem Socket-Verzeichnis) und **nicht wiedergekommen**.
+
+> **Die Zahl 1551 stammt aus `unittest.discover`, also aus der SAMMLUNG. Sie sagt, wie
+> viele Zusicherungen es GIBT — nicht, dass sie grün sind. 1136 davon sind in diesem Lauf
+> nicht ausgeführt worden.**
+
+**Direkt nachgewiesen sind:** die vier neuen/geänderten Module (`test_post_im_lauf` 13,
+`test_fehler_nennt_seinen_provider` 9, `test_brief_discovery` 13, plus `test_gateway`,
+`test_backend`, `test_kommunikation` u. a. in Block 1), die **116** JS-Zusicherungen und
+**alle sechs Mutationsproben**. Nicht nachgewiesen: die Module 28–109 seit der letzten
+Änderung an `briefkasten.py`, `kennzahlen.py`, `core.py` und `regeln.js`.
+
+⚠⚠ **Ollama-Offload: nichts delegiert, Token-Ersparnis 0 — gemessen, nicht geschätzt.**
+`pm/T-0071` hat unverändert **keinen** Tick mit `status: ok` + Artefakt (0 in allen drei
+Run-Registries). **Neu gemessen und damit die Diagnose aus Sprint 34 ersetzt:** der
+fehlende Nachweis ist weder ein Modellproblem noch fehlende Erreichbarkeit, sondern
+**138 Abbrüche an unseren eigenen Preflight-Befunden**. Alles selbst erledigt.
 
 ---
 
