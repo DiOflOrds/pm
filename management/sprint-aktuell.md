@@ -55,15 +55,15 @@
    `pm/T-0071` hat unverändert keinen Tick mit `status: ok` + Artefakt. Neu ist, **woran
    es liegt**: nicht mehr am Preflight, sondern am leeren Arbeitsvorrat.
    **Kein Ticket delegiert; Token-Ersparnis 0 — gemessen, nicht geschätzt.**
-8. **1399 Python-Tests** über **92** Testdateien (**gemessen**, `kennzahlen.py` 04:47),
+8. **1404 Python-Tests** über **93** Testdateien (**gemessen**, `kennzahlen.py` 05:06),
    Matrix **197 SWRs / 0 Lücken**,
-   Briefkasten **0 offen / 0 eingegangen**, offene Tickets **9**, auf den Menschen
+   Briefkasten **0 offen / 0 eingegangen**, offene Tickets **10**, auf den Menschen
    wartend **1** (`pm/T-0077`, Frist 28.08.), Workflows **6 / 0 unabgedeckte Takte**,
-   Work-Product-Lücken **0**, Parkplatz **11259** (Stand 04:47 — die Zahl trägt ihren
+   Work-Product-Lücken **0**, Parkplatz **11325** (Stand 05:06 — die Zahl trägt ihren
    Zeitpunkt, `SWR-174`).
    > ⚠ **Die Summe ist durch zwei unabhängige Messungen belegt:** `kennzahlen.py` zählt
-   > **1399**; Sprint 29 stand bei **1367** über 90 Dateien, dieser Lauf hat **zwei**
-   > Dateien mit **11 + 21 = 32** Zusicherungen ergänzt — 1367 + 32 = **1399**.
+   > **1404**; Sprint 29 stand bei **1367** über 90 Dateien, dieser Lauf hat **drei**
+   > Dateien mit **11 + 21 + 5 = 37** Zusicherungen ergänzt — 1367 + 37 = **1404**.
    > **Deckungsgleich.**
 
 ## Sprint-Plan (Sprint 30)
@@ -78,6 +78,7 @@ Grund **im Ticket**, nicht hier (`L-2026-08-17ag`).*
 | **platform/T-0047** | cm | Sprint 30 | **erledigt** | ✅ **SWR-197.** Nullte Terminierung aus Sprint 29, im Folgelauf gebaut wie angekündigt. |
 | **platform/T-0049** | cm | Sprint 31 | offen | ⚠ **Dritte Berührung**, Zählung fortgeführt. Der zweite Schreibweg ins Entscheidungslog — er wäre mit `T-0047` untergegangen und bekommt deshalb einen eigenen Termin. **Bei der vierten wird entschieden, nicht terminiert.** |
 | **platform/T-0050** | coach | Sprint 31 | offen | ⚠⚠ **Nullte Terminierung.** Die Lücke in `SWR-194`. Nicht in diesem Lauf gebaut, und der Grund steht im Ticket: die naheliegende Reparatur erzeugte ~100 Dauerbefunde und wäre `SWR-166` ein viertes Mal. **Erst messen, dann bauen.** |
+| **platform/T-0051** | dev | Sprint 31 | offen | ⚠⚠ **Nullte Terminierung, prio hoch.** Beim Abschluss gefunden: für ein **gesperrtes** Ticket gibt es **keinen zulässigen Terminwert** — `sprint_vergangen` meldet den alten, `unterminierte_tickets` (`SWR-125`) den leeren, und still ist nur eine Zusage, die das Team nicht halten kann. |
 | promt-team/T-0003 | dev | — | **blocked** | ⚠ `blocked_by: [pm/T-0077]`, unverändert. Keine Terminierung. |
 | promt-team/T-0012 | prompt-opt | — | **blocked** | ⚠ dito. |
 | pm/T-0071 | pl | — | **blocked** | ⚠ `blocked_by: [T-0077]`. ⚠⚠ Der **Grund** hat sich geändert: nicht mehr Preflight, sondern leerer Arbeitsvorrat (`SWR-196`). Die Sperre bleibt dieselbe. |
@@ -93,7 +94,31 @@ Grund **im Ticket**, nicht hier (`L-2026-08-17ag`).*
 (Sperrklinke am Nummernraum der Entscheidungs-IDs).
 
 **Neu angelegt:** `platform/T-0049` (zweiter Schreibweg, dritte Berührung),
-`platform/T-0050` (Schreibweise statt Konvention in `SWR-194`).
+`platform/T-0050` (Schreibweise statt Konvention in `SWR-194`), `platform/T-0051` (die
+Termin-Zange am gesperrten Ticket).
+
+### ⚠⚠ Ein vierter Befund, gefunden beim Aufräumen — und die erste Diagnose war zu freundlich
+
+Der Preflight meldete drei gesperrte Tickets als *„offen auf vergangenem Sprint"*. Der
+Termin wurde geleert — **und der Befund war nicht weg, sondern umgezogen**: jetzt meldet
+`unterminierte_tickets` *„Ticket ohne Sprint"*.
+
+> **Für ein gesperrtes Ticket gibt es KEINEN zulässigen Terminwert. Der einzige Wert, der
+> beide Prüfungen still hält, ist eine Terminzusage über fremdes Handeln — also die
+> falsche Handlung.**
+
+⚠ Beide Prüfungen sind einzeln richtig; der Fehler liegt **zwischen** ihnen. Die Ausnahme
+steht an einem **Typ** (`decision-request`), wo sie einen **Zustand** meint — weil
+`blocked` mit `blocked_by` erst seit `SWR-193` existiert, **einen Sprint alt**.
+**Ein Stellvertreter, der lange mit der Sache zusammenfiel, wird zum Loch in dem Moment,
+in dem die Sache einen eigenen Namen bekommt.**
+
+⚠ **Das stellt Sprint 29 richtig:** der Termin ist dort nicht liegengeblieben — es gab
+nichts Besseres. Zwilling von `L-2026-08-21cc`: dort fiel eine Begründung mit der einzigen
+möglichen Handlung zusammen, **hier gibt es überhaupt keine.**
+
+**Gewählt** ist der leere Termin: gleicher Preis (je ein Befund), aber die **wahre**
+Aussage. `platform/T-0051`, prio hoch.
 
 **Auf `blocked` geblieben statt terminiert:** `promt-team/T-0003`, `promt-team/T-0012`,
 `pm/T-0071` — alle `blocked_by: [pm/T-0077]`, Frist läuft.
@@ -270,9 +295,6 @@ Kap. 16/17.**
   Ob jede einzelne einen verdient, ist eine inhaltliche Frage, die diese Prüfung
   ausdrücklich **nicht** beantwortet.
 
-<!-- kennzahlen v1 | gemessen 2026-08-21 03:39
-briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=11138 swr=195 testdateien=90 tests=1367 tickets_offen=8 wartet_auf_mensch=1
--->
 
 ---
 
@@ -1456,12 +1478,10 @@ Auftraggebers**), dazu die **Klammer `p12/T-0003`**.
 **Verifikation:** 1087 Python-Tests, 104 JS-Tests grün, Matrix 152/0, Briefkasten 0
 offen, Plan-Drift 0, Statusdrift 0. ⚠ Nicht startklar — Altbefund unverändert.
 
-<!-- kennzahlen v1 | gemessen 2026-08-20 23:02 | sprint 27
-briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=10533 swr=176 testdateien=79 tests=1280 tickets_offen=13 wartet_auf_mensch=0
--->
 
 
 </details>
-<!-- kennzahlen v1 | gemessen 2026-08-21 04:47
-briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=11259 swr=197 testdateien=92 tests=1399 tickets_offen=9 wartet_auf_mensch=1
+
+<!-- kennzahlen v1 | gemessen 2026-08-21 05:07
+briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=11325 swr=197 testdateien=93 tests=1404 tickets_offen=10 wartet_auf_mensch=1
 -->

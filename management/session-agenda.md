@@ -39,7 +39,7 @@
    Die drei sind nachgezogen, die Lücke ist aufgeschrieben und terminiert — **nicht**
    schnell repariert, weil die naheliegende Reparatur rund hundert Dauerwarnungen erzeugt
    hätte.
-6. **1399 Prüfungen für die Technik** über 92 Dateien (gezählt, und durch eine zweite,
+6. **1404 Prüfungen für die Technik** über 93 Dateien (gezählt, und durch eine zweite,
    unabhängige Rechnung bestätigt), **197 Anforderungen ohne Lücke**. Briefkasten: **0
    offen**, keiner eingegangen. Offene Aufgaben: **9** (zwei geschlossen, zwei neu
    angelegt).
@@ -53,7 +53,7 @@
 | ⚠⚠ **`pm/T-0077` beantworten** | Unverändert offen, **Frist 28.08.** — noch nicht abgelaufen. **A** = alles bleibt (Voreinstellung, Schweigen genügt). **B** = dein 15-Minuten-Takt bekommt echte Aufgaben. **C** = der Ollama-Zweig wird beendet. ⚠ **Neu seit heute:** die Frage ist jetzt die *einzige* Sperre. Alles Technische davor ist repariert. |
 | ⚠⚠ **`abschluss.cmd` ausführen** | Der Rückstand ist jetzt **fünf Tage plus drei komplette Sprints**. **Stichprobe:** danach steht in `abschluss-auto.log` `OK - alles geprueft und gepusht` und `PUSH-ANFORDERUNG.txt` ist verschwunden. |
 | ✅ **Der Abbruch deines Schnelltakts hat aufgehört** | Wie letzten Sprint vorhergesagt — und diesmal **gemessen**: 04:15, `STARTKLAR`. Du musst dafür nichts tun. |
-| ⚠ **Die Sperr-Reste löschen, wenn du magst** | **11259 Dateien** (Stand 04:47). Wir können sie nicht löschen, du schon. |
+| ⚠ **Die Sperr-Reste löschen, wenn du magst** | **11325 Dateien** (Stand 05:06). Wir können sie nicht löschen, du schon. |
 | ⚠ **Die alten Punkte** | Mail-Zugangsdaten (`team-mail/N-0003`), deine Zählung der Kacheln im Reiter „Dashboard", `ollama list`. |
 
 ---
