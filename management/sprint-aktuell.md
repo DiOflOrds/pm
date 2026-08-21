@@ -1,5 +1,94 @@
 # Sprint aktuell — Genesis-Gesamtsprint (Workflow-Sicht des PM, pm/D006)
 
+## Sprint-Plan (Sprint 35) — Planung VOR der Arbeit
+
+*Default nach `pm/D006`: in diesem Sprint schließen. ⚠ Jede Verschiebung trägt ihren Grund
+**im Ticket**, nicht hier (`L-2026-08-17ag`). Gesichtet: **alle** Tickets **aller** Repos
+über **beide** Ebenen (19 Einheiten). Offen beim Start: **33**. Briefkasten beim Start:
+**0 offen** — ⚠ nach `L-2026-08-21cs` ausdrücklich KEINE Zusicherung für den Abschluss;
+die Nachmessung am Ende ist Pflichtteil dieses Plans.*
+
+⚠⚠ **Sechs Tickets stehen bei ihrer DRITTEN Terminierung — eine vierte gibt es nicht.**
+`platform/T-0055`, `platform/T-0060`, `pm/T-0080`, `pm/T-0082`,
+`team-dashboard/T-0004`, `team-mail/T-0006` sind je zweimal verschoben. Nach `pl.md`
+Regel 2 bekommt ein Ticket beim vierten Termin **keinen Termin, sondern eine
+Entscheidung**. Das steht **vor** der Arbeit hier, nicht hinterher im Abschluss: wer
+diese sechs erneut schiebt, schiebt sie in einen Zwang.
+
+| Aufgabe | Rolle | Fällig | Status | Grund / nächster Schritt |
+|---|---|---|---|---|
+| Briefkasten (beide Ebenen) | pl | Sprint 35 | geplant | 0 offen beim Start. ⚠ Nachmessung am **Ende** ist Pflicht (`L-2026-08-21cs`). |
+| **platform/T-0060** | dev | Sprint 35 | geplant | ⚠⚠ **Dritte Terminierung — und die Diagnose ist zum vierten Mal eine andere.** Vor der Arbeit gemessen am Log des Auftraggeber-Rechners: **87 Läufe, 138 Abbrüche, 0 Erfolge.** Zuerst die zwei Preflight-Befunde räumen, die den Takt abbrechen. |
+| **platform/T-0065** | dev | Sprint 35 | geplant | Nullte Terminierung. Erst die Beiträge über den ganzen Bestand **zählen** (DoD 1), dann bauen. |
+| **platform/T-0064** | cm | Sprint 35 | geplant | Nullte Terminierung. Ursache des 91-Lehren-Verlusts. ⚠ **Zusammen mit `T-0055` zu betrachten** — so steht es in `T-0055`. |
+| **platform/T-0055** | dev | Sprint 35 | geplant | Dritte Terminierung. Gegenstand ist durch `T-0064` gewachsen; erst die Taktliste **zählen** (DoD 1). |
+| **pm/T-0085** | pl | Sprint 35 | geplant | Nullte Terminierung. Erst Zitate je Bedeutung **zählen** (DoD 1), dann entscheiden. |
+| **team-termine/T-0001** | pl | Sprint 35 | geplant | Projektplanung P16 — sie entsperrt neun Tickets. |
+| **team-termine/T-0002–T-0010** | div | Sprint 36 | **blocked** | ⚠ Sie standen auf `open` **und** trugen `blocked_by: [T-0001]` — zwei Aussagen zu derselben Frage. Status auf `blocked` gezogen, Termin Sprint 36. |
+| **pm/T-0080**, **pm/T-0082** | dev/pl | Sprint 35 | geplant | Je dritte Terminierung. |
+| **team-dashboard/T-0004**, **T-0006** | dev | Sprint 35 | geplant | `T-0004` dritte, `T-0006` nullte Terminierung. |
+| **team-mail/T-0006**, **T-0007** | dev | Sprint 35 | geplant | `T-0006` dritte Terminierung (entsperrt, `pm/D015` = B); `T-0007` braucht **eine Zahl vom Auftraggeber** — als Rückfrage, nicht als Annahme. |
+| pm/T-0071, pm/T-0079, promt-team/T-0003, promt-team/T-0012 | pl/dev/prompt-opt | — | **blocked** | Alle vier zeigen auf **`platform/T-0060`**. ⚠ Wird `T-0060` in diesem Lauf geschlossen, sind sie **im selben Lauf** zu entsperren — sonst bleibt eine Sperre stehen, deren Hindernis weg ist (`SWR-204`). |
+| pm/T-0001–T-0003, platform/T-0001, team-dashboard/T-0001, team-mail/T-0001, team-termine/T-0011, T-0012 | pl/coach/cm/dev/qm | jeder Sprint | geplant | Takt-Dauerläufer. |
+
+**Unterminiert: nichts.**
+
+---
+
+### ⚠⚠ Vor der Arbeit gemessen: der Ollama-Takt LÄUFT — auf dem Rechner des Auftraggebers, 87 Mal, ohne einen einzigen Erfolg
+
+Der Offload-Vorbehalt der Session-Anweisung verlangt für `pm/T-0071` einen Tick mit
+`status: ok` **und** mindestens einem Artefakt. Vor der Arbeit gemessen, nicht geschätzt:
+
+| Größe | Wert | Quelle |
+|---|---|---|
+| Ticks mit `status: ok` in allen Run-Registries | **0** | `*/management/runs/run-registry.jsonl` |
+| Schnelltakt-Läufe seit 20.08. 17:15 | **87** | `ollama-schnelltakt.log` |
+| Abbrüche, alle mit **derselben** Meldung | **138** | ebd. |
+| Erfolgszeilen im Log | **0** | ebd. |
+
+⚠⚠ **Und die Diagnose aus Sprint 34 („aus dieser Sandbox unerreichbar") misst den
+falschen Rechner.** Der Takt läuft nicht in der Sandbox, sondern per
+`ollama-schnelltakt.cmd` auf `DESKTOP-8OOO6JS`. Dort ist Ollama **erreichbar** — es
+antwortet, und zwar mit `404: model 'llama3.1:8b' not found`.
+
+> **Drei Sprints lang haben wir die Erreichbarkeit einer Maschine diskutiert, auf der der
+> Takt gar nicht läuft — während sein echtes Protokoll unangetastet im Arbeitsordner lag
+> und 87 Mal dasselbe sagte.**
+
+**Die Zeitachse, gemessen statt erzählt:**
+
+| Zeit | Ereignis |
+|---|---|
+| 20.08. 20:44 | `SWR-167..170` — die „Reparatur", auf die Sprint 33 sich berief |
+| 20.08. 21:15 / 21:30 / 21:45 | **6 Versuche, alle `404 llama3.1:8b`** — Sprint 33 schrieb „seither hat es keinen einzigen Versuch gegeben" |
+| 20.08. 22:05 | `platform/T-0033` → `done`: Besetzung wird **vor** dem Aufruf geprüft (`SWR-171/172`) |
+| seit 22:05 | **138 Abbrüche, 0 Versuche** — der eigentliche Fix ist **nie ausgeführt worden** |
+
+⚠⚠ **Und der Grund der 138 Abbrüche ist unsere eigene Buchführung.** Der Preflight meldet
+im Lauf von 14:46 **zwei** Befunde, und beide hat **Sprint 34 selbst erzeugt**:
+
+1. *„4 Planzeile(n) nennen eine andere Sprintnummer als ihr Ticket"* — der Plan von
+   Sprint 34 sagte „Sprint 34", die vier Tickets trugen bereits `geplant_sprint: 35`.
+2. *„9 Ticket(s) ohne Sprint: `team-termine/T-0002` … `T-0010`"* — die Tickets der
+   Projektgründung von Sprint 34.
+
+> **⚠⚠ Unser eigener Sprint-Abschluss hat den Nachweis blockiert, den derselbe Sprint als
+> „nicht führbar" gemeldet hat. Die Sperre trug den Namen der Sorgfalt.**
+
+**Beides ist in diesem Plan geräumt** — Punkt 1 durch diese Datei, Punkt 2 durch die
+`blocked`-Zeile oben. Der Nachweis ist damit **nicht geführt**, sondern **möglich
+gemacht**: Er entsteht beim nächsten Schnelltakt-Lauf auf dem Rechner des Auftraggebers,
+nicht hier.
+
+⚠⚠ **Ollama-Offload in diesem Lauf: nichts delegiert, Token-Ersparnis 0 — gemessen.**
+`pm/T-0071` hat unverändert **keinen** Tick mit `status: ok` + Artefakt. Alles selbst
+erledigt; der fehlende Nachweis ist im Fazit benannt.
+
+---
+
+<details><summary>Archiv: Sprint 34</summary>
+
 ## Sprint-Plan (Sprint 34) — Planung VOR der Arbeit
 
 *Default nach `pm/D006`: in diesem Sprint schließen. ⚠ Jede Verschiebung trägt ihren Grund
@@ -194,6 +283,8 @@ fehlende Nachweis ist **kein Modellproblem** (das war die Diagnose von Sprint 33
 kein fehlender Versuch, sondern **fehlende Erreichbarkeit** aus dieser Sandbox.
 
 ---
+
+</details>
 
 <details><summary>Archiv: Sprint 33</summary>
 
