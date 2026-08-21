@@ -1,5 +1,85 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
+## Das Wichtigste (Sprint 28, 2026-08-21)
+
+1. **⚠⚠ Die ganze Arbeit vom Projektmodell-Umbau war noch nirgends gespeichert.** 125
+   Dateien in 16 Ordnern lagen auf der Platte, aber in keinem einzigen war sie eingebucht —
+   obwohl der Bericht dazu **zweimal** schreibt, sie sei nach `abschluss.cmd` gesichert.
+   > **Das ist nicht das erste Mal. Vier Tage vorher steht derselbe Satz schon einmal in
+   > der Historie: „Vorsession hatte geliefert und NICHT committet."** Diesmal war es der
+   > vierzehnfache Umfang. Alles ist jetzt eingebucht.
+2. **⚠⚠ Und beim Nachprüfen kam heraus: der Umbau war nicht so grün, wie er gemeldet
+   wurde.** Sein Bericht sagt *„78 Prüfungen grün"*. Wir haben **alle 85 Prüfgruppen**
+   laufen lassen — **drei waren rot**, seit dem Umbau.
+   > **„78 grün" und „alles grün" sind zwei verschiedene Sätze. Eine Auswahl ist immer auch
+   > eine Aussage über das, was man NICHT geprüft hat — und hier lag genau darin der
+   > Fehler.** Eine der drei roten war ausgerechnet die Prüfung, die wir dir letzten Sprint
+   > als Reparatur gemeldet haben.
+   Alle drei sind repariert, und es gibt jetzt eine neue Prüfung, die genau diese Sorte
+   Umbenennung von allein findet.
+3. **✅ Drei alte Aufgaben standen bei der vierten Berührung — alle drei sind entschieden,
+   keine ein viertes Mal verschoben.** Und bei zweien hat das Nachmessen die Frage
+   umgedreht:
+   * Ein Rückbau fragte *„ist dieses Stück tot ODER ist es die Vorlage?"* — es war
+     **beides**. Der Teil, der wirklich tot war, ist weg; die Vorlage bleibt.
+   * Eine Aufgabe wartete drei Sprints auf ein Ereignis — **ihre Bedingung war seit dem
+     17. August erfüllt.** Was gefehlt hat, war nie das Ereignis, sondern eine Prüfung, die
+     die Regel von allein wiederholt. Die gibt es jetzt.
+4. **⚠⚠ Eine Frage, die drei Aufgaben seit vier Sprints aufhält, haben wir dir viermal
+   EMPFOHLEN und niemals GESTELLT.** Sie stand jedes Mal in der Liste „was du tun kannst" —
+   und nie als Entscheidung mit Optionen, Frist und Voreinstellung.
+   > **In genau diesen vier Sprints hast du zwei Fragen in 3 und in 7 Minuten beantwortet.
+   > Ein Satz in einer Empfehlungsliste ist keine Frage.** Jetzt liegt sie richtig vor dir:
+   > **`pm/T-0077`**.
+5. **⚠⚠ Und wir haben etwas gefunden, das vier alte Verschiebungen in anderem Licht zeigt.**
+   Wir wollten eine Aufgabe als „blockiert" eintragen. Das Werkzeug hat es **zweimal**
+   abgelehnt: eine Blockade durch eine Aufgabe in einem **anderen** Ordner lässt sich hier
+   gar nicht eintragen.
+   > **Über dieser Aufgabe stand viermal „nicht blockiert, es fehlt kein Beschluss". Das
+   > las sich wie eine Einschätzung. Wir können von hier aus nicht mehr entscheiden, ob es
+   > eine war — oder ob es einfach der einzige Eintrag war, den das Werkzeug zuließ. Eine
+   > Begründung, die mit der einzigen erlaubten Handlung zusammenfällt, ist von einer
+   > Ausrede nicht zu unterscheiden.**
+6. **✅ Gemessen statt vermutet: dein lokales Sprachmodell ist von hier aus überhaupt nicht
+   erreichbar.** Die Verbindung wird abgewiesen, der zweite Weg von der Netzsperre der
+   Sandbox blockiert.
+   > **Bisher haben wir geschrieben „uns fehlt der Nachweis". Der zweite Grund ist härter
+   > und war nie gemessen: selbst mit Nachweis und mit Arbeitsvorrat könnten WIR keinen
+   > Lauf starten. Das geht nur auf deinem Rechner.**
+7. **⚠ Deine Ablage mit den Sperr-Resten ist zum ersten Mal nicht mehr harmlos.** Wir
+   führen sie seit Sprint 24 ausdrücklich als „stört nichts". In diesem Lauf hat sie einen
+   Speichervorgang **blockiert**; wir konnten sie nicht löschen (das kannst nur du).
+   Umgangen haben wir es ohne Regelbruch — aber es ist jetzt ein Befund und keine Fußnote.
+8. **1311 Prüfungen für die Technik** über 85 Dateien (gezählt), **190 Anforderungen ohne
+   Lücke**, 107 Oberflächen-Prüfungen grün. Briefkasten: **0 offen**, keiner eingegangen.
+
+---
+
+## Für dich (E. John)
+
+| Was | Warum |
+|---|---|
+| ⚠⚠ **`pm/T-0077` beantworten** | **A** = alles bleibt (Voreinstellung, Schweigen genügt) — dann bleiben drei Aufgaben dauerhaft gesperrt, und wir buchen sie ehrlich als gesperrt statt sie weiterzuschieben. **B** = wir legen deinem 15-Minuten-Takt ein bis zwei echte, mechanische Aufgaben an, dann fängt er an zu arbeiten. **C** = der Ollama-Zweig wird beendet und die drei Aufgaben geschlossen. **Frist 28.08.** |
+| ⚠⚠ **`abschluss.cmd` ausführen** | Der Rückstand ist jetzt **fünf Tage plus der gesamte Projektmodell-Umbau plus dieser Sprint**. **Stichprobe:** danach steht in `abschluss-auto.log` `OK - alles geprueft und gepusht` und `PUSH-ANFORDERUNG.txt` ist verschwunden. |
+| ⚠ **Server neu starten** (Mission Control) | Der Umbau bringt neue Routen und zwei neue Reiter mit. Sie laden erst nach einem Neustart. |
+| ⚠ **Die Sperr-Reste löschen, wenn du magst** | **10904 Dateien** (Stand 02:16). Wir können sie nicht löschen, du schon. ⚠ Neu: in diesem Lauf haben sie zum ersten Mal wirklich gestört. |
+| ⚠ **Die alten Punkte** | Mail-Zugangsdaten (`team-mail/N-0003`), deine Zählung der Kacheln im Reiter „Dashboard", `ollama list`. |
+
+---
+
+## ⚠ Zwei Dinge, die wir über uns selbst aufschreiben
+
+**Erstens:** Wir haben einen Bericht bekommen, der „grün" sagte, und wir haben ihn
+**nicht geglaubt, sondern nachgemessen** — und drei rote Prüfungen gefunden. Das ist gut
+gelaufen. Aber es heißt auch: der Bericht der Vorsession war an dieser Stelle **falsch**,
+und ohne das Nachmessen wäre er durchgegangen. Das ist derselbe Satz, der in Sprint 27 über
+den Zufall des 21:30-Laufs stand.
+
+**Zweitens:** Wir haben vier Sprints lang eine Empfehlung wiederholt, statt eine Frage zu
+stellen. Der Unterschied kostet dich 3 Minuten und hat uns vier Sprints gekostet.
+
+---
+
 ## Das Wichtigste (Sprint 27, 2026-08-20)
 
 1. **⚠⚠ Wir haben dir letztes Mal berichtet, der Modellname sei repariert. Er war es —
