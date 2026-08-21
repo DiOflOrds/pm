@@ -9,7 +9,7 @@ Stand: 2026-08-21 · Tickets: 82 · davon wiederkehrend: 3
 |---|---|---|---|---|---|---|---|---|
 | [T-0001](tickets/T-0001.md) | Takt: Session-Agenda pflegen (jede Session) | task | je Session | pl | Team | hoch | 0 | — |
 | [T-0002](tickets/T-0002.md) | Takt: Intake-Queue — neue Wünsche/Briefe qualifizieren (jede Session) | task | je Session | pl | Team | hoch | 0 | — |
-| [T-0078](tickets/T-0078.md) | Neues Projekt team-termine mit Google-Kalender — Gruendung und SCHREIBrecht auf ein fremdes Konto (Brief N-0044) | decision-request | einmalig | mensch | MENSCH | hoch | 32 | — |
+| [T-0078](tickets/T-0078.md) | Neues Projekt team-termine mit Google-Kalender — Gruendung und SCHREIBrecht auf ein fremdes Konto (Brief N-0044) | decision-request | einmalig | mensch | Team | hoch | 32 | — |
 | [T-0080](tickets/T-0080.md) | Vollstaendiger Arbeitsverlauf je Aufgabe — als SICHT auf vorhandene Spuren, nicht als zweiter Speicher (Brief N-0046) | cr | einmalig | dev | Team | hoch | 32 | — |
 | [T-0081](tickets/T-0081.md) | Digest-Versand: der Brief nennt ZWEI Empfaenger und Guardrail 1 erlaubt einen (Brief team-mail/N-0005) | decision-request | einmalig | mensch | Team | hoch | 32 | — |
 | [T-0082](tickets/T-0082.md) | Sprint-0-Planung p13 Produkt-Architekturbilder — Projektauftrag ist freigegeben (D000/G0a) | task | einmalig | pl | Team | mittel | 32 | — |

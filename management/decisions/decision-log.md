@@ -79,3 +79,4 @@
 | D013 | 2026-08-21 | Mensch (E. John, via Cowork-Session) | **Wirkbereich P15 für das Ollama-Umstellungsprogramm auf ALLE Rollen erweitert** (Analyse + Vorschläge; die Gründungs-Auflage »nur Plattform-Rollen« bleibt für alles Übrige bestehen; Vorschläge bleiben Vorschläge, Umsetzung durch PM Klasse B je Einzelfall) | erweitern / ablehnen | Auftraggeber-Auftrag: Claude-Token sparen, P15 anleiten | promt-team/T-0012, promt-team/docs/02-auftrag-ollama-umstellung.md |
 | D014 | 2026-08-21 08:27 | Mensch (E. John, via Inbox) | **A** | lt. T-0077 | — | T-0077 |
 | D015 | 2026-08-21 09:37 | Mensch (E. John, via Inbox) | **B** | lt. T-0081 | Nur dimitri.john83@gmail.com, kein zweites | T-0081 |
+| D016 | 2026-08-21 09:38 | Mensch (E. John, via Inbox) | **B** | lt. T-0078 | — | T-0078 |
