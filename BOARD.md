@@ -9,7 +9,7 @@ Stand: 2026-08-21 · Tickets: 77 · davon wiederkehrend: 3
 |---|---|---|---|---|---|---|---|---|
 | [T-0001](tickets/T-0001.md) | Takt: Session-Agenda pflegen (jede Session) | task | je Session | pl | Team | hoch | 0 | — |
 | [T-0002](tickets/T-0002.md) | Takt: Intake-Queue — neue Wünsche/Briefe qualifizieren (jede Session) | task | je Session | pl | Team | hoch | 0 | — |
-| [T-0077](tickets/T-0077.md) | Drei Tickets warten seit vier Sprints auf einen Ollama-Lauf, den nichts auslösen kann — soll dein Schnelltakt einen Arbeitsvorrat bekommen? | decision-request | einmalig | pl | MENSCH | hoch | 28 | — |
+| [T-0077](tickets/T-0077.md) | Drei Tickets warten seit vier Sprints auf einen Ollama-Lauf, den nichts auslösen kann — soll dein Schnelltakt einen Arbeitsvorrat bekommen? | decision-request | einmalig | pl | Team | hoch | 28 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | Team | niedrig | 0 | — |
 
 ## blocked (1)
