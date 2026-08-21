@@ -161,14 +161,32 @@ einen **fremden Rechner**. Gemessen: `localhost:11434` antwortet nicht,
 | Organigramm | grün (**21** Dateien) |
 | `board.py --check` | grün über **19** Einheiten |
 
-⚠ **Nicht vollständig gefahren, und das ist eine Aussage über die Menge, die NICHT geprüft
-wurde (`SWR-189`):** Die volle Python-Teststrecke (107 Module) überschreitet in dieser
-Sandbox das Zeitlimit von 178 s und ist **nicht am Stück** gelaufen. Einzeln nachgewiesen
-sind: **405 Tests** im ersten Modul-Block (1 Fehlschlag, die Berichtskennzahlen — vor der
-Schlussmessung erwartet), die **60** Zusicherungen der sechs in diesem Lauf berührten
-Module, `board.py --check` über alle 19 Einheiten, `trace_matrix` 211/0,
-`organigramm.py --check` grün, JS-Strecke 114 grün. Die übrigen Module sind **nicht**
-gelaufen — „nicht betroffen" wäre eine Behauptung und kein Messergebnis.
+⚠ **Die Teststrecke ist in BLÖCKEN gefahren, und die Restmenge ist benannt (`SWR-189`).**
+Die volle Sammlung (107 Module) überschreitet in dieser Sandbox das Zeitlimit von 178 s
+und lief **nicht am Stück**. Gefahren und grün:
+
+| Block | Tests |
+|---|---|
+| Module 1–27 | **415** |
+| Module 28–42 | **211** |
+| `kommunikation`, `konsole`, `liegengeblieben`, `mail_autopilot` | **33** |
+| `lehrbuch_verliert_nichts` … `organigramm` (9 Module) | **126** |
+| `organisation` … Modul 75 | **274** |
+| Module 76–92 | **274** |
+| `tote_sperre`, `trace_matrix`, `typ_literale` | **41** |
+| `uebergang_sammelrepo` … `workproducts` (11 Module) | **122** |
+| **Summe** | **1496 von 1529, alle grün** |
+
+⚠⚠ **Zwei Module sind NICHT gelaufen und das ist eine Aussage, keine Fußnote:**
+`test_js_teststrecke` und `test_uebergang_historie` überschreiten einzeln das Zeitlimit.
+Ihr **Gegenstand** ist ersatzweise direkt nachgewiesen — die JS-Strecke über
+`js_tests.py` (**114** grün) und die Übergangsregel über `board.py --check` in allen 19
+Einheiten —, aber **die Module selbst sind ungeprüft**. „Nicht betroffen" wäre eine
+Behauptung und kein Messergebnis.
+
+⚠ `preflight.py` überschreitet in dieser Sandbox ebenfalls das Zeitlimit und ist **nicht
+durchgelaufen** (unverändert gegenüber Sprint 33); die Lock-Räumung (`--nur-locks`) lief
+mehrfach und meldete **STARTKLAR**.
 
 ⚠⚠ **Ollama-Offload: nichts delegiert, Token-Ersparnis 0 — gemessen, nicht geschätzt.**
 `pm/T-0071` hat unverändert **keinen** Tick mit `status: ok` + Artefakt. Neu gemessen: der
