@@ -1,5 +1,30 @@
 # Sprint aktuell — Genesis-Gesamtsprint (Workflow-Sicht des PM, pm/D006)
 
+## Sprint-Plan (Sprint 32) — Planung VOR der Arbeit
+
+*Default nach `pm/D006`: in diesem Sprint schließen. ⚠ Jede Verschiebung trägt ihren
+Grund **im Ticket**, nicht hier (`L-2026-08-17ag`). Gesichtet: **alle** Tickets **aller**
+17 entdeckten Repos; nicht geschlossen sind **12** (`SWR-113`-Zählweise) bzw. **9**
+(`kennzahlen.py`-Zählweise) — die Differenz sind die 3 gesperrten, siehe `T-0053`.*
+
+| Aufgabe | Rolle | Fällig | Status | Grund / nächster Schritt |
+|---|---|---|---|---|
+| Briefkasten (alle Repos) | pl | Sprint 32 | **erfüllt** | ✅ **0 offen** über 60 Briefe in 8 Einheiten, beim Start gemessen. Kein Brief eingegangen. |
+| **platform/T-0052** | dev | Sprint 32 | geplant | ⚠⚠ **Erste Terminierung**, prio **hoch**. Aus Sprint 31 als nullte Terminierung angelegt, hier **wie angekündigt** eingeplant. Vorabmessung zuerst (DoD-Punkt 1: Fensterlänge über ≥ 2 Sprints). |
+| **platform/T-0053** | cm | Sprint 32 | geplant | ⚠ **Erste Terminierung**. Vorabzählung zuerst (DoD: Leser von `tickets_offen` zählen, nicht schätzen). |
+| promt-team/T-0003 | dev | — | **blocked** | ⚠ `blocked_by: [pm/T-0077]`, unverändert. Keine Terminierung — seit `SWR-198` erzeugt das keinen Befund mehr. |
+| promt-team/T-0012 | prompt-opt | — | **blocked** | ⚠ dito (`blocked_by: [T-0001, T-0002, pm/T-0077]`). |
+| pm/T-0071 | pl | — | **blocked** | ⚠ `blocked_by: [T-0077]`. Der Ollama-Offload-Nachweis fehlt weiterhin (Ticks nur `status: fehler`) — siehe Abschluss. |
+| **pm/T-0077** | mensch | Frist 28.08. | **wartet** | ⚠ Unverändert offen, Frist **nicht** erreicht (heute 21.08.). Default **A**, Schweigen genügt. Kein Nachfassen vor der Frist. |
+| pm/T-0001, pm/T-0002, pm/T-0003, platform/T-0001, team-dashboard/T-0001, team-mail/T-0001 | pl/coach/cm/dev | jeder Sprint | geplant | Takt-Dauerläufer: Agenda + Intake + Lessons + Werkzeugpflege + Widget-Vertrag + Digest. |
+
+**Verschoben: nichts.** Die 3 gesperrten Tickets sind **nicht verschoben**, sondern
+`blocked` mit `blocked_by` — der Unterschied ist seit `SWR-193` ausdrückbar.
+
+---
+
+<details><summary>Archiv: Sprint 31</summary>
+
 ## Das Wichtigste (Sprint 31, 2026-08-21)
 
 1. **✅ DREI TICKETS GESCHLOSSEN, NICHTS VERSCHOBEN — DARUNTER BEIDE NULLTEN
@@ -195,6 +220,8 @@ Vertreter in `test_gesperrt_terminzange.py`, `test_termin_zange_blocked.py`,
   nicht messbar (`L-2026-08-20ce`).
 
 ---
+
+</details>
 
 <details><summary>Archiv: Sprint 30</summary>
 
