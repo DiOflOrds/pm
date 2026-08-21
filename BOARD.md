@@ -14,7 +14,7 @@ Stand: 2026-08-21 · Tickets: 85 · davon wiederkehrend: 3
 | [T-0085](tickets/T-0085.md) | Die Projektnummer P13 ist ZWEIMAL vergeben — team-mail und projects/p13 tragen dieselbe Kennung | problem | einmalig | pl | Team | mittel | 34 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | Team | niedrig | 0 | — |
 
-## in_progress (1)
+## in_review (1)
 
 | ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|---|
