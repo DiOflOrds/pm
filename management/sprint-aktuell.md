@@ -148,6 +148,23 @@ Verweis), **SWR-199** (Grundmenge der Lehren-Prüfung gemessen statt gesetzt), *
    > IN ihr haben. Sie braucht eine zweite Stelle, an der dieselbe Regel wirklich trägt —
    > und wenn es keine gibt, ist die Regel noch keine.**
 
+### ⚠ Ein fünfter Fund, beim Aufräumen der Arbeitskopien
+
+Im Repo `projects` trug der **Git-Index** das **Löschen** einer Historienzeile
+(`p11/docs/historie.md`, Sprint 28) — Arbeitsbaum und `HEAD` waren identisch und korrekt,
+nur der Zwischenspeicher hielt eine Entfernung fest, die nie jemand committen wollte.
+
+> **Ein gestagter Löschvorgang an einer Chronik ist Kap. 16 im Wartezustand: er wird zur
+> umgeschriebenen Historie, sobald irgendjemand in diesem Repo ein `git commit -a` oder
+> ein weites `git add` absetzt — und bis dahin meldet kein Werkzeug ihn als Befund.**
+
+⚠ Dieselbe Familie wie `SWR-191` aus Sprint 29 (*die Prüfung las den Index und sprach über
+den Baum*), nur andersherum: hier ist der **Baum** in Ordnung und der **Index** trägt den
+Schaden. Zurückgenommen mit `git restore --staged`; Inhalt unangetastet, `HEAD`-Diff leer.
+**Kein eigenes Ticket:** die Ursache (eine fremde/frühere Session, die stagte und nicht
+committete) ist nicht mehr feststellbar, und ein Ticket ohne prüfbare Frage wäre ein
+Vorrat. Der Fund steht hier, damit er beim nächsten Auftreten wiedererkannt wird.
+
 **Auf `blocked` geblieben statt terminiert:** `promt-team/T-0003`, `promt-team/T-0012`,
 `pm/T-0071` — alle `blocked_by: [pm/T-0077]`, Frist läuft. ⚠ Ab `SWR-198` ist das zum
 ersten Mal **befundfrei** und nicht mehr die Wahl zwischen zwei Befunden.
@@ -300,6 +317,23 @@ möglichen Handlung zusammen, **hier gibt es überhaupt keine.**
 
 **Gewählt** ist der leere Termin: gleicher Preis (je ein Befund), aber die **wahre**
 Aussage. `platform/T-0051`, prio hoch.
+
+### ⚠ Ein fünfter Fund, beim Aufräumen der Arbeitskopien
+
+Im Repo `projects` trug der **Git-Index** das **Löschen** einer Historienzeile
+(`p11/docs/historie.md`, Sprint 28) — Arbeitsbaum und `HEAD` waren identisch und korrekt,
+nur der Zwischenspeicher hielt eine Entfernung fest, die nie jemand committen wollte.
+
+> **Ein gestagter Löschvorgang an einer Chronik ist Kap. 16 im Wartezustand: er wird zur
+> umgeschriebenen Historie, sobald irgendjemand in diesem Repo ein `git commit -a` oder
+> ein weites `git add` absetzt — und bis dahin meldet kein Werkzeug ihn als Befund.**
+
+⚠ Dieselbe Familie wie `SWR-191` aus Sprint 29 (*die Prüfung las den Index und sprach über
+den Baum*), nur andersherum: hier ist der **Baum** in Ordnung und der **Index** trägt den
+Schaden. Zurückgenommen mit `git restore --staged`; Inhalt unangetastet, `HEAD`-Diff leer.
+**Kein eigenes Ticket:** die Ursache (eine fremde/frühere Session, die stagte und nicht
+committete) ist nicht mehr feststellbar, und ein Ticket ohne prüfbare Frage wäre ein
+Vorrat. Der Fund steht hier, damit er beim nächsten Auftreten wiedererkannt wird.
 
 **Auf `blocked` geblieben statt terminiert:** `promt-team/T-0003`, `promt-team/T-0012`,
 `pm/T-0071` — alle `blocked_by: [pm/T-0077]`, Frist läuft.
