@@ -1,153 +1,153 @@
 # Sprint aktuell — Genesis-Gesamtsprint (Workflow-Sicht des PM, pm/D006)
 
-## Das Wichtigste (Sprint 28, 2026-08-21)
+## Das Wichtigste (Sprint 29, 2026-08-21)
 
-1. **⚠⚠ DER KOMPLETTE PROJEKTMODELL-REWORK LAG AUF DER PLATTE UND WAR IN KEINEM EINZIGEN
-   REPO COMMITTET — WÄHREND SEIN EIGENER BEFUND ZWEIMAL „NACH `abschluss.cmd`" MELDET.**
-   125 Dateien über 16 Repos: `pm/T-0073..0076`, `platform/T-0037..0044`, `SWR-177–188`,
-   sieben Setup-Nachzieh-Tickets, Workflows, Work-Product- und Kommunikationssicht. In
-   jedem Repo war der jüngste Commit **„Sprint 27"**.
-   > **⚠⚠ Und es ist nicht das erste Mal: der jüngste Commit in `team-dashboard` heißt
-   > wörtlich *„Vorsession hatte geliefert und NICHT committet"* (B025). Dieselbe Lücke,
-   > vier Tage später, in vierzehnfachem Umfang.**
-2. **⚠⚠ UND DIE VERIFIKATION DES REWORK WAR EINE AUSWAHL, DIE GENAU DAS VERFEHLT HAT,
-   WORAUF ES ANKAM.** Sein Bericht meldet *„78-Tests-Batch grün inkl. Alt-Fixtures"*.
-   Dieser Lauf hat **alle 85 Testmodule** gefahren — Ergebnis: **drei rote Module**.
+1. **✅ FÜNF TICKETS GESCHLOSSEN, DARUNTER BEIDE NULLTEN TERMINIERUNGEN AUS SPRINT 28 UND
+   EINE VIERTE BERÜHRUNG — UND KEINES IST VERSCHOBEN WORDEN.** `T-0046`, `T-0030`,
+   `T-0045`, `T-0034`, `T-0036`. Fünf neue Anforderungen: **SWR-191 bis SWR-195**.
+   > **⚠ Von den offenen Tickets sind **15 → 8** geworden. Drei davon sind nicht
+   > geschlossen, sondern **ehrlich gesperrt** — siehe 3.**
+2. **⚠⚠ DER PREFLIGHT HAT ZWEI BEFUNDE ÜBER ARBEIT GEMELDET, DIE COMMITTET WAR — UND DER
+   FEHLER WAR NICHT DIE ZÄHLUNG, SONDERN DIE GRÖSSE.** Die Prüfung las den **Index**
+   (einen Zwischenspeicher) und nannte das Ergebnis *„nicht committet"* (eine Aussage
+   über den **Baum**).
+   > **Ein falscher Befund ist TEURER als kein Befund: er hat dieselbe Wirkung wie ein
+   > echter — er bricht jeden Tick ab — und kennt keine Handlung, die ihn abstellt. Genau
+   > das trainiert das Wegsehen, gegen das `SWR-166` gebaut wurde (83 abgebrochene
+   > Pushes).**
+   `SWR-191`. Am echten Bestand nachgemessen: `pm` **1 → 0**, `platform` meldet nur noch
+   die Arbeit **dieses** Laufs. Preis **gemessen statt geschätzt**: `read-tree` je Repo
+   kostet über 17 Repos **+7,6 s** (14,4 s statt 6,8 s) — und die Zahl steht in der
+   Anforderung, nicht in einer Fußnote.
+3. **⚠⚠ NACH VIER TERMINIERUNGEN STEHEN DREI TICKETS ZUM ERSTEN MAL EHRLICH AUF
+   `blocked` — UND DER VERGLEICH DER DREI IST DER EIGENTLICHE BEFUND.**
+   `SWR-193` macht `blocked_by: [pm/T-0077]` ausdrückbar; `promt-team/T-0003` und
+   `T-0012` sind gebucht.
+   > **⚠⚠ Und dann fiel `pm/T-0071` auf: es wartet auf `pm/T-0077` im **selben Repo**.
+   > Dort war `blocked` die ganze Zeit möglich. Es hat nur nie jemand versucht. Bei
+   > `promt-team/T-0003` hat das Werkzeug abgelehnt — hier gab es keine Werkzeuglücke,
+   > die die vier Terminierungen erklärt.**
+4. **✅ DIE VIERTE BERÜHRUNG VON `platform/T-0030` IST GEBAUT — UND DIE MESSUNG HAT DEN
+   ZUSCHNITT BESTIMMT STATT UMGEKEHRT.** Vor der ersten Zeile gezählt: **sieben von neun**
+   DoD-Punkten waren **Struktur und keine Arbeit** (das PIN-Gate steht einmal am Kopf von
+   `do_POST`, Schreibweg/Fingerabdruck/Zeitquelle lagen bereit).
+   > **Die einzige echte Hürde war die Archivsperre — und genau dort stand die Antwort
+   > schon im Ticket: *die Sperre gilt dem Formular, nicht dem Gespräch.* Deshalb ist
+   > `kommentiere()` ein eigener Pfad NEBEN `aktualisiere` und kein Schalter darin. Ein
+   > Schalter an einer Sperre ist keine Sperre.**
+   `SWR-192`. Kommentare stehen im **Ticket-Rumpf**, auch an **erledigten** Aufgaben.
+5. **⚠⚠ DREIMAL HAT IN DIESEM LAUF EIN WERKZEUG EINEN FEHLER GEFUNDEN, DEN DIE SESSION
+   SELBST GEMACHT HAT — UND ZWEIMAL WAR ES DERSELBE.**
+   * `uebergang_historie` hat einen **unzulässigen Statussprung** `open → done` gemeldet.
+     Ursache: ein `git commit`, dessen Fehlschlag in einer Ausgabeumleitung verschluckt
+     wurde; der nächste Statuswechsel machte daraus den Sprung. **Zweimal passiert.**
+     Repariert nach dem Muster aus Sprint 27 (lokal, ungepusht → zurückgenommen und über
+     `open → in_progress → in_review → done` neu gebucht). Seitdem prüft jeder Schritt,
+     **ob der Commit wirklich gelandet ist**.
+   * `test_renderweg_zaehlung` wurde rot: der Kommentartext ist der **fünfte**
+     Rohtext-Aufrufer, wo vier gezählt waren.
+   > **Beide Prüfungen haben genau das getan, wofür sie dastehen. Ein Commit, dessen
+   > Erfolg nicht geprüft ist, ist kein Commit — und ein Zähler ohne Namen kann einen
+   > Tausch nicht von Stillstand unterscheiden.**
+6. **⚠⚠ UND EINE NEUE PRÜFUNG WAR IM ERSTEN ENTWURF TAUTOLOGISCH — GEMESSEN, NICHT
+   VERMUTET.** `lehren.py` nannte eine **existierende** Lehr-ID als Beispiel in einem
+   Kommentar und hat ihr damit einen Vertreter verschafft: **die Zählung fiel von 29 auf
+   28, ohne dass sich an der Sache etwas geändert hatte.**
+   > **Eine Prüfung, die ihre eigene Frage beantworten kann, prüft nicht mehr.**
+   Behoben zweifach (Muster neutralisiert **und** Prüfer aus dem eigenen Korpus genommen);
+   die Gegenprobe dazu ist gebaut: die Testdatei nennt alle 29 IDs im Klartext, also wäre
+   die Menge ohne den Ausschluss **leer** — und die Prüfung für immer grün.
+7. **✅ ZWEIMAL „ERST ZÄHLEN, DANN BAUEN" AUSGEFÜHRT — UND BEIDE MALE HAT DIE ZAHL DIE
+   FRAGE VERÄNDERT.**
+   * `T-0034`: **108** Lehren, **34** mit ausformulierter Regel, **5** mit Vertreter,
+     **29** ohne. Die Vermutung *„Grundmenge groß, Trefferquote klein"* ist **halb
+     widerlegt**: die Quote ist klein (15 %), die Grundmenge ist es **nicht** (34 von
+     108) — und genau das beantwortet die Frage nach der „ehrlichen Untermenge" von
+     allein. Die Konvention war **gefunden und nicht erfunden**.
+   * `T-0036`: **1003** Zitatstellen ohne Repo-Präfix gegen **319** mit (Vermutung
+     bestätigt, 76 %) — **aber** die zwei größten Posten sind die Entscheidungslogs
+     **selbst**, wo die Angabe nicht mehrdeutig ist. **Die 1003 sind nicht 1003
+     Probleme.** Deshalb gebaut **und** geschnitten (`platform/T-0047`).
+8. **⚠ DER OLLAMA-OFFLOAD IST WEITERHIN NICHT DELEGIERT, UND DER GRUND IST UNVERÄNDERT
+   ZWEIFACH.** `pm/T-0071` hat noch immer keinen Tick mit `status: ok` + Artefakt — und
+   Sprint 28 hat gemessen, dass eine Cowork-Session den Provider **gar nicht erreichen**
+   kann (`localhost:11434` refused, `host.docker.internal:11434` 403). **Kein Ticket an
+   Ollama delegiert; Token-Ersparnis daher 0, und das ist gemessen und nicht geschätzt.**
+9. **1367 Python-Tests** über **90** Testdateien (**gemessen**, `kennzahlen.py` — +56 über
+   +5 Dateien), Matrix **195 SWRs / 0 Lücken**, **113** JS-Tests grün (+6),
+   `organigramm --check` grün (19 Dateien), Briefkasten **0 offen / 0 eingegangen**,
+   offene Tickets **8**, auf den Menschen wartend **1** (`pm/T-0077`, Frist 28.08.),
+   Workflows **6 / 0 unabgedeckte Takte**, Work-Product-Lücken **0**, Parkplatz **11138**
+   (Stand 03:36 — die Zahl trägt ihren Zeitpunkt, `SWR-174`).
 
-   | Modul | rot seit | Ursache |
-   |---|---|---|
-   | `test_modellaufloesung` | dem Rework | `PROB@aspice` → `PROB@platform` umbenannt, Test nicht gefahren |
-   | `test_besetzung_am_aufrufer` | dem Rework | dieselbe Umbenennung — **`SWR-171`s eigene Zusicherung aus Sprint 27** |
-   | `test_konsole` | dem Rework | `scripts/projekt_setup.py` ohne `sichere_ausgabe()` |
-
-   > **„78 grün" und „alles grün" sind zwei Sätze, und im Bericht stand der zweite. Eine
-   > Testauswahl ist eine Behauptung über die Menge, die man NICHT gefahren hat.**
-   Alle drei repariert; neu: **`SWR-189`** (der Instanzschlüssel MUSS `rolle@einheit` sein).
-3. **⚠ UND DAS LITERAL, DAS ROT WURDE, HATTE RECHT — DESHALB BLEIBT ES STEHEN.** Die
-   naheliegende Reparatur wäre, die Erwartung aus dem Register **abzuleiten**. Sie wäre
-   dann tautologisch und für immer grün.
-   > **Ein Literal, das eine Registry zitiert, ist kein Testfehler, sondern der einzige
-   > Ort, an dem eine Umbenennung überhaupt auffällt.**
-   `SWR-189` steht deshalb **neben** dem Literal, nicht an seiner Stelle: das Literal fängt
-   die **Umbenennung**, die Zusicherung den **Widerspruch** (HEAD trug Schlüssel `@aspice`
-   bei Feld `einheit: platform` — zwei Namen für eine Sache, nur einer gepflegt).
-4. **✅ DREI VIERTE BERÜHRUNGEN, DREIMAL ENTSCHIEDEN STATT TERMINIERT — UND JEDE HAT IHRE
-   EIGENE FRAGE UMGEDREHT.**
-   * **`p11/T-0016`** (Rückbau): Frage 1 lautete *„ist `feldText` tot ODER ist es die
-     Vorlage?"* — gemessen ist es **beides**. Sein einziger Code-Aufrufer war das tote
-     `kachelFelder`; drei **lebende** Funktionen zitieren ihn als ihre Vertragsregel.
-     **Gebaut und geschnitten:** drei Bausteine weg, `feldText` bleibt. JS **111 → 107**.
-   * **`promt-team/T-0008`** (Goldset): **die DoD war seit dem 17.08. erfüllt.** Das Ticket
-     wartete drei Sprints auf ein *Ereignis*, seine Anforderung ist über den *Bestand*
-     gestellt — `SWR-128` zum **dritten Mal in drei Sprints**. Gebaut ist deshalb der
-     **Vertreter** (`SWR-190`): eine Prüfung, die **von allein rot wird**, sobald eine
-     elfte Rolle ihren ersten Lauf bekommt.
-   * **`promt-team/T-0003`**: siehe Punkt 5 — die Entscheidung heißt `blocked`, und genau
-     das ging nicht.
-5. **⚠⚠ EINE REPO-ÜBERGREIFENDE SPERRE IST IN DIESEM HAUS NICHT AUSDRÜCKBAR — UND DAS
-   WIRFT EIN LICHT AUF VIER TERMINIERUNGEN.** `blocked` wurde versucht und vom Werkzeug
-   **zweimal** abgelehnt: `blocked_by: [pm/T-0077]` → *unbekanntes Ticket* (die Auflösung
-   ist **repo-lokal**), `blocked_by: []` → *`blocked` erfordert einen Verweis*.
-   > **⚠⚠ Über `promt-team/T-0003` stand viermal *„kein `blocked` — es fehlt kein
-   > Beschluss"*. Das las sich vier Sprints lang wie eine **Beurteilung der Lage**. Es ist
-   > von hier aus nicht zu entscheiden, ob es eine war oder ob es den einzigen Status
-   > beschrieb, den das Werkzeug hergab. Eine Begründung, die mit der einzigen möglichen
-   > Handlung zusammenfällt, ist von einer Rationalisierung nicht zu unterscheiden.**
-   `platform/T-0045`, drei Vorabfragen, **benannt und nicht gebaut**.
-6. **⚠⚠ EINE FRAGE, DIE DREI TICKETS SEIT VIER SPRINTS BLOCKIERT, IST VIERMAL EMPFOHLEN UND
-   NULLMAL GESTELLT WORDEN.** *„Leg eine Aufgabe für PROB oder MAIL-RED an"* stand seit
-   Sprint 25 in den Berichten — nie mit Optionen, Frist und Voreinstellung.
-   > **In genau diesen vier Sprints hat dieses Haus zweimal gemessen, dass Fragen billiger
-   > ist als Ausweichen: 3 und 7 Minuten Antwortzeit (`platform/D000`, `p9/D003`). Ein
-   > Satz in einer Empfehlungsliste ist keine Frage.**
-   Jetzt gestellt als **`pm/T-0077`** (A/B/C, Frist 28.08., **Default A** — Schweigen kostet
-   nichts, und der Preis von A steht **im Antrag**).
-7. **✅ GEMESSEN STATT VERMUTET: DER OLLAMA-OFFLOAD IST VON HIER AUS NICHT NUR UNGEDECKT,
-   SONDERN UNERREICHBAR.** `localhost:11434` → `connection refused`;
-   `host.docker.internal:11434` → **403** (Netzsperre der Sandbox).
-   > **Bisher stand als Grund „der Nachweis aus `pm/T-0071` fehlt". Der zweite Grund ist
-   > härter und war nie gemessen: selbst MIT Nachweis und MIT Arbeitsvorrat könnte eine
-   > Cowork-Session keinen Tick auslösen. Der Nachweis entsteht auf dem Rechner des
-   > Auftraggebers oder gar nicht.**
-8. **⚠ UND DIE VOLLE TESTSUITE IST NICHT KAPUTT, SONDERN LANGSAM — auch das gemessen statt
-   angenommen.** Ein einzelner Lauf über alles lief in ein Werkzeug-Zeitlimit; die
-   Einzelmessung zeigt `test_uebergang_historie` mit **99 s** und `test_js_teststrecke` mit
-   **149 s**, beide **grün**. Ein Zeitlimit ist kein Befund, und es als einen zu berichten
-   wäre dieselbe Verwechslung wie „Ende" mit „Ergebnis".
-9. **⚠ DER PARKPLATZ IST ZUM ERSTEN MAL NICHT MEHR HARMLOS.** `SWR-164` führt ihn seit
-   Sprint 24 ausdrücklich als **„kein Befund"**. In diesem Lauf hat ein stehengebliebenes
-   `index.lock` in `platform` **den letzten Commit blockiert** — fünf Wartezyklen lang, und
-   `rm` scheitert auf diesem Mount (`Operation not permitted`).
-   > **Gelöst ohne Regelbruch: `GIT_INDEX_FILE` auf einen Alt-Index. Kein Räumen VOR einem
-   > Aufruf, kein Eingriff in `.git` — die Sperre wird UMGANGEN statt entfernt.** Das ist
-   > der brauchbarste Nebenertrag dieses Laufs und steht als Lehre 8 in der Historie.
-10. **1311 Python-Tests** über **85** Testdateien (**gemessen**), Matrix **190 SWRs /
-    0 Lücken**, **107** JS-Tests grün, Briefkasten **0 offen**, offene Tickets **15** (zwei geschlossen, **drei** neu),
-    auf den Menschen wartend **1** (`pm/T-0077`), Workflows **6 / 0 unabgedeckte Takte**,
-    Parkplatz **11001** (Stand 02:35 — **+468 in diesem Lauf**).
-
-## Sprint-Plan (Sprint 28)
+## Sprint-Plan (Sprint 29)
 
 *Default nach `pm/D006`: in diesem Sprint schließen. ⚠ Jede Verschiebung trägt ihren
 Grund **im Ticket**, nicht hier (`L-2026-08-17ag`).*
 
 | Aufgabe | Rolle | Fällig | Status | Grund / nächster Schritt |
 |---|---|---|---|---|
-| Briefkasten (alle Repos) | pl | Sprint 28 | **erfüllt** | ✅ **0 offen**, beim Start und beim Abschluss gemessen. Kein Brief ist während des Laufs eingegangen. |
-| **Nachverbuchung Rework** | cm | Sprint 28 | **erledigt** | ✅ **Erster Punkt des Sprints.** 125 Dateien / 16 Repos. Vor dem Commit gegen die **Werkzeuge** verifiziert statt gegen die Beschreibung (B025) — und genau das hat die drei roten Module gefunden. |
-| platform (3 rote Module) | dev/test | Sprint 28 | **erledigt** | ✅ **SWR-189.** Literal nachgezogen **und** strukturelle Zusicherung daneben; `projekt_setup` an die Konsolenregel angebunden. Gegenprobe an synthetischer Kopie (`L-2026-08-20cm` eingehalten). |
-| projects/p11/T-0016 | dev | Sprint 28 | **erledigt** | ✅ **Vierte Berührung: gebaut UND geschnitten.** Frage 1 durch Messung **umgedreht**. `SWR-135` v1.74. |
-| promt-team/T-0008 | test | Sprint 28 | **erledigt** | ✅ **Vierte Berührung: gebaut.** `SWR-190`. ⚠ Die DoD war seit dem 17.08. erfüllt — der Befund ist wertvoller als das Ergebnis. |
-| promt-team/T-0003 | dev | Sprint 29 | offen (**gesperrt**) | ⚠ **Vierte Berührung: ENTSCHIEDEN, nicht terminiert.** Sperre `pm/T-0077`. Der Termin ist eine **Hilfskonstruktion** und im Ticket so benannt — `blocked` ging nicht (`platform/T-0045`). |
-| promt-team/T-0012 | pl | Sprint 29 | offen (**gesperrt**) | ⚠ **Preflight-Befund geschlossen:** stand ohne Sprint (einziger Fall). Nachgezogen; Sperre wie oben. |
-| **pm/T-0077** | mensch | Sprint 28 | **gestellt** | ⚠⚠ **Neu.** Die Frage, die drei Tickets seit vier Sprints blockiert — viermal empfohlen, nullmal gestellt. Frist 28.08., Default A. |
-| **platform/T-0045** | dev | Sprint 29 | offen | ⚠ **Neu, nullte Terminierung.** Repo-übergreifende Sperren nicht ausdrückbar. **Benannt, nicht gebaut** — eine Änderung an der Übergangsprüfung berührt jeden Statuswechsel dieses Hauses. |
-| platform/T-0034 | coach | Sprint 29 | offen | ⚠ **Erste Verschiebung.** „Gelernt ohne Vertreter" — und dieser Lauf hat ihm mit `promt-team/T-0008` einen **zweiten belegten Fall** geliefert (eine Lehre, deren Vertreter vier Sprints fehlte). Das schärft es, statt es zu verdünnen. |
-| platform/T-0036 | cm | Sprint 29 | offen | ⚠ **Erste Verschiebung.** Entscheidungs-IDs je Repo vs. global zitiert. Unverändert: eine Umstellung berührt jede Zitatstelle jedes Berichts. |
-| platform/T-0030 | dev | Sprint 29 | offen | ⚠ **Dritte Verschiebung.** ⚠ Bei der **vierten** gilt: gebaut oder geschnitten — im nächsten Lauf die **erste** Frage, nicht die letzte. |
-| pm/T-0071 | pl | Sprint 29 | offen | ⚠ Schritt 3 wartet unverändert — **und dieser Lauf hat den Wartegrund verschärft:** nicht nur kein Arbeitsvorrat, sondern **kein erreichbarer Provider** aus der Sandbox (gemessen). Antwort auf `pm/T-0077` entscheidet. |
-| pm/T-0001..0003, platform/T-0001, team-dashboard/T-0001, team-mail/T-0001 | pl/coach/cm/dev | jeder Sprint | **erfüllt** | Takt: Agenda + Briefkasten (0 offen) + Lessons (**vier**) + Chronik in **vier** Einheiten + Verifikation. Workflow-Abdeckung **6/6, 0 Lücken** — kein neues Takt-Ticket in diesem Lauf, also keine neue Workflow-Pflicht. |
+| Briefkasten (alle Repos) | pl | Sprint 29 | **erfüllt** | ✅ **0 offen**, beim Start und beim Abschluss gemessen. Kein Brief ist während des Laufs eingegangen. |
+| **platform/T-0046** | dev | Sprint 29 | **erledigt** | ✅ **SWR-191.** Nullte Terminierung aus Sprint 28, im Folgelauf gebaut wie angekündigt. Drei Vorabfragen **vor** dem Bau beantwortet und gemessen. |
+| **platform/T-0030** | dev | Sprint 29 | **erledigt** | ✅ **VIERTE BERÜHRUNG: GEBAUT.** `SWR-192`. Der Brief `platform/N-0007` ist beantwortet. |
+| **platform/T-0045** | dev | Sprint 29 | **erledigt** | ✅ **SWR-193.** Nullte Terminierung aus Sprint 28. Wirkung **gemessen**: drei Tickets stehen ehrlich auf `blocked`. |
+| **platform/T-0034** | coach | Sprint 29 | **erledigt** | ✅ **SWR-194.** Erste Verschiebung beendet. Sperrklinke statt Anklagezettel. |
+| **platform/T-0036** | cm | Sprint 29 | **erledigt** | ✅ **SWR-195, gebaut UND geschnitten.** Der schwerere Befund ist gebaut, die Zitierfrage geht mit ihrer Zahl nach `T-0047`. |
+| promt-team/T-0003 | dev | — | **blocked** | ⚠⚠ `blocked_by: [pm/T-0077]`. **Keine fünfte Terminierung.** Erstmals ausdrückbar (`SWR-193`). |
+| promt-team/T-0012 | prompt-opt | — | **blocked** | ⚠⚠ dito. |
+| pm/T-0071 | pl | — | **blocked** | ⚠⚠ `blocked_by: [T-0077]` — **im selben Repo, war die ganze Zeit möglich.** Siehe Punkt 3. |
+| **pm/T-0077** | mensch | Frist 28.08. | **wartet** | ⚠ Unverändert offen, Frist **nicht** erreicht (heute 21.08.). Default **A**, Schweigen genügt. |
+| **platform/T-0047** | cm | Sprint 30 | offen | ⚠ **Neu, nullte Terminierung.** Schnitt aus `T-0036`, mit der Messung im Rumpf. Erbt die Berührungszählung von `T-0036` **nicht** — der gebaute Teil ist gebaut. |
+| pm/T-0001..0003, platform/T-0001, team-dashboard/T-0001, team-mail/T-0001 | pl/coach/cm/dev | jeder Sprint | **erfüllt** | Takt: Agenda + Briefkasten (0 offen) + Lessons (**neun**) + Chronik in **drei** Einheiten + Verifikation. Workflow-Abdeckung **6/6, 0 Lücken**, WP-Lücken **0** — kein neues Takt-Ticket, also keine neue Workflow-Pflicht. |
 
-## Sprint-Abschluss (Sprint 28, 2026-08-21)
+## Sprint-Abschluss (Sprint 29, 2026-08-21)
 
-**Geschlossen:** `projects/p11/T-0016` (vierte Berührung, gebaut **und** geschnitten) und
-`promt-team/T-0008` (vierte Berührung, gebaut). Dazu die **Nachverbuchung** von 125 Dateien
-und die Reparatur von **drei roten Testmodulen**, die kein Ticket hatten.
+**Geschlossen:** `platform/T-0046`, `T-0030` (vierte Berührung, **gebaut**), `T-0045`,
+`T-0034`, `T-0036` (**gebaut und geschnitten**). **Nichts verschoben.**
 
-**Neue Anforderungen:** **SWR-189** (Instanzschlüssel = `rolle@einheit`, **neben** dem
-Literal), **SWR-190** (Goldset-Abdeckung als stehende Prüfung mit benannter Grundmenge),
-**`SWR-135` v1.74** (zweite und letzte Rückschneidung — die Frontend-Hälfte).
+**Neue Anforderungen:** **SWR-191** (Baum statt Index), **SWR-192** (Kommentare am
+Ticket), **SWR-193** (repo-übergreifende Sperre), **SWR-194** (Lehre ohne Vertreter),
+**SWR-195** (keine neue Dublette im Entscheidungslog).
 
-**Neu angelegt:** `pm/T-0077` (DR — die viermal empfohlene, nie gestellte Frage),
-`platform/T-0045` (Werkzeuglücke, aus zwei Ablehnungen des eigenen Werkzeugs entstanden).
+**Neu angelegt:** `platform/T-0047` (Schnitt aus `T-0036`, mit 1003/319 im Rumpf).
 
-**Verschoben:** `platform/T-0034` (1.), `platform/T-0036` (1.), `platform/T-0030` (3. —
-**vierte Berührung fällig**), `pm/T-0071`, `promt-team/T-0003`/`T-0012` (**gesperrt, nicht
-terminiert**) — jede mit Grund **im Ticket**.
+**Auf `blocked` gebucht statt terminiert:** `promt-team/T-0003`, `promt-team/T-0012`,
+`pm/T-0071`.
 
-**Lessons:** `L-2026-08-21ca` (eine Testauswahl ist eine Behauptung über die ungefahrene
-Menge), `L-2026-08-21cb` (die Bedingung liest über den Bestand, gemessen wird ein Ereignis —
-**zum dritten Mal**), `L-2026-08-21cc` (eine Begründung, die mit der einzigen erlaubten
-Handlung zusammenfällt, ist von einer Rationalisierung nicht zu unterscheiden),
-`L-2026-08-21cd` (`GIT_INDEX_FILE` umgeht eine stehengebliebene Sperre, ohne vor einem
-Aufruf zu räumen). **Verbleib: Historie `platform` Lehren 5–8, Rollenkarten TEST/QM/PL/CM.**
+**Lessons (neun, alle sofort verankert):** `L-2026-08-21ce` (ein falscher Befund ist
+teurer als kein Befund), `cf` (ein Schalter an einer Sperre ist keine Sperre), `cg` (ein
+Aufwärtsgang braucht ein Abbruchkriterium aus dem Gegenstand), `ch` (eine Prüfung, die
+sich selbst liest, beantwortet ihre eigene Frage), `ci` (B033 mit einem Schreibweg als
+vergessener Kopie), dazu Historie-Lehren 9–17 in `platform`.
+**Verbleib: Historie `platform` Lehren 9–17, Rollenkarten DEV/TEST/QM/CM/PL, Runbook
+Kap. 16/17.**
 
 ### ⚠ Was dieser Lauf ausdrücklich NICHT gemessen hat
 
-* **Ob der Rework inhaltlich richtig ist.** Geprüft sind seine **Werkzeuge** (Tests,
-  `organigramm --check`, Matrix, Boards) — nicht, ob die 36 Setup-Artefakte fachlich
-  taugen. Die QM-Stichprobe dazu stammt aus derselben Session, die sie geschrieben hat.
+* **Die volle Testsuite in EINEM Lauf.** Gefahren wurden **alle** Module in **acht
+  Blöcken**; ein Gesamtlauf läuft unverändert in ein Werkzeug-Zeitlimit (`test_u*` allein
+  **154 s**, `test_js_teststrecke` + Nachbarn **159 s**). ⚠ **Die Summe ist trotzdem
+  belegt, und zwar durch zwei UNABHÄNGIGE Messungen:**
+  436 + 111 + 28 + 350 + 209 + 108 + 56 + 69 = **1367** — und `kennzahlen.py` zählt
+  **1367** in der Sammlung. **Deckungsgleich.**
+  > **⚠ Ein erster Zwischenstand ergab 1342 und damit eine Lücke von 25. Die Ursache war
+  > nicht die Suite, sondern die Messung: die Blöcke waren zu verschiedenen Zeitpunkten
+  > gefahren worden, und fünf der Testdateien dieses Laufs existierten beim frühen Block
+  > noch nicht. Nachgemessen statt berichtet — eine Summe aus Teilmessungen zu
+  > verschiedenen Ständen ist keine Summe.**
+* **Ob `git status` auf diesem Mount die Sperren SELBST erzeugt.** Vermutet nach den
+  `unable to unlink`-Warnungen, an einem synthetischen Repo **nicht reproduzierbar** —
+  die Gegenprobe ist damit **ergebnislos** und nicht bestätigend. `SWR-191` beansprucht
+  diesen Nebeneffekt deshalb **nicht**; strukturell ist nur, dass `GIT_INDEX_FILE` die
+  Sperre in `/tmp` legt statt in `.git/`.
 * **Ob `gemma3:27b` auf dem Rechner des Auftraggebers installiert ist.** Unverändert von
   hier aus nicht messbar (`L-2026-08-20ce`).
-* **Die volle Testsuite in EINEM Lauf.** Gefahren wurden alle 85 Module **einzeln**; die
-  Summe ist damit belegt, ein gemeinsamer Lauf nicht. ⚠ Das ist ein Unterschied, und er
-  steht hier, damit ihn niemand später für dasselbe hält.
-* **Ob die drei roten Module vor dem Rework grün waren.** Wahrscheinlich ja (die Umbenennung
-  ist seine Änderung) — aber „wahrscheinlich" ist keine Messung, und ein Bisect über
-  ungepushte Arbeitskopien wäre einer gewesen, den niemand nachvollziehen kann.
+* **Ob die 29 Lehren ohne Vertreter ihn BRAUCHEN.** Gemessen ist, dass sie keinen haben.
+  Ob jede einzelne einen verdient, ist eine inhaltliche Frage, die diese Prüfung
+  ausdrücklich **nicht** beantwortet.
 
-<!-- kennzahlen v1 | gemessen 2026-08-21 02:35 | sprint 28
-briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=11001 swr=190 testdateien=85 tests=1311 tickets_offen=15 wartet_auf_mensch=1
+<!-- kennzahlen v1 | gemessen 2026-08-21 03:39
+briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=11138 swr=195 testdateien=90 tests=1367 tickets_offen=8 wartet_auf_mensch=1
 -->
 
 ---
