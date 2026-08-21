@@ -14,12 +14,6 @@ Stand: 2026-08-21 · Tickets: 85 · davon wiederkehrend: 3
 | [T-0085](tickets/T-0085.md) | Die Projektnummer P13 ist ZWEIMAL vergeben — team-mail und projects/p13 tragen dieselbe Kennung | problem | einmalig | pl | Team | mittel | 34 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | Team | niedrig | 0 | — |
 
-## in_review (1)
-
-| ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
-|---|---|---|---|---|---|---|---|---|
-| [T-0083](tickets/T-0083.md) | Projektgruendung team-termine ausfuehren — Steckbrief, Intake, Sprint-0 (pm/D016 = B) | task | einmalig | pl | Team | hoch | 34 | — |
-
 ## blocked (2)
 
 | ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
@@ -27,7 +21,7 @@ Stand: 2026-08-21 · Tickets: 85 · davon wiederkehrend: 3
 | [T-0071](tickets/T-0071.md) | F18: Ollama-Schnelltakt in Betrieb nehmen — Aufgabenplanung registrieren, ersten Lauf prüfen, Wirkung messen (pm/D010) | task | einmalig | pl | Team | hoch | 25 | platform/T-0060 |
 | [T-0079](tickets/T-0079.md) | Muessen Core-Rollen organisationsweit gleich BESETZT sein — oder nur gleich definiert? (Brief N-0045) | problem | einmalig | pl | Team | hoch | 32 | platform/T-0060 |
 
-## done (76)
+## done (77)
 
 | ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|---|
@@ -74,6 +68,7 @@ Stand: 2026-08-21 · Tickets: 85 · davon wiederkehrend: 3
 | [T-0077](tickets/T-0077.md) | Drei Tickets warten seit vier Sprints auf einen Ollama-Lauf, den nichts auslösen kann — soll dein Schnelltakt einen Arbeitsvorrat bekommen? | decision-request | einmalig | pl | Team | hoch | 28 | — |
 | [T-0078](tickets/T-0078.md) | Neues Projekt team-termine mit Google-Kalender — Gruendung und SCHREIBrecht auf ein fremdes Konto (Brief N-0044) | decision-request | einmalig | mensch | Team | hoch | 32 | — |
 | [T-0081](tickets/T-0081.md) | Digest-Versand: der Brief nennt ZWEI Empfaenger und Guardrail 1 erlaubt einen (Brief team-mail/N-0005) | decision-request | einmalig | mensch | Team | hoch | 32 | — |
+| [T-0083](tickets/T-0083.md) | Projektgruendung team-termine ausfuehren — Steckbrief, Intake, Sprint-0 (pm/D016 = B) | task | einmalig | pl | Team | hoch | 34 | — |
 | [T-0084](tickets/T-0084.md) | Vier Aufgaben warten auf eine Entscheidung, die Du getroffen hast — schliessen, echt sperren oder so lassen? | decision-request | einmalig | mensch | Team | hoch | 33 | — |
 | [T-0010](tickets/T-0010.md) | Problem (N-0007): board-check-Flake — Stand-Datum kippt um Mitternacht | problem | einmalig | prob | Team | mittel | 0 | — |
 | [T-0014](tickets/T-0014.md) | CR (N-0017): Cockpit zeigt wiederkehrende Aufgaben im Klartext statt als Symbol | change-request | einmalig | chg | Team | mittel | 0 | — |
