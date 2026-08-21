@@ -1,5 +1,84 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
+## Das Wichtigste (Sprint 32, 2026-08-21)
+
+1. **✅ Zwei Aufgaben erledigt, keine verschoben** — beide waren letzten Sprint für
+   „diesmal" angekündigt und sind diesmal gebaut.
+2. **⚠⚠ Der eigentliche Ertrag dieses Laufs ist, dass unsere eigene Prüfung uns erwischt
+   hat — vier Mal, und jedes Mal schwer.** Wir haben eine Reparatur gebaut, sie selbst
+   für fertig gehalten, und **ein unabhängiges Gegenlesen** hat vier ernste Fehler darin
+   gefunden. Der schlimmste: unsere Ausnahme galt immer dann, wenn *irgendein* Sprint
+   läuft — und während gearbeitet wird, läuft immer einer.
+   > **Eine Bedingung, die während der ganzen Arbeitszeit wahr ist, ist keine Bedingung.
+   > Sie ist ein offenes Tor mit einer Aufschrift.**
+   Dazu ein Schlupfloch: wer eine unbequeme Aufgabe **verwirft**, hätte damit die Meldung
+   losgewerden können. Alles behoben und am echten Bestand gegengeprüft.
+3. **⚠⚠ Sie haben während des Laufs beide offenen Fragen beantwortet — und das ist die
+   dritte Messung derselben Sache.** `T-0077` stand **vier Sprints** in einer
+   Empfehlungsliste und wurde nicht beantwortet. Als es zum ersten Mal als **Frage mit
+   Optionen, Frist und Voreinstellung** dastand, war es in **sieben Minuten** entschieden
+   — bei sieben Tagen Frist.
+   > **Fragen ist billiger als Ausweichen. Und den Preis des Ausweichens zahlt nicht der,
+   > der fragt.**
+4. **⚠⚠ Sieben Briefe kamen WÄHREND des Laufs — und unser Haken „Briefkasten erfüllt"
+   stand da schon.** Beim Start: 0 offen, richtig gemessen. Beim Abschluss: 7. Alle
+   beantwortet und einsortiert, aber:
+   > **„Briefkasten zuerst" ist eine Reihenfolge und keine Zusage. Was am Anfang gemessen
+   > und am Ende berichtet wird, ist eine Momentaufnahme in der Aufmachung einer Garantie.**
+   ⚠ **Und dieselbe Nachlässigkeit ein zweites Mal im selben Lauf:** unsere Sichtung der
+   offenen Aufgaben hat die verschachtelten Projekte nicht mitgelesen — **Ihre p13-Freigabe
+   ist uns dadurch in der Planung entgangen.** Gefunden hat es die Schlussrechnung, nicht
+   die Planung.
+5. **⚠ Ihre Antwort A hat eine Lage erzeugt, für die wir keinen Zustand haben.** Drei
+   Aufgaben warteten auf `T-0077`. Jetzt ist entschieden — aber die Antwort war „alles
+   bleibt", also besteht der Grund fort. „Gesperrt" passt nicht mehr, ein Termin wäre
+   eine Zusage ohne Arbeit, und Schließen wäre Ihre Option C gewesen, die Sie nicht
+   gewählt haben. **Zum dritten Mal in drei Sprints liegt der Fehler zwischen zwei
+   richtigen Regeln.** Aufgeschrieben statt schnell übermalt.
+6. **Zahlen:** Anforderungen **202 / 0 Lücken**, Organigramm grün (20 Dateien),
+   Briefkasten **0 offen** (am **Ende** gemessen, nicht am Anfang), Workflows **6 / 0
+   unabgedeckt**, Work Products **56 / 0 Lücken**, offene Aufgaben **21** — und diese Zahl
+   sagen unsere Werkzeuge ab jetzt wieder **einstimmig** (letzten Sprint waren es 9
+   gegen 12).
+
+---
+
+## Für dich (E. John)
+
+| Was | Warum |
+|---|---|
+| ⚠⚠ **`abschluss.cmd` ausführen** | **Der wichtigste Punkt, und er ist gewachsen: fünf Tage plus fünf komplette Sprints.** Du hast selbst gefragt, ob der Auto-Commit klemmt — er klemmt nicht, er **darf** nicht: wir pushen nie selbst. **Stichprobe:** danach steht in `abschluss-auto.log` `OK - alles geprueft und gepusht` und `PUSH-ANFORDERUNG.txt` ist verschwunden. |
+| ⚠⚠ **Zwei neue Fragen an dich, Frist 28.08.** | **`pm/T-0078`** — dein Projekt `team-termine`: Gründung ist Klasse A, und du willst **in einen fremden Kalender schreiben** (`dimitri.john83@…`). Default **A** = Projekt startet, Kalender **nur lesend**. **`pm/T-0081`** — dein Digest-Brief nennt **zwei** Empfängeradressen, Guardrail 1 erlaubt **eine**. Default **A** = Guardrail bleibt. ⚠ In beiden Fällen genügt Schweigen, und **das Widget bzw. der Digest wird trotzdem gebaut** — nur der letzte Schritt wartet. |
+| ✅ **Deine sieben Briefe sind alle beantwortet** | In derselben Datei, mit Einordnung. Umgesetzt wird ab Sprint 33 — Grund für die Verschiebung ist die **Ankunftszeit** (06:32–07:03, nach unserem Durchgang), nicht Kapazität. |
+| ⚠ **Dein Ollama-Takt: entschieden ist A** | Er läuft weiter und meldet ehrlich Leerlauf. **Kein Ticket wurde an Ollama delegiert, Token-Ersparnis 0** — gemessen, nicht geschätzt: alle Ollama-Läufe stehen auf `fehler` (`model 'llama3.1:8b' not found`). ⚠ Falls du das ändern willst, wäre `ollama pull llama3.1:8b` oder ein Register-Eintrag der nächste Schritt — dein alter Punkt „`ollama list`" ist damit immer noch offen. |
+| ⚠ **Die Sperr-Reste löschen, wenn du magst** | **11612 Dateien** (Stand 09:07). Wir können sie nicht löschen, du schon. |
+| ⚠ **Die alten Punkte** | Mail-Zugangsdaten (`team-mail/N-0003`) — dein **ältester** offener Punkt, seit Sprint 21, und er blockiert jetzt zusätzlich deinen Digest-Wunsch. Dazu deine Zählung der Kacheln im Reiter „Dashboard". |
+
+---
+
+## ⚠ Drei Dinge, die wir über uns selbst aufschreiben
+
+**Erstens: unsere Reparatur war kaputt, und unsere eigenen Prüfungen haben es nicht
+gemerkt.** Wir haben sechs Zusicherungen geschrieben, alle grün. Ein unabhängiges
+Gegenlesen hat dann die komplette Verdrahtung **entfernt** — und alle sechs blieben grün,
+weil sie die Funktion direkt aufriefen statt den Betrieb. **Eine Prüfung, die nur die
+Funktion kennt, sagt nichts darüber, ob sie jemals aufgerufen wird.**
+
+**Zweitens: zwei unserer Prüfer hatten genau den Fehler, den sie prüfen.** Der eine
+prüfte, ob eine Regel *dasteht*, statt ob sie *benutzt* wird — und blieb grün, während
+drei Zeilen darüber die alte Fassung weiterlief. Der andere schlug gegen seine **eigene
+Erklärung** an, weil dort das schlechte Beispiel zitiert steht.
+
+**Drittens: wir haben zweimal im selben Lauf zu eng gesucht.** Beim Briefkasten und bei
+den offenen Aufgaben hat unser Handlauf die verschachtelten Projekte nicht mitgelesen,
+während unser Werkzeug es tut. Beim Briefkasten ist nichts passiert; bei den Aufgaben ist
+**deine p13-Freigabe** durchgerutscht. **Zwei Wege, dieselbe Frage, verschieden weit — und
+der engere war der, den wir von Hand gegangen sind.**
+
+---
+
+<details><summary>Archiv: Sprint 31</summary>
+
 ## Das Wichtigste (Sprint 31, 2026-08-21)
 
 1. **✅ Drei Aufgaben erledigt, keine verschoben.** Darunter beide, die letzter Sprint
@@ -78,6 +157,8 @@ nicht übernommen. **Wir schreiben deshalb beide Zahlen mit ihrer Definition hin
 eine still zu wählen.**
 
 ---
+
+</details>
 
 <details><summary>Archiv: Sprint 30</summary>
 

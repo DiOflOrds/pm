@@ -9,19 +9,155 @@ Grund **im Ticket**, nicht hier (`L-2026-08-17ag`). Gesichtet: **alle** Tickets 
 
 | Aufgabe | Rolle | Fällig | Status | Grund / nächster Schritt |
 |---|---|---|---|---|
-| Briefkasten (alle Repos) | pl | Sprint 32 | **erfüllt** | ✅ **0 offen** über 60 Briefe in 8 Einheiten, beim Start gemessen. Kein Brief eingegangen. |
-| **platform/T-0052** | dev | Sprint 32 | geplant | ⚠⚠ **Erste Terminierung**, prio **hoch**. Aus Sprint 31 als nullte Terminierung angelegt, hier **wie angekündigt** eingeplant. Vorabmessung zuerst (DoD-Punkt 1: Fensterlänge über ≥ 2 Sprints). |
-| **platform/T-0053** | cm | Sprint 32 | geplant | ⚠ **Erste Terminierung**. Vorabzählung zuerst (DoD: Leser von `tickets_offen` zählen, nicht schätzen). |
+| Briefkasten (alle Repos) | pl | Sprint 32 | **erfüllt** | ⚠⚠ **0 offen beim Start — und 7 offen beim Abschluss.** Alle sieben kamen **während** des Laufs (06:32–07:03), alle vom Auftraggeber. Alle sieben **in diesem Sprint beantwortet und qualifiziert**; 2 davon als Klasse-A-Entscheidungsanfrage. |
+| **platform/T-0052** | dev | Sprint 32 | **erledigt** | ⚠⚠ **Erste Terminierung**, prio **hoch**. Aus Sprint 31 als nullte Terminierung angelegt, hier **wie angekündigt** eingeplant. Vorabmessung zuerst (DoD-Punkt 1: Fensterlänge über ≥ 2 Sprints). |
+| **platform/T-0053** | cm | Sprint 32 | **erledigt** | ⚠ **Erste Terminierung**. Vorabzählung zuerst (DoD: Leser von `tickets_offen` zählen, nicht schätzen). |
 | promt-team/T-0003 | dev | — | **blocked** | ⚠ `blocked_by: [pm/T-0077]`, unverändert. Keine Terminierung — seit `SWR-198` erzeugt das keinen Befund mehr. |
 | promt-team/T-0012 | prompt-opt | — | **blocked** | ⚠ dito (`blocked_by: [T-0001, T-0002, pm/T-0077]`). |
 | pm/T-0071 | pl | — | **blocked** | ⚠ `blocked_by: [T-0077]`. Der Ollama-Offload-Nachweis fehlt weiterhin (Ticks nur `status: fehler`) — siehe Abschluss. |
-| **pm/T-0077** | mensch | Frist 28.08. | **wartet** | ⚠ Unverändert offen, Frist **nicht** erreicht (heute 21.08.). Default **A**, Schweigen genügt. Kein Nachfassen vor der Frist. |
+| **pm/T-0077** | mensch | — | **erledigt** | ✅⚠⚠ **WÄHREND des Laufs entschieden: `D014` = A**, um 08:27 — **sieben Minuten** nach dem vorigen Brief, bei einer Frist von sieben Tagen. Verbucht. |
+| **p13/T-0001** | mensch | — | **erledigt** | ⚠⚠ **In der Planung ÜBERSEHEN** (Handlauf sichtete nur `*/tickets/`) und ebenfalls während des Laufs entschieden: `D000` = **G0a**, Projektauftrag p13 freigegeben. Verbucht; Sprint-0-Planung als `pm/T-0082`. |
 | pm/T-0001, pm/T-0002, pm/T-0003, platform/T-0001, team-dashboard/T-0001, team-mail/T-0001 | pl/coach/cm/dev | jeder Sprint | geplant | Takt-Dauerläufer: Agenda + Intake + Lessons + Werkzeugpflege + Widget-Vertrag + Digest. |
 
 **Verschoben: nichts.** Die 3 gesperrten Tickets sind **nicht verschoben**, sondern
 `blocked` mit `blocked_by` — der Unterschied ist seit `SWR-193` ausdrückbar.
 
 ---
+
+## ⚠⚠ NACHTRAG: sieben Briefe kamen WÄHREND des Laufs — und der Briefkasten stand schon auf „erfüllt"
+
+Beim Start dieses Sprints waren **0** Briefe offen; das ist gemessen und war richtig. Beim
+Zusammenstellen der Abschlusszahlen meldete `kennzahlen.py` **7**. Alle sieben tragen
+Eingangszeiten zwischen **06:32 und 07:03** — sie sind **nach** dem Briefkasten-Durchgang
+eingegangen.
+
+> **⚠⚠ „Briefkasten zuerst" ist eine Reihenfolge und keine Zusicherung. Ein Durchgang am
+> Anfang beantwortet die Briefe, die am Anfang da sind — und sagt nichts über die, die
+> während der Arbeit ankommen. Der Haken hinter „erfüllt" war zum Zeitpunkt des Setzens
+> wahr und zwei Stunden später falsch.**
+
+Das ist derselbe Vorgang, den die Historie schon zweimal notiert hat (*„zum zweiten Mal in
+vier Tagen wird etwas, das nach dem Bericht eintrifft, zum Altbestand des nächsten
+Laufs"*) — hier zum **dritten** Mal, und diesmal mit sieben Briefen auf einmal.
+
+⚠ **Gefunden hat es nicht der Briefkasten-Schritt, sondern der Kennzahlenlauf am Ende.**
+Und er hat es nur gefunden, weil `zaehle_briefkasten` **weiter greift** als der Blick
+dieses Laufs: es liest zusätzlich `*/*/management/briefkasten/` (die verschachtelten
+Repos). Der erste Durchgang dieses Laufs hat nur die oberste Ebene abgesucht.
+
+> **Zwei Discovery-Wege mit verschieden weiten Grundmengen — dieselbe Familie wie der
+> Nebenbefund aus `SWR-198`. Dort lieferten beide zufällig dieselben 17 Einheiten; hier
+> war der engere Weg der, den ein Mensch von Hand gegangen ist.**
+
+**Alle sieben sind in diesem Sprint beantwortet, qualifiziert und committet.** Verschoben
+ist die **Umsetzung**, nicht die Antwort — Grund: Ankunft nach dem Arbeitsdurchgang, nicht
+Kapazität. Aufgeschrieben als `L-2026-08-21cs`; der Vertreter dafür ist `platform/T-0057`.
+
+| Brief | Qualifiziert als | Termin |
+|---|---|---|
+| `platform/N-0008` Skript-Wächter | `platform/T-0055` (problem, hoch) | Sprint 33 |
+| `platform/N-0009` Baselines | `platform/T-0056` (problem, mittel) | Sprint 33 |
+| `pm/N-0044` Projekt `team-termine` | **`pm/T-0078` (decision-request)** — Klasse A: Gründung **und** Schreibrecht auf fremdes Konto | Frist 28.08. |
+| `pm/N-0045` Core-Rollen gleich besetzen | `pm/T-0079` (problem, **blocked** by `T-0077`) | kein Termin |
+| `pm/N-0046` Arbeitsverlauf je Aufgabe | `pm/T-0080` (cr, hoch) — **zerlegt**, nur Schritt 1 terminiert | Sprint 33 |
+| `team-dashboard/N-0003` Gesamt-Widget | `team-dashboard/T-0004` (cr, mittel) | Sprint 33 |
+| `team-mail/N-0005` Digest-Versand | **`pm/T-0081` (decision-request)** + `team-mail/T-0006` (**blocked**) | Frist 28.08. |
+
+---
+
+
+## ⚠⚠ NACHTRAG 2: der Auftraggeber hat WÄHREND des Laufs BEIDE offenen Entscheidungen beantwortet
+
+Beim Start dieses Sprints stand `pm/T-0077` als einzige Sache beim Menschen, Frist 28.08.
+Beim Abschluss meldete das Werkzeug **zwei entschiedene, unverbuchte** Entscheidungsanfragen:
+
+| DR | Entscheidung | Zeit | Bedeutung |
+|---|---|---|---|
+| `pm/T-0077` | **`D014` = A** | 08:27 | „alles bleibt" — **kein** Arbeitsvorrat für den Ollama-Takt |
+| `p13/T-0001` | **`D000` = G0a** | 08:56 | Projektauftrag p13 „Produkt-Architekturbilder" **freigegeben** |
+
+> **⚠⚠ `T-0077` stand VIER SPRINTS lang in einer Empfehlungsliste und wurde nicht
+> beantwortet. Als es zum ersten Mal als Frage mit Optionen, Frist und Voreinstellung
+> dastand, war es in SIEBEN MINUTEN entschieden — bei sieben Tagen Frist.**
+> Das ist die dritte Messung derselben Sorte in diesem Haus. **Fragen ist billiger als
+> Ausweichen, und der Preis des Ausweichens wird nicht vom Fragenden bezahlt.**
+
+**Beide sind in diesem Lauf verbucht.** ⚠ `p13/T-0001` war der Planung dieses Sprints
+**entgangen** — derselbe zu enge Handlauf wie beim Briefkasten (`*/tickets/` statt
+zusätzlich `projects/*/tickets/`), **im selben Lauf ein zweites Mal**. Auch das gehört zu
+`L-2026-08-21cs`.
+
+### ⚠⚠ Und Option A hat eine Lage erzeugt, die das Ticket nicht vorhergesehen hat
+
+`blocked_by: [T-0077]` zeigt an **drei** Tickets jetzt auf ein **geschlossenes** Ticket.
+
+> **Eine Sperre, die auf eine getroffene Entscheidung verweist, ist keine Sperre mehr —
+> aber der Zustand, der sie begründet hat, besteht unverändert fort. Option A hat den
+> Grund nicht beseitigt, sondern BESTÄTIGT.**
+
+Für diese Lage gibt es **keinen zulässigen Zustand**: `blocked` verlangt einen offenen
+Verweis, ein Termin wäre eine Zusage ohne Arbeitsvorrat, und `done` wäre **Option C** —
+die der Auftraggeber gerade **nicht** gewählt hat. **Zum dritten Mal in drei Sprints liegt
+der Fehler zwischen zwei richtigen Regeln** (`SWR-198`, `SWR-201`, jetzt hier).
+Aufgeschrieben als `platform/T-0058`, prio hoch — **nicht** mit einem bequemen Statuswort
+geglättet.
+
+---
+
+## Sprint-Abschluss (Sprint 32, 2026-08-21)
+
+**Geschlossen:** `platform/T-0052` (**SWR-201**), `platform/T-0053` (**SWR-202**).
+**Nichts aus dem Plan verschoben.**
+
+**Neue Anforderungen:** **SWR-201** (der Plannachlauf des laufenden Sprints ist ein
+benannter Nicht-Befund, gebunden an Richtung + `done` + Zugehörigkeit der Planzeile),
+**SWR-202** („offenes Ticket" hat eine Zählweise über alle Erzeuger, und `SWR-113` hat
+endlich einen Vertreter).
+
+**Neu angelegt:** `platform/T-0054` (Endzustände 6× als Literal, 3 Namen),
+`platform/T-0055`, `platform/T-0056`, `platform/T-0057`, `pm/T-0078`–`T-0081`,
+`team-dashboard/T-0004`, `team-mail/T-0006` — **neun davon aus den sieben Briefen**,
+eines aus einer Messung beim Bau.
+
+### ⚠⚠ Vier eigene Fehler, alle vom unabhängigen Review gefunden — Schwere *hoch*
+
+**Das Review ist der Ertrag dieses Sprints, nicht der Bau.** `SWR-201` war in der ersten
+Fassung **kaputt**, und zwar auf eine Art, die alle sechs eigenen Zusicherungen grün
+gelassen hat:
+
+1. **Die Ausnahme war an „ein Sprint läuft" gebunden, nicht an „diese Planzeile gehört zu
+   ihm".** Während gearbeitet wird, läuft aber **immer** einer — eine Planzeile aus
+   Sprint 7 wäre mit unterdrückt worden.
+   > **Eine Bedingung, die während der gesamten Arbeitszeit wahr ist, ist keine Bedingung
+   > — sie ist ein offenes Tor mit einer Aufschrift.**
+   ⚠ Damit war der DoD-Punkt „Wirkung für vergangene Sprints unverändert" **verletzt**,
+   während die Anforderung ihn wörtlich behauptete.
+2. **Ein Schlupfloch über `rejected`:** `TICKET_GESCHLOSSEN` enthält `done` **und**
+   `rejected`. Eine Session hätte einen unbequemen Befund loswerden können, indem sie das
+   Ticket **verwirft**.
+3. **Die Verdrahtung war von keiner Zusicherung gedeckt.** Das Review hat Aufruf und
+   Payload-Schlüssel **entfernt** — alle sechs Zusicherungen blieben grün, der Preflight
+   meldete still „0", weil ein Vorgabewert den fehlenden Schlüssel in eine leere Liste
+   verwandelte.
+   > **Ein Vorgabewert verwandelt eine fehlende Antwort in eine beruhigende.**
+4. **Beide Anforderungen standen auf `reviewed`, bevor das Review lief** — vom Autor
+   gesetzt.
+
+### ⚠ Zwei Prüfer, die den Fehler hatten, den sie prüfen
+
+* Die Zitat-Zusicherung von `SWR-202` prüfte **Anwesenheit** statt Verwendung und blieb
+  grün, während `aggregation.uebersicht` drei Zeilen darüber das Literal benutzte.
+* Zwei Prüfungen schlugen gegen ihre **eigene Erklärung** an: die eine fand die schlechte
+  Schreibweise im Docstring, wo sie als abschreckendes Beispiel zitiert steht; die andere
+  las den Funktionsrumpf bis zum nächsten `def` und verschluckte die Konstante dahinter.
+  > **Eine Zerlegung, die über ihren Gegenstand hinausläuft, misst den Nachbarn mit.**
+
+### ⚠ Und ein Fehler in eigener Sache, den niemand gemeldet hat
+
+Die beiden Tickets standen bis kurz vor dem Schließen auf `open` und sind erst **nach**
+der Arbeit auf `in_progress` gesetzt worden. Das ist wörtlich der Vorgang, den `SWR-155`
+gemessen hat (Median-Lebensdauer 22 Sekunden) und den die Rollenkarte PL als **Lehre 1**
+führt. **Die Prüfung war grün, weil sie die Reihenfolge nicht kennt — nur das Vorkommen.**
 
 <details><summary>Archiv: Sprint 31</summary>
 
