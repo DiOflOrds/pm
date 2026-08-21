@@ -1,5 +1,46 @@
 # Sprint aktuell — Genesis-Gesamtsprint (Workflow-Sicht des PM, pm/D006)
 
+## Sprint-Plan (Sprint 33) — Planung VOR der Arbeit
+
+*Default nach `pm/D006`: in diesem Sprint schließen. ⚠ Jede Verschiebung trägt ihren Grund
+**im Ticket**, nicht hier (`L-2026-08-17ag`). Gesichtet: **alle** Tickets **aller** Repos
+über **beide** Ebenen (`*/tickets/` **und** `projects/*/tickets/`) — das ist die Korrektur
+aus `L-2026-08-21cs`, an der Sprint 32 eine Projekt-Freigabe verloren hat. Offen: **20**
+(`kennzahlen.py` 10:21, einstimmig nach `SWR-202`). Briefkasten beim Start: **0 offen**,
+über beide Ebenen gemessen — ⚠ **und das ist nach `L-2026-08-21cs` ausdrücklich KEINE
+Zusicherung für den Abschluss; die Nachmessung am Ende ist Pflichtteil dieses Plans.***
+
+| Aufgabe | Rolle | Fällig | Status | Grund / nächster Schritt |
+|---|---|---|---|---|
+| Briefkasten (beide Ebenen) | pl | Sprint 33 | **geplant** | 0 offen beim Start. **Nachmessung am Sprint-Ende ist eigener Planpunkt**, nicht Nebenprodukt der Kennzahlen. |
+| **platform/T-0058** | dev | Sprint 33 | **geplant** | ⚠⚠ **Erste Terminierung**, prio **hoch**. Zuerst zählen (DoD 1–2: Menge heute, Vorgeschichte in den Logs), dann entscheiden „vierter Zustand" gegen „Einzelfälle". ⚠ Berührt möglicherweise Klasse A → dann Inbox-DR statt Eigenentscheid. |
+| **platform/T-0057** | dev | Sprint 33 | **geplant** | ⚠⚠ **Erste Terminierung**, prio **hoch**. Zuerst zählen (DoD 1: wie oft kommt ein Brief WÄHREND eines Laufs), dann **eine** Discovery mit Zusicherung. |
+| **platform/T-0054** | cm | Sprint 33 | **geplant** | Erste Terminierung, prio niedrig. Restmenge der Endzustands-Literale nach `SWR-202`. |
+| **pm/T-0083** | pl | Sprint 33 | **geplant** | ⚠ **NEU und in Sprint 32 ZUGESAGT, aber nie angelegt** — `pm/T-0078` nennt es wörtlich als nächsten Schritt. Projektgründung `team-termine` nach `pm/D016` = **B**. |
+| **pm/T-0082** | pl | Sprint 33 | **geplant** | Erste Terminierung. Sprint-0-Planung p13 (Projektauftrag freigegeben, `p13/D000` = G0a). |
+| **team-mail/T-0006** | dev | Sprint 33 | **geplant** | ⚠ Steht auf `blocked_by: [pm/T-0081]` — und `T-0081` ist mit `pm/D015` = **B** **entschieden**. Die Sperre ist beantwortet und **auflösend** (anders als bei `T-0077`); zu entsperren und zu terminieren. |
+| **platform/T-0055** | dev | Sprint 33 | **geplant** | Erste Terminierung, prio hoch (Brief `N-0008`). Wächter über die regelmäßigen Skripte. |
+| **platform/T-0056** | cm | Sprint 33 | **geplant** | Erste Terminierung, prio mittel (Brief `N-0009`). Ursache der ausbleibenden Baselines **messen**, bevor gebaut wird. |
+| **pm/T-0080** | dev | Sprint 33 | **geplant** | Erste Terminierung, prio hoch (Brief `N-0046`), in Sprint 32 bereits **zerlegt** — nur Schritt 1. |
+| **team-dashboard/T-0004**, **T-0005** | dev | Sprint 33 | **geplant** | Erste Terminierung, prio mittel (Briefe `N-0003`, `N-0004`). |
+| pm/T-0071, pm/T-0079, promt-team/T-0003, promt-team/T-0012 | pl/dev/prompt-opt | — | **blocked** | ⚠⚠ Alle vier zeigen auf **`pm/T-0077`, das `done` ist** — genau der Gegenstand von `platform/T-0058`. **Keine Terminierung, bis T-0058 den zulässigen Zustand geklärt hat**; sie stillschweigend zu terminieren wäre die bequeme Handlung aus `SWR-166`. |
+| pm/T-0001, pm/T-0002, pm/T-0003, platform/T-0001, team-dashboard/T-0001, team-mail/T-0001 | pl/coach/cm/dev | jeder Sprint | geplant | Takt-Dauerläufer: Agenda + Intake + Lessons + Werkzeugpflege + Widget-Vertrag + Digest. |
+
+**Unterminiert: nichts.** ⚠ **Reihenfolge ist Absicht:** `T-0058` und `T-0057` zuerst,
+weil beide mit einer **Zählung** beginnen und die Zählung den Bau verändern kann — die
+vierfache Bestätigung dieses Musters steht in den Sprints 29–32.
+
+⚠⚠ **Ollama-Offload, vor der Arbeit gemessen (nicht geschätzt):** `pm/T-0071` hat
+**keinen** Tick mit `status: ok` + Artefakt. Über alle drei Run-Registries gezählt:
+**11 × `fehler`**, **4 × `ok`** — und die vier `ok` tragen **`provider: copilot`**, nicht
+`ollama`. **Kein einziger Ollama-Lauf ist je erfolgreich gewesen.** Damit gilt die
+Auffangregel: **alles selbst erledigen, Token-Ersparnis 0**, und der fehlende Nachweis
+wird im Fazit benannt. Mit `pm/D014` = A ist entschieden, dass sich daran nichts ändert.
+
+---
+
+<details><summary>Archiv: Sprint 32</summary>
+
 ## Sprint-Plan (Sprint 32) — Planung VOR der Arbeit
 
 *Default nach `pm/D006`: in diesem Sprint schließen. ⚠ Jede Verschiebung trägt ihren
@@ -233,6 +274,8 @@ zeigt ausschließlich `status: fehler` (`model 'llama3.1:8b' not found`). Mit `p
 ist entschieden, dass sich daran nichts ändert.
 
 ---
+
+</details>
 
 <details><summary>Archiv: Sprint 31</summary>
 
