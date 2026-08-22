@@ -80,6 +80,20 @@ fand dabei die **eigene Kommandozeile**. Der Testlauf war längst tot. **Fünfzi
 wurde ein Prozess beobachtet, den es nicht gab**; die Strecke musste blockweise neu gefahren
 werden. `L-2026-08-22aa`, ausdrücklich als Beobachtung gebucht.
 
+### Nachtrag am Sprintende: der erste Vollzug von `SWR-231` im Betrieb
+
+Der Abschluss-Preflight meldete `platform/T-0069` als *„angefangen und liegengeblieben"* —
+`in_progress`, obwohl niemand daran arbeitete. Es stand dort seit Sprint 39, weil die
+Übergangstabelle ihm keinen anderen Zustand ließ.
+
+**In einem Schritt zurück nach `open`**, mit `auflage: offen` als Grund. Danach: *„In Arbeit
+liegengeblieben: 0."*
+
+> **Die Regel war zwei Stunden alt, als der erste echte Vorgang sie gebraucht hat. Er stand
+> die ganze Zeit im Bestand und hat auf sie gewartet.**
+
+---
+
 ### Erste Aufgaben des Folgelaufs
 
 1. **Drei Reviews dieses Laufs** — `platform/T-0076` und `T-0078` (beide `in_review`,
