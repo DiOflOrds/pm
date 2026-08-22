@@ -163,6 +163,62 @@ Reviewer ≠ Autor), **neu**: `platform/T-0075`, **zurückgegeben**: `platform/T
 4. **Ein vollständiger `preflight` in einem Aufruf** bleibt über der Zeitgrenze dieser
    Sandbox; die Teststrecke ist **blockweise** gefahren (Zahlen unten).
 
+### ⚠⚠ Zwei eigene Fehler dieses Laufs, von den eigenen Prüfungen gefunden
+
+**1. Der Plan dieses Laufs hat den Sprint-37-Fehler wiederholt.** Eine Übersichtstabelle
+stand über der Plantabelle; `plan_tabelle` nimmt die **erste**. Alle fünf Sprintprüfungen
+meldeten **0** — weil keine einzige Planzeile geparst wurde. Widerlegt hat es wieder nur
+die Gegenzahl: `nicht_geplant: 33`.
+
+> **Die Lehre stand seit Sprint 37 in `pl.md` als Nummer 17 und hat den Fehler nicht
+> verhindert. Eine Lehre, die zweimal denselben Fehler nicht verhindert hat, ist keine
+> Lehre, sondern eine Notiz.** Gebaut als `SWR-226`; die Plantabelle wird jetzt an ihren
+> **Spalten** erkannt.
+
+⚠ Aus derselben Messung fiel ein zweiter Befund: die Abkürzung
+`team-termine/T-0003…T-0011` in einer Planzeile hat **vier** Tickets aus dem Plan fallen
+lassen. **Eine Abkürzung im Plan ist eine Lücke in der Prüfung.**
+
+**2. ⚠⚠ Zwei Statusübergänge dieses Laufs sind unzulässig — und sie stehen hier statt in
+einer Fußnote.** `platform/T-0074` (Commit `a9ebe8e`) und `team-dashboard/T-0007`
+(Commit `63a2b1d`) gingen von `open` direkt auf `in_review`, ohne den Zwischenschritt
+`in_progress` in einem eigenen Commit.
+
+> **Das ist wörtlich `pl.md` Lehre 1, und es ist derselbe Fehler, den Sprint 36 an
+> `platform/T-0068` gemacht hat.** Die Übergangsprüfung liest **Commits**, nicht
+> Arbeitsspeicher — wer Arbeit und Statuswechsel in einem Zug verbucht, hat für sie
+> `open -> in_review` getan.
+
+⚠ **Nicht reparierbar und deshalb nicht repariert:** Historie wird nicht umgeschrieben.
+Die beiden Übergänge erscheinen ab dem Sprintende in der Liste der **fortgeschriebenen**
+Verstöße (dann 13 statt 11) — gemeldet, benannt, nicht geglättet (Kap. 16). ⚠ Und dieser
+Lauf hat es bei den **anderen** beiden Tickets richtig gemacht: `T-0069` und `T-0055`
+gingen über `in_progress` in zwei getrennten Commits zurück auf `open`. **Der Unterschied
+war nicht Wissen, sondern Aufmerksamkeit — und genau deshalb ist er hier notiert.**
+
+### Zahlen — gemessen, nicht geschätzt
+
+| Größe | Wert |
+|---|---|
+| Offene Aufgaben | **41 → 33** (9 `done`, 1 neu, 2 zurück auf `open`) |
+| davon `in_review` | **11 → 2** (beide von diesem Lauf gebaut) |
+| Teststrecke (voller Bestand, blockweise) | **1636** über 112 Module + 6 + 6 + 20 einzeln, **0 rot** |
+| **Nachgestellter CI-Checkout** (`platform`+`process`+`produkt-datakonv`) | **1635 Tests, 0 rot**, 172 übersprungen — vorher **1616 / 31 rot / 92 übersprungen** |
+| JS-Strecke | **127 grün** am vollen Bestand **und** im CI-Checkout (vorher 116, davon 1 rot im CI) |
+| Rot **im** Lauf | **34** — 31 geerbt (CI), 1 selbst verursacht (Statusübergang), 2 von der Lehren-Sperrklinke gemeldet; **alle 34 geschlossen oder benannt** |
+| `trace_matrix` | **226 SWRs, 0 Lücken** (220 → 226) |
+| `organigramm.py --check` | **grün** (21 Dateien) |
+| Sprintübergabe | `plan_drift`·`sprint_vergangen`·`status_drift`·`plan_nachlauf`·`nicht_geplant` = **0·0·0·0·0** |
+| Briefkasten | Start **0 offen / 71** · Ende **0 offen / 71** — zweiter Lauf in Folge ohne Brief |
+| Work Products / Workflows | **66 / 8** über 19 Einheiten, **0 Lücken**, **0 unabgedeckte Takte** |
+| Parkplatz `verwaiste-locks` | **13 111** (Stand 19:52 — die Zahl trägt ihren Zeitpunkt, `SWR-174`) |
+| Ollama-Offload | **0 delegiert, Ersparnis 0** — Grund **zweifach gemessen** (siehe oben) |
+
+⚠ **Nicht gemessen und deshalb nicht behauptet:** ein vollständiger `preflight` in **einem**
+Aufruf läuft in dieser Sandbox über die Zeitgrenze (`test_uebergang_historie` allein
+**109 s** über 19 Repos). Die Org-Prüfungen sind einzeln gefahren, die Teststrecke
+blockweise — beides ist notiert, damit niemand die Zahlen für einen Gesamtlauf hält.
+
 ---
 
 ## Sprint-Abschluss (Sprint 37, 2026-08-22)
