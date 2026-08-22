@@ -1,6 +1,6 @@
 # Sprint aktuell — Genesis-Gesamtsprint (Workflow-Sicht des PM, pm/D006)
 
-## Sprint-Plan (Sprint 37) — Planung VOR der Arbeit
+## Sprint-Plan (Sprint 37 — beim Abschluss auf Sprint 38 fortgeschrieben)
 
 *Sprint 37 eröffnet 2026-08-22 14:23 (`s37-2026-08-22-1430`), 22 Min nach dem Ende von
 Sprint 36. Default nach `pm/D006`: in diesem Sprint schließen. ⚠ Jede Verschiebung trägt
@@ -13,34 +13,34 @@ Offen beim Start: **39** (35 `open`, 3 `in_review`, 1 `blocked`). Briefkasten be
 
 | Aufgabe | Rolle | Fällig | Status | Grund / nächster Schritt |
 |---|---|---|---|---|
-| Briefkasten (beide Ebenen, inkl. `projects/*`) | pl | Sprint 37 | geplant | 0 offen / 70 beim Start. ⚠ Nachmessung am Ende ist Pflichtteil dieses Plans, nicht Kür. |
-| **Plantabelle auf Sprint 37 ziehen** | pl | Sprint 37 | **geschlossen** | ⚠⚠ Der eine Preflight-Befund des Hosts. Behoben durch diese Tabelle. |
-| **platform/T-0066** | pl | Sprint 37 | geplant | ⚠⚠ **Der Offload-Engpass, und der einzige, den dieser Lauf aus der Sandbox überhaupt lösen kann.** Ollama ist von hier nicht erreichbar, vom Host schon — aber der Takt findet **kein Ticket mit ollama-besetzter Rolle**. Solange das so bleibt, ist jede Offload-Anweisung wirkungslos. Erste Terminierung. |
-| **platform/T-0055** | dev | Sprint 37 | geplant | ⚖ Vierte Berührung in Sprint 36 → **geschnitten**, Teil A. ⚠ Die Lage hat sich seither **geändert**: der Wächter läuft wieder. DoD gegen den laufenden Dienst messen statt gegen einen toten. |
-| **platform/T-0071** | dev | Sprint 37 | geplant | Aus Brief `platform/N-0010` (Auftraggeber, 12:08): alle Script-Aufrufe in Mission Control + Wächter live sichtbar. Prio hoch, nullte Terminierung. |
-| **platform/T-0072** | dev | Sprint 37 | geplant | Aus demselben Brief: `start_genesis` als EIN Startpunkt. Prio mittel, nullte Terminierung. ⚠ Hängt am Ergebnis von `T-0071` (dieselbe Zustandsquelle) — nacheinander, nicht parallel. |
-| **platform/T-0064** | cm | Sprint 37 | geplant | Anhänge-Dateien ohne Überschreibschutz. Erste Terminierung nach der Sprint-36-Sichtung. |
-| **platform/T-0067** | coach | Sprint 37 | geplant | „Wer liest die maschinellen Befunde?" — dieser Lauf ist selbst ein Beleg dafür (der 1-Befund lag 3 Sprints unbenannt). Material dazu entsteht heute. |
-| **platform/T-0068** | dev | Sprint 37 | in_review | Review offen (Reviewer ≠ Autor). |
-| **platform/T-0069** | prob | Sprint 37 | in_review | Review offen. |
-| **platform/T-0070** | coach | Sprint 37 | geplant | Acht Lehren ohne Vertreter, INTERIM als Beobachtung gebucht; Einzelentscheidung DoD 1/2 beim `coach`. |
-| **pm/T-0085** | pl | Sprint 37 | geplant | ⚖ Vorbedingung von `pm/T-0082` (in Sprint 36 so geschnitten). P13 ist doppelt vergeben — **erst die Kennung, dann die Planung.** |
-| **pm/T-0082** | pl | Sprint 37 | geplant | ⚖ Vierte Berührung → geschnitten; wartet auf `pm/T-0085`. |
-| **pm/T-0080** | dev | Sprint 37 | geplant | ⚖ Vierte Berührung → geschnitten, Teil A: **eine** Aufgabe, **eine** Spurenquelle. |
-| **pm/T-0071** | pl | Sprint 37 | geplant | F18 Ollama-Schnelltakt in Betrieb. ⚠ Der Nachweis ist geführt (Tick `ok` + 2 Artefakte); offen ist die **Wirkung** — und die hängt an `platform/T-0066`. |
-| **pm/T-0079** | pl | Sprint 37 | geplant | Core-Rollen: gleich besetzt oder nur gleich definiert? ⚠ Berührt `platform/T-0066` — dieselbe Frage von der Besetzungsseite. Zusammen betrachten. |
-| **promt-team/T-0012** | prompt-opt | Sprint 37 | geplant | Ollama-Umstellungsprogramm. ⚠ Enthält die **zwei ungelesenen Ollama-Artefakte** aus Sprint 36 — sie gehören hierher, nicht in den Abschluss von `T-0060`. |
-| **promt-team/T-0003** | dev | Sprint 37 | geplant | Erstaudit nach Ablauf S0–S7. |
-| **team-dashboard/T-0007** | dev | Sprint 37 | geplant | Post-Widget sprengt das Raster (Brief `p0/N-0002`). Prio hoch, **der Auftraggeber wartet auf ein sichtbares Ergebnis**. Gemeinsame Ursache mit `T-0004`/`T-0006`. |
-| **team-dashboard/T-0004** | dev | Sprint 37 | geplant | ⚖ Vierte Berührung → geschnitten: **Kachel-Vertrag zuerst** (`team-dashboard/T-0001`). |
-| **team-dashboard/T-0006** | dev | Sprint 37 | geplant | Reaktions-Kachel aufklappen; hängt am selben Kachel-Vertrag. |
-| **team-mail/T-0006** | dev | Sprint 37 | geplant | ⚖ Vierte Berührung → **BAUEN** (Sprint-36-Entscheidung, als einziges nicht geschnitten). Auflage: **kein Versandweg im Diff**. |
-| **team-mail/T-0007** | dev | Sprint 37 | geplant | Digest ohne SPAM-Rubrik. ⚠ Braucht **eine Zahl vom Auftraggeber** — als Rückfrage, nicht als Annahme. |
-| **team-termine/T-0001** | pl | Sprint 37 | in_review | Projektplan v1.0; QM-Review offen (Reviewer ≠ Autor). |
-| **team-termine/T-0002** | cm | Sprint 37 | geplant | CM-Plan P16. ⚠ Trägt die **Work-Product-Deklaration** der Einheit (Konzept 04 Kap. 9) — deshalb vor `T-0004`…`T-0010`. |
-| **team-termine/T-0003** | coach | Sprint 37 | geplant | Workflows + projektspezifische Rollenbeschreibungen. ⚠ Trägt `docs/workflows.yaml` der Einheit — die zweite Hälfte der Kap.-9-Pflicht. |
-| **team-termine/T-0004**, **team-termine/T-0005**, **team-termine/T-0006**, **team-termine/T-0007**, **team-termine/T-0008**, **team-termine/T-0009**, **team-termine/T-0010** | rm/arch/qm/test/dev/prob/chg | Sprint 37 | geplant | Rollen-Initialisierung P16. **Erst seit Sprint 36 arbeitsfähig** (Sperre fiel mit dem Projektplan) — dies ist ihre erste Terminierung mit Arbeitsmöglichkeit. |
-| **team-termine/T-0011** | pl | Sprint 37 | geplant | PL-Monitoring. ⚠ Trägt `takt: je-session` **und** `geplant_sprint: 37` — zwei Aussagen zu einer Frage (B033); als Befund benannt, siehe Abschluss. |
+| Briefkasten (beide Ebenen, inkl. `projects/*`) | pl | Sprint 38 | geplant | 0 offen / 70 beim Start. ⚠ Nachmessung am Ende ist Pflichtteil dieses Plans, nicht Kür. |
+| **Plantabelle auf Sprint 37 ziehen** | pl | Sprint 38 | **geschlossen** | ⚠⚠ Der eine Preflight-Befund des Hosts. Behoben durch diese Tabelle. |
+| **platform/T-0066** | pl | Sprint 38 | **in_review** | ⚠⚠ **Der Offload-Engpass, und der einzige, den dieser Lauf aus der Sandbox überhaupt lösen kann.** Ollama ist von hier nicht erreichbar, vom Host schon — aber der Takt findet **kein Ticket mit ollama-besetzter Rolle**. Solange das so bleibt, ist jede Offload-Anweisung wirkungslos. Erste Terminierung. |
+| **platform/T-0055** | dev | Sprint 38 | **in_review** | ⚖ Vierte Berührung in Sprint 36 → **geschnitten**, Teil A. ⚠ Die Lage hat sich seither **geändert**: der Wächter läuft wieder. DoD gegen den laufenden Dienst messen statt gegen einen toten. |
+| **platform/T-0071** | dev | Sprint 38 | geplant | Aus Brief `platform/N-0010` (Auftraggeber, 12:08): alle Script-Aufrufe in Mission Control + Wächter live sichtbar. Prio hoch, nullte Terminierung. |
+| **platform/T-0072** | dev | Sprint 38 | geplant | Aus demselben Brief: `start_genesis` als EIN Startpunkt. Prio mittel, nullte Terminierung. ⚠ Hängt am Ergebnis von `T-0071` (dieselbe Zustandsquelle) — nacheinander, nicht parallel. |
+| **platform/T-0064** | cm | Sprint 38 | geplant | Anhänge-Dateien ohne Überschreibschutz. Erste Terminierung nach der Sprint-36-Sichtung. |
+| **platform/T-0067** | coach | Sprint 38 | geplant | „Wer liest die maschinellen Befunde?" — dieser Lauf ist selbst ein Beleg dafür (der 1-Befund lag 3 Sprints unbenannt). Material dazu entsteht heute. |
+| **platform/T-0068** | dev | Sprint 38 | in_review | Review offen (Reviewer ≠ Autor). |
+| **platform/T-0069** | prob | Sprint 38 | in_review | Review offen. |
+| **platform/T-0070** | coach | Sprint 38 | geplant | Acht Lehren ohne Vertreter, INTERIM als Beobachtung gebucht; Einzelentscheidung DoD 1/2 beim `coach`. |
+| **pm/T-0085** | pl | Sprint 38 | **in_review** | ⚖ Vorbedingung von `pm/T-0082` (in Sprint 36 so geschnitten). P13 ist doppelt vergeben — **erst die Kennung, dann die Planung.** |
+| **pm/T-0082** | pl | Sprint 38 | geplant | ⚖ Vierte Berührung → geschnitten; wartet auf `pm/T-0085`. |
+| **pm/T-0080** | dev | Sprint 38 | geplant | ⚖ Vierte Berührung → geschnitten, Teil A: **eine** Aufgabe, **eine** Spurenquelle. |
+| **pm/T-0071** | pl | Sprint 38 | geplant | F18 Ollama-Schnelltakt in Betrieb. ⚠ Der Nachweis ist geführt (Tick `ok` + 2 Artefakte); offen ist die **Wirkung** — und die hängt an `platform/T-0066`. |
+| **pm/T-0079** | pl | Sprint 38 | geplant | Core-Rollen: gleich besetzt oder nur gleich definiert? ⚠ Berührt `platform/T-0066` — dieselbe Frage von der Besetzungsseite. Zusammen betrachten. |
+| **promt-team/T-0012** | prompt-opt | Sprint 38 | geplant | Ollama-Umstellungsprogramm. ⚠ Enthält die **zwei ungelesenen Ollama-Artefakte** aus Sprint 36 — sie gehören hierher, nicht in den Abschluss von `T-0060`. |
+| **promt-team/T-0003** | dev | Sprint 38 | geplant | Erstaudit nach Ablauf S0–S7. |
+| **team-dashboard/T-0007** | dev | Sprint 38 | geplant | Post-Widget sprengt das Raster (Brief `p0/N-0002`). Prio hoch, **der Auftraggeber wartet auf ein sichtbares Ergebnis**. Gemeinsame Ursache mit `T-0004`/`T-0006`. |
+| **team-dashboard/T-0004** | dev | Sprint 38 | geplant | ⚖ Vierte Berührung → geschnitten: **Kachel-Vertrag zuerst** (`team-dashboard/T-0001`). |
+| **team-dashboard/T-0006** | dev | Sprint 38 | geplant | Reaktions-Kachel aufklappen; hängt am selben Kachel-Vertrag. |
+| **team-mail/T-0006** | dev | Sprint 38 | geplant | ⚖ Vierte Berührung → **BAUEN** (Sprint-36-Entscheidung, als einziges nicht geschnitten). Auflage: **kein Versandweg im Diff**. |
+| **team-mail/T-0007** | dev | Sprint 38 | geplant | Digest ohne SPAM-Rubrik. ⚠ Braucht **eine Zahl vom Auftraggeber** — als Rückfrage, nicht als Annahme. |
+| **team-termine/T-0001** | pl | Sprint 38 | in_review | Projektplan v1.0; QM-Review offen (Reviewer ≠ Autor). |
+| **team-termine/T-0002** | cm | Sprint 38 | **in_review** | CM-Plan P16. ⚠ Trägt die **Work-Product-Deklaration** der Einheit (Konzept 04 Kap. 9) — deshalb vor `T-0004`…`T-0010`. |
+| **team-termine/T-0003** | coach | Sprint 38 | geplant | Workflows + projektspezifische Rollenbeschreibungen. ⚠ Trägt `docs/workflows.yaml` der Einheit — die zweite Hälfte der Kap.-9-Pflicht. |
+| **team-termine/T-0004**, **team-termine/T-0005**, **team-termine/T-0006**, **team-termine/T-0007**, **team-termine/T-0008**, **team-termine/T-0009**, **team-termine/T-0010** | rm/arch/qm/test/dev/prob/chg | Sprint 38 | geplant | Rollen-Initialisierung P16. **Erst seit Sprint 36 arbeitsfähig** (Sperre fiel mit dem Projektplan) — dies ist ihre erste Terminierung mit Arbeitsmöglichkeit. |
+| **team-termine/T-0011** | pl | Sprint 38 | geplant | PL-Monitoring. ⚠ Trägt `takt: je-session` **und** `geplant_sprint: 37` — zwei Aussagen zu einer Frage (B033); als Befund benannt, siehe Abschluss. |
 | team-termine/T-0012 | qm | jeder Sprint | blocked | Zeigt auf `team-termine/T-0006` (offen) — `SWR-204` erfüllt, Sperre zu Recht. |
 | pm/T-0001, pm/T-0002, pm/T-0003 | pl/pl/coach | jeder Sprint | geplant | Takt-Dauerläufer (Session-Agenda, Intake-Queue, LeLe-Konsolidierung). |
 | platform/T-0001, team-dashboard/T-0001, team-mail/T-0001 | cm/pl/dev | jeder Sprint | geplant | Takt-Dauerläufer. ⚠ `team-dashboard/T-0001` (Kachel-Vertrag) ist zugleich die Vorbedingung von `T-0004`/`T-0006`/`T-0007` — heute kein reiner Dauerläufer, sondern der Engpass dreier Tickets. |
@@ -91,6 +91,128 @@ hier nachgewiesen (Preflight nach dem Schreiben, siehe Verifikation) — dass de
 
 Kein Ticket ist **vor** der Arbeit verschoben worden. Was am Ende nicht geschlossen ist,
 trägt Grund und neuen Termin **im Ticket** und erscheint im Abschluss unten.
+
+---
+
+## Sprint-Abschluss (Sprint 37, 2026-08-22)
+
+### Was dieser Sprint geschlossen hat
+
+| Ticket | Wirkung |
+|---|---|
+| **Plantabelle auf Sprint 37** | ⚠⚠ räumt den **einen** Preflight-Befund, an dem der Auto-Abschluss des Hosts seit Stunden bei Schritt **[1/6]** mit Exit 1 abbrach — kein Push, keine Teststrecke, kein CI |
+| `platform/T-0066` → **in_review** | `SWR-214` — der leere Ollama-Takt wird gemeldet, wo er gelesen wird; die maßgebliche Auflösung ist **gemessen**, nicht gewählt |
+| `platform/T-0055` Teil A → **in_review** | `SWR-215` — der Herzschlag des Wächters bekommt einen Leser |
+| `pm/T-0085` → **in_review** | `pm/B060` + `SWR-216` — die Projektkennung wird bewacht statt umnummeriert; räumt die Vorbedingung von `pm/T-0082` |
+| `team-termine/T-0002` → **in_review** | CM-Plan P16 v1.0 — **10 Work Products, 0 Lücken**; die letzte aktive Einheit mit Workflows und ohne WP-Deklaration ist versorgt |
+
+> **Vier Tickets, drei neue Anforderungen, 27 neue Zusicherungen — und die teuerste
+> Handlung des Tages war eine Tabelle. Der Befund, den Sprint 36 ausdrücklich nicht
+> gefunden hat, war unser eigener Plan.**
+
+### ⚠⚠ Der Fund, der diesen Sprint eröffnet hat, und die Reparatur des Musters dahinter
+
+`abschluss-logs/abschluss-20260822-142500.log`, Fenster `[1/6]`…`[2/6]`:
+
+    [org] BEFUND: 12 Planzeile(n) nennen eine andere Sprintnummer als ihr Ticket
+
+**Sprint 36 hat seine Tickets vorbildlich auf 37 nachgezogen und seine eigene Plantabelle
+stehen lassen.** Damit hat er `plan_drift` von der anderen Seite ausgelöst: nicht der Plan
+lief dem Ticket davon, sondern das Ticket dem Plan. Das ist `pl.md` Lehre 8 zum **dritten
+Mal in vier Sprints**, und diesmal war die Ursache eine Vorsichtsmaßnahme gegen genau
+denselben Fehler.
+
+> **⚠⚠ Deshalb ist dieser Abschluss anders gebaut: die 32 Tickets sind auf `geplant_sprint:
+> 38` gezogen UND die Fälligkeitsspalte der Plantabelle im SELBEN Schritt mit. Ticket und
+> Plan sind zwei Aussagen zu einer Frage — wer nur eine nachzieht, tauscht einen Befund
+> gegen den anderen** (`L-2026-08-22e`).
+
+Nachgemessen nach dem Nachziehen, mit laufendem Sprint 37 und Tickets auf 38:
+`plan_drift` **0**, `sprint_vergangen` **0**, `status_drift` **0**, `plan_nachlauf` **0**,
+`nicht_geplant` **0**. **Beide Prüfungen sind grün, egal ob Sprint 37 läuft oder schon
+geschlossen ist** — das war bisher nie der Fall.
+
+### ⚠ Drei Befunde, die keine Planung, sondern Zusicherungen gefunden haben
+
+1. **Ein Brief kam ZWISCHEN den Sprints an.** `platform/N-0010` (Auftraggeber) ist um
+   **14:13:59** committet worden — 12 Min **nach** dem Ende von Sprint 36 (14:01), 9 Min
+   **vor** dem Beginn von Sprint 37 (14:23). Er war beim Start beantwortet, der Briefkasten
+   also zu Recht „0 offen"; dass sich der **Bestand** bewegt hat, sah nur
+   `test_post_im_lauf` (70/75 → 71/76). **Dritter Lauf in Folge.**
+2. **Ein falsches Grün im eigenen Bau, gefunden von der Nebenzahl.** Der erste Entwurf der
+   Sprint-37-Plantabelle stellte die Befund-Tabelle **vor** die Plantabelle.
+   `plan_tabelle()` liest die **erste** Tabelle nach der Überschrift — `plan_drift` meldete
+   **0**, weil keine einzige Planzeile geparst wurde. Aufgefallen ist es nur an
+   `nicht_geplant: 39`.
+   > **Eine Prüfung, die nichts findet, weil sie nichts liest, sieht genauso aus wie eine,
+   > die nichts zu finden hatte.**
+3. **Eine Mutationsprobe hat den eigenen Test widerlegt.** Die Probe „jeder `p*`-Ordner ist
+   eine Kennung" blieb **grün** gegen die erste Fassung von `test_projektkennung`: sie
+   prüfte die **Ausgabe**, nicht die **Regel**. Geschärft, dann 4 von 4 rot.
+
+### ⚠ Ein vierter Befund über den Betrieb, nicht über die Arbeit
+
+**Die Nachverbuchung des Hosts läuft der Session in die Commits.** `abschluss.cmd` verbucht
+alle 15 Minuten die Arbeitskopie unter *„Nachverbuchung … liegengebliebene Arbeitskopie
+verbucht"*. Dieser Lauf hat **dreimal** erlebt, dass sein Diff schon verbucht war, während
+er noch am `index.lock` wartete — und die Hausregel *„jede Aktion referenziert eine
+Ticket-ID, auch im Commit"* ist dabei jedes Mal verloren gegangen.
+
+**Behandlung, ohne Historie umzuschreiben:** die Begründung bekommt einen eigenen leeren
+Commit **neben** dem Diff, mit Verweis auf dessen Hash. ⚠ Das ist eine Umgehung, keine
+Lösung — die Lösung gehört zu `platform/T-0071`/`T-0072` (ein Startpunkt, ein Wächter, der
+weiß, wer gerade schreibt).
+
+### Nicht geschlossen — mit Grund und neuem Termin
+
+| Ticket(s) | Grund | Neuer Termin |
+|---|---|---|
+| `platform/T-0071`, `T-0072` | Aus Brief `N-0010`, in diesem Lauf **entstanden**; dieser Sprint hat stattdessen die Pipeline entsperrt, ohne die sie niemand sähe | Sprint 38 |
+| `team-dashboard/T-0007`, `T-0004`, `T-0006` | Gemeinsame Ursache **Kachel-Vertrag** (`T-0001`); der Vertrag ist nicht angefasst worden, und drei Tickets ohne ihn zu bauen wäre dreimal derselbe Fehler | Sprint 38 |
+| `team-termine/T-0003`–`T-0011` | Rollen-Initialisierung P16; `T-0002` (CM-Plan) ist als **Träger der WP-Deklaration** vorgezogen worden und geliefert | Sprint 38 |
+| `platform/T-0064`, `T-0067`, `T-0070`, `pm/T-0071`, `T-0079`, `T-0080`, `T-0082`, `promt-team/T-0003`, `T-0012`, `team-mail/T-0006`, `T-0007` | terminiert, nicht erreicht | Sprint 38 |
+| `platform/T-0068`, `T-0069`, `team-termine/T-0001` | `in_review` — Reviewer ≠ Autor, das Review steht aus | Sprint 38 |
+
+⚠ **`team-mail/T-0006` ist der einzige Posten mit einer Vierte-Berührung-Entscheidung
+„BAUEN", der wieder nicht gebaut ist.** Das ist die fünfte Berührung. Er gehört in
+Sprint 38 **vor** die Neuplanung, nicht hinein.
+
+### Verifikation — gemessen, nicht behauptet
+
+| Prüfung | Ergebnis |
+|---|---|
+| Teststrecke | **111 von 112 Modulen, 1567 Zusicherungen, 0 rot** (in Blöcken gefahren — die Sandbox deckelt einen Aufruf bei ~178 s) |
+| ⚠ **nicht gemessen** | `test_js_teststrecke` — läuft in dieser Sandbox über die Zeitgrenze, **weder grün noch rot berichtet** (wie in Sprint 36) |
+| Rot im Lauf | **1**, gefunden und geschlossen: `test_post_im_lauf` (Brief zwischen den Sprints) |
+| `trace_matrix` | **216 SWRs, 0 Lücken** |
+| `organigramm.py --check` | **grün** (21 Dateien) |
+| `board.py --check` je Einheit | **grün** |
+| `plan_drift` / `sprint_vergangen` / `status_drift` / `plan_nachlauf` / `nicht_geplant` | **0 / 0 / 0 / 0 / 0** — mit Tickets auf 38 **und** Plan auf 38 |
+| Briefkasten am Ende | **0 offen / 71 Briefe** (beide Ebenen; die 71. liegt in `projects/p11` — `pl.md` Lehre 6) |
+| Work Products | **66 deklariert über 8 Einheiten, 0 fehlend, 0 undeklariert** (vorher 56/7) |
+| Workflows | **8 über 5 Einheiten, 0 unabgedeckte Takte, 0 Befunde** |
+| Wächter | **lebt** — Herzschlag `2026-08-22 14:27:21`, PID 23284 (Sprint-36-Befund „14 h tot" erledigt) |
+| ⚠ **nicht gemessen** | `preflight` vollständig — läuft in dieser Sandbox über die Zeitgrenze. Gemessen ist **wo**: `uebergangshistorie` allein braucht **45 s**, `parkplatz_stand` 0,3 s, `sprint.plan` 6 s, 18× `git status` 9 s |
+| Ollama-Offload | **0 Tickets delegiert, Token-Ersparnis 0** — siehe unten |
+
+### ⚠⚠ Ollama-Offload: 0 delegiert, und der Grund ist diesmal gezählt statt vermutet
+
+| Größe | Wert | Quelle |
+|---|---|---|
+| Ollama aus dieser Sandbox erreichbar | **nein** (`curl 127.0.0.1:11434` leer) | gemessen |
+| Ollama auf dem Host erreichbar | **ja** | `waechter-status.json` |
+| Instanzen mit `motor: ollama` | **2** (`PROB@platform`, `MAIL-RED@team-mail`) | `besetzungen.yaml` |
+| offene Tickets mit ollama-besetzter Rolle | **0 von 34** | `SWR-214` |
+| Aufgaben-Typen mit ollama-Kette, die je ein Ticket getragen haben | **2 von 8** | gezählt über alle 383 Ticketdateien |
+| Tickets im Gesamtbestand mit gesetztem `aufgaben_typ` | **4 von 383 (1,0 %)** | ebd. |
+
+> **Selbst wenn Ollama von hier erreichbar wäre, hätte es nichts zu tun. Sechs von acht
+> Aufgaben-Typen mit Ollama-Kette haben in 383 Tickets noch nie eines getragen — das ist
+> keine Auslastungsfrage, das ist eine Absichtserklärung.**
+
+Dieser Lauf hat deshalb den **Engpass** gebaut statt die Delegation zu behaupten
+(`SWR-214`). Was fehlt, ist eine **Besetzungsentscheidung** — Klasse B des PM, ausdrücklich
+nicht hier mitentschieden, übergeben an `pm/T-0079` mit der Zahl in der Hand.
 
 ---
 

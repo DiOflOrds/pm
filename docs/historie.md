@@ -1,3 +1,60 @@
+## Sprint 37, 2026-08-22 (Cowork mit Shell) — die teuerste Handlung des Tages war eine Tabelle
+
+**Sprint 37 eröffnet** (`s37-2026-08-22-1430`, 14:23) — 22 Minuten nach dem Ende von Sprint 36.
+
+> **⚠⚠ Der eine Preflight-Befund, den Sprint 36 ausdrücklich als „nicht identifiziert"
+> berichtet hat, war unser eigener Plan.** `abschluss-20260822-142500.log`, Fenster
+> `[1/6]`…`[2/6]`: *„12 Planzeile(n) nennen eine andere Sprintnummer als ihr Ticket"*.
+> Sprint 36 hatte seine Tickets vorbildlich auf 37 nachgezogen — **und seine eigene
+> Plantabelle stehen lassen.** Der Auto-Abschluss des Auftraggebers brach daran
+> **stundenlang** bei Schritt `[1/6]` mit Exit 1 ab: kein Push, keine Teststrecke, kein CI.
+> `pl.md` Lehre 8 zum **dritten Mal in vier Sprints**, und die Ursache war diesmal eine
+> Vorsichtsmaßnahme gegen genau denselben Fehler.
+
+**Reparatur des Musters, nicht nur des Befunds** (`L-2026-08-22e`, `pl.md` Lehre 16): die
+32 nicht geschlossenen Tickets sind auf `geplant_sprint: 38` **und** die Fälligkeitsspalte
+der Plantabelle ist im **selben Schritt** mitgezogen worden. Nachgemessen mit **laufendem**
+Sprint 37 und Tickets auf **38**: `plan_drift`, `sprint_vergangen`, `status_drift`,
+`plan_nachlauf`, `nicht_geplant` — **alle fünf 0.** Das ist die erste Sprintübergabe dieses
+Hauses, die in **beiden** Zuständen grün ist.
+
+**Gemessen (Quelle je genannt):** Teststrecke **111 von 112 Modulen / 1567 Zusicherungen /
+0 rot** (blockweise; `test_js_teststrecke` läuft in der Sandbox über die Zeitgrenze und ist
+**weder grün noch rot** berichtet) · 1 rot **im Lauf** gefunden und geschlossen
+(`test_post_im_lauf`) · `trace_matrix` **216 SWRs / 0 Lücken** · `organigramm --check`
+**grün** (21 Dateien) · Briefkasten **0 offen / 71 Briefe** (beide Ebenen) · offene Aufgaben
+**39 → 39** (vier auf `in_review`, keines auf `done`) · Work Products **56 → 66 über 8
+Einheiten, 0 Lücken** · Workflows **8 / 0 unabgedeckte Takte** · Wächter **lebt**
+(Herzschlag 14:27:21, PID 23284) · Ollama-Offload **0 delegiert, Ersparnis 0**.
+
+**Entschieden:** `pm/B060` (Klasse B) — die Projektkennung ist eine **Beschriftung in
+Berichten, keine Identität**; die doppelte `p13` bleibt stehen und wird bewacht statt
+umnummeriert. Gemessen in Sprint 35: **die Nummer hat keinen Leser** (47 Zugriffe auf ein
+Feld `projekt` meinen alle 47 den Einheitennamen). Umnummerieren machte gelesene Berichte
+rückwirkend falsch; eine blockierende Prüfung stolperte über die **bestehende** Dopplung.
+Räumt die Vorbedingung von `pm/T-0082`.
+
+**⚠ Drei Befunde, die keine Planung gefunden hat, sondern Zusicherungen:**
+
+1. **Ein Brief kam ZWISCHEN den Sprints an.** `platform/N-0010` committet **14:13:59** —
+   12 Min nach dem Ende von Sprint 36, 9 Min vor dem Beginn von Sprint 37, beim Start
+   bereits beantwortet. Der Briefkasten war zu Recht „0 offen"; dass die **Post gewachsen**
+   ist, sah nur `test_post_im_lauf` (70/75 → 71/76). Dritter Lauf in Folge.
+2. **Ein falsches Grün im eigenen Bau.** Der erste Entwurf der Plantabelle stand hinter
+   einer anderen Tabelle; `plan_tabelle()` liest die **erste**. `plan_drift` meldete **0**,
+   weil **keine** Planzeile geparst wurde — widerlegt von `nicht_geplant: 39`
+   (`L-2026-08-22f`, `pl.md` Lehre 17).
+3. **Eine Mutationsprobe hat den eigenen Test widerlegt** (`L-2026-08-22g`).
+
+**⚠ Ein vierter Befund über den Betrieb:** die Nachverbuchung des Hosts (alle 15 Min) hat
+diesem Lauf **dreimal** den Commit weggenommen, während er am `index.lock` wartete — die
+Hausregel *„jede Aktion referenziert eine Ticket-ID, auch im Commit"* ging dabei jedes Mal
+verloren. Behandelt mit einem leeren Commit **neben** dem Diff (Historie wird nicht
+umgeschrieben, Playbook Kap. 16). ⚠ Eine Umgehung, keine Lösung — sie gehört zu
+`platform/T-0071`/`T-0072`.
+
+---
+
 ## Lauf 2026-08-21, spätabends — **kein Sprint (vierter Lauf ohne Shell)**, und der erste, der die Verifikation trotzdem hatte
 
 **Kein Sprint 36 begonnen** (kein `sprint_register.py`). ⚠ Sprint 35 ist seit **20:21**

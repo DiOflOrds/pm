@@ -1,5 +1,66 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
+## Das Wichtigste (Sprint 37, 2026-08-22 — **der Befund war unser eigener Plan**)
+
+1. **⚠⚠ Der eine Preflight-Befund ist identifiziert und behoben.** Er hiess *„12 Planzeilen
+   nennen eine andere Sprintnummer als ihr Ticket"* und liess den Auto-Abschluss des Hosts
+   **stundenlang** bei Schritt `[1/6]` mit Exit 1 abbrechen — kein Push, keine Teststrecke,
+   kein CI. **Sprint 36 hatte seine Tickets vorbildlich nachgezogen und seine eigene
+   Plantabelle stehen lassen.**
+   > **Ticket und Plan sind zwei Aussagen zu EINER Frage. Wer nur eine nachzieht, tauscht
+   > einen Befund gegen den anderen** (`L-2026-08-22e`, `pl.md` Lehre 16).
+2. **Das Muster ist repariert, nicht nur der Befund.** Die 32 offenen Tickets stehen auf
+   `geplant_sprint: 38` **und** die Fälligkeitsspalte ist mitgezogen. Nachgemessen mit
+   laufendem Sprint 37 und Tickets auf 38: `plan_drift`/`sprint_vergangen`/`status_drift`/
+   `plan_nachlauf`/`nicht_geplant` **alle fünf 0** — **die erste Sprintübergabe dieses
+   Hauses, die in beiden Zuständen grün ist.**
+3. **Vier Tickets geliefert, drei Anforderungen, 27 Zusicherungen:** `platform/T-0066`
+   (`SWR-214`, Ollama-Engpass **gezählt**), `platform/T-0055` Teil A (`SWR-215`,
+   Wächter-Herzschlag bekommt einen Leser), `pm/T-0085` (`pm/B060` + `SWR-216`),
+   `team-termine/T-0002` (CM-Plan P16, **10 WP / 0 Lücken**). Alle vier `in_review`,
+   Reviewer ≠ Autor.
+4. **⚠⚠ Der Ollama-Offload bleibt 0 — und der Grund ist jetzt gezählt statt vermutet.**
+   **0 von 34** offenen Tickets tragen eine ollama-besetzte Rolle; **6 von 8** Aufgaben-Typen
+   mit Ollama-Kette haben in **383** Ticketdateien nie eines getragen; **4 von 383** Tickets
+   setzen überhaupt `aufgaben_typ`. **Selbst mit erreichbarem Ollama hätte der Takt nichts
+   zu tun.** Was fehlt, ist eine **Besetzungsentscheidung** — Klasse B des PM, übergeben an
+   `pm/T-0079`.
+5. **✅ Der Wächter lebt wieder** (Herzschlag 14:27:21, PID 23284) — der Sprint-36-Befund
+   „14 h tot" ist erledigt, und `SWR-215` sorgt dafür, dass der nächste Ausfall keine 14
+   Stunden braucht.
+6. **⚠ Ein Brief kam ZWISCHEN den Sprints an.** `platform/N-0010` um **14:13:59** — 12 Min
+   nach dem Ende von 36, 9 Min vor dem Beginn von 37. Beim Start beantwortet, Briefkasten
+   zu Recht „0 offen"; gesehen hat die Bewegung nur `test_post_im_lauf` (70/75 → 71/76).
+   **Dritter Lauf in Folge** (`pl.md` Lehre 18).
+7. **Zahlen (gemessen):** offen **39 → 39** (4 auf `in_review`, keines `done`) · Teststrecke
+   **111/112 Module, 1567 Zusicherungen, 0 rot** · `trace_matrix` **216 / 0 Lücken** ·
+   `organigramm --check` grün · Briefkasten **0 offen / 71** · Work Products **56 → 66,
+   0 Lücken** · Ollama-Offload **0 / 0**.
+
+### Erste Aufgaben des Folgelaufs
+
+1. **`abschluss-logs/review-*.md` nach 15:40 lesen — das ist die Stichprobe.** Erwartet:
+   `Schrittfolge: [6/6]`, `Push` statt `NICHT PRUEFBAR`. **Kommt sie nicht, ist die
+   Reparatur aus Punkt 1 unvollständig** und der nächste Befund steht im selben Fenster.
+2. **`team-mail/T-0006` bauen — FÜNFTE Berührung.** Die Vierte-Berührung-Entscheidung lautet
+   seit Sprint 36 **BAUEN** und ist zweimal nicht ausgeführt. Er gehört **vor** die
+   Neuplanung, nicht hinein. Auflage: kein Versandweg im Diff.
+3. **`team-dashboard/T-0001` (Kachel-Vertrag)** — gemeinsame Ursache von `T-0004`, `T-0006`
+   und `T-0007`; **der Auftraggeber wartet auf `T-0007`.** Drei Tickets ohne den Vertrag zu
+   bauen wäre dreimal derselbe Fehler.
+4. **`pm/T-0079` mit der Zahl aus `SWR-214` entscheiden** — die Besetzungsfrage ist die
+   einzige, die den Ollama-Takt noch sperrt.
+5. **Die vier Reviews** (`T-0066`, `T-0055`, `T-0085`, `team-termine/T-0002`) — Reviewer
+   ≠ Autor, sonst wächst ein `in_review`-Stau.
+
+⚠ **Nicht gemessen und deshalb nicht behauptet:** `test_js_teststrecke` und ein
+**vollständiger** `preflight` laufen in dieser Sandbox über die Zeitgrenze. Gemessen ist
+diesmal **wo**: `uebergangshistorie` allein braucht **45 s** (Git-Historie über 18 Repos).
+
+---
+
+<details><summary>Archiv: Sprint 36 und früher</summary>
+
 ## Das Wichtigste (Sprint 36, 2026-08-22 — **die Shell ist zurück**)
 
 1. **Sprint 36 läuft** (`s36-2026-08-22-1300`). Sprint 35 war vom Host bereits geschlossen,
@@ -666,4 +727,5 @@ sagt ebenfalls 1367. **Zwei unabhängige Wege, dasselbe Ergebnis.**
 > **Eine Summe aus Teilmessungen zu verschiedenen Ständen ist keine Summe.**
 
 
+</details>
 </details>
