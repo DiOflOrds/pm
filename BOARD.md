@@ -13,7 +13,7 @@ Stand: 2026-08-22 · Tickets: 86 · davon wiederkehrend: 3
 | [T-0082](tickets/T-0082.md) | Sprint-0-Planung p13 Produkt-Architekturbilder — Projektauftrag ist freigegeben (D000/G0a) | task | einmalig | pl | Team | mittel | 32 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | Team | niedrig | 0 | — |
 
-## in_progress (1)
+## in_review (1)
 
 | ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|---|
