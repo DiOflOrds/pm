@@ -1,5 +1,108 @@
 # Sprint aktuell — Genesis-Gesamtsprint (Workflow-Sicht des PM, pm/D006)
 
+## Sprint-Plan (Sprint 40 — beim Abschluss auf Sprint 41 fortgeschrieben)
+
+*Sprint 40 eröffnet 2026-08-22 21:48 (`s40-2026-08-22-2050`). Default nach `pm/D006`: in
+diesem Sprint schließen. ⚠ Jede Verschiebung trägt ihren Grund **im Ticket**, nicht hier
+(`L-2026-08-17ag`). Gesichtet: **alle** Tickets **aller** Repos über beide Ebenen. Offen
+beim Start: **33** (29 `open`, 2 `in_review`, 1 `blocked`, 1 sonstiges). Briefkasten beim
+Start: **0 offen / 71 Briefe** — Nachmessung am Ende ist Pflicht (`L-2026-08-21cs`).*
+
+### ⚠⚠ Der Fund dieses Sprint-Plannings: die Regel der vierten Berührung ist nie ausgeführt worden
+
+Zum ersten Mal wurde nicht geschätzt, sondern gezählt — Änderungen an `geplant_sprint` über
+den Git-Verlauf jedes Tickets:
+
+| Terminierungen | Tickets |
+|---|---|
+| **22×** | `promt-team/T-0003` |
+| **11×** | `pm/T-0071` |
+| **8×** | `platform/T-0055`, `pm/T-0080`, `pm/T-0082`, `team-dashboard/T-0004` |
+| **7×** | `promt-team/T-0012` |
+| **6×** | `platform/T-0064`, `team-dashboard/T-0006`, `team-mail/T-0007` |
+| **5×** | 12 weitere |
+| **4×** | `platform/T-0071`, `T-0072` |
+
+**22 von 33 offenen Tickets standen bei der fünften Terminierung oder später.**
+
+⚠ Und die Sprintberichte nannten kleinere Zahlen: Sprint 39 führt `platform/T-0064` als
+*„Dritte Terminierung"* — gemessen sind es **sechs**.
+
+> **Die Zahl in der Planzeile war nicht gelogen, sie war geschätzt. Eine geschätzte Zahl vor
+> einer Regel, die an einer Zahl hängt, ist dasselbe wie keine Regel.**
+
+Verbucht als `platform/T-0078`. **Wo dieser Lauf die Tickets angefasst hat, ist die Regel
+angewandt worden** — siehe die Spalte „Grund" unten.
+
+### Der Plan
+
+| Aufgabe | Rolle | Fällig | Status | Grund / nächster Schritt |
+|---|---|---|---|---|
+| Briefkasten (beide Ebenen, inkl. `projects/*`) | pl | Sprint 41 | **geschlossen** | 0 offen / 71 beim Start, 0 offen / 71 am Ende. Nachgemessen, nicht angenommen. |
+| **platform/T-0074** | dev | Sprint 41 | **in_review** | ⚠⚠ **Das Review hat die Gegenprobe des Tickets widerlegt**: nachgestellter CI-Checkout **1635 Tests, 1 rot** statt „0 rot". `SWR-227` gebaut, **Auflage im selben Lauf erfüllt** → **1640 / 0 rot**. |
+| **team-dashboard/T-0007** | dev | — | **done** | ✅ Freigegeben. Mutationsprobe **6 / 1 / 1 rot**, jede Mutation genau an ihrer Zusicherung. DoD 5 (Screenshot) **geschnitten** → `T-0008` (`rolle: mensch`). |
+| **team-dashboard/T-0008** | mensch | Sprint 41 | **neu, open** | Der Blick im Browser + Screenshot. ⚠ Gemessen: `playwright` installierbar, Chromium-Download an der Netz-Allowlist gescheitert — **keine Session dieses Hauses kann diesen Punkt erfüllen**. |
+| **platform/T-0069** | prob | Sprint 41 | **in_progress** | ⚠⚠ Der automatische Takt hat die Auflage von Sprint 39 **in 36 Minuten** überschrieben. `SWR-228` gebaut (`auflage: offen` + Zweitlauf-Sperre). ⚖ Fünfte Berührung → entschieden. |
+| **platform/T-0076** | coach | Sprint 41 | **neu, open** | Nebenbefund: `UEBERGAENGE` kennt von `in_review` kein `open` — der ehrliche Rückweg existiert nicht, und der unehrliche legte das Ticket dem Takt in die Hand. |
+| **platform/T-0067** | coach | Sprint 41 | **in_review** | ⚖ Fünfte Berührung → gezählt und gebaut. Die Blockerliste hat **eine** Leserkette, und ihr letztes Glied ruft **niemand** auf. `SWR-230`. |
+| **platform/T-0077** | cm | Sprint 41 | **neu, open** | ⚠ **Erste Fassung war falsch und ist ersetzt** — der Befund war seit `pm/T-0023` benannt. Was bleibt: Parkplatz **13 265 Dateien / 30 MB**, „gelegentlich leeren" hat nie jemand getan. |
+| **platform/T-0078** | coach | Sprint 41 | **neu, open** | Die Regel der vierten Berührung hat keinen Vollstrecker (siehe oben). Prio **hoch**. |
+| **pm/T-0071** | pl | Sprint 41 | **in_review** | ⚖ **Elfte Berührung → gemessen und geschlossen.** 128 Schnelltakt-Läufe / 27 Auswahlen / 2 `ok` / **0 gelöste Aufgaben**; Serialisierung sauber (min. 895 s). |
+| **team-termine/T-0003, T-0004, T-0006, T-0007, T-0008, T-0009, T-0010, T-0011** | coach/rm/qm/test/dev/prob/chg/pl | Sprint 41 | **in_review** | ⚖ Fünfte Berührung → **acht gebaut**: fünf Rollenkarten, QM-Plan, Verifikationsstrategie, Entwicklungsumgebung, Problem-/Change-Management, STK-Liste, Takt-Lauf. |
+| **team-termine/T-0005** | arch | Sprint 41 | **blocked** | ⚖ Fünfte Berührung → `blocked_by: [T-0004]` statt einer sechsten Terminierung. Viermal aus demselben Grund liegen geblieben: keine reviewten Anforderungen. |
+| team-termine/T-0012 | qm | jeder Sprint | blocked | Zeigt auf `team-termine/T-0006` (in_review) — `SWR-204` erfüllt, Sperre zu Recht. |
+| **platform/T-0055** | dev | Sprint 41 | **blocked** | ⚖ Achte Berührung → `blocked_by: [T-0075]`. Der Wächter hat seinen Gegenstand nicht: die Skripte liegen in keinem Repo, und Löschen geht aus einer Session nicht. |
+| platform/T-0075 | cm | Sprint 41 | geplant | Betriebsschicht unversioniert. ⚠ Erbt aus `T-0077` die Randbedingung: die Altbestand-Hälfte braucht `rolle: mensch`. |
+| platform/T-0064 | cm | Sprint 41 | geplant | Anhänge-Dateien ohne Überschreibschutz. ⚠ **Sechste** Terminierung — eine Terminierung, keine Entscheidung (`T-0078`). |
+| platform/T-0070 | coach | Sprint 41 | geplant | Lehren ohne Vertreter. ⚠ Sprint 40 hat **zwei** neue Beobachtungen gebucht (`p`, `s`) und **drei** Lehren mit Vertreter versehen (`q`, `r`, `t`). |
+| platform/T-0071 | dev | Sprint 41 | geplant | Script-Aufrufe in Mission Control. Fünfte Terminierung. |
+| platform/T-0072 | dev | Sprint 41 | geplant | `start_genesis`. Hängt weiter an `T-0075`. Fünfte Terminierung. |
+| pm/T-0080 | dev | Sprint 41 | geplant | Arbeitsverlauf je Aufgabe. **Neunte** Terminierung. |
+| pm/T-0082 | pl | Sprint 41 | geplant | Sprint-0-Planung p13. **Neunte** Terminierung. |
+| promt-team/T-0012 | prompt-opt | Sprint 41 | geplant | Ollama-Umstellungsprogramm. ⚠⚠ **Erbt die Nützlichkeitsfrage aus `pm/T-0071`** — dort gemessen, hier zu beantworten. Prio hoch. |
+| promt-team/T-0003 | dev | Sprint 41 | geplant | Erstaudit. ⚠⚠ **Dreiundzwanzigste** Terminierung — das meistterminierte Ticket dieses Hauses. |
+| team-dashboard/T-0004, team-dashboard/T-0006 | dev/dev | Sprint 41 | geplant | Gesamtprojekt-Widget und Reaktions-Kachel. Neunte bzw. siebte Terminierung. |
+| team-mail/T-0007 | dev | Sprint 41 | geplant | Digest ohne SPAM-Rubrik. Braucht **eine Zahl vom Auftraggeber**. Siebte Terminierung. |
+| pm/T-0001, pm/T-0002, pm/T-0003 | pl/pl/coach | jeder Sprint | geplant | Takt-Dauerläufer (Session-Agenda, Intake-Queue, LeLe-Konsolidierung). |
+| platform/T-0001, team-mail/T-0001 | cm/dev | jeder Sprint | geplant | Takt-Dauerläufer. |
+
+**Unterminiert: nichts.** 36 offene Tickets, alle in Planzeilen (Takt-Dauerläufer gebündelt).
+
+### Was Sprint 40 geliefert hat
+
+| Ticket | Anforderung | Kern |
+|---|---|---|
+| `platform/T-0074` | `SWR-227` | Wer die Organisationswurzel **selbst** auflöst, sagt, was er dort braucht — drei Formen statt einer |
+| `platform/T-0069` | `SWR-228` | Der automatische Takt nimmt keine Review-Entscheidung zurück |
+| `team-termine/T-0004` | `SWR-229` | Kein Kalenderschreiben ohne Bestätigung für **genau diesen** Vorgang — geschrieben **vor** dem Bau |
+| `platform/T-0067` | `SWR-230` | Ein Befund gehört dorthin, wo der Lauf ohnehin hinsieht |
+
+### ⚠⚠ Zwei eigene Befunde dieses Laufs sind widerlegt worden, bevor sie berichtet wurden
+
+1. **Die Mutationsprobe zu `T-0007` meldete dreimal „10 von 11 rot".** Die Zahl kam aus
+   einer **fehlenden Datei** — der Ladeweg der JS-Strecke erwartet das Repo unter einer
+   Wurzel, die Kopie lag woanders. Der `ENOENT` stand **zehnmal wortgleich** im Protokoll.
+   Mit korrekter Wurzel: **6 / 1 / 1 rot**. `L-2026-08-22q`.
+2. **`platform/T-0077` behauptete in seiner ersten Fassung einen unbenannten Befund.** Die
+   Antwort stand in `preflight.py` Zeile 8 und wird vom laufenden Schnelltakt **alle 15
+   Minuten** ausgedruckt. Ticket ersetzt, Prio korrigiert. `L-2026-08-22t`.
+
+> **Das Ticket `platform/T-0067` fragt „wer liest die maschinellen Befunde". Die ehrlichste
+> Antwort eines Sprints, der sie beantworten soll, ist: wir auch nicht, wenn der Befund
+> nicht im Weg steht.**
+
+### ⚠ Ollama-Offload: 0 delegiert, Ersparnis 0 — zum dritten Mal gemessen
+
+1. **Aus dieser Sandbox nicht erreichbar** (heute erneut geprüft): `127.0.0.1:11434` tot,
+   `host.docker.internal` *„Connection blocked by network allowlist"*.
+2. **Der Beleg trägt nicht:** beide `ok`-Läufe der Run-Registry sind derselbe widerlegte
+   Tick auf `T-0069` (221 s + 189 s, identische Artefakte, 0,00 €).
+3. **Ab jetzt sperrt `SWR-228` seine Wiederholung.**
+
+**Token-Ersparnis aus der Run-Registry: 0,00 €, 0 Token, 0 Aufgaben.**
+
+---
+
 ## Sprint-Plan (Sprint 39 — beim Abschluss auf Sprint 40 fortgeschrieben)
 
 *Sprint 39 eröffnet 2026-08-22 18:08 (`s39-2026-08-22-1815`), 26 Min nach dem Ende von
@@ -128,6 +231,81 @@ delegiere*. **Der Beleg existiert** (PROB@platform, `gemma3:27b`, 2 Artefakte, 2
 
 Kein Ticket ist **vor** der Arbeit verschoben worden. Was am Ende nicht geschlossen ist,
 trägt Grund und neuen Termin **im Ticket**.
+
+---
+
+## Sprint-Abschluss (Sprint 40, 2026-08-22)
+
+### Was dieser Sprint geschlossen hat
+
+| Ticket | Weg | Wirkung |
+|---|---|---|
+| `team-dashboard/T-0007` | in_review → **done** | Das Post-Widget des Auftraggebers, mutationsgeprüft freigegeben; Rest als `T-0008` geschnitten |
+
+**Eins.** Und das ist wenig gegen Sprint 39 (neun) — mit einem Grund, der sich messen
+lässt: Sprint 39 fand **elf** `in_review` vor und hat sie geräumt. Sprint 40 fand **zwei**
+und hat sie geräumt. Danach war der Rest dieses Laufs **Bauen**, und Gebautes ist am Ende
+`in_review`, nicht `done`.
+
+> **Elf `in_review` sind kein Stau, solange der Folgelauf sie räumt. Sie sind einer, wenn
+> er es nicht tut — Sprint 37 und 38 haben je null geräumt** (`L-2026-08-22p`).
+
+### Was dieser Sprint gebaut hat
+
+| Anforderung | Ticket | Kern | Vertreter |
+|---|---|---|---|
+| `SWR-227` | `platform/T-0074` | Drei Formen statt einer: `am_bestand`, `methode_am_bestand`, `am_vorhandenen_bestand` — **16 Klassen** deklariert | `test_bestandswaechter` (9 → **14**) |
+| `SWR-228` | `platform/T-0069` | `auflage: offen` + Zweitlauf-Sperre; **Filter, nicht Veto** | `test_tick_zweitlauf` (**12**) |
+| `SWR-229` | `team-termine/T-0004` | Kein Kalenderschreiben ohne Bestätigung — **vor** dem Bau geschrieben | ⚠ bewusst keiner: der Gegenstand existiert nicht |
+| `SWR-230` | `platform/T-0067` | Die CI-Zeile im Preflight; **das veraltete Grün** ist der eigentliche Fall | `test_ci_gelesen` (**10**) |
+
+Dazu **acht** Dokumente für P16 (Rollenkarten, QM-Plan, Verifikationsstrategie,
+Entwicklungsumgebung, Problem-/Change-Management, STK-Liste) und **drei** neue Tickets
+(`platform/T-0076`, `T-0077`, `T-0078`, `team-dashboard/T-0008`).
+
+### ⚠⚠ Der Sprint, in dem zwei eigene Befunde widerlegt wurden, bevor sie berichtet waren
+
+1. **Drei Mutationsproben meldeten dreimal exakt dieselbe Zahl** („10 von 11 rot"). Sie kam
+   aus einer fehlenden Datei; der `ENOENT` stand **zehnmal wortgleich** im Protokoll. Mit
+   korrekter Wurzel: **6 / 1 / 1** — jede Mutation genau an ihrer Zusicherung.
+   > **Eine gleichbleibende Zahl über verschiedene Eingriffe ist ein Befund über den
+   > Prüfaufbau und kein Lob für die Tests.** (`L-2026-08-22q`)
+2. **`platform/T-0077` behauptete einen „nie benannten" Befund** — benannt seit `pm/T-0023`
+   in `preflight.py` Zeile 8, und der laufende Schnelltakt druckt ihn **alle 15 Minuten**.
+   Ticket ersetzt, Prio von `hoch` auf `mittel` korrigiert. (`L-2026-08-22t`)
+3. **Und die Hausregel hat den eigenen Neubau gefangen:**
+   `test_board.SubprocessKodierungRegelTest` meldete `preflight.py:940` — der neue
+   `juengster_commit` lief im Textmodus ohne feste Kodierung. **Die Regel hat gearbeitet,
+   bevor jemand sie las.**
+
+### Verschiebungen mit Grund — vorab benannt, nicht nachträglich
+
+Kein Ticket ist **vor** der Arbeit verschoben worden. Was am Ende nicht geschlossen ist,
+trägt Grund und neuen Termin **im Ticket**. ⚠ Und **zwölf** davon sind ausdrücklich als
+*Terminierung* und nicht als *Entscheidung* gebucht (`platform/T-0078`) — beschönigt wird
+das nicht.
+
+### Zahlen (gemessen, nicht geschätzt)
+
+| Größe | Start | Ende |
+|---|---|---|
+| offene Aufgaben | **33** | **36** |
+| davon `in_review` | 2 | **11** |
+| davon `blocked` | 1 | **3** |
+| `done` in diesem Lauf | — | **1** |
+| Teststrecke (voller Bestand) | 1636 | **1662, 0 rot** |
+| nachgestellter CI-Checkout | 1635, **1 rot** | **1662, 0 rot** (183 übersprungen) |
+| JS-Strecke | 127 grün | **127 grün** |
+| `trace_matrix` | 226 / 0 Lücken | **230 / 0 Lücken** |
+| Work Products | 66 | **72 / 0 undeklariert** |
+| unabgedeckte Takte | 0 | **0** |
+| Briefkasten | 0 offen / 71 | **0 offen / 71** |
+| Sprintübergabe (5 Prüfungen) | — | **0 · 0 · 0 · 0 · 0** |
+| Ollama-Offload | 0 / 0 | **0 delegiert, 0,00 €** |
+
+⚠ **Offen steigt von 33 auf 36, und das ist kein Rückschritt, sondern die Buchung von
+vier Befunden**, die dieser Lauf gefunden hat (`T-0076`, `T-0077`, `T-0078`, `T-0008`).
+Ein Haus, dessen offene Zahl nur fällt, hört irgendwann auf zu suchen.
 
 ---
 
@@ -3586,8 +3764,8 @@ offen, Plan-Drift 0, Statusdrift 0. ⚠ Nicht startklar — Altbefund unverände
 
 </details>
 
-<!-- kennzahlen v1 | gemessen 2026-08-22 19:52
-beitraege_im_lauf=0 briefe_im_lauf=0 briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=13111 post_im_lauf=0 swr=226 testdateien=116 tests=1635 tickets_offen=33 wartet_auf_mensch=0
+<!-- kennzahlen v1 | gemessen 2026-08-22 22:13
+beitraege_im_lauf=0 briefe_im_lauf=0 briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=13415 post_im_lauf=0 swr=230 testdateien=118 tests=1662 tickets_offen=36 wartet_auf_mensch=0
 -->
 
 </details>

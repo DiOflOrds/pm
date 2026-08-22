@@ -1,3 +1,66 @@
+## Sprint 40, 2026-08-22 (Cowork mit Shell) — der Sprint, der zum ersten Mal die Berührungen gezählt hat
+
+**Sprint 40 eröffnet** (`s40-2026-08-22-2050`, 21:48).
+
+### ⚠⚠ Das Sprint-Planning hat eine Hausregel gemessen, und sie hat nie gegriffen
+
+Der Auftrag sagt seit Sprint 33: *„Regel der vierten Berührung — beim vierten Termin wird
+entschieden (bauen/schneiden), nicht terminiert."* Zum ersten Mal wurde nicht geschätzt,
+sondern über den Git-Verlauf jedes Tickets gezählt (Änderungen an `geplant_sprint`):
+
+| Terminierungen | Tickets |
+|---|---|
+| **22×** | `promt-team/T-0003` |
+| **11×** | `pm/T-0071` |
+| **8×** | `platform/T-0055`, `pm/T-0080`, `pm/T-0082`, `team-dashboard/T-0004` |
+| **≥5×** | 16 weitere |
+
+**22 von 33 offenen Tickets standen bei der fünften Terminierung oder später.** Und die
+Sprintberichte nannten für dieselben Tickets kleinere Zahlen — `platform/T-0064` steht in
+Sprint 39 als *„Dritte Terminierung"*, gemessen sind es **sechs**.
+
+> **Die Zahl in der Planzeile war nicht gelogen, sie war geschätzt. Und eine geschätzte
+> Zahl vor einer Regel, die an einer Zahl hängt, ist dasselbe wie keine Regel.**
+
+Verbucht als `platform/T-0078` (prio hoch): die Regel braucht einen Vollstrecker, sonst ist
+jede Terminierung dieses Hauses unverbindlich.
+
+### `pm/T-0071` — elfte Terminierung, gemessen und geschlossen
+
+Ausgezählt aus `ollama-schnelltakt.log` (34 973 Zeilen, 20.08. 17:15 bis 22.08. 21:25):
+
+| Größe | Wert |
+|---|---|
+| Schnelltakt-Läufe | **128** |
+| Ticketauswahlen | **27** (`T-0001` 23×, `T-0033` 2×, `T-0069` 2×) |
+| „Kein bearbeitbares Ticket" | **65** |
+| „Tick OHNE ERGEBNIS" | **21** |
+| „Preflight hat Befunde" | **320** |
+| Läufe mit `status: ok` | **2** |
+| **gelöste Aufgaben** | **0** |
+| Serialisierung | kleinster Abstand **895 s**, Median 900 s, **0** Parallelmeldungen |
+
+**Die DoD ist erfüllt** — und genau das ist der Befund:
+
+> **„Ein sauberer Lauf" ist eine Aussage über den Aufruf. Sie war als Nachweis gemeint,
+> dass der Takt arbeitet, und sie ist auch dann wahr, wenn er 128-mal nichts erledigt.**
+
+Die Nützlichkeitsfrage wandert zu `promt-team/T-0012`. **Ein Ticket, das elfmal terminiert
+wurde, ist selten schwer — meist ist es zwei Tickets.**
+
+### Was das PM-Team sonst getan hat
+
+* **Briefkasten** beide Ebenen: **0 offen / 71** beim Start, **0 offen / 71** am Ende —
+  nachgemessen, nicht angenommen (`L-2026-08-21cs`).
+* **Sprintübergabe**: `plan_drift`, `sprint_vergangen`, `status_drift`, `plan_nachlauf`,
+  `nicht_geplant` — **alle fünf 0**, mit **36** offenen Tickets in **28** Planzeilen.
+* **Lessons Learned**: `q`, `r`, `t` mit Vertreter verankert; `p` (aus Sprint 39, dort nur
+  im Bericht) und `s` ausdrücklich als **gebuchte Beobachtung** — der Marker ist eine
+  sichtbare Handlung und kein Schlupfloch.
+* **Offen steigt 33 → 36.** Das ist die Buchung von vier eigenen Befunden dieses Laufs.
+  **Ein Haus, dessen offene Zahl nur fällt, hört irgendwann auf zu suchen.**
+
+
 ## Sprint 37, 2026-08-22 (Cowork mit Shell) — die teuerste Handlung des Tages war eine Tabelle
 
 **Sprint 37 eröffnet** (`s37-2026-08-22-1430`, 14:23) — 22 Minuten nach dem Ende von Sprint 36.
