@@ -36,6 +36,11 @@ Die zehn Tickets, die der Folgelauf vom 21.08. als Zeitbombe benannt hat (`gepla
 
 **Unterminiert: nichts.**
 
+⚠ **Die Spalte „Fällig" oben ist der Stand der PLANUNG (Sprint 36).** Beim Abschluss sind
+**30** nicht geschlossene Tickets im Ticket selbst auf `geplant_sprint: 37` gezogen worden —
+**vor** `--beende`, nicht danach. Wer nur diese Tabelle liest, sieht den Plan; wer wissen
+will, wann etwas fällig ist, liest das Ticket (`L-2026-08-17ag`).
+
 ---
 
 ## Sprint-Abschluss (Sprint 36, 2026-08-22)
@@ -3176,7 +3181,7 @@ offen, Plan-Drift 0, Statusdrift 0. ⚠ Nicht startklar — Altbefund unverände
 
 </details>
 
-<!-- kennzahlen v1 | gemessen 2026-08-22 13:46
+<!-- kennzahlen v1 | gemessen 2026-08-22 13:53
 beitraege_im_lauf=0 briefe_im_lauf=1 briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=12508 post_im_lauf=1 swr=213 testdateien=109 tests=1553 tickets_offen=37 wartet_auf_mensch=0
 -->
 
