@@ -103,6 +103,30 @@ Schnelltakt des Hosts meldet zuletzt `PREFLIGHT: 1 Befund(e)`; dieser eine Befun
 diesem Lauf **nicht** identifiziert worden und bleibt offen.
 
 
+### ⚠ Nachtrag zur Verifikation (nach `--beende`, ehrlich gehalten)
+
+`test_uebergang_historie` ist nach dem Sprintende **grün** — und das ist **keine
+Reparatur**. Die Zusicherung fragt ausdrücklich nach dem **laufenden** Sprint, also nach
+dem, was ein Lauf noch beeinflussen kann (so steht es seit `platform/T-0029` in ihrem
+Docstring). Mit dem Abschluss von Sprint 36 fällt der Verstoß aus ihrem Fenster.
+
+> **Der Verstoß ist damit nicht weg, sondern nur nicht mehr rot.** Er steht dauerhaft und
+> namentlich in der Liste der fortgeschriebenen Übergänge:
+> `platform/tickets/T-0068.md: open -> in_review (Commit 04da965)`.
+> Historie wird hier nicht umgeschrieben (Playbook Kap. 16).
+
+**Endstand der Verifikation:**
+
+| Prüfung | Ergebnis |
+|---|---|
+| `uebergang_historie` im laufenden Sprint | **0** Verstöße (nach Abschluss) |
+| dauerhaft fortgeschriebene Verstöße | enthält den eigenen von heute |
+| `organigramm.py --check` | grün (21 Dateien) |
+| `trace_matrix` | 213 SWRs, **0 Lücken** |
+| Briefkasten am Ende | **0 offen** |
+| `dr_entschieden_nicht_verbucht` | **[]** |
+| Sprint 36 im Register | **beendet** 2026-08-22 14:01 |
+
 ---
 
 <details><summary>Archiv: Sprint 35 und früher</summary>
@@ -3181,8 +3205,8 @@ offen, Plan-Drift 0, Statusdrift 0. ⚠ Nicht startklar — Altbefund unverände
 
 </details>
 
-<!-- kennzahlen v1 | gemessen 2026-08-22 13:53
-beitraege_im_lauf=0 briefe_im_lauf=1 briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=12508 post_im_lauf=1 swr=213 testdateien=109 tests=1553 tickets_offen=37 wartet_auf_mensch=0
+<!-- kennzahlen v1 | gemessen 2026-08-22 14:05
+briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=12577 swr=213 testdateien=109 tests=1553 tickets_offen=37 wartet_auf_mensch=0
 -->
 
 </details>

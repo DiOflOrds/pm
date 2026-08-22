@@ -56,3 +56,4 @@
 {"nr": 35, "kennung": "s35-2026-08-21-1450", "start": "2026-08-21 14:58", "takt_min": 60, "notiz": "Routine-Session Sprint 35"}
 {"kennung": "s35-2026-08-21-1450", "ende": "2026-08-21 20:21", "ende_notiz": "Sprint 35: Ollama-Blocker geraeumt, SWR-212/213, 17 Gegenlese-Befunde; Abschluss durch Sandbox-Ausfall nur teilweise committet; geschlossen vom Host-Lauf 21.08."}
 {"nr": 36, "kennung": "s36-2026-08-22-1300", "start": "2026-08-22 12:51", "takt_min": 60, "notiz": "Routine-Session Sprint 36 (Cowork, Shell verfuegbar)"}
+{"kennung": "s36-2026-08-22-1300", "ende": "2026-08-22 14:01", "ende_notiz": "Sprint 36 (Cowork mit Shell): T-0060 done (Ollama-Nachweis gefuehrt) entsperrt 4, team-termine/T-0001 Projektplan v1.0 entsperrt 10, pm/T-0086 verbucht (D030=C, 13h unverbucht), T-0068 in_review; Brief p0/N-0002 beantwortet -> team-dashboard/T-0007; 4. Beruehrung fuer 5 Tickets entschieden; 109 Module/1553 Zusicherungen, 1 rot selbst verursacht"}
