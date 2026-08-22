@@ -6,7 +6,102 @@
 > **nicht umgeschrieben** (Playbook Kap. 16), sondern hiermit als historisch markiert. Ab
 > Sprint 41 kommt die Zahl aus `preflight` und dem Git-Verlauf.
 
-## Sprint-Plan (Sprint 41)
+## Sprint-Plan (Sprint 42)
+
+*Sprint 42 eröffnet 2026-08-23 01:00 (`s42-2026-08-23-0100`). Default nach `pm/D006`: in
+diesem Sprint schließen. ⚠ Jede Verschiebung trägt ihren Grund **im Ticket**, nicht hier
+(`L-2026-08-17ag`). Gesichtet: **alle** Tickets **aller** Repos über beide Ebenen. Offen
+beim Start: **31**. Briefkasten beim Start: **0 offen / 71 Briefe**.*
+
+**Die erste Handlung dieses Laufs waren die zwei offenen Reviews des Vorlaufs**, wie es die
+Agenda verlangt — nicht die letzte.
+
+### ⚠⚠ Die Kernzahl dieses Sprints: 11 → 0, und keine einzige Null durch einen Terminwechsel
+
+Sprint 41 hat den Vollstrecker der Regel der vierten Berührung gebaut (`SWR-233`) und ihn
+an **einem** von elf Tickets vollzogen — ausdrücklich als bewusste Zurückhaltung. Sprint 42
+hat die übrigen abgearbeitet:
+
+| Weg | Tickets |
+|---|---|
+| **gebaut** | `platform/T-0064` · `T-0069` · `T-0070` · `T-0071` (Teil 1) |
+| **blockiert mit benanntem Blocker** | `promt-team/T-0012` · `platform/T-0072` · `team-dashboard/T-0006` |
+| **geschnitten** | `pm/T-0080` · `pm/T-0082` |
+| **als Entscheidungsanfrage gestellt** | `team-mail/T-0007` → `T-0008` · `team-dashboard/T-0006` → `T-0009` |
+| **beantwortet und entschieden** | `team-dashboard/T-0004` (die zwei Vorfragen) |
+
+`preflight` meldet am Sprintende: **`[org] 0 offene Aufgaben ab der 4. Terminierung ohne
+Entscheidung.`**
+
+### ⚠⚠ Und der teuerste Befund des Laufs steht in zwei Zeitstempeln
+
+Zwei Tickets bei der **siebten** Terminierung trugen seit Sprint 34 im **eigenen Text**,
+dass ein Mensch entscheiden muss:
+
+| Ticket | Satz im Ticket | gefragt | beantwortet |
+|---|---|---|---|
+| `team-mail/T-0007` | *„das ist seine Entscheidung, nicht unsere. Der Brief fragt ihn danach."* | Sprint 42, 00:5x | **01:07** (`D031` = S3) |
+| `team-dashboard/T-0006` | *„Jede dieser Fragen ist eine Zugriffsentscheidung"* (= Klasse A) | Sprint 42, 01:0x | **01:21** (`D032` = P2) |
+
+> **Vierzehn Terminierungen gegen vierunddreißig Minuten. Es hat nie an Kapazität gefehlt.
+> Der Brief hat ihn nie gefragt** (`L-2026-08-23g`).
+
+Beide Entscheidungen sind **im selben Lauf vollzogen**: die SPAM-Kachel ist aus
+`widgets.KACHEL_RUBRIKEN`, die Zusicherung **umgedreht statt gelöscht**
+(`SWR-148`-Paarform); `T-0006` ist entsperrt und trägt die Auflage, die aus der Antwort
+folgt, aber nicht in ihr steht — *„bis zum Abmelden"* setzt voraus, **dass es ein Abmelden
+gibt**.
+
+### Der Plan
+
+| Aufgabe | Rolle | Fällig | Status | Grund / nächster Schritt |
+|---|---|---|---|---|
+| Briefkasten (beide Ebenen, inkl. `projects/*`) | pl | Sprint 42 | **geschlossen** | 0 offen / 71 beim Start, 0 offen / 71 am Ende. Nachgemessen, nicht angenommen. |
+| platform/T-0076 | qm | Sprint 42 | **done** | ✅ Review: alle vier DoD-Punkte an den Quellen nachgefahren, 19 Zusicherungen grün. ⚠ Altbestand 56 → **54** ist **belegt** (zwei Altfälle rückwirkend zulässig, namentlich mit Commit). |
+| platform/T-0078 | qm | Sprint 42 | **done** | ✅ Werkzeug selbst gefahren: **19,2 s**, 11 Namen. ⚠ **Die Ticketzahl war zu klein**: „9 Zusicherungen" gegen gemessene **11** (`L-2026-08-23a`). Keine Auflage — das Werkstück ist besser als sein Bericht. |
+| platform/T-0079 | dev | Sprint 42 | **in_review** | ✅ `SWR-234`. ⚠⚠ Die Zählung fand **zwei lebende** Falschaufrufe — und `T-0079` behauptete, einer sei „in diesem Lauf korrigiert" worden. **War er nicht** (`L-2026-08-23b`). |
+| platform/T-0064 | qm | Sprint 42 | **in_review** | ✅ `SWR-235`. ⚠ Bauform aus **424/20/2** abgeleitet; Variante A **an der Zahl gescheitert**. Kosten 13,58 s → **2,88 s**. |
+| platform/T-0069 | pl | Sprint 42 | **in_review** | ✅ **Ohne Host gemessen** — die Lage ließ sich herstellen. Zwei Zusicherungen des Host-Laufs vom 21.08. **wortgleich reproduziert**. `auflage: erfuellt`, Reparatur als `T-0084`. |
+| platform/T-0070 | qm | Sprint 42 | **in_review** | ✅ Acht Lehren **einzeln** entschieden statt achtmal derselbe Satz. ⚠⚠ `L-2026-08-21dk` hatte ihren Vertreter **seit Sprint 41**. Mutationsprobe **5/10** und **0/10**. |
+| platform/T-0071 | qm | Sprint 42 | **in_review** | ✅ **Teil 1** gebaut (`SWR-236`). ⚠ Die „eine Quelle" existierte seit Sprint 35 — es fehlte ihr **Leser**. Teil 2 (Anzeige) Sprint 43. |
+| platform/T-0072 | dev | — | **blocked** | `blocked_by: [T-0071]`. ⚠ Ohne lesbare Quelle wäre die Alternative nicht „später bauen", sondern **„falsch bauen"** (DoD 1 verbietet Abschreiben). |
+| team-mail/T-0007 | dev | Sprint 42 | **rejected** | ✅ `D031` = S3. Gegenstandslos statt erledigt — es wurde nichts gebaut. **Dauerbefund „keine Daten" nach zehn Sprints fort.** |
+| team-mail/T-0008 | pl | Sprint 42 | **done** | ✅ DR gestellt **und beantwortet** (14 Min). |
+| team-dashboard/T-0009 | pl | Sprint 42 | **done** | ✅ DR **ohne Default** (Klasse A durch Schweigen wäre keine Entscheidung), beantwortet nach 20 Min. |
+| team-dashboard/T-0006 | dev | Sprint 43 | **open** | ✅ entsperrt durch `D032` = P2. ⚠ **Auflage aus der Antwort**: es muss ein Abmelden geben, sonst heißt P2 „für immer". |
+| team-dashboard/T-0004 | dev | Sprint 43 | **open** | ✅ Die zwei Vorfragen **beantwortet** (zwei Zahlen aus `aggregation.uebersicht`; nur aktive Projekte). Ab jetzt Bauzeit statt offener Frage. |
+| promt-team/T-0012 | prompt-opt | — | **blocked** | `blocked_by: [platform/T-0081]`. ⚠ Ollama in diesem Lauf **nachgemessen**: 127.0.0.1 unerreichbar, `host.docker.internal` und `172.17.0.1` **403**. |
+| pm/T-0080 | dev | Sprint 43 | **open** | ✅ **Geschnitten**: Schritt 2 fällt — Ticket-ID-Quote **62 %** (in `process` **33 %**), die Spur wäre zu 38 % blind. Es bleibt Schritt 1. |
+| pm/T-0082 | pl | Sprint 43 | **open** | ✅ **Geschnitten**, Teil 1 erledigt: `projects/p13/docs/historie.md` angelegt. ⚠ Die Pflicht-Lektüre hat dort **zwei Tage** gefehlt, ohne einen Befund zu erzeugen. |
+| platform/T-0082 (neu) | cm | Sprint 42 | **open** | NEU: die Nachverbuchung des Hosts greift **mitten in laufende Arbeit** — **dreimal in diesem Lauf**, einmal mit Produktivcode ohne Test. |
+| platform/T-0083 (neu) | dev | Sprint 43 | **open** | NEU: `js_tests.py`/`konsole.py` ohne `argparse` — **bewusst** aus `SWR-234` herausgehalten, weil ihnen der Umstand fehlt, der `board.py` teuer macht. |
+| platform/T-0084 (neu) | test | Sprint 42 | **open** | NEU aus der Klassifikation von `T-0069`: zwei Zusicherungen sind nicht hermetisch. |
+| platform/T-0085 (neu) | test | Sprint 43 | **open** | NEU: `selbstaufloeser` sammelt Wurzelnamen über die **ganze Datei** — ein `p` in einer Methode machte **vier** hermetische Zusicherungen zu Befunden. |
+| team-mail/T-0008, team-dashboard/T-0009 | — | — | — | siehe oben |
+
+### ⚠ Verschoben — und ausdrücklich als solches benannt
+
+**Keine Aufgabe ab der vierten Terminierung ist ohne Entscheidung verschoben worden.**
+Verschoben mit Grund im Ticket sind:
+
+* `platform/T-0071` **Teil 2** (Anzeige in Mission Control) → Sprint 43, **Rest eines
+  Schnitts**, nicht sechste Terminierung des Ganzen.
+* `pm/T-0080` **Schritt 1** und `pm/T-0082` **Teil 2** → Sprint 43, ebenfalls Reste von
+  Schnitten; beide Tickets sind heute **kleiner** als gestern, und zwar aus gemessenen
+  Gründen.
+* `team-dashboard/T-0004` und `T-0006` → Sprint 43. ⚠ Beide sind **achte bzw. zehnte**
+  Terminierungen — und die ersten, die **nicht** auf eine unbeantwortete Frage warten. Was
+  bleibt, ist Frontend-Bauzeit, und die hatte dieser Lauf nicht mehr.
+* `platform/T-0055`, `T-0075`, `T-0077`, `T-0080`, `T-0081`, `T-0083`, `T-0085`,
+  `team-termine/T-0005`, `T-0013`, `p13/T-0001` — nicht erreicht; keines davon steht bei
+  der vierten Berührung.
+
+⚠ **Für den Auftraggeber, ohne Frist, unverändert:** `team-dashboard/T-0008` — ein Blick auf
+das reparierte Post-Widget im Browser und ein Screenshot nach `bugs/`. **Keine Session
+dieses Hauses kann das.**
+
+
+## Sprint-Plan (Sprint 41 — beim Abschluss auf Sprint 42 fortgeschrieben)
 
 *Sprint 41 eröffnet 2026-08-22 22:20 (`s41-2026-08-22-2220`). Default nach `pm/D006`: in
 diesem Sprint schließen. ⚠ Jede Verschiebung trägt ihren Grund **im Ticket**, nicht hier
@@ -3826,8 +3921,8 @@ offen, Plan-Drift 0, Statusdrift 0. ⚠ Nicht startklar — Altbefund unverände
 
 </details>
 
-<!-- kennzahlen v1 | gemessen 2026-08-23 01:25
-beitraege_im_lauf=0 briefe_im_lauf=0 briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=13910 post_im_lauf=0 swr=233 testdateien=124 tests=1745 tickets_offen=31 wartet_auf_mensch=0
+<!-- kennzahlen v1 | gemessen 2026-08-23 01:37
+beitraege_im_lauf=0 briefe_im_lauf=0 briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=13910 post_im_lauf=0 swr=237 testdateien=124 tests=1745 tickets_offen=32 wartet_auf_mensch=0
 -->
 
 </details>
