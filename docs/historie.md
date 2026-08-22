@@ -43,6 +43,7 @@ Muster ist. Alle im selben Lauf korrigiert, keiner geglättet:
 
 | # | Behauptung | Gemessen |
 |---|---|---|
+| 2026-08-22 | **Sprint 36** eröffnet (`s36-2026-08-22-1300`) — erster Cowork-Lauf **mit Shell** seit fünf Sitzungen. **`T-0086` verbucht: `pm/D030` = C lag seit 00:23 im Decision-Log und war 13 h unverbucht**, gefunden von `test_dr_verbuchung`, nicht von der Planung; `wartet_auf_mensch` **1 → 0**. Option A des DR ist durch diesen Lauf selbst belegt. **Vierte Berührung** für `T-0080`/`T-0082` → geschnitten mit benanntem ersten Teil. ⚠ Briefkasten Start **0 offen / 69**, Ende **0 offen / 70** — ein Brief kam im Lauf an. | T-0086, D030, T-0080, T-0082, L-2026-08-22c |
 | 1 | „alle acht Lehren aus Läufen ohne Shell" | **sechs aus Sprint 35** (mit Shell, hat gebaut), zwei aus Läufen ohne |
 | 2 | „drei Zusicherungen rot gemacht" | sie waren nach Sprint 35 **schon** rot — vergrößert, nicht erzeugt |
 | 3 | „seit 20:00 STARTKLAR" | 20:30 meldete 1 Befund und brach ab — **fünf von sechs** |

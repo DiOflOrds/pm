@@ -1,5 +1,59 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
+## Das Wichtigste (Sprint 36, 2026-08-22 — **die Shell ist zurück**)
+
+1. **Sprint 36 läuft** (`s36-2026-08-22-1300`). Sprint 35 war vom Host bereits geschlossen,
+   Schritt 0 (zehn Tickets auf `geplant_sprint: 36`) beim Start **schon erledigt** —
+   `--beginne` lief ohne Befundlawine. Die Warnung der letzten drei Läufe hat getragen.
+2. **⚠⚠ Der teuerste Fund: zwei fertige Nachweise lagen ungelesen im Haus.**
+   Der Ollama-Tick (`status: ok`, `gemma3:27b`, 2 Artefakte) seit **21.08. 20:59**, die
+   Entscheidung `pm/D030` = C seit **22.08. 00:23**. Beide zusammen haben **fünf** Tickets
+   freigegeben, sobald sie jemand gelesen hat. **Gefunden hat beides nicht die Planung,
+   sondern je eine Zusicherung.**
+   > **Der Sprintanfang liest ab jetzt zuerst Run-Registry und Decision-Log — die Belege,
+   > die seit dem letzten Lauf von allein entstanden sind** (`L-2026-08-22a`, `-c`;
+   > `pl.md` Lehren 13/14).
+3. **`team-termine/T-0001` hat zehn Tickets entsperrt.** Der Projektplan war ein Template
+   mit Platzhaltern und damit der Engpass der ganzen Einheit. Jetzt v1.0 vollständig.
+   ⚠ Status `in_review`, nicht `done` — das QM-Review steht aus. **Die Sperren fielen
+   trotzdem**, weil sie am Werkstück hängen, nicht am Status.
+4. **⚠ Ein Verstoß dieses Laufs steht in der Historie.** `platform/T-0068`
+   `open -> in_review` ohne `in_progress` (Commit `04da965`): `board.py` meldete den
+   Fehler, `git commit` lief mit `;` daneben trotzdem durch. `test_uebergang_historie`
+   bleibt bis zum Sprintende rot. **Prüfen und Verbuchen gehören mit `&&` in dieselbe
+   Kette** (`L-2026-08-22d`, `dev.md` Lehre 8).
+5. **⚠ Der Wächter ist tot, die Bewachten leben.** Letzter Herzschlag **21.08. 23:25**
+   (~14 h), während `abschluss-auto` und `ollama-schnelltakt` um 12:55/12:56 schrieben.
+   Sein eingefrorener Status behauptet weiter „kein laufender Sprint". Steht in
+   `platform/T-0055` (vierte Berührung → geschnitten).
+6. **Zahlen (gemessen):** offen **38 → 37**, `wartet_auf_mensch` **1 → 0**, Briefkasten
+   Start **0/69** → Ende **0/70** (ein Brief kam im Lauf an), Teststrecke **109 Module /
+   1553 Zusicherungen**, **1 rot** (selbst verursacht), `trace_matrix` **213 SWR / 0
+   Lücken**, `organigramm --check` **grün**. Ollama-Offload **0 / Ersparnis 0**.
+
+### Erste Aufgaben des Folgelaufs
+
+1. **Run-Registry und Decision-Log lesen, bevor geplant wird** — die neue Pflicht aus
+   Punkt 2. Nicht als Kür, sondern als Schritt 1b nach dem Briefkasten.
+2. **Den einen offenen Preflight-Befund identifizieren**, an dem der Schnelltakt des Hosts
+   zuletzt abbrach (`PREFLIGHT: 1 Befund(e)`). Dieser Lauf hat ihn **nicht** gefunden —
+   `preflight` lief in die Zeitgrenze der Sandbox.
+3. **`team-dashboard/T-0007`** (Post-Widget, Brief des Auftraggebers) — Prio hoch, und der
+   Auftraggeber wartet auf ein sichtbares Ergebnis.
+4. **Die zehn entsperrten `team-termine`-Tickets** — die Rollen-Initialisierung von P16 ist
+   seit heute arbeitsfähig und war es nie zuvor.
+5. **`team-mail/T-0006` bauen** (vierte Berührung, Entscheidung **BAUEN**).
+
+⚠ **Die zwei vom Ollama-Modell geschriebenen Artefakte** (`skills/sup9-problemmanagement/
+SKILL.md`, `templates/issues/problem.md`) hat **niemand gelesen**. Das gehört zu
+`promt-team/T-0012`, nicht in den Abschluss von `T-0060`.
+
+---
+
+<details><summary>Archiv: Sprint 35 und früher</summary>
+
+# Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
+
 ## Das Wichtigste (Folgelauf 2026-08-21 — **wieder kein Sprint 36**)
 
 1. **Die Shell ist zum zweiten Lauf in Folge ausgefallen** (vier identische Startfehler,
@@ -62,6 +116,8 @@ umgekehrt erzeugt Schritt 1 zehn Befunde, die Schritt 0 verhindert hätte.
 
 ---
 
+
+</details>
 <details><summary>Archiv: Lauf ~16:4x</summary>
 
 ## Das Wichtigste (Lauf 2026-08-21 ~16:4x — **kein Sprint 36**)

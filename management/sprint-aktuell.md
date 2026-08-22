@@ -1,5 +1,108 @@
 # Sprint aktuell — Genesis-Gesamtsprint (Workflow-Sicht des PM, pm/D006)
 
+## Sprint-Plan (Sprint 36) — Planung VOR der Arbeit
+
+*Sprint 36 eröffnet 2026-08-22 (`s36-2026-08-22-1300`) — der erste Cowork-Lauf mit Shell
+seit fünf Sitzungen. Default nach `pm/D006`: in diesem Sprint schließen. ⚠ Jede
+Verschiebung trägt ihren Grund **im Ticket**, nicht hier (`L-2026-08-17ag`). Gesichtet:
+**alle** Tickets **aller** Repos über **beide** Ebenen. Offen beim Start: **38**.
+Briefkasten beim Start: **0 offen / 69 Briefe** — ⚠ die Nachmessung am Ende hat das
+widerlegt (siehe Abschluss).*
+
+### ⚠ Schritt 0 war beim Start schon erledigt
+
+Die zehn Tickets, die der Folgelauf vom 21.08. als Zeitbombe benannt hat (`geplant_sprint:
+35`, obwohl nach 36 verschoben), tragen alle **36**. Der Host-Lauf hat sie nachgezogen.
+`--beginne` konnte deshalb ohne Befundlawine laufen.
+
+| Aufgabe | Rolle | Fällig | Status | Grund / nächster Schritt |
+|---|---|---|---|---|
+| Briefkasten (beide Ebenen) | pl | Sprint 36 | **geschlossen** | 0 offen beim Start; **1 neuer Brief im Lauf** (`p0/N-0002`, 12:51) beantwortet und als `team-dashboard/T-0007` qualifiziert. |
+| **platform/T-0060** | dev | Sprint 36 | **done** | ⚠⚠ Der Nachweis war **seit dem 21.08. 20:59 geführt** und lag ungelesen im Register: `Gateway: status=ok provider=ollama`, `gemma3:27b`, **2 Artefakte**, 221,2 s. Entsperrt vier Tickets. |
+| **team-termine/T-0001** | pl | Sprint 36 | **in_review** | `docs/projektplan.md` v1.0 vollständig (8 Kapitel, Z1–Z5, 6 Phasen, R1–R7). Entsperrt **zehn** Tickets. Review (QM+PM) offen — deshalb nicht `done`. |
+| **pm/T-0086** | mensch | Sprint 36 | **done** | ⚠ `pm/D030` = **C** lag seit 00:23 im Log und war **unverbucht**; gefunden von `test_dr_verbuchung`, nicht von der Planung. Option A ist durch diesen Lauf selbst belegt. |
+| **platform/T-0068** | dev | Sprint 36 | **in_review** | Vorabfragen **gezählt**: **1** Fundstelle im Bestand, **0 von 75** Belegen fälschlich durchgelassen. 2 neue Zusicherungen + Mutationsprobe (5 rot gegen alten Code). |
+| **team-dashboard/T-0007** | dev | Sprint 36 | **neu, open** | Aus Brief `p0/N-0002`: Post-Widget sprengt das Raster (3 Ursachen getrennt). Prio hoch. |
+| **platform/T-0055** | dev | Sprint 36 | ⚖ **geschnitten** | **Vierte Berührung.** Teil A (`waechter.py`) ist seit 21.08. **gebaut**; offen bleibt die DoD. ⚠⚠ Der Wächter selbst ist seit **23:25 tot** (14 h), während die Dienste laufen, die er bewacht. |
+| **pm/T-0080** | dev | Sprint 36 | ⚖ **geschnitten** | **Vierte Berührung.** Teil A: **eine** Aufgabe, **eine** Spurenquelle (Ticket + `git log`). B/C terminiert. |
+| **pm/T-0082** | pl | Sprint 36 | ⚖ **geschnitten** | **Vierte Berührung.** Teil A: Kennung klären (`pm/T-0085`, P13 doppelt) **vor** der Planung. |
+| **team-dashboard/T-0004** | dev | Sprint 36 | ⚖ **geschnitten** | **Vierte Berührung.** Teil A: **Kachel-Vertrag** in `T-0001` — gemeinsame Ursache von `T-0004`, `T-0006`, `T-0007`. |
+| **team-mail/T-0006** | dev | Sprint 36 | ⚖ **BAUEN** | **Vierte Berührung.** Als einziges **nicht** geschnitten: entsperrt, klein, scharf begrenzt. Auflage: kein Versandweg im Diff. |
+| **platform/T-0064, T-0066, T-0067, T-0069, T-0070** | cm/pl/coach/prob | Sprint 36 | geplant | Sprint-36-Bestand aus der Teststrecken-Auswertung; `T-0069` `in_review`. |
+| **pm/T-0071, T-0079, promt-team/T-0003, T-0012** | pl/dev/prompt-opt | Sprint 36 | **entsperrt** | Zeigten alle auf `platform/T-0060`; im selben Lauf geräumt (`SWR-204`). |
+| **team-termine/T-0002–T-0011** | div | Sprint 36 | **entsperrt** | Rollen-Initialisierung P16; Sperre fiel mit dem Projektplan. `T-0012` bleibt auf `T-0006` gesperrt (zeigt auf ein offenes Ticket, `SWR-204` erfüllt). |
+| pm/T-0085, team-mail/T-0007, team-dashboard/T-0006 | pl/dev | Sprint 36 | geplant | Unverändert terminiert. |
+| pm/T-0001–T-0003, platform/T-0001, team-dashboard/T-0001, team-mail/T-0001 | pl/coach/cm/dev | jeder Sprint | geplant | Takt-Dauerläufer. |
+
+**Unterminiert: nichts.**
+
+---
+
+## Sprint-Abschluss (Sprint 36, 2026-08-22)
+
+### Was dieser Sprint geschlossen hat
+
+| Ticket | Wirkung |
+|---|---|
+| `platform/T-0060` → **done** | entsperrt **4** Tickets |
+| `team-termine/T-0001` → **in_review** | entsperrt **10** Tickets |
+| `pm/T-0086` → **done** | `wartet_auf_mensch` **1 → 0** |
+| `platform/T-0068` → **in_review** | 2 neue Zusicherungen, Mutationsprobe belegt |
+| `p0/N-0002` beantwortet | → `team-dashboard/T-0007` |
+
+> **Vierzehn Sperren sind in einem Lauf gefallen — und keine davon durch neuen Code.
+> Zwei Nachweise lagen fertig im Haus (Registry-Tick, Decision-Log-Zeile) und ein Plan
+> war ein Template geblieben. Der Engpass dieses Hauses war nicht die Arbeit, sondern
+> das Lesen dessen, was schon dastand.**
+
+### ⚠⚠ Drei Befunde über uns selbst — alle von Zusicherungen gefunden, keiner von einem Menschen
+
+1. **`pm/D030` war 13 Stunden entschieden und unverbucht.** Gefunden von
+   `test_dr_verbuchung`. Der DR zählte in `wartet_auf_mensch` mit, während der Mensch
+   längst geantwortet hatte.
+2. **Ein Brief kam im Lauf an und wäre unbemerkt geblieben.** `p0/N-0002` (12:51). Der
+   Lauf hatte „0 offen / 69 Briefe" gemessen und wäre mit dieser Zahl in den Abschluss
+   gegangen — gefunden von `test_post_im_lauf` (69 ≠ 70). **Genau der Fall, für den
+   PL-Lehre 7 existiert.**
+3. **⚠ Ein unzulässiger Status-Übergang stammt aus DIESEM Lauf.** `platform/T-0068`
+   `open -> in_review` (Commit `04da965`) — der Zwischenschritt `in_progress` fehlt.
+   Gefunden von `test_uebergang_historie`. **Ursache: `board.py` lief im selben Aufruf
+   wie `git commit`, aber mit `;` statt als Tor — die Validierung meldete den Fehler,
+   und der Commit lief trotzdem.** Siehe `L-2026-08-22d`.
+
+### Nicht geschlossen — mit Grund und neuem Termin
+
+| Ticket | Grund | Neuer Termin |
+|---|---|---|
+| `platform/T-0055/T-0064/T-0066/T-0067/T-0069/T-0070` | Bestand aus der Teststrecken-Auswertung; dieser Lauf hat die zwei größten Sperren des Hauses geräumt und die Vierte-Berührung-Entscheidungen gefällt | Sprint 37 |
+| `pm/T-0080/T-0082/T-0085`, `team-dashboard/T-0004/T-0006/T-0007`, `team-mail/T-0006/T-0007` | geschnitten bzw. terminiert; erste Teile benannt | Sprint 37 |
+| `team-termine/T-0002`–`T-0011`, `pm/T-0071/T-0079`, `promt-team/T-0003/T-0012` | **erst in diesem Lauf entsperrt** — sie waren bis heute nicht arbeitsfähig | Sprint 37 |
+
+### Verifikation — gemessen, nicht behauptet
+
+| Prüfung | Ergebnis |
+|---|---|
+| Teststrecke | **109 Module, 1553 Zusicherungen** — modulweise gefahren (die Sandbox deckelt einen Aufruf bei ~178 s) |
+| Rot am Ende | **1** — `test_uebergang_historie` (Befund 3 oben, **selbst verursacht**) |
+| `trace_matrix` | **213 SWRs, 0 Lücken** |
+| `organigramm.py --check` | **grün** (21 Dateien) |
+| `board.py` je Einheit | **grün** |
+| `dr_entschieden_nicht_verbucht` | **[]** (vorher `['pm/T-0086']`) |
+| Briefkasten am Ende | **0 offen / 70 Briefe** |
+| Ollama-Offload | **0 Tickets delegiert, Token-Ersparnis 0** — Nachweis liegt vor, **aber Ollama ist aus dieser Sandbox nicht erreichbar** (`curl 127.0.0.1:11434` leer); der Takt läuft auf `DESKTOP-8OOO6JS` |
+
+⚠ **Was NICHT gemessen ist:** `test_js_teststrecke` läuft in dieser Sandbox in eine
+Zeitgrenze (Node vorhanden, Strecke > 100 s) und ist deshalb **weder grün noch rot**
+berichtet. `preflight` ist aus demselben Grund nicht vollständig durchgelaufen — der
+Schnelltakt des Hosts meldet zuletzt `PREFLIGHT: 1 Befund(e)`; dieser eine Befund ist in
+diesem Lauf **nicht** identifiziert worden und bleibt offen.
+
+
+---
+
+<details><summary>Archiv: Sprint 35 und früher</summary>
+
+
 ## Sprint-Plan (Sprint 35) — Planung VOR der Arbeit
 
 *Default nach `pm/D006`: in diesem Sprint schließen. ⚠ Jede Verschiebung trägt ihren Grund
@@ -3073,8 +3176,10 @@ offen, Plan-Drift 0, Statusdrift 0. ⚠ Nicht startklar — Altbefund unverände
 
 </details>
 
-<!-- kennzahlen v1 | gemessen 2026-08-22 13:10
-beitraege_im_lauf=0 briefe_im_lauf=1 briefkasten_offen=1 ladefehler=0 luecken=0 parkplatz=12472 post_im_lauf=1 swr=213 testdateien=109 tests=1553 tickets_offen=37 wartet_auf_mensch=1
+<!-- kennzahlen v1 | gemessen 2026-08-22 13:46
+beitraege_im_lauf=0 briefe_im_lauf=1 briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=12508 post_im_lauf=1 swr=213 testdateien=109 tests=1553 tickets_offen=37 wartet_auf_mensch=0
 -->
+
+</details>
 
 </details>
