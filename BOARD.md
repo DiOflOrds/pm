@@ -13,13 +13,7 @@ Stand: 2026-08-22 · Tickets: 86 · davon wiederkehrend: 3
 | [T-0082](tickets/T-0082.md) | Sprint-0-Planung p13 Produkt-Architekturbilder — Projektauftrag ist freigegeben (D000/G0a) | task | einmalig | pl | Team | mittel | 32 | — |
 | [T-0003](tickets/T-0003.md) | Takt: LeLe je Sprint/Durchlauf konsolidieren (D005 — kontinuierlich statt quartalsweise) | task | je Session | coach | Team | niedrig | 0 | — |
 
-## in_review (1)
-
-| ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
-|---|---|---|---|---|---|---|---|---|
-| [T-0071](tickets/T-0071.md) | F18: Ollama-Schnelltakt in Betrieb nehmen — Aufgabenplanung registrieren, ersten Lauf prüfen, Wirkung messen (pm/D010) | task | einmalig | pl | Team | hoch | 25 | — |
-
-## done (80)
+## done (81)
 
 | ID | Titel | Typ | Takt | Rolle | Verantwortlich | Prio | Sprint | blockiert durch |
 |---|---|---|---|---|---|---|---|---|
@@ -60,6 +54,7 @@ Stand: 2026-08-22 · Tickets: 86 · davon wiederkehrend: 3
 | [T-0065](tickets/T-0065.md) | CR (pm/T-0054 Teil b): Knopf je Zeile setzt geplant_sprint auf den nächsten Sprint | change-request | einmalig | chg | Team | hoch | 0 | T-0064 |
 | [T-0069](tickets/T-0069.md) | Der Status in_progress lebt 22 Sekunden: er wird vor dem Fertigmelden gesetzt statt beim Anfangen (Brief pm/N-0043) | problem | einmalig | pl | Team | hoch | 0 | — |
 | [T-0070](tickets/T-0070.md) | Orga-Rework Rollenmodell v2: Instanzen-Registry, Rollenkarten allgemein/projektspezifisch, Organigramme, Live-/Planungsansicht (Auftraggeber-Auftrag 2026-08-20) | change-request | einmalig | pl | Team | hoch | 0 | — |
+| [T-0071](tickets/T-0071.md) | F18: Ollama-Schnelltakt in Betrieb nehmen — Aufgabenplanung registrieren, ersten Lauf prüfen, Wirkung messen (pm/D010) | task | einmalig | pl | Team | hoch | 25 | — |
 | [T-0072](tickets/T-0072.md) | Rollenkarten v2 komplett: 10 Bestandskarten gehoben + 4 neue (REL, MAIL-RED, DASH-RED, PROMPT-OPT); Takt vereinheitlicht (session = sprint, D006) | change-request | einmalig | coach | Team | hoch | 0 | — |
 | [T-0074](tickets/T-0074.md) | Setup-Nachzieh koordinieren: 7 Projekte ziehen die Initial-Artefakte des Projektmodells nach (Konzept 04 Kap. 8 Schritt 7) | task | einmalig | pl | Team | hoch | 0 | — |
 | [T-0075](tickets/T-0075.md) | Review-Lauf (Auftraggeber-Weisung „mache weiter“): SWR-177–184 reviewed, Matrix 184/0, QM-Review der 36 Setup-Artefakte, T-0039/T-0040/T-0042 geschlossen | task | einmalig | qm | Team | hoch | 0 | — |
