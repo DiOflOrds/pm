@@ -1,139 +1,167 @@
 # Sprint aktuell — Genesis-Gesamtsprint (Workflow-Sicht des PM, pm/D006)
 
-## Sprint-Plan (Sprint 38 — beim Abschluss auf Sprint 39 fortgeschrieben)
+## Sprint-Plan (Sprint 39 — beim Abschluss auf Sprint 40 fortgeschrieben)
 
-*Sprint 38 eröffnet 2026-08-22 16:30 (`s38-2026-08-22-1630`), 36 Min nach dem Ende von
-Sprint 37. Default nach `pm/D006`: in diesem Sprint schließen. ⚠ Jede Verschiebung trägt
+*Sprint 39 eröffnet 2026-08-22 18:08 (`s39-2026-08-22-1815`), 26 Min nach dem Ende von
+Sprint 38. Default nach `pm/D006`: in diesem Sprint schließen. ⚠ Jede Verschiebung trägt
 ihren Grund **im Ticket**, nicht hier (`L-2026-08-17ag`). Gesichtet: **alle** Tickets
-**aller** Repos über **beide** Ebenen (388 Ticketdateien, davon 40 nicht geschlossen).
-Offen beim Start: **40** (32 `open`, 7 `in_review`, 1 `blocked`). Briefkasten beim Start:
-**0 offen / 71 Briefe** — ⚠ Nachmessung am Ende ist Pflicht (`L-2026-08-21cs`).*
+**aller** Repos über **beide** Ebenen. Offen beim Start: **41** (29 `open`, 11 `in_review`,
+1 `blocked`). Briefkasten beim Start: **0 offen / 71 Briefe** — ⚠ Nachmessung am Ende ist
+Pflicht (`L-2026-08-21cs`).*
+
+### ⚠⚠ Der erste Sprint dieses Hauses, der Tickets SCHLIESST statt sie zu stapeln
+
+| Größe | Start | Ende |
+|---|---|---|
+| offene Aufgaben | **41** | **33** |
+| davon `in_review` | **11** | **2** |
+| `done` in diesem Lauf | — | **9** |
+
+**Sprint 37 schloss 0, Sprint 38 schloss 0.** Der `in_review`-Stau war der eigentliche
+Engpass dieses Hauses, und er ist geräumt — nicht durch Nachsicht, sondern durch elf
+Reviews, von denen **zwei mit Auflage zurückgingen** und **zwei Tickets im selben Lauf
+nachgebessert** wurden.
 
 ### Der Plan
 
 | Aufgabe | Rolle | Fällig | Status | Grund / nächster Schritt |
 |---|---|---|---|---|
-| Briefkasten (beide Ebenen, inkl. `projects/*`) | pl | Sprint 39 | **geschlossen** | 0 offen / 71 beim Start, 0 offen / 71 am Ende. Nachgemessen, nicht angenommen. |
-| **platform/T-0073** | dev | Sprint 39 | **in_review** | ⚠⚠ **Der Betriebsblocker, und er ist gefallen.** 77 Auto-Abschlüsse des Hosts, **kein einziger** mit `PREFLIGHT: 0`; 23 brachen an der Lock-Zeile ab. `SWR-217` (Räumung nach Alter statt Geräte-Prozessliste) + `SWR-218` (Teststrecke misst nie eine ältere Fassung). |
-| **team-mail/T-0006** | dev | Sprint 39 | **in_review** | ⚖ **Fünfte Berührung — Entscheidung BAUEN endlich ausgeführt.** `SWR-219`: Digest endet im Ausgang, Versand aus dem Betrieb unerreichbar. ⚠ Der Versand war bereits verdrahtet und nur durch ein fehlendes `SMTP_HOST` gehemmt. |
-| **pm/T-0079** | pl | Sprint 39 | **in_review** | ⚖ **Vierte Berührung → entschieden statt terminiert** (`pm/B061`). Lesart 1: Definition gleich, Besetzung je Instanz; Abweichung wird sichtbar (`SWR-220`). |
-| **team-dashboard/T-0001** | pl | Sprint 39 | **in_review** | Takt `je-session` erfüllt: Vertrag **v2.9**, Obergrenze für Kacheln + `sicht_takt`. **Die gemeinsame Ursache von `T-0004`/`T-0006`/`T-0007` ist damit entschieden.** |
-| **team-dashboard/T-0007** | dev | Sprint 39 | geplant | ⚠ **Der Auftraggeber wartet.** Ursache 1 und 3 sind in Sprint 38 **am laufenden Renderweg bestätigt** (3 Takte / 12 Kacheln; SPAM-Grund 3×). Offen: Ursache 2 (Browser), Umstellung auf `sicht_takt`, Kachelhöhe als Zahl, JS-Zusicherung, Screenshot. **Die Vertragsfrage ist ihm abgenommen.** |
-| **team-dashboard/T-0004**, **team-dashboard/T-0006** | dev | Sprint 39 | geplant | Warteten auf den Kachel-Vertrag; **die Sperre ist mit v2.9 gefallen.** Erste Terminierung mit Arbeitsmöglichkeit. |
-| **platform/T-0071** | dev | Sprint 39 | geplant | Aus Brief `platform/N-0010`: alle Script-Aufrufe in Mission Control + Wächter live sichtbar. ⚠ **In Sprint 38 zum vierten Mal in Produktion getroffen** — die Nachverbuchung des Hosts hat zweimal einen Session-Commit absorbiert und die Ticket-ID im Betreff verloren. Prio hoch. |
-| **platform/T-0072** | dev | Sprint 39 | geplant | `start_genesis` als EIN Startpunkt. Hängt am Ergebnis von `T-0071` — nacheinander, nicht parallel. |
-| **platform/T-0055** | dev | Sprint 39 | in_review | Teil A geliefert (`SWR-215`); Review offen. |
-| **platform/T-0066** | pl | Sprint 39 | in_review | `SWR-214`; Review offen. ⚠ Die Besetzungsfrage dahinter ist mit `pm/B061` beantwortet — **und die Messung sagt, dass sie nicht der Engpass war.** |
-| **platform/T-0068**, **platform/T-0069** | dev/prob | Sprint 39 | in_review | Review offen (Reviewer ≠ Autor). |
-| **platform/T-0074** | dev | Sprint 39 | **neu, open** | ⚠⚠ **Aus dem ersten grünen Abschluss seit 77 Läufen.** Preflight STARTKLAR, 1616+42 Tests grün, 14 Repos gepusht, Exit 0 — und **ein** Befund blieb: die CI von `platform` und `projects` ist **ROT**. ⚠ Gemessen **nicht** von diesem Sprint verursacht: dieselben zwei Repos stehen mit denselben Befunden schon im 15:25-Protokoll, vor dem ersten Commit dieses Laufs. **Eine Sperre zu räumen legt frei, was dahinter lag.** |
-| **platform/T-0064** | cm | Sprint 39 | geplant | Anhänge-Dateien ohne Überschreibschutz. Zweite Terminierung. |
-| **platform/T-0067** | coach | Sprint 39 | geplant | „Wer liest die maschinellen Befunde?" ⚠ **Sprint 38 ist der bislang schärfste Beleg:** der Lock-Befund stand 23 Läufe lang wörtlich im Protokoll, und im selben Protokoll stand die Begründung, warum er keiner ist. |
-| **platform/T-0070** | coach | Sprint 39 | geplant | Acht Lehren ohne Vertreter. |
-| **pm/T-0071** | pl | Sprint 39 | geplant | F18 Ollama-Schnelltakt. ⚠ Nachweis geführt; die **Wirkung** hängt an `aufgaben_typ`, nicht an der Besetzung (`pm/B061`). |
-| **pm/T-0080** | dev | Sprint 39 | geplant | ⚖ Vierte Berührung → geschnitten, Teil A. |
-| **pm/T-0082** | pl | Sprint 39 | geplant | ⚖ Wartete auf `pm/T-0085`; das ist `in_review`. |
-| **pm/T-0085** | pl | Sprint 39 | in_review | `pm/B060` + `SWR-216`; Review offen. |
-| **promt-team/T-0012** | prompt-opt | Sprint 39 | geplant | Ollama-Umstellungsprogramm, Baseline + Goldset je Aufgaben-Typ. ⚠ **Nach der Messung von `pm/B061` ist das der eigentliche Engpass**: 1 von 40 offenen Tickets trägt überhaupt einen `aufgaben_typ`. Prio hoch, und die Begründung ist neu. |
-| **promt-team/T-0003** | dev | Sprint 39 | geplant | Erstaudit nach Ablauf S0–S7. |
-| **team-mail/T-0007** | dev | Sprint 39 | geplant | Digest ohne SPAM-Rubrik. ⚠ Braucht **eine Zahl vom Auftraggeber** — als Rückfrage, nicht als Annahme. |
-| **team-termine/T-0001**, **team-termine/T-0002** | pl/cm | Sprint 39 | in_review | Projektplan v1.0 und CM-Plan P16; QM-Review offen. |
-| **team-termine/T-0003** | coach | Sprint 39 | geplant | Workflows + projektspezifische Rollenbeschreibungen. |
-| **team-termine/T-0004**…**T-0010** | rm/arch/qm/test/dev/prob/chg | Sprint 39 | geplant | Rollen-Initialisierung P16. Zweite Terminierung mit Arbeitsmöglichkeit. |
-| **team-termine/T-0011** | pl | Sprint 39 | geplant | PL-Monitoring. ⚠ Trägt `takt: je-session` **und** `geplant_sprint` — B033, weiter als Befund benannt. |
+| Briefkasten (beide Ebenen, inkl. `projects/*`) | pl | Sprint 40 | **geschlossen** | 0 offen / 71 beim Start, 0 offen / 71 am Ende. Nachgemessen, nicht angenommen. |
+| **platform/T-0074** | dev | Sprint 40 | **in_review** | ⚠⚠ **Die rote CI ist namentlich gemessen und geschlossen.** Nachgestellter CI-Checkout: **1616 Tests / 31 rot → 1625 / 0 rot**. `SWR-221` (jede Zusicherung benennt ihre eigene Eingabe) · `SWR-222` (Gegenprobe am vollen Bestand) · `SWR-223` (dieselbe Bauform in JS). `projects` grün: `p13/BOARD.md` nachgezogen. |
+| **team-dashboard/T-0007** | dev | Sprint 40 | **in_review** | ⚖ **Vierte Berührung → gebaut statt terminiert. Der Auftraggeber wartete seit `p0/N-0002`.** 3 Zeiträume → **1**, 12 Kacheln → **4**, SPAM-Grund 3× → **1×**. `SWR-224`/`SWR-225`. ⚠ **Ursache 2 brauchte keinen Browser** — sie stand in zwei Zeilen CSS. |
+| platform/T-0073 | dev | — | **done** | ✅ QM-Review: 77/0/23 unabhängig reproduziert, eigene Mutationsprobe bestätigt die Trennschärfe. Zwei Befunde für die Akte. |
+| platform/T-0068 | dev | — | **done** | ✅ QM-Review: 34 grün, Prämisse (Python 3.13) unabhängig belegt, Rückbau-Probe **5 rot**. |
+| platform/T-0066 | pl | — | **done** | ✅ QM-Review: „genau eine maßgebliche Auflösung" **code-belegt** (`waehle_ticket` Z. 357 vor `aufloese_route` Z. 372). |
+| pm/T-0079 | pl | — | **done** | ✅ QM-Review: `pm/B061` mit denselben Zahlen im Log, AST-Test belegt „kein Befundzähler". |
+| pm/T-0085 | pl | — | **done** | ✅ QM-Review mit **zwei Befunden**: DoD-Wortlaut und Schutzumfang nicht deckungsgleich; `SWR-216` stand auf `reviewed`, während das Ticket noch `in_review` war. |
+| team-mail/T-0006 | dev | — | **done** | ✅ QM-Review: der Versandweg ist **strukturell** unerreichbar — die AST-Probe wurde unabhängig nachgestellt. ⚠ Befund: `mailer.py` trägt weiter eine Adresse im Code (B033-Verdacht, Folge-CR). |
+| team-dashboard/T-0001 | pl | — | **done** | ✅ ⚠⚠ **Auflage erteilt und im selben Lauf erfüllt.** Das Review hat gemessen: von v2.9 war nur **ein** Schlüssel wirksam; „Obergrenze" und „Grund einmal" hatten **keinen Leser**. Vertrag nachgetragen, Erfüller ist `SWR-224/225`. |
+| team-termine/T-0001 | pl | — | **done** | ✅ Auflage erfüllt: „G0-DR vorbereiten" fehlte **ganz** im Plan (String `G0`: 0 Treffer) → Kap. 9. Und `L-P16-001` behauptete zwei Sprints lang einen Verbleib in `process/roles/cm.md`, den sie nicht hatte → nachgetragen. |
+| team-termine/T-0002 | cm | — | **done** | ✅ Auflage erfüllt: „Tools festlegen" war einer von vier Zielpunkten und **fehlte** → Kap. 4b. WP-Zahl (10/0/0) unabhängig nachgemessen. |
+| **platform/T-0069** | prob | Sprint 40 | **zurück auf open** | ⚠⚠ **Die DoD ist nicht bearbeitet worden.** Der Ollama-Tick schrieb zwei generische Dateien und berührte die gestellte Frage nicht. **`status: ok` heißt „gelaufen", nicht „gelöst".** Auflage im Ticket. |
+| **platform/T-0055** | dev | Sprint 40 | **zurück auf open** | ⚠⚠ **Was als „Teil A" verbucht wurde, ist Teil C.** Teil B ist nirgends geliefert — und `waechter.py` liegt in **keinem Repo**. Geschnitten, Auflage im Ticket. |
+| **platform/T-0075** | cm | Sprint 40 | **neu, open** | ⚠⚠ **Nebenbefund des T-0055-Reviews: die Betriebsschicht dieses Hauses ist unversioniert.** 27 Dateien, 88 kB, darunter `waechter.py` (30-s-Takt) und `abschluss.cmd` (15-min-Takt). Keine Prüfung dieses Hauses fasst sie an. |
+| team-dashboard/T-0004, T-0006 | dev | Sprint 40 | geplant | Sperre mit v2.9 gefallen; `T-0006` berührt denselben Renderweg wie `T-0007` — die Naht liegt an `Regeln.widgetRaster` und ist von `T-0007` unberührt geblieben. |
+| platform/T-0071 | dev | Sprint 40 | geplant | Script-Aufrufe in Mission Control. ⚠ **Auflage aus dem T-0055-Review**: die Doppelvergabe von „wer bewacht den Wächter" zwischen `SWR-215` und diesem Ticket ist hier aufzulösen. |
+| platform/T-0072 | dev | Sprint 40 | geplant | `start_genesis`. ⚠ **Reihenfolge geändert**: hängt jetzt an `T-0075` (erst wohin, dann wie gestartet) — sonst zeigt der eine Startpunkt auf Pfade, die sich gleich ändern. |
+| platform/T-0064 | cm | Sprint 40 | geplant | Anhänge-Dateien ohne Überschreibschutz. Dritte Terminierung. |
+| platform/T-0067 | coach | Sprint 40 | geplant | „Wer liest die maschinellen Befunde?" ⚠ **Sprint 39 liefert den nächsten Beleg**: die rote CI stand seit zwei Tagen in `CI-STATUS.md`. |
+| platform/T-0070 | coach | Sprint 40 | geplant | Acht Lehren ohne Vertreter. ⚠ **Sprint 39 hat einen neunten Fall gefunden** (`L-P16-001`) — und ihn sofort geschlossen. |
+| pm/T-0071 | pl | Sprint 40 | geplant | F18 Ollama-Schnelltakt. ⚠⚠ **Neue Messung, siehe unten** — der eine „erfolgreiche" Tick hat nichts geliefert. |
+| pm/T-0080 | dev | Sprint 40 | geplant | ⚖ Vierte Berührung → geschnitten, Teil A. |
+| pm/T-0082 | pl | Sprint 40 | geplant | ⚖ Wartete auf `pm/T-0085`; **das ist jetzt `done`** — die Vorbedingung ist gefallen. |
+| promt-team/T-0012 | prompt-opt | Sprint 40 | geplant | Ollama-Umstellungsprogramm. ⚠ Nach `pm/B061` **und** dem T-0069-Review der eigentliche Engpass. Prio hoch. |
+| promt-team/T-0003 | dev | Sprint 40 | geplant | Erstaudit nach Ablauf S0–S7. |
+| team-mail/T-0007 | dev | Sprint 40 | geplant | Digest ohne SPAM-Rubrik. ⚠ Braucht **eine Zahl vom Auftraggeber** — als Rückfrage, nicht als Annahme. |
+| team-termine/T-0003, team-termine/T-0004, team-termine/T-0005, team-termine/T-0006 | coach/rm/arch/qm | Sprint 40 | geplant | Rollen-Initialisierung P16. ⚠ **Die Sperre ist gefallen**: Projektplan und CM-Plan sind seit diesem Lauf `done`. Dritte Terminierung, erste mit vollständiger Grundlage. |
+| team-termine/T-0007, team-termine/T-0008, team-termine/T-0009, team-termine/T-0010, team-termine/T-0011 | test/dev/prob/chg/pl | Sprint 40 | geplant | Rollen-Initialisierung P16, zweite Hälfte. ⚠ **Ausgeschrieben statt „T-0003…T-0011"**: die zusammengefasste Schreibweise hat in diesem Lauf **vier** Tickets aus dem Plan fallen lassen (`nicht_geplant: 4`) — eine Abkürzung im Plan ist eine Lücke in der Prüfung. |
 | team-termine/T-0012 | qm | jeder Sprint | blocked | Zeigt auf `team-termine/T-0006` (offen) — `SWR-204` erfüllt, Sperre zu Recht. |
 | pm/T-0001, pm/T-0002, pm/T-0003 | pl/pl/coach | jeder Sprint | geplant | Takt-Dauerläufer (Session-Agenda, Intake-Queue, LeLe-Konsolidierung). |
 | platform/T-0001, team-mail/T-0001 | cm/dev | jeder Sprint | geplant | Takt-Dauerläufer. |
 
-**Unterminiert: nichts.** 41 offene Tickets (40 beim Start + `platform/T-0074` aus dem Abschluss), 41 Planzeilen (Takt-Dauerläufer gebündelt).
+**Unterminiert: nichts.** 33 offene Tickets, 33 Planzeilen (Takt-Dauerläufer gebündelt).
 
-### Was Sprint 38 geliefert hat
+### Was Sprint 39 geliefert hat
 
 | Ticket | Anforderung | Kern |
 |---|---|---|
-| `platform/T-0073` | `SWR-217` | Lock-Räumung nach **Alter** des Artefakts statt nach der **Prozessliste des Geräts** |
-| `platform/T-0073` | `SWR-218` | Teststrecke mit Bytecode-Cache **außerhalb** des Mounts |
-| `team-mail/T-0006` | `SWR-219` | Digest endet im **Ausgang**; Versand aus dem Betrieb **unerreichbar** |
-| `pm/T-0079` | `pm/B061` + `SWR-220` | Definition gleich, **Besetzung je Instanz** — Abweichung wird **sichtbar** |
-| `team-dashboard/T-0001` | Vertrag **v2.9** | **Obergrenze** für Kacheln + `sicht_takt`, im selben Lauf geliefert |
+| `platform/T-0074` | `SWR-221` | Jede Zusicherung am echten Bestand **benennt ihre eigene Eingabe** — kein pauschales Überspringen |
+| `platform/T-0074` | `SWR-222` | **Gegenprobe**: am vollständigen Bestand fehlt keine deklarierte Eingabe |
+| `platform/T-0074` | `SWR-223` | Dieselbe Bauform in JS |
+| `team-dashboard/T-0007` | `SWR-224` | **Genau ein** Zeitraum wird gezeichnet — der aus `sicht_takt` |
+| `team-dashboard/T-0007` | `SWR-225` | Ein Grund, den **mehrere** Kacheln tragen, steht **einmal** |
 
-### ⚠⚠ Der Fund dieses Sprints: zwei Prüfungen desselben Hauses, ein Artefakt, entgegengesetzte Urteile
+### ⚠⚠ Der Fund dieses Sprints: 45 Zusicherungen waren grün, ohne etwas zu messen
 
-`raeume_locks` zählte die sieben `index.lock` als **Befund** und brach damit den
-Auto-Abschluss ab. **160 Zeilen tiefer** beurteilt `repo_status` **dasselbe Artefakt im
-selben Lauf** ausdrücklich als *„Auf dem Host löschbar; kein Befund"* — mit
-ausgeschriebener Begründung (`SWR-191`, `SWR-166`).
+Die rote CI meldete **31** Zusicherungen. Beim Bauen des Wächters kam heraus, dass **76**
+Zusicherungen den echten Bestand lesen — 31 waren rot, **45 waren GRÜN**, während ihre
+Eingabe fehlte.
 
-> **Abgebrochen ist der Lauf an dem Pfad OHNE die Begründung.**
+> **Eine rote Zusicherung wird irgendwann gelesen. Eine grüne ohne Eingabe nie.**
 
-Dass es ein Falschbefund war, stand in demselben Protokoll: alle sieben Repos meldeten in
-derselben Sekunde `sauber`. **Die Sperre hat nichts gesperrt.**
+Und drei der betroffenen Dateien **hatten** einen Wächter: `isdir(HAUS/"process")` — und
+`process` checkt die CI von `platform` **mit** aus.
 
-### ⚠⚠ Und der Lauf hat sechs eigene Messungen widerlegt, bevor er sie berichtet hat
+> **Ein Wächter, der die Anwesenheit der falschen Datei prüft, misst nicht, ob er arbeiten
+> kann.**
 
-Beim Nachmessen der Mutationsproben hielt Python ein `__pycache__/*.pyc` für gültig,
-dessen Bytecode von einer **Probe** stammte: eine Probe ändert ein Zeichen
-(`befunde += 1` → `+= 0`) und behält die **Größe**, die Rücknahme trifft dieselbe
-`mtime`-Sekunde, und der Cache ist auf diesem Mount nicht löschbar (R7).
+### ⚠⚠ Die Gegenprobe hat die eigene Arbeit dieses Laufs widerlegt, bevor sie berichtet wurde
 
-> **Eine Zusicherung, die eine andere Fassung misst als die im Repo, sieht genauso grün
-> aus wie eine, die stimmt — und die Mutationsprobe ist genau die Bearbeitung, die diese
-> Falle stellt.**
+`SWR-222` war beim **ersten** Lauf rot — gegen die Deklaration dieses Laufs:
+`test_goldset_baseline` bekam `promt-team/management/runs`, den Ordner gibt es nicht.
+**Gefunden hat den Fehler die Gegenprobe, nicht der Autor.**
 
-Gemessen: dieselbe Strecke meldete aus der Quelle `OK` und aus dem alten Cache
-`FAILED (1)` bei byte-identischer Datei. **Alle Probenzahlen dieses Berichts sind mit
-frischem Cache nachgemessen.**
+### ⚠⚠ Und der teuerste Befund kommt aus einem Review, das nach etwas anderem suchte
 
-### ⚠ Eine eigene Probe war ungültig und steht hier statt eines Hakens
+Das Review von `platform/T-0055` sollte eine DoD prüfen und fand:
+**`waechter.py` liegt in keinem Git-Repo.** Nachgemessen: **27 Betriebsdateien, 88 kB,
+keine einzige versioniert** — darunter der Wächter (30-s-Takt) und `abschluss.cmd`
+(15-min-Takt, pusht 14 Repos).
 
-Die sechste Probe zu `SWR-220` löschte den `except`-Block und erzeugte damit eine Datei,
-die **nicht parst**. Der Lauf zählte „0 rot" und hätte das als Erfolg berichten können.
-**Eine Probe, die den Bau zerstört statt die Regel zu verfälschen, misst nichts** —
-korrigiert zu „Registerdefekt wird verschwiegen", Ergebnis rot.
+> **Ein Haus, das 225 Anforderungen versioniert und den Skript nicht, der sie stündlich
+> ausführt, hat seine Sorgfalt genau dort aufgehört, wo sie den Betrieb berührt.**
 
-### ⚠⚠ Schritt 1b vor der Planung: die Belege gelesen, die von allein entstanden sind
+Verbucht als `platform/T-0075`.
 
-Lehre 13/14 (`L-2026-08-22a`, `-c`) verlangt Run-Registry, Decision-Log und
-Takt-Protokolle **vor** der Planung. Gelesen, und drei der vier Funde sind Neuigkeiten:
+### ⚠⚠ Ollama-Offload: der Nachweis liegt vor, und er trägt nicht
 
-| Quelle | Befund dieses Laufs |
-|---|---|
-| `waechter-status.json` | ✅ **Der Wächter LEBT wieder** — Herzschlag `2026-08-22 14:27:21`, PID 23284. Der Sprint-36-Befund „14 h tot" ist erledigt, und der Wächter sieht Sprint 37 korrekt (`s37-… laeuft`). **Ohne diesen Blick hätte Sprint 37 einen behobenen Ausfall weitergemeldet.** |
-| `abschluss-logs/review-20260822-142500.md` | ⚠⚠ **ERGEBNIS: BEFUNDE (7)**, Exit-Code 1, letzter erreichter Schritt **[1/6]** — der Auto-Abschluss des Hosts bricht seit Stunden im Preflight ab. Kein Push, keine Teststrecke, kein CI. |
-| `abschluss-20260822-142500.log`, Fenster `[1/6]`…`[2/6]` | ⚠⚠ **Der EINE Preflight-Befund ist identifiziert** — der, den Sprint 36 ausdrücklich nicht gefunden hat (siehe unten). |
-| `*/management/runs/run-registry.jsonl` | Ollama-Tick `status: ok`, `gemma3:27b`, 2 Artefakte, seit 21.08. 20:59 — **unverändert der einzige**; keine neuen Ticks seit dem letzten Lauf. Kein neuer Beleg, aber auch kein übersehener. |
-| Decision-Log (alle Einheiten) | `dr_entschieden_nicht_verbucht`: **0**. Lehre 14 greift diesmal ins Leere — richtig so. |
+Der Auftrag sagt: *sobald `pm/T-0071` einen Tick mit `status: ok` + ≥1 Artefakt belegt,
+delegiere*. **Der Beleg existiert** (PROB@platform, `gemma3:27b`, 2 Artefakte, 21.08.
+20:59). **Zwei Messungen dieses Laufs sagen, dass er nicht trägt:**
 
-### ⚠⚠ Der Fund, der diesen Sprint eröffnet: unser eigener Plan sperrt den Betrieb des Auftraggebers
+1. **Ollama ist aus dieser Sandbox nicht erreichbar** — `127.0.0.1:11434` antwortet nicht,
+   `host.docker.internal` meldet *„Connection blocked by network allowlist"*. Der Takt
+   läuft **auf dem Host** alle 15 Min; von hier aus ist keine Delegation möglich.
+2. **⚠⚠ Und der eine belegte Tick hat nichts geliefert.** Das QM-Review von
+   `platform/T-0069` — genau des Tickets, an dem dieser Tick lief — hat den Branch
+   geöffnet: zwei **generische** Dateien (eine Rollenbeschreibung, ein Template), die die
+   gestellte Frage nicht berühren; das Template **zitiert die unbeantwortete DoD als
+   Checkliste** und nennt die Ursache *„vermutet"*.
 
-Der Schnelltakt des Hosts meldete seit Sprint 36 `PREFLIGHT: 1 Befund(e)`, ohne dass
-jemand den Befund benannt hatte. Er steht wörtlich im Protokoll:
+> **`status: ok` heißt „gelaufen", nicht „gelöst". Der Nachweis, auf dem die
+> Offload-Regel dieses Hauses steht, ist ein Lauf, der am Thema vorbeigearbeitet hat.**
 
-    [org] BEFUND: 12 Planzeile(n) nennen eine andere Sprintnummer als ihr Ticket:
-        team-termine/T-0001: Plan sagt Sprint 36, Ticket sagt Sprint 37
-        platform/T-0068, team-dashboard/T-0007, platform/T-0055, pm/T-0080,
-        pm/T-0082, team-dashboard/T-0004, team-mail/T-0006, platform/T-0064,
-        pm/T-0071, team-termine/T-0002, pm/T-0085                    (… 12 gesamt)
-
-> **Sprint 36 hat seine Tickets vorbildlich auf 37 nachgezogen — und seine eigene
-> Plantabelle nicht. Damit hat er `plan_drift` (SWR-109/122) von der anderen Seite
-> ausgelöst: nicht der Plan lief dem Ticket davon, sondern das Ticket dem Plan.**
-
-Das ist **exakt** `pl.md` Lehre 8 („ein halber Abschluss sperrt den Betrieb — mit dem
-Namen der Sorgfalt"), zum dritten Mal in vier Sprints, und diesmal war die Ursache eine
-Vorsichtsmaßnahme gegen genau denselben Fehler. ⚠ Die Behebung ist **diese Tabelle** —
-keine Codeänderung, kein Ticket. Sie ist die erste Handlung des Sprints, weil bis dahin
-jeder Host-Takt (alle 15 Min) erneut mit Exit 1 abbricht.
-
-⚠ **Erwartung, keine Messung** (`pl.md` Lehre 10): dass `plan_drift` danach 0 meldet, ist
-hier nachgewiesen (Preflight nach dem Schreiben, siehe Verifikation) — dass der
-**Host-Abschluss** durchläuft, ist es nicht: Schritte [2/6]…[6/6] laufen auf dem Host.
-**Stichprobe für den Menschen:** das nächste `abschluss-logs/review-*.md` nach 14:40 muss
-`Schrittfolge: [6/6]` und `Push` statt `NICHT PRUEFBAR` zeigen.
+**Ollama-Offload dieses Laufs: 0 delegiert, Ersparnis 0** — und der Grund ist jetzt
+**zweifach gemessen** statt einfach vermutet.
 
 ### Verschiebungen mit Grund — vorab benannt, nicht nachträglich
 
 Kein Ticket ist **vor** der Arbeit verschoben worden. Was am Ende nicht geschlossen ist,
-trägt Grund und neuen Termin **im Ticket** und erscheint im Abschluss unten.
+trägt Grund und neuen Termin **im Ticket**.
+
+---
+
+## Sprint-Abschluss (Sprint 39, 2026-08-22)
+
+### Was dieser Sprint geschlossen hat — **neun Tickets, und das ist neu**
+
+| Ticket | Weg | Wirkung |
+|---|---|---|
+| `platform/T-0073` | in_review → **done** | Betriebsblocker, QM-bestätigt mit eigener Mutationsprobe |
+| `platform/T-0068` | in_review → **done** | Rückbau-Probe 5 rot |
+| `platform/T-0066` | in_review → **done** | Ollama-Engpass gezählt |
+| `pm/T-0079` | in_review → **done** | `pm/B061`, Abweichung sichtbar |
+| `pm/T-0085` | in_review → **done** | Projektkennung bewacht, **2 Befunde** |
+| `team-mail/T-0006` | in_review → **done** | Versandweg strukturell unerreichbar |
+| `team-dashboard/T-0001` | in_review → **done** | Vertrag v2.9 + **Auflage im selben Lauf erfüllt** |
+| `team-termine/T-0001` | in_review → **done** | Projektplan + G0-Kapitel |
+| `team-termine/T-0002` | in_review → **done** | CM-Plan + Werkzeug-Kapitel |
+
+Dazu **gebaut**: `platform/T-0074` und `team-dashboard/T-0007` (beide `in_review`,
+Reviewer ≠ Autor), **neu**: `platform/T-0075`, **zurückgegeben**: `platform/T-0069` und
+`platform/T-0055`.
+
+### ⚠ Was dieser Lauf NICHT geliefert hat, benannt statt abgehakt
+
+1. **Der Screenshot zu `T-0007` (DoD 5).** Diese Session hat keinen Browser und keinen
+   laufenden Server. **Ein Bild, das niemand gemacht hat, wäre die schlimmste Art, diesen
+   Punkt abzuhaken** — der Auftraggeber hat in diesem Format gemeldet.
+2. **Die Kachelhöhe in Pixeln.** Gemessen ist die **Struktur** (3→1 Zeiträume, 12→4
+   Kacheln); dass daraus etwa ein Viertel der Höhe wird, ist **gerechnet, nicht gemessen**.
+3. **Punkt 4 der Klärungsliste von `T-0074`** (*„wie lange war das unbemerkt?"*):
+   `CI-STATUS.json` trägt den Stand, nicht seine Geschichte.
+4. **Ein vollständiger `preflight` in einem Aufruf** bleibt über der Zeitgrenze dieser
+   Sandbox; die Teststrecke ist **blockweise** gefahren (Zahlen unten).
 
 ---
 
@@ -3502,8 +3530,8 @@ offen, Plan-Drift 0, Statusdrift 0. ⚠ Nicht startklar — Altbefund unverände
 
 </details>
 
-<!-- kennzahlen v1 | gemessen 2026-08-22 17:55
-briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=12984 swr=220 testdateien=114 tests=1616 tickets_offen=41 wartet_auf_mensch=0
+<!-- kennzahlen v1 | gemessen 2026-08-22 19:52
+beitraege_im_lauf=0 briefe_im_lauf=0 briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=13111 post_im_lauf=0 swr=226 testdateien=116 tests=1635 tickets_offen=33 wartet_auf_mensch=0
 -->
 
 </details>
