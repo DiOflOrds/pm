@@ -55,3 +55,4 @@
 {"kennung": "s34-2026-08-21-1206", "ende": "2026-08-21 14:08", "ende_notiz": "Sprint 34 abgeschlossen: 6 geschlossen, 6 verschoben, P16 team-termine gegruendet, 91 Lehren wiederhergestellt, 7 Review-Befunde behoben"}
 {"nr": 35, "kennung": "s35-2026-08-21-1450", "start": "2026-08-21 14:58", "takt_min": 60, "notiz": "Routine-Session Sprint 35"}
 {"kennung": "s35-2026-08-21-1450", "ende": "2026-08-21 20:21", "ende_notiz": "Sprint 35: Ollama-Blocker geraeumt, SWR-212/213, 17 Gegenlese-Befunde; Abschluss durch Sandbox-Ausfall nur teilweise committet; geschlossen vom Host-Lauf 21.08."}
+{"nr": 36, "kennung": "s36-2026-08-22-1300", "start": "2026-08-22 12:51", "takt_min": 60, "notiz": "Routine-Session Sprint 36 (Cowork, Shell verfuegbar)"}
