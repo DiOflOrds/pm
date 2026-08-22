@@ -3073,8 +3073,8 @@ offen, Plan-Drift 0, Statusdrift 0. ⚠ Nicht startklar — Altbefund unverände
 
 </details>
 
-<!-- kennzahlen v1 | gemessen 2026-08-22 12:55
-beitraege_im_lauf=0 briefe_im_lauf=1 briefkasten_offen=1 ladefehler=0 luecken=0 parkplatz=12461 post_im_lauf=1 swr=213 testdateien=109 tests=1551 tickets_offen=38 wartet_auf_mensch=1
+<!-- kennzahlen v1 | gemessen 2026-08-22 13:10
+beitraege_im_lauf=0 briefe_im_lauf=1 briefkasten_offen=1 ladefehler=0 luecken=0 parkplatz=12472 post_im_lauf=1 swr=213 testdateien=109 tests=1553 tickets_offen=37 wartet_auf_mensch=1
 -->
 
 </details>
