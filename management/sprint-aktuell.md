@@ -1,5 +1,67 @@
 # Sprint aktuell — Genesis-Gesamtsprint (Workflow-Sicht des PM, pm/D006)
 
+> ⚠⚠ **Hinweis zu allen Berührungszahlen VOR Sprint 41 (aus `platform/T-0078`/`SWR-233`):**
+> sie sind **geschätzt**, nicht gezählt, und mehrere sind nachweislich zu klein (Sprint 39
+> nennt `platform/T-0064` als *„dritte Terminierung"* — gemessen sind es sieben). Sie werden
+> **nicht umgeschrieben** (Playbook Kap. 16), sondern hiermit als historisch markiert. Ab
+> Sprint 41 kommt die Zahl aus `preflight` und dem Git-Verlauf.
+
+## Sprint-Plan (Sprint 41)
+
+*Sprint 41 eröffnet 2026-08-22 22:20 (`s41-2026-08-22-2220`). Default nach `pm/D006`: in
+diesem Sprint schließen. ⚠ Jede Verschiebung trägt ihren Grund **im Ticket**, nicht hier
+(`L-2026-08-17ag`). Gesichtet: **alle** Tickets **aller** Repos über beide Ebenen. Offen
+beim Start: **36**. Briefkasten beim Start: **0 offen / 71 Briefe**.*
+
+**Die erste Handlung dieses Laufs waren die elf fremden Reviews des Vorlaufs**, wie es die
+Agenda verlangt — nicht die letzte.
+
+### Der Plan
+
+| Aufgabe | Rolle | Fällig | Status | Grund / nächster Schritt |
+|---|---|---|---|---|
+| team-termine/T-0003 | qm | Sprint 41 | **done** | ✅ Review: 3/3 Zielpunkte gegengeprobt, 5+5=10 Rollen **gezählt** gegen `besetzungen.yaml`. |
+| team-termine/T-0004 | qm | Sprint 41 | **done** | ✅ Teil A. `Z3` am Git-Verlauf nachgemessen. ⚠ **Auflage im selben Lauf erfüllt**: Teil B als `T-0013` herausgeschnitten. |
+| team-termine/T-0006 | pl | Sprint 41 | **done** | ✅ QM-Plan v1.0. Sein Kap. 5 hat im ersten Anwendungslauf den `T-0004`-Fund erzeugt. |
+| team-termine/T-0007 | qm | Sprint 41 | **done** | ✅ Verifikationsstrategie v1.0, 4/4 Zielpunkte. |
+| team-termine/T-0008 | qm | Sprint 41 | **done** | ✅ Entwicklungsumgebung. ⚠ Die **nachgefahrenen** Aufrufe haben einen Werkzeugbefund erzeugt: `platform/T-0079`. |
+| team-termine/T-0009 | qm | Sprint 41 | **done** | ✅ Problem-Management. ⚠ Fälligkeitsbedingung hat kein Schema-Feld: `platform/T-0080`. |
+| team-termine/T-0010 | qm | Sprint 41 | **done** | ✅ Change-Management; Klasse-A-Abgrenzung gegen `G-Schreib` geprüft. |
+| team-termine/T-0011 | qm | Sprint 41 | **open** | ✅ Takt-Lauf freigegeben. ⚠⚠ Der Fund war der **Status**: ein Takt-Ticket in `in_review` — Rückweg gebaut (`SWR-231`), dann zurück nach `open`. |
+| team-termine/T-0012 | qm | Sprint 41 | **open** | ✅ Entsperrt — `SWR-204` hat die Räumung im selben Lauf **erzwungen**. |
+| team-termine/T-0005 | arch | — | **blocked** | `blocked_by: [T-0013]` umgehängt; die **Verklemmung** `T-0004`↔`T-0005` ist aufgelöst. Dublette im Ticket entfernt. |
+| team-termine/T-0013 | rm | Sprint 41 | **open** | NEU aus dem Review von `T-0004`. **Nullte Berührung.** |
+| platform/T-0067 | qm | Sprint 41 | **done** | ✅ Alle drei DoD-Punkte an den Quellen reproduziert; `SWR-230` **live am echten Bestand** gemessen (das veraltete Grün trat ein). |
+| platform/T-0074 | qm | Sprint 41 | **done** | ✅ Review der **Auflage** aus Sprint 40: `SWR-227` gegengeprobt — drei Formen, **48 / 12 / 11** Nutzungen, **32 Klassen + 6 Methoden** über den Syntaxbaum gezählt. |
+| pm/T-0071 | qm | Sprint 41 | **done** | ✅ Freigegeben. ⚠⚠ **Zwei Belegzahlen berichtigt**: „0 Token" war `nicht_geliefert`, nicht `echte_null`; zwei Zähler über dieselben drei Tage widersprechen sich (27 vs. 11). |
+| platform/T-0076 | dev | Sprint 41 | **in_review** | ✅ `SWR-231`/`SWR-232` gebaut. ⚠⚠ Die Gegenprobe hat die **Herkunft des Tickets widerlegt**. |
+| platform/T-0078 | coach | Sprint 41 | **in_review** | ✅ `SWR-233` — die Regel der vierten Berührung hat ihren Vollstrecker. Erste Meldung: **11 Tickets namentlich**. |
+| platform/T-0079 | dev | Sprint 41 | **open** | NEU: `board.py` schluckt jedes unbekannte `--Flag`; ein verschriebenes `--check` macht aus dem CI-Gate einen Schreiber. **Nullte Berührung.** |
+| platform/T-0080 | dev | Sprint 41 | **open** | NEU: `faelligkeit:` hat im Workflow-Schema keinen Platz. **Nullte Berührung.** |
+| platform/T-0081 | dev | Sprint 41 | **open** | NEU: die zwei erfolgreichen Ollama-Läufe lieferten **keine** Tokenzahl. **Nullte Berührung.** |
+| team-dashboard/T-0001 | pl | Sprint 41 | **open** | ⚠⚠ **KORREKTUR**: ein Takt-Ticket stand auf `done` und war damit still stillgelegt (`SWR-232`). |
+| promt-team/T-0003 | dev | — | **blocked** | ⚠⚠ **23. Berührung — ENTSCHIEDEN, nicht terminiert.** Geschnitten: erster Teil ist `platform/T-0081`; `entschieden:` steht im Kopf. |
+
+### ⚠ Verschoben — und ausdrücklich als solches benannt
+
+**11 offene Aufgaben stehen bei der 4. Terminierung oder später, ohne vermerkte
+Entscheidung.** Sie sind **nicht** angefasst worden, und der Grund ist die Kapazität dieses
+Laufs, die in die elf Reviews und in drei Anforderungen (`SWR-231`–`233`) gegangen ist:
+
+`pm/T-0080` (9.) · `pm/T-0082` (9.) · `team-dashboard/T-0004` (9.) · `promt-team/T-0012` (8.) ·
+`platform/T-0064` (7.) · `team-dashboard/T-0006` (7.) · `team-mail/T-0007` (7.) ·
+`platform/T-0069` (6.) · `platform/T-0070` (6.) · `platform/T-0071` (5.) · `platform/T-0072` (5.)
+
+> ⚠⚠ **Das ist derselbe Grund wie in Sprint 21 („die Kapazität eines Laufs"), und er wird
+> nicht schöner, wenn man ihn elfmal aufschreibt. Der Unterschied zu damals ist nur einer:
+> ab jetzt steht die Zahl in jedem Preflight, namentlich, und lässt sich nicht mehr
+> unterschätzen.**
+
+⚠ Dieser Lauf hat die Regel an **einem** Ticket vollzogen (`promt-team/T-0003`, dem
+teuersten) statt an elf. Elf Entscheidungen in dem Lauf zu treffen, der das Messwerkzeug
+erst gebaut hat, wäre genau der Fehler gewesen, den das Werkzeug abstellen soll.
+
+
 ## Sprint-Plan (Sprint 40 — beim Abschluss auf Sprint 41 fortgeschrieben)
 
 *Sprint 40 eröffnet 2026-08-22 21:48 (`s40-2026-08-22-2050`). Default nach `pm/D006`: in
@@ -3764,8 +3826,8 @@ offen, Plan-Drift 0, Statusdrift 0. ⚠ Nicht startklar — Altbefund unverände
 
 </details>
 
-<!-- kennzahlen v1 | gemessen 2026-08-22 22:13
-beitraege_im_lauf=0 briefe_im_lauf=0 briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=13415 post_im_lauf=0 swr=230 testdateien=118 tests=1662 tickets_offen=36 wartet_auf_mensch=0
+<!-- kennzahlen v1 | gemessen 2026-08-22 23:48
+beitraege_im_lauf=0 briefe_im_lauf=0 briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=13568 post_im_lauf=0 swr=233 testdateien=121 tests=1701 tickets_offen=31 wartet_auf_mensch=0
 -->
 
 </details>
