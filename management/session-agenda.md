@@ -1,5 +1,62 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
+## Das Wichtigste (Sprint 38, 2026-08-22 — **der Blocker war ein Falschbefund des eigenen Hauses**)
+
+1. **✅⚠⚠ Der Betrieb läuft wieder — belegt von Ihrer Maschine, nicht von uns.** 77
+   Auto-Abschlüsse seit dem 21.08., **kein einziger** grün; 23 brachen an sieben
+   `index.lock` ab. Um **17:25** lief der Host durch: `PREFLIGHT: STARTKLAR`,
+   **1616 + 42 Tests grün**, **14 Repos gepusht**, Exit **0**, `PUSH-ANFORDERUNG.txt`
+   geräumt.
+2. **⚠⚠ Der Grund war ein Widerspruch im eigenen Werkzeug.** `raeume_locks` zählte das
+   Artefakt als Befund; `repo_status` verwarf **dasselbe Artefakt im selben Lauf**
+   ausdrücklich als „kein Befund", mit ausgeschriebener Begründung.
+   > **Abgebrochen ist der Lauf an dem Pfad OHNE die Begründung** (`SWR-217`,
+   > `L-2026-08-22i`).
+3. **`team-mail`: Ihr Versand war scharf.** Nur das fehlende `SMTP_HOST` hat ihn gehemmt —
+   **am Tag der Zugangsdaten (`N-0003`) wäre eine Mail rausgegangen, die niemand
+   beschlossen hat.** Jetzt endet der Weg in `ausgang/*.eml` (`SWR-219`, fünfte Berührung,
+   Entscheidung endlich ausgeführt).
+4. **`pm/N-0045`: Ihre Beobachtung war exakt richtig und exakt vollständig** — 86
+   Instanzen, 13 Rollen, **genau eine** uneinheitlich. ⚠ **Und die Umstellung hätte null
+   Tickets bewegt:** 1 von 40 offenen Tickets trägt einen `aufgaben_typ`. Entschieden als
+   `pm/B061` (Lesart 1, widerruflich), sichtbar gemacht statt umgestellt (`SWR-220`).
+5. **`p0/N-0002` (Post-Widget „viel zu groß"): am laufenden Renderweg bestätigt** — 3
+   Takte, **12 Kacheln** in einem Raster für eine Zeitreihe. Vertrag **v2.9** hat jetzt
+   eine Obergrenze; die Darstellung folgt in `team-dashboard/T-0007`.
+6. **⚠ Ein Befund lag hinter dem geräumten:** die CI von `platform` und `projects` ist
+   **ROT** — nachweislich **vor** diesem Sprint, nur nie sichtbar, weil es nie zu einer
+   CI-Abfrage kam. Als `platform/T-0074` verbucht.
+7. **⚠⚠ Dieser Lauf hat sechs eigene Messungen widerlegt, bevor er sie berichtet hat**
+   (veralteter `__pycache__`, `SWR-218`) und **eine eigene Probe als ungültig verworfen**
+   statt sie als bestanden zu zählen.
+8. **Zahlen:** offen **40 → 41** (5 auf `in_review`, 1 neu) · `trace_matrix` **220 / 0
+   Lücken** · `organigramm --check` grün · Briefkasten **0 offen / 71**, erstmals seit vier
+   Läufen kein Brief im Lauf · Sprintübergabe **0·0·0·0·0 vor UND nach** `--beende` ·
+   Work Products **66 / 0 Lücken** · Ollama-Offload **0 / 0**.
+
+### Erste Aufgaben des Folgelaufs
+
+1. **`platform/T-0074`** — die rote CI. ⚠ **Kein pauschales Überspringen**: eine CI, die
+   nichts mehr prüft, meldet grün. Erste Vermutung (Wächter fragen die falsche Datei) ist
+   **zu messen**, nicht zu übernehmen.
+2. **`team-dashboard/T-0007`** — **der Auftraggeber wartet**, und die Vertragsfrage ist ihm
+   mit v2.9 abgenommen. Ursache 2 (überlappende Spalten) braucht einen Browser.
+3. **`team-dashboard/T-0004` und `T-0006`** — Sperre mit v2.9 gefallen, erste Terminierung
+   mit Arbeitsmöglichkeit.
+4. **`promt-team/T-0012`** — nach `pm/B061` der **eigentliche** Ollama-Engpass: 1 von 40
+   Tickets trägt einen `aufgaben_typ`. Die Begründung ist neu, die Prio hoch.
+5. **Die neun Reviews** (`T-0073`, `T-0006`, `T-0079`, `T-0001`, `T-0055`, `T-0066`,
+   `T-0068`, `T-0069`, `T-0085`, `team-termine/T-0001`/`T-0002`) — Reviewer ≠ Autor, sonst
+   wächst der `in_review`-Stau weiter.
+6. **`platform/T-0071`** — die Nachverbuchung des Hosts hat in diesem Lauf **fünfmal** einen
+   Session-Commit absorbiert und die Ticket-ID im Betreff verloren. Fünfter Beleg.
+
+⚠ **Nicht gemessen und deshalb nicht behauptet:** `test_js_teststrecke` läuft in dieser
+Sandbox über die Zeitgrenze; die JS-Strecke ist ersatzweise **direkt mit `node`** gefahren
+(**122 grün, 0 rot**). Ein vollständiger `preflight` in einem Aufruf bleibt über der Grenze.
+
+---
+
 ## Das Wichtigste (Sprint 37, 2026-08-22 — **der Befund war unser eigener Plan**)
 
 1. **⚠⚠ Der eine Preflight-Befund ist identifiziert und behoben.** Er hiess *„12 Planzeilen

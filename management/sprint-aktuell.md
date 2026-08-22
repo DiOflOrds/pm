@@ -25,6 +25,7 @@ Offen beim Start: **40** (32 `open`, 7 `in_review`, 1 `blocked`). Briefkasten be
 | **platform/T-0055** | dev | Sprint 39 | in_review | Teil A geliefert (`SWR-215`); Review offen. |
 | **platform/T-0066** | pl | Sprint 39 | in_review | `SWR-214`; Review offen. ⚠ Die Besetzungsfrage dahinter ist mit `pm/B061` beantwortet — **und die Messung sagt, dass sie nicht der Engpass war.** |
 | **platform/T-0068**, **platform/T-0069** | dev/prob | Sprint 39 | in_review | Review offen (Reviewer ≠ Autor). |
+| **platform/T-0074** | dev | Sprint 39 | **neu, open** | ⚠⚠ **Aus dem ersten grünen Abschluss seit 77 Läufen.** Preflight STARTKLAR, 1616+42 Tests grün, 14 Repos gepusht, Exit 0 — und **ein** Befund blieb: die CI von `platform` und `projects` ist **ROT**. ⚠ Gemessen **nicht** von diesem Sprint verursacht: dieselben zwei Repos stehen mit denselben Befunden schon im 15:25-Protokoll, vor dem ersten Commit dieses Laufs. **Eine Sperre zu räumen legt frei, was dahinter lag.** |
 | **platform/T-0064** | cm | Sprint 39 | geplant | Anhänge-Dateien ohne Überschreibschutz. Zweite Terminierung. |
 | **platform/T-0067** | coach | Sprint 39 | geplant | „Wer liest die maschinellen Befunde?" ⚠ **Sprint 38 ist der bislang schärfste Beleg:** der Lock-Befund stand 23 Läufe lang wörtlich im Protokoll, und im selben Protokoll stand die Begründung, warum er keiner ist. |
 | **platform/T-0070** | coach | Sprint 39 | geplant | Acht Lehren ohne Vertreter. |
@@ -43,7 +44,7 @@ Offen beim Start: **40** (32 `open`, 7 `in_review`, 1 `blocked`). Briefkasten be
 | pm/T-0001, pm/T-0002, pm/T-0003 | pl/pl/coach | jeder Sprint | geplant | Takt-Dauerläufer (Session-Agenda, Intake-Queue, LeLe-Konsolidierung). |
 | platform/T-0001, team-mail/T-0001 | cm/dev | jeder Sprint | geplant | Takt-Dauerläufer. |
 
-**Unterminiert: nichts.** 40 offene Tickets, 40 Planzeilen (Takt-Dauerläufer gebündelt).
+**Unterminiert: nichts.** 41 offene Tickets (40 beim Start + `platform/T-0074` aus dem Abschluss), 41 Planzeilen (Takt-Dauerläufer gebündelt).
 
 ### Was Sprint 38 geliefert hat
 
