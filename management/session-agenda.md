@@ -37,11 +37,23 @@
    `organigramm --check` grün · Briefkasten **0 offen / 71** · Work Products **56 → 66,
    0 Lücken** · Ollama-Offload **0 / 0**.
 
+### ⚠⚠ Die Stichprobe ist noch im Lauf gefahren — Ergebnis: Sperre gefallen, Weg nicht frei
+
+Zweimal geprüft (`review-…-155500`, `review-…-161000`, das zweite Mal mit untätiger
+Session). **Die Org-Prüfungen sind alle 0** — die Reparatur aus Punkt 1 hat gewirkt. **Der
+Abschluss bricht trotzdem bei `[1/6]` ab, jetzt mit 7 Befunden statt einem:** sieben
+`index.lock`, die die Sandbox **nicht sieht**, `git` in derselben Sandbox **sieht** und der
+Host als *„nicht entfernt — Git-Prozess aktiv"* meldet, obwohl keiner lief.
+
+> **Eine Sperre zu räumen beweist nicht, dass der Weg frei ist.**
+
+Aufgenommen als **`platform/T-0073`** (prio hoch, Sprint 38) — mit Planzeile im selben Zug.
+
 ### Erste Aufgaben des Folgelaufs
 
-1. **`abschluss-logs/review-*.md` nach 15:40 lesen — das ist die Stichprobe.** Erwartet:
-   `Schrittfolge: [6/6]`, `Push` statt `NICHT PRUEFBAR`. **Kommt sie nicht, ist die
-   Reparatur aus Punkt 1 unvollständig** und der nächste Befund steht im selben Fenster.
+1. **`platform/T-0073` zuerst** — solange die 7 Locks stehen, pusht der Host nichts, und
+   jeder weitere Sprint stapelt Rückstand. ⚠ **Nicht blind räumen** (`SWR-163`): die Frage
+   ist, warum die vorhandene Räumung nicht greift, nicht ob man löschen kann.
 2. **`team-mail/T-0006` bauen — FÜNFTE Berührung.** Die Vierte-Berührung-Entscheidung lautet
    seit Sprint 36 **BAUEN** und ist zweimal nicht ausgeführt. Er gehört **vor** die
    Neuplanung, nicht hinein. Auflage: kein Versandweg im Diff.

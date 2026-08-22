@@ -19,6 +19,7 @@ Offen beim Start: **39** (35 `open`, 3 `in_review`, 1 `blocked`). Briefkasten be
 | **platform/T-0055** | dev | Sprint 38 | **in_review** | ⚖ Vierte Berührung in Sprint 36 → **geschnitten**, Teil A. ⚠ Die Lage hat sich seither **geändert**: der Wächter läuft wieder. DoD gegen den laufenden Dienst messen statt gegen einen toten. |
 | **platform/T-0071** | dev | Sprint 38 | geplant | Aus Brief `platform/N-0010` (Auftraggeber, 12:08): alle Script-Aufrufe in Mission Control + Wächter live sichtbar. Prio hoch, nullte Terminierung. |
 | **platform/T-0072** | dev | Sprint 38 | geplant | Aus demselben Brief: `start_genesis` als EIN Startpunkt. Prio mittel, nullte Terminierung. ⚠ Hängt am Ergebnis von `T-0071` (dieselbe Zustandsquelle) — nacheinander, nicht parallel. |
+| **platform/T-0073** | dev | Sprint 38 | **neu, open** | ⚠⚠ **Aus der Stichprobe dieses Sprints.** Die `plan_drift`-Sperre ist gefallen (Org-Prüfungen alle 0, zweimal belegt) — der Abschluss steht trotzdem bei `[1/6]`: **7 `index.lock`, die aus der Sandbox unsichtbar sind, für `git` und den Host aber existieren.** Prio hoch. |
 | **platform/T-0064** | cm | Sprint 38 | geplant | Anhänge-Dateien ohne Überschreibschutz. Erste Terminierung nach der Sprint-36-Sichtung. |
 | **platform/T-0067** | coach | Sprint 38 | geplant | „Wer liest die maschinellen Befunde?" — dieser Lauf ist selbst ein Beleg dafür (der 1-Befund lag 3 Sprints unbenannt). Material dazu entsteht heute. |
 | **platform/T-0068** | dev | Sprint 38 | in_review | Review offen (Reviewer ≠ Autor). |
@@ -213,6 +214,42 @@ Sprint 38 **vor** die Neuplanung, nicht hinein.
 Dieser Lauf hat deshalb den **Engpass** gebaut statt die Delegation zu behaupten
 (`SWR-214`). Was fehlt, ist eine **Besetzungsentscheidung** — Klasse B des PM, ausdrücklich
 nicht hier mitentschieden, übergeben an `pm/T-0079` mit der Zahl in der Hand.
+
+### ⚠⚠ Nachtrag: die Stichprobe ist gefahren — und sie hat die Erwartung widerlegt
+
+Dieser Sprint hat sich selbst eine Prüfung gestellt (*„das nächste `review-*.md` muss
+`[6/6]` und `Push` zeigen"*). Sie ist **zweimal** gelaufen, das zweite Mal mit untätiger
+Session:
+
+| Lauf | Org-Prüfungen | Preflight gesamt | Schrittfolge |
+|---|---|---|---|
+| `review-…-142500` (vorher) | `Plan-Drift: **12 BEFUND**` | **1** | [1/6] |
+| `review-…-155500` | `Plan-Drift **0**`, `vergangener Sprint **0**`, `Plannachlauf **0**`, `Statusübergänge **0**` | **7** | [1/6] |
+| `review-…-161000` (Session idle) | dieselben **0** | **7** | [1/6] |
+
+> **Die Reparatur hat gewirkt und der Abschluss steht trotzdem. Ein zweiter Befund war die
+> ganze Zeit da und wurde von dem einen, der zählte, verdeckt.**
+
+**Die 7 sind `index.lock`-Artefakte in `p9`, `pm`, `projects`, `promt-team`,
+`team-dashboard`, `team-mail`, `team-termine` — und der eigentliche Fund ist, dass sie
+drei verschiedene Antworten bekommen:**
+
+| Wer fragt | Antwort für `pm/.git/index.lock` |
+|---|---|
+| Sandbox (`ls`/`stat`) | **existiert nicht** |
+| `git` in derselben Sandbox | **existiert** — `unable to unlink … Operation not permitted`, Commit bricht ab |
+| Host-Preflight | **existiert** — *„NICHT entfernt (Git-Prozess aktiv)"*, obwohl seit 10 Min kein `git` lief |
+
+⚠ `preflight --nur-locks` meldet danach `STARTKLAR` und `ls` bestätigt es. **Beides ist
+wahr und beides misst die falsche Seite des Mounts.**
+
+Aufgenommen als **`platform/T-0073`** (prio hoch, Sprint 38) — im selben Zug mit seiner
+Planzeile, nach der Lehre, die dieser Sprint gerade verankert hat. ⚠ Dazu gemessen: der
+Lock-Parkplatz ist in **diesem einen Lauf** von 12 630 auf **12 841** gewachsen (+211).
+
+> **Was dieser Sprint über sich selbst gelernt hat: eine Sperre zu räumen beweist nicht,
+> dass der Weg frei ist. Es beweist nur, dass diese Sperre weg ist — und das ist genau der
+> Unterschied, den eine Stichprobe misst und ein Haken behauptet.**
 
 ---
 
