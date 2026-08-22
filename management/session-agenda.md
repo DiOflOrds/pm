@@ -1,5 +1,103 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
+## Sprint 41 (2026-08-22/23 — **der Sprint, in dem die Prüfungen dieses Hauses den eigenen neuen Code erwischt haben**)
+
+1. **✅⚠⚠ Die Gegenprobe hat die BEGRÜNDUNG des eigenen Tickets widerlegt.** `platform/T-0076`
+   und der Changelog von `SWR-228` behaupten beide, Sprint 39 habe `T-0069`/`T-0055`
+   **unzulässig** auf `open` gesetzt. Im Git-Verlauf steht das Gegenteil:
+   `in_review → in_progress` (`3d4f876`, 19:30:46) `→ open` (`41d0571`, 19:34:23) — **zwei
+   erlaubte Schritte durch einen Zustand, der 217 Sekunden gelebt hat.**
+   `uebergang_historie` zählt im **ganzen** Bestand **0** unzulässige `in_review → open`.
+   > **Die Tabelle hatte den ehrlichen Weg nicht verboten, sondern verteuert. Ein Verstoß
+   > wäre aufgefallen — die Prüfung dafür existiert. Ein Umweg fällt nicht auf.**
+   Gebaut als `SWR-231` (Rückgabe in **einem** Schritt, nur mit maschinenlesbarem Grund).
+2. **⚠⚠ Ein Dauerauftrag dieses Hauses war GESCHLOSSEN, und nichts hat das gemeldet.**
+   Beim Zählen aller **8** Takt-Tickets standen **2** außerhalb des Zustands, in dem ein Takt
+   lebt — `team-termine/T-0011` in `in_review` und `team-dashboard/T-0001` auf **`done`**
+   (*„Widget-Vertrag entwerfen und **pflegen**"*).
+   > **Ein geschlossenes Takt-Ticket meldet nichts, fällt in keiner Überfälligkeitsprüfung
+   > auf und sieht in jeder Statistik wie ein Erfolg aus.** `SWR-232`, beide repariert.
+3. **✅ Die Regel der vierten Berührung hat ihren Vollstrecker** (`SWR-233`,
+   `platform/T-0078`). Gezählt werden **Wechsel** von `geplant_sprint` im Git-Verlauf — eine
+   Quelle, die niemand pflegen muss. Gemeldet wird im **Preflight**, dort wo der Lauf ohnehin
+   hinsieht. **Erste Meldung: 11 Tickets namentlich**, mit `entschieden:` als Weg nach vorn,
+   der den Termin **nicht** ändert. Kosten gemessen: **19 s** (nicht 33 s — abgeschlossene
+   Einheiten werden übersprungen), **bewusst ohne Cache**.
+4. **⚠⚠ „0 Token, gemessen" war nicht gemessen.** Das Review von `pm/T-0071` hat die Registry
+   nachgezählt: `kosten_eur` **`echte_null`** (11×, wirklich gemessen), `token_statisch` und
+   `token_dynamisch` **`nicht_geliefert`** (11× je) — und **beide stehen elfmal als `blocker`**.
+   > **Dieses Haus hat ein Feld gebaut, dessen einziger Zweck die Unterscheidung von
+   > `echte_null` und `nicht_geliefert` ist — und dann beides in einem Satz als „gemessen"
+   > berichtet.** Fünfter Beleg für `platform/T-0067`, und der erste, bei dem ein ungelesener
+   Befund **direkt in eine falsche Aussage** geflossen ist.
+5. **⚠⚠ Und daran hing das teuerste Ticket des Hauses.** `promt-team/T-0003` ist **23-mal**
+   terminiert worden; seine DoD verlangt ein Eval-Gate, und ein Eval-Gate über Prompt-Kosten
+   braucht Tokenzahlen. **Das Ticket war nie an Kapazität gescheitert.** Bei der 23. Berührung
+   **entschieden statt terminiert**: geschnitten, erster Teil ist `platform/T-0081`, Status
+   `blocked` mit `blocked_by`, `entschieden:` im Kopf.
+6. **⚠⚠ Eine VERKLEMMUNG war fünf Sprints unsichtbar, weil eine ihrer Hälften im Fließtext
+   wohnte.** `team-termine/T-0005` wartete auf „Teil B", Teil B (ein Abschnitt **in**
+   `T-0004`) wartete auf den Schnitt von `T-0005`. Aufgefallen erst beim Versuch, die Sperre
+   ins Feld `blocked_by:` zu schreiben. Aufgelöst an der falschen Prämisse (eine SWR
+   beschreibt Verhalten, nicht Bauteile); Prüfung dagegen gebaut (`test_sperre_im_feld`,
+   Zyklen über `blocked_by`).
+7. **✅ Elf Reviews, elf erledigt — und sie waren die ERSTE Handlung des Laufs, nicht die
+   letzte.** Neun `done`, `team-termine/T-0011` zurück auf `open` (Takt läuft weiter),
+   `T-0012` entsperrt. ⚠ **Eine Auflage im selben Lauf erfüllt**: `T-0004` trug „Teil B" in
+   sich und wäre mitgeschlossen worden — herausgeschnitten als `T-0013`.
+8. **⚠⚠ Zwei Zusicherungen dieses Hauses haben den NEUEN Code erwischt**, beide gefunden
+   ohne Lesen: `subprocess` im Textmodus **ohne `encoding=`** (der CP850-Befund aus
+   `pm/T-0024`) und das Literal `("done","rejected")` statt `board.GESCHLOSSEN`. ⚠ Dazu hat
+   eine **Gegenprobe des eigenen Laufs** einen Fehler in der eigenen Ausnahmeregel gefunden:
+   `blocked_by` kommt als **String** `"[]"` aus dem Frontmatter, und ein nichtleerer String
+   ist wahr — die erste Fassung nahm damit **jedes** blockierte Ticket aus.
+9. **Zahlen:** offen **36 → 31** · Teststrecke **1688 von 1701 gemessen, 0 rot** (siehe unten) ·
+   JS **127 grün** · `trace_matrix` **233 / 0 Lücken** · Sprintübergabe **0·0·0·0·0** ·
+   Briefkasten **0 offen / 71** · Work Products **team-termine 17 / 0 undeklariert** ·
+   `organigramm --check` grün · **Ollama-Offload 0 / 0,00 €** (Begründung unten).
+
+### ⚠ Was NICHT gemessen wurde, und deshalb nicht behauptet wird
+
+* **`test_js_teststrecke` (13 Zusicherungen) ist in dieser Sandbox nicht gelaufen** — allein
+  174 s, die Zeitgrenze eines Aufrufs liegt darunter. **1688 von 1701** sind gemessen, 0 rot.
+  ⚠ Die JS-Strecke selbst ist über `js_tests.py` gefahren: **127 grün**.
+* **Ein vollständiger `preflight` in einem Aufruf** überschreitet die Zeitgrenze. Er ist
+  gefahren worden, aber ohne Teststrecke (`--skip-tests`), und die neue Berührungsprüfung
+  kostet ihn zusätzliche **19 s**.
+* **Ollama-Offload: 0 Aufgaben, 0,00 €.** Gemessen, nicht angenommen: `127.0.0.1:11434`
+  antwortet aus dieser Sandbox mit `Connection refused`, `host.docker.internal` mit `403`.
+  ⚠ Und die Voraussetzung des Auftrags („`pm/T-0071` belegt einen Tick mit `status: ok` und
+  ≥1 Artefakt") **ist formal erfüllt** — 4 Läufe der Registry tragen beides. Sie wurde
+  trotzdem nicht genutzt, und zwar aus zwei gemessenen Gründen: der Dienst ist von hier nicht
+  erreichbar, und die einzigen zwei erfolgreichen Läufe haben laut QM-Review von Sprint 39
+  **am Thema vorbeigearbeitet**. `status: ok` heißt „gelaufen", nicht „gelöst".
+
+### ⚠ Ein Fehlgriff dieses Laufs in eigener Sache
+
+Die Teststrecke wurde im Hintergrund gestartet und ihr Fortschritt mit
+`pgrep -f "unittest discover"` abgefragt. Die Abfrage meldete **fünfmal** „läuft noch" — und
+fand dabei die **eigene Kommandozeile**. Der Testlauf war längst tot. **Fünfzig Minuten lang
+wurde ein Prozess beobachtet, den es nicht gab**; die Strecke musste blockweise neu gefahren
+werden. `L-2026-08-22aa`, ausdrücklich als Beobachtung gebucht.
+
+### Erste Aufgaben des Folgelaufs
+
+1. **Drei Reviews dieses Laufs** — `platform/T-0076` und `T-0078` (beide `in_review`,
+   Reviewer ≠ Autor). **Erste Handlung, nicht letzte.**
+2. **`platform/T-0081`** — welcher der drei Fälle die Tokenmessung verwirft. ⚠ Braucht einen
+   Lauf auf dem **Host**; `promt-team/T-0003` hängt daran.
+3. **`platform/T-0079`** — ein verschriebenes `--check` macht aus dem CI-Gate einen Schreiber.
+4. **Die 11 Tickets ab der 4. Terminierung** — sie stehen ab jetzt in **jedem** Preflight
+   namentlich. Wer sie nicht bearbeitet, setzt `entschieden:` oder lässt die Meldung stehen.
+5. **`team-termine/T-0013`** — zwei SWRs zu Widget und Erkennung; sie entsperren `T-0005` und
+   damit die Phasen 2–5 von P16.
+
+⚠ **Für den Auftraggeber, ohne Frist, unverändert:** `team-dashboard/T-0008` — ein Blick auf
+das reparierte Post-Widget im Browser und ein Screenshot nach `bugs/`. **Keine Session dieses
+Hauses kann das.**
+
+---
+
 ## Das Wichtigste (Sprint 40, 2026-08-22 — **der Sprint, der zwei eigene Befunde widerlegt hat**)
 
 1. **✅⚠⚠ Das Review von `platform/T-0074` hat die Gegenprobe des Vorlaufs widerlegt.**
