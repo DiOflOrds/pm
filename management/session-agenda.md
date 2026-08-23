@@ -76,8 +76,24 @@
    nicht, weil es bis heute nur **einen** Abschnitt mit einer `quelle:` gab
    (`L-2026-08-23p`).
 
-6. **Zahlen:** offen **30 → 30** (zwei geschlossen, zwei neu) · vierte Berührung **0**,
-   gemessen **nach** der Terminierungsrunde · Python-Teststrecke **1765 gefahren, 0 rot**
+6. **✅⚠ `platform/T-0077` bei der vierten Berührung gebaut statt entschieden** — ein
+   Schwellwert aus **gemessenem Wachstum** (nicht gewählt), ein Eigentümer, eine benannte
+   Handlung, und die Session-Grenze im Playbook mit ihrer **Folge für den Zuschnitt**
+   einer Aufgabe. ⚠⚠ Beide vom Ticket angebotenen Wege sind **geprüft und verworfen**,
+   weil jeder an einem anderen offenen Ticket hängt.
+
+7. **⚠⚠ Und Pflichtpunkt 2 hat sich in diesem Lauf selbst geschärft.**
+   `vierte_beruehrung` unmittelbar nach dem Neuterminieren: **0**. Nach dem **Commit**
+   derselben Änderungen: **4**.
+   > **Die Zählung liest den Git-Verlauf von `geplant_sprint` (`SWR-233`). Eine
+   > Terminierung, die noch nicht committet ist, hat für sie nicht stattgefunden.**
+   Alle vier sind **entschieden** worden (`T-0077` gebaut · `T-0080` zerlegt · `T-0081`
+   blockiert auf eine benannte Messung · `team-termine/T-0013` zerlegt), keiner
+   terminiert. Der Pflichtpunkt lautet ab Sprint 45: **nach dem Commit** der
+   Terminierungsrunde.
+
+8. **Zahlen:** offen **30 → 30** (zwei geschlossen, zwei neu) · vierte Berührung **0**,
+   gemessen **nach** der Terminierungsrunde · Python-Teststrecke **1773 gefahren, 0 rot** (in fünf Blöcken — ein Aufruf überschreitet die 178-s-Grenze dieser Sandbox)
    (ohne `test_js_teststrecke`, das hier an der Zeitgrenze scheitert — benannt statt
    verschwiegen) · JS **133 grün** · `trace_matrix` **241 / 0 Lücken** · Sprintübergabe
    **0·0·0·0·0** · Briefkasten **0 offen / 72** · Work Products **74 / 0 / 0** · Workflows

@@ -97,13 +97,15 @@ Gefunden durch `git diff` unmittelbar danach, alle fünf aus `HEAD` wiederherges
 |---|---|
 | offene Tickets | **30 → 30** (zwei geschlossen, zwei neu) |
 | vierte Berührung ohne Entscheidung | **0** |
-| Python-Teststrecke | **1765 gefahren, 0 rot** (ohne `test_js_teststrecke`, das hier an der Zeitgrenze scheitert — ausdrücklich benannt) |
+| Python-Teststrecke | **1773 gefahren, 0 rot** — in fünf Blöcken gefahren, weil **ein** Aufruf die 178-s-Grenze dieser Sandbox überschreitet. Ohne `test_js_teststrecke` (13 Zusicherungen), das hier an derselben Grenze scheitert: **benannt statt verschwiegen** — auf dem Host läuft es mit. |
 | JS-Teststrecke | **133 grün** (127 + 6 neue) |
 | `trace_matrix` | **241 SWRs, 0 Lücken** |
 | Work Products | **74 / 0 fehlend / 0 undeklariert** |
 | Workflows | **8 / 0 unabgedeckte Takte** |
 | Briefkasten | **0 offen / 72** |
 | `organigramm --check` | grün (21 Dateien) |
+| `preflight` | **0 blockierende Befunde**, 13 fortgeschrieben (Altbestand aus abgeschlossenen Sprints, unverändert). ⚠ Ebenfalls in **zwei** Aufrufen gefahren: `vierte_beruehrung` und `uebergangshistorie` lesen den Git-Verlauf und brauchen zusammen mehr als eine Aufrufgrenze. Betriebsschicht-Zeile: **27 von 27 byte-gleich, 0 / 0 / 0**. |
+| Kennzahlenblock | `tests=1786` `testdateien=127` `swr=241` `luecken=0` `briefkasten_offen=0` `wartet_auf_mensch=0` `parkplatz=14446` (gemessen 06:24) |
 | Ollama-Offload | **0** — und der Grund ist **gemessen**: `127.0.0.1:11434` ist aus dieser Sandbox nicht erreichbar. Der Nachweis aus `pm/T-0071` liegt vor (zwei `status: ok`-Läufe mit Artefakten), der **Dienst** nicht. |
 
 
@@ -4124,7 +4126,7 @@ offen, Plan-Drift 0, Statusdrift 0. ⚠ Nicht startklar — Altbefund unverände
 
 </details>
 
-<!-- kennzahlen v1 | gemessen 2026-08-23 06:10
+<!-- kennzahlen v1 | gemessen 2026-08-23 06:24
 briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=14446 swr=241 testdateien=127 tests=1786 tickets_offen=30 wartet_auf_mensch=0
 -->
 
