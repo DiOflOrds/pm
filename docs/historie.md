@@ -527,3 +527,17 @@ nicht aus einem Vorrat. `pm/T-0077` bleibt beim Auftraggeber (Frist 28.08., Defa
 Definitionen (12 nach `SWR-113`, 9 nach `kennzahlen.py`), weil die Werkzeuge zwei geben —
 eine still zu wählen wäre genau der Zustand, gegen den `SWR-113` gebaut wurde
 (`platform/T-0053`).
+
+## 2026-08-23 — Sprint 43: Sprintplan fortgeschrieben, alle 33 offenen Aufgaben terminiert
+
+Sprint 43 eröffnet (`s43-2026-08-23-0230`). Gesichtet: alle Tickets aller Repos über beide
+Ebenen. Briefkasten **0 offen / 72**, nachgemessen und nicht angenommen.
+
+Der Plan trägt für jede Verschiebung ihren Grund **im Ticket**. Bei der vierten Berührung
+oder später steht in jedem Fall eine **Entscheidung**: `platform/T-0075` (4., Teil 1 in
+Sprint 44 zugesagt), `platform/T-0072` (7., entsperrt), `team-dashboard/T-0004` (11.) und
+`T-0006` (10.) — beide mit der ausdrücklichen Zusage, in Sprint 44 gebaut oder geschnitten
+zu werden.
+
+⚠ Der Grund für die übrigen Verschiebungen ist **einer** und derselbe wie bei `B039`: die
+Kapazität dieses Laufs ist in die stehende Druckkette gegangen.

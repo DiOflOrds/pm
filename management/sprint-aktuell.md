@@ -6,7 +6,98 @@
 > **nicht umgeschrieben** (Playbook Kap. 16), sondern hiermit als historisch markiert. Ab
 > Sprint 41 kommt die Zahl aus `preflight` und dem Git-Verlauf.
 
-## Sprint-Plan (Sprint 42)
+## Sprint-Plan (Sprint 43)
+
+*Sprint 43 eröffnet 2026-08-23 02:30 (`s43-2026-08-23-0230`). Default nach `pm/D006`: in
+diesem Sprint schließen. ⚠ Jede Verschiebung trägt ihren Grund **im Ticket**, nicht hier
+(`L-2026-08-17ag`). Gesichtet: **alle** Tickets **aller** Repos über beide Ebenen. Offen
+beim Start: **33**. Briefkasten beim Start: **0 offen / 72 Briefe**.*
+
+### ⚠⚠ Die erste Handlung dieses Laufs war nicht der Briefkasten und nicht das Review — es war eine Datei, die niemand liest
+
+Der Briefkasten war leer (nachgemessen, nicht angenommen). Die Pflichtprüfung von
+`waechter-status.json` — seit `SWR-236` maschinenlesbar, seit einem Sprint — sagte:
+
+```
+"abschluss_ergebnis": { "zustand": "letzter Lauf FEHLER", "push_rueckstand": "PUSH-ANFORDERUNG.txt liegt vor" }
+"cm_review":          { "zustand": "ERGEBNIS: BEFUNDE (6)" }
+```
+
+**Die Druckkette dieses Hauses stand seit 01:25.**
+
+| Abschlusslauf | Tests | rot | letzter Schritt | gepusht |
+|---|---|---|---|---|
+| 01:40 · 01:55 · 02:10 · 02:25 | 1745 | **3 ERROR** | **[2/6]** | **nichts** |
+
+Der gesamte Sprint 42 — fünf Reviews, `SWR-234`–`237`, acht Lehren, alle Chronikzeilen —
+lag lokal.
+
+### Die Ursache, und sie steht in zwei Aufrufstellen derselben Teststrecke
+
+Die Ablehnungsmeldung aus `SWR-234` trägt ein `⚠`. Auf der Konsole des Auftraggebers ist
+der Ausgabestrom **cp1252**, und drei Zusicherungen rufen `board.main()` **im selben
+Prozess** auf — sie sterben am `print`, nicht an der Sache.
+
+| Läufer derselben Strecke | Kodierung | Ergebnis |
+|---|---|---|
+| `preflight.unit_tests()` — mit `konsole.kind_umgebung()` seit `platform/T-0009` | utf-8 | grün |
+| `abschluss.cmd` [2/6] — der Läufer des **Betriebs** | Locale = cp1252 | **rot** |
+
+An der einen Aufrufstelle steht ein Kommentar, der ausdrücklich erklärt, **warum** die
+Zusage genau dort stehen muss. Die andere hat sie nie bekommen.
+
+> **Die Zusage stand an der Stelle, die sie erklärt — nicht an der, die sie braucht.**
+> (`L-2026-08-23i`)
+
+⚠ Und die Zählung dazu hat eine allgemeinere Form geliefert: `konsole.sichere_ausgabe()`
+wird von **19** Werkzeugen gerufen, **19 von 19** ausschließlich im
+`if __name__ == "__main__"`-Zweig, **4** davon haben In-Process-Aufrufer. *Der Schutz hängt
+am Startweg, nicht am Werkzeug* → `platform/T-0087`, bewusst abgetrennt.
+
+### Der Plan
+
+| Aufgabe | Rolle | Fällig | Status | Grund / nächster Schritt |
+|---|---|---|---|---|
+| Briefkasten (beide Ebenen, inkl. `projects/*`) | pl | Sprint 43 | **geschlossen** | 0 offen / 72 beim Start, 0 offen / 72 am Ende. Nachgemessen, nicht angenommen. |
+| platform/T-0079 | qm | Sprint 43 | **done** | ✅ Review: DoD an den Quellen nachgefahren. ⚠⚠ **Und dann hat dieses Werkstück das Haus angehalten** — die Auflage ist im selben Lauf erfüllt (`T-0086`). |
+| platform/T-0064 | qm | Sprint 43 | **done** | ✅ Review: `anhaenge.kuerzungen` am echten Bestand `[]`. ⚠ Einschränkung benannt: gemessen ist der **Leerfall**, nicht der Fundfall. |
+| platform/T-0069 | qm | Sprint 43 | **done** | ✅ Review: `auflage: erfuellt` belegt, `T-0084` existiert. ⚠ Das Review hat die Klassifikation **erweitert**: dieselbe Sache in Gegenrichtung ist `T-0086`. |
+| platform/T-0070 | qm | Sprint 43 | **done** | ✅ Review: `test_lehren_vertreter` **12 / 0 rot** selbst gefahren. ⚠ Die Mutationsprobe ist **nicht** wiederholt worden — die Zahl bleibt die des Autors. |
+| platform/T-0071 | qm | Sprint 43 | **done** | ✅ Teil 1. ⚠⚠ **Review-Fund: es gibt einen VIERTEN Nicht-Dienst** — `sprint_register` meldete den Normalzustand als Ausfall. Im selben Lauf behoben, mit Zusicherung über **beide** Ausprägungen. |
+| platform/T-0086 (neu) | dev | Sprint 43 | **in_review** | ✅ `SWR-238`. Gegenprobe unter erzwungenem cp1252: alter Stand **3 ERROR** (dieselben drei Namen wie auf dem Host), neuer Stand **13 / 0**. ⚠ Die Zählung fand **drei** unittest-Läufer, nicht zwei — der dritte schreibt nach `nul`. |
+| platform/T-0084 | test | Sprint 43 | **in_review** | ✅ Hermetik. **Differenz gemessen statt durchgesehen**: 29 Zusicherungen, leeres Gerät 0 rot, beschäftigt **2** rot → nach der Reparatur **0**. Gegenprobe unter laufender `git log`-Schleife: alt **2 rot**, neu **29 / 0**. ⚠ DoD 2 war **schon erfüllt** — die befürchtete Lücke stand vierzehn Zeilen tiefer in derselben Datei. |
+| platform/T-0081 | dev | Sprint 43 | **in_review** | ✅ **Teil 1** (`SWR-239`). ⚠⚠ Zuerst nachgesehen, ob die Registry Punkt 1 beantwortet: **nein** — sie trägt genau die Lücke, nach deren Grund gefragt wird. Punkt 1 und 3 bleiben offen und werden **nicht geraten**. |
+| platform/T-0087 (neu) | dev | Sprint 44 | **open** | NEU aus der Zählung zu `T-0086`: 19/19/4. Bewusst nicht in diesem Lauf — eine Bauform mit Nebenwirkung auf fremde Prozesse gehört nicht in den Lauf, der unter Druck eine Druckkette repariert. |
+| platform/T-0072 | dev | Sprint 44 | **open** | ✅ **Entsperrt** — `T-0071` Teil 1 abgenommen, die Quelle ist maschinell lesbar und gefahren. 7. Terminierung, deshalb Entscheidung: Sprint 44 gebaut oder geschnitten. |
+| platform/T-0075 | cm | Sprint 44 | **open** | ⚠⚠ **4. Berührung → Entscheidung, nicht Terminierung.** Der Befund hat sich zum **zweiten Mal verwirklicht**: der Betriebsteil von `SWR-238` liegt in einer Datei, die **kein Repo hält** — nicht committebar, nicht pushbar, nicht im Diff lesbar. Prio **hoch**. Teil 1 (versionieren, Inhalt unangetastet) in Sprint 44. |
+| platform/T-0082 | cm | Sprint 44 | **open** | 2. Terminierung. ⚠ Neue Abhängigkeit: seine DoD verlangt eine Änderung an `abschluss.cmd` **plus** eine Zusicherung darüber — beides machbar, **keines überprüfbar** (`T-0075`). |
+| platform/T-0055 | dev | — | **blocked** | `blocked_by: [T-0075]`, Grund unverändert und in diesem Lauf **stärker** belegt. |
+| platform/T-0077 · T-0080 · T-0083 · T-0085 | cm/dev/test | Sprint 44 | **open** | Verschoben mit Grund im Ticket. ⚠ `T-0083` hat an Gewicht gewonnen: `SWR-238` hat gezeigt, was eine unerwartete Ausgabe kostet. |
+| pm/T-0080 · pm/T-0082 | dev/pl | Sprint 44 | **open** | Reste von Schnitten aus Sprint 42, `entschieden:` im Kopf. |
+| promt-team/T-0003 · T-0012 | dev/prompt-opt | — | **blocked** | `blocked_by: [platform/T-0081]` — **Blocker präzisiert**: nur noch **Teil 2** (ein Lauf gegen den Host). ⚠⚠ Die Annahme des Vorlaufs (*die Registry trägt die Antwort*) ist in diesem Lauf **widerlegt** worden. |
+| team-dashboard/T-0004 · T-0006 | dev | Sprint 44 | **open** | 11. bzw. 10. Terminierung. ⚠ **Letzter Aufschub ohne Schnitt** — in Sprint 44 gebaut oder zerlegt, beides im Ticket zugesagt. |
+| team-dashboard/T-0008 | mensch | Sprint 44 | **open** | Gehört dem Auftraggeber, keine Frist vom Team. **Keine Session dieses Hauses kann das.** |
+| team-mail/T-0009 | pl | Sprint 44 | **open** | 2. Terminierung. ⚠ Teilt die `T-0075`-Wurzel: was ein Host-Takt aufruft, steht in Dateien, die kein Repo hält. |
+| team-termine/T-0013 | rm | Sprint 44 | **open** | 3. Terminierung; `team-termine/T-0005` (`arch`) hängt daran und bleibt `blocked`. |
+| Takt-Tickets (`platform/T-0001`, `pm/T-0001–0003`, `team-dashboard/T-0001`, `team-mail/T-0001`, `team-termine/T-0011`, `T-0012`) | div. | laufend | **open** | Takte kehren wieder, sie werden nicht geschlossen (`SWR-232`). Termin wird mit dem Sprint fortgeschrieben. |
+
+### ⚠ Verschoben — und ausdrücklich als solches benannt
+
+**Keine Aufgabe ab der vierten Terminierung ist ohne Entscheidung verschoben worden.**
+`platform/T-0075` (4.), `platform/T-0072` (7.), `team-dashboard/T-0004` (11.) und
+`T-0006` (10.) tragen jeweils eine Entscheidung im Ticket, keine Terminverschiebung.
+
+Der Grund für die übrigen Verschiebungen ist **einer** und steht in jedem betroffenen
+Ticket: die Kapazität dieses Laufs ist in die stehende Druckkette gegangen.
+
+> ⚠⚠ **Und das ist derselbe Ablauf wie `B038` am 16.08.** Damals fiel ein zweistündiger
+> Stillstand nur auf, weil sich der Auftraggeber über zwei Tickets wunderte. Diesmal hat
+> `waechter-status.json` es gewusst — seit `SWR-236` sogar maschinenlesbar — und **es war
+> kein Auge darauf gerichtet.** Der Unterschied zu damals ist nicht, dass es jemand
+> gemeldet hätte. Der Unterschied ist, dass die Datei existierte.
+
+
+## Sprint-Plan (Sprint 42 — beim Abschluss auf Sprint 43 fortgeschrieben)
 
 *Sprint 42 eröffnet 2026-08-23 01:00 (`s42-2026-08-23-0100`). Default nach `pm/D006`: in
 diesem Sprint schließen. ⚠ Jede Verschiebung trägt ihren Grund **im Ticket**, nicht hier
