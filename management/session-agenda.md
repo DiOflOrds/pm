@@ -1,5 +1,156 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
+## Sprint 42 (2026-08-23 — **der Sprint, in dem die teuersten Tickets des Hauses nicht an Kapazität scheiterten, sondern an einer nie gestellten Frage**)
+
+1. **✅⚠⚠ Die Regel der vierten Berührung steht zum ersten Mal auf NULL — und keine einzige
+   Null kam durch einen Terminwechsel.** Sprint 41 hatte den Vollstrecker gebaut
+   (`SWR-233`) und ihn bewusst an **einem** von elf Tickets vollzogen. Dieser Lauf hat die
+   übrigen abgearbeitet: **4 gebaut · 3 blockiert mit benanntem Blocker · 2 geschnitten ·
+   2 als Entscheidungsanfrage gestellt**.
+   `preflight` am Sprintende: *„0 offene Aufgaben ab der 4. Terminierung ohne
+   Entscheidung."*
+2. **⚠⚠ Und der teuerste Befund des Laufs steht in zwei Zeitstempeln.** Zwei Tickets bei
+   der **siebten** Terminierung trugen seit Sprint 34 im **eigenen Text**, dass ein Mensch
+   entscheiden muss — `team-mail/T-0007` (*„das ist seine Entscheidung, nicht unsere. Der
+   Brief fragt ihn danach."*) und `team-dashboard/T-0006` (*„Jede dieser Fragen ist eine
+   Zugriffsentscheidung"* = Klasse A).
+   **Der Brief hat ihn nie gefragt.** Gestellt in diesem Lauf, beantwortet nach **14** und
+   **20 Minuten** (`D031` = S3, `D032` = P2).
+   > **Vierzehn Terminierungen gegen vierunddreißig Minuten. Es hat nie an Kapazität
+   > gefehlt — die Frage war nie gestellt worden, und in keiner Planzeile ist das
+   > aufgefallen.** (`L-2026-08-23g`)
+   Beide Entscheidungen sind **im selben Lauf vollzogen**: die SPAM-Kachel ist aus der
+   Design-Vorlage, die Zusicherung **umgedreht statt gelöscht** — der Dauerbefund *„keine
+   Daten"* im Post-Widget ist nach **zehn Sprints** fort, und nicht, weil jemand eine Zahl
+   gefunden hat.
+3. **✅⚠⚠ `platform/T-0069` ist ohne den Host gemessen worden — die Lage ließ sich
+   HERSTELLEN.** Drei Sprints lang hieß es, die Messung gehöre auf den Rechner des
+   Auftraggebers, *„weil der nie leer ist"*. Eine Hintergrundschleife `git log` hat
+   dieselbe Lage in dieser Sandbox in **einer Sekunde** erzeugt, und die zwei roten
+   Zusicherungen des Host-Laufs vom 21.08. sind **wortgleich reproduziert** — Namen,
+   Zahlen, Text.
+   > **Wer auf den Zufall wartet, wartet auf den falschen Rechner.** (`L-2026-08-23h`)
+   Klassifikation: kein Defekt am Gegenstand, keine bewusste Umgebungsabhängigkeit,
+   sondern die dritte Möglichkeit — **eine Zusicherung, die genau dann grün ist, wenn
+   niemand sonst arbeitet.** Reparatur abgetrennt als `T-0084`.
+4. **⚠⚠ Acht Lehren trugen achtmal denselben Satz — und eine hatte ihren Vertreter längst.**
+   `platform/T-0070` verlangte *„je Lehre einzeln entschieden, **keine
+   Sammelbehandlung**"*. Vorgefunden: acht wortgleiche Kopien desselben Absatzes, und
+   **kein einziger** Vertreter. `L-2026-08-21dk` (*„die vierte Berührung zählt
+   Terminierungen, nicht Verschiebungen"*) wird seit **Sprint 41** von
+   `test_beruehrungen` bewacht — gebaut aus demselben Befund, in derselben Woche.
+   > **Der Marker sagt nicht „es gibt keine Zusicherung". Er sagt „niemand hat
+   > nachgesehen" — und beides sieht in der Liste gleich aus.**
+   ⚠ Die Mutationsprobe hat den Vertreter dabei **selbst korrigiert**: Mutation B macht
+   **5 von 10** rot, Mutation A **0 von 10** — die Regel wird vom **Diff-Format**
+   durchgesetzt, nicht von der Zeile, die im Werkzeug so aussieht, als sei sie die Regel.
+5. **✅ Vier neue Anforderungen, und drei haben ihre Bauform aus einer ZAHL bekommen.**
+   `SWR-234` (unbekannte Flags werden abgelehnt — Handprüfung statt `argparse`, weil
+   `argparse` Exit-Codes und Meldungstexte von **123 gezählten** Aufrufstellen verändert
+   hätte) · `SWR-235` (Anhänge-Wächter **vor** dem Commit; **424/20/2**, und Variante A
+   ist **an der Zahl gescheitert**) · `SWR-236` (der Wächter dreiwertig lesbar) ·
+   `SWR-237` (ein Work Product darf ein Verzeichnis sein).
+6. **⚠⚠ `--chek` war kein Tippfehler, sondern der Schreibmodus.** `board.py --check` ist
+   das CI-Gate aus `SWR-005`; ein verschriebener Schalter hieß `nur_check = False` →
+   **BOARD.md wird im CI-Checkout geschrieben**, Ausgabe *„OK … aktualisiert"*, **Exit 0**.
+   Die Gegenprobe gegen `93d0ced` druckt genau diese Zeile **viermal**.
+   ⚠ Und die Zählung dazu hat einen zweiten Befund geliefert: **zwei lebende Anweisungen**
+   trugen `board.py --repo team-termine` — `docs/entwicklungsumgebung.md` **und die
+   Werkzeugtabelle der Rollenkarte** `roles/cm.md`. `T-0079` behauptet, die erste sei *„in
+   diesem Lauf korrigiert"* worden. **Sie war es nicht** (`L-2026-08-23b`).
+7. **⚠⚠ Die Nachverbuchung des Hosts hat DREIMAL in laufende Arbeit hineingegriffen** —
+   00:40, ~01:10 und 01:25. Der erste Fall committete `board.py` mit **59 neuen Zeilen und
+   keinem Test**; der zweite `SWR-236` **ohne** den Code dazu.
+   > **Ein Commit, der Produktivcode ohne seinen Nachweis trägt, ist im Verlauf von
+   > fertiger Arbeit nicht zu unterscheiden.** Gezählt über alle Repos: **67**
+   > Nachverbuchungen, **3** mit Produktivcode ohne Test. Verbucht als `platform/T-0082`.
+8. **✅ Ein Brief ist während des Laufs eingegangen und beantwortet worden** —
+   `team-mail/N-0006`: *„jeden Tag Zusammenfassung konfiguriert … nichts bekommen"*.
+   Nachgemessen: letzter Digest **2026-08-20**, keiner für den 21./22., `ausgang/`
+   **existiert nicht**.
+   > **Es ist nichts verloren gegangen. Es ist nichts erzeugt worden.** Die Konfiguration
+   > sagt `takte: [1,7,30]`, das ausführende Ticket sagt `takt: je-session` — **zwei
+   > Zahlen, die beide richtig aussehen, und keine Uhr dazwischen.** Kein Host-Takt ruft
+   > `mail_digest.py`. Verbucht als `team-mail/T-0009`.
+9. **Zahlen:** offen **31 → 33** (sechs neue Befunde/DRs gebucht, drei Tickets
+   geschlossen) · **vierte Berührung 11 → 0** · Teststrecke **1732 von 1745 gemessen,
+   0 rot** · JS **127 grün** · `trace_matrix` **237 / 0 Lücken** · Sprintübergabe
+   **0·0·0·0·0** · Briefkasten **0 offen / 72** (ein Brief im Lauf, beantwortet) ·
+   Work Products **73 / 0 fehlend / 0 undeklariert** · Workflows **8 / 0 unabgedeckte
+   Takte** · `organigramm --check` grün (21 Dateien) · **Ollama-Offload 0 / 0,00 €**.
+
+### ⚠ Was NICHT gemessen wurde, und deshalb nicht behauptet wird
+
+* **`test_js_teststrecke` (13 Zusicherungen) ist in dieser Sandbox nicht gelaufen** —
+  allein 174 s, die Zeitgrenze eines Aufrufs liegt bei **178 s**. **1732 von 1745** sind
+  gemessen, 0 rot. ⚠ Die JS-Strecke selbst ist über `js_tests.py` gefahren: **127 grün**.
+* **Ein vollständiger `preflight` in EINEM Aufruf ist nicht gelaufen** — auch nicht mit
+  `--skip-tests`. Die Org-Prüfungen sind **einzeln** gefahren (Plannachlauf, Plandrift,
+  Liegengeblieben, Sprintvergangen, Wartet-auf-Mensch, DR-Verbuchung, Decision-Log,
+  Kalenderfristen, Unterminierte, vierte Berührung, Anhänge-Kürzungen) und **alle null**.
+* **Ollama-Offload: 0 Aufgaben, 0,00 €.** ⚠⚠ **Und diesmal ist die Begründung eine
+  andere als in Sprint 41.** Aus dieser Sandbox: `127.0.0.1:11434` *Connection refused*,
+  `host.docker.internal` und `172.17.0.1` **403**. Aus `waechter-status.json` derselben
+  Stunde: `"ollama_dienst": {"zustand": "erreichbar"}` — **vom Host**.
+  > **Beide Messungen stimmen und messen verschiedene Rechner. Der Beleg lag die ganze
+  > Zeit in einer Datei, die niemand gelesen hat** (`L-2026-08-23e`).
+  Die Voraussetzung des Auftrags (`pm/T-0071` belegt einen Tick mit `status: ok` und
+  ≥1 Artefakt) ist formal erfüllt; genutzt wurde der Offload trotzdem nicht, weil der
+  Dienst **von hier** nicht erreichbar ist. Der fehlende Nachweis ist damit benannt und
+  nicht umgangen.
+* **Die Token-Ersparnis ist weiterhin `nicht_geliefert`, nicht `echte_null`** — die
+  Unterscheidung, die Sprint 41 an sich selbst korrigiert hat, gilt unverändert.
+
+### ⚠ Zwei Zusicherungen dieses Hauses sind gemeinsam unerfüllbar geworden
+
+`test_die_regel_konvention_trennt_praktisch_nichts` verlangt, dass **≥ 90 %** aller Lehren
+eine `**Regel:**` tragen. `test_erweitern_und_weglassen_sind_dasselbe_ergebnis` verlangt,
+dass eine **Beobachtung keine** trägt. Ab 10 % Beobachtungen ziehen sie gegeneinander.
+
+Gemessen am 2026-08-23: **166** Lehren, **15** Beobachtungen (**9,0 %**) — der Kipppunkt
+ist in diesem Sprint erreicht worden, **durch einen Lauf, der genau das getan hat, was
+`platform/T-0070` verlangte**: acht Lehren einzeln entscheiden, davon sieben als
+Beobachtung.
+
+> **Nicht die Schwelle war falsch — die Bezugsmenge war es.** Das Verhältnis läuft ab jetzt
+> über die **Grundmenge** (ohne Beobachtungen). Beide Zahlen stehen im Quelltext:
+> 148/166 = **0,892** über alle, 148/151 = **0,980** über die Grundmenge.
+
+### ⚠ Ein Fehlgriff dieses Laufs in eigener Sache
+
+Die Neufassung einer Beobachtung begann mit `**Beobachtung — und zwar eine WIDERLEGTE.**`.
+Die Erkennungsregel ist `^\*\*Beobachtung:?\*\*` — der Gedankenstrich hat den Marker
+gebrochen, `beobachtungen` fiel von 11 auf **9**, `ohne_vertreter` stieg auf **91**.
+Der Kommentar über dieser Regel warnt seit `SWR-199` genau davor, eine Lehre durch
+Zeichensetzung unsichtbar zu entwerten — **in derselben Datei, unter demselben Kommentar**.
+Gefunden hat es die Nachmessung, nicht das Lesen (`L-2026-08-23c`).
+
+### Erste Aufgaben des Folgelaufs
+
+1. **Die sechs Reviews dieses Laufs** — `platform/T-0064`, `T-0069`, `T-0070`, `T-0071`,
+   `T-0079` (Reviewer ≠ Autor). **Erste Handlung, nicht letzte.**
+2. **`platform/T-0084`** — die zwei nicht-hermetischen Zusicherungen. ⚠ Nicht nur
+   wegmocken: das Tor braucht seine **eigene** Prüfung, sonst wird ein Codepfad still
+   ausgelassen.
+3. **`platform/T-0082`** — die Nachverbuchung greift in laufende Arbeit. Drei Fälle in
+   **einer** Stunde; Punkt 1 (ein Merker „diese Sandbox lebt") ist der billige Weg.
+4. **`team-mail/T-0009`** — der Takt ohne Uhr. ⚠ Er hängt an `platform/T-0075` (die
+   Betriebsschicht liegt in **keinem** Repo) und ist ohne sie nicht reparierbar.
+5. **`platform/T-0081`** — die Tokenmessung. ⚠ **Der angenommene Blocker ist keiner**: sie
+   braucht die Run-Registry im Repo, nicht einen erreichbaren Dienst. Zwei Tickets hängen
+   daran (`promt-team/T-0003`, `T-0012`).
+
+⚠ **Für den Auftraggeber, ohne Frist, unverändert:** `team-dashboard/T-0008` — ein Blick auf
+das reparierte Post-Widget im Browser und ein Screenshot nach `bugs/`. **Keine Session
+dieses Hauses kann das.**
+
+⚠ **Und eine Auflage, die aus Ihrer eigenen Antwort folgt:** `D032` = P2 sagt „PIN gilt
+dauerhaft im Browser **bis zum Abmelden**". Das Dashboard hat heute **kein** Abmelden —
+ohne eines heißt P2 in der Praxis „für immer". Der Abmelde-Weg ist deshalb Teil der DoD
+von `team-dashboard/T-0006` geworden, nicht ein Nachtrag.
+
+---
+
 ## Sprint 41 (2026-08-22/23 — **der Sprint, in dem die Prüfungen dieses Hauses den eigenen neuen Code erwischt haben**)
 
 1. **✅⚠⚠ Die Gegenprobe hat die BEGRÜNDUNG des eigenen Tickets widerlegt.** `platform/T-0076`
