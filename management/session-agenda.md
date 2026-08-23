@@ -1,5 +1,156 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
+## Sprint 43 (2026-08-23 — **der Sprint, in dem die Druckkette vier Läufe lang stand, es eine Datei wusste und kein Auge darauf gerichtet war**)
+
+1. **⚠⚠⚠ Der teuerste Befund stand nicht in einem Ticket, sondern in einer Statusdatei, die
+   dieses Haus vor einem Sprint selbst lesbar gemacht hat.** `waechter-status.json` meldete
+   um 02:27 *„letzter Lauf FEHLER"* und *„ERGEBNIS: BEFUNDE (6)"*. Nachgezählt: **vier**
+   Abschlussläufe (01:40 · 01:55 · 02:10 · 02:25) endeten bei Schritt **[2/6]**, letzter
+   erfolgreicher Push **01:25**. **Der gesamte Sprint 42 — fünf Reviews, `SWR-234`–`237`,
+   acht Lehren, alle Chronikzeilen — lag lokal.**
+   > **Es ist derselbe Ablauf wie `B038` am 16.08. Damals fiel der Stillstand nur auf, weil
+   > sich der Auftraggeber über zwei Tickets wunderte. Diesmal hat die Automatik es
+   > gewusst — seit `SWR-236` sogar maschinenlesbar — und niemand hat hingesehen. Der
+   > Unterschied zu damals ist nicht, dass jemand es gemeldet hätte. Der Unterschied ist,
+   > dass die Datei existierte.** (`L-2026-08-23i`)
+2. **⚠⚠ Die Ursache ist ein Zeichen, und der Fund ist, WO die Zusage wohnt.** Die
+   Ablehnungsmeldung aus `SWR-234` — der Anforderung, die Sprint 42 gebaut hat — trägt ein
+   `⚠`. Auf der Konsole des Auftraggebers ist der Ausgabestrom **cp1252**, und drei
+   Zusicherungen rufen `board.main()` **im selben Prozess** auf: sie sterben am `print`,
+   nicht an der Sache.
+
+   | Läufer derselben Teststrecke | Kodierung | Ergebnis |
+   |---|---|---|
+   | `preflight.unit_tests()` — trägt sie seit `platform/T-0009` | utf-8 | grün |
+   | `abschluss.cmd` — der Läufer, den der **Betrieb** benutzt | cp1252 | **rot** |
+
+   An der einen Aufrufstelle steht ein Kommentar, der ausdrücklich erklärt, **warum** die
+   Zusage genau dort stehen muss. Die andere hat sie nie bekommen.
+   > **Die Zusage stand an der Stelle, die sie erklärt — nicht an der, die sie braucht. Ein
+   > Kommentar, der die Notwendigkeit einer Zeile begründet, ist der beste Hinweis darauf,
+   > dass dieselbe Zeile anderswo fehlt.**
+   `SWR-238`, `platform/T-0086`. Gegenprobe unter erzwungenem cp1252: alter Stand **3
+   ERROR** — dieselben drei Namen wie auf dem Host —, neuer Stand **13 / 0**.
+3. **⚠ Und die Zählung dazu hat zweimal mehr gefunden, als gesucht war.** Erstens:
+   `konsole.sichere_ausgabe()` wird von **19** Werkzeugen gerufen, **19 von 19** nur im
+   `__main__`-Zweig, **4** davon haben In-Process-Aufrufer — *der Schutz hängt am Startweg,
+   nicht am Werkzeug* (`platform/T-0087`, bewusst abgetrennt). Zweitens hat die neue
+   Zusicherung sich **im ersten Lauf selbst korrigiert**: geschrieben war sie auf **zwei**
+   unittest-Läufer, gemeldet hat sie **drei** — der dritte schreibt nach `nul`, und über
+   seinen Exit-Code entscheidet der Lauf, ob die Kennzahlen neu gemessen werden. **Der
+   eine Aufruf, dessen Fehlschlag niemand sieht, war der, den die erste Fassung der
+   Reparatur nicht geschützt hätte.**
+4. **⚠⚠ Der Betriebsteil dieser Reparatur liegt in einer Datei, die kein Repo hält — und
+   damit hat sich `platform/T-0075` zum zweiten Mal verwirklicht.** `abschluss.cmd` ist in
+   keinem der 19 Repos; die Zeile, die die Druckkette wieder in Gang bringt, ist **nicht
+   committebar, nicht pushbar, nicht im Diff lesbar**. Dieselbe Datei trägt im eigenen Kopf
+   den Vermerk *„REKONSTRUIERTE FASSUNG — die vorige wurde versehentlich geleert"*. Der
+   Schaden dieses Tickets ist kein Risiko mehr, er ist **Geschichte mit Datum** — und
+   inzwischen hängen **drei** Zusagen daran (`T-0082`, `team-mail/T-0009`, der
+   Betriebsteil von `SWR-238`). ⚠ Die zugehörige Zusicherung **überspringt sich im
+   CI-Checkout selbst**, weil die Datei dort nicht existiert; das ist im Sprungtext
+   benannt statt weggeschwiegen. `T-0075` steht bei der vierten Berührung und ist deshalb
+   **entschieden** statt terminiert: Teil 1 in Sprint 44.
+5. **✅ Fünf Reviews des Vorlaufs abgeschlossen — und eines hat einen VIERTEN Nicht-Dienst
+   gefunden.** `T-0064` · `T-0069` · `T-0070` · `T-0071` · `T-0079` sind `done`, `T-0072`
+   ist entsperrt. Das Review von `T-0071` hat `betriebsschau.schau()` gegen einen Bestand
+   mit **normalem** Inhalt gefahren: `sprint_register` trägt zwischen zwei Läufen den Text
+   *„kein laufender Sprint"* und wurde als **Ausfall** gemeldet.
+   > **Der Normalzustand einer Beobachtung wurde als Ausfall eines Dienstes gemeldet. Die
+   > Liste war nicht falsch, sie war unvollständig — und ihre Lücke lag genau dort, wo der
+   > Wächter am häufigsten hinsieht.**
+   Im selben Lauf behoben, mit einer Zusicherung über **beide** Ausprägungen.
+6. **✅ `platform/T-0084`: die Antwort auf „welche Zusicherungen hängen am Gerät" ist eine
+   DIFFERENZ und keine Durchsicht.** Das Tor wurde global auf `True` gezwungen: 29
+   Zusicherungen, leeres Gerät **0 rot**, beschäftigtes Gerät **2 rot** — genau die zwei
+   aus dem Ticket, keine weitere. Nach der Reparatur **0**. Gegenprobe am echten Gerät mit
+   laufender `git log`-Schleife: alter Stand **2 rot**, neuer Stand **29 / 0**.
+   ⚠⚠ **Und die Sorge des Tickets war unbegründet:** der befürchtet fehlende Vertreter für
+   das Tor existierte seit `platform/T-0015` — vierzehn Zeilen tiefer in derselben Datei.
+   *Das Ticket hat die richtige Frage gestellt und die Antwort nicht gesucht.*
+7. **✅⚠ `platform/T-0081` Teil 1 — und zuerst wurde eine Annahme des Vorlaufs widerlegt.**
+   Sprint 42 notierte, die fehlende Tokenzahl brauche keinen erreichbaren Dienst, die
+   Antwort stehe in der Run-Registry. Nachgesehen: **die Registry trägt genau die Lücke,
+   nach deren Grund gefragt wird.** Zwei gelungene Ollama-Läufe (221 s und 189 s, je zwei
+   geschriebene Dateien) tragen `nicht_geliefert` — und kein Feld, aus dem sich der Fall
+   rekonstruieren ließe.
+   > **Eine Lücke kann nicht erklären, wie sie entstanden ist.** (`L-2026-08-23j`)
+   Gebaut ist deshalb `SWR-239`: die Verwerfung nennt ab jetzt ihren Grund aus einer
+   geschlossenen Menge, bis in den Registry-Datensatz — und **bei vollständiger Messung
+   fehlt das Feld**, statt auf `"ok"` zu stehen. ⚠ **Punkt 1 und 3 sind ausdrücklich NICHT
+   beantwortet und werden nicht geraten.** `promt-team/T-0003` (23. Terminierung) und
+   `T-0012` bleiben blockiert; ihr Blocker ist **präzisiert**, nicht aufgelöst.
+8. **Zahlen:** offen **33 → 30** (zwei neue Tickets, fünf geschlossen) · vierte Berührung
+   **2 → 0** (beide entschieden, keine terminiert) · Teststrecke **1744 von 1757 gemessen,
+   0 rot — und zwar durchgehend unter `PYTHONIOENCODING=cp1252`, also unter genau der
+   Bedingung, die auf dem Host rot war** · JS **127 grün** · `trace_matrix` **239 / 0
+   Lücken** · Sprintübergabe **0·0·0·0·0** · Briefkasten **0 offen / 72** · Work Products
+   **73 / 0 fehlend / 0 undeklariert** · Workflows **8 / 0 unabgedeckte Takte** ·
+   `organigramm --check` grün (21 Dateien) · **Ollama-Offload 0 / 0,00 €**.
+
+### ⚠ Was NICHT gemessen wurde, und deshalb nicht behauptet wird
+
+* **`test_js_teststrecke` (13 Zusicherungen) ist wieder nicht gelaufen** — sie allein
+  überschreitet die Zeitgrenze eines Sandbox-Aufrufs (**178 s**). **1744 von 1757** sind
+  gemessen, 0 rot; die JS-Strecke selbst ist über `js_tests.py` gefahren: **127 grün**.
+* **Ein vollständiger `preflight` in EINEM Aufruf ist erneut nicht gelaufen** — auch nicht
+  mit `--skip-tests` (Abbruch bei 172 s, Ausgabe vollständig gepuffert). Die
+  Org-Prüfungen sind **einzeln** gefahren: Statusdrift · Plannachlauf · Plandrift ·
+  Liegengeblieben · Sprintvergangen · Wartet-auf-Mensch · DR-Verbuchung · Decision-Log ·
+  Kalenderfristen · Unterminierte · vierte Berührung · Pflichtartefakte ·
+  Anhänge-Kürzungen · CI-Stand · Wächter-Herzschlag · Parkplatz · Uhrenprobe. Alle null
+  bzw. bekannt und benannt.
+* **Ollama-Offload: 0 Aufgaben, 0,00 €.** Erneut nachgemessen, nicht übernommen:
+  `127.0.0.1:11434` Connection refused, `host.docker.internal` und `172.17.0.1` je **403**,
+  während `waechter-status.json` derselben Stunde den Dienst als `erreichbar` führt — **vom
+  Host** (`L-2026-08-23e`). Die Voraussetzung des Auftrags (`pm/T-0071`) ist formal erfüllt;
+  genutzt wurde der Offload nicht, weil der Dienst **von hier** nicht erreichbar ist.
+  Die Token-Ersparnis ist damit weiterhin `nicht_geliefert`, nicht `echte_null` — und
+  `SWR-239` ist genau die Anforderung, die diesen Unterschied künftig belegen wird.
+* **Die Mutationsprobe zu `platform/T-0070` ist nicht wiederholt worden** (zwei volle
+  Läufe der Strecke). Die Zahlen 5/10 und 0/10 bleiben die des Autors.
+* **Die Gerätedifferenz zu `T-0084` ist über EIN Modul gefahren**, nicht über die ganze
+  Strecke.
+
+### ⚠⚠ Ein Fehlgriff dieses Laufs in eigener Sache — und er hat gekostet
+
+Zwischen 02:40 und 03:40 sind **vier weitere** Abschlussläufe abgebrochen, diesmal bei
+Schritt **[1/6]**. Der Grund war **dieser Sprint selbst**: das Sichten und Neuterminieren
+aller offenen Aufgaben hat `platform/T-0075` und `team-dashboard/T-0008` auf die **vierte
+Berührung** gehoben, und `preflight` meldet das zu Recht als Befund — bis um 03:47 in
+beiden Tickets ein `entschieden:` stand.
+
+> **Der Lauf, der die stehende Druckkette reparierte, hat sie eine weitere Stunde stehen
+> lassen — indem er genau das tat, was der Plan verlangt.** Der Bestand ist während jedes
+> Sprints widersprüchlich, weil der Plan laut `pm/D006` am **Abschluss** geschrieben wird,
+> die Tickets aber **während** des Laufs wandern. Das ist derselbe Befund, den
+> `platform/T-0052` schon einmal am laufenden Betrieb gemessen hat, und er ist hier zum
+> zweiten Mal teuer geworden.
+
+⚠ Und ein zweites Mal in eigener Sache: die Nachverbuchung des Hosts hat **erneut** mitten
+in laufende Arbeit hineingegriffen und die Chronikzeilen, Lehren und Terminierungen dieses
+Laufs unter der Meldung *„liegengebliebene Arbeitskopie verbucht"* committet. Das ist der
+fünfte gezählte Fall von `platform/T-0082` — verschoben auf Sprint 44, weil seine
+Reparatur eine Änderung an `abschluss.cmd` verlangt und damit an `T-0075` hängt.
+
+
+### ⚠ Neue Pflichtpunkte der Agenda ab Sprint 44
+
+1. **Nach dem Briefkasten und VOR den Reviews wird `waechter-status.json` gelesen.** Sie
+   ist seit `SWR-236` maschinenlesbar und hat in Sprint 43 als Erste gewusst, dass die
+   Druckkette steht — vier Läufe lang, ohne Leser. Zu prüfen sind `abschluss_ergebnis`,
+   `cm_review` und der Herzschlag. *Ein Wächter ohne Leser ist kein Wächter.*
+2. **Nach jeder Neuterminierungsrunde wird `vierte_beruehrung` gefahren, nicht erst am
+   Sprintende.** Das Sichten aller offenen Aufgaben hebt Tickets auf die vierte Berührung
+   und macht den Preflight rot — in Sprint 43 hat das den Push eine weitere Stunde
+   blockiert. Wer terminiert, prüft im selben Zug, wen er über die Schwelle geschoben hat.
+3. **Beim Bau einer Reparatur wird gefragt, ob ihre Datei in einem Repo liegt.** Der
+   Betriebsteil von `SWR-238` ist es nicht (`platform/T-0075`) — er ist damit weder
+   pushbar noch im Diff lesbar, und die zugehörige Zusicherung überspringt sich im CI
+   selbst. Wo das zutrifft, gehört es **in den Bericht**, nicht in eine Fußnote.
+
+---
+
 ## Sprint 42 (2026-08-23 — **der Sprint, in dem die teuersten Tickets des Hauses nicht an Kapazität scheiterten, sondern an einer nie gestellten Frage**)
 
 1. **✅⚠⚠ Die Regel der vierten Berührung steht zum ersten Mal auf NULL — und keine einzige
