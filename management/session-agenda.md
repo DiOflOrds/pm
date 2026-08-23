@@ -125,6 +125,32 @@ Der Kommentar über dieser Regel warnt seit `SWR-199` genau davor, eine Lehre du
 Zeichensetzung unsichtbar zu entwerten — **in derselben Datei, unter demselben Kommentar**.
 Gefunden hat es die Nachmessung, nicht das Lesen (`L-2026-08-23c`).
 
+### ⚠ Gegenprobe des Abschlusses — durch eine zweite, unabhängige Instanz
+
+Zwölf Behauptungen dieses Berichts sind von einer **fremden** Instanz am Bestand
+nachgemessen worden (nicht vom Autor des Berichts), mit dem ausdrücklichen Auftrag, nichts
+zu ändern und nichts zu committen:
+
+| geprüft | Ergebnis |
+|---|---|
+| vierte Berührung **0** · offen **33** · `trace_matrix` **237/0** · JS **127** | bestätigt |
+| Briefkasten **0 / 72** · WP **73/0/0** · WF **8/0** · Übergabe **0·0·0·0·0** | bestätigt |
+| `organigramm --check` grün (**21** Dateien) · Tickets ohne Sprint **0** | bestätigt |
+| **18 Repos, je 0 unverbuchte Änderungen** | bestätigt |
+| Gegenprobe `SWR-234`: `--chek` → **Exit 2**, `--check` → **Exit 0**, nichts geschrieben | bestätigt |
+
+**Abweichungen: keine.**
+
+⚠ Zwei Einschränkungen, die die Gegenprobe ausdrücklich benennt und die hier stehen
+bleiben, statt weggelassen zu werden:
+
+* Die **Startwerte** der Delta-Angaben („31 →", „11 →") sind aus dem Arbeitsbaum nicht
+  rekonstruierbar — geprüft sind die **Endstände**.
+* *„1732 von 1745 gemessen, 0 rot"* ist nur zur Hälfte prüfbar: **1745** ist bestätigt,
+  „1732 gemessen / 0 rot" wurde auftragsgemäß **nicht nachgefahren**.
+  > **Eine Gegenprobe, die sagt, was sie nicht geprüft hat, ist mehr wert als eine, die
+  > alles bestätigt.**
+
 ### Erste Aufgaben des Folgelaufs
 
 1. **Die sechs Reviews dieses Laufs** — `platform/T-0064`, `T-0069`, `T-0070`, `T-0071`,
