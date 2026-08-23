@@ -6,6 +6,89 @@
 > **nicht umgeschrieben** (Playbook Kap. 16), sondern hiermit als historisch markiert. Ab
 > Sprint 41 kommt die Zahl aus `preflight` und dem Git-Verlauf.
 
+## Sprint-Plan (Sprint 44)
+
+*Sprint 44 eröffnet 2026-08-23 04:20. Default nach `pm/D006`: in diesem Sprint schließen.
+⚠ Jede Verschiebung trägt ihren Grund **im Ticket**, nicht hier (`L-2026-08-17ag`).
+Gesichtet: **alle** Tickets **aller** Repos über beide Ebenen. Offen beim Start: **30**.
+Briefkasten beim Start: **0 offen / 72 Briefe**.*
+
+### Pflichtpunkt 1 der Agenda, und diesmal hat ihn jemand gelesen
+
+Vor den Reviews gelesen (`waechter-status.json`, seit `SWR-236` maschinenlesbar):
+
+```
+"abschluss_ergebnis": { "zustand": "letzter Lauf OK" }
+"cm_review":          { "zustand": "ERGEBNIS: OK", "beleg": "review-20260823-035500.md" }
+"herzschlag":         "2026-08-23 04:06:03"
+```
+
+**Die Druckkette läuft.** In Sprint 43 sagte dieselbe Datei vier Läufe lang *„FEHLER"*, und
+es war kein Auge darauf gerichtet. Der Unterschied dieses Laufs ist **nicht**, dass die
+Datei etwas anderes sagt — er ist, dass sie gelesen wurde.
+
+⚠ Ein Rückstand steht trotzdem da (`PUSH-ANFORDERUNG.txt liegt vor`) und ist **erklärbar**:
+Sprint 43 hat nach seinem letzten erfolgreichen Push noch einen Nachtrag geschrieben. Kein
+Befund, aber nachgesehen statt angenommen.
+
+### Der Plan
+
+| Aufgabe | Rolle | Fällig | Status | Grund / nächster Schritt |
+|---|---|---|---|---|
+| Briefkasten (beide Ebenen, inkl. `projects/*`) | pl | Sprint 44 | **geschlossen** | 0 offen / 72 beim Start, 0 offen / 72 am Ende. Über **neun** Briefkästen nachgemessen, nicht angenommen. |
+| platform/T-0086 | qm | Sprint 44 | **done** | ✅ Review. ⚠ Die Gegenprobe ist **schärfer** gefahren als im Ticket beschrieben: nicht `PYTHONIOENCODING`, sondern ein echter `cp1252`-Strom mit `errors="strict"` — alter Stand **3 ERROR** (dieselben drei Namen wie im Host-Protokoll), neuer Stand **13 / 0**. |
+| platform/T-0084 | qm | Sprint 44 | **done** | ✅ Review. ⚠⚠ **Die erste eigene Messung war falsch und hat das Ticket scheinbar widerlegt** — gepatcht war `scripts.preflight`, geladen wird `preflight`. Nach der Korrektur: alt **2 rot**, neu **0 von 29**. Daraus `L-2026-08-23m` und `T-0088`. |
+| platform/T-0081 | qm | Sprint 45 | **open, `auflage: offen`** | ✅ Teil 1 abgenommen (`trace_matrix` selbst gefahren). ⏳ Punkt 1 und 3 offen. ⚠ **Nicht geschlossen und nicht terminiert**: die Auflage ist benannt (`SWR-231`), und sie braucht eine Messung, die diese Sandbox nicht herstellen kann. |
+| platform/T-0075 | cm | Sprint 44 | **in_review** | ✅ **Teil 1 gebaut** (`SWR-240`) — die Entscheidung aus der vierten Berührung ist **eingelöst** und nicht zum fünften Mal terminiert. 27 Dateien byte-gleich, Bestandserklärung mit Beleg je Zeile, Driftprüfung im Preflight. ⚠ Kein Umzug: die Takte hängen an absoluten Wurzelpfaden. |
+| platform/T-0089 (neu) | dev | Sprint 45 | **blocked** | ⚠⚠ NEU, und er ist der **erste Ertrag** von `T-0075`: die erste Hausregel, die die Betriebsschicht je berührt hat, wurde beim ersten Lauf rot. `blocked_by: [T-0075]` — eine Reparatur nur im Repo wäre Drift. |
+| team-dashboard/T-0004 | dev | Sprint 44 | **in_review** | ✅ **Gebaut** (`SWR-241`) nach **elf** Terminierungen — der Aufschub aus Sprint 43 war ausdrücklich der letzte ohne Schnitt. ⚠⚠ Der Bau hat die Vorentscheidung des Tickets korrigiert: der Resolver liefert 9 Einheiten, eine davon ist kein Projekt. |
+| platform/T-0088 (neu) | test | Sprint 45 | **open** | NEU aus dem Review von `T-0084`: die **dritte** Ausprägung derselben Krankheit (Prozessliste → Konsole → **Ablageort**). Zuschnitt, nicht Kapazität: Punkt 1 verlangt einen vollen Lauf aus fremder Ablage, und der wäre hier mit bekannter Lücke gemessen worden. |
+| platform/T-0072 · T-0077 · T-0080 · T-0082 · T-0083 · T-0085 · T-0087 | div. | Sprint 45 | **open** | Verschoben mit Grund **im Ticket**. ⚠ `T-0082` hat einen Teil seines Blockers verloren: `abschluss.cmd` ist seit `SWR-240` im Diff lesbar. ⚠ `T-0087` hat in diesem Lauf einen **zweiten** Beleg bekommen (`L-2026-08-23m`). |
+| platform/T-0055 | dev | — | **blocked** | `blocked_by: [T-0075]`. ⚠ Der Blocker ist **kleiner**, nicht fort: `waechter.py` liegt ab jetzt im Repo und ist damit erstmals testbar — wo er *läuft*, entscheidet Teil 2. |
+| pm/T-0080 · pm/T-0082 | dev/pl | Sprint 45 | **open** | Reste von Schnitten aus Sprint 42, `entschieden:` im Kopf. |
+| promt-team/T-0003 · T-0012 | dev/prompt-opt | — | **blocked** | `blocked_by: [platform/T-0081]`, unverändert. ⚠ Der Blocker ist ab jetzt eine **Auflage mit Namen** statt einer offenen Frage. |
+| team-dashboard/T-0006 | dev | Sprint 45 | **open** | 8. Berührung, `entschieden:` seit Sprint 42. ⚠ **Damit ist dieser Aufschub der letzte ohne Schnitt** — im Ticket zugesagt. |
+| team-dashboard/T-0008 | mensch | Sprint 45 | **open** | Gehört dem Auftraggeber. ⚠ Es hat in diesem Lauf **Stoff bekommen**: eine zweite Karte im Reiter „Dashboard“, deren Aussehen im Browser diese Session nicht prüfen kann. |
+| team-mail/T-0009 | pl | Sprint 45 | **open** | 3. Terminierung. Teilt die `T-0075`-Wurzel, die zur Hälfte behoben ist. |
+| team-termine/T-0013 | rm | Sprint 45 | **open** | **4. Terminierung — beim nächsten Mal Entscheidung statt Termin.** `team-termine/T-0005` hängt daran und bleibt `blocked`. |
+| Takt-Tickets (`platform/T-0001`, `pm/T-0001–0003`, `team-dashboard/T-0001`, `team-mail/T-0001`, `team-termine/T-0011`, `T-0012`) | div. | laufend | **open** | Takte kehren wieder, sie werden nicht geschlossen (`SWR-232`). Termin mit dem Sprint fortgeschrieben. |
+
+### ⚠ Pflichtpunkt 2 der Agenda: nach der Terminierungsrunde gemessen, nicht am Sprintende
+
+`preflight.vierte_beruehrung` **nach** dem Neuterminieren: **0**. In Sprint 43 hat genau
+dieser Schritt vier Abschlussläufe bei [1/6] gekostet, weil er erst am Ende kam.
+
+### ⚠⚠ Ein eigener Fehlgriff dieses Laufs, benannt statt weggelassen
+
+Ein Hilfsskript wurde nach `/tmp/chronik44.py` geschrieben — `cat` scheiterte mit
+*Permission denied*, weil dort **eine gleichnamige Datei einer früheren Sitzung** lag, und
+der folgende `python3`-Aufruf hat **die fremde Datei ausgeführt**. Ergebnis: fünf
+`docs/historie.md` bekamen die Chronikzeile aus **Sprint 42** ein zweites Mal.
+
+Gefunden durch `git diff` unmittelbar danach, alle fünf aus `HEAD` wiederhergestellt
+(nachgemessen: `git status` sauber), Arbeitsdateien seitdem unter
+`~/arbeit/` statt in einem Verzeichnis, das mit anderen geteilt wird.
+
+> **Ein fehlgeschlagener Schreibvorgang und ein gelungener Aufruf sehen in derselben
+> Ausgabe gleich aus, wenn nur der eine auf stderr schreibt. Der Unterschied fiel nur auf,
+> weil danach jemand in den Diff gesehen hat.**
+
+### Zahlen (gemessen, nicht fortgeschrieben)
+
+| Größe | Wert |
+|---|---|
+| offene Tickets | **30 → 30** (zwei geschlossen, zwei neu) |
+| vierte Berührung ohne Entscheidung | **0** |
+| Python-Teststrecke | **1765 gefahren, 0 rot** (ohne `test_js_teststrecke`, das hier an der Zeitgrenze scheitert — ausdrücklich benannt) |
+| JS-Teststrecke | **133 grün** (127 + 6 neue) |
+| `trace_matrix` | **241 SWRs, 0 Lücken** |
+| Work Products | **74 / 0 fehlend / 0 undeklariert** |
+| Workflows | **8 / 0 unabgedeckte Takte** |
+| Briefkasten | **0 offen / 72** |
+| `organigramm --check` | grün (21 Dateien) |
+| Ollama-Offload | **0** — und der Grund ist **gemessen**: `127.0.0.1:11434` ist aus dieser Sandbox nicht erreichbar. Der Nachweis aus `pm/T-0071` liegt vor (zwei `status: ok`-Läufe mit Artefakten), der **Dienst** nicht. |
+
+
 ## Sprint-Plan (Sprint 43)
 
 *Sprint 43 eröffnet 2026-08-23 02:30 (`s43-2026-08-23-0230`). Default nach `pm/D006`: in
@@ -4023,8 +4106,8 @@ offen, Plan-Drift 0, Statusdrift 0. ⚠ Nicht startklar — Altbefund unverände
 
 </details>
 
-<!-- kennzahlen v1 | gemessen 2026-08-23 04:03
-briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=14185 swr=239 testdateien=124 tests=1757 tickets_offen=30 wartet_auf_mensch=0
+<!-- kennzahlen v1 | gemessen 2026-08-23 05:42
+briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=14258 swr=241 testdateien=126 tests=1779 tickets_offen=30 wartet_auf_mensch=0
 -->
 
 </details>

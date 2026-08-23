@@ -1,5 +1,104 @@
 # Session-Agenda (PM-Team, je Session gepflegt — SLA: immer aktuell)
 
+## Sprint 44 (2026-08-23 — **der Sprint, in dem zwei Zusagen des Vorlaufs eingelöst wurden, statt ein zwölftes Mal terminiert zu werden**)
+
+1. **✅⚠⚠ Die Betriebsschicht dieses Hauses liegt zum ersten Mal in einem Repo — und die
+   erste Prüfung, die sie je berührt hat, hatte beim ersten Lauf einen Treffer.**
+   `platform/T-0075` Teil 1 (`SWR-240`): **27 Dateien, 90 089 B, byte-gleich** in
+   `platform/betrieb/`, mit einer Bestandserklärung, die je Zeile ihren **Beleg** trägt
+   (12 lebend / 15 historisch, gemessen an `waechter-status.json`, an den namentlichen
+   Aufrufen in `abschluss.cmd`/`waechter.py` und an `NOTBETRIEB-OHNE-SHELL.md`).
+   `preflight` meldet ab jetzt **drei getrennte Zustände**: `drift` und `unversioniert`
+   sind Befunde, `fehlend` ist keiner — der Betreiber darf löschen (`SWR-166`).
+
+   ⚠⚠ **Und das Ticket hatte als Punkt 3 seines Befundes notiert: *„Keine Prüfung fasst
+   sie an."*** Kaum lag die Schicht im Repo, lief `test_board.SubprocessKodierungRegelTest`
+   — eine Hausregel seit `platform/T-0007` — zum ersten Mal über sie und wurde **rot**:
+   `betrieb/waechter.py:164` liest `schtasks` im Textmodus **ohne** `encoding=`, und der
+   `except Exception` macht daraus einen Rückfall, der wie eine Messung aussieht.
+   > **Die Betriebsschicht ist in ein Repo gezogen, und die erste Prüfung, die sie je
+   > berührt hat, hatte beim ersten Lauf einen Treffer. Das ist nicht das Argument gegen
+   > den Umzug, es ist das Argument dafür.** (`L-2026-08-23l`, Ticket `platform/T-0089`)
+
+   ⚠ **Ausdrücklich NICHT der Umzug.** Die Takte hängen in der Windows-Aufgabenplanung an
+   **absoluten Wurzelpfaden**; das Verschieben braucht einen Schritt auf dem Host. Teil 1
+   kauft Verlauf, Rückweg und Diff — **keine Identität**. Wer das verwechselt, hat in einem
+   Sprint ein Grün, das nichts mehr misst.
+
+   ⚠ Vor dem Tragen gemessen: **kein Zugangsdatum** in einer der 27 Dateien. Jeder Treffer
+   ist der **Name** eines Repository-Secrets oder eine interaktive Abfrage, die nichts
+   speichert. Wäre es anders gewesen, wäre die Ablage **Klasse A** und dieses Ticket hätte
+   hier aufhören müssen.
+
+2. **✅⚠⚠ Drei Reviews des Vorlaufs — und das schärfste Ergebnis ist, dass sich eines
+   davon zuerst SELBST widerlegt hat.** Die Gegenproben sind **nachgefahren** worden statt
+   abgeschrieben. Bei `T-0084` ergab die erste eigene Messung **0 rot** statt der im Ticket
+   genannten **2** — es sah aus, als hätte der Autor zwei Rote erfunden. Die Messung war
+   falsch: gepatcht war `scripts.preflight`, `git_schreiben._lade_preflight()` lädt aber
+   **top-level `preflight`**. Zwei Modulobjekte derselben Datei.
+   > **Ein Patch, der ins Leere greift, ist von einem gelungenen Test nicht zu
+   > unterscheiden. Es ist die stillste Art, eine Zusicherung abzuschalten.**
+   (`L-2026-08-23m`, ausdrücklich als **Beobachtung** geführt — der Vertreter fehlt und
+   wird in `platform/T-0088` gebaut, statt eine Regel zu behaupten, die nichts hält.)
+
+   Nach der Korrektur stimmt das Ticket Zahl für Zahl: alt **2 rot**, neu **0 von 29**.
+   `T-0086`: alter Stand **3 ERROR** unter einem echten cp1252-Strom mit `errors="strict"`
+   — dieselben drei Namen wie im Host-Protokoll —, neu **13 / 0**.
+
+3. **⚠⚠ Dabei ist die DRITTE Ausprägung derselben Krankheit aufgefallen.** Der alte Stand
+   musste zum Messen außerhalb des Repos liegen; dort wurden **vier** rot statt zwei.
+   Kontrollprobe mit der neuen Datei am selben fremden Ort: **zwei** — die Zähltests lösen
+   das Repo aus `__file__` auf.
+
+   | Ticket | Woran hing das Ergebnis? | Symptom |
+   |---|---|---|
+   | `T-0084` | Prozessliste des Geräts | rot, wenn jemand arbeitete |
+   | `T-0086` | Kodierung der Konsole | **grün** — und hat die Druckkette vier Läufe angehalten |
+   | `T-0088` (neu) | **Ablageort der Testdatei** | grün am gewohnten Ort, rot überall sonst |
+
+   > **Dass zwei der drei Fälle GRÜN waren, ist die schlechtere Hälfte des Befundes — ein
+   > falsches Rot wird untersucht, ein falsches Grün wird geglaubt.**
+
+4. **✅⚠⚠ `team-dashboard/T-0004` nach ELF Terminierungen gebaut — und der Bau hat die
+   Vorentscheidung des Tickets korrigiert.** `SWR-241`: eine Kachel je aktivem Projekt,
+   zwei Zahlen, beide aus `aggregation.uebersicht`. Sprint 42 hatte die Einheitenmenge
+   festgelegt: *„aus `organigramm.effektive_besetzungen`"*. Vor dem Bau nachgemessen — der
+   Resolver liefert **neun** Einheiten, und eine davon ist `pm`, von dem sein **eigener
+   Docstring** sagt, es sei kein Projekt.
+   > **Die Antwort war richtig und ihre Menge um eins zu groß. Eine Quelle, die FAST die
+   > gesuchte Frage beantwortet, ist teurer als eine, die sie gar nicht beantwortet — der
+   > Unterschied fällt niemandem auf.** (`L-2026-08-23n`)
+
+5. **⚠ Zwei Nebenbefunde, und beide hat eine VORHANDENE Zusicherung gefunden.** Der
+   Vertragsbump auf `2.10` machte zwei Prüfungen rot: **`2.10` ist in YAML die
+   Fließkommazahl `2.1`** — kleiner als 2.9 (`L-2026-08-23o`). Und die Dublettenprüfung des
+   Vertrags meldete drei Dubletten, die keine waren: sie kannte ihre eigene Blockgrenze
+   nicht, weil es bis heute nur **einen** Abschnitt mit einer `quelle:` gab
+   (`L-2026-08-23p`).
+
+6. **Zahlen:** offen **30 → 30** (zwei geschlossen, zwei neu) · vierte Berührung **0**,
+   gemessen **nach** der Terminierungsrunde · Python-Teststrecke **1765 gefahren, 0 rot**
+   (ohne `test_js_teststrecke`, das hier an der Zeitgrenze scheitert — benannt statt
+   verschwiegen) · JS **133 grün** · `trace_matrix` **241 / 0 Lücken** · Sprintübergabe
+   **0·0·0·0·0** · Briefkasten **0 offen / 72** · Work Products **74 / 0 / 0** · Workflows
+   **8 / 0** · `organigramm --check` grün (21 Dateien) · **Ollama-Offload 0** — und der
+   Grund ist gemessen: `127.0.0.1:11434` ist aus dieser Sandbox nicht erreichbar.
+
+### ⚠ Neuer Pflichtpunkt der Agenda ab Sprint 45
+
+4. **Arbeitsdateien einer Session gehören NICHT in ein Verzeichnis, das mit anderen geteilt
+   wird.** In diesem Lauf ist ein Hilfsskript nach `/tmp/<name>.py` geschrieben worden;
+   `cat` scheiterte mit *Permission denied*, weil dort eine gleichnamige Datei einer
+   **früheren Sitzung** lag — und der folgende `python3`-Aufruf hat die **fremde** Datei
+   ausgeführt. Fünf `docs/historie.md` bekamen dadurch die Chronikzeile aus Sprint 42 ein
+   zweites Mal. Wiederhergestellt aus `HEAD`, nachgemessen.
+   > **Ein fehlgeschlagener Schreibvorgang und ein gelungener Aufruf sehen in derselben
+   > Ausgabe gleich aus, wenn nur der eine auf stderr schreibt. Der Unterschied fiel nur
+   > auf, weil danach jemand in den Diff gesehen hat** — also: nach jedem Skriptlauf, der
+   > Dateien schreibt, `git status`/`git diff`, bevor der nächste Schritt kommt.
+
+---
+
 ## Sprint 43 (2026-08-23 — **der Sprint, in dem die Druckkette vier Läufe lang stand, es eine Datei wusste und kein Auge darauf gerichtet war**)
 
 1. **⚠⚠⚠ Der teuerste Befund stand nicht in einem Ticket, sondern in einer Statusdatei, die
