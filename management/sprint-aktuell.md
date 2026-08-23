@@ -43,7 +43,8 @@ Befund, aber nachgesehen statt angenommen.
 | platform/T-0089 (neu) | dev | Sprint 45 | **blocked** | ⚠⚠ NEU, und er ist der **erste Ertrag** von `T-0075`: die erste Hausregel, die die Betriebsschicht je berührt hat, wurde beim ersten Lauf rot. `blocked_by: [T-0075]` — eine Reparatur nur im Repo wäre Drift. |
 | team-dashboard/T-0004 | dev | Sprint 44 | **in_review** | ✅ **Gebaut** (`SWR-241`) nach **elf** Terminierungen — der Aufschub aus Sprint 43 war ausdrücklich der letzte ohne Schnitt. ⚠⚠ Der Bau hat die Vorentscheidung des Tickets korrigiert: der Resolver liefert 9 Einheiten, eine davon ist kein Projekt. |
 | platform/T-0088 (neu) | test | Sprint 45 | **open** | NEU aus dem Review von `T-0084`: die **dritte** Ausprägung derselben Krankheit (Prozessliste → Konsole → **Ablageort**). Zuschnitt, nicht Kapazität: Punkt 1 verlangt einen vollen Lauf aus fremder Ablage, und der wäre hier mit bekannter Lücke gemessen worden. |
-| platform/T-0072 · T-0077 · T-0080 · T-0082 · T-0083 · T-0085 · T-0087 | div. | Sprint 45 | **open** | Verschoben mit Grund **im Ticket**. ⚠ `T-0082` hat einen Teil seines Blockers verloren: `abschluss.cmd` ist seit `SWR-240` im Diff lesbar. ⚠ `T-0087` hat in diesem Lauf einen **zweiten** Beleg bekommen (`L-2026-08-23m`). |
+| platform/T-0077 | cm | Sprint 44 | **in_review** | ✅ **Vierte Berührung — und die Antwort war BAUEN und keine Entscheidung.** Schwellwert **25 000** (aus dem gemessenen Wachstum **1 100/Tag** abgeleitet, nicht gewählt), Eigentümer `CM@platform`, benannte Handlung, Session-Grenze im Playbook Kap. 13. ⚠ Beide vom Ticket angebotenen Wege hängen an je einem anderen offenen Ticket (`T-0075` Teil 2, `T-0080`) — deshalb keiner davon. |
+| platform/T-0072 · T-0080 · T-0082 · T-0083 · T-0085 · T-0087 | div. | Sprint 45 | **open** | Verschoben mit Grund **im Ticket**. ⚠ `T-0082` hat einen Teil seines Blockers verloren: `abschluss.cmd` ist seit `SWR-240` im Diff lesbar. ⚠ `T-0087` hat in diesem Lauf einen **zweiten** Beleg bekommen (`L-2026-08-23m`). |
 | platform/T-0055 | dev | — | **blocked** | `blocked_by: [T-0075]`. ⚠ Der Blocker ist **kleiner**, nicht fort: `waechter.py` liegt ab jetzt im Repo und ist damit erstmals testbar — wo er *läuft*, entscheidet Teil 2. |
 | pm/T-0080 · pm/T-0082 | dev/pl | Sprint 45 | **open** | Reste von Schnitten aus Sprint 42, `entschieden:` im Kopf. |
 | promt-team/T-0003 · T-0012 | dev/prompt-opt | — | **blocked** | `blocked_by: [platform/T-0081]`, unverändert. ⚠ Der Blocker ist ab jetzt eine **Auflage mit Namen** statt einer offenen Frage. |
@@ -53,10 +54,27 @@ Befund, aber nachgesehen statt angenommen.
 | team-termine/T-0013 | rm | Sprint 45 | **open** | **4. Terminierung — beim nächsten Mal Entscheidung statt Termin.** `team-termine/T-0005` hängt daran und bleibt `blocked`. |
 | Takt-Tickets (`platform/T-0001`, `pm/T-0001–0003`, `team-dashboard/T-0001`, `team-mail/T-0001`, `team-termine/T-0011`, `T-0012`) | div. | laufend | **open** | Takte kehren wieder, sie werden nicht geschlossen (`SWR-232`). Termin mit dem Sprint fortgeschrieben. |
 
-### ⚠ Pflichtpunkt 2 der Agenda: nach der Terminierungsrunde gemessen, nicht am Sprintende
+### ⚠⚠ Pflichtpunkt 2 der Agenda — und er hat in diesem Lauf mehr gefunden, als er sollte
 
-`preflight.vierte_beruehrung` **nach** dem Neuterminieren: **0**. In Sprint 43 hat genau
-dieser Schritt vier Abschlussläufe bei [1/6] gekostet, weil er erst am Ende kam.
+`preflight.vierte_beruehrung` unmittelbar nach dem Neuterminieren: **0**. Nach dem
+**Commit** derselben Änderungen: **4** — `platform/T-0077` · `T-0080` · `T-0081` ·
+`team-termine/T-0013`.
+
+> **Die Zählung liest den GIT-VERLAUF von `geplant_sprint` (`SWR-233`). Eine Terminierung,
+> die noch nicht committet ist, hat für sie nicht stattgefunden — und der Pflichtpunkt aus
+> Sprint 43 sagt „nach jeder Terminierungsrunde" und meint deshalb: NACH DEM COMMIT.**
+
+Alle vier sind **entschieden** worden, keiner terminiert:
+
+| Ticket | Entscheidung |
+|---|---|
+| `platform/T-0077` | **gebaut** — die kleinere Handlung, weil vom ursprünglichen Befund nach drei Selbstkorrekturen ein Schwellwert und ein Eigentümer übrig waren |
+| `platform/T-0080` | **zerlegt** — Teil 1 (Schema-Feld + Auswertung) in Sprint 45. ⚠ Zweiter Anlass in diesem Lauf: `T-0077` hat einen seiner zwei Wege verworfen, **weil** dieses Feld fehlt |
+| `platform/T-0081` | **blockiert auf eine benannte Messung** — kein Kapazitätsproblem: Ollama ist aus dieser Sandbox nachgemessen nicht erreichbar |
+| `team-termine/T-0013` | **zerlegt** — Teil 1 (SWRs zum Widget) in Sprint 45; die Ablagefrage im Titel ist eine CM-Entscheidung und gehört nicht in denselben Schritt |
+
+⚠ Der Pflichtpunkt selbst wird damit **geschärft** und nicht abgehakt: gefahren wird
+`vierte_beruehrung` **nach dem Commit** der Terminierungsrunde, nicht davor.
 
 ### ⚠⚠ Ein eigener Fehlgriff dieses Laufs, benannt statt weggelassen
 
