@@ -81,6 +81,17 @@ am Startweg, nicht am Werkzeug* → `platform/T-0087`, bewusst abgetrennt.
 | team-termine/T-0013 | rm | Sprint 44 | **open** | 3. Terminierung; `team-termine/T-0005` (`arch`) hängt daran und bleibt `blocked`. |
 | Takt-Tickets (`platform/T-0001`, `pm/T-0001–0003`, `team-dashboard/T-0001`, `team-mail/T-0001`, `team-termine/T-0011`, `T-0012`) | div. | laufend | **open** | Takte kehren wieder, sie werden nicht geschlossen (`SWR-232`). Termin wird mit dem Sprint fortgeschrieben. |
 
+### ✅ Nachweis am laufenden System (03:55–04:01)
+
+**[5/6] · 1757 + 42 Tests grün · 14 Repos gepusht · CI grün · `PUSH-ANFORDERUNG.txt`
+verschwunden.** Die Kette, die seit 01:25 stand, läuft wieder — gemessen am Betrieb und
+nicht an Unit-Tests.
+
+⚠ Die vier Abbrüche zwischen 02:40 und 03:40 lagen **nicht** an der Kodierung, sondern bei
+**[1/6]** an der vierten Berührung, die dieser Sprint durch sein eigenes Neuterminieren
+erzeugt hat. Behoben um 03:47. Daraus ein neuer Pflichtpunkt der Agenda: nach jeder
+Terminierungsrunde `vierte_beruehrung` fahren, nicht erst am Sprintende.
+
 ### ⚠ Verschoben — und ausdrücklich als solches benannt
 
 **Keine Aufgabe ab der vierten Terminierung ist ohne Entscheidung verschoben worden.**
@@ -4012,8 +4023,8 @@ offen, Plan-Drift 0, Statusdrift 0. ⚠ Nicht startklar — Altbefund unverände
 
 </details>
 
-<!-- kennzahlen v1 | gemessen 2026-08-23 03:53
-beitraege_im_lauf=0 briefe_im_lauf=0 briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=14162 post_im_lauf=0 swr=239 testdateien=124 tests=1757 tickets_offen=30 wartet_auf_mensch=0
+<!-- kennzahlen v1 | gemessen 2026-08-23 04:03
+briefkasten_offen=0 ladefehler=0 luecken=0 parkplatz=14185 swr=239 testdateien=124 tests=1757 tickets_offen=30 wartet_auf_mensch=0
 -->
 
 </details>
